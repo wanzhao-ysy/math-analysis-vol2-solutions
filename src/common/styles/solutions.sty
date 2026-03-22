@@ -1,0 +1,149 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{solutions}
+
+% 1. 预配置
+% 防止 fontspec 干扰数学字体（在使用 XeLaTeX 时建议启用）
+\PassOptionsToPackage{no-math}{fontspec}
+\PassOptionsToPackage{partial=upright}{unicode-math}
+
+% 2. 基础与工具宏包
+\RequirePackage{import}              % 支持相对路径导入文件
+\RequirePackage[
+    dvipsnames,
+    svgnames
+]{xcolor}                            % 颜色支持
+% \RequirePackage{emptypage}           % 自动清除偶数空白页的页眉页脚（优雅替代手工 hack）
+
+% 3. 页面布局与几何设置
+\RequirePackage[
+    inner=2cm,
+    outer=1.5cm,
+    top=2cm,
+    bottom=1cm,
+    marginparwidth=2cm,
+    marginparsep=0.4cm,
+    includefoot,
+    heightrounded
+]{geometry}
+% \raggedbottom                      % 允许页面底部不对齐，避免过度拉伸垂直间距
+
+% 4. 数学与物理核心宏包
+\RequirePackage{amsmath}             % AMS 数学核心
+\RequirePackage{amsthm}              % AMS 定理环境
+
+\RequirePackage{unicode-math}        % Unicode 数学字体支持
+% 设置数学字体为 Latin Modern Math
+% \setmathfont{latinmodern-math.otf}
+% 设置数学字体为 New Computer Modern Math（更现代的设计）
+\setmathfont{NewCMMath-Book.otf}
+% 设置数学字体为 STIX Two Math（科学出版物常用的字体，清晰且专业）
+% \setmathfont{STIXTwoMath-Regular.otf}
+% \setmathfont{texgyretermes-math.otf}
+
+% 常用正体符号定义
+\newcommand{\ee}{\symup{e}}          % 自然对数底
+\newcommand{\uppi}{\symup{\pi}}      % 圆周率
+\newcommand{\ii}{\symup{i}}          % 虚数单位
+
+% 符号扩展
+\RequirePackage{fixdif}              % 完美的微分算子格式修正
+
+% 5. 图形与表格
+\RequirePackage{graphicx}            % 图片插入
+\RequirePackage{float}               % 浮动体控制（H 选项）
+\RequirePackage{caption}             % 图表标题定制
+
+\RequirePackage{tikz}                % 绘图工具
+\usetikzlibrary{arrows.meta, angles, quotes, calc, patterns}
+
+\RequirePackage{tabularray}          % 现代表格宏包
+\RequirePackage{booktabs}            % 三线表
+\RequirePackage{multirow}            % 跨行单元格
+\RequirePackage{scalerel}            % 符号缩放
+
+% 6. 多栏与彩色盒子
+\RequirePackage{multicol}            % 多栏环境
+\RequirePackage{tcolorbox}           % 彩色文本框
+\tcbuselibrary{skins, breakable, theorems}
+
+% 7. 参考文献管理
+\RequirePackage[
+    backend=biber,
+    style=gb7714-2015,
+    sorting=none,
+    backref=true
+]{biblatex}
+
+% 8. 交叉引用与超链接（严格加载顺序：hyperref -> bookmark -> cleveref）
+\RequirePackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=red,
+    citecolor=red,
+    urlcolor=red,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+}
+\RequirePackage{bookmark}            % 书签增强
+
+\RequirePackage{cleveref}            % 智能交叉引用
+
+% 9. tcb 专用环境定义
+\tcbset{
+    solutionbox/.style={
+            fonttitle=\bfseries,
+            breakable,
+            enhanced,
+            attach boxed title to top left={xshift=5mm, yshift=-2mm},
+        }
+}
+
+\newcommand{\NewSolutionBox}[4]{
+    \newtcbtheorem[
+        number within=section,
+        Crefname={#2}{#2},
+        crefname={#2}{#2}
+    ]{#1}{#2}{
+        physicsbox,
+        colback=#3!5!white,
+        colframe=#3!75!black,
+        boxed title style={colback=#3!75!black}
+    }{#4}
+}
+
+\NewSolutionBox{note}{注释}{BurntOrange}{note}         % 焦橙色 - 提醒注意、易错点
+
+% 10. 页眉页脚设定 (fancyhdr)
+\RequirePackage{fancyhdr}
+\addtolength{\headheight}{1.6pt}
+\pagestyle{fancy}
+\fancyhf{} % 清空默认的页眉页脚
+
+\fancyhead[LE]{\bfseries\thepage}
+\fancyhead[RE]{\bfseries\leftmark}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RO]{\bfseries\thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\renewcommand{\chaptermark}[1]{\markboth{\if@mainmatter\CTEXthechapter\fi\quad #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\S\thesection\quad #1}}
+
+% 12. 目录排版优化
+\renewcommand\tableofcontents{%
+    \chapter*{\contentsname}%
+    \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
+    \begin{multicols}{2}
+        \@starttoc{toc}%
+    \end{multicols}
+}
+
+
+% 警告控制规范化
+% \hfuzz=10000pt
+% \vfuzz=10000pt
+% \hbadness=10000
+% \vbadness=10000
+
+\endinput

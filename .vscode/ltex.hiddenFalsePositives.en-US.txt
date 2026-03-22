@@ -1,0 +1,7 @@
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qchapters/ titlepage.tex\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QQQ ID 审阅章节 电子邮件 XXX XXX XXX@XXX.com\\E$"}
+{"rule":"ENGLISH_WORD_REPEAT_RULE","sentence":"^\\QID 审阅章节 电子邮件 XXX XXX XXX@XXX.com\\E$"}
+{"rule":"WHITESPACE_RULE","sentence":"^\\Q一份（不太）简短的 力学 笔记  或 物理笔记之一\\E$"}
+{"rule":"WHITESPACE_RULE","sentence":"^\\Q《数学分析（第二册）》 习题解析\\E$"}
+{"rule":"WHITESPACE_RULE","sentence":"^\\Q《数学分析（第二册）》 习题解析  Mathematical Analysis (Volume II) Exercise Solutions\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q人力所为，疏漏之处在所难免。如有任何问题，恳请读者在本文档的 GitHub 仓库 \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q 提交 issue，或发送邮件至 \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q 进行反馈。\\E$"}

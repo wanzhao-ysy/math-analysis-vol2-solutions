@@ -1,0 +1,26 @@
+\documentclass[a4paper,UTF8,fontset=lxgw]{ctexbook}
+
+\usepackage{solutions}
+
+\addbibresource{references.bib}
+
+\begin{document}
+
+\pagenumbering{Alph}
+\subinputfrom{chapters/}{titlepage.tex}
+
+\frontmatter
+\subincludefrom{chapters/}{99_preface-contrib.tex}
+\subincludefrom{chapters/}{99_preface-overview.tex}
+
+\tableofcontents
+
+\mainmatter
+
+\subincludefrom{chapters/}{01_analytic-geometry-of-space.tex}
+
+\backmatter
+
+% \printbibliography[heading=bibintoc, title={参考文献}]
+
+\end{document}

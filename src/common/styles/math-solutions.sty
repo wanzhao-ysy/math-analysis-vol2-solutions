@@ -1,12 +1,12 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{solutions}
+\ProvidesPackage{math-solutions}
 
-% 1. 预配置
+% 预配置
 % 防止 fontspec 干扰数学字体（在使用 XeLaTeX 时建议启用）
 \PassOptionsToPackage{no-math}{fontspec}
 \PassOptionsToPackage{partial=upright}{unicode-math}
 
-% 2. 基础与工具宏包
+% 基础与工具宏包
 \RequirePackage{import}              % 支持相对路径导入文件
 \RequirePackage[
     dvipsnames,
@@ -14,7 +14,7 @@
 ]{xcolor}                            % 颜色支持
 % \RequirePackage{emptypage}           % 自动清除偶数空白页的页眉页脚（优雅替代手工 hack）
 
-% 3. 页面布局与几何设置
+% 页面布局与几何设置
 \RequirePackage[
     inner=2cm,
     outer=1.5cm,
@@ -27,9 +27,10 @@
 ]{geometry}
 % \raggedbottom                      % 允许页面底部不对齐，避免过度拉伸垂直间距
 
-% 4. 数学与物理核心宏包
+% 数学与物理核心宏包
 \RequirePackage{amsmath}             % AMS 数学核心
 \RequirePackage{amsthm}              % AMS 定理环境
+\RequirePackage{amssymb}             % AMS 数学符号
 
 \RequirePackage{unicode-math}        % Unicode 数学字体支持
 % 设置数学字体为 Latin Modern Math
@@ -41,14 +42,14 @@
 % \setmathfont{texgyretermes-math.otf}
 
 % 常用正体符号定义
-\newcommand{\ee}{\symup{e}}          % 自然对数底
+\newcommand{\e}{\symup{e}}          % 自然对数底
 \newcommand{\uppi}{\symup{\pi}}      % 圆周率
 \newcommand{\ii}{\symup{i}}          % 虚数单位
 
 % 符号扩展
 \RequirePackage{fixdif}              % 完美的微分算子格式修正
 
-% 5. 图形与表格
+% 图形与表格
 \RequirePackage{graphicx}            % 图片插入
 \RequirePackage{float}               % 浮动体控制（H 选项）
 \RequirePackage{caption}             % 图表标题定制
@@ -60,13 +61,14 @@
 \RequirePackage{booktabs}            % 三线表
 \RequirePackage{multirow}            % 跨行单元格
 \RequirePackage{scalerel}            % 符号缩放
+\RequirePackage{enumitem}
 
-% 6. 多栏与彩色盒子
+% 多栏与彩色盒子
 \RequirePackage{multicol}            % 多栏环境
 \RequirePackage{tcolorbox}           % 彩色文本框
 \tcbuselibrary{skins, breakable, theorems}
 
-% 7. 参考文献管理
+% 参考文献管理
 \RequirePackage[
     backend=biber,
     style=gb7714-2015,
@@ -74,7 +76,7 @@
     backref=true
 ]{biblatex}
 
-% 8. 交叉引用与超链接（严格加载顺序：hyperref -> bookmark -> cleveref）
+% 交叉引用与超链接（严格加载顺序：hyperref -> bookmark -> cleveref）
 \RequirePackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -88,32 +90,47 @@
 
 \RequirePackage{cleveref}            % 智能交叉引用
 
-% 9. tcb 专用环境定义
-\tcbset{
-    solutionbox/.style={
-            fonttitle=\bfseries,
-            breakable,
-            enhanced,
-            attach boxed title to top left={xshift=5mm, yshift=-2mm},
-        }
+
+% 解析环境配置
+\allowdisplaybreaks[2] % 允许在多行公式中断页，级别 2 是适度允许
+
+\setlist[enumerate,1]{
+    label=(\arabic*),
+    leftmargin=2.6em,
+    itemsep=0.25ex,
+    topsep=0.5ex,
+    parsep=0pt,
+    partopsep=0pt
 }
 
-\newcommand{\NewSolutionBox}[4]{
-    \newtcbtheorem[
-        number within=section,
-        Crefname={#2}{#2},
-        crefname={#2}{#2}
-    ]{#1}{#2}{
-        physicsbox,
-        colback=#3!5!white,
-        colframe=#3!75!black,
-        boxed title style={colback=#3!75!black}
-    }{#4}
+\newtheoremstyle{problem-style}
+{.8\baselineskip}   % 上间距
+{.6\baselineskip}   % 下间距
+{\normalfont}       % 正文字体
+{0pt}               % 缩进
+{\bfseries}         % 定理头字体
+{}                  % 定理头后标点
+{\newline}          % 定理头后换行
+{\thmnumber{#2}\thmnote{\ \textnormal{#3}}}
+
+\theoremstyle{problem-style}
+\newtheorem{problem}{题}[section]
+
+\NewDocumentEnvironment{solution}{}%
+{\par\smallskip\noindent\textbf{解}\par\noindent\ignorespaces}%
+{\par\noindent\hfill$\square$\par\smallskip}
+
+\NewDocumentEnvironment{myproof}{}%
+{\par\smallskip\noindent\textbf{证明}\par\noindent\ignorespaces}%
+{\par\noindent\hfill$\blacksquare$\par\smallskip}
+
+% 解答中按子问给出答案
+\newcommand{\ansitem}[1]{%
+    \par\smallskip\noindent\textcolor{blue}{(#1)}\quad\ignorespaces
 }
 
-\NewSolutionBox{note}{注释}{BurntOrange}{note}         % 焦橙色 - 提醒注意、易错点
 
-% 10. 页眉页脚设定 (fancyhdr)
+% 页眉页脚设定 (fancyhdr)
 \RequirePackage{fancyhdr}
 \addtolength{\headheight}{1.6pt}
 \pagestyle{fancy}
@@ -130,7 +147,7 @@
 \renewcommand{\chaptermark}[1]{\markboth{\if@mainmatter\CTEXthechapter\fi\quad #1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\S\thesection\quad #1}}
 
-% 12. 目录排版优化
+% 目录排版优化
 \renewcommand\tableofcontents{%
     \chapter*{\contentsname}%
     \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%

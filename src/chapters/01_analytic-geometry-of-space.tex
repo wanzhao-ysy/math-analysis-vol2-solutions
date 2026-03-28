@@ -208,3 +208,794 @@
         \boxed{\text{结论不成立}}
     \end{equation*}
 \end{solution}
+
+
+\begin{problem}{向量混合积的轮换对称性}{Triple-Scalar-Product}
+    证明：$\symbfit{a} \times \symbfit{b} \cdot \symbfit{c} = \symbfit{b} \times \symbfit{c} \cdot \symbfit{a} = \symbfit{c} \times \symbfit{a} \cdot \symbfit{b}$.
+\end{problem}
+
+\begin{myproof}
+    设各向量在直角坐标系下的坐标分别为 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$，$\symbfit{c} = (c_1, c_2, c_3)$。根据向量混合积的定义可知，其值等于以这三个向量为棱的平行六面体的体积，对应行列式形式为
+    \begin{equation*}
+        \symbfit{a} \times \symbfit{b} \cdot \symbfit{c} = \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}
+    \end{equation*}
+    根据行列式性质，交换任意两行，行列式的值反号。通过两次行对换（即一次轮换），行列式的值保持不变，则有
+    \begin{equation*}
+        \begin{aligned}
+            \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}
+             & = - \begin{vmatrix} b_1 & b_2 & b_3 \\ a_1 & a_2 & a_3 \\ c_1 & c_2 & c_3 \end{vmatrix}                                                  \\
+             & = \begin{vmatrix} b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \\ a_1 & a_2 & a_3 \end{vmatrix} = \symbfit{b} \times \symbfit{c} \cdot \symbfit{a}
+        \end{aligned}
+    \end{equation*}
+    同理，对上述行列式再次进行两次行对换可得
+    \begin{equation*}
+        \begin{vmatrix} b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \\ a_1 & a_2 & a_3 \end{vmatrix}
+        = - \begin{vmatrix} c_1 & c_2 & c_3 \\ b_1 & b_2 & b_3 \\ a_1 & a_2 & a_3 \end{vmatrix}
+        = \begin{vmatrix} c_1 & c_2 & c_3 \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix} = \symbfit{c} \times \symbfit{a} \cdot \symbfit{b}
+    \end{equation*}
+    综上所述，原命题得证
+    \begin{equation*}
+        \boxed{\symbfit{a} \times \symbfit{b} \cdot \symbfit{c} = \symbfit{b} \times \symbfit{c} \cdot \symbfit{a} = \symbfit{c} \times \symbfit{a} \cdot \symbfit{b}}
+    \end{equation*}
+\end{myproof}
+
+
+\begin{problem}{向量中点公式}{Vector-Midpoint-Formula}
+    设 $\overrightarrow{AM} = \overrightarrow{MB}$，证明：对任意一点 $O$，
+    \begin{equation*}
+        \overrightarrow{OM} = \frac{1}{2} (\overrightarrow{OA} + \overrightarrow{OB}).
+    \end{equation*}
+\end{problem}
+
+\begin{myproof}
+    利用向量的减法分解性质，将已知条件中的向量以点 $O$ 为基准进行拆解
+    \begin{equation*}
+        \overrightarrow{OM} - \overrightarrow{OA} = \overrightarrow{OB} - \overrightarrow{OM}
+    \end{equation*}
+    对上式进行移项合并
+    \begin{equation*}
+        \begin{aligned}
+             & \implies \overrightarrow{OM} + \overrightarrow{OM} = \overrightarrow{OA} + \overrightarrow{OB} \\
+             & \implies 2 \overrightarrow{OM} = \overrightarrow{OA} + \overrightarrow{OB}
+        \end{aligned}
+    \end{equation*}
+    方程两边同时除以 $2$，即可得到
+    \begin{equation*}
+        \boxed{\overrightarrow{OM} = \frac{1}{2} (\overrightarrow{OA} + \overrightarrow{OB})}
+    \end{equation*}
+\end{myproof}
+
+
+\begin{problem}{向量内积}{Vector-Inner-Product}
+    设 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 是满足 $\symbfit{a} + \symbfit{b} + \symbfit{c} = \symbfit{0}$ 的单位向量，试求 $\symbfit{a} \cdot \symbfit{b} + \symbfit{b} \cdot \symbfit{c} + \symbfit{c} \cdot \symbfit{a}$ 的值.
+\end{problem}
+
+\begin{solution}
+    由于 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 为单位向量，故有 $|\symbfit{a}| = |\symbfit{b}| = |\symbfit{c}| = 1$. 对已知等式两边平方得
+    \begin{equation*}
+        (\symbfit{a} + \symbfit{b} + \symbfit{c})^2 = \symbfit{0}^2 = 0
+    \end{equation*}
+    展开上式左侧
+    \begin{equation*}
+        |\symbfit{a}|^2 + |\symbfit{b}|^2 + |\symbfit{c}|^2 + 2(\symbfit{a} \cdot \symbfit{b} + \symbfit{b} \cdot \symbfit{c} + \symbfit{c} \cdot \symbfit{a}) = 0
+    \end{equation*}
+    代入向量模长
+    \begin{equation*}
+        1 + 1 + 1 + 2(\symbfit{a} \cdot \symbfit{b} + \symbfit{b} \cdot \symbfit{c} + \symbfit{c} \cdot \symbfit{a}) = 0
+    \end{equation*}
+    整理可得
+    \begin{equation*}
+        \boxed{\symbfit{a} \cdot \symbfit{b} + \symbfit{b} \cdot \symbfit{c} + \symbfit{c} \cdot \symbfit{a} = -\frac{3}{2}}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{向量夹角}{Vector-Angle}
+    若向量 $\symbfit{a} + 3\symbfit{b}$ 垂直于向量 $7\symbfit{a} - 5\symbfit{b}$，向量 $\symbfit{a} - 4\symbfit{b}$ 垂直于向量 $7\symbfit{a} - 2\symbfit{b}$，求两向量 $\symbfit{a}$ 和 $\symbfit{b}$ 间的夹角.
+\end{problem}
+
+\begin{solution}
+    根据向量垂直的充要条件，内积为零，可得方程组
+    \begin{equation*}
+        \begin{cases}
+            (\symbfit{a} + 3\symbfit{b}) \cdot (7\symbfit{a} - 5\symbfit{b}) = 0 \\
+            (\symbfit{a} - 4\symbfit{b}) \cdot (7\symbfit{a} - 2\symbfit{b}) = 0
+        \end{cases}
+    \end{equation*}
+    展开得
+    \begin{equation*}
+        \begin{cases}
+            7|\symbfit{a}|^2 + 16\symbfit{a} \cdot \symbfit{b} - 15|\symbfit{b}|^2 = 0 \\
+            7|\symbfit{a}|^2 - 30\symbfit{a} \cdot \symbfit{b} + 8|\symbfit{b}|^2 = 0
+        \end{cases}
+    \end{equation*}
+    两式相减可消去 $|\symbfit{a}|^2$ 项
+    \begin{equation*}
+        46\symbfit{a} \cdot \symbfit{b} - 23|\symbfit{b}|^2 = 0 \implies \symbfit{a} \cdot \symbfit{b} = \frac{1}{2}|\symbfit{b}|^2
+    \end{equation*}
+    将上述关系代入第一式中
+    \begin{equation*}
+        7|\symbfit{a}|^2 + 16 \left( \frac{1}{2}|\symbfit{b}|^2 \right) - 15|\symbfit{b}|^2 = 0 \implies 7|\symbfit{a}|^2 - 7|\symbfit{b}|^2 = 0 \implies |\symbfit{a}| = |\symbfit{b}|
+    \end{equation*}
+    设向量 $\symbfit{a}$ 与 $\symbfit{b}$ 的夹角为 $\theta$，则有
+    \begin{equation*}
+        \cos \theta = \frac{\symbfit{a} \cdot \symbfit{b}}{|\symbfit{a}||\symbfit{b}|} = \frac{\frac{1}{2}|\symbfit{b}|^2}{|\symbfit{b}|^2} = \frac{1}{2}
+    \end{equation*}
+    因为 $\theta \in [0, \uppi]$，故
+    \begin{equation*}
+        \boxed{\theta = \frac{\uppi}{3}}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{向量外积}{Vector-Cross-Product}
+    已知向量 $\symbfit{a}$ 和 $\symbfit{b}$ 互相垂直，且 $|\symbfit{a}| = 3, |\symbfit{b}| = 4$，试计算：
+    \begin{enumerate}
+        \item $|(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})|$;
+        \item $|(3\symbfit{a} - \symbfit{b}) \times (\symbfit{a} - 2\symbfit{b})|$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    利用外积的分配律与性质 $\symbfit{a} \times \symbfit{a} = \symbfit{0}, \symbfit{b} \times \symbfit{a} = - \symbfit{a} \times \symbfit{b}$ 展开
+    \begin{equation*}
+        \begin{aligned}
+            (\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b}) & = \symbfit{a} \times \symbfit{a} - \symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{a} - \symbfit{b} \times \symbfit{b} \\
+                                                                           & = \symbfit{0} - \symbfit{a} \times \symbfit{b} - \symbfit{a} \times \symbfit{b} - \symbfit{0}                                       \\
+                                                                           & = -2(\symbfit{a} \times \symbfit{b})
+        \end{aligned}
+    \end{equation*}
+    由于 $\symbfit{a} \perp \symbfit{b}$，夹角为 $\uppi/2$，故其模长为
+    \begin{equation*}
+        |(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})| = 2|\symbfit{a}||\symbfit{b}|\sin \frac{\uppi}{2} = 2 \times 3 \times 4 \times 1
+    \end{equation*}
+    \begin{equation*}
+        \boxed{|(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})| = 24}
+    \end{equation*}
+
+    \ansitem{2}
+
+    同理展开被积表达式
+    \begin{equation*}
+        \begin{aligned}
+            (3\symbfit{a} - \symbfit{b}) \times (\symbfit{a} - 2\symbfit{b}) & = 3(\symbfit{a} \times \symbfit{a}) - 6(\symbfit{a} \times \symbfit{b}) - (\symbfit{b} \times \symbfit{a}) + 2(\symbfit{b} \times \symbfit{b}) \\
+                                                                             & = \symbfit{0} - 6(\symbfit{a} \times \symbfit{b}) + (\symbfit{a} \times \symbfit{b}) + \symbfit{0}                                             \\
+                                                                             & = -5(\symbfit{a} \times \symbfit{b})
+        \end{aligned}
+    \end{equation*}
+    计算其模长
+    \begin{equation*}
+        |(3\symbfit{a} - \symbfit{b}) \times (\symbfit{a} - 2\symbfit{b})| = 5|\symbfit{a}||\symbfit{b}|\sin \frac{\uppi}{2} = 5 \times 3 \times 4 \times 1
+    \end{equation*}
+    \begin{equation*}
+        \boxed{|(3\symbfit{a} - \symbfit{b}) \times (\symbfit{a} - 2\symbfit{b})| = 60}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{向量积计算}{Vector-Product-Calculation}
+    已知向量 $\symbfit{a}$ 和 $\symbfit{b}$ 的夹角 $\theta = \frac{2\uppi}{3}$，又 $|\symbfit{a}| = 1, |\symbfit{b}| = 2$，试计算：
+    \begin{enumerate}
+        \item $|\symbfit{a} \times \symbfit{b}|^2$；
+        \item $|(\symbfit{a} + 3\symbfit{b}) \times (3\symbfit{a} - \symbfit{b})|^2$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    根据向量积模的定义：
+    \begin{equation*}
+        \begin{aligned}
+            |\symbfit{a} \times \symbfit{b}|^2 & = \left( |\symbfit{a}| |\symbfit{b}| \sin \theta \right)^2 \\
+                                               & = \left( 1 \cdot 2 \cdot \sin \frac{2\uppi}{3} \right)^2   \\
+                                               & = \left( 2 \cdot \frac{\sqrt{3}}{2} \right)^2 = 3
+        \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+        \boxed{|\symbfit{a} \times \symbfit{b}|^2 = 3}
+    \end{equation*}
+
+    \ansitem{2}
+
+    利用向量积的分配律与反交换律：
+    \begin{equation*}
+        \begin{aligned}
+            (\symbfit{a} + 3\symbfit{b}) \times (3\symbfit{a} - \symbfit{b}) & = 3(\symbfit{a} \times \symbfit{a}) - \symbfit{a} \times \symbfit{b} + 9(\symbfit{b} \times \symbfit{a}) - 3(\symbfit{b} \times \symbfit{b}) \\
+                                                                             & = \symbfit{0} - \symbfit{a} \times \symbfit{b} - 9(\symbfit{a} \times \symbfit{b}) - \symbfit{0}                                             \\
+                                                                             & = -10 (\symbfit{a} \times \symbfit{b})
+        \end{aligned}
+    \end{equation*}
+    对其模平方得：
+    \begin{equation*}
+        \begin{aligned}
+            |(\symbfit{a} + 3\symbfit{b}) \times (3\symbfit{a} - \symbfit{b})|^2 & = |-10 (\symbfit{a} \times \symbfit{b})|^2 \\
+                                                                                 & = 100 |\symbfit{a} \times \symbfit{b}|^2   \\
+                                                                                 & = 100 \cdot 3 = 300
+        \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+        \boxed{|(\symbfit{a} + 3\symbfit{b}) \times (3\symbfit{a} - \symbfit{b})|^2 = 300}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{向量恒等式证明}{Vector-Cross-Product-Identity}
+    已知 $\symbfit{a} + \symbfit{b} + \symbfit{c} = \symbfit{0}$，试证
+    \[ \symbfit{a} \times \symbfit{b} = \symbfit{b} \times \symbfit{c} = \symbfit{c} \times \symbfit{a}. \]
+\end{problem}
+
+\begin{myproof}
+    由已知条件得 $\symbfit{a} + \symbfit{b} = -\symbfit{c}$。在此等式两端左叉乘 $\symbfit{a}$ 有
+    \begin{equation*}
+        \symbfit{a} \times (\symbfit{a} + \symbfit{b}) = \symbfit{a} \times (-\symbfit{c}) \implies \symbfit{a} \times \symbfit{a} + \symbfit{a} \times \symbfit{b} = -\symbfit{a} \times \symbfit{c}
+    \end{equation*}
+    由于 $\symbfit{a} \times \symbfit{a} = \symbfit{0}$ 且 $-\symbfit{a} \times \symbfit{c} = \symbfit{c} \times \symbfit{a}$，故
+    \begin{equation*}
+        \symbfit{a} \times \symbfit{b} = \symbfit{c} \times \symbfit{a}
+    \end{equation*}
+    同理，在等式 $\symbfit{b} + \symbfit{c} = -\symbfit{a}$ 两端左叉乘 $\symbfit{b}$ 得
+    \begin{equation*}
+        \symbfit{b} \times (\symbfit{b} + \symbfit{c}) = \symbfit{b} \times (-\symbfit{a}) \implies \symbfit{b} \times \symbfit{b} + \symbfit{b} \times \symbfit{c} = -\symbfit{b} \times \symbfit{a}
+    \end{equation*}
+    即
+    \begin{equation*}
+        \symbfit{b} \times \symbfit{c} = \symbfit{a} \times \symbfit{b}
+    \end{equation*}
+    综上所述，原命题成立。
+\end{myproof}
+
+
+\begin{problem}{非共线向量和}{Non-Collinear-Sum}
+    已知 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 不共线，且 $\symbfit{a} \times \symbfit{b} = \symbfit{b} \times \symbfit{c} = \symbfit{c} \times \symbfit{a}$，求证：$\symbfit{a} + \symbfit{b} + \symbfit{c} = \symbfit{0}$。
+\end{problem}
+
+\begin{myproof}
+    由 $\symbfit{a} \times \symbfit{b} = \symbfit{b} \times \symbfit{c}$ 可得
+    \begin{equation*}
+        \symbfit{a} \times \symbfit{b} - \symbfit{b} \times \symbfit{c} = \symbfit{0} \implies \symbfit{a} \times \symbfit{b} + \symbfit{c} \times \symbfit{b} = \symbfit{0} \implies (\symbfit{a} + \symbfit{c}) \times \symbfit{b} = \symbfit{0}
+    \end{equation*}
+    这意味着向量 $\symbfit{a} + \symbfit{c}$ 与 $\symbfit{b}$ 平行，设 $\symbfit{a} + \symbfit{c} = \lambda \symbfit{b}$。
+
+    又由 $\symbfit{a} \times \symbfit{b} = \symbfit{c} \times \symbfit{a}$ 可得
+    \begin{equation*}
+        \symbfit{a} \times \symbfit{b} - \symbfit{c} \times \symbfit{a} = \symbfit{0} \implies \symbfit{a} \times \symbfit{b} + \symbfit{a} \times \symbfit{c} = \symbfit{0} \implies \symbfit{a} \times (\symbfit{b} + \symbfit{c}) = \symbfit{0}
+    \end{equation*}
+    这意味着向量 $\symbfit{b} + \symbfit{c}$ 与 $\symbfit{a}$ 平行，设 $\symbfit{b} + \symbfit{c} = \mu \symbfit{a}$。
+
+    将 $\symbfit{c} = \mu \symbfit{a} - \symbfit{b}$ 代入第一个关系式 $\symbfit{a} + \symbfit{c} = \lambda \symbfit{b}$ 中
+    \begin{equation*}
+        \symbfit{a} + (\mu \symbfit{a} - \symbfit{b}) = \lambda \symbfit{b} \implies (1 + \mu) \symbfit{a} = (1 + \lambda) \symbfit{b}
+    \end{equation*}
+    由于 $\symbfit{a}, \symbfit{b}$ 不共线，故系数必全为零
+    \begin{equation*}
+        1 + \mu = 0, \quad 1 + \lambda = 0 \implies \mu = -1, \quad \lambda = -1
+    \end{equation*}
+    由此推得 $\symbfit{b} + \symbfit{c} = -\symbfit{a}$，即
+    \begin{equation*}
+        \symbfit{a} + \symbfit{b} + \symbfit{c} = \symbfit{0}
+    \end{equation*}
+\end{myproof}
+
+
+\begin{problem}{拉格朗日恒等式}{Lagrange-Identity}
+    求证：$|\symbfit{a} \times \symbfit{b}|^2 = |\symbfit{a}|^2 |\symbfit{b}|^2 - (\symbfit{a} \cdot \symbfit{b})^2$。
+\end{problem}
+
+\begin{myproof}
+    设向量 $\symbfit{a}$ 与 $\symbfit{b}$ 之间的夹角为 $\theta$，则根据定义有：
+    \begin{equation*}
+        |\symbfit{a} \times \symbfit{b}| = |\symbfit{a}| |\symbfit{b}| \sin \theta, \quad \symbfit{a} \cdot \symbfit{b} = |\symbfit{a}| |\symbfit{b}| \cos \theta
+    \end{equation*}
+    于是：
+    \begin{equation*}
+        \begin{aligned}
+            |\symbfit{a}|^2 |\symbfit{b}|^2 - (\symbfit{a} \cdot \symbfit{b})^2 & = |\symbfit{a}|^2 |\symbfit{b}|^2 - (|\symbfit{a}| |\symbfit{b}| \cos \theta)^2 \\
+                                                                                & = |\symbfit{a}|^2 |\symbfit{b}|^2 (1 - \cos^2 \theta)                           \\
+                                                                                & = |\symbfit{a}|^2 |\symbfit{b}|^2 \sin^2 \theta                                 \\
+                                                                                & = (|\symbfit{a}| |\symbfit{b}| \sin \theta)^2                                   \\
+                                                                                & = |\symbfit{a} \times \symbfit{b}|^2
+        \end{aligned}
+    \end{equation*}
+    证毕。
+\end{myproof}
+
+
+\begin{problem}{向量的混合积与平行六面体体积}{Parallelepiped-Volume}
+    计算以向量 $\symbfit{a} = \symbfit{p} - 3\symbfit{q} + \symbfit{r}$，$\symbfit{b} = 2\symbfit{p} + \symbfit{q} - 3\symbfit{r}$，和 $\symbfit{c} = \symbfit{p} + 2\symbfit{q} + \symbfit{r}$ 为棱的平行六面体的体积，这里 $\symbfit{p}, \symbfit{q}$ 和 $\symbfit{r}$ 是互相垂直的单位向量.
+\end{problem}
+
+\begin{solution}
+    因为 $\symbfit{p}, \symbfit{q}, \symbfit{r}$ 是互相垂直的单位向量，可将其视为空间直角坐标系的标准正交基. 平行六面体的体积 $V$ 等于棱向量混合积的绝对值
+    \begin{equation*}
+        \begin{aligned}
+            (\symbfit{a}, \symbfit{b}, \symbfit{c}) & = \begin{vmatrix} 1 & -3 & 1 \\ 2 & 1 & -3 \\ 1 & 2 & 1 \end{vmatrix}                                                                                                     \\
+                                                    & = 1 \cdot \begin{vmatrix} 1 & -3 \\ 2 & 1 \end{vmatrix} - (-3) \cdot \begin{vmatrix} 2 & -3 \\ 1 & 1 \end{vmatrix} + 1 \cdot \begin{vmatrix} 2 & 1 \\ 1 & 2 \end{vmatrix} \\
+                                                    & = (1 + 6) + 3 \cdot (2 + 3) + (4 - 1)                                                                                                                                     \\
+                                                    & = 7 + 15 + 3 = 25
+        \end{aligned}
+    \end{equation*}
+    故该平行六面体的体积为
+    \begin{equation*}
+        \boxed{V = 25}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{向量的模与方向余弦}{Magnitude-And-Direction-Cosines}
+    已知 $\symbfit{a} = (3, -5, 8)$, $\symbfit{b} = (-1, 1, -4)$, 求 $\symbfit{a} - \symbfit{b}$ 的模和方向余弦.
+\end{problem}
+
+\begin{solution}
+    记 $\symbfit{d} = \symbfit{a} - \symbfit{b}$, 则
+    \begin{equation*}
+        \symbfit{d} = (3 - (-1), -5 - 1, 8 - (-4)) = (4, -6, 12)
+    \end{equation*}
+    计算其模长:
+    \begin{equation*}
+        |\symbfit{d}| = \sqrt{4^2 + (-6)^2 + 12^2} = \sqrt{16 + 36 + 144} = \sqrt{196} = 14
+    \end{equation*}
+    其方向余弦为:
+    \begin{equation*}
+        \begin{aligned}
+            \cos \alpha & = \frac{4}{14} = \frac{2}{7}   \\
+            \cos \beta  & = \frac{-6}{14} = -\frac{3}{7} \\
+            \cos \gamma & = \frac{12}{14} = \frac{6}{7}
+        \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+        \boxed{|\symbfit{a} - \symbfit{b}| = 14, \cos \alpha = \frac{2}{7}, \cos \beta = -\frac{3}{7}, \cos \gamma = \frac{6}{7}}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{单位向量坐标}{Unit-Vector}
+    已知 $\symbfit{a} = 3\symbfit{i} + 4\symbfit{j} - 12\symbfit{k}$, 求 $\symbfit{a}$ 方向的单位向量 $\symbfit{a}^0$ 的坐标.
+\end{problem}
+
+\begin{solution}
+    首先计算向量 $\symbfit{a}$ 的模长:
+    \begin{equation*}
+        |\symbfit{a}| = \sqrt{3^2 + 4^2 + (-12)^2} = \sqrt{9 + 16 + 144} = \sqrt{169} = 13
+    \end{equation*}
+    则单位向量 $\symbfit{a}^0$ 为:
+    \begin{equation*}
+        \symbfit{a}^0 = \frac{\symbfit{a}}{|\symbfit{a}|} = \frac{1}{13} (3, 4, -12) = \left( \frac{3}{13}, \frac{4}{13}, -\frac{12}{13} \right)
+    \end{equation*}
+    \begin{equation*}
+        \boxed{\symbfit{a}^0 = \left( \frac{3}{13}, \frac{4}{13}, -\frac{12}{13} \right)}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{向量坐标计算}{Vector-Coordinates}
+    已知 $xy$ 平面的向量 $\symbfit{a}$ 与 $x$ 轴和 $y$ 轴所夹的角分别是 $a = 60^\circ, b = 120^\circ$, 且 $|\symbfit{a}| = 2$, 试求 $\symbfit{a}$ 的坐标.
+\end{problem}
+
+\begin{solution}
+    由于向量 $\symbfit{a}$ 位于 $xy$ 平面内, 故其 $z$ 轴方向的分量 $a_z = 0$. 根据坐标定义:
+    \begin{equation*}
+        \begin{aligned}
+            a_x & = |\symbfit{a}| \cos 60^\circ = 2 \cdot \frac{1}{2} = 1                   \\
+            a_y & = |\symbfit{a}| \cos 120^\circ = 2 \cdot \left( -\frac{1}{2} \right) = -1
+        \end{aligned}
+    \end{equation*}
+    联立得向量的坐标表示为:
+    \begin{equation*}
+        \boxed{\symbfit{a} = (1, -1, 0)}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{向量共线}{Vector-Collinearity}
+    已知 $\overrightarrow{OA} = 2\symbfit{i} + 4\symbfit{j} + \symbfit{k}$, $\overrightarrow{OB} = 3\symbfit{i} + 7\symbfit{j} + 5\symbfit{k}$, $\overrightarrow{OC} = 4\symbfit{i} + 10\symbfit{j} + 9\symbfit{k}$, 问 $A, B, C$ 三点是否共线?
+\end{problem}
+
+\begin{solution}
+    计算向量 $\overrightarrow{AB}$ 与 $\overrightarrow{BC}$ 的坐标表示：
+    \begin{equation*}
+        \begin{aligned}
+            \overrightarrow{AB} & = \overrightarrow{OB} - \overrightarrow{OA} = (3-2)\symbfit{i} + (7-4)\symbfit{j} + (5-1)\symbfit{k} = \symbfit{i} + 3\symbfit{j} + 4\symbfit{k}  \\
+            \overrightarrow{BC} & = \overrightarrow{OC} - \overrightarrow{OB} = (4-3)\symbfit{i} + (10-7)\symbfit{j} + (9-5)\symbfit{k} = \symbfit{i} + 3\symbfit{j} + 4\symbfit{k}
+        \end{aligned}
+    \end{equation*}
+    由此可得
+    \begin{equation*}
+        \overrightarrow{AB} = \overrightarrow{BC}
+    \end{equation*}
+    因为 $\overrightarrow{AB} \parallel \overrightarrow{BC}$ 且两向量有公共点 $B$，所以 $A, B, C$ 三点共线。
+    \begin{equation*}
+        \boxed{A, B, C \text{ 三点共线}}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{向量数量积}{Vector-Dot-Product}
+    已知 $\symbfit{a}, \symbfit{b}$ 的夹角 $\theta = \dfrac{2\uppi}{3}$，且 $|\symbfit{a}| = 3, |\symbfit{b}| = 4$，计算：
+    \begin{enumerate}
+        \item $\symbfit{a} \cdot \symbfit{b}$;
+        \item $(3\symbfit{a} - 2\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b})$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    根据向量数量积的定义得
+    \begin{equation*}
+        \symbfit{a} \cdot \symbfit{b} = |\symbfit{a}| |\symbfit{b}| \cos \theta = 3 \times 4 \times \cos \frac{2\uppi}{3} = 12 \times \left( -\frac{1}{2} \right) = -6
+    \end{equation*}
+    \begin{equation*}
+        \boxed{\symbfit{a} \cdot \symbfit{b} = -6}
+    \end{equation*}
+
+    \ansitem{2}
+
+    利用数量积的分配律与性质进行展开
+    \begin{equation*}
+        \begin{aligned}
+            (3\symbfit{a} - 2\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) & = 3\symbfit{a} \cdot \symbfit{a} + 6\symbfit{a} \cdot \symbfit{b} - 2\symbfit{b} \cdot \symbfit{a} - 4\symbfit{b} \cdot \symbfit{b} \\
+                                                                             & = 3|\symbfit{a}|^2 + 4\symbfit{a} \cdot \symbfit{b} - 4|\symbfit{b}|^2
+        \end{aligned}
+    \end{equation*}
+    代入已知数据及第 (1) 问结果
+    \begin{equation*}
+        3 \times 3^2 + 4 \times (-6) - 4 \times 4^2 = 27 - 24 - 64 = -61
+    \end{equation*}
+    \begin{equation*}
+        \boxed{(3\symbfit{a} - 2\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) = -61}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{向量代数运算}{Vector-Algebra}
+    已知 $\symbfit{a} = (4, -2, 4)$, $\symbfit{b} = (6, -3, 2)$, 试计算：
+    \begin{enumerate}
+        \item $\symbfit{a} \cdot \symbfit{b}$；
+        \item $\sqrt{\symbfit{b} \cdot \symbfit{b}}$；
+        \item $(2\symbfit{a} - 3\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b})$；
+        \item $|\symbfit{a} - \symbfit{b}|^2$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    \begin{equation*}
+        \symbfit{a} \cdot \symbfit{b} = 4 \times 6 + (-2) \times (-3) + 4 \times 2 = 24 + 6 + 8 = 38
+    \end{equation*}
+    \begin{equation*}
+        \boxed{\symbfit{a} \cdot \symbfit{b} = 38}
+    \end{equation*}
+
+    \ansitem{2}
+
+    \begin{equation*}
+        \sqrt{\symbfit{b} \cdot \symbfit{b}} = |\symbfit{b}| = \sqrt{6^2 + (-3)^2 + 2^2} = \sqrt{36 + 9 + 4} = 7
+    \end{equation*}
+    \begin{equation*}
+        \boxed{\sqrt{\symbfit{b} \cdot \symbfit{b}} = 7}
+    \end{equation*}
+
+    \ansitem{3}
+
+    利用数量积的分配律展开：
+    \begin{equation*}
+        \begin{aligned}
+            (2\symbfit{a} - 3\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) & = 2\symbfit{a} \cdot \symbfit{a} + 4\symbfit{a} \cdot \symbfit{b} - 3\symbfit{b} \cdot \symbfit{a} - 6\symbfit{b} \cdot \symbfit{b} \\
+                                                                             & = 2|\symbfit{a}|^2 + \symbfit{a} \cdot \symbfit{b} - 6|\symbfit{b}|^2
+        \end{aligned}
+    \end{equation*}
+    由于 $|\symbfit{a}|^2 = 4^2 + (-2)^2 + 4^2 = 36$ 且 $|\symbfit{b}|^2 = 49$，代入得：
+    \begin{equation*}
+        (2\symbfit{a} - 3\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) = 2(36) + 38 - 6(49) = 72 + 38 - 294 = -184
+    \end{equation*}
+    \begin{equation*}
+        \boxed{(2\symbfit{a} - 3\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) = -184}
+    \end{equation*}
+
+    \ansitem{4}
+
+    \begin{equation*}
+        |\symbfit{a} - \symbfit{b}|^2 = |\symbfit{a}|^2 - 2\symbfit{a} \cdot \symbfit{b} + |\symbfit{b}|^2 = 36 - 2(38) + 49 = 85 - 76 = 9
+    \end{equation*}
+    \begin{equation*}
+        \boxed{|\symbfit{a} - \symbfit{b}|^2 = 9}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{向量夹角}{Vector-Angle-2}
+    求向量 $\symbfit{a} = (2, -4, 4)$ 和 $\symbfit{b} = (-3, 2, 6)$ 的夹角的余弦.
+\end{problem}
+
+\begin{solution}
+    设向量 $\symbfit{a}$ 与 $\symbfit{b}$ 的夹角为 $\theta$，则有：
+    \begin{equation*}
+        \cos \theta = \frac{\symbfit{a} \cdot \symbfit{b}}{|\symbfit{a}| |\symbfit{b}|}
+    \end{equation*}
+    计算各项分量：
+    \begin{equation*}
+        \begin{aligned}
+             & \symbfit{a} \cdot \symbfit{b} = 2 \times (-3) + (-4) \times 2 + 4 \times 6 = -6 - 8 + 24 = 10 \\
+             & |\symbfit{a}| = \sqrt{2^2 + (-4)^2 + 4^2} = \sqrt{4 + 16 + 16} = 6                            \\
+             & |\symbfit{b}| = \sqrt{(-3)^2 + 2^2 + 6^2} = \sqrt{9 + 4 + 36} = 7
+        \end{aligned}
+    \end{equation*}
+    代入余弦公式得：
+    \begin{equation*}
+        \cos \theta = \frac{10}{6 \times 7} = \frac{10}{42} = \frac{5}{21}
+    \end{equation*}
+    \begin{equation*}
+        \boxed{\cos \theta = \frac{5}{21}}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{向量投影}{Vector-Projection}
+    试求向量 $\symbfit{a} = (5, 2, 5)$ 在向量 $\symbfit{b} = (2, -1, 2)$ 上的投影长，即求数值 $\symbfit{a} \cdot \symbfit{e}_b$.
+\end{problem}
+
+\begin{solution}
+    向量 $\symbfit{b}$ 方向上的单位向量为 $\symbfit{e}_b = \frac{\symbfit{b}}{|\symbfit{b}|}$，故投影长为：
+    \begin{equation*}
+        \symbfit{a} \cdot \symbfit{e}_b = \frac{\symbfit{a} \cdot \symbfit{b}}{|\symbfit{b}|}
+    \end{equation*}
+    计算分子与分母：
+    \begin{equation*}
+        \begin{aligned}
+             & \symbfit{a} \cdot \symbfit{b} = 5 \times 2 + 2 \times (-1) + 5 \times 2 = 10 - 2 + 10 = 18 \\
+             & |\symbfit{b}| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{4 + 1 + 4} = 3
+        \end{aligned}
+    \end{equation*}
+    由此得：
+    \begin{equation*}
+        \symbfit{a} \cdot \symbfit{e}_b = \frac{18}{3} = 6
+    \end{equation*}
+    \begin{equation*}
+        \boxed{\symbfit{a} \cdot \symbfit{e}_b = 6}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{向量积计算}{Vector-Product-Calculation-2}
+    已知向量 $\symbfit{a} = (3, -1, -2)$ 和 $\symbfit{b} = (1, 2, -1)$，试求下列向量积的坐标：
+    \begin{enumerate}
+        \item $\symbfit{a} \times \symbfit{b}$；
+        \item $(2\symbfit{a} - \symbfit{b}) \times (2\symbfit{a} + \symbfit{b})$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    根据向量积的行列式定义：
+    \begin{equation*}
+        \begin{aligned}
+            \symbfit{a} \times \symbfit{b} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 3 & -1 & -2 \\ 1 & 2 & -1 \end{vmatrix}                                                                                   \\
+                                           & = \symbfit{i} \begin{vmatrix} -1 & -2 \\ 2 & -1 \end{vmatrix} - \symbfit{j} \begin{vmatrix} 3 & -2 \\ 1 & -1 \end{vmatrix} + \symbfit{k} \begin{vmatrix} 3 & -1 \\ 1 & 2 \end{vmatrix} \\
+                                           & = 5\symbfit{i} + \symbfit{j} + 7\symbfit{k}
+        \end{aligned}
+    \end{equation*}
+    即
+    \begin{equation*}
+        \boxed{\symbfit{a} \times \symbfit{b} = (5, 1, 7)}
+    \end{equation*}
+
+    \ansitem{2}
+
+    利用向量积的分配律及性质 $\symbfit{a} \times \symbfit{a} = \symbfit{0}$，$\symbfit{b} \times \symbfit{a} = -(\symbfit{a} \times \symbfit{b})$：
+    \begin{equation*}
+        \begin{aligned}
+            (2\symbfit{a} - \symbfit{b}) \times (2\symbfit{a} + \symbfit{b}) & = 4(\symbfit{a} \times \symbfit{a}) + 2(\symbfit{a} \times \symbfit{b}) - 2(\symbfit{b} \times \symbfit{a}) - (\symbfit{b} \times \symbfit{b}) \\
+                                                                             & = \symbfit{0} + 2(\symbfit{a} \times \symbfit{b}) + 2(\symbfit{a} \times \symbfit{b}) - \symbfit{0}                                            \\
+                                                                             & = 4(\symbfit{a} \times \symbfit{b})
+        \end{aligned}
+    \end{equation*}
+    代入第 (1) 问结果得：
+    \begin{equation*}
+        \boxed{(2\symbfit{a} - \symbfit{b}) \times (2\symbfit{a} + \symbfit{b}) = (20, 4, 28)}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{三角形面积}{Triangle-Area}
+    已知点 $A(1, 2, 0), B(3, 0, -3), C(5, 2, 6)$，求三角形 $ABC$ 的面积。
+\end{problem}
+
+\begin{solution}
+    首先计算向量 $\overrightarrow{AB}$ 与 $\overrightarrow{AC}$ 的坐标：
+    \begin{equation*}
+        \overrightarrow{AB} = (2, -2, -3), \quad \overrightarrow{AC} = (4, 0, 6)
+    \end{equation*}
+    计算两向量的向量积：
+    \begin{equation*}
+        \begin{aligned}
+            \overrightarrow{AB} \times \overrightarrow{AC} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 2 & -2 & -3 \\ 4 & 0 & 6 \end{vmatrix} \\
+                                                           & = -12\symbfit{i} - (12 + 12)\symbfit{j} + 8\symbfit{k}                                              \\
+                                                           & = (-12, -24, 8)
+        \end{aligned}
+    \end{equation*}
+    三角形 $ABC$ 的面积 $S$ 为：
+    \begin{equation*}
+        \begin{aligned}
+            S & = \frac{1}{2} \left| \overrightarrow{AB} \times \overrightarrow{AC} \right| \\
+              & = \frac{1}{2} \sqrt{(-12)^2 + (-24)^2 + 8^2}                                \\
+              & = \frac{1}{2} \sqrt{144 + 576 + 64} = \frac{1}{2} \sqrt{784} = \frac{28}{2}
+        \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+        \boxed{S_{\triangle ABC} = 14}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{四面体体积}{Tetrahedron-Volume}
+    计算顶点为 $A(2, -1, 1), B(5, 5, 4), C(3, 2, -1), D(4, 1, 3)$ 的四面体的体积。
+\end{problem}
+
+\begin{solution}
+    求出从顶点 $A$ 出发的三条棱对应的向量：
+    \begin{equation*}
+        \overrightarrow{AB} = (3, 6, 3), \quad \overrightarrow{AC} = (1, 3, -2), \quad \overrightarrow{AD} = (2, 2, 2)
+    \end{equation*}
+    计算三向量的混合积：
+    \begin{equation*}
+        \begin{aligned}
+            (\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}) & = \begin{vmatrix} 3 & 6 & 3 \\ 1 & 3 & -2 \\ 2 & 2 & 2 \end{vmatrix} \\
+                                                                            & = 3(6 + 4) - 6(2 + 4) + 3(2 - 6)                                     \\
+                                                                            & = 30 - 36 - 12 = -18
+        \end{aligned}
+    \end{equation*}
+    四面体的体积 $V$ 为混合积绝对值的 $\frac{1}{6}$：
+    \begin{equation*}
+        V = \frac{1}{6} \left| (\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}) \right| = \frac{1}{6} \cdot |-18| = 3
+    \end{equation*}
+    \begin{equation*}
+        \boxed{V_{ABCD} = 3}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{向量共面判断}{Vector-Coplanarity}
+    判断下列向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 是否共面？
+    \begin{enumerate}
+        \item $\symbfit{a} = (2, 3, -1)$, $\symbfit{b} = (1, -1, 3)$, $\symbfit{c} = (1, 9, -11)$；
+        \item $\symbfit{a} = (3, -2, 1)$, $\symbfit{b} = (2, 1, 2)$, $\symbfit{c} = (3, -1, -2)$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    计算向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 的混合积：
+    \begin{equation*}
+        (\symbfit{a}, \symbfit{b}, \symbfit{c}) = \begin{vmatrix} 2 & 3 & -1 \\ 1 & -1 & 3 \\ 1 & 9 & -11 \end{vmatrix} = 2(11 - 27) - 3(-11 - 3) - 1(9 + 1) = -32 + 42 - 10 = 0
+    \end{equation*}
+    因为混合积为零，故向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 共面。
+    \begin{equation*}
+        \boxed{\text{向量 } \symbfit{a}, \symbfit{b}, \symbfit{c} \text{ 共面}}
+    \end{equation*}
+
+    \ansitem{2}
+    计算向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 的混合积：
+    \begin{equation*}
+        (\symbfit{a}, \symbfit{b}, \symbfit{c}) = \begin{vmatrix} 3 & -2 & 1 \\ 2 & 1 & 2 \\ 3 & -1 & -2 \end{vmatrix} = 3(-2 + 2) + 2(-4 - 6) + 1(-2 - 3) = 0 - 20 - 5 = -25 \neq 0
+    \end{equation*}
+    因为混合积不为零，故向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 不共面。
+    \begin{equation*}
+        \boxed{\text{向量 } \symbfit{a}, \symbfit{b}, \symbfit{c} \text{ 不共面}}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{四点共面判断}{Four-Points-Coplanar}
+    下列四点：$A(1, 2, -1), B(0, 1, 5), C(-1, 2, 1), D(2, 1, 3)$ 是否在一个平面上？
+\end{problem}
+
+\begin{solution}
+    构造以 $A$ 点为起点的三个向量：
+    \begin{equation*}
+        \begin{aligned}
+            \overrightarrow{AB} & = (0-1, 1-2, 5-(-1)) = (-1, -1, 6) \\
+            \overrightarrow{AC} & = (-1-1, 2-2, 1-(-1)) = (-2, 0, 2) \\
+            \overrightarrow{AD} & = (2-1, 1-2, 3-(-1)) = (1, -1, 4)
+        \end{aligned}
+    \end{equation*}
+    计算这三个向量的混合积：
+    \begin{equation*}
+        (\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}) = \begin{vmatrix} -1 & -1 & 6 \\ -2 & 0 & 2 \\ 1 & -1 & 4 \end{vmatrix} = -(-2)(-4 + 6) + 0 - 2(1 + 1) = 4 - 4 = 0
+    \end{equation*}
+    由于混合积为零，表明向量 $\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}$ 共面。
+    \begin{equation*}
+        \boxed{A, B, C, D \text{ 四点共面}}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{坐标对称性}{Coordinate-Symmetry}
+    \begin{enumerate}
+        \item 给定点 $A(a, b, c)$，求它关于三个坐标平面对称点的坐标；
+        \item 求定点 $(a, b, c)$ 关于三个坐标轴对称点的坐标。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    根据空间解析几何中的对称规则，点 $A(a, b, c)$ 关于各坐标平面的对称点分别为：
+    \begin{itemize}
+        \item 关于 $xOy$ 面：保持 $x, y$ 不变，$z$ 取相反数，即 $(a, b, -c)$；
+        \item 关于 $yOz$ 面：保持 $y, z$ 不变，$x$ 取相反数，即 $(-a, b, c)$；
+        \item 关于 $zOx$ 面：保持 $z, x$ 不变，$y$ 取相反数，即 $(a, -b, c)$。
+    \end{itemize}
+    \begin{equation*}
+        \boxed{\text{关于 } xOy, yOz, zOx \text{ 面对称点分别为 } (a, b, -c), (-a, b, c), (a, -b, c)}
+    \end{equation*}
+
+    \ansitem{2}
+    点 $(a, b, c)$ 关于各坐标轴的对称点分别为：
+    \begin{itemize}
+        \item 关于 $x$ 轴：保持 $x$ 不变，$y, z$ 取相反数，即 $(a, -b, -c)$；
+        \item 关于 $y$ 轴：保持 $y$ 不变，$x, z$ 取相反数，即 $(-a, b, -c)$；
+        \item 关于 $z$ 轴：保持 $z$ 不变，$x, y$ 取相反数，即 $(-a, -b, c)$。
+    \end{itemize}
+    \begin{equation*}
+        \boxed{\text{关于 } x, y, z \text{ 轴对称点分别为 } (a, -b, -c), (-a, b, -c), (-a, -b, c)}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{点到原点及坐标轴的距离}{Point-To-Axis-Distance}
+    求点 $P(4, -3, 5)$ 到坐标原点以及到各坐标轴的距离。
+\end{problem}
+
+\begin{solution}
+    设点 $P$ 的坐标为 $(x, y, z) = (4, -3, 5)$。根据空间两点间距离公式及点到坐标轴的距离公式，有
+    \begin{equation*}
+        \begin{aligned}
+            d_{PO} & = \sqrt{x^2 + y^2 + z^2} = \sqrt{4^2 + (-3)^2 + 5^2} = \sqrt{50} = 5\sqrt{2} \\
+            d_{Px} & = \sqrt{y^2 + z^2} = \sqrt{(-3)^2 + 5^2} = \sqrt{34}                         \\
+            d_{Py} & = \sqrt{x^2 + z^2} = \sqrt{4^2 + 5^2} = \sqrt{41}                            \\
+            d_{Pz} & = \sqrt{x^2 + y^2} = \sqrt{4^2 + (-3)^2} = \sqrt{25} = 5
+        \end{aligned}
+    \end{equation*}
+    因此，点 $P$ 到原点、 $x$ 轴、 $y$ 轴、 $z$ 轴的距离分别为
+    \begin{equation*}
+        \boxed{d_{PO} = 5\sqrt{2}, \quad d_{Px} = \sqrt{34}, \quad d_{Py} = \sqrt{41}, \quad d_{Pz} = 5}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{平面内的等距点}{Equidistant-Point-In-Plane}
+    在 $yz$ 平面上求一点 $P$，使它与三已知点 $A(3, 1, 2)$, $B(4, -2, -2)$ 及 $C(0, 5, 1)$ 等距离。
+\end{problem}
+
+\begin{solution}
+    因为点 $P$ 在 $yz$ 平面上，设其坐标为 $P(0, y, z)$。由题意 $PA = PB = PC$，即 $PA^2 = PB^2$ 且 $PA^2 = PC^2$。
+    \begin{equation*}
+        \begin{cases}
+            (0 - 3)^2 + (y - 1)^2 + (z - 2)^2 = (0 - 4)^2 + (y + 2)^2 + (z + 2)^2 \\
+            (0 - 3)^2 + (y - 1)^2 + (z - 2)^2 = (0 - 0)^2 + (y - 5)^2 + (z - 1)^2
+        \end{cases}
+    \end{equation*}
+    展开并整理各项得
+    \begin{equation*}
+        \begin{cases}
+            y^2 + z^2 - 2y - 4z + 14 = y^2 + z^2 + 4y + 4z + 24 \\
+            y^2 + z^2 - 2y - 4z + 14 = y^2 + z^2 - 10y - 2z + 26
+        \end{cases}
+    \end{equation*}
+    \begin{equation*}
+        \implies
+        \begin{cases}
+            6y + 8z = -10 \\
+            8y - 2z = 12
+        \end{cases}
+        \iff
+        \begin{cases}
+            3y + 4z = -5 \\
+            4y - z = 6
+        \end{cases}
+    \end{equation*}
+    由第二个方程得 $z = 4y - 6$，代入第一个方程
+    \begin{equation*}
+        3y + 4(4y - 6) = -5 \implies 19y = 19 \implies y = 1
+    \end{equation*}
+    进而求得 $z = 4(1) - 6 = -2$。故点 $P$ 的坐标为
+    \begin{equation*}
+        \boxed{P(0, 1, -2)}
+    \end{equation*}
+\end{solution}
+
+

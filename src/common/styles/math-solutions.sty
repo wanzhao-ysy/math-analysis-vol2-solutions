@@ -103,19 +103,6 @@
     partopsep=0pt
 }
 
-\newtheoremstyle{problem-style}
-{.8\baselineskip}   % 上间距
-{.6\baselineskip}   % 下间距
-{\normalfont}       % 正文字体
-{0pt}               % 缩进
-{\bfseries}         % 定理头字体
-{}                  % 定理头后标点
-{\newline}          % 定理头后换行
-{\thmnumber{#2}\thmnote{\ \textnormal{#3}}}
-
-\theoremstyle{problem-style}
-\newtheorem{problem}{题}[section]
-
 \NewDocumentEnvironment{solution}{}%
 {\par\smallskip\noindent\textbf{解}\par\noindent\ignorespaces}%
 {\par\noindent\hfill$\square$\par\smallskip}
@@ -126,9 +113,27 @@
 
 % 解答中按子问给出答案
 \newcommand{\ansitem}[1]{%
-    \par\smallskip\noindent\textcolor{blue}{(#1)}\quad\ignorespaces
+    \par\smallskip\noindent{(#1)}\quad\ignorespaces
 }
 
+% tcb配置
+\newtcbtheorem[number within=section]{problem}{习题}{
+    enhanced,
+    breakable,
+    colback=gray!2,
+    colframe=gray!60,
+    colbacktitle=gray!15,  % 标题背景颜色
+    coltitle=black,
+    fonttitle=\heiti,      % 使用中文字体黑体
+    boxrule=0.6pt,
+    titlerule=0.4pt,       % 标题与内容间的分割线
+    arc=2mm,
+    top=1em,
+    separator sign none,
+    description font=\normalfont\kaishu, % 备注使用楷体
+    after title={\hspace{0.5em}---},     % 标题后的横杠
+    segmentation style={dash pattern=on 3pt off 2pt, gray!40}, % 如果有分割线用虚线
+}{prob}
 
 % 页眉页脚设定 (fancyhdr)
 \RequirePackage{fancyhdr}

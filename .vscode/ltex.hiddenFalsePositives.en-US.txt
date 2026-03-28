@@ -5,3 +5,4 @@
 {"rule":"WHITESPACE_RULE","sentence":"^\\Q《数学分析（第二册）》 习题解析\\E$"}
 {"rule":"WHITESPACE_RULE","sentence":"^\\Q《数学分析（第二册）》 习题解析  Mathematical Analysis (Volume II) Exercise Solutions\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q人力所为，疏漏之处在所难免。如有任何问题，恳请读者在本文档的 GitHub 仓库 \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q 提交 issue，或发送邮件至 \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q 进行反馈。\\E$"}
+{"rule":"EN_UNPAIRED_QUOTES","sentence":"^\\Q根据行列式交换两行改变符号的性质： \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q 即有： \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q “`\\E$"}

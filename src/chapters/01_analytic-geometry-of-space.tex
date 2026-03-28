@@ -1,4 +1,210 @@
 \chapter{空间解析几何}
 
-\section{
+\section{向量与坐标系}
 
+\begin{problem}{向量数乘的运算性质}{Vector-Scalar-Multiplication-Properties}
+    设 $\lambda, \mu \in \symbb{R}$，$\symbfit{a}, \symbfit{b}$ 为向量，证明如下性质：
+    \begin{enumerate}
+        \item $\lambda(\symbfit{a} + \symbfit{b}) = \lambda\symbfit{a} + \lambda\symbfit{b}$
+        \item $(\lambda + \mu)\symbfit{a} = \lambda\symbfit{a} + \mu\symbfit{a}$
+        \item $(\lambda\mu)\symbfit{a} = \lambda(\mu\symbfit{a})$
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    设 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$。
+
+    \ansitem{1}
+
+    \begin{equation*}
+        \begin{aligned}
+            \lambda(\symbfit{a} + \symbfit{b}) & = \lambda(a_1 + b_1, a_2 + b_2, a_3 + b_3)                                          \\
+                                               & = (\lambda(a_1 + b_1), \lambda(a_2 + b_2), \lambda(a_3 + b_3))                      \\
+                                               & = (\lambda a_1 + \lambda b_1, \lambda a_2 + \lambda b_2, \lambda a_3 + \lambda b_3) \\
+                                               & = (\lambda a_1, \lambda a_2, \lambda a_3) + (\lambda b_1, \lambda b_2, \lambda b_3) \\
+                                               & = \lambda\symbfit{a} + \lambda\symbfit{b}
+        \end{aligned}
+    \end{equation*}
+    故得证：
+    \begin{equation*}
+        \boxed{\lambda(\symbfit{a} + \symbfit{b}) = \lambda\symbfit{a} + \lambda\symbfit{b}}
+    \end{equation*}
+
+    \ansitem{2}
+
+    \begin{equation*}
+        \begin{aligned}
+            (\lambda + \mu)\symbfit{a} & = ((\lambda + \mu)a_1, (\lambda + \mu)a_2, (\lambda + \mu)a_3)          \\
+                                       & = (\lambda a_1 + \mu a_1, \lambda a_2 + \mu a_2, \lambda a_3 + \mu a_3) \\
+                                       & = (\lambda a_1, \lambda a_2, \lambda a_3) + (\mu a_1, \mu a_2, \mu a_3) \\
+                                       & = \lambda\symbfit{a} + \mu\symbfit{a}
+        \end{aligned}
+    \end{equation*}
+    故得证：
+    \begin{equation*}
+        \boxed{(\lambda + \mu)\symbfit{a} = \lambda\symbfit{a} + \mu\symbfit{a}}
+    \end{equation*}
+
+    \ansitem{3}
+
+    \begin{equation*}
+        \begin{aligned}
+            (\lambda\mu)\symbfit{a} & = ((\lambda\mu)a_1, (\lambda\mu)a_2, (\lambda\mu)a_3)    \\
+                                    & = (\lambda(\mu a_1), \lambda(\mu a_2), \lambda(\mu a_3)) \\
+                                    & = \lambda(\mu a_1, \mu a_2, \mu a_3)                     \\
+                                    & = \lambda(\mu\symbfit{a})
+        \end{aligned}
+    \end{equation*}
+    故得证：
+    \begin{equation*}
+        \boxed{(\lambda\mu)\symbfit{a} = \lambda(\mu\symbfit{a})}
+    \end{equation*}
+\end{myproof}
+
+
+\begin{problem}{向量积的运算性质}{Vector-Cross-Product-Properties}
+    证明向量积的如下性质：
+    \begin{enumerate}
+        \item $(\lambda\symbfit{a}) \times \symbfit{b} = \symbfit{a} \times (\lambda\symbfit{b}) = \lambda(\symbfit{a} \times \symbfit{b})$，其中 $\lambda \in \symbb{R}$。
+        \item $\symbfit{a} \times \symbfit{b} = -\symbfit{b} \times \symbfit{a}$
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    设 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$，基向量为 $\symbfit{i}, \symbfit{j}, \symbfit{k}$。
+
+    \ansitem{1}
+
+    根据向量积的行列式定义与行列式性质：
+    \begin{equation*}
+        \begin{aligned}
+            (\lambda\symbfit{a}) \times \symbfit{b} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \lambda a_1 & \lambda a_2 & \lambda a_3 \\ b_1 & b_2 & b_3 \end{vmatrix} \\
+                                                    & = \lambda \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}                 \\
+                                                    & = \lambda(\symbfit{a} \times \symbfit{b})
+        \end{aligned}
+    \end{equation*}
+    同理可得：
+    \begin{equation*}
+        \begin{aligned}
+            \symbfit{a} \times (\lambda\symbfit{b}) & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ a_1 & a_2 & a_3 \\ \lambda b_1 & \lambda b_2 & \lambda b_3 \end{vmatrix} \\
+                                                    & = \lambda \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}                 \\
+                                                    & = \lambda(\symbfit{a} \times \symbfit{b})
+        \end{aligned}
+    \end{equation*}
+    由此得到：
+    \begin{equation*}
+        \boxed{(\lambda\symbfit{a}) \times \symbfit{b} = \symbfit{a} \times (\lambda\symbfit{b}) = \lambda(\symbfit{a} \times \symbfit{b})}
+    \end{equation*}
+
+    \ansitem{2}
+
+    根据行列式交换两行改变符号的性质：
+    \begin{equation*}
+        \begin{aligned}
+            \symbfit{a} \times \symbfit{b} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}   \\
+                                           & = - \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ b_1 & b_2 & b_3 \\ a_1 & a_2 & a_3 \end{vmatrix} \\
+                                           & = -\symbfit{b} \times \symbfit{a}
+        \end{aligned}
+    \end{equation*}
+    即有：
+    \begin{equation*}
+        \boxed{\symbfit{a} \times \symbfit{b} = -\symbfit{b} \times \symbfit{a}}
+    \end{equation*}
+\end{myproof}
+
+
+\begin{problem}{向量代数基本性质}{Vector-Algebra-Properties}
+    判断下列结论是否成立，并举例说明：
+    \begin{enumerate}
+        \item 若 $\symbfit{a} \cdot \symbfit{b} = 0$, 则 $\symbfit{a} = \symbfit{0}$ 或 $\symbfit{b} = \symbfit{0}$.
+        \item 若 $\symbfit{a} \times \symbfit{c} = \symbfit{a} \times \symbfit{b}$, 则必有 $\symbfit{c} = \symbfit{b}$.
+        \item 两单位向量的数量积必等于 $1$, 向量积必等于一单位向量.
+        \item $(\symbfit{a} \cdot \symbfit{b})\symbfit{c} = \symbfit{a}(\symbfit{b} \cdot \symbfit{c})$.
+        \item $|\symbfit{a} \cdot \symbfit{b}|^2 = |\symbfit{a}|^2 \cdot |\symbfit{b}|^2$.
+        \item $(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} + \symbfit{b}) = \symbfit{a} \times \symbfit{a} + 2\symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{b}$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 不成立。
+
+    两个非零向量垂直时，其数量积为零。设 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则有
+    \begin{equation*}
+        \symbfit{a} \cdot \symbfit{b} = 1 \cdot 0 + 0 \cdot 1 + 0 \cdot 0 = 0
+    \end{equation*}
+    显然 $\symbfit{a} \neq \symbfit{0}$ 且 $\symbfit{b} \neq \symbfit{0}$。
+    \begin{equation*}
+        \boxed{\text{结论不成立}}
+    \end{equation*}
+
+    \ansitem{2} 不成立。
+
+    由 $\symbfit{a} \times \symbfit{c} = \symbfit{a} \times \symbfit{b} \implies \symbfit{a} \times (\symbfit{c} - \symbfit{b}) = \symbfit{0}$，这仅说明 $\symbfit{a}$ 与 $\symbfit{c} - \symbfit{b}$ 共线。
+    取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，$\symbfit{c} = (1, 1, 0)$，则
+    \begin{equation*}
+        \begin{aligned}
+            \symbfit{a} \times \symbfit{b} & = (0, 0, 1)                                                                                                   \\
+            \symbfit{a} \times \symbfit{c} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 0 & 0 \\ 1 & 1 & 0 \end{vmatrix} = (0, 0, 1)
+        \end{aligned}
+    \end{equation*}
+    虽然 $\symbfit{a} \times \symbfit{c} = \symbfit{a} \times \symbfit{b}$，但 $\symbfit{c} \neq \symbfit{b}$。
+    \begin{equation*}
+        \boxed{\text{结论不成立}}
+    \end{equation*}
+
+    \ansitem{3} 不成立。
+
+    设两单位向量为 $\symbfit{e}_1, \symbfit{e}_2$，夹角为 $\theta$。
+    其数量积 $\symbfit{e}_1 \cdot \symbfit{e}_2 = |\symbfit{e}_1||\symbfit{e}_2|\cos\theta = \cos\theta$，仅在 $\theta = 0$ 时等于 $1$。
+    其向量积模长 $|\symbfit{e}_1 \times \symbfit{e}_2| = |\symbfit{e}_1||\symbfit{e}_2|\sin\theta = \sin\theta$，仅在 $\theta = \frac{\uppi}{2}$ 时为单位向量。
+    取 $\symbfit{e}_1 = (1, 0, 0)$，$\symbfit{e}_2 = (0, 1, 0)$，则 $\symbfit{e}_1 \cdot \symbfit{e}_2 = 0 \neq 1$；
+    取 $\symbfit{e}_1 = \symbfit{e}_2$，则 $\symbfit{e}_1 \times \symbfit{e}_2 = \symbfit{0}$，非单位向量。
+    \begin{equation*}
+        \boxed{\text{结论不成立}}
+    \end{equation*}
+
+    \ansitem{4} 不成立。
+
+    $(\symbfit{a} \cdot \symbfit{b})\symbfit{c}$ 的方向与 $\symbfit{c}$ 相同或相反，而 $\symbfit{a}(\symbfit{b} \cdot \symbfit{c})$ 的方向与 $\symbfit{a}$ 相同或相反。
+    设 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (1, 0, 0)$，$\symbfit{c} = (0, 1, 0)$，则
+    \begin{equation*}
+        \begin{aligned}
+            (\symbfit{a} \cdot \symbfit{b})\symbfit{c} & = 1 \cdot (0, 1, 0) = (0, 1, 0) \\
+            \symbfit{a}(\symbfit{b} \cdot \symbfit{c}) & = (1, 0, 0) \cdot 0 = (0, 0, 0)
+        \end{aligned}
+    \end{equation*}
+    二者不相等。
+    \begin{equation*}
+        \boxed{\text{结论不成立}}
+    \end{equation*}
+
+    \ansitem{5} 不成立。
+
+    根据定义 $|\symbfit{a} \cdot \symbfit{b}|^2 = |\symbfit{a}|^2 |\symbfit{b}|^2 \cos^2\theta$。只有当 $\cos^2\theta = 1$（即两向量共线）时才成立。
+    取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则
+    \begin{equation*}
+        \begin{aligned}
+            |\symbfit{a} \cdot \symbfit{b}|^2 & = |0|^2 = 0         \\
+            |\symbfit{a}|^2 |\symbfit{b}|^2   & = 1^2 \cdot 1^2 = 1
+        \end{aligned}
+    \end{equation*}
+    \begin{equation*}
+        \boxed{\text{结论不成立}}
+    \end{equation*}
+
+    \ansitem{6} 不成立。
+
+    由向量积的分配律及反交换性可知
+    \begin{equation*}
+        \begin{aligned}
+            (\symbfit{a} + \symbfit{b}) \times (\symbfit{a} + \symbfit{b}) & = \symbfit{a} \times \symbfit{a} + \symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{a} + \symbfit{b} \times \symbfit{b} \\
+                                                                           & = \symbfit{0} + \symbfit{a} \times \symbfit{b} - \symbfit{a} \times \symbfit{b} + \symbfit{0}                                       \\
+                                                                           & = \symbfit{0}
+        \end{aligned}
+    \end{equation*}
+    而原命题右端为 $\symbfit{a} \times \symbfit{a} + 2\symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{b} = 2\symbfit{a} \times \symbfit{b}$。
+    取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则右端为 $(0, 0, 2) \neq \symbfit{0}$。
+    \begin{equation*}
+        \boxed{\text{结论不成立}}
+    \end{equation*}
+\end{solution}

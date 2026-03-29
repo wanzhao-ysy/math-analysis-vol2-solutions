@@ -48,6 +48,7 @@
 
 % 符号扩展
 \RequirePackage{fixdif}              % 完美的微分算子格式修正
+\RequirePackage{emoji}
 
 % 图形与表格
 \RequirePackage{graphicx}            % 图片插入
@@ -134,6 +135,24 @@
     after title={\hspace{0.5em}---},     % 标题后的横杠
     segmentation style={dash pattern=on 3pt off 2pt, gray!40}, % 如果有分割线用虚线
 }{prob}
+
+\newtcbtheorem[number within=section]{note}{注释}{
+    enhanced,
+    breakable,
+    colback=orange!2,
+    colframe=orange!60,
+    colbacktitle=orange!15,  % 标题背景颜色
+    coltitle=black,
+    fonttitle=\heiti,      % 使用中文字体黑体
+    boxrule=0.6pt,
+    titlerule=0.4pt,       % 标题与内容间的分割线
+    arc=2mm,
+    top=1em,
+    separator sign none,
+    description font=\normalfont\kaishu, % 备注使用楷体
+    after title={\hspace{0.5em}---},     % 标题后的横杠
+    segmentation style={dash pattern=on 3pt off 2pt, orange!40}, % 如果有分割线用虚线
+}{note}
 
 % 页眉页脚设定 (fancyhdr)
 \RequirePackage{fancyhdr}

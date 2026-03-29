@@ -3079,3 +3079,925 @@
         \boxed{xy = z \text{ 是以原点为鞍点的双曲抛物面}}
     \end{equation*}
 \end{solution}
+
+\section{坐标变换和其他常用坐标系}
+
+\begin{problem}{二次曲面平移化简}{Translation-Quadratic-Surface}
+    通过坐标系的平移，化简方程 $x^2 - y^2 - z^2 - 2x + 2y + z - 1 = 0$，并指出曲面的类型。
+\end{problem}
+
+\begin{solution}
+    对原方程的各项进行配方：
+    \begin{equation*}
+        \begin{aligned}
+            (x^2 - 2x + 1) - (y^2 - 2y + 1) - \left( z^2 - z + \frac{1}{4} \right) - 1 - 1 + 1 + \frac{1}{4} & = 0           \\
+            (x - 1)^2 - (y - 1)^2 - \left( z - \frac{1}{2} \right)^2                                         & = \frac{3}{4}
+        \end{aligned}
+    \end{equation*}
+    令坐标平移变换公式为：
+    \begin{equation*}
+        \begin{cases}
+            x' = x - 1 \\
+            y' = y - 1 \\
+            z' = z - \frac{1}{2}
+        \end{cases}
+    \end{equation*}
+    代入上式，得化简后的方程为：
+    \begin{equation*}
+        x'^2 - y'^2 - z'^2 = \frac{3}{4} \implies \frac{x'^2}{3/4} - \frac{y'^2}{3/4} - \frac{z'^2}{3/4} = 1
+    \end{equation*}
+    该方程表示一个中心在 $\left( 1, 1, \frac{1}{2} \right)$，实轴沿 $x$ 轴方向的双叶双曲面。
+
+    \begin{equation*}
+        \boxed{\frac{x'^2}{3/4} - \frac{y'^2}{3/4} - \frac{z'^2}{3/4} = 1，\text{双叶双曲面}}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{二次曲面综合变换}{Transformation-Quadratic-Surface}
+    通过坐标变换，化简方程 $xy - x + y + z + 1 = 0$，并指出曲面的类型。
+\end{problem}
+
+\begin{solution}
+    首先通过平移消去一次项 $x, y$。令 $x = x' + a, y = y' + b, z = z' + c$，代入方程：
+    \begin{equation*}
+        (x' + a)(y' + b) - (x' + a) + (y' + b) + (z' + c) + 1 = 0
+    \end{equation*}
+    展开整理得：
+    \begin{equation*}
+        x'y' + (b - 1)x' + (a + 1)y' + z' + (ab - a + b + c + 1) = 0
+    \end{equation*}
+    令 $b - 1 = 0$ 且 $a + 1 = 0$，解得 $a = -1, b = 1$。此时常数项部分为：
+    \begin{equation*}
+        (-1)(1) - (-1) + 1 + c + 1 = c + 2
+    \end{equation*}
+    取 $c = -2$，则方程化为 $x'y' + z' = 0$，即 $z' = -x'y'$。随后进行坐标旋转，令：
+    \begin{equation*}
+        \begin{cases}
+            x' = \frac{X - Y}{\sqrt{2}} \\
+            y' = \frac{X + Y}{\sqrt{2}}
+        \end{cases}
+    \end{equation*}
+    代入 $z' = -x'y'$ 得：
+    \begin{equation*}
+        z' = -\frac{X^2 - Y^2}{2} = \frac{Y^2}{2} - \frac{X^2}{2}
+    \end{equation*}
+    此方程符合双曲抛物面的标准形式。
+
+    \begin{equation*}
+        \boxed{z' = \frac{Y^2}{2} - \frac{X^2}{2}，\text{双曲抛物面（马鞍面）}}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{坐标旋转化简}{Rotation-Transformation}
+    通过坐标旋转，化简方程 $5x^2 - 3y^2 + 3z^2 + 8yz - 5 = 0$，并指出它是什么曲面。
+\end{problem}
+
+\begin{solution}
+    由于方程中不含 $xy$ 和 $xz$ 项，只需在 $yz$ 平面上进行旋转变换。令坐标变换公式为：
+    \begin{equation*}
+        \begin{cases}
+            x = x'                              \\
+            y = y' \cos \theta - z' \sin \theta \\
+            z = y' \sin \theta + z' \cos \theta
+        \end{cases}
+    \end{equation*}
+    将变换代入方程中的 $y, z$ 相关项 $-3y^2 + 3z^2 + 8yz$：
+    \begin{equation*}
+        \begin{aligned}
+            -3y^2 + 3z^2 + 8yz & = -3(y' \cos \theta - z' \sin \theta)^2 + 3(y' \sin \theta + z' \cos \theta)^2 + 8(y' \cos \theta - z' \sin \theta)(y' \sin \theta + z' \cos \theta) \\
+                               & = (-3\cos^2 \theta + 3\sin^2 \theta + 8\sin \theta \cos \theta) y'^2 + (-3\sin^2 \theta + 3\cos^2 \theta - 8\sin \theta \cos \theta) z'^2            \\
+                               & \quad + [6\sin \theta \cos \theta + 6\sin \theta \cos \theta + 8(\cos^2 \theta - \sin^2 \theta)] y'z'                                                \\
+                               & = (4\sin 2\theta - 3\cos 2\theta) y'^2 + (3\cos 2\theta - 4\sin 2\theta) z'^2 + (6\sin 2\theta + 8\cos 2\theta) y'z'
+        \end{aligned}
+    \end{equation*}
+    欲消除混合项 $y'z'$，需满足 $6\sin 2\theta + 8\cos 2\theta = 0$，即 $\tan 2\theta = -\frac{4}{3}$。由此可取：
+    \begin{equation*}
+        \sin 2\theta = \frac{4}{5}, \quad \cos 2\theta = -\frac{3}{5}
+    \end{equation*}
+    代入 $y'^2$ 和 $z'^2$ 的系数，可得：
+    \begin{equation*}
+        \begin{aligned}
+            \text{系数}_{y'^2} & = 4 \left( \frac{4}{5} \right) - 3 \left( -\frac{3}{5} \right) = \frac{16 + 9}{5} = 5   \\
+            \text{系数}_{z'^2} & = 3 \left( -\frac{3}{5} \right) - 4 \left( \frac{4}{5} \right) = \frac{-9 - 16}{5} = -5
+        \end{aligned}
+    \end{equation*}
+    故原方程化为：
+    \begin{equation*}
+        5x'^2 + 5y'^2 - 5z'^2 - 5 = 0 \implies x'^2 + y'^2 - z'^2 = 1
+    \end{equation*}
+    该方程表示一个单叶双曲面。
+
+    \begin{equation*}
+        \boxed{x'^2 + y'^2 - z'^2 = 1，\text{单叶双曲面}}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{坐标系变换}{Coordinate-Transformation}
+    将下列方程按要求作相应的变换：
+    \begin{enumerate}
+        \item $x^2 - y^2 = 25$ 转换成柱面坐标系方程和球面坐标系方程；
+        \item $x^2 + y^2 + 4z^2 = 10$ 转换成柱面坐标系方程和球面坐标系方程；
+        \item $2x^2 + 2y^2 - 4z^2 = 0$ 转换成球面坐标系方程；
+        \item $x^2 - y^2 - z^2 = 1$ 转换成球面坐标系方程；
+        \item 柱面坐标系方程 $r^2 + 2z^2 = 4$ 转换成球面坐标系方程；
+        \item 球面坐标系方程 $r = 2 \cos \varphi$ 转换成柱面坐标系方程；
+        \item $x + y = 4$ 转换成柱面坐标系方程；
+        \item $x + y + z = 1$ 转换成球面坐标系方程；
+        \item 极坐标系方程 $r = 2 \sin \theta$ 转换成直角坐标系方程；
+        \item 柱面坐标系方程 $r^2 \cos 2\theta = z$ 转换成直角坐标系方程；
+        \item 球面坐标系方程 $r \sin \varphi = 1$ 转换成直角坐标系方程.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    代入柱面坐标变换公式 $x = r \cos \theta, y = r \sin \theta$ 得：
+    \begin{equation*}
+        r^2 \cos^2 \theta - r^2 \sin^2 \theta = 25 \implies \boxed{r^2 \cos 2\theta = 25}
+    \end{equation*}
+    代入球面坐标变换公式 $x = r \sin \theta \cos \varphi, y = r \sin \theta \sin \varphi, z = r \cos \theta$ 得：
+    \begin{equation*}
+        (r \sin \theta \cos \varphi)^2 - (r \sin \theta \sin \varphi)^2 = 25 \implies \boxed{r^2 \sin^2 \theta \cos 2\varphi = 25}
+    \end{equation*}
+
+    \ansitem{2}
+    对于柱面坐标系，由于 $x^2 + y^2 = r^2$，直接代入得：
+    \begin{equation*}
+        \boxed{r^2 + 4z^2 = 10}
+    \end{equation*}
+    对于球面坐标系，代入 $x^2 + y^2 = r^2 \sin^2 \theta$ 及 $z = r \cos \theta$ 得：
+    \begin{equation*}
+        r^2 \sin^2 \theta + 4r^2 \cos^2 \theta = 10 \implies \boxed{r^2 (1 + 3\cos^2 \theta) = 10}
+    \end{equation*}
+
+    \ansitem{3}
+    原方程变形为 $2(x^2 + y^2) - 4z^2 = 0$，代入球面坐标变换公式：
+    \begin{equation*}
+        2r^2 \sin^2 \theta - 4r^2 \cos^2 \theta = 0 \implies 2r^2 (\sin^2 \theta - 2\cos^2 \theta) = 0
+    \end{equation*}
+    当 $r \neq 0$ 时，$\tan^2 \theta = 2$，即：
+    \begin{equation*}
+        \boxed{\tan \theta = \pm \sqrt{2}}
+    \end{equation*}
+
+    \ansitem{4}
+    代入球面坐标变换公式：
+    \begin{equation*}
+        (r \sin \theta \cos \varphi)^2 - (r \sin \theta \sin \varphi)^2 - (r \cos \theta)^2 = 1
+    \end{equation*}
+    提取公因式 $r^2$ 并利用二倍角公式：
+    \begin{equation*}
+        \boxed{r^2 (\sin^2 \theta \cos 2\varphi - \cos^2 \theta) = 1}
+    \end{equation*}
+
+    \ansitem{5}
+    利用变换关系 $r_{\text{柱}} = r_{\text{球}} \sin \theta$ 及 $z = r_{\text{球}} \cos \theta$ 代入柱面方程：
+    \begin{equation*}
+        (r \sin \theta)^2 + 2(r \cos \theta)^2 = 4 \implies r^2 (\sin^2 \theta + 2\cos^2 \theta) = 4
+    \end{equation*}
+    整理得：
+    \begin{equation*}
+        \boxed{r^2 (1 + \cos^2 \theta) = 4}
+    \end{equation*}
+
+    \ansitem{6}
+    在球面坐标系中 $x = r \sin \theta \cos \varphi$，则 $\cos \varphi = \frac{x}{r \sin \theta}$。代入原方程得：
+    \begin{equation*}
+        r = \frac{2x}{r \sin \theta} \implies r^2 \sin \theta = 2x
+    \end{equation*}
+    在柱面坐标系中代入 $r_{\text{球}}^2 = r_{\text{柱}}^2 + z^2$ 及 $\sin \theta = \frac{r_{\text{柱}}}{\sqrt{r_{\text{柱}}^2 + z^2}}$，$x = r_{\text{柱}} \cos \theta_{\text{柱}}$：
+    \begin{equation*}
+        (r^2 + z^2) \cdot \frac{r}{\sqrt{r^2 + z^2}} = 2r \cos \theta \implies \sqrt{r^2 + z^2} = 2 \cos \theta
+    \end{equation*}
+    两边平方得：
+    \begin{equation*}
+        \boxed{r^2 + z^2 = 4\cos^2 \theta}
+    \end{equation*}
+
+    \ansitem{7}
+    代入柱面坐标 $x = r \cos \theta, y = r \sin \theta$ 得：
+    \begin{equation*}
+        \boxed{r (\cos \theta + \sin \theta) = 4}
+    \end{equation*}
+
+    \ansitem{8}
+    代入球面坐标变换公式：
+    \begin{equation*}
+        r \sin \theta \cos \varphi + r \sin \theta \sin \varphi + r \cos \theta = 1
+    \end{equation*}
+    提取公因式 $r$ 得：
+    \begin{equation*}
+        \boxed{r [\sin \theta (\cos \varphi + \sin \varphi) + \cos \theta] = 1}
+    \end{equation*}
+
+    \ansitem{9}
+    方程两边同乘以 $r$ 得 $r^2 = 2r \sin \theta$。代入 $r^2 = x^2 + y^2$ 及 $y = r \sin \theta$：
+    \begin{equation*}
+        \boxed{x^2 + y^2 = 2y}
+    \end{equation*}
+
+    \ansitem{10}
+    利用二倍角公式 $r^2 (\cos^2 \theta - \sin^2 \theta) = z$，代入柱面坐标 $x = r \cos \theta, y = r \sin \theta$：
+    \begin{equation*}
+        \boxed{x^2 - y^2 = z}
+    \end{equation*}
+
+    \ansitem{11}
+    在球面坐标系中 $y = r \sin \theta \sin \varphi$，则 $\sin \varphi = \frac{y}{r \sin \theta}$。代入原方程：
+    \begin{equation*}
+        r \cdot \frac{y}{r \sin \theta} = 1 \implies y = \sin \theta
+    \end{equation*}
+    两边平方并利用 $\sin^2 \theta = \frac{x^2 + y^2}{x^2 + y^2 + z^2}$ 得：
+    \begin{equation*}
+        \boxed{y^2 (x^2 + y^2 + z^2) = x^2 + y^2}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{旋转曲面}{Surface-of-Revolution-Parabola}
+    将 $Ozx$ 平面上抛物线 $z = 2x^2$ 绕 $z$ 轴旋转一周，写出所生成的曲面在柱面坐标系中的方程。
+\end{problem}
+
+\begin{solution}
+    在 $Ozx$ 平面内，抛物线方程为 $z = 2x^2$。将其绕 $z$ 轴旋转所得曲面在直角坐标系下的方程为
+    \begin{equation*}
+        z = 2(x^2 + y^2)
+    \end{equation*}
+    考虑到柱面坐标系中 $\rho^2 = x^2 + y^2$，直接代入上式可得其在柱面坐标系中的方程为
+    \begin{equation*}
+        \boxed{z = 2\rho^2}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{旋转曲面}{Surface-of-Revolution-Hyperbola}
+    将 $Ozx$ 平面上双曲线 $2x^2 - z^2 = 2$ 绕 $z$ 轴旋转一周，写出所生成的曲面在柱面坐标系中的方程。
+\end{problem}
+
+\begin{solution}
+    在 $Ozx$ 平面内，双曲线方程为 $2x^2 - z^2 = 2$。根据旋转曲面生成原理，曲线绕其对称轴 $z$ 轴旋转所得曲面方程需将 $x^2$ 替换为 $x^2 + y^2$，即
+    \begin{equation*}
+        2(x^2 + y^2) - z^2 = 2
+    \end{equation*}
+    引入柱面坐标系关系式 $\rho^2 = x^2 + y^2$，代入上式即得
+    \begin{equation*}
+        \boxed{2\rho^2 - z^2 = 2}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{圆的参数方程}{Circle-Parametric-Equation}
+    已知 $Oxy$ 平面上以原点为圆心，$a$ 为半径的圆的参数方程表示为
+    \begin{equation*}
+        \begin{cases}
+            x = a \cos t, \\
+            y = a \sin t,
+        \end{cases} \quad t \in [0, 2\uppi)
+    \end{equation*}
+    求 $Oxy$ 平面上以点 $P_0(x_0, y_0)$ 为圆心，$a$ 为半径的圆的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    对原点处的圆进行平移变换，将圆心从 $(0, 0)$ 平移至 $(x_0, y_0)$，所得参数方程为
+    \begin{equation*}
+        \boxed{
+        \begin{cases}
+            x = x_0 + a \cos t, \\
+            y = y_0 + a \sin t,
+        \end{cases} \quad t \in [0, 2\uppi)
+        }
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{球的参数方程}{Sphere-Parametric-Equation}
+    已知 $Oxyz$ 空间中以原点为圆心，$a$ 为半径的球的参数方程表示为
+    \begin{equation*}
+        \begin{cases}
+            x = a \sin u \cos v, \\
+            y = a \sin u \sin v, \\
+            z = a \cos u,
+        \end{cases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
+    \end{equation*}
+    求 $Oxyz$ 空间中以点 $P_0(x_0, y_0, z_0)$ 为圆心，$a$ 为半径的球的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    类比平面的平移变换，将球心从 $(0, 0, 0)$ 平移至 $(x_0, y_0, z_0)$，所得参数方程为
+    \begin{equation*}
+        \boxed{
+        \begin{cases}
+            x = x_0 + a \sin u \cos v, \\
+            y = y_0 + a \sin u \sin v, \\
+            z = z_0 + a \cos u,
+        \end{cases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
+        }
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{椭球面参数化}{Ellipsoid-Parameterization}
+    求椭球面
+    \begin{equation*}
+        \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1
+    \end{equation*}
+    的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    类比球面坐标系，引入参数 $\varphi \in [0, \uppi]$ 与 $\theta \in [0, 2\uppi)$，令
+    \begin{equation*}
+        \begin{cases}
+            x = a \sin \varphi \cos \theta \\
+            y = b \sin \varphi \sin \theta \\
+            z = c \cos \varphi
+        \end{cases}
+    \end{equation*}
+    代入原方程：
+    \begin{equation*}
+        \frac{a^2 \sin^2 \varphi \cos^2 \theta}{a^2} + \frac{b^2 \sin^2 \varphi \sin^2 \theta}{b^2} + \frac{c^2 \cos^2 \varphi}{c^2} = \sin^2 \varphi (\cos^2 \theta + \sin^2 \theta) + \cos^2 \varphi = \sin^2 \varphi + \cos^2 \varphi = 1
+    \end{equation*}
+    验证成立。故其参数方程为：
+    \begin{equation*}
+        \boxed{\begin{cases} x = a \sin \varphi \cos \theta \\ y = b \sin \varphi \sin \theta \\ z = c \cos \varphi \end{cases} \quad (\varphi \in [0, \uppi], \theta \in [0, 2\uppi))}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{双曲线参数化}{Hyperbola-Parameterization}
+    利用双曲函数，给出双曲线
+    \begin{equation*}
+        \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
+    \end{equation*}
+    的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    利用双曲恒等式 $\cosh^2 t - \sinh^2 t = 1$，令
+    \begin{equation*}
+        \frac{x}{a} = \cosh t, \quad \frac{y}{b} = \sinh t
+    \end{equation*}
+    考虑到双曲线包含两支，需引入符号因子。则有：
+    \begin{equation*}
+        \boxed{\begin{cases} x = \pm a \cosh t \\ y = b \sinh t \end{cases} \quad (t \in \symbb{R})}
+    \end{equation*}
+\end{solution}
+
+\begin{problem}{双曲面参数化}{Hyperboloid-Parameterization}
+    分别求单叶双曲面
+    \begin{equation*}
+        \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1
+    \end{equation*}
+    和双叶双曲面
+    \begin{equation*}
+        \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = -1
+    \end{equation*}
+    的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对于单叶双曲面，方程可变形为 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 + \frac{z^2}{c^2}$。利用双曲函数与三角函数的关系，令 $z = c \sinh u$，则 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = \cosh^2 u$。进一步令 $x = a \cosh u \cos v, y = b \cosh u \sin v$，得：
+    \begin{equation*}
+        \boxed{\begin{cases} x = a \cosh u \cos v \\ y = b \cosh u \sin v \\ z = c \sinh u \end{cases} \quad (u \in \symbb{R}, v \in [0, 2\uppi))}
+    \end{equation*}
+
+    \ansitem{2}
+
+    对于双叶双曲面，方程可变形为 $\frac{z^2}{c^2} - \left( \frac{x^2}{a^2} + \frac{y^2}{b^2} \right) = 1$。令 $x = a \sinh u \cos v, y = b \sinh u \sin v$，则有 $\frac{z^2}{c^2} = 1 + \sinh^2 u = \cosh^2 u$。考虑到曲面分为上下两叶，得：
+    \begin{equation*}
+        \boxed{\begin{cases} x = a \sinh u \cos v \\ y = b \sinh u \sin v \\ z = \pm c \cosh u \end{cases} \quad (u \in [0, +\infty), v \in [0, 2\uppi))}
+    \end{equation*}
+\end{solution}
+
+
+\section{第 8 章综合习题}
+
+\begin{problem}{点在平面上的充要条件}{Point-on-Plane-Condition}
+    设 $O$ 为一定点, $A, B, C$ 为不共线的三点. 证明: 点 $M$ 位于平面 $ABC$ 上的充分必要条件是存在实数 $k_1, k_2, k_3$ 使得
+    \begin{equation*}
+        \overrightarrow{OM} = k_1\overrightarrow{OA} + k_2\overrightarrow{OB} + k_3\overrightarrow{OC}, \text{ 且 } k_1 + k_2 + k_3 = 1.
+    \end{equation*}
+\end{problem}
+
+\begin{myproof}
+    必要性：若点 $M$ 位于平面 $ABC$ 上，由于 $A, B, C$ 不共线，则向量 $\overrightarrow{AB}$ 与 $\overrightarrow{AC}$ 不共线。
+    故存在实数 $x, y$ 使得
+    \begin{equation*}
+        \overrightarrow{AM} = x\overrightarrow{AB} + y\overrightarrow{AC}
+    \end{equation*}
+    依据向量的减法规则
+    \begin{equation*}
+        \overrightarrow{OM} - \overrightarrow{OA} = x(\overrightarrow{OB} - \overrightarrow{OA}) + y(\overrightarrow{OC} - \overrightarrow{OA})
+    \end{equation*}
+    整理得
+    \begin{equation*}
+        \overrightarrow{OM} = (1 - x - y)\overrightarrow{OA} + x\overrightarrow{OB} + y\overrightarrow{OC}
+    \end{equation*}
+    令 $k_1 = 1 - x - y, k_2 = x, k_3 = y$，则有
+    \begin{equation*}
+        \overrightarrow{OM} = k_1\overrightarrow{OA} + k_2\overrightarrow{OB} + k_3\overrightarrow{OC}
+    \end{equation*}
+    且满足
+    \begin{equation*}
+        k_1 + k_2 + k_3 = (1 - x - y) + x + y = 1
+    \end{equation*}
+    充分性：若存在 $k_1, k_2, k_3$ 满足题设条件，由 $k_1 = 1 - k_2 - k_3$ 代入得
+    \begin{equation*}
+        \begin{aligned}
+            \overrightarrow{OM}                                & = (1 - k_2 - k_3)\overrightarrow{OA} + k_2\overrightarrow{OB} + k_3\overrightarrow{OC}            \\
+            \implies \overrightarrow{OM} - \overrightarrow{OA} & = k_2(\overrightarrow{OB} - \overrightarrow{OA}) + k_3(\overrightarrow{OC} - \overrightarrow{OA}) \\
+            \implies \overrightarrow{AM}                       & = k_2\overrightarrow{AB} + k_3\overrightarrow{AC}
+        \end{aligned}
+    \end{equation*}
+    由于 $\overrightarrow{AM}$ 可由平面 $ABC$ 内的两个不共线向量 $\overrightarrow{AB}, \overrightarrow{AC}$ 线性表示，故点 $M$ 必在平面 $ABC$ 上。
+\end{myproof}
+
+
+\begin{problem}{向量线性相关性}{Vector-Linear-Dependence}
+    证明: 向量 $\symbfit{a} - \symbfit{b} + \symbfit{c}, -2\symbfit{a} + 3\symbfit{b} - 2\symbfit{c}, 2\symbfit{a} - \symbfit{b} + 2\symbfit{c}$ 线性相关.
+\end{problem}
+
+\begin{myproof}
+    设 $\symbfit{v}_1 = \symbfit{a} - \symbfit{b} + \symbfit{c}$, $\symbfit{v}_2 = -2\symbfit{a} + 3\symbfit{b} - 2\symbfit{c}$, $\symbfit{v}_3 = 2\symbfit{a} - \symbfit{b} + 2\symbfit{c}$。
+    考虑其系数矩阵的行列式（以 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 为基）：
+    \begin{equation*}
+        D = \begin{vmatrix} 1 & -2 & 2 \\ -1 & 3 & -1 \\ 1 & -2 & 2 \end{vmatrix}
+    \end{equation*}
+    观察发现第一列与第三列相同（或第一行与第三行相同），根据行列式性质可知
+    \begin{equation*}
+        D = 0
+    \end{equation*}
+    这表明 $\symbfit{v}_1, \symbfit{v}_2, \symbfit{v}_3$ 线性相关。具体地，可得线性组合关系：
+    \begin{equation*}
+        4(\symbfit{a} - \symbfit{b} + \symbfit{c}) + (-2\symbfit{a} + 3\symbfit{b} - 2\symbfit{c}) - (2\symbfit{a} - \symbfit{b} + 2\symbfit{c}) = \symbfit{0}
+    \end{equation*}
+    即
+    \begin{equation*}
+        \boxed{4\symbfit{v}_1 + \symbfit{v}_2 - \symbfit{v}_3 = \symbfit{0}}
+    \end{equation*}
+\end{myproof}
+
+
+\begin{problem}{空间向量分解定理}{Space-Vector-Decomposition}
+    证明: 三维空间中四个或四个以上的向量一定线性相关.
+\end{problem}
+
+\begin{myproof}
+    设 $\symbfit{a}, \symbfit{b}, \symbfit{c}, \symbfit{d}$ 为三维空间中的任意四个向量。
+
+    若 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 中存在共面（或共线）的情况，则该子向量组已线性相关，从而整体必线性相关。
+
+    若 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 不共面，根据空间向量基本定理，空间中任意向量 $\symbfit{d}$ 均可由这三个不共面向量线性表示。即存在实数 $\lambda_1, \lambda_2, \lambda_3$ 使得
+    \begin{equation*}
+        \symbfit{d} = \lambda_1\symbfit{a} + \lambda_2\symbfit{b} + \lambda_3\symbfit{c}
+    \end{equation*}
+    由向量运算性质可得
+    \begin{equation*}
+        \lambda_1\symbfit{a} + \lambda_2\symbfit{b} + \lambda_3\symbfit{c} + (-1)\symbfit{d} = \symbfit{0}
+    \end{equation*}
+    由于向量 $\symbfit{d}$ 的系数 $-1 \neq 0$，说明存在不全为零的常数使得该向量组的线性组合为零向量。因此，这四个向量线性相关。
+
+    对于四个以上的向量，由于其包含的四个向量子组已经线性相关，根据线性相关性的性质，增加向量后的向量组
+    \begin{equation*}
+        \boxed{\text{一定线性相关}}
+    \end{equation*}
+\end{myproof}
+
+
+\begin{problem}{向量基底与共面}{Vector-Basis}
+    设 $\symbfit{e}_1, \symbfit{e}_2, \symbfit{e}_3$ 为一组基，
+    \begin{enumerate}
+        \item 证明：$\symbfit{a} = \symbfit{e}_1 + 2\symbfit{e}_2 - \symbfit{e}_3$, $\symbfit{b} = 2\symbfit{e}_1 + \symbfit{e}_2 + \symbfit{e}_3$, $\symbfit{c} = 3\symbfit{e}_1 + 2\symbfit{e}_3$ 为一组基；
+        \item 设 $\tilde{\symbfit{c}} = 3\symbfit{e}_1 + x\symbfit{e}_2 + 2\symbfit{e}_3$. 问当 $x$ 取何值时，$\symbfit{a}, \symbfit{b}, \tilde{\symbfit{c}}$ 共面？
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    由于 $\symbfit{e}_1, \symbfit{e}_2, \symbfit{e}_3$ 为一组基，向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 在该基下的坐标构成的行列式为
+    \begin{equation*}
+        D = \begin{vmatrix} 1 & 2 & 3 \\ 2 & 1 & 0 \\ -1 & 1 & 2 \end{vmatrix}
+    \end{equation*}
+    按第二行展开得
+    \begin{equation*}
+        D = -2 \cdot \begin{vmatrix} 2 & 3 \\ 1 & 2 \end{vmatrix} + 1 \cdot \begin{vmatrix} 1 & 3 \\ -1 & 2 \end{vmatrix} = -2(4-3) + (2+3) = 3
+    \end{equation*}
+    因为 $D = 3 \neq 0$，所以向量组 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 线性无关。
+    \begin{equation*}
+        \boxed{\text{故 } \symbfit{a}, \symbfit{b}, \symbfit{c} \text{ 构成一组基}}
+    \end{equation*}
+
+    \ansitem{2}
+
+    若向量 $\symbfit{a}, \symbfit{b}, \tilde{\symbfit{c}}$ 共面，则其对应的坐标行列式必为零
+    \begin{equation*}
+        D_x = \begin{vmatrix} 1 & 2 & 3 \\ 2 & 1 & x \\ -1 & 1 & 2 \end{vmatrix} = 0
+    \end{equation*}
+    按第三行展开计算行列式
+    \begin{equation*}
+        \begin{aligned}
+            D_x & = -1 \cdot \begin{vmatrix} 2 & 3 \\ 1 & x \end{vmatrix} - 1 \cdot \begin{vmatrix} 1 & 3 \\ 2 & x \end{vmatrix} + 2 \cdot \begin{vmatrix} 1 & 2 \\ 2 & 1 \end{vmatrix} \\
+                & = -(2x - 3) - (x - 6) + 2(1 - 4)                                                                                                                                      \\
+                & = -2x + 3 - x + 6 - 6                                                                                                                                                 \\
+                & = 3 - 3x
+        \end{aligned}
+    \end{equation*}
+    令 $3 - 3x = 0$，解得
+    \begin{equation*}
+        \boxed{x = 1}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{向量积运算}{Cross-Product-Calculation}
+    设向量 $\symbfit{a}, \symbfit{b}$ 的夹角为 $60^\circ$，且 $|\symbfit{a}| = 1, |\symbfit{b}| = 2$. 试求 $|\symbfit{a} \times \symbfit{b}|^2$ 和 $|(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})|$.
+\end{problem}
+
+\begin{solution}
+    首先计算 $|\symbfit{a} \times \symbfit{b}|$
+    \begin{equation*}
+        |\symbfit{a} \times \symbfit{b}| = |\symbfit{a}| |\symbfit{b}| \sin 60^\circ = 1 \cdot 2 \cdot \frac{\sqrt{3}}{2} = \sqrt{3}
+    \end{equation*}
+    从而有
+    \begin{equation*}
+        \boxed{|\symbfit{a} \times \symbfit{b}|^2 = 3}
+    \end{equation*}
+    利用向量积的分配律与性质 $\symbfit{a} \times \symbfit{a} = \symbfit{0}, \symbfit{b} \times \symbfit{a} = - \symbfit{a} \times \symbfit{b}$，可得
+    \begin{equation*}
+        \begin{aligned}
+            (\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b}) & = \symbfit{a} \times \symbfit{a} - \symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{a} - \symbfit{b} \times \symbfit{b} \\
+                                                                           & = \symbfit{0} - \symbfit{a} \times \symbfit{b} - \symbfit{a} \times \symbfit{b} - \symbfit{0}                                       \\
+                                                                           & = -2 (\symbfit{a} \times \symbfit{b})
+        \end{aligned}
+    \end{equation*}
+    对其取模
+    \begin{equation*}
+        |(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})| = |-2 (\symbfit{a} \times \symbfit{b})| = 2 |\symbfit{a} \times \symbfit{b}| = 2\sqrt{3}
+    \end{equation*}
+    即
+    \begin{equation*}
+        \boxed{|(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})| = 2\sqrt{3}}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{雅可比恒等式}{Jacobi-Identity}
+    证明不等式 $(\symbfit{a} \times \symbfit{b}) \times \symbfit{c} + (\symbfit{b} \times \symbfit{c}) \times \symbfit{a} + (\symbfit{c} \times \symbfit{a}) \times \symbfit{b} = \symbfit{0}$.
+\end{problem}
+
+\begin{myproof}
+    根据向量三重积展开公式 $\symbfit{A} \times (\symbfit{B} \times \symbfit{C}) = (\symbfit{A} \cdot \symbfit{C})\symbfit{B} - (\symbfit{A} \cdot \symbfit{B})\symbfit{C}$，以及向量积的反对称性 $(\symbfit{u} \times \symbfit{v}) = - (\symbfit{v} \times \symbfit{u})$，可知
+    \begin{equation*}
+        (\symbfit{a} \times \symbfit{b}) \times \symbfit{c} = - \symbfit{c} \times (\symbfit{a} \times \symbfit{b}) = - [(\symbfit{c} \cdot \symbfit{b})\symbfit{a} - (\symbfit{c} \cdot \symbfit{a})\symbfit{b}] = (\symbfit{c} \cdot \symbfit{a})\symbfit{b} - (\symbfit{c} \cdot \symbfit{b})\symbfit{a}
+    \end{equation*}
+    同理可得剩余两项的展开式
+    \begin{equation*}
+        (\symbfit{b} \times \symbfit{c}) \times \symbfit{a} = (\symbfit{a} \cdot \symbfit{b})\symbfit{c} - (\symbfit{a} \cdot \symbfit{c})\symbfit{b}
+    \end{equation*}
+    \begin{equation*}
+        (\symbfit{c} \times \symbfit{a}) \times \symbfit{b} = (\symbfit{b} \cdot \symbfit{c})\symbfit{a} - (\symbfit{b} \cdot \symbfit{a})\symbfit{c}
+    \end{equation*}
+    将上述三式相加，并利用数量积的交换律 $\symbfit{u} \cdot \symbfit{v} = \symbfit{v} \cdot \symbfit{u}$
+    \begin{equation*}
+        \begin{aligned}
+             & \quad (\symbfit{a} \times \symbfit{b}) \times \symbfit{c} + (\symbfit{b} \times \symbfit{c}) \times \symbfit{a} + (\symbfit{c} \times \symbfit{a}) \times \symbfit{b}                                                                                                               \\
+             & = [(\symbfit{c} \cdot \symbfit{a})\symbfit{b} - (\symbfit{c} \cdot \symbfit{b})\symbfit{a}] + [(\symbfit{a} \cdot \symbfit{b})\symbfit{c} - (\symbfit{a} \cdot \symbfit{c})\symbfit{b}] + [(\symbfit{b} \cdot \symbfit{c})\symbfit{a} - (\symbfit{b} \cdot \symbfit{a})\symbfit{c}] \\
+             & = (\symbfit{c} \cdot \symbfit{a} - \symbfit{a} \cdot \symbfit{c})\symbfit{b} + (\symbfit{b} \cdot \symbfit{c} - \symbfit{c} \cdot \symbfit{b})\symbfit{a} + (\symbfit{a} \cdot \symbfit{b} - \symbfit{b} \cdot \symbfit{a})\symbfit{c}                                              \\
+             & = 0\symbfit{b} + 0\symbfit{a} + 0\symbfit{c}                                                                                                                                                                                                                                        \\
+             & = \symbfit{0}
+        \end{aligned}
+    \end{equation*}
+    证毕。
+\end{myproof}
+
+
+\begin{problem}{柱面方程}{Cylinder-Equation}
+    求准线为 $\begin{cases} y^2 + z^2 = 1, \\ x = 1, \end{cases}$ 母线方向为 $(2, 1, 1)$ 的柱面的一般方程.
+\end{problem}
+
+\begin{solution}
+    设 $(x, y, z)$ 为柱面上任一点，其母线方向向量为 $\symbfit{s} = (2, 1, 1)$，则过该点的母线方程为
+    \begin{equation*}
+        \frac{X - x}{2} = \frac{Y - y}{1} = \frac{Z - z}{1} = t
+    \end{equation*}
+    母线与准线的交点 $(X, Y, Z)$ 满足
+    \begin{equation*}
+        \begin{cases}
+            X = x + 2t = 1 \\
+            Y = y + t      \\
+            Z = z + t
+        \end{cases}
+    \end{equation*}
+    由第一式解得 $t = \frac{1 - x}{2}$，将其代入后两式可得
+    \begin{equation*}
+        Y = y + \frac{1 - x}{2} = \frac{2y - x + 1}{2}, \quad Z = z + \frac{1 - x}{2} = \frac{2z - x + 1}{2}
+    \end{equation*}
+    由于交点在准线 $Y^2 + Z^2 = 1$ 上，故有
+    \begin{equation*}
+        \left(\frac{x - 2y - 1}{2}\right)^2 + \left(\frac{x - 2z - 1}{2}\right)^2 = 1 \implies (x - 2y - 1)^2 + (x - 2z - 1)^2 = 4
+    \end{equation*}
+    展开整理得柱面的一般方程为
+    \begin{equation*}
+        \boxed{x^2 + 2y^2 + 2z^2 - 2xy - 2xz - 2x + 2y + 2z - 1 = 0}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{锥面方程}{Cone-Equation}
+    求准线为 $\begin{cases} y^2 + z^2 = 1, \\ x = 1, \end{cases}$ 顶点坐标为 $(2, 1, 1)$ 的锥面的一般方程.
+\end{problem}
+
+\begin{solution}
+    设 $(x, y, z)$ 为锥面上除顶点外的任一点，连接顶点 $V(2, 1, 1)$ 与该点的直线（母线）方程为
+    \begin{equation*}
+        \frac{X - 2}{x - 2} = \frac{Y - 1}{y - 1} = \frac{Z - 1}{z - 1} = \lambda
+    \end{equation*}
+    该母线与准线 $X = 1$ 相交，则有
+    \begin{equation*}
+        \frac{1 - 2}{x - 2} = \lambda \implies \lambda = \frac{1}{2 - x}
+    \end{equation*}
+    由此可确定交点坐标为
+    \begin{equation*}
+        Y = \lambda(y - 1) + 1 = \frac{y - x + 1}{2 - x}, \quad Z = \lambda(z - 1) + 1 = \frac{z - x + 1}{2 - x}
+    \end{equation*}
+    将 $Y, Z$ 代入准线方程 $Y^2 + Z^2 = 1$ 得
+    \begin{equation*}
+        \left(\frac{y - x + 1}{2 - x}\right)^2 + \left(\frac{z - x + 1}{2 - x}\right)^2 = 1 \implies (x - y - 1)^2 + (x - z - 1)^2 = (x - 2)^2
+    \end{equation*}
+    展开各项并合并同类项
+    \begin{equation*}
+        (x^2 + y^2 + 1 - 2xy - 2x + 2y) + (x^2 + z^2 + 1 - 2xz - 2x + 2z) = x^2 - 4x + 4
+    \end{equation*}
+    整理得锥面的一般方程为
+    \begin{equation*}
+        \boxed{x^2 + y^2 + z^2 - 2xy - 2xz + 2y + 2z - 2 = 0}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{旋转面方程}{Surface-Of-Revolution-1}
+    求直线 $x - 1 = y = z$ 绕 $x = y = 1$ 旋转所得旋转面的参数方程和一般方程。
+\end{problem}
+
+\begin{solution}
+    旋转轴为直线 $L: \frac{x-1}{0} = \frac{y-1}{0} = \frac{z}{1}$，其方向向量为 $\symbfit{k} = (0, 0, 1)$。
+    设母线上任一点为 $P_0(x_0, y_0, z_0)$，满足：
+    \begin{equation*}
+        x_0 = z_0 + 1, \quad y_0 = z_0.
+    \end{equation*}
+    点 $P(x, y, z)$ 在旋转面上，其到旋转轴 $x=1, y=1$ 的距离等于母线上的点到轴的距离，且 $z$ 坐标保持不变：
+    \begin{equation*}
+        \begin{aligned}
+            (x - 1)^2 + (y - 1)^2          & = (x_0 - 1)^2 + (y_0 - 1)^2     \\
+            \implies (x - 1)^2 + (y - 1)^2 & = (z_0 + 1 - 1)^2 + (z_0 - 1)^2 \\
+                                           & = z_0^2 + (z_0 - 1)^2.
+        \end{aligned}
+    \end{equation*}
+    由于 $z = z_0$，代入上式整理得该旋转面的一般方程：
+    \begin{equation*}
+        \boxed{(x - 1)^2 + (y - 1)^2 = 2z^2 - 2z + 1}
+    \end{equation*}
+    令 $z = u, \theta = v$，则旋转面的参数方程可表示为：
+    \begin{equation*}
+        \boxed{\begin{cases}
+            x = 1 + \sqrt{2u^2 - 2u + 1} \cos v \\
+            y = 1 + \sqrt{2u^2 - 2u + 1} \sin v \\
+            z = u
+        \end{cases} \quad (u \in \symbb{R}, v \in [0, 2\uppi))}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{旋转面方程}{Surface-Of-Revolution-2}
+    求圆 $\begin{cases} (x - 2)^2 + y^2 = 1, \\ z = 0 \end{cases}$ 绕 $y$ 轴旋转所得旋转面的参数方程和一般方程。
+\end{problem}
+
+\begin{solution}
+    母线为 $xy$ 平面上的圆 $(x - 2)^2 + y^2 = 1$。将其绕 $y$ 轴旋转时，空间中点 $(x, y, z)$ 满足原母线方程中的 $x$ 被替换为 $\pm \sqrt{x^2 + z^2}$。
+    代入母线方程得：
+    \begin{equation*}
+        (\sqrt{x^2 + z^2} - 2)^2 + y^2 = 1.
+    \end{equation*}
+    整理得旋转面的一般方程为：
+    \begin{equation*}
+        \boxed{x^2 + y^2 + z^2 - 4\sqrt{x^2 + z^2} + 3 = 0}
+    \end{equation*}
+    为求参数方程，先写出母线圆在 $xy$ 平面上的参数表示：
+    \begin{equation*}
+        \begin{cases}
+            x = 2 + \cos u \\
+            y = \sin u
+        \end{cases} \quad (u \in [0, 2\uppi))
+    \end{equation*}
+    设绕 $y$ 轴旋转的角度为 $v$，则旋转面上任意一点的坐标为：
+    \begin{equation*}
+        \boxed{\begin{cases}
+            x = (2 + \cos u) \cos v \\
+            y = \sin u              \\
+            z = (2 + \cos u) \sin v
+        \end{cases} \quad (u, v \in [0, 2\uppi))}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{坐标变换}{Coordinate-Transformation-2}
+    将坐标系 $[O; \symbfit{e}_1, \symbfit{e}_2, \symbfit{e}_3]$ 绕 $\symbfit{e}_1$ 逆时针旋转角度 $\alpha$ 后得到新坐标系 $[O; \tilde{\symbfit{e}}_1, \tilde{\symbfit{e}}_2, \tilde{\symbfit{e}}_3]$，再将坐标系 $[O; \tilde{\symbfit{e}}_1, \tilde{\symbfit{e}}_2, \tilde{\symbfit{e}}_3]$ 绕 $\tilde{\symbfit{e}}_2$ 逆时针旋转角度 $\beta$ 后得到的新坐标系为 $[O; \hat{\symbfit{e}}_1, \hat{\symbfit{e}}_2, \hat{\symbfit{e}}_3]$。求 $[O; \symbfit{e}_1, \symbfit{e}_2, \symbfit{e}_3]$ 与 $[O; \hat{\symbfit{e}}_1, \hat{\symbfit{e}}_2, \hat{\symbfit{e}}_3]$ 之间的坐标变换公式。
+\end{problem}
+
+\begin{solution}
+    设点在 $[O; \symbfit{e}_1, \symbfit{e}_2, \symbfit{e}_3]$ 下的坐标为 $\symbfit{x} = (x_1, x_2, x_3)^{\symrm{T}}$，在 $[O; \tilde{\symbfit{e}}_1, \tilde{\symbfit{e}}_2, \tilde{\symbfit{e}}_3]$ 下的坐标为 $\tilde{\symbfit{x}} = (\tilde{x}_1, \tilde{x}_2, \tilde{x}_3)^{\symrm{T}}$，在 $[O; \hat{\symbfit{e}}_1, \hat{\symbfit{e}}_2, \hat{\symbfit{e}}_3]$ 下的坐标为 $\hat{\symbfit{x}} = (\hat{x}_1, \hat{x}_2, \hat{x}_3)^{\symrm{T}}$。
+
+    根据绕坐标轴旋转的定义，第一次绕 $\symbfit{e}_1$ 旋转的坐标变换矩阵为
+    \begin{equation*}
+        \symbfit{M}_1 = \begin{bmatrix}
+            1 & 0          & 0           \\
+            0 & \cos\alpha & -\sin\alpha \\
+            0 & \sin\alpha & \cos\alpha
+        \end{bmatrix}
+    \end{equation*}
+    则有 $\symbfit{x} = \symbfit{M}_1 \tilde{\symbfit{x}}$。第二次绕新系的 $\tilde{\symbfit{e}}_2$ 旋转的坐标变换矩阵为
+    \begin{equation*}
+        \symbfit{M}_2 = \begin{bmatrix}
+            \cos\beta  & 0 & \sin\beta \\
+            0          & 1 & 0         \\
+            -\sin\beta & 0 & \cos\beta
+        \end{bmatrix}
+    \end{equation*}
+    则有 $\tilde{\symbfit{x}} = \symbfit{M}_2 \hat{\symbfit{x}}$。由此可得总的坐标变换公式为
+    \begin{equation*}
+        \begin{aligned}
+            \symbfit{x} & = \symbfit{M}_1 \symbfit{M}_2 \hat{\symbfit{x}}                \\
+                        & = \begin{bmatrix}
+                                1 & 0          & 0           \\
+                                0 & \cos\alpha & -\sin\alpha \\
+                                0 & \sin\alpha & \cos\alpha
+                            \end{bmatrix} \begin{bmatrix}
+                                              \cos\beta  & 0 & \sin\beta \\
+                                              0          & 1 & 0         \\
+                                              -\sin\beta & 0 & \cos\beta
+                                          \end{bmatrix} \hat{\symbfit{x}}                \\
+                        & = \begin{bmatrix}
+                                \cos\beta            & 0          & \sin\beta            \\
+                                \sin\alpha\sin\beta  & \cos\alpha & -\sin\alpha\cos\beta \\
+                                -\cos\alpha\sin\beta & \sin\alpha & \cos\alpha\cos\beta
+                            \end{bmatrix} \hat{\symbfit{x}}
+        \end{aligned}
+    \end{equation*}
+    即坐标变换公式为
+    \begin{equation*}
+        \boxed{\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} \cos\beta & 0 & \sin\beta \\ \sin\alpha\sin\beta & \cos\alpha & -\sin\alpha\cos\beta \\ -\cos\alpha\sin\beta & \sin\alpha & \cos\alpha\cos\beta \end{bmatrix} \begin{bmatrix} \hat{x}_1 \\ \hat{x}_2 \\ \hat{x}_3 \end{bmatrix}}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{二次曲面方程}{Quadric-Surface-Equation}
+    已知椭球面的三个半轴长分别为 $a,b,c$，三条对称轴方程分别为
+    \begin{equation*}
+        3 - x = \frac{y}{2} = \frac{z}{2}, \quad \frac{x}{2} = 3 - y = \frac{z}{2}, \quad \frac{x}{2} = \frac{y}{2} = 3 - z,
+    \end{equation*}
+    求椭球面的一般方程。
+\end{problem}
+
+\begin{solution}
+    首先，将给定的三条对称轴方程化为标准形式：
+    \begin{equation*}
+        \begin{aligned}
+            L_1 & \colon \frac{x - 3}{-1} = \frac{y}{2} = \frac{z}{2}, \\
+            L_2 & \colon \frac{x}{2} = \frac{y - 3}{-1} = \frac{z}{2}, \\
+            L_3 & \colon \frac{x}{2} = \frac{y}{2} = \frac{z - 3}{-1}.
+        \end{aligned}
+    \end{equation*}
+
+    由此可得，这三条对称轴的方向向量依次为
+    \begin{equation*}
+        \symbfit{v}_1 = (-1, 2, 2), \quad \symbfit{v}_2 = (2, -1, 2), \quad \symbfit{v}_3 = (2, 2, -1).
+    \end{equation*}
+
+    易验证这三个方向向量两两正交，即 $\symbfit{v}_1 \cdot \symbfit{v}_2 = 0$, $\symbfit{v}_2 \cdot \symbfit{v}_3 = 0$, $\symbfit{v}_3 \cdot \symbfit{v}_1 = 0$。且它们的模长均为
+    \begin{equation*}
+        \|\symbfit{v}_1\| = \|\symbfit{v}_2\| = \|\symbfit{v}_3\| = \sqrt{(-1)^2 + 2^2 + 2^2} = 3.
+    \end{equation*}
+
+    因此，对应的单位方向向量为
+    \begin{equation*}
+        \symbfit{e}_1 = \frac{1}{3}(-1, 2, 2), \quad \symbfit{e}_2 = \frac{1}{3}(2, -1, 2), \quad \symbfit{e}_3 = \frac{1}{3}(2, 2, -1).
+    \end{equation*}
+
+    其次，求椭球面的对称中心。三条对称轴的交点即为椭球面的中心 $M_0(x_0, y_0, z_0)$。联立 $L_1$ 与 $L_2$ 的方程：
+    \begin{equation*}
+        3 - x = \frac{y}{2} = \frac{z}{2} \quad \text{与} \quad \frac{x}{2} = 3 - y = \frac{z}{2}.
+    \end{equation*}
+
+    由 $\frac{z}{2} = \frac{z}{2}$ 可设公共参数为 $t$，则 $z = 2t$。代入得 $x = 3 - t$ 且 $y = 2t$，同时从 $L_2$ 中有 $\frac{3 - t}{2} = 3 - 2t \implies t = 1$。
+    将 $t = 1$ 代回，解得交点坐标为 $(2, 2, 2)$。显然该点也满足 $L_3$ 的方程，故椭球面的中心为 $M_0(2, 2, 2)$。
+
+    设空间任一点 $P(x, y, z)$ 在以 $M_0$ 为原点，以 $\symbfit{e}_1, \symbfit{e}_2, \symbfit{e}_3$ 为基向量的新直角坐标系中的坐标为 $(X, Y, Z)$。记向量 $\overrightarrow{M_0 P} = (x - 2, y - 2, z - 2)$，则由坐标投影关系可得：
+    \begin{equation*}
+        \begin{aligned}
+            X & = \overrightarrow{M_0 P} \cdot \symbfit{e}_1 = \frac{-(x - 2) + 2(y - 2) + 2(z - 2)}{3} = \frac{-x + 2y + 2z - 6}{3}, \\
+            Y & = \overrightarrow{M_0 P} \cdot \symbfit{e}_2 = \frac{2(x - 2) - (y - 2) + 2(z - 2)}{3} = \frac{2x - y + 2z - 6}{3},   \\
+            Z & = \overrightarrow{M_0 P} \cdot \symbfit{e}_3 = \frac{2(x - 2) + 2(y - 2) - (z - 2)}{3} = \frac{2x + 2y - z - 6}{3}.
+        \end{aligned}
+    \end{equation*}
+
+    在新坐标系下，由于三个半轴长分别为 $a, b, c$，椭球面的标准方程为
+    \begin{equation*}
+        \frac{X^2}{a^2} + \frac{Y^2}{b^2} + \frac{Z^2}{c^2} = 1.
+    \end{equation*}
+
+    将上述 $X, Y, Z$ 的表达式代入，即可得到原坐标系下的椭球面一般方程：
+    \begin{equation*}
+        \boxed{\frac{(-x + 2y + 2z - 6)^2}{9a^2} + \frac{(2x - y + 2z - 6)^2}{9b^2} + \frac{(2x + 2y - z - 6)^2}{9c^2} = 1}
+    \end{equation*}
+\end{solution}
+
+
+\begin{problem}{球面坐标系两点距离}{Spherical-Distance}
+    设在球面坐标系中有两点 $(r_1, \theta_1, \varphi_1)$ 和 $(r_2, \theta_2, \varphi_2)$， $d$ 是这两点之间的直线距离. 证明：
+    \begin{equation*}
+        d = \sqrt{(r_1 - r_2)^2 + 2r_1 r_2 [1 - \cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 - \cos\theta_1 \cos\theta_2]}.
+    \end{equation*}
+\end{problem}
+
+\begin{myproof}
+    设这两点对应的位置向量分别为 $\symbfit{r}_1$ 和 $\symbfit{r}_2$。在直角坐标系下，根据球面坐标与直角坐标的转换关系，有
+    \begin{equation*}
+        \begin{aligned}
+            \symbfit{r}_1 & = (r_1 \sin\theta_1 \cos\varphi_1, r_1 \sin\theta_1 \sin\varphi_1, r_1 \cos\theta_1) \\
+            \symbfit{r}_2 & = (r_2 \sin\theta_2 \cos\varphi_2, r_2 \sin\theta_2 \sin\varphi_2, r_2 \cos\theta_2)
+        \end{aligned}
+    \end{equation*}
+
+    两点之间的直线距离的平方等于其位置向量差的模的平方，即
+    \begin{equation*}
+        d^2 = |\symbfit{r}_1 - \symbfit{r}_2|^2 = |\symbfit{r}_1|^2 + |\symbfit{r}_2|^2 - 2 \symbfit{r}_1 \cdot \symbfit{r}_2
+    \end{equation*}
+
+    易知 $|\symbfit{r}_1|^2 = r_1^2$，$|\symbfit{r}_2|^2 = r_2^2$。计算两向量的内积可得
+    \begin{equation*}
+        \begin{aligned}
+            \symbfit{r}_1 \cdot \symbfit{r}_2 & = (r_1 \sin\theta_1 \cos\varphi_1)(r_2 \sin\theta_2 \cos\varphi_2) + (r_1 \sin\theta_1 \sin\varphi_1)(r_2 \sin\theta_2 \sin\varphi_2) + (r_1 \cos\theta_1)(r_2 \cos\theta_2) \\
+                                              & = r_1 r_2 [\sin\theta_1 \sin\theta_2 (\cos\varphi_1 \cos\varphi_2 + \sin\varphi_1 \sin\varphi_2) + \cos\theta_1 \cos\theta_2]                                                \\
+                                              & = r_1 r_2 [\cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2]
+        \end{aligned}
+    \end{equation*}
+
+    将上述结果代入距离平方公式中，得到
+    \begin{equation*}
+        d^2 = r_1^2 + r_2^2 - 2r_1 r_2 [\cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2]
+    \end{equation*}
+
+    利用代数恒等式 $(r_1 - r_2)^2 = r_1^2 + r_2^2 - 2r_1 r_2$ 将上式进行配凑变形：
+    \begin{equation*}
+        \begin{aligned}
+            d^2 & = (r_1^2 - 2r_1 r_2 + r_2^2) + 2r_1 r_2 - 2r_1 r_2 [\cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2] \\
+                & = (r_1 - r_2)^2 + 2r_1 r_2 [1 - \cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 - \cos\theta_1 \cos\theta_2]
+        \end{aligned}
+    \end{equation*}
+
+    由于 $d \geqslant 0$，两边同时开平方即得所求证的距离公式
+    \begin{equation*}
+        \boxed{d = \sqrt{(r_1 - r_2)^2 + 2r_1 r_2 [1 - \cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 - \cos\theta_1 \cos\theta_2]}}
+    \end{equation*}
+\end{myproof}
+
+\begin{problem}{球面距离}{Spherical-Surface-Distance}
+    设在球面 $r=a$ 上有两个点 $(a, \theta_1, \varphi_1)$ 和 $(a, \theta_2, \varphi_2)$. 证明：这两个点之间的球面距离是 $a\gamma$ $(0 \leqslant \gamma \leqslant \pi)$，其中 $\gamma$ 满足
+    \begin{equation*}
+        \cos\gamma = \cos(\varphi_1 - \varphi_2)\sin\theta_1\sin\theta_2 + \cos\theta_1\cos\theta_2.
+    \end{equation*}
+\end{problem}
+
+\begin{myproof}
+    设球心为原点 $O$，两点对应的位置向量分别为 $\symbfit{r}_1$ 和 $\symbfit{r}_2$。由于这两点均位于半径为 $a$ 的球面上，它们在直角坐标系中的位置向量可表示为
+    \begin{equation*}
+        \begin{aligned}
+            \symbfit{r}_1 & = a (\sin\theta_1 \cos\varphi_1, \sin\theta_1 \sin\varphi_1, \cos\theta_1) \\
+            \symbfit{r}_2 & = a (\sin\theta_2 \cos\varphi_2, \sin\theta_2 \sin\varphi_2, \cos\theta_2)
+        \end{aligned}
+    \end{equation*}
+
+    球面距离被定义为经过这两点的大圆劣弧的长度。设向量 $\symbfit{r}_1$ 和 $\symbfit{r}_2$ 之间的夹角为 $\gamma$ $(0 \leqslant \gamma \leqslant \pi)$，则由弧长公式可知，该球面距离即为 $a\gamma$。
+
+    根据向量内积的几何定义，有
+    \begin{equation*}
+        \symbfit{r}_1 \cdot \symbfit{r}_2 = |\symbfit{r}_1| |\symbfit{r}_2| \cos\gamma = a^2 \cos\gamma
+    \end{equation*}
+
+    另一方面，根据向量内积的坐标运算，可得
+    \begin{equation*}
+        \begin{aligned}
+            \symbfit{r}_1 \cdot \symbfit{r}_2 & = a^2 (\sin\theta_1 \cos\varphi_1 \sin\theta_2 \cos\varphi_2 + \sin\theta_1 \sin\varphi_1 \sin\theta_2 \sin\varphi_2 + \cos\theta_1 \cos\theta_2) \\
+                                              & = a^2 [\sin\theta_1 \sin\theta_2 (\cos\varphi_1 \cos\varphi_2 + \sin\varphi_1 \sin\varphi_2) + \cos\theta_1 \cos\theta_2]                         \\
+                                              & = a^2 [\cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2]
+        \end{aligned}
+    \end{equation*}
+
+    将上述两种内积表达方式的等号相连，由于 $a \neq 0$，等式两边同除以 $a^2$ 即可得出夹角 $\gamma$ 所满足的等式关系：
+    \begin{equation*}
+        \boxed{\cos\gamma = \cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2}
+    \end{equation*}
+\end{myproof}
+

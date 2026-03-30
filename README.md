@@ -24,20 +24,31 @@
 latexmk -lualatex main.tex
 ```
 
-> **Windows 用户**：
+> **Windows 用户**：Windows 请将 `.latexmkrc` 中路径后的冒号 (`:`) 更改为分号（`;`），以适配 Windows 路径分隔符。
 
 ## 文件结构说明
 
 ```text
 .
-├── main.tex             # 主控文件
-├── contents/            # 章节内容
-│   ├── chap1.tex
-│   └── chap2.tex
-├── figures/             # 图片资源
-├── bib/                 # 参考文献 (main.bib)
-├── cls/                 # 自定义样式或模板文件 (.cls / .sty)
-└── .latexmkrc           # 编译配置文件
+├── .gitattributes
+├── .gitignore
+├── LICENSE
+├── README.md
+├── src
+│   ├── chapters
+│   │   ├── 08_analytic-geometry-of-space.tex
+│   │   ├── 09_differential-calculus-of-multivariable-functions.tex
+│   │   ├── 99_preface-contrib.tex
+│   │   ├── 99_preface-overview.tex
+│   │   └── titlepage.tex
+│   ├── common
+│   │   ├── bib
+│   │   │   └── references.bib
+│   │   └── styles
+│   │       └── math-solutions.sty
+│   ├── .latexmkrc
+│   └── main.tex
+└── .vscode
+    ├── ltex.hiddenFalsePositives.en-US.txt
+    └── settings.json
 ```
-
-

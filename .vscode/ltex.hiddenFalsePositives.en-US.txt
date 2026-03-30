@@ -43,3 +43,11 @@
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q代入第一个方程中，有 ẓx̣ẓx̣ẓx̣ \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q整理关于 ẓx̣\\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q 的项 ẓx̣ \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q, 即 ẓx̣ \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q.\\E$"}
 {"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q解得 ẓx̣ \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q操作系统: Windows 11 (WSL2 / Ubuntu 22.04)\nTeX 发行版: TeX Live 2023 或更高版本\n编译引擎: \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q (针对 CTeX)\n编辑器: VSCode + LaTeX Workshop 扩展\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q方法 B：使用 VSCode\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q在 VSCode 中打开本项目文件夹。\n打开 \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q。\n点击侧边栏的 TeX 图标，选择 \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q。\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q方法 A：使用 Latexmk (推荐)\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q操作系统: Windows 11 (WSL2 / Ubuntu 22.04)\nTeX 发行版: TeX Live 2025 或更高版本\n编译引擎: \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q (针对 CTeX)\n编辑器: VSCode + LaTeX Workshop 扩展\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q操作系统: Windows 11 (WSL2 / Ubuntu 22.04)\nTeX 发行版: TeX Live 2025 或更高版本\n编译引擎: LuaLaTeX (针对 CTeX)\n编辑器: VSCode + LaTeX Workshop 扩展\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q操作系统: Windows 11 (WSL2 / Ubuntu 22.04)\nTeX 发行版: TeX Live 2025 或更高版本\n编译引擎: LuaLaTeX (针对 CTeX 及 Emoji 的使用)\n编辑器: VSCode + LaTeX Workshop 扩展\\E$"}
+{"rule":"MORFOLOGIK_RULE_EN_US","sentence":"^\\Q使用 Latexmk 编译器进行编译，本项目根目录已包含 \\E(?:Dummy|Ina|Jimmy-|Dummy-|Maniquí-|Maniquíes-|Dummy\\+|Dummy's\\+)[0-9]+\\Q 配置文件。在终端运行：\\E$"}

@@ -19,7 +19,7 @@
     inner=1.5cm,
     outer=1.5cm,
     top=2cm,
-    bottom=1cm,
+    bottom=1.5cm,
     marginparwidth=2cm,
     marginparsep=0.4cm,
     includefoot,
@@ -92,6 +92,8 @@
 \RequirePackage{bookmark}            % 书签增强
 
 \RequirePackage{cleveref}            % 智能交叉引用
+\crefname{equation}{公式}{公式}
+\Crefname{equation}{公式}{公式}
 
 
 % 解析环境配置
@@ -184,9 +186,9 @@
 
 
 % 警告控制规范化
-\hfuzz=10000pt
-\vfuzz=10000pt
-\hbadness=10000
-\vbadness=10000
+% \hfuzz=10000pt
+% \vfuzz=10000pt
+% \hbadness=10000
+% \vbadness=10000
 
 \endinput

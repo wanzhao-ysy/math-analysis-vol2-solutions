@@ -16,7 +16,7 @@
 
     \ansitem{1}
 
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \lambda(\symbfit{a} + \symbfit{b}) & = \lambda(a_1 + b_1, a_2 + b_2, a_3 + b_3)                                          \\
                                                & = (\lambda(a_1 + b_1), \lambda(a_2 + b_2), \lambda(a_3 + b_3))                      \\
@@ -24,41 +24,41 @@
                                                & = (\lambda a_1, \lambda a_2, \lambda a_3) + (\lambda b_1, \lambda b_2, \lambda b_3) \\
                                                & = \lambda\symbfit{a} + \lambda\symbfit{b}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故得证：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\lambda(\symbfit{a} + \symbfit{b}) = \lambda\symbfit{a} + \lambda\symbfit{b}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\lambda + \mu)\symbfit{a} & = ((\lambda + \mu)a_1, (\lambda + \mu)a_2, (\lambda + \mu)a_3)          \\
                                        & = (\lambda a_1 + \mu a_1, \lambda a_2 + \mu a_2, \lambda a_3 + \mu a_3) \\
                                        & = (\lambda a_1, \lambda a_2, \lambda a_3) + (\mu a_1, \mu a_2, \mu a_3) \\
                                        & = \lambda\symbfit{a} + \mu\symbfit{a}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故得证：
-    \begin{equation*}
+    \begin{equation}
         \boxed{(\lambda + \mu)\symbfit{a} = \lambda\symbfit{a} + \mu\symbfit{a}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3}
 
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\lambda\mu)\symbfit{a} & = ((\lambda\mu)a_1, (\lambda\mu)a_2, (\lambda\mu)a_3)    \\
                                     & = (\lambda(\mu a_1), \lambda(\mu a_2), \lambda(\mu a_3)) \\
                                     & = \lambda(\mu a_1, \mu a_2, \mu a_3)                     \\
                                     & = \lambda(\mu\symbfit{a})
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故得证：
-    \begin{equation*}
+    \begin{equation}
         \boxed{(\lambda\mu)\symbfit{a} = \lambda(\mu\symbfit{a})}
-    \end{equation*}
+    \end{equation}
 \end{myproof}
 
 
@@ -76,40 +76,40 @@
     \ansitem{1}
 
     根据向量积的行列式定义与行列式性质：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\lambda\symbfit{a}) \times \symbfit{b} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \lambda a_1 & \lambda a_2 & \lambda a_3 \\ b_1 & b_2 & b_3 \end{vmatrix} \\
                                                     & = \lambda \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}                 \\
                                                     & = \lambda(\symbfit{a} \times \symbfit{b})
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     同理可得：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{a} \times (\lambda\symbfit{b}) & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ a_1 & a_2 & a_3 \\ \lambda b_1 & \lambda b_2 & \lambda b_3 \end{vmatrix} \\
                                                     & = \lambda \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}                 \\
                                                     & = \lambda(\symbfit{a} \times \symbfit{b})
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     由此得到：
-    \begin{equation*}
+    \begin{equation}
         \boxed{(\lambda\symbfit{a}) \times \symbfit{b} = \symbfit{a} \times (\lambda\symbfit{b}) = \lambda(\symbfit{a} \times \symbfit{b})}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     根据行列式交换两行改变符号的性质：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{a} \times \symbfit{b} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}   \\
                                            & = - \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ b_1 & b_2 & b_3 \\ a_1 & a_2 & a_3 \end{vmatrix} \\
                                            & = -\symbfit{b} \times \symbfit{a}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     即有：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\symbfit{a} \times \symbfit{b} = -\symbfit{b} \times \symbfit{a}}
-    \end{equation*}
+    \end{equation}
 \end{myproof}
 
 
@@ -129,28 +129,28 @@
     \ansitem{1} 不成立。
 
     两个非零向量垂直时，其数量积为零。设 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则有
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \cdot \symbfit{b} = 1 \cdot 0 + 0 \cdot 1 + 0 \cdot 0 = 0
-    \end{equation*}
+    \end{equation}
     显然 $\symbfit{a} \neq \symbfit{0}$ 且 $\symbfit{b} \neq \symbfit{0}$。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{结论不成立}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2} 不成立。
 
     由 $\symbfit{a} \times \symbfit{c} = \symbfit{a} \times \symbfit{b} \implies \symbfit{a} \times (\symbfit{c} - \symbfit{b}) = \symbfit{0}$，这仅说明 $\symbfit{a}$ 与 $\symbfit{c} - \symbfit{b}$ 共线。
     取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，$\symbfit{c} = (1, 1, 0)$，则
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{a} \times \symbfit{b} & = (0, 0, 1)                                                                                                   \\
             \symbfit{a} \times \symbfit{c} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 0 & 0 \\ 1 & 1 & 0 \end{vmatrix} = (0, 0, 1)
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     虽然 $\symbfit{a} \times \symbfit{c} = \symbfit{a} \times \symbfit{b}$，但 $\symbfit{c} \neq \symbfit{b}$。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{结论不成立}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3} 不成立。
 
@@ -159,54 +159,54 @@
     其向量积模长 $|\symbfit{e}_1 \times \symbfit{e}_2| = |\symbfit{e}_1||\symbfit{e}_2|\sin\theta = \sin\theta$，仅在 $\theta = \frac{\uppi}{2}$ 时为单位向量。
     取 $\symbfit{e}_1 = (1, 0, 0)$，$\symbfit{e}_2 = (0, 1, 0)$，则 $\symbfit{e}_1 \cdot \symbfit{e}_2 = 0 \neq 1$；
     取 $\symbfit{e}_1 = \symbfit{e}_2$，则 $\symbfit{e}_1 \times \symbfit{e}_2 = \symbfit{0}$，非单位向量。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{结论不成立}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4} 不成立。
 
     $(\symbfit{a} \cdot \symbfit{b})\symbfit{c}$ 的方向与 $\symbfit{c}$ 相同或相反，而 $\symbfit{a}(\symbfit{b} \cdot \symbfit{c})$ 的方向与 $\symbfit{a}$ 相同或相反。
     设 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (1, 0, 0)$，$\symbfit{c} = (0, 1, 0)$，则
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\symbfit{a} \cdot \symbfit{b})\symbfit{c} & = 1 \cdot (0, 1, 0) = (0, 1, 0) \\
             \symbfit{a}(\symbfit{b} \cdot \symbfit{c}) & = (1, 0, 0) \cdot 0 = (0, 0, 0)
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     二者不相等。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{结论不成立}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{5} 不成立。
 
     根据定义 $|\symbfit{a} \cdot \symbfit{b}|^2 = |\symbfit{a}|^2 |\symbfit{b}|^2 \cos^2\theta$。只有当 $\cos^2\theta = 1$（即两向量共线）时才成立。
     取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             |\symbfit{a} \cdot \symbfit{b}|^2 & = |0|^2 = 0         \\
             |\symbfit{a}|^2 |\symbfit{b}|^2   & = 1^2 \cdot 1^2 = 1
         \end{aligned}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\text{结论不成立}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{6} 不成立。
 
     由向量积的分配律及反交换性可知
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\symbfit{a} + \symbfit{b}) \times (\symbfit{a} + \symbfit{b}) & = \symbfit{a} \times \symbfit{a} + \symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{a} + \symbfit{b} \times \symbfit{b} \\
                                                                            & = \symbfit{0} + \symbfit{a} \times \symbfit{b} - \symbfit{a} \times \symbfit{b} + \symbfit{0}                                       \\
                                                                            & = \symbfit{0}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     而原命题右端为 $\symbfit{a} \times \symbfit{a} + 2\symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{b} = 2\symbfit{a} \times \symbfit{b}$。
     取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则右端为 $(0, 0, 2) \neq \symbfit{0}$。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{结论不成立}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -216,53 +216,53 @@
 
 \begin{myproof}
     设各向量在直角坐标系下的坐标分别为 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$，$\symbfit{c} = (c_1, c_2, c_3)$。根据向量混合积的定义可知，其值等于以这三个向量为棱的平行六面体的体积，对应行列式形式为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \times \symbfit{b} \cdot \symbfit{c} = \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}
-    \end{equation*}
+    \end{equation}
     根据行列式性质，交换任意两行，行列式的值反号。通过两次行对换（即一次轮换），行列式的值保持不变，则有
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}
              & = - \begin{vmatrix} b_1 & b_2 & b_3 \\ a_1 & a_2 & a_3 \\ c_1 & c_2 & c_3 \end{vmatrix}                                                  \\
              & = \begin{vmatrix} b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \\ a_1 & a_2 & a_3 \end{vmatrix} = \symbfit{b} \times \symbfit{c} \cdot \symbfit{a}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     同理，对上述行列式再次进行两次行对换可得
-    \begin{equation*}
+    \begin{equation}
         \begin{vmatrix} b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \\ a_1 & a_2 & a_3 \end{vmatrix}
         = - \begin{vmatrix} c_1 & c_2 & c_3 \\ b_1 & b_2 & b_3 \\ a_1 & a_2 & a_3 \end{vmatrix}
         = \begin{vmatrix} c_1 & c_2 & c_3 \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix} = \symbfit{c} \times \symbfit{a} \cdot \symbfit{b}
-    \end{equation*}
+    \end{equation}
     综上所述，原命题得证
-    \begin{equation*}
+    \begin{equation}
         \boxed{\symbfit{a} \times \symbfit{b} \cdot \symbfit{c} = \symbfit{b} \times \symbfit{c} \cdot \symbfit{a} = \symbfit{c} \times \symbfit{a} \cdot \symbfit{b}}
-    \end{equation*}
+    \end{equation}
 \end{myproof}
 
 
 \begin{problem}{向量中点公式}{Vector-Midpoint-Formula}
     设 $\overrightarrow{AM} = \overrightarrow{MB}$，证明：对任意一点 $O$，
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{OM} = \frac{1}{2} (\overrightarrow{OA} + \overrightarrow{OB}).
-    \end{equation*}
+    \end{equation}
 \end{problem}
 
 \begin{myproof}
     利用向量的减法分解性质，将已知条件中的向量以点 $O$ 为基准进行拆解
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{OM} - \overrightarrow{OA} = \overrightarrow{OB} - \overrightarrow{OM}
-    \end{equation*}
+    \end{equation}
     对上式进行移项合并
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
              & \implies \overrightarrow{OM} + \overrightarrow{OM} = \overrightarrow{OA} + \overrightarrow{OB} \\
              & \implies 2 \overrightarrow{OM} = \overrightarrow{OA} + \overrightarrow{OB}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     方程两边同时除以 $2$，即可得到
-    \begin{equation*}
+    \begin{equation}
         \boxed{\overrightarrow{OM} = \frac{1}{2} (\overrightarrow{OA} + \overrightarrow{OB})}
-    \end{equation*}
+    \end{equation}
 \end{myproof}
 
 
@@ -272,21 +272,21 @@
 
 \begin{solution}
     由于 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 为单位向量，故有 $|\symbfit{a}| = |\symbfit{b}| = |\symbfit{c}| = 1$. 对已知等式两边平方得
-    \begin{equation*}
+    \begin{equation}
         (\symbfit{a} + \symbfit{b} + \symbfit{c})^2 = \symbfit{0}^2 = 0
-    \end{equation*}
+    \end{equation}
     展开上式左侧
-    \begin{equation*}
+    \begin{equation}
         |\symbfit{a}|^2 + |\symbfit{b}|^2 + |\symbfit{c}|^2 + 2(\symbfit{a} \cdot \symbfit{b} + \symbfit{b} \cdot \symbfit{c} + \symbfit{c} \cdot \symbfit{a}) = 0
-    \end{equation*}
+    \end{equation}
     代入向量模长
-    \begin{equation*}
+    \begin{equation}
         1 + 1 + 1 + 2(\symbfit{a} \cdot \symbfit{b} + \symbfit{b} \cdot \symbfit{c} + \symbfit{c} \cdot \symbfit{a}) = 0
-    \end{equation*}
+    \end{equation}
     整理可得
-    \begin{equation*}
+    \begin{equation}
         \boxed{\symbfit{a} \cdot \symbfit{b} + \symbfit{b} \cdot \symbfit{c} + \symbfit{c} \cdot \symbfit{a} = -\frac{3}{2}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{向量夹角}{Vector-Angle}
@@ -295,35 +295,35 @@
 
 \begin{solution}
     根据向量垂直的充要条件，内积为零，可得方程组
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             (\symbfit{a} + 3\symbfit{b}) \cdot (7\symbfit{a} - 5\symbfit{b}) = 0 \\
             (\symbfit{a} - 4\symbfit{b}) \cdot (7\symbfit{a} - 2\symbfit{b}) = 0
         \end{cases}
-    \end{equation*}
+    \end{equation}
     展开得
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             7|\symbfit{a}|^2 + 16\symbfit{a} \cdot \symbfit{b} - 15|\symbfit{b}|^2 = 0 \\
             7|\symbfit{a}|^2 - 30\symbfit{a} \cdot \symbfit{b} + 8|\symbfit{b}|^2 = 0
         \end{cases}
-    \end{equation*}
+    \end{equation}
     两式相减可消去 $|\symbfit{a}|^2$ 项
-    \begin{equation*}
+    \begin{equation}
         46\symbfit{a} \cdot \symbfit{b} - 23|\symbfit{b}|^2 = 0 \implies \symbfit{a} \cdot \symbfit{b} = \frac{1}{2}|\symbfit{b}|^2
-    \end{equation*}
+    \end{equation}
     将上述关系代入第一式中
-    \begin{equation*}
+    \begin{equation}
         7|\symbfit{a}|^2 + 16 \left( \frac{1}{2}|\symbfit{b}|^2 \right) - 15|\symbfit{b}|^2 = 0 \implies 7|\symbfit{a}|^2 - 7|\symbfit{b}|^2 = 0 \implies |\symbfit{a}| = |\symbfit{b}|
-    \end{equation*}
+    \end{equation}
     设向量 $\symbfit{a}$ 与 $\symbfit{b}$ 的夹角为 $\theta$，则有
-    \begin{equation*}
+    \begin{equation}
         \cos \theta = \frac{\symbfit{a} \cdot \symbfit{b}}{|\symbfit{a}||\symbfit{b}|} = \frac{\frac{1}{2}|\symbfit{b}|^2}{|\symbfit{b}|^2} = \frac{1}{2}
-    \end{equation*}
+    \end{equation}
     因为 $\theta \in [0, \uppi]$，故
-    \begin{equation*}
+    \begin{equation}
         \boxed{\theta = \frac{\uppi}{3}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{向量外积}{Vector-Cross-Product}
@@ -338,38 +338,38 @@
     \ansitem{1}
 
     利用外积的分配律与性质 $\symbfit{a} \times \symbfit{a} = \symbfit{0}, \symbfit{b} \times \symbfit{a} = - \symbfit{a} \times \symbfit{b}$ 展开
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b}) & = \symbfit{a} \times \symbfit{a} - \symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{a} - \symbfit{b} \times \symbfit{b} \\
                                                                            & = \symbfit{0} - \symbfit{a} \times \symbfit{b} - \symbfit{a} \times \symbfit{b} - \symbfit{0}                                       \\
                                                                            & = -2(\symbfit{a} \times \symbfit{b})
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     由于 $\symbfit{a} \perp \symbfit{b}$，夹角为 $\uppi/2$，故其模长为
-    \begin{equation*}
+    \begin{equation}
         |(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})| = 2|\symbfit{a}||\symbfit{b}|\sin \frac{\uppi}{2} = 2 \times 3 \times 4 \times 1
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{|(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})| = 24}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     同理展开被积表达式
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (3\symbfit{a} - \symbfit{b}) \times (\symbfit{a} - 2\symbfit{b}) & = 3(\symbfit{a} \times \symbfit{a}) - 6(\symbfit{a} \times \symbfit{b}) - (\symbfit{b} \times \symbfit{a}) + 2(\symbfit{b} \times \symbfit{b}) \\
                                                                              & = \symbfit{0} - 6(\symbfit{a} \times \symbfit{b}) + (\symbfit{a} \times \symbfit{b}) + \symbfit{0}                                             \\
                                                                              & = -5(\symbfit{a} \times \symbfit{b})
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     计算其模长
-    \begin{equation*}
+    \begin{equation}
         |(3\symbfit{a} - \symbfit{b}) \times (\symbfit{a} - 2\symbfit{b})| = 5|\symbfit{a}||\symbfit{b}|\sin \frac{\uppi}{2} = 5 \times 3 \times 4 \times 1
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{|(3\symbfit{a} - \symbfit{b}) \times (\symbfit{a} - 2\symbfit{b})| = 60}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -385,63 +385,65 @@
     \ansitem{1}
 
     根据向量积模的定义：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             |\symbfit{a} \times \symbfit{b}|^2 & = \left( |\symbfit{a}| |\symbfit{b}| \sin \theta \right)^2 \\
                                                & = \left( 1 \cdot 2 \cdot \sin \frac{2\uppi}{3} \right)^2   \\
                                                & = \left( 2 \cdot \frac{\sqrt{3}}{2} \right)^2 = 3
         \end{aligned}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{|\symbfit{a} \times \symbfit{b}|^2 = 3}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     利用向量积的分配律与反交换律：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\symbfit{a} + 3\symbfit{b}) \times (3\symbfit{a} - \symbfit{b}) & = 3(\symbfit{a} \times \symbfit{a}) - \symbfit{a} \times \symbfit{b} + 9(\symbfit{b} \times \symbfit{a}) - 3(\symbfit{b} \times \symbfit{b}) \\
                                                                              & = \symbfit{0} - \symbfit{a} \times \symbfit{b} - 9(\symbfit{a} \times \symbfit{b}) - \symbfit{0}                                             \\
                                                                              & = -10 (\symbfit{a} \times \symbfit{b})
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     对其模平方得：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             |(\symbfit{a} + 3\symbfit{b}) \times (3\symbfit{a} - \symbfit{b})|^2 & = |-10 (\symbfit{a} \times \symbfit{b})|^2 \\
                                                                                  & = 100 |\symbfit{a} \times \symbfit{b}|^2   \\
                                                                                  & = 100 \cdot 3 = 300
         \end{aligned}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{|(\symbfit{a} + 3\symbfit{b}) \times (3\symbfit{a} - \symbfit{b})|^2 = 300}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
 \begin{problem}{向量恒等式证明}{Vector-Cross-Product-Identity}
     已知 $\symbfit{a} + \symbfit{b} + \symbfit{c} = \symbfit{0}$，试证
-    \[ \symbfit{a} \times \symbfit{b} = \symbfit{b} \times \symbfit{c} = \symbfit{c} \times \symbfit{a}. \]
+    \begin{equation}
+        \symbfit{a} \times \symbfit{b} = \symbfit{b} \times \symbfit{c} = \symbfit{c} \times \symbfit{a}.
+    \end{equation}
 \end{problem}
 
 \begin{myproof}
     由已知条件得 $\symbfit{a} + \symbfit{b} = -\symbfit{c}$。在此等式两端左叉乘 $\symbfit{a}$ 有
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \times (\symbfit{a} + \symbfit{b}) = \symbfit{a} \times (-\symbfit{c}) \implies \symbfit{a} \times \symbfit{a} + \symbfit{a} \times \symbfit{b} = -\symbfit{a} \times \symbfit{c}
-    \end{equation*}
+    \end{equation}
     由于 $\symbfit{a} \times \symbfit{a} = \symbfit{0}$ 且 $-\symbfit{a} \times \symbfit{c} = \symbfit{c} \times \symbfit{a}$，故
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \times \symbfit{b} = \symbfit{c} \times \symbfit{a}
-    \end{equation*}
+    \end{equation}
     同理，在等式 $\symbfit{b} + \symbfit{c} = -\symbfit{a}$ 两端左叉乘 $\symbfit{b}$ 得
-    \begin{equation*}
+    \begin{equation}
         \symbfit{b} \times (\symbfit{b} + \symbfit{c}) = \symbfit{b} \times (-\symbfit{a}) \implies \symbfit{b} \times \symbfit{b} + \symbfit{b} \times \symbfit{c} = -\symbfit{b} \times \symbfit{a}
-    \end{equation*}
+    \end{equation}
     即
-    \begin{equation*}
+    \begin{equation}
         \symbfit{b} \times \symbfit{c} = \symbfit{a} \times \symbfit{b}
-    \end{equation*}
+    \end{equation}
     综上所述，原命题成立。
 \end{myproof}
 
@@ -452,29 +454,29 @@
 
 \begin{myproof}
     由 $\symbfit{a} \times \symbfit{b} = \symbfit{b} \times \symbfit{c}$ 可得
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \times \symbfit{b} - \symbfit{b} \times \symbfit{c} = \symbfit{0} \implies \symbfit{a} \times \symbfit{b} + \symbfit{c} \times \symbfit{b} = \symbfit{0} \implies (\symbfit{a} + \symbfit{c}) \times \symbfit{b} = \symbfit{0}
-    \end{equation*}
+    \end{equation}
     这意味着向量 $\symbfit{a} + \symbfit{c}$ 与 $\symbfit{b}$ 平行，设 $\symbfit{a} + \symbfit{c} = \lambda \symbfit{b}$。
 
     又由 $\symbfit{a} \times \symbfit{b} = \symbfit{c} \times \symbfit{a}$ 可得
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \times \symbfit{b} - \symbfit{c} \times \symbfit{a} = \symbfit{0} \implies \symbfit{a} \times \symbfit{b} + \symbfit{a} \times \symbfit{c} = \symbfit{0} \implies \symbfit{a} \times (\symbfit{b} + \symbfit{c}) = \symbfit{0}
-    \end{equation*}
+    \end{equation}
     这意味着向量 $\symbfit{b} + \symbfit{c}$ 与 $\symbfit{a}$ 平行，设 $\symbfit{b} + \symbfit{c} = \mu \symbfit{a}$。
 
     将 $\symbfit{c} = \mu \symbfit{a} - \symbfit{b}$ 代入第一个关系式 $\symbfit{a} + \symbfit{c} = \lambda \symbfit{b}$ 中
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} + (\mu \symbfit{a} - \symbfit{b}) = \lambda \symbfit{b} \implies (1 + \mu) \symbfit{a} = (1 + \lambda) \symbfit{b}
-    \end{equation*}
+    \end{equation}
     由于 $\symbfit{a}, \symbfit{b}$ 不共线，故系数必全为零
-    \begin{equation*}
+    \begin{equation}
         1 + \mu = 0, \quad 1 + \lambda = 0 \implies \mu = -1, \quad \lambda = -1
-    \end{equation*}
+    \end{equation}
     由此推得 $\symbfit{b} + \symbfit{c} = -\symbfit{a}$，即
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} + \symbfit{b} + \symbfit{c} = \symbfit{0}
-    \end{equation*}
+    \end{equation}
 \end{myproof}
 
 
@@ -484,11 +486,11 @@
 
 \begin{myproof}
     设向量 $\symbfit{a}$ 与 $\symbfit{b}$ 之间的夹角为 $\theta$，则根据定义有：
-    \begin{equation*}
+    \begin{equation}
         |\symbfit{a} \times \symbfit{b}| = |\symbfit{a}| |\symbfit{b}| \sin \theta, \quad \symbfit{a} \cdot \symbfit{b} = |\symbfit{a}| |\symbfit{b}| \cos \theta
-    \end{equation*}
+    \end{equation}
     于是：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             |\symbfit{a}|^2 |\symbfit{b}|^2 - (\symbfit{a} \cdot \symbfit{b})^2 & = |\symbfit{a}|^2 |\symbfit{b}|^2 - (|\symbfit{a}| |\symbfit{b}| \cos \theta)^2 \\
                                                                                 & = |\symbfit{a}|^2 |\symbfit{b}|^2 (1 - \cos^2 \theta)                           \\
@@ -496,7 +498,7 @@
                                                                                 & = (|\symbfit{a}| |\symbfit{b}| \sin \theta)^2                                   \\
                                                                                 & = |\symbfit{a} \times \symbfit{b}|^2
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     证毕。
 \end{myproof}
 
@@ -507,18 +509,18 @@
 
 \begin{solution}
     因为 $\symbfit{p}, \symbfit{q}, \symbfit{r}$ 是互相垂直的单位向量，可将其视为空间直角坐标系的标准正交基. 平行六面体的体积 $V$ 等于棱向量混合积的绝对值
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\symbfit{a}, \symbfit{b}, \symbfit{c}) & = \begin{vmatrix} 1 & -3 & 1 \\ 2 & 1 & -3 \\ 1 & 2 & 1 \end{vmatrix}                                                                                                     \\
                                                     & = 1 \cdot \begin{vmatrix} 1 & -3 \\ 2 & 1 \end{vmatrix} - (-3) \cdot \begin{vmatrix} 2 & -3 \\ 1 & 1 \end{vmatrix} + 1 \cdot \begin{vmatrix} 2 & 1 \\ 1 & 2 \end{vmatrix} \\
                                                     & = (1 + 6) + 3 \cdot (2 + 3) + (4 - 1)                                                                                                                                     \\
                                                     & = 7 + 15 + 3 = 25
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故该平行六面体的体积为
-    \begin{equation*}
+    \begin{equation}
         \boxed{V = 25}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -528,24 +530,24 @@
 
 \begin{solution}
     记 $\symbfit{d} = \symbfit{a} - \symbfit{b}$, 则
-    \begin{equation*}
+    \begin{equation}
         \symbfit{d} = (3 - (-1), -5 - 1, 8 - (-4)) = (4, -6, 12)
-    \end{equation*}
+    \end{equation}
     计算其模长:
-    \begin{equation*}
+    \begin{equation}
         |\symbfit{d}| = \sqrt{4^2 + (-6)^2 + 12^2} = \sqrt{16 + 36 + 144} = \sqrt{196} = 14
-    \end{equation*}
+    \end{equation}
     其方向余弦为:
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \cos \alpha & = \frac{4}{14} = \frac{2}{7}   \\
             \cos \beta  & = \frac{-6}{14} = -\frac{3}{7} \\
             \cos \gamma & = \frac{12}{14} = \frac{6}{7}
         \end{aligned}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{|\symbfit{a} - \symbfit{b}| = 14, \cos \alpha = \frac{2}{7}, \cos \beta = -\frac{3}{7}, \cos \gamma = \frac{6}{7}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -555,16 +557,16 @@
 
 \begin{solution}
     首先计算向量 $\symbfit{a}$ 的模长:
-    \begin{equation*}
+    \begin{equation}
         |\symbfit{a}| = \sqrt{3^2 + 4^2 + (-12)^2} = \sqrt{9 + 16 + 144} = \sqrt{169} = 13
-    \end{equation*}
+    \end{equation}
     则单位向量 $\symbfit{a}^0$ 为:
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a}^0 = \frac{\symbfit{a}}{|\symbfit{a}|} = \frac{1}{13} (3, 4, -12) = \left( \frac{3}{13}, \frac{4}{13}, -\frac{12}{13} \right)
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\symbfit{a}^0 = \left( \frac{3}{13}, \frac{4}{13}, -\frac{12}{13} \right)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -574,16 +576,16 @@
 
 \begin{solution}
     由于向量 $\symbfit{a}$ 位于 $xy$ 平面内, 故其 $z$ 轴方向的分量 $a_z = 0$. 根据坐标定义:
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             a_x & = |\symbfit{a}| \cos 60^\circ = 2 \cdot \frac{1}{2} = 1                   \\
             a_y & = |\symbfit{a}| \cos 120^\circ = 2 \cdot \left( -\frac{1}{2} \right) = -1
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     联立得向量的坐标表示为:
-    \begin{equation*}
+    \begin{equation}
         \boxed{\symbfit{a} = (1, -1, 0)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -593,20 +595,20 @@
 
 \begin{solution}
     计算向量 $\overrightarrow{AB}$ 与 $\overrightarrow{BC}$ 的坐标表示：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \overrightarrow{AB} & = \overrightarrow{OB} - \overrightarrow{OA} = (3-2)\symbfit{i} + (7-4)\symbfit{j} + (5-1)\symbfit{k} = \symbfit{i} + 3\symbfit{j} + 4\symbfit{k}  \\
             \overrightarrow{BC} & = \overrightarrow{OC} - \overrightarrow{OB} = (4-3)\symbfit{i} + (10-7)\symbfit{j} + (9-5)\symbfit{k} = \symbfit{i} + 3\symbfit{j} + 4\symbfit{k}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     由此可得
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{AB} = \overrightarrow{BC}
-    \end{equation*}
+    \end{equation}
     因为 $\overrightarrow{AB} \parallel \overrightarrow{BC}$ 且两向量有公共点 $B$，所以 $A, B, C$ 三点共线。
-    \begin{equation*}
+    \begin{equation}
         \boxed{A, B, C \text{ 三点共线}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{向量数量积}{Vector-Dot-Product}
@@ -621,29 +623,29 @@
     \ansitem{1}
 
     根据向量数量积的定义得
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \cdot \symbfit{b} = |\symbfit{a}| |\symbfit{b}| \cos \theta = 3 \times 4 \times \cos \frac{2\uppi}{3} = 12 \times \left( -\frac{1}{2} \right) = -6
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\symbfit{a} \cdot \symbfit{b} = -6}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     利用数量积的分配律与性质进行展开
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (3\symbfit{a} - 2\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) & = 3\symbfit{a} \cdot \symbfit{a} + 6\symbfit{a} \cdot \symbfit{b} - 2\symbfit{b} \cdot \symbfit{a} - 4\symbfit{b} \cdot \symbfit{b} \\
                                                                              & = 3|\symbfit{a}|^2 + 4\symbfit{a} \cdot \symbfit{b} - 4|\symbfit{b}|^2
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     代入已知数据及第 (1) 问结果
-    \begin{equation*}
+    \begin{equation}
         3 \times 3^2 + 4 \times (-6) - 4 \times 4^2 = 27 - 24 - 64 = -61
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{(3\symbfit{a} - 2\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) = -61}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -660,47 +662,47 @@
 \begin{solution}
     \ansitem{1}
 
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \cdot \symbfit{b} = 4 \times 6 + (-2) \times (-3) + 4 \times 2 = 24 + 6 + 8 = 38
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\symbfit{a} \cdot \symbfit{b} = 38}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
-    \begin{equation*}
+    \begin{equation}
         \sqrt{\symbfit{b} \cdot \symbfit{b}} = |\symbfit{b}| = \sqrt{6^2 + (-3)^2 + 2^2} = \sqrt{36 + 9 + 4} = 7
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\sqrt{\symbfit{b} \cdot \symbfit{b}} = 7}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3}
 
     利用数量积的分配律展开：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (2\symbfit{a} - 3\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) & = 2\symbfit{a} \cdot \symbfit{a} + 4\symbfit{a} \cdot \symbfit{b} - 3\symbfit{b} \cdot \symbfit{a} - 6\symbfit{b} \cdot \symbfit{b} \\
                                                                              & = 2|\symbfit{a}|^2 + \symbfit{a} \cdot \symbfit{b} - 6|\symbfit{b}|^2
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     由于 $|\symbfit{a}|^2 = 4^2 + (-2)^2 + 4^2 = 36$ 且 $|\symbfit{b}|^2 = 49$，代入得：
-    \begin{equation*}
+    \begin{equation}
         (2\symbfit{a} - 3\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) = 2(36) + 38 - 6(49) = 72 + 38 - 294 = -184
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{(2\symbfit{a} - 3\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b}) = -184}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4}
 
-    \begin{equation*}
+    \begin{equation}
         |\symbfit{a} - \symbfit{b}|^2 = |\symbfit{a}|^2 - 2\symbfit{a} \cdot \symbfit{b} + |\symbfit{b}|^2 = 36 - 2(38) + 49 = 85 - 76 = 9
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{|\symbfit{a} - \symbfit{b}|^2 = 9}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{向量夹角}{Vector-Angle-2}
@@ -709,24 +711,24 @@
 
 \begin{solution}
     设向量 $\symbfit{a}$ 与 $\symbfit{b}$ 的夹角为 $\theta$，则有：
-    \begin{equation*}
+    \begin{equation}
         \cos \theta = \frac{\symbfit{a} \cdot \symbfit{b}}{|\symbfit{a}| |\symbfit{b}|}
-    \end{equation*}
+    \end{equation}
     计算各项分量：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
              & \symbfit{a} \cdot \symbfit{b} = 2 \times (-3) + (-4) \times 2 + 4 \times 6 = -6 - 8 + 24 = 10 \\
              & |\symbfit{a}| = \sqrt{2^2 + (-4)^2 + 4^2} = \sqrt{4 + 16 + 16} = 6                            \\
              & |\symbfit{b}| = \sqrt{(-3)^2 + 2^2 + 6^2} = \sqrt{9 + 4 + 36} = 7
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     代入余弦公式得：
-    \begin{equation*}
+    \begin{equation}
         \cos \theta = \frac{10}{6 \times 7} = \frac{10}{42} = \frac{5}{21}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\cos \theta = \frac{5}{21}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{向量投影}{Vector-Projection}
@@ -735,23 +737,23 @@
 
 \begin{solution}
     向量 $\symbfit{b}$ 方向上的单位向量为 $\symbfit{e}_b = \frac{\symbfit{b}}{|\symbfit{b}|}$，故投影长为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \cdot \symbfit{e}_b = \frac{\symbfit{a} \cdot \symbfit{b}}{|\symbfit{b}|}
-    \end{equation*}
+    \end{equation}
     计算分子与分母：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
              & \symbfit{a} \cdot \symbfit{b} = 5 \times 2 + 2 \times (-1) + 5 \times 2 = 10 - 2 + 10 = 18 \\
              & |\symbfit{b}| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{4 + 1 + 4} = 3
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     由此得：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{a} \cdot \symbfit{e}_b = \frac{18}{3} = 6
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\symbfit{a} \cdot \symbfit{e}_b = 6}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -767,32 +769,32 @@
     \ansitem{1}
 
     根据向量积的行列式定义：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{a} \times \symbfit{b} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 3 & -1 & -2 \\ 1 & 2 & -1 \end{vmatrix}                                                                                   \\
                                            & = \symbfit{i} \begin{vmatrix} -1 & -2 \\ 2 & -1 \end{vmatrix} - \symbfit{j} \begin{vmatrix} 3 & -2 \\ 1 & -1 \end{vmatrix} + \symbfit{k} \begin{vmatrix} 3 & -1 \\ 1 & 2 \end{vmatrix} \\
                                            & = 5\symbfit{i} + \symbfit{j} + 7\symbfit{k}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     即
-    \begin{equation*}
+    \begin{equation}
         \boxed{\symbfit{a} \times \symbfit{b} = (5, 1, 7)}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     利用向量积的分配律及性质 $\symbfit{a} \times \symbfit{a} = \symbfit{0}$，$\symbfit{b} \times \symbfit{a} = -(\symbfit{a} \times \symbfit{b})$：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (2\symbfit{a} - \symbfit{b}) \times (2\symbfit{a} + \symbfit{b}) & = 4(\symbfit{a} \times \symbfit{a}) + 2(\symbfit{a} \times \symbfit{b}) - 2(\symbfit{b} \times \symbfit{a}) - (\symbfit{b} \times \symbfit{b}) \\
                                                                              & = \symbfit{0} + 2(\symbfit{a} \times \symbfit{b}) + 2(\symbfit{a} \times \symbfit{b}) - \symbfit{0}                                            \\
                                                                              & = 4(\symbfit{a} \times \symbfit{b})
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     代入第 (1) 问结果得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{(2\symbfit{a} - \symbfit{b}) \times (2\symbfit{a} + \symbfit{b}) = (20, 4, 28)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{三角形面积}{Triangle-Area}
@@ -801,28 +803,28 @@
 
 \begin{solution}
     首先计算向量 $\overrightarrow{AB}$ 与 $\overrightarrow{AC}$ 的坐标：
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{AB} = (2, -2, -3), \quad \overrightarrow{AC} = (4, 0, 6)
-    \end{equation*}
+    \end{equation}
     计算两向量的向量积：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \overrightarrow{AB} \times \overrightarrow{AC} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 2 & -2 & -3 \\ 4 & 0 & 6 \end{vmatrix} \\
                                                            & = -12\symbfit{i} - (12 + 12)\symbfit{j} + 8\symbfit{k}                                              \\
                                                            & = (-12, -24, 8)
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     三角形 $ABC$ 的面积 $S$ 为：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             S & = \frac{1}{2} \left| \overrightarrow{AB} \times \overrightarrow{AC} \right| \\
               & = \frac{1}{2} \sqrt{(-12)^2 + (-24)^2 + 8^2}                                \\
               & = \frac{1}{2} \sqrt{144 + 576 + 64} = \frac{1}{2} \sqrt{784} = \frac{28}{2}
         \end{aligned}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{S_{\triangle ABC} = 14}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{四面体体积}{Tetrahedron-Volume}
@@ -831,24 +833,24 @@
 
 \begin{solution}
     求出从顶点 $A$ 出发的三条棱对应的向量：
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{AB} = (3, 6, 3), \quad \overrightarrow{AC} = (1, 3, -2), \quad \overrightarrow{AD} = (2, 2, 2)
-    \end{equation*}
+    \end{equation}
     计算三向量的混合积：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}) & = \begin{vmatrix} 3 & 6 & 3 \\ 1 & 3 & -2 \\ 2 & 2 & 2 \end{vmatrix} \\
                                                                             & = 3(6 + 4) - 6(2 + 4) + 3(2 - 6)                                     \\
                                                                             & = 30 - 36 - 12 = -18
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     四面体的体积 $V$ 为混合积绝对值的 $\frac{1}{6}$：
-    \begin{equation*}
+    \begin{equation}
         V = \frac{1}{6} \left| (\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}) \right| = \frac{1}{6} \cdot |-18| = 3
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{V_{ABCD} = 3}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -863,23 +865,23 @@
 \begin{solution}
     \ansitem{1}
     计算向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 的混合积：
-    \begin{equation*}
+    \begin{equation}
         (\symbfit{a}, \symbfit{b}, \symbfit{c}) = \begin{vmatrix} 2 & 3 & -1 \\ 1 & -1 & 3 \\ 1 & 9 & -11 \end{vmatrix} = 2(11 - 27) - 3(-11 - 3) - 1(9 + 1) = -32 + 42 - 10 = 0
-    \end{equation*}
+    \end{equation}
     因为混合积为零，故向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 共面。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{向量 } \symbfit{a}, \symbfit{b}, \symbfit{c} \text{ 共面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
     计算向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 的混合积：
-    \begin{equation*}
+    \begin{equation}
         (\symbfit{a}, \symbfit{b}, \symbfit{c}) = \begin{vmatrix} 3 & -2 & 1 \\ 2 & 1 & 2 \\ 3 & -1 & -2 \end{vmatrix} = 3(-2 + 2) + 2(-4 - 6) + 1(-2 - 3) = 0 - 20 - 5 = -25 \neq 0
-    \end{equation*}
+    \end{equation}
     因为混合积不为零，故向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 不共面。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{向量 } \symbfit{a}, \symbfit{b}, \symbfit{c} \text{ 不共面}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{四点共面判断}{Four-Points-Coplanar}
@@ -888,21 +890,21 @@
 
 \begin{solution}
     构造以 $A$ 点为起点的三个向量：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \overrightarrow{AB} & = (0-1, 1-2, 5-(-1)) = (-1, -1, 6) \\
             \overrightarrow{AC} & = (-1-1, 2-2, 1-(-1)) = (-2, 0, 2) \\
             \overrightarrow{AD} & = (2-1, 1-2, 3-(-1)) = (1, -1, 4)
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     计算这三个向量的混合积：
-    \begin{equation*}
+    \begin{equation}
         (\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}) = \begin{vmatrix} -1 & -1 & 6 \\ -2 & 0 & 2 \\ 1 & -1 & 4 \end{vmatrix} = -(-2)(-4 + 6) + 0 - 2(1 + 1) = 4 - 4 = 0
-    \end{equation*}
+    \end{equation}
     由于混合积为零，表明向量 $\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}$ 共面。
-    \begin{equation*}
+    \begin{equation}
         \boxed{A, B, C, D \text{ 四点共面}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{坐标对称性}{Coordinate-Symmetry}
@@ -920,9 +922,9 @@
         \item 关于 $yOz$ 面：保持 $y, z$ 不变，$x$ 取相反数，即 $(-a, b, c)$；
         \item 关于 $zOx$ 面：保持 $z, x$ 不变，$y$ 取相反数，即 $(a, -b, c)$。
     \end{itemize}
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{关于 } xOy, yOz, zOx \text{ 面对称点分别为 } (a, b, -c), (-a, b, c), (a, -b, c)}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
     点 $(a, b, c)$ 关于各坐标轴的对称点分别为：
@@ -931,9 +933,9 @@
         \item 关于 $y$ 轴：保持 $y$ 不变，$x, z$ 取相反数，即 $(-a, b, -c)$；
         \item 关于 $z$ 轴：保持 $z$ 不变，$x, y$ 取相反数，即 $(-a, -b, c)$。
     \end{itemize}
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{关于 } x, y, z \text{ 轴对称点分别为 } (a, -b, -c), (-a, b, -c), (-a, -b, c)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -943,18 +945,18 @@
 
 \begin{solution}
     设点 $P$ 的坐标为 $(x, y, z) = (4, -3, 5)$。根据空间两点间距离公式及点到坐标轴的距离公式，有
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             d_{PO} & = \sqrt{x^2 + y^2 + z^2} = \sqrt{4^2 + (-3)^2 + 5^2} = \sqrt{50} = 5\sqrt{2} \\
             d_{Px} & = \sqrt{y^2 + z^2} = \sqrt{(-3)^2 + 5^2} = \sqrt{34}                         \\
             d_{Py} & = \sqrt{x^2 + z^2} = \sqrt{4^2 + 5^2} = \sqrt{41}                            \\
             d_{Pz} & = \sqrt{x^2 + y^2} = \sqrt{4^2 + (-3)^2} = \sqrt{25} = 5
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     因此，点 $P$ 到原点、 $x$ 轴、 $y$ 轴、 $z$ 轴的距离分别为
-    \begin{equation*}
+    \begin{equation}
         \boxed{d_{PO} = 5\sqrt{2}, \quad d_{Px} = \sqrt{34}, \quad d_{Py} = \sqrt{41}, \quad d_{Pz} = 5}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{平面内的等距点}{Equidistant-Point-In-Plane}
@@ -963,20 +965,20 @@
 
 \begin{solution}
     因为点 $P$ 在 $yz$ 平面上，设其坐标为 $P(0, y, z)$。由题意 $PA = PB = PC$，即 $PA^2 = PB^2$ 且 $PA^2 = PC^2$。
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             (0 - 3)^2 + (y - 1)^2 + (z - 2)^2 = (0 - 4)^2 + (y + 2)^2 + (z + 2)^2 \\
             (0 - 3)^2 + (y - 1)^2 + (z - 2)^2 = (0 - 0)^2 + (y - 5)^2 + (z - 1)^2
         \end{cases}
-    \end{equation*}
+    \end{equation}
     展开并整理各项得
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             y^2 + z^2 - 2y - 4z + 14 = y^2 + z^2 + 4y + 4z + 24 \\
             y^2 + z^2 - 2y - 4z + 14 = y^2 + z^2 - 10y - 2z + 26
         \end{cases}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \implies
         \begin{cases}
             6y + 8z = -10 \\
@@ -987,15 +989,15 @@
             3y + 4z = -5 \\
             4y - z = 6
         \end{cases}
-    \end{equation*}
+    \end{equation}
     由第二个方程得 $z = 4y - 6$，代入第一个方程
-    \begin{equation*}
+    \begin{equation}
         3y + 4(4y - 6) = -5 \implies 19y = 19 \implies y = 1
-    \end{equation*}
+    \end{equation}
     进而求得 $z = 4(1) - 6 = -2$。故点 $P$ 的坐标为
-    \begin{equation*}
+    \begin{equation}
         \boxed{P(0, 1, -2)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1016,13 +1018,13 @@
     \ansitem{1}
 
     将平面方程 $2x + 2y + 2z = -1$ 改写为截距式方程：
-    \begin{equation*}
+    \begin{equation}
         \frac{x}{-\frac{1}{2}} + \frac{y}{-\frac{1}{2}} + \frac{z}{-\frac{1}{2}} = 1
-    \end{equation*}
+    \end{equation}
     可知该平面在 $x$ 轴、$y$ 轴、$z$ 轴上的截距均为 $-\frac{1}{2}$。由于方程中包含 $x, y, z$ 三个变量，且常数项不为零，故该平面与三个坐标轴均相交，且不过原点。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{该平面与三个坐标轴均相交，且不过原点}}
-    \end{equation*}
+    \end{equation}
 
     \begin{center}
         \begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, >=latex]
@@ -1045,9 +1047,9 @@
     由平面方程 $3x - 3y + 2 = 0$ 可知，方程中不含变量 $z$。其法向量为 $\symbfit{n} = (3, -3, 0)$，满足 $\symbfit{n} \cdot \symbfit{k} = 0$，其中 $\symbfit{k} = (0, 0, 1)$ 为 $z$ 轴的方向向量。
 
     这表明该平面的法向量垂直于 $z$ 轴，从而平面平行于 $z$ 轴。同时常数项不为零，故平面不包含 $z$ 轴（即不过原点）。它在 $xOy$ 面上的交线方程为 $y = x + \frac{2}{3}$。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{该平面平行于 } z \text{ 轴，且不过原点}}
-    \end{equation*}
+    \end{equation}
 
     \begin{center}
         \begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, >=latex]
@@ -1071,9 +1073,9 @@
     由平面方程 $y - 3z = 0$ 可知，方程中不含变量 $x$，且常数项为零。
 
     不含变量 $x$ 意味着其法向量 $\symbfit{n} = (0, 1, -3)$ 垂直于 $x$ 轴的方向向量 $\symbfit{i} = (1, 0, 0)$，即平面平行于 $x$ 轴；常数项为零意味着平面经过原点。平行于 $x$ 轴且经过原点的平面必然包含 $x$ 轴。它在 $yOz$ 面上的交线方程为 $y = 3z$。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{该平面过原点，且包含 } x \text{ 轴}}
-    \end{equation*}
+    \end{equation}
 
     \begin{center}
         \begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, >=latex]
@@ -1093,9 +1095,9 @@
     由平面方程 $3x - 2 = 0$ 可知，方程中不含变量 $y$ 和 $z$，可化简为 $x = \frac{2}{3}$。
 
     其法向量为 $\symbfit{n} = (3, 0, 0)$，由于 $\symbfit{n}$ 平行于 $x$ 轴的方向向量 $\symbfit{i} = (1, 0, 0)$，表明该平面垂直于 $x$ 轴，从而平行于 $yOz$ 坐标面。它在 $x$ 轴上的截距为 $\frac{2}{3}$。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{该平面平行于 } yOz \text{ 坐标面}}
-    \end{equation*}
+    \end{equation}
 
     \begin{center}
         \begin{tikzpicture}[x={(-0.5cm,-0.4cm)}, y={(1cm,0cm)}, z={(0cm,1cm)}, >=latex]
@@ -1121,21 +1123,21 @@
 
 \begin{solution}
     首先计算向量 $\overrightarrow{M_1 M_2}$：
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{M_1 M_2} = (3-2, 1-(-1), 2-3) = (1, 2, -1)
-    \end{equation*}
+    \end{equation}
     由于所求平面平行于 $\symbfit{v}$ 且包含直线 $M_1 M_2$，故平面的法向量 $\symbfit{n}$ 可取为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n} = \overrightarrow{M_1 M_2} \times \symbfit{v} = \begin{bmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 2 & -1 \\ 3 & -1 & 4 \end{bmatrix} = 7\symbfit{i} - 7\symbfit{j} - 7\symbfit{k}
-    \end{equation*}
+    \end{equation}
     取简化后的法向量 $\symbfit{n}' = (1, -1, -1)$，利用点法式方程，过点 $M_1(2, -1, 3)$：
-    \begin{equation*}
+    \begin{equation}
         1(x - 2) - 1(y + 1) - 1(z - 3) = 0 \implies x - y - z = 0
-    \end{equation*}
+    \end{equation}
     因此，所求平面方程为：
-    \begin{equation*}
+    \begin{equation}
         \boxed{x - y - z = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{平面的截距式方程}{Intercept-Form}
@@ -1144,17 +1146,17 @@
 
 \begin{solution}
     若截距 $a \neq 0$，设平面方程为截距式：
-    \begin{equation*}
+    \begin{equation}
         \frac{x}{a} + \frac{y}{a} + \frac{z}{a} = 1 \implies x + y + z = a
-    \end{equation*}
+    \end{equation}
     将点 $(5, -7, 4)$ 代入方程：
-    \begin{equation*}
+    \begin{equation}
         5 - 7 + 4 = a \implies a = 2
-    \end{equation*}
+    \end{equation}
     此时平面方程为 $x + y + z - 2 = 0$。若截距 $a = 0$，则平面通过原点，设方程为 $Ax + By + Cz = 0$，由截距相等且过点 $(5, -7, 4)$ 知，此类平面不唯一，通常按非零截距处理。综上所得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{x + y + z - 2 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{平面位置关系判断}{Plane-Relationship}
@@ -1171,46 +1173,46 @@
     \ansitem{1} 平行
 
     两平面的法向量分别为 $\symbfit{n}_1 = (2, -3, 5)$，$\symbfit{n}_2 = (2, -3, 5)$。
-    \begin{equation*}
+    \begin{equation}
         \text{因为} \quad \frac{2}{2} = \frac{-3}{-3} = \frac{5}{5} \neq \frac{-7}{3}
-    \end{equation*}
+    \end{equation}
     故两平面平行。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{平行}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2} 相交
 
     两平面的法向量分别为 $\symbfit{n}_1 = (4, 2, -4)$，$\symbfit{n}_2 = (2, 1, 2)$。
-    \begin{equation*}
+    \begin{equation}
         \text{因为} \quad \frac{4}{2} = \frac{2}{1} \neq \frac{-4}{2} \quad \text{且} \quad \symbfit{n}_1 \cdot \symbfit{n}_2 = 8 + 2 - 8 = 2 \neq 0
-    \end{equation*}
+    \end{equation}
     故两平面相交但不垂直。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{相交}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3} 重合
 
     两平面的方程分别为 $\Pi_1: x - 3z + 2 = 0$ 与 $\Pi_2: 2x - 6z + 4 = 0$。
-    \begin{equation*}
+    \begin{equation}
         \text{观察得} \quad \Pi_2 = 2 \Pi_1
-    \end{equation*}
+    \end{equation}
     对应系数成比例且常数项亦成比例，故两平面重合。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{重合}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4} 垂直
 
     两平面的法向量分别为 $\symbfit{n}_1 = (3, -1, -2)$，$\symbfit{n}_2 = (1, 9, -3)$。计算其点积：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n}_1 \cdot \symbfit{n}_2 = 3 \times 1 + (-1) \times 9 + (-2) \times (-3) = 3 - 9 + 6 = 0
-    \end{equation*}
+    \end{equation}
     由于法向量垂直，故两平面垂直。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{垂直}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1220,20 +1222,20 @@
 
 \begin{solution}
     已知两平面的法向量分别为 $\symbfit{n}_1 = (2, 0, -1)$ 与 $\symbfit{n}_2 = (0, 1, 0)$. 设所求平面的法向量为 $\symbfit{n}$, 则有
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n} = \symbfit{n}_1 \times \symbfit{n}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 2 & 0 & -1 \\ 0 & 1 & 0 \end{vmatrix} = (1, 0, 2)
-    \end{equation*}
+    \end{equation}
     利用点法式方程, 该平面通过点 $M(3, -1, 1)$, 则有
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
                      & 1(x - 3) + 0(y + 1) + 2(z - 1) = 0 \\
             \implies & x + 2z - 5 = 0
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故所求平面方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{x + 2z - 5 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{平行平面}{Parallel-Plane}
@@ -1242,13 +1244,13 @@
 
 \begin{solution}
     由于坐标面 $Oyz$ 的方程为 $x = 0$, 其法向量为 $\symbfit{n} = (1, 0, 0)$. 所求平面与其平行, 故可设所求平面方程为 $x + D = 0$. 将点 $M(-5, 2, -1)$ 代入得
-    \begin{equation*}
+    \begin{equation}
         -5 + D = 0 \implies D = 5
-    \end{equation*}
+    \end{equation}
     因此所求平面方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{x + 5 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{平面夹角}{Angle-Between-Planes}
@@ -1262,23 +1264,23 @@
 \begin{solution}
     \ansitem{1}
     设两平面的法向量分别为 $\symbfit{n}_1 = (2, -1, 1)$ 和 $\symbfit{n}_2 = (1, 1, 2)$. 设两平面夹角为 $\theta$, 则
-    \begin{equation*}
+    \begin{equation}
         \cos \theta = \frac{|\symbfit{n}_1 \cdot \symbfit{n}_2|}{|\symbfit{n}_1||\symbfit{n}_2|} = \frac{|2 \cdot 1 + (-1) \cdot 1 + 1 \cdot 2|}{\sqrt{2^2 + (-1)^2 + 1^2} \cdot \sqrt{1^2 + 1^2 + 2^2}} = \frac{3}{\sqrt{6} \cdot \sqrt{6}} = \frac{1}{2}
-    \end{equation*}
+    \end{equation}
     由于 $\theta \in [0, \uppi/2]$, 故
-    \begin{equation*}
+    \begin{equation}
         \boxed{\theta = \frac{\uppi}{3}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
     设两平面的法向量分别为 $\symbfit{n}_1 = (4, 2, 4)$ 和 $\symbfit{n}_2 = (3, -4, 0)$. 设两平面夹角为 $\theta$, 则
-    \begin{equation*}
+    \begin{equation}
         \cos \theta = \frac{|\symbfit{n}_1 \cdot \symbfit{n}_2|}{|\symbfit{n}_1||\symbfit{n}_2|} = \frac{|4 \cdot 3 + 2 \cdot (-4) + 4 \cdot 0|}{\sqrt{4^2 + 2^2 + 4^2} \cdot \sqrt{3^2 + (-4)^2 + 0^2}} = \frac{4}{6 \cdot 5} = \frac{2}{15}
-    \end{equation*}
+    \end{equation}
     故两平面的夹角为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\theta = \arccos \frac{2}{15}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1294,32 +1296,32 @@
     \ansitem{1}
 
     根据点到平面的距离公式 $d = \frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}$，代入坐标与平面方程得
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             d & = \frac{|16 \times 2 - 12 \times (-1) + 15 \times (-1) - 4|}{\sqrt{16^2 + (-12)^2 + 15^2}} \\
               & = \frac{|32 + 12 - 15 - 4|}{\sqrt{256 + 144 + 225}}                                        \\
               & = \frac{25}{\sqrt{625}} = \frac{25}{25}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故所求距离为
-    \begin{equation*}
+    \begin{equation}
         \boxed{d = 1}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     同理，将点 $M(9, 2, -2)$ 代入平面方程 $12y - 5z + 5 = 0$ 可得
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             d & = \frac{|0 \times 9 + 12 \times 2 - 5 \times (-2) + 5|}{\sqrt{0^2 + 12^2 + (-5)^2}} \\
               & = \frac{|24 + 10 + 5|}{\sqrt{144 + 25}}                                             \\
               & = \frac{39}{\sqrt{169}} = \frac{39}{13}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故所求距离为
-    \begin{equation*}
+    \begin{equation}
         \boxed{d = 3}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1335,28 +1337,28 @@
     \ansitem{1}
 
     两平行平面 $Ax + By + Cz + D_1 = 0$ 与 $Ax + By + Cz + D_2 = 0$ 间的距离公式为 $d = \frac{|D_1 - D_2|}{\sqrt{A^2 + B^2 + C^2}}$。
-    \begin{equation*}
+    \begin{equation}
         d = \frac{|14 - (-7)|}{\sqrt{3^2 + 6^2 + (-2)^2}} = \frac{21}{\sqrt{9 + 36 + 4}} = \frac{21}{7}
-    \end{equation*}
+    \end{equation}
     计算得
-    \begin{equation*}
+    \begin{equation}
         \boxed{d = 3}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     将第二个平面方程 $4x - 2y + 4z - 21 = 0$ 两边同时除以 $2$，规范化系数使其与第一个平面一致：
-    \begin{equation*}
+    \begin{equation}
         2x - y + 2z - \frac{21}{2} = 0
-    \end{equation*}
+    \end{equation}
     此时 $D_1 = 9$，$D_2 = -10.5$，代入距离公式得
-    \begin{equation*}
+    \begin{equation}
         d = \frac{|9 - (-10.5)|}{\sqrt{2^2 + (-1)^2 + 2^2}} = \frac{19.5}{\sqrt{4 + 1 + 4}} = \frac{19.5}{3}
-    \end{equation*}
+    \end{equation}
     计算得
-    \begin{equation*}
+    \begin{equation}
         \boxed{d = 6.5}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1372,30 +1374,30 @@
     \ansitem{1} 同侧
 
     设平面方程为 $f(x, y, z) = 5x + 3y + z - 18$。考察原点 $O(0, 0, 0)$ 与点 $M(2, -1, 1)$ 处的函数值符号：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             f(O) & = 5(0) + 3(0) + 0 - 18 = -18 < 0                    \\
             f(M) & = 5(2) + 3(-1) + 1 - 18 = 10 - 3 + 1 - 18 = -10 < 0
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     由于 $f(O)$ 与 $f(M)$ 同号，故点 $M$ 与原点位于平面的
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{同侧}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2} 异侧
 
     设平面方程为 $f(x, y, z) = x + 5y + 12z - 1$。考察各点处的函数值符号：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             f(O) & = 0 + 5(0) + 12(0) - 1 = -1 < 0                  \\
             f(M) & = 2 + 5(-1) + 12(1) - 1 = 2 - 5 + 12 - 1 = 8 > 0
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     由于 $f(O)$ 与 $f(M)$ 异号，故点 $M$ 与原点位于平面的
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{异侧}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1407,13 +1409,13 @@
     观察已知两平面的方程，其法向量均为 $\symbfit{n} = (1, 1, -2)$，故两平面相互平行.
     设所求平面方程为 $x + y - 2z + D = 0$.
     由于该平面与两已知平面等距离，其常数项 $D$ 应为已知平面常数项的算术平均值：
-    \begin{equation*}
+    \begin{equation}
         D = \frac{-1 + 3}{2} = 1
-    \end{equation*}
+    \end{equation}
     故所求平面方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{x + y - 2z + 1 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{二面角平分面}{Angle-Bisector-Plane}
@@ -1422,25 +1424,25 @@
 
 \begin{solution}
     设所求平分面上任一点为 $P(x, y, z)$，根据平分面的几何性质，点 $P$ 到两已知平面的距离相等，即
-    \begin{equation*}
+    \begin{equation}
         \frac{|2x - y + z - 7|}{\sqrt{2^2 + (-1)^2 + 1^2}} = \frac{|x + y + 2z - 11|}{\sqrt{1^2 + 1^2 + 2^2}}
-    \end{equation*}
+    \end{equation}
     由于分母均为 $\sqrt{6}$，消去分母得
-    \begin{equation*}
+    \begin{equation}
         |2x - y + z - 7| = |x + y + 2z - 11|
-    \end{equation*}
+    \end{equation}
     由此导出两个平分面方程：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
                      & 2x - y + z - 7 = \pm(x + y + 2z - 11)                                                     \\
             \implies & 2x - y + z - 7 = x + y + 2z - 11 \quad \text{或} \quad 2x - y + z - 7 = -(x + y + 2z - 11)
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     分别化简得 $x - 2y - z + 4 = 0$ 与 $3x + 3z - 18 = 0$.
     故所求平分面方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{x - 2y - z + 4 = 0 \quad \text{及} \quad x + z - 6 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{四面体内等距点}{Tetrahedron-Incenter}
@@ -1452,18 +1454,18 @@
     点 $P$ 到这三个坐标平面的距离分别为 $d_1 = x, d_2 = y, d_3 = z$.
     由距离相等条件 $d_1 = d_2 = d_3$ 可得 $x = y = z$.
     点 $P$ 到平面 $x + y + z - 1 = 0$ 的距离为
-    \begin{equation*}
+    \begin{equation}
         d_4 = \frac{|x + y + z - 1|}{\sqrt{1^2 + 1^2 + 1^2}}
-    \end{equation*}
+    \end{equation}
     由于四面体由该平面与坐标平面围成，且原点 $(0,0,0)$ 满足 $0+0+0-1 < 0$，故四面体内部点均满足 $x + y + z - 1 < 0$.
     从而 $d_4 = \frac{1 - (x + y + z)}{\sqrt{3}}$. 令 $d_1 = d_4$ 并代入 $x = y = z$：
-    \begin{equation*}
+    \begin{equation}
         x = \frac{1 - 3x}{\sqrt{3}} \implies \sqrt{3}x = 1 - 3x \implies x = \frac{1}{3 + \sqrt{3}} = \frac{3 - \sqrt{3}}{6}
-    \end{equation*}
+    \end{equation}
     故所求点的坐标为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\left( \frac{3 - \sqrt{3}}{6}, \frac{3 - \sqrt{3}}{6}, \frac{3 - \sqrt{3}}{6} \right)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1482,51 +1484,51 @@
 
     线段 $AB$ 的中点为 $M\left(\frac{1+2}{2}, \frac{2-1}{2}, \frac{3+4}{2}\right) = \left(\frac{3}{2}, \frac{1}{2}, \frac{7}{2}\right)$.
     取该平面的法向量为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n} = \overrightarrow{AB} = (2-1, -1-2, 4-3) = (1, -3, 1)
-    \end{equation*}
+    \end{equation}
     由点法式方程得
-    \begin{equation*}
+    \begin{equation}
         1 \cdot \left(x - \frac{3}{2}\right) - 3 \cdot \left(y - \frac{1}{2}\right) + 1 \cdot \left(z - \frac{7}{2}\right) = 0 \implies x - 3y + z - \frac{7}{2} = 0
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{2x - 6y + 2z - 7 = 0}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     设所求平面方程为 $6x + 3y + 2z + D = 0$.
     已知点 $P(0, 2, -1)$ 到已知平面 $6x + 3y + 2z + 12 = 0$ 的距离为
-    \begin{equation*}
+    \begin{equation}
         d_1 = \frac{|6 \cdot 0 + 3 \cdot 2 + 2 \cdot (-1) + 12|}{\sqrt{6^2 + 3^2 + 2^2}} = \frac{16}{7}
-    \end{equation*}
+    \end{equation}
     点 $P$ 到所求平面的距离为
-    \begin{equation*}
+    \begin{equation}
         d_2 = \frac{|6 \cdot 0 + 3 \cdot 2 + 2 \cdot (-1) + D|}{\sqrt{6^2 + 3^2 + 2^2}} = \frac{|4+D|}{7}
-    \end{equation*}
+    \end{equation}
     由 $d_1 = d_2$ 得 $|4+D| = 16$，解得 $D = 12$（舍去）或 $D = -20$.
-    \begin{equation*}
+    \begin{equation}
         \boxed{6x + 3y + 2z - 20 = 0}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3}
 
     由于平面通过 $x$ 轴，可设其方程为 $By + Cz = 0$.
     点 $(5, 4, 13)$ 到该平面的距离为
-    \begin{equation*}
+    \begin{equation}
         d = \frac{|4B + 13C|}{\sqrt{B^2 + C^2}} = 8 \implies (4B + 13C)^2 = 64(B^2 + C^2)
-    \end{equation*}
+    \end{equation}
     整理得 $48B^2 - 104BC - 105C^2 = 0$，即 $(12B - 35C)(4B + 3C) = 0$.
     由 $12B = 35C$ 可取 $B=35, C=12$；由 $4B = -3C$ 可取 $B=3, C=-4$.
-    \begin{equation*}
+    \begin{equation}
         \boxed{35y + 12z = 0 \quad \text{或} \quad 3y - 4z = 0}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4}
 
     设平面方程为 $Ax + By + Cz + D = 0$，其法向量为 $\symbfit{n} = (A, B, C)$.
     平面经过点 $M(0, 0, 1)$ 和 $N(3, 0, 0)$，则
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             C + D = 0 \\
             3A + D = 0
@@ -1534,17 +1536,17 @@
             D = -C \\
             A = \frac{1}{3}C
         \end{cases}
-    \end{equation*}
+    \end{equation}
     所求平面法向量为 $\symbfit{n} = \left(\frac{1}{3}C, B, C\right)$，而 $Oxy$ 平面的法向量为 $\symbfit{k} = (0, 0, 1)$.
     由夹角公式得
-    \begin{equation*}
+    \begin{equation}
         \cos \frac{\uppi}{3} = \frac{|\symbfit{n} \cdot \symbfit{k}|}{|\symbfit{n}| \cdot |\symbfit{k}|} = \frac{|C|}{\sqrt{\frac{1}{9}C^2 + B^2 + C^2} \cdot 1} = \frac{1}{2} \implies 4C^2 = \frac{10}{9}C^2 + B^2
-    \end{equation*}
+    \end{equation}
     解得 $B^2 = \frac{26}{9}C^2$，即 $B = \pm \frac{\sqrt{26}}{3}C$.
     代入方程 $\frac{1}{3}Cx \pm \frac{\sqrt{26}}{3}Cy + Cz - C = 0$ 并约去 $C$ 得
-    \begin{equation*}
+    \begin{equation}
         \boxed{x \pm \sqrt{26}y + 3z - 3 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{直线方程的求解}{Line-Equations}
@@ -1552,15 +1554,15 @@
     \begin{enumerate}
         \item 过点 $(0, 2, 4)$ 而与两平面 $x + 2z = 1, y - 3z = 2$ 平行；
         \item 过点 $(-1, 2, 1)$ 且平行于直线
-              \begin{equation*}
+              \begin{equation}
                   \begin{cases}
                       x + y - 2z - 1 = 0, \\
                       x + 2y - z + 1 = 0;
                   \end{cases}
-              \end{equation*}
+              \end{equation}
         \item 过点 $(2, -3, 4)$ 且和 $z$ 轴垂直并相交；
         \item 过点 $(-1, -4, 3)$ 并与下面两直线
-              \begin{equation*}
+              \begin{equation}
                   \begin{cases}
                       2x - 4y + z = 1, \\
                       x + 3y = -5
@@ -1570,7 +1572,7 @@
                       y = -1 - t, \\
                       z = -3 + 2t
                   \end{cases}
-              \end{equation*}
+              \end{equation}
               都垂直.
     \end{enumerate}
 \end{problem}
@@ -1578,60 +1580,60 @@
 \begin{solution}
     \ansitem{1}
     直线平行于两平面，故其方向向量 $\symbfit{s}$ 垂直于两平面的法向量 $\symbfit{n}_1 = (1, 0, 2)$ 和 $\symbfit{n}_2 = (0, 1, -3)$.
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = \symbfit{n}_1 \times \symbfit{n}_2 =
         \begin{vmatrix}
             \symbfit{i} & \symbfit{j} & \symbfit{k} \\
             1           & 0           & 2           \\
             0           & 1           & -3
         \end{vmatrix} = (-2, 3, 1)
-    \end{equation*}
+    \end{equation}
     由点 $(0, 2, 4)$ 得对称式方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\frac{x}{-2} = \frac{y-2}{3} = \frac{z-4}{1}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
     直线的方向向量 $\symbfit{s}$ 为已知两平面法向量的叉积
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = (1, 1, -2) \times (1, 2, -1) =
         \begin{vmatrix}
             \symbfit{i} & \symbfit{j} & \symbfit{k} \\
             1           & 1           & -2          \\
             1           & 2           & -1
         \end{vmatrix} = (3, -1, 1)
-    \end{equation*}
+    \end{equation}
     由点 $(-1, 2, 1)$ 得对称式方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\frac{x+1}{3} = \frac{y-2}{-1} = \frac{z-1}{1}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3}
     直线与 $z$ 轴相交且垂直. $z$ 轴的方向向量为 $\symbfit{k} = (0, 0, 1)$，直线过 $P(2, -3, 4)$.
     由于直线与 $z$ 轴垂直，方向向量 $\symbfit{s} = (m, n, 0)$. 又其与 $z$ 轴相交于点 $(0, 0, 4)$，则方向向量可取为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = (2-0, -3-0, 4-4) = (2, -3, 0)
-    \end{equation*}
+    \end{equation}
     故直线方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} \frac{x-2}{2} = \frac{y+3}{-3} \\ z = 4 \end{cases}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4}
     第一条直线的方向向量 $\symbfit{s}_1 = (2, -4, 1) \times (1, 3, 0) = (-3, 1, 10)$. 第二条直线的方向向量 $\symbfit{s}_2 = (4, -1, 2)$.
     所求直线的方向向量为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = \symbfit{s}_1 \times \symbfit{s}_2 =
         \begin{vmatrix}
             \symbfit{i} & \symbfit{j} & \symbfit{k} \\
             -3          & 1           & 10          \\
             4           & -1          & 2
         \end{vmatrix} = (12, 46, -1)
-    \end{equation*}
+    \end{equation}
     由点 $(-1, -4, 3)$ 得方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\frac{x+1}{12} = \frac{y+4}{46} = \frac{z-3}{-1}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1641,17 +1643,17 @@
 
 \begin{solution}
     取两平面的法向量分别为 $\symbfit{n}_1 = (2, 3, -1)$ 与 $\symbfit{n}_2 = (3, -5, 2)$，则直线的方向向量 $\symbfit{s}$ 为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = \symbfit{n}_1 \times \symbfit{n}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 2 & 3 & -1 \\ 3 & -5 & 2 \end{vmatrix} = (1, -7, -19)
-    \end{equation*}
+    \end{equation}
     令 $y = 0$，代入原方程组得
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} 2x - z = 4 \\ 3x + 2z = -1 \end{cases} \implies \begin{cases} x = 1 \\ z = -2 \end{cases}
-    \end{equation*}
+    \end{equation}
     故直线经过点 $(1, 0, -2)$，其参数方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} x = 1 + t \\ y = -7t \\ z = -2 - 19t \end{cases} \quad (t \in \symbb{R})}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{直线与平面交点}{Intersection-Line-Plane}
@@ -1665,31 +1667,31 @@
 \begin{solution}
     \ansitem{1}
     将直线方程化为参数式
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} x = 1 + t \\ y = -1 - 2t \\ z = 6t \end{cases}
-    \end{equation*}
+    \end{equation}
     代入平面方程 $2x + 3y + z - 1 = 0$ 得
-    \begin{equation*}
+    \begin{equation}
         2(1 + t) + 3(-1 - 2t) + 6t - 1 = 0 \implies 2t - 2 = 0 \implies t = 1
-    \end{equation*}
+    \end{equation}
     将 $t = 1$ 代入参数方程得 $x = 2, y = -3, z = 6$. 故交点为
-    \begin{equation*}
+    \begin{equation}
         \boxed{(2, -3, 6)}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
     将直线方程化为参数式
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} x = -2 - 2t \\ y = 1 + 3t \\ z = 3 + 2t \end{cases}
-    \end{equation*}
+    \end{equation}
     代入平面方程 $x + 2y - 2z + 6 = 0$ 得
-    \begin{equation*}
+    \begin{equation}
         (-2 - 2t) + 2(1 + 3t) - 2(3 + 2t) + 6 = 0 \implies 0 \cdot t = 0
-    \end{equation*}
+    \end{equation}
     该等式对任意 $t \in \symbb{R}$ 均成立，说明直线上的所有点都在平面内.
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{直线在平面内，交点为整条直线}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1705,38 +1707,38 @@
     \ansitem{1}
 
     设两直线的方向向量分别为 $\symbfit{s}_1$ 与 $\symbfit{s}_2$，根据法向量的外积定义：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{s}_1 & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 5 & -3 & 3 \\ 3 & -2 & 1 \end{vmatrix} = (3, 4, -1),                       \\
             \symbfit{s}_2 & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 2 & 2 & -1 \\ 3 & 8 & 1 \end{vmatrix} = (10, -5, 10) \parallel (2, -1, 2).
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     计算两向量的点积：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s}_1 \cdot \symbfit{s}_2 = 3 \times 10 + 4 \times (-5) + (-1) \times 10 = 30 - 20 - 10 = 0.
-    \end{equation*}
+    \end{equation}
     由此推得 $\symbfit{s}_1 \perp \symbfit{s}_2$，故两直线的夹角为：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\varphi = \frac{\uppi}{2}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     同理，设两直线的方向向量分别为 $\symbfit{s}_1$ 与 $\symbfit{s}_2$：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{s}_1 & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 2 & 1 \\ 1 & -2 & 1 \end{vmatrix} = (4, 0, -4) \parallel (1, 0, -1),   \\
             \symbfit{s}_2 & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & -1 & -1 \\ 1 & -1 & 2 \end{vmatrix} = (-3, -3, 0) \parallel (1, 1, 0).
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     设两直线夹角为 $\varphi$，则有：
-    \begin{equation*}
+    \begin{equation}
         \cos \varphi = \frac{|\symbfit{s}_1 \cdot \symbfit{s}_2|}{|\symbfit{s}_1| |\symbfit{s}_2|} = \frac{|1 \times 1 + 0 \times 1 + (-1) \times 0|}{\sqrt{1^2 + 0^2 + (-1)^2} \sqrt{1^2 + 1^2 + 0^2}} = \frac{1}{\sqrt{2} \cdot \sqrt{2}} = \frac{1}{2}.
-    \end{equation*}
+    \end{equation}
     由于夹角范围 $\varphi \in [0, \uppi/2]$，可得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\varphi = \frac{\uppi}{3}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1754,41 +1756,41 @@
     对于第一条直线 $L_1$，其方向向量为 $\symbfit{s}_1 = (-2, 3, 1)$，经过点 $M_1(-2, 1, 0)$。
     对于第二条直线 $L_2$，其由两个平面的交线给定，法向量分别为 $\symbfit{n}_1 = (1, 1, -1)$ 和 $\symbfit{n}_2 = (1, -1, 5)$。
     则 $L_2$ 的方向向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s}_2 = \symbfit{n}_1 \times \symbfit{n}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 1 & -1 \\ 1 & -1 & 5 \end{vmatrix} = (4, -6, -2)
-    \end{equation*}
+    \end{equation}
     显然 $\symbfit{s}_2 = -2 \symbfit{s}_1$，故两直线方向向量共线。又点 $M_1(-2, 1, 0)$ 不在 $L_2$ 上（代入 $L_2$ 方程知 $-2+1-0 = -1 \neq 0$），因此 $L_1 \parallel L_2$。
     在 $L_2$ 上取一点 $M_2$，令 $z=0$，则 $\begin{cases} x+y=0 \\ x-y=8 \end{cases} \implies x=4, y=-4$，即 $M_2(4, -4, 0)$。
     计算向量 $\overrightarrow{M_1 M_2} = (4 - (-2), -4 - 1, 0 - 0) = (6, -5, 0)$。
     两平行线间的距离 $d$ 为：
-    \begin{equation*}
+    \begin{equation}
         d = \frac{|\overrightarrow{M_1 M_2} \times \symbfit{s}_1|}{|\symbfit{s}_1|} = \frac{\left| \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 6 & -5 & 0 \\ -2 & 3 & 1 \end{vmatrix} \right|}{\sqrt{(-2)^2 + 3^2 + 1^2}} = \frac{|(-5, -6, 8)|}{\sqrt{14}} = \frac{\sqrt{25 + 36 + 64}}{\sqrt{14}} = \frac{5\sqrt{5}}{\sqrt{14}}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{d = \frac{5\sqrt{70}}{14}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     对于第一条直线 $L_1$，方向向量为 $\symbfit{s}_1 = (3, -1, 4)$，经过点 $M_1(-7, 5, 9)$。
     对于第二条直线 $L_2$，法向量分别为 $\symbfit{n}_1 = (2, 2, -1)$ 和 $\symbfit{n}_2 = (1, -1, -1)$。
     则 $L_2$ 的方向向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s}_2 = \symbfit{n}_1 \times \symbfit{n}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 2 & 2 & -1 \\ 1 & -1 & -1 \end{vmatrix} = (-3, 1, -4)
-    \end{equation*}
+    \end{equation}
     显然 $\symbfit{s}_2 = - \symbfit{s}_1$，故两直线方向向量共线。又 $M_1$ 不在 $L_2$ 上，故 $L_1 \parallel L_2$。
     在 $L_2$ 上取一点 $M_2$，令 $z=2$，则 $\begin{cases} 2x+2y=12 \\ x-y=24 \end{cases} \implies x=15, y=-9$，即 $M_2(15, -9, 2)$。
     计算向量 $\overrightarrow{M_1 M_2} = (15 - (-7), -9 - 5, 2 - 9) = (22, -14, -7)$。
     两平行线间的距离 $d$ 为：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             d = \frac{|\overrightarrow{M_1 M_2} \times \symbfit{s}_1|}{|\symbfit{s}_1|} & = \frac{\left| \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 22 & -14 & -7 \\ 3 & -1 & 4 \end{vmatrix} \right|}{\sqrt{3^2 + (-1)^2 + 4^2}} = \frac{|(-63, -109, 20)|}{\sqrt{26}} \\
                                                                                         & = \frac{\sqrt{3969 + 11881 + 400}}{\sqrt{26}} = \frac{\sqrt{16250}}{\sqrt{26}} = \frac{25\sqrt{26}}{\sqrt{26}}
         \end{aligned}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{d = 25}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1804,40 +1806,40 @@
     \ansitem{1}
 
     直线 $L_1$ 与 $L_2$ 的方向向量分别为 $\symbfit{s}_1, \symbfit{s}_2$：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{s}_1 & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 2 & 0 \\ 0 & 2 & -1 \end{vmatrix} = (-2, 1, 2), \\
             \symbfit{s}_2 & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & -1 & 0 \\ 1 & 0 & -2 \end{vmatrix} = (2, 2, 1).
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     因为 $\symbfit{s}_1 \cdot \symbfit{s}_2 = (-2) \times 2 + 1 \times 2 + 2 \times 1 = 0$，故 $L_1 \perp L_2$.
     联立两直线方程组：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} x + 2y = 1 \\ 2y - z = 1 \\ x - y = 1 \\ x - 2z = 3 \end{cases} \implies \begin{cases} x = 1 \\ y = 0 \\ z = -1 \end{cases}
-    \end{equation*}
+    \end{equation}
     经检验该解满足所有方程，故直线垂直相交.
-    \begin{equation*}
+    \begin{equation}
         \boxed{ \text{交点为 } (1, 0, -1) }
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     直线 $L_1$ 与 $L_2$ 的方向向量分别为 $\symbfit{s}_1, \symbfit{s}_2$：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{s}_1 & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 4 & 1 & -3 \\ 0 & 0 & 1 \end{vmatrix} = (1, -4, 0), \\
             \symbfit{s}_2 & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 1 & 0 \\ 1 & 0 & 0 \end{vmatrix} = (0, 0, -1).
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     因为 $\symbfit{s}_1 \cdot \symbfit{s}_2 = 1 \times 0 + (-4) \times 0 + 0 \times (-1) = 0$，故 $L_1 \perp L_2$.
     联立两直线方程组：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} 4x + y - 3z + 24 = 0 \\ z = 5 \\ x + y = -3 \\ x = -2 \end{cases} \implies \begin{cases} x = -2 \\ y = -1 \\ z = 5 \end{cases}
-    \end{equation*}
+    \end{equation}
     代入 $L_1$ 第一方程检验：$4(-2) + (-1) - 3(5) + 24 = -8 - 1 - 15 + 24 = 0$，方程组相容.
-    \begin{equation*}
+    \begin{equation}
         \boxed{ \text{交点为 } (-2, -1, 5) }
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1853,40 +1855,40 @@
     \ansitem{1}
 
     直线的方向向量可取为两个平面法向量的叉积：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 3 & -2 & 0 \\ 3 & 0 & -1 \end{vmatrix} = (2, 3, 6)
-    \end{equation*}
+    \end{equation}
     已知平面的法向量为 $\symbfit{n} = (6, 15, -10)$。设直线与平面的夹角为 $\varphi$，根据公式：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \sin \varphi & = \frac{|\symbfit{s} \cdot \symbfit{n}|}{|\symbfit{s}| |\symbfit{n}|}                                       \\
                          & = \frac{|2 \cdot 6 + 3 \cdot 15 + 6 \cdot (-10)|}{\sqrt{2^2 + 3^2 + 6^2} \cdot \sqrt{6^2 + 15^2 + (-10)^2}} \\
                          & = \frac{|12 + 45 - 60|}{7 \cdot 19} = \frac{3}{133}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故得夹角为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\varphi = \arcsin \frac{3}{133}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     直线的方向向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 1 & 3 \\ 1 & -1 & -1 \end{vmatrix} = (2, 4, -2)
-    \end{equation*}
+    \end{equation}
     平面的法向量为 $\symbfit{n} = (1, -1, -1)$。计算其点积：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} \cdot \symbfit{n} = 2 \cdot 1 + 4 \cdot (-1) + (-2) \cdot (-1) = 2 - 4 + 2 = 0
-    \end{equation*}
+    \end{equation}
     由于 $\symbfit{s} \cdot \symbfit{n} = 0$，说明直线的方向向量与平面的法向量垂直，即直线与平面平行或直线在平面内。
-    \begin{equation*}
+    \begin{equation}
         \implies \sin \varphi = 0
-    \end{equation*}
+    \end{equation}
     故得夹角为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\varphi = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1902,42 +1904,42 @@
     \ansitem{1}
 
     由直线的对称式方程可知其方向向量 $\symbfit{s} = (1, 2, -1)$，且直线上取一点 $P_1(0, 1, 0)$，构造向量：
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{P_1P_0} = (1 - 0, 0 - 1, -1 - 0) = (1, -1, -1)
-    \end{equation*}
+    \end{equation}
     计算向量积：
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{P_1P_0} \times \symbfit{s} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & -1 & -1 \\ 1 & 2 & -1 \end{vmatrix} = (1 + 2)\symbfit{i} - (-1 + 1)\symbfit{j} + (2 + 1)\symbfit{k} = (3, 0, 3)
-    \end{equation*}
+    \end{equation}
     根据点到直线的距离公式 $d = \dfrac{|\overrightarrow{P_1P_0} \times \symbfit{s}|}{|\symbfit{s}|}$，得：
-    \begin{equation*}
+    \begin{equation}
         d = \frac{\sqrt{3^2 + 0^2 + 3^2}}{\sqrt{1^2 + 2^2 + (-1)^2}} = \frac{3\sqrt{2}}{\sqrt{6}} = \sqrt{3}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{d = \sqrt{3}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     由直线的交面式方程，取两平面的法向量 $\symbfit{n}_1 = (1, 1, -1)$，$\symbfit{n}_2 = (2, 0, 1)$，则直线的方向向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = \symbfit{n}_1 \times \symbfit{n}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 1 & -1 \\ 2 & 0 & 1 \end{vmatrix} = \symbfit{i} - (1 + 2)\symbfit{j} + (0 - 2)\symbfit{k} = (1, -3, -2)
-    \end{equation*}
+    \end{equation}
     令 $x = 0$，代入方程组解得 $z = 3, y = 4$，取直线上一点 $M_1(0, 4, 3)$，构造向量：
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{M_1M_0} = (1 - 0, 2 - 4, 3 - 3) = (1, -2, 0)
-    \end{equation*}
+    \end{equation}
     计算向量积：
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{M_1M_0} \times \symbfit{s} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & -2 & 0 \\ 1 & -3 & -2 \end{vmatrix} = 4\symbfit{i} - (-2 - 0)\symbfit{j} + (-3 + 2)\symbfit{k} = (4, 2, -1)
-    \end{equation*}
+    \end{equation}
     则距离为：
-    \begin{equation*}
+    \begin{equation}
         d = \frac{|\overrightarrow{M_1M_0} \times \symbfit{s}|}{|\symbfit{s}|} = \frac{\sqrt{4^2 + 2^2 + (-1)^2}}{\sqrt{1^2 + (-3)^2 + (-2)^2}} = \frac{\sqrt{21}}{\sqrt{14}} = \sqrt{\frac{3}{2}} = \frac{\sqrt{6}}{2}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{d = \frac{\sqrt{6}}{2}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -1953,45 +1955,45 @@
     \ansitem{1}
     由题意，直线 $L_1$ 经过点 $P_1(9, -2, 0)$，方向向量为 $\symbfit{s}_1 = (4, -3, 1)$；直线 $L_2$ 经过点 $P_2(0, -7, 2)$，方向向量为 $\symbfit{s}_2 = (-2, 9, 2)$。
     令 $\overrightarrow{P_1P_2} = (-9, -5, 2)$，计算向量混合积：
-    \begin{equation*}
+    \begin{equation}
         (\overrightarrow{P_1P_2}, \symbfit{s}_1, \symbfit{s}_2) = \begin{vmatrix} -9 & -5 & 2 \\ 4 & -3 & 1 \\ -2 & 9 & 2 \end{vmatrix} = -9(-6 - 9) + 5(8 + 2) + 2(36 - 6) = 135 + 50 + 60 = 245
-    \end{equation*}
+    \end{equation}
     因为混合积不为零，故 $L_1$ 与 $L_2$ 为异面直线。进一步计算 $\symbfit{s}_1 \times \symbfit{s}_2$：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s}_1 \times \symbfit{s}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 4 & -3 & 1 \\ -2 & 9 & 2 \end{vmatrix} = (-6 - 9)\symbfit{i} - (8 + 2)\symbfit{j} + (36 - 6)\symbfit{k} = (-15, -10, 30)
-    \end{equation*}
+    \end{equation}
     则其模长为 $|\symbfit{s}_1 \times \symbfit{s}_2| = \sqrt{(-15)^2 + (-10)^2 + 30^2} = \sqrt{225 + 100 + 900} = 35$。两直线间的距离为：
-    \begin{equation*}
+    \begin{equation}
         d = \frac{|(\overrightarrow{P_1P_2}, \symbfit{s}_1, \symbfit{s}_2)|}{|\symbfit{s}_1 \times \symbfit{s}_2|} = \frac{245}{35} = 7
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{d = 7}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
     对于直线 $L_1$，其方向向量可取为两平面法向量的叉积：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s}_1 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 1 & -1 \\ 2 & 1 & -1 \end{vmatrix} = (0, -1, -1) \parallel (0, 1, 1)
-    \end{equation*}
+    \end{equation}
     取 $z = 0$，解得 $L_1$ 上的一点 $P_1(1, 0, 0)$。对于直线 $L_2$，其方向向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 2 & -1 \\ 1 & 2 & 2 \end{vmatrix} = (6, -3, 0) \parallel (2, -1, 0)
-    \end{equation*}
+    \end{equation}
     取 $x = 0$，解得 $L_2$ 上的一点 $P_2(0, 0, -2)$。令 $\overrightarrow{P_1P_2} = (-1, 0, -2)$，计算混合积：
-    \begin{equation*}
+    \begin{equation}
         (\overrightarrow{P_1P_2}, \symbfit{s}_1, \symbfit{s}_2) = \begin{vmatrix} -1 & 0 & -2 \\ 0 & 1 & 1 \\ 2 & -1 & 0 \end{vmatrix} = -1(1) - 2(-2) = 3 \neq 0
-    \end{equation*}
+    \end{equation}
     故 $L_1$ 与 $L_2$ 为异面直线。计算 $\symbfit{s}_1 \times \symbfit{s}_2$：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s}_1 \times \symbfit{s}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 0 & 1 & 1 \\ 2 & -1 & 0 \end{vmatrix} = (1, 2, -2)
-    \end{equation*}
+    \end{equation}
     其模长为 $|\symbfit{s}_1 \times \symbfit{s}_2| = \sqrt{1^2 + 2^2 + (-2)^2} = 3$。则两直线间的距离为：
-    \begin{equation*}
+    \begin{equation}
         d = \frac{|(\overrightarrow{P_1P_2}, \symbfit{s}_1, \symbfit{s}_2)|}{|\symbfit{s}_1 \times \symbfit{s}_2|} = \frac{3}{3} = 1
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{d = 1}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2001,32 +2003,32 @@
 
 \begin{solution}
     设所求平面的平面束方程为
-    \begin{equation*}
+    \begin{equation}
         (3x + 2y - z - 1) + \lambda(2x - 3y + 2z + 2) = 0
-    \end{equation*}
+    \end{equation}
     整理得
-    \begin{equation*}
+    \begin{equation}
         (3 + 2\lambda)x + (2 - 3\lambda)y + (2\lambda - 1)z + (2\lambda - 1) = 0
-    \end{equation*}
+    \end{equation}
     由此可得该平面的法向量为 $\symbfit{n} = (3 + 2\lambda, 2 - 3\lambda, 2\lambda - 1)$.
     已知平面 $x + 2y + 3z - 5 = 0$ 的法向量为 $\symbfit{n}_1 = (1, 2, 3)$.
     由于两平面垂直, 则其法向量相互垂直, 即 $\symbfit{n} \cdot \symbfit{n}_1 = 0$
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
              & \implies 1 \cdot (3 + 2\lambda) + 2 \cdot (2 - 3\lambda) + 3 \cdot (2\lambda - 1) = 0 \\
              & \implies 3 + 2\lambda + 4 - 6\lambda + 6\lambda - 3 = 0                               \\
              & \implies 2\lambda + 4 = 0                                                             \\
              & \implies \lambda = -2
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     将 $\lambda = -2$ 代入平面束方程得
-    \begin{equation*}
+    \begin{equation}
         (3 - 4)x + (2 + 6)y + (-4 - 1)z + (-4 - 1) = 0 \implies -x + 8y - 5z - 5 = 0
-    \end{equation*}
+    \end{equation}
     即所求平面方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{x - 8y + 5z + 5 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2038,21 +2040,21 @@
     设已知直线为 $L_1$，平行直线为 $L_2$.
     由题意得 $L_1$ 的方向向量为 $\symbfit{s}_1 = (3, 2, -1)$，且过点 $P_1(1, 3, -2)$.
     直线 $L_2$ 的方向向量为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 2 & -1 & 1 \\ 1 & 2 & -1 \end{vmatrix} = (-1, 3, 5)
-    \end{equation*}
+    \end{equation}
     所求平面的法向量 $\symbfit{n}$ 同时垂直于 $\symbfit{s}_1$ 与 $\symbfit{s}_2$，则
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n} = \symbfit{s}_1 \times \symbfit{s}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 3 & 2 & -1 \\ -1 & 3 & 5 \end{vmatrix} = (13, -14, 11)
-    \end{equation*}
+    \end{equation}
     利用点法式方程，平面方程为
-    \begin{equation*}
+    \begin{equation}
         13(x - 1) - 14(y - 3) + 11(z + 2) = 0 \implies 13x - 14y + 11z + 51 = 0
-    \end{equation*}
+    \end{equation}
     故所求平面方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{13x - 14y + 11z + 51 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{平面束}{Perpendicular-Planes-Pencil}
@@ -2061,31 +2063,31 @@
 
 \begin{solution}
     考虑过已知直线的平面束方程为
-    \begin{equation*}
+    \begin{equation}
         \lambda(5x - 11z + 7) + \mu(5y + 7z - 4) = 0
-    \end{equation*}
+    \end{equation}
     整理得 $5\lambda x + 5\mu y + (-11\lambda + 7\mu)z + (7\lambda - 4\mu) = 0$.
     设第一个平面 $\pi_1$ 过点 $(4, -3, 1)$，代入上式
-    \begin{equation*}
+    \begin{equation}
         \lambda(20 - 11 + 7) + \mu(-15 + 7 - 4) = 0 \implies 16\lambda - 12\mu = 0 \implies 4\lambda = 3\mu
-    \end{equation*}
+    \end{equation}
     取 $\lambda = 3, \mu = 4$，代入平面束方程得 $\pi_1$：
-    \begin{equation*}
+    \begin{equation}
         15x + 20y - 5z + 5 = 0 \implies 3x + 4y - z + 1 = 0
-    \end{equation*}
+    \end{equation}
     其法向量为 $\symbfit{n}_1 = (3, 4, -1)$. 设第二个平面 $\pi_2$ 的法向量为 $\symbfit{n}_2 = (5\lambda, 5\mu, -11\lambda + 7\mu)$.
     由 $\pi_1 \perp \pi_2 \implies \symbfit{n}_1 \cdot \symbfit{n}_2 = 0$：
-    \begin{equation*}
+    \begin{equation}
         3(5\lambda) + 4(5\mu) - 1(-11\lambda + 7\mu) = 0 \implies 26\lambda + 13\mu = 0 \implies \mu = -2\lambda
-    \end{equation*}
+    \end{equation}
     取 $\lambda = 1, \mu = -2$，代入平面束方程得 $\pi_2$：
-    \begin{equation*}
+    \begin{equation}
         5x - 10y - 25z + 15 = 0 \implies x - 2y - 5z + 3 = 0
-    \end{equation*}
+    \end{equation}
     故此二平面方程分别为
-    \begin{equation*}
+    \begin{equation}
         \boxed{3x + 4y - z + 1 = 0 \quad \text{与} \quad x - 2y - 5z + 3 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{投影点}{Point-Projection-on-Plane}
@@ -2095,22 +2097,22 @@
 \begin{solution}
     已知平面的法向量为 $\symbfit{n} = (1, 2, -1)$.
     设过点 $P(-1, 2, 0)$ 且垂直于平面的直线（法线）方程为
-    \begin{equation*}
+    \begin{equation}
         \frac{x + 1}{1} = \frac{y - 2}{2} = \frac{z}{-1} = t
-    \end{equation*}
+    \end{equation}
     其参数方程为 $x = t - 1, y = 2t + 2, z = -t$.
     将参数方程代入平面方程 $x + 2y - z + 1 = 0$：
-    \begin{equation*}
+    \begin{equation}
         (t - 1) + 2(2t + 2) - (-t) + 1 = 0 \implies 6t + 4 = 0 \implies t = -\frac{2}{3}
-    \end{equation*}
+    \end{equation}
     代回参数方程得投影点的坐标：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} x = -\frac{2}{3} - 1 = -\frac{5}{3} \\ y = 2(-\frac{2}{3}) + 2 = \frac{2}{3} \\ z = -(-\frac{2}{3}) = \frac{2}{3} \end{cases}
-    \end{equation*}
+    \end{equation}
     故投影点为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\left( -\frac{5}{3}, \frac{2}{3}, \frac{2}{3} \right)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2121,26 +2123,26 @@
 \begin{solution}
     设已知点为 $P(2, 3, 1)$，直线上的投影点为 $H$，则 $H$ 的坐标可表示为 $(t - 7, 2t - 2, 3t - 2)$。
     直线的方向向量为 $\symbfit{v} = (1, 2, 3)$，向量 $\overrightarrow{PH}$ 为
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{PH} = (t - 7 - 2, 2t - 2 - 3, 3t - 2 - 1) = (t - 9, 2t - 5, 3t - 3)
-    \end{equation*}
+    \end{equation}
     由于 $\overrightarrow{PH} \perp \symbfit{v}$，则其数量积为零
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \overrightarrow{PH} \cdot \symbfit{v} = 0
              & \implies (t - 9) \cdot 1 + (2t - 5) \cdot 2 + (3t - 3) \cdot 3 = 0 \\
              & \implies t - 9 + 4t - 10 + 9t - 9 = 0                              \\
              & \implies 14t - 28 = 0 \implies t = 2
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     将 $t = 2$ 代入 $H$ 的坐标表达式得
-    \begin{equation*}
+    \begin{equation}
         x = 2 - 7 = -5, \quad y = 2(2) - 2 = 2, \quad z = 3(2) - 2 = 4
-    \end{equation*}
+    \end{equation}
     故投影点的坐标为
-    \begin{equation*}
+    \begin{equation}
         \boxed{H(-5, 2, 4)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2150,25 +2152,25 @@
 
 \begin{solution}
     平面的法向量为 $\symbfit{n} = (6, 2, -9)$。过原点 $O(0, 0, 0)$ 且垂直于平面的直线方程为
-    \begin{equation*}
+    \begin{equation}
         \frac{x}{6} = \frac{y}{2} = \frac{z}{-9} = t \implies x = 6t, y = 2t, z = -9t
-    \end{equation*}
+    \end{equation}
     设该直线与平面的交点（即投影点）为 $M$，将其代入平面方程
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             6(6t) + 2(2t) - 9(-9t) + 121 = 0
              & \implies 36t + 4t + 81t + 121 = 0    \\
              & \implies 121t = -121 \implies t = -1
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     得投影点坐标 $M(-6, -2, 9)$。设对称点为 $P'(x, y, z)$，则 $M$ 为线段 $OP'$ 的中点，即 $P' = 2M - O$，故
-    \begin{equation*}
+    \begin{equation}
         x = 2(-6) = -12, \quad y = 2(-2) = -4, \quad z = 2(9) = 18
-    \end{equation*}
+    \end{equation}
     故对称点坐标为
-    \begin{equation*}
+    \begin{equation}
         \boxed{(-12, -4, 18)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2179,28 +2181,28 @@
 \begin{solution}
     设已知点为 $P(1, 2, 3)$，直线参数方程为 $x = t, y = 4 - 3t, z = 3 - 2t$。
     直线的方向向量为 $\symbfit{v} = (1, -3, -2)$。设 $P$ 在直线上的投影点为 $H(t, 4 - 3t, 3 - 2t)$，则
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{PH} = (t - 1, (4 - 3t) - 2, (3 - 2t) - 3) = (t - 1, 2 - 3t, -2t)
-    \end{equation*}
+    \end{equation}
     由 $\overrightarrow{PH} \cdot \symbfit{v} = 0$ 得
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (t - 1) \cdot 1 + (2 - 3t) \cdot (-3) + (-2t) \cdot (-2) = 0 \\
             \implies t - 1 - 6 + 9t + 4t = 0 \implies 14t = 7 \implies t = \frac{1}{2}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     代入得 $H$ 的坐标为 $\left( \frac{1}{2}, \frac{5}{2}, 2 \right)$。设对称点为 $P'(x, y, z)$，则有 $H = \frac{P + P'}{2}$
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             x & = 2 \cdot \frac{1}{2} - 1 = 0 \\
             y & = 2 \cdot \frac{5}{2} - 2 = 3 \\
             z & = 2 \cdot 2 - 3 = 1
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故对称点坐标为
-    \begin{equation*}
+    \begin{equation}
         \boxed{(0, 3, 1)}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2210,33 +2212,33 @@
 
 \begin{solution}
     设两直线的方向向量分别为 $\symbfit{s}_1 = (\lambda, 5, -3)$ 和 $\symbfit{s}_2 = (3, -4, 7)$，其上已知点分别为 $P_1(1, -4, 3)$ 和 $P_2(-3, 9, -14)$．若两直线相交，则向量 $\overrightarrow{P_1P_2} = (-4, 13, -17)$ 与 $\symbfit{s}_1, \symbfit{s}_2$ 共面，即其混合积为零：
-    \begin{equation*}
+    \begin{equation}
         \begin{vmatrix} -4 & 13 & -17 \\ \lambda & 5 & -3 \\ 3 & -4 & 7 \end{vmatrix} = 0 \implies -4(35 - 12) - 13(7\lambda + 9) - 17(-4\lambda - 15) = 0
-    \end{equation*}
+    \end{equation}
     展开整理得：
-    \begin{equation*}
+    \begin{equation}
         -92 - 91\lambda - 117 + 68\lambda + 255 = 0 \implies -23\lambda + 46 = 0 \implies \lambda = 2
-    \end{equation*}
+    \end{equation}
     将 $\lambda = 2$ 代入直线方程，设交点为 $(x, y, z)$，由参数方程：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} x = 1 + 2t = -3 + 3s \\ y = -4 + 5t = 9 - 4s \\ z = 3 - 3t = -14 + 7s \end{cases} \implies \begin{cases} 2t - 3s = -4 \\ 5t + 4s = 13 \end{cases} \implies \begin{cases} t = 1 \\ s = 2 \end{cases}
-    \end{equation*}
+    \end{equation}
     代入得交点为 $(3, 1, 0)$．平面的法向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n} = \symbfit{s}_1 \times \symbfit{s}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 2 & 5 & -3 \\ 3 & -4 & 7 \end{vmatrix} = 23\symbfit{i} - 23\symbfit{j} - 23\symbfit{k} \parallel (1, -1, -1)
-    \end{equation*}
+    \end{equation}
     平面方程为 $1(x - 3) - 1(y - 1) - 1(z - 0) = 0$，即 $x - y - z - 2 = 0$．
-    \begin{equation*}
+    \begin{equation}
         \boxed{\lambda = 2, \text{交点为 } (3, 1, 0), \text{平面方程为 } x - y - z - 2 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
 \begin{problem}{过点且与两直线相交的直线}{Point-Line-Intersection}
     一直线通过点 $(-3, 5, -9)$，且与两直线
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} y = 3x + 5, \\ z = 2x - 3 \end{cases} \quad \text{与} \quad \begin{cases} 4x - y - 7 = 0, \\ 5x - z + 10 = 0 \end{cases}
-    \end{equation*}
+    \end{equation}
     相交，求其方程．
 \end{problem}
 
@@ -2244,24 +2246,24 @@
     设已知点为 $A(-3, 5, -9)$．记两已知直线分别为 $L_1$ 和 $L_2$．所求直线 $L$ 应位于由点 $A$ 与 $L_1$ 确定的平面 $\pi_1$ 内，同时也位于由点 $A$ 与 $L_2$ 确定的平面 $\pi_2$ 内．
     将 $L_1$ 化为对称式：$\dfrac{x}{1} = \dfrac{y - 5}{3} = \dfrac{z + 3}{2}$，取其上一点 $P_1(0, 5, -3)$，方向向量 $\symbfit{s}_1 = (1, 3, 2)$．
     平面 $\pi_1$ 的法向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n}_1 = \overrightarrow{AP_1} \times \symbfit{s}_1 = (3, 0, 6) \times (1, 3, 2) = (-18, 0, 9) \parallel (-2, 0, 1)
-    \end{equation*}
+    \end{equation}
     故 $\pi_1$ 方程为 $-2(x + 3) + (z + 9) = 0$，即 $2x - z - 3 = 0$．
     同理，$L_2$ 化为对称式：$\dfrac{x}{1} = \dfrac{y + 7}{4} = \dfrac{z - 10}{5}$，取其上一点 $P_2(0, -7, 10)$，方向向量 $\symbfit{s}_2 = (1, 4, 5)$．
     平面 $\pi_2$ 的法向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n}_2 = \overrightarrow{AP_2} \times \symbfit{s}_2 = (3, -12, 19) \times (1, 4, 5) = (-136, 4, 24) \parallel (-34, 1, 6)
-    \end{equation*}
+    \end{equation}
     故 $\pi_2$ 方程为 $-34(x + 3) + (y - 5) + 6(z + 9) = 0$，即 $34x - y - 6z + 53 = 0$．
     所求直线 $L$ 的方向向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = \symbfit{n}_1 \times \symbfit{n}_2 = (2, 0, -1) \times (34, -1, -6) = (-1, -22, -2) \parallel (1, 22, 2)
-    \end{equation*}
+    \end{equation}
     结合已知点 $A(-3, 5, -9)$，其方程为：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\frac{x + 3}{1} = \frac{y - 5}{22} = \frac{z + 9}{2}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2271,22 +2273,22 @@
 
 \begin{solution}
     记已知直线为 $L$，其方向向量为：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{s} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 1 & -1 \\ 1 & -1 & 1 \end{vmatrix} = (0, -2, -2) \parallel (0, 1, 1)
-    \end{equation*}
+    \end{equation}
     直线 $L$ 上取一点 $P(0, 1, 0)$．设投影平面（包含 $L$ 且垂直于已知平面 $\pi: x + y + z = 0$）为 $\pi'$，其法向量 $\symbfit{n}'$ 垂直于 $\symbfit{s}$ 和 $\pi$ 的法向量 $\symbfit{n} = (1, 1, 1)$：
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n}' = \symbfit{s} \times \symbfit{n} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 0 & 1 & 1 \\ 1 & 1 & 1 \end{vmatrix} = (0, 1, -1)
-    \end{equation*}
+    \end{equation}
     平面 $\pi'$ 过点 $P(0, 1, 0)$，其方程为 $0(x - 0) + 1(y - 1) - 1(z - 0) = 0$，即 $y - z - 1 = 0$．
     投影直线为平面 $\pi$ 与 $\pi'$ 的交线，其方程组为：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} x + y + z = 0 \\ y - z - 1 = 0 \end{cases}
-    \end{equation*}
+    \end{equation}
     解得投影直线的方向向量为 $\symbfit{s}_{proj} = \symbfit{n} \times \symbfit{n}' = (1, 1, 1) \times (0, 1, -1) = (-2, 1, 1)$，通过点 $(-1, 1, 0)$．
-    \begin{equation*}
+    \begin{equation}
         \boxed{\frac{x + 1}{2} = \frac{y - 1}{-1} = \frac{z}{-1}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2297,24 +2299,24 @@
 \begin{solution}
     已知平面 $\Pi_1: 5x - y + 3z - 2 = 0$ 的法向量为 $\symbfit{n}_1 = (5, -1, 3)$。
     由于所求平面 $\Pi_2$ 与 $\Pi_1$ 的交线在 $Oxy$ 平面上，故该交线即为 $\Pi_1$ 在 $Oxy$ 平面上的轨迹，令 $z = 0$ 得到交线方程为
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             5x - y - 2 = 0 \\
             z = 0
         \end{cases}
-    \end{equation*}
+    \end{equation}
     设过该交线的平面束方程为
-    \begin{equation*}
+    \begin{equation}
         5x - y - 2 + \lambda z = 0
-    \end{equation*}
+    \end{equation}
     其法向量为 $\symbfit{n}_2 = (5, -1, \lambda)$。根据两平面垂直的条件 $\Pi_2 \perp \Pi_1 \implies \symbfit{n}_2 \cdot \symbfit{n}_1 = 0$，得
-    \begin{equation*}
+    \begin{equation}
         5 \times 5 + (-1) \times (-1) + \lambda \times 3 = 0 \implies 26 + 3\lambda = 0 \implies \lambda = -\frac{26}{3}
-    \end{equation*}
+    \end{equation}
     代入平面束方程得 $5x - y - \frac{26}{3}z - 2 = 0$，整理得
-    \begin{equation*}
+    \begin{equation}
         \boxed{15x - 3y - 26z - 6 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{空间直线方程}{Line-Equation-2}
@@ -2323,29 +2325,29 @@
 
 \begin{solution}
     设已知直线为 $L$，其方向向量为 $\symbfit{s} = (4, 3, -2)$。设垂足为 $H$，因 $H$ 在直线 $L$ 上，可设其坐标为
-    \begin{equation*}
+    \begin{equation}
         H(5 + 4t, 2 + 3t, -1 - 2t)
-    \end{equation*}
+    \end{equation}
     原点为 $O(0, 0, 0)$，则向量 $\overrightarrow{OH} = (5 + 4t, 2 + 3t, -1 - 2t)$。由 $OH \perp L$ 可得
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{OH} \cdot \symbfit{s} = 0 \implies 4(5 + 4t) + 3(2 + 3t) - 2(-1 - 2t) = 0
-    \end{equation*}
+    \end{equation}
     解得
-    \begin{equation*}
+    \begin{equation}
         20 + 16t + 6 + 9t + 2 + 4t = 0 \implies 29t + 28 = 0 \implies t = -\frac{28}{29}
-    \end{equation*}
+    \end{equation}
     将 $t$ 代入 $\overrightarrow{OH}$ 的坐标分量：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             x_H & = 5 + 4\left(-\frac{28}{29}\right) = \frac{145 - 112}{29} = \frac{33}{29} \\
             y_H & = 2 + 3\left(-\frac{28}{29}\right) = \frac{58 - 84}{29} = -\frac{26}{29}  \\
             z_H & = -1 - 2\left(-\frac{28}{29}\right) = \frac{-29 + 56}{29} = \frac{27}{29}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故垂线 $OH$ 的方向向量可取为 $\symbfit{s}_{OH} = (33, -26, 27)$。垂线过原点，其方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\frac{x}{33} = \frac{y}{-26} = \frac{z}{27}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \section{二次曲面}
@@ -2368,73 +2370,73 @@
     \ansitem{1} 是旋转曲面。
 
     方程可写为 $\frac{x^2}{4} + \frac{1}{9}(y^2 + z^2) = 1$。由于 $y^2$ 与 $z^2$ 的系数相同，该曲面可由 $xy$ 平面上的椭圆绕 $x$ 轴旋转而成：
-    \begin{equation*}
+    \begin{equation}
         C: \begin{cases} \frac{x^2}{4} + \frac{y^2}{9} = 1 \\ z = 0 \end{cases} \implies \text{绕 } x \text{ 轴旋转}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\text{绕 } x \text{ 轴旋转生成的旋转椭球面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2} 是旋转曲面。
 
     方程中 $x^2, y^2, z^2$ 的系数相等，表示球面。它可以看作由任一坐标平面上的大圆绕其对称轴旋转而成。以绕 $z$ 轴旋转为例：
-    \begin{equation*}
+    \begin{equation}
         C: \begin{cases} x^2 + z^2 = 1 \\ y = 0 \end{cases} \implies \text{绕 } z \text{ 轴旋转}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\text{绕 } z \text{ 轴旋转生成的球面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3} 不是旋转曲面。
 
     由于 $x^2, y^2, z^2$ 的系数 $1, 2, 34$ 两两不等，不存在旋转对称性。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{该方程不是旋转曲面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4} 是旋转曲面。
 
     方程可写为 $(x^2 + z^2) - \frac{y^2}{4} = 1$。由于 $x^2$ 与 $z^2$ 的系数相同，该曲面可由 $xy$ 平面上的双曲线绕 $y$ 轴旋转而成：
-    \begin{equation*}
+    \begin{equation}
         C: \begin{cases} x^2 - \frac{y^2}{4} = 1 \\ z = 0 \end{cases} \implies \text{绕 } y \text{ 轴旋转}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\text{绕 } y \text{ 轴旋转生成的单叶旋转双曲面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{5} 不是旋转曲面。
 
     方程中 $x^2, y^2, z^2$ 的系数分别为 $\frac{1}{9}, \frac{1}{16}, -\frac{1}{9}$。不存在两个相同符号且数值相等的系数。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{该方程不是旋转曲面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{6} 是旋转曲面。
 
     方程可写为 $x^2 - (y^2 + z^2) = 1$。由于 $y^2$ 与 $z^2$ 的系数相同，该曲面可由 $xy$ 平面上的双曲线绕 $x$ 轴旋转而成：
-    \begin{equation*}
+    \begin{equation}
         C: \begin{cases} x^2 - y^2 = 1 \\ z = 0 \end{cases} \implies \text{绕 } x \text{ 轴旋转}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\text{绕 } x \text{ 轴旋转生成的双叶旋转双曲面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{7} 是旋转曲面。
 
     方程中 $x^2$ 与 $y^2$ 的系数均为 $1$，该曲面可由 $xz$ 平面上的抛物线绕 $z$ 轴旋转而成：
-    \begin{equation*}
+    \begin{equation}
         C: \begin{cases} x^2 = 4z \\ y = 0 \end{cases} \implies \text{绕 } z \text{ 轴旋转}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{\text{绕 } z \text{ 轴旋转生成的旋转抛物面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{8} 不是旋转曲面。
 
     方程中 $x^2$ 与 $y^2$ 的系数互为异号且绝对值不等，该曲面为双曲抛物面（马鞍面）。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{该方程不是旋转曲面}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2456,69 +2458,69 @@
     \ansitem{1}
 
     在 $Oxy$ 中，$x=2$ 确定了所有横坐标为 $2$ 的点；在 $Oxyz$ 中，$z$ 可取任意实数 $\symbb{R}$.
-    \begin{equation*}
+    \begin{equation}
         \boxed{Oxy: \text{垂直于 } x \text{ 轴的直线}; \quad Oxyz: \text{垂直于 } x \text{ 轴的平面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     方程为一次线性方程.
-    \begin{equation*}
+    \begin{equation}
         \boxed{Oxy: \text{直线}; \quad Oxyz: \text{平行于 } z \text{ 轴的平面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3}
 
     在空间中，缺少变量 $z$ 的二次方程表示母线平行于 $z$ 轴的柱面.
-    \begin{equation*}
+    \begin{equation}
         \boxed{Oxy: \text{圆}; \quad Oxyz: \text{圆柱面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4}
 
     同理可知其在空间中表示柱面.
-    \begin{equation*}
+    \begin{equation}
         \boxed{Oxy: \text{双曲线}; \quad Oxyz: \text{双曲柱面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{5}
 
     同理可知其在空间中表示柱面.
-    \begin{equation*}
+    \begin{equation}
         \boxed{Oxy: \text{抛物线}; \quad Oxyz: \text{抛物柱面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{6}
 
     联立方程组：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases} 5x - y + 1 = 0 \\ 2x - y - 3 = 0 \end{cases} \implies 3x + 4 = 0 \implies \begin{cases} x = -\dfrac{4}{3} \\ y = -\dfrac{17}{3} \end{cases}
-    \end{equation*}
+    \end{equation}
     在 $Oxyz$ 中，两不平行平面的交集为直线.
-    \begin{equation*}
+    \begin{equation}
         \boxed{Oxy: \text{点 } \left( -\dfrac{4}{3}, -\dfrac{17}{3} \right); \quad Oxyz: \text{直线}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{7}
 
     将 $y=2$ 代入第一式：
-    \begin{equation*}
+    \begin{equation}
         \dfrac{x^2}{4} + \dfrac{4}{9} = 1 \implies x^2 = \dfrac{20}{9} \implies x = \pm \dfrac{2\sqrt{5}}{3}
-    \end{equation*}
+    \end{equation}
     在 $Oxyz$ 中，交集为两个平面 $x = \pm \dfrac{2\sqrt{5}}{3}$ 与 $y=2$ 的交线.
-    \begin{equation*}
+    \begin{equation}
         \boxed{Oxy: \text{两点 } \left( \pm \dfrac{2\sqrt{5}}{3}, 2 \right); \quad Oxyz: \text{两条平行于 } z \text{ 轴的直线}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{8}
 
     将 $x=4$ 代入第一式：
-    \begin{equation*}
+    \begin{equation}
         \dfrac{16}{4} - \dfrac{y^2}{9} = 1 \implies \dfrac{y^2}{9} = 3 \implies y = \pm 3\sqrt{3}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         \boxed{Oxy: \text{两点 } (4, \pm 3\sqrt{3}); \quad Oxyz: \text{两条平行于 } z \text{ 轴的直线}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2535,24 +2537,24 @@
     \ansitem{1}
 
     曲线在 $yOz$ 面上，绕 $z$ 轴旋转，将 $y$ 替换为 $\pm \sqrt{x^2 + y^2}$ 可得曲面方程为
-    \begin{equation*}
+    \begin{equation}
         (\pm \sqrt{x^2 + y^2})^2 - \frac{z^2}{4} = 1 \implies x^2 + y^2 - \frac{z^2}{4} = 1
-    \end{equation*}
+    \end{equation}
     该曲面为单叶旋转双曲面.
-    \begin{equation*}
+    \begin{equation}
         \boxed{x^2 + y^2 - \frac{z^2}{4} = 1, \quad \text{单叶旋转双曲面}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     曲线在 $xOy$ 面上，绕 $x$ 轴旋转，将 $y$ 替换为 $\pm \sqrt{y^2 + z^2}$ 可得曲面方程为
-    \begin{equation*}
+    \begin{equation}
         \pm \sqrt{y^2 + z^2} = \sin x \implies y^2 + z^2 = \sin^2 x, \quad 0 \le x \le \uppi
-    \end{equation*}
+    \end{equation}
     该曲面为旋转曲面.
-    \begin{equation*}
+    \begin{equation}
         \boxed{y^2 + z^2 = \sin^2 x \, (0 \le x \le \uppi), \quad \text{旋转曲面}}
-    \end{equation*}
+    \end{equation}
 
     \begin{note}{}{}
         第 (2) 问似乎可以叫「灯笼面」（？）\emoji{grinning-face-with-sweat}
@@ -2561,13 +2563,13 @@
     \ansitem{3}
 
     曲线方程变形为 $\frac{x^2}{9} + \frac{y^2}{4} = 1 \, (z=0)$. 绕 $y$ 轴旋转，将 $x$ 替换为 $\pm \sqrt{x^2 + z^2}$ 得
-    \begin{equation*}
+    \begin{equation}
         \frac{(\pm \sqrt{x^2 + z^2})^2}{9} + \frac{y^2}{4} = 1 \implies \frac{x^2 + z^2}{9} + \frac{y^2}{4} = 1
-    \end{equation*}
+    \end{equation}
     该曲面为旋转椭球面.
-    \begin{equation*}
+    \begin{equation}
         \boxed{\frac{x^2 + z^2}{9} + \frac{y^2}{4} = 1, \quad \text{旋转椭球面}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2582,40 +2584,40 @@
 
     由 $M_0$ 在母线 $G$ 上知：
     \begin{equation}
-        y_0 - 2z_0 + 1 = 0 \label{eq:gen-line}
+        y_0 - 2z_0 + 1 = 0
     \end{equation}
     由于 $P, M_0$ 在垂直于轴 $L$（方向 $\symbfit{s}$）的同一平面上，有 $\symbfit{s} \cdot \overrightarrow{M_0 P} = 0$：
-    \begin{equation*}
-        (0, 1, 1) \cdot (x - 0, y - y_0, z - z_0) = 0 \implies y + z = y_0 + z_0 \label{eq:plane}
-    \end{equation*}
+    \begin{equation}
+        (0, 1, 1) \cdot (x - 0, y - y_0, z - z_0) = 0 \implies y + z = y_0 + z_0
+    \end{equation}
     联立以上两式解得：
-    \begin{equation*}
+    \begin{equation}
         z_0 = \frac{y + z + 1}{3}, \quad y_0 = \frac{2y + 2z - 1}{3}
-    \end{equation*}
+    \end{equation}
     又点 $P$ 到轴 $L$ 的距离平方为：
-    \begin{equation*}
+    \begin{equation}
         d^2 = \frac{|\symbfit{s} \times \overrightarrow{OP}|^2}{|\symbfit{s}|^2} = \frac{|(z - y) \symbfit{i} + x \symbfit{j} - x \symbfit{k}|^2}{2} = \frac{2x^2 + (y - z)^2}{2}
-    \end{equation*}
+    \end{equation}
     点 $M_0$ 到轴 $L$ 的距离平方为：
-    \begin{equation*}
+    \begin{equation}
         d_0^2 = \frac{|\symbfit{s} \times \overrightarrow{OM_0}|^2}{|\symbfit{s}|^2} = \frac{(y_0 - z_0)^2}{2}
-    \end{equation*}
+    \end{equation}
     令 $d^2 = d_0^2$，得：
-    \begin{equation*}
+    \begin{equation}
         2x^2 + (y - z)^2 = (y_0 - z_0)^2
-    \end{equation*}
+    \end{equation}
     将 $y_0 - z_0 = \frac{2y + 2z - 1 - (y + z + 1)}{3} = \frac{y + z - 2}{3}$ 代入上式：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
                      & 2x^2 + (y - z)^2 = \left( \frac{y + z - 2}{3} \right)^2    \\
             \implies & 18x^2 + 9(y^2 - 2yz + z^2) = y^2 + z^2 + 4 + 2yz - 4y - 4z \\
             \implies & 18x^2 + 8y^2 - 20yz + 8z^2 + 4y + 4z - 4 = 0
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     化简可得旋转曲面方程为：
-    \begin{equation*}{\label{eq:final-result}}
+    \begin{equation}
         \boxed{9x^2 + 4y^2 - 10yz + 4z^2 + 2y + 2z - 2 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2628,42 +2630,42 @@
 
     设直线 $L$ 的方向向量为 $\symbfit{s} = (1, 1, -1)$，平面 $\pi$ 的法向量为 $\symbfit{n} = (1, -1, 2)$.
     过直线 $L$ 且垂直于平面 $\pi$ 的投影平面 $\pi'$ 的法向量为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{n}' = \symbfit{s} \times \symbfit{n} =
         \begin{vmatrix}
             \symbfit{i} & \symbfit{j} & \symbfit{k} \\
             1           & 1           & -1          \\
             1           & -1          & 2
         \end{vmatrix} = (1, -3, -2)
-    \end{equation*}
+    \end{equation}
     由于 $L$ 经过点 $M(1, 0, 1)$，故投影平面 $\pi'$ 的方程为
-    \begin{equation*}
+    \begin{equation}
         1(x-1) - 3(y-0) - 2(z-1) = 0 \implies x - 3y - 2z + 1 = 0
-    \end{equation*}
+    \end{equation}
     投影直线 $L_0$ 为平面 $\pi$ 与 $\pi'$ 的交线，其方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{L_0 : \begin{cases} x - y + 2z - 1 = 0 \\ x - 3y - 2z + 1 = 0 \end{cases}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     由 $L_0$ 的方程消去 $z$ 可得 $x = 2y$，消去 $x$ 可得 $z = \frac{1-y}{2}$.
     将 $L_0$ 绕 $y$ 轴旋转，曲面上任一点 $(x, y, z)$ 到 $y$ 轴距离的平方等于 $L_0$ 上对应点到 $y$ 轴距离的平方，即
-    \begin{equation*}
+    \begin{equation}
         x^2 + z^2 = [x(y)]^2 + [z(y)]^2
-    \end{equation*}
+    \end{equation}
     将 $L_0$ 的表达式代入上式得
-    \begin{equation*}
+    \begin{equation}
         x^2 + z^2 = (2y)^2 + \left( \frac{1-y}{2} \right)^2
-    \end{equation*}
+    \end{equation}
     整理得
-    \begin{equation*}
+    \begin{equation}
         4x^2 + 4z^2 = 16y^2 + 1 - 2y + y^2 \implies 4x^2 - 17y^2 + 4z^2 + 2y - 1 = 0
-    \end{equation*}
+    \end{equation}
     故所求旋转曲面的方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{4x^2 - 17y^2 + 4z^2 + 2y - 1 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2682,14 +2684,14 @@
     \ansitem{1}
 
     由截距可得
-    \begin{equation*}
+    \begin{equation}
         y=z=0 \implies x=3,\qquad x=z=0 \implies y=2,\qquad x=y=0 \implies z=1.
-    \end{equation*}
+    \end{equation}
 
     故所求区域在第一卦限内，顶点为
-    \begin{equation*}
+    \begin{equation}
         O(0,0,0),\qquad A(3,0,0),\qquad B(0,2,0),\qquad C(0,0,1).
-    \end{equation*}
+    \end{equation}
 
     \begin{center}
         \begin{tikzpicture}[scale=1]
@@ -2714,29 +2716,29 @@
         \end{tikzpicture}
     \end{center}
 
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{所围立体}= \text{第一卦限内顶点为 }O,A,B,C\text{ 的四面体}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     在 $xOy$ 面上的投影由
-    \begin{equation*}
+    \begin{equation}
         x=0,\qquad y=0,\qquad x+y=1
-    \end{equation*}
+    \end{equation}
     围成，故底面是直角三角形
-    \begin{equation*}
+    \begin{equation}
         D=\bigl\{(x,y)\bigm| x\ge 0,\ y\ge 0,\ x+y\le 1\bigr\}.
-    \end{equation*}
+    \end{equation}
 
     又由
-    \begin{equation*}
+    \begin{equation}
         z=0,\qquad z=x^2+y^2
-    \end{equation*}
+    \end{equation}
     知立体位于抛物面下方、平面 $z=0$ 上方，即
-    \begin{equation*}
+    \begin{equation}
         0\le z\le x^2+y^2.
-    \end{equation*}
+    \end{equation}
 
     \begin{center}
         \begin{tikzpicture}[scale=1]
@@ -2764,34 +2766,34 @@
         \end{tikzpicture}
     \end{center}
 
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{所围立体}= \text{以三角形 }D\text{ 为底、以 }z=x^2+y^2\text{ 为顶的曲顶立体}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3}
 
     令
-    \begin{equation*}
+    \begin{equation}
         r=\sqrt{x^2+y^2},
-    \end{equation*}
+    \end{equation}
     则圆锥面为
-    \begin{equation*}
+    \begin{equation}
         z=r,
-    \end{equation*}
+    \end{equation}
     球面为
-    \begin{equation*}
+    \begin{equation}
         r^2+z^2=R^2.
-    \end{equation*}
+    \end{equation}
 
     联立得交线
-    \begin{equation*}
+    \begin{equation}
         z=r \Longrightarrow 2r^2=R^2 \Longrightarrow r=z=\frac{R}{\sqrt{2}}.
-    \end{equation*}
+    \end{equation}
 
     故所求区域为球内且在圆锥 $z=\sqrt{x^2+y^2}$ 内的部分，即
-    \begin{equation*}
+    \begin{equation}
         x^2+y^2+z^2\le R^2,\qquad z\ge \sqrt{x^2+y^2}.
-    \end{equation*}
+    \end{equation}
 
     其子午面示意如下：
 
@@ -2810,26 +2812,26 @@
         \end{tikzpicture}
     \end{center}
 
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{所围立体}= \text{球扇形}\bigl(x^2+y^2+z^2\le R^2,\ z\ge \sqrt{x^2+y^2}\bigr)}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4}
 
     由
-    \begin{equation*}
+    \begin{equation}
         x^2+y^2=2x \Longleftrightarrow (x-1)^2+y^2=1
-    \end{equation*}
+    \end{equation}
     知侧面为母线平行于 $z$ 轴的圆柱面，其底圆圆心为 $(1,0)$，半径为 $1$。
 
     再被平面
-    \begin{equation*}
+    \begin{equation}
         z=0,\qquad z=1
-    \end{equation*}
+    \end{equation}
     截得高为 $1$ 的圆柱体，即
-    \begin{equation*}
+    \begin{equation}
         (x-1)^2+y^2\le 1,\qquad 0\le z\le 1.
-    \end{equation*}
+    \end{equation}
 
     \begin{center}
         \begin{tikzpicture}[scale=1]
@@ -2846,27 +2848,27 @@
         \end{tikzpicture}
     \end{center}
 
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{所围立体}= \text{轴线平行于 }z\text{ 轴、底圆半径为 }1\text{、高为 }1\text{ 的圆柱体}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{5}
 
     两球的球心分别为
-    \begin{equation*}
+    \begin{equation}
         O(0,0,0),\qquad O_1(0,0,R).
-    \end{equation*}
+    \end{equation}
 
     两球交圈所在平面由两式相减得
-    \begin{equation*}
+    \begin{equation}
         x^2+y^2+z^2=x^2+y^2+(z-R)^2
         \Longrightarrow z=\frac{R}{2}.
-    \end{equation*}
+    \end{equation}
 
     交圆半径为
-    \begin{equation*}
+    \begin{equation}
         \rho=\sqrt{R^2-\left(\frac{R}{2}\right)^2}=\frac{\sqrt{3}}{2}R.
-    \end{equation*}
+    \end{equation}
 
     故公共部分为两球的重叠区域，即球面透镜。其子午面示意如下：
 
@@ -2889,9 +2891,9 @@
         \end{tikzpicture}
     \end{center}
 
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{所围立体}= \text{两等球的公共部分，即球面透镜}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -2908,49 +2910,49 @@
 \begin{solution}
     \ansitem{1}
     将 $z = 0$ 代入曲面方程得：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x^2 - y^2 = 9 \\
             z = 0
         \end{cases}
-    \end{equation*}
+    \end{equation}
     此截痕在 $xy$ 平面上是双曲线。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} \dfrac{x^2}{9} - \dfrac{y^2}{9} = 1 \\ z = 0 \end{cases}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
     将 $x = 0$ 代入曲面方程得：
-    \begin{equation*}
+    \begin{equation}
         -y^2 - z^2 = 9 \implies y^2 + z^2 = -9
-    \end{equation*}
+    \end{equation}
     由于在实数范围内 $y^2 + z^2 \ge 0$，方程无实数解。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{截痕为空集（无轨迹）}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3}
     将 $y = 0$ 代入曲面方程得：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x^2 - z^2 = 9 \\
             y = 0
         \end{cases}
-    \end{equation*}
+    \end{equation}
     此截痕在 $xz$ 平面上是双曲线。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} \dfrac{x^2}{9} - \dfrac{z^2}{9} = 1 \\ y = 0 \end{cases}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4}
     将 $x = 5$ 代入曲面方程得：
-    \begin{equation*}
+    \begin{equation}
         25 - y^2 - z^2 = 9 \implies y^2 + z^2 = 16
-    \end{equation*}
+    \end{equation}
     此截痕在平面 $x = 5$ 上是以 $(5, 0, 0)$ 为圆心，半径为 $4$ 的圆。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} y^2 + z^2 = 16 \\ x = 5 \end{cases}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{动点轨迹}{Locus-of-Point}
@@ -2959,21 +2961,21 @@
 
 \begin{solution}
     设动点为 $P(x, y, z)$，根据题意，点 $P$ 到原点 $O(0, 0, 0)$ 的距离为 $\sqrt{x^2 + y^2 + z^2}$，到平面 $z = 4$ 的距离为 $|z - 4|$。由已知条件得：
-    \begin{equation*}
+    \begin{equation}
         \sqrt{x^2 + y^2 + z^2} = |z - 4|
-    \end{equation*}
+    \end{equation}
     两边平方整理：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             x^2 + y^2 + z^2          & = (z - 4)^2     \\
             \implies x^2 + y^2 + z^2 & = z^2 - 8z + 16 \\
             \implies x^2 + y^2       & = -8(z - 2)
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     因此，动点 $P$ 的轨迹方程为：
-    \begin{equation*}
+    \begin{equation}
         \boxed{x^2 + y^2 = -8(z - 2)}
-    \end{equation*}
+    \end{equation}
     该方程表示一个顶点在 $(0, 0, 2)$，开口向下的旋转抛物面。
 \end{solution}
 
@@ -2984,20 +2986,20 @@
 
 \begin{solution}
     两曲面的方程联立为
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x^2 + y^2 + 4z^2 = 1 \\
             x^2 = y^2 + z^2
         \end{cases}
-    \end{equation*}
+    \end{equation}
     由于柱面的母线平行于 $z$ 轴，需在方程组中消去变量 $z$. 由第二个方程可知 $z^2 = x^2 - y^2$, 将其代入第一个方程得
-    \begin{equation*}
+    \begin{equation}
         x^2 + y^2 + 4(x^2 - y^2) = 1 \implies 5x^2 - 3y^2 = 1
-    \end{equation*}
+    \end{equation}
     故所求柱面方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{5x^2 - 3y^2 = 1}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3007,24 +3009,24 @@
 
 \begin{solution}
     设所求球面方程为 $x^2 + y^2 + z^2 + Dx + Ey + Fz + G = 0$. 令 $z = 0$，得其与 $Oxy$ 平面的交线方程为
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x^2 + y^2 + Dx + Ey + G = 0 \\
             z = 0
         \end{cases}
-    \end{equation*}
+    \end{equation}
     与已知圆周方程对照系数得
-    \begin{equation*}
+    \begin{equation}
         D = 0, \quad E = 0, \quad G = -16
-    \end{equation*}
+    \end{equation}
     此时球面方程为 $x^2 + y^2 + z^2 + Fz - 16 = 0$. 将点 $(0, -3, 1)$ 代入方程得
-    \begin{equation*}
+    \begin{equation}
         0^2 + (-3)^2 + 1^2 + F \cdot 1 - 16 = 0 \implies F - 6 = 0 \implies F = 6
-    \end{equation*}
+    \end{equation}
     从而得到该球面的方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{x^2 + y^2 + z^2 + 6z - 16 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3034,11 +3036,11 @@
 
 \begin{solution}
     由平面方程 $x - 2z + 3 = 0$ 可解得 $z = \frac{x+3}{2}$，将其代入单叶双曲面方程以消去变量 $z$：
-    \begin{equation*}
+    \begin{equation}
         \frac{x^2}{16} + \frac{y^2}{4} - \frac{1}{5} \left( \frac{x+3}{2} \right)^2 = 1
-    \end{equation*}
+    \end{equation}
     对上式进行化简推导：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
                                                       & \frac{x^2}{16} + \frac{y^2}{4} - \frac{(x+3)^2}{20} = 1 \\
             \Longrightarrow{\text{等号两边同乘以 } 80} \quad & 5x^2 + 20y^2 - 4(x^2 + 6x + 9) = 80                     \\
@@ -3047,11 +3049,11 @@
             \Longrightarrow{\text{配方}} \quad          & (x^2 - 24x + 144) + 20y^2 = 116 + 144                   \\
             \implies                                  & (x-12)^2 + 20y^2 = 260
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     整理得投影柱面方程为 $\frac{(x-12)^2}{260} + \frac{y^2}{13} = 1$。故该交线在 $Oxy$ 平面上的投影曲线方程为：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} \frac{(x-12)^2}{260} + \frac{y^2}{13} = 1 \\ z = 0 \end{cases}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3075,9 +3077,9 @@
         \item \textbf{铅直截口}：用平面 $x = a$ 截之，得直线 $\begin{cases} z = ay \\ x = a \end{cases}$；用平面 $y = b$ 截之，得直线 $\begin{cases} z = bx \\ y = b \end{cases}$。说明该曲面是由两族直线构成的直纹面。
         \item \textbf{对称面截口}：若作坐标旋转 $x = \frac{u+v}{\sqrt{2}}, y = \frac{u-v}{\sqrt{2}}$，方程化为 $z = \frac{u^2}{2} - \frac{v^2}{2}$。用平面 $v = 0$（即 $x-y=0$）截得开口向上的抛物线；用平面 $u = 0$（即 $x+y=0$）截得开口向下的抛物线。
     \end{itemize}
-    \begin{equation*}
+    \begin{equation}
         \boxed{xy = z \text{ 是以原点为鞍点的双曲抛物面}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \section{坐标变换和其他常用坐标系}
@@ -3088,29 +3090,29 @@
 
 \begin{solution}
     对原方程的各项进行配方：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (x^2 - 2x + 1) - (y^2 - 2y + 1) - \left( z^2 - z + \frac{1}{4} \right) - 1 - 1 + 1 + \frac{1}{4} & = 0           \\
             (x - 1)^2 - (y - 1)^2 - \left( z - \frac{1}{2} \right)^2                                         & = \frac{3}{4}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     令坐标平移变换公式为：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x' = x - 1 \\
             y' = y - 1 \\
             z' = z - \frac{1}{2}
         \end{cases}
-    \end{equation*}
+    \end{equation}
     代入上式，得化简后的方程为：
-    \begin{equation*}
+    \begin{equation}
         x'^2 - y'^2 - z'^2 = \frac{3}{4} \implies \frac{x'^2}{3/4} - \frac{y'^2}{3/4} - \frac{z'^2}{3/4} = 1
-    \end{equation*}
+    \end{equation}
     该方程表示一个中心在 $\left( 1, 1, \frac{1}{2} \right)$，实轴沿 $x$ 轴方向的双叶双曲面。
 
-    \begin{equation*}
+    \begin{equation}
         \boxed{\frac{x'^2}{3/4} - \frac{y'^2}{3/4} - \frac{z'^2}{3/4} = 1，\text{双叶双曲面}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{二次曲面综合变换}{Transformation-Quadratic-Surface}
@@ -3119,33 +3121,33 @@
 
 \begin{solution}
     首先通过平移消去一次项 $x, y$。令 $x = x' + a, y = y' + b, z = z' + c$，代入方程：
-    \begin{equation*}
+    \begin{equation}
         (x' + a)(y' + b) - (x' + a) + (y' + b) + (z' + c) + 1 = 0
-    \end{equation*}
+    \end{equation}
     展开整理得：
-    \begin{equation*}
+    \begin{equation}
         x'y' + (b - 1)x' + (a + 1)y' + z' + (ab - a + b + c + 1) = 0
-    \end{equation*}
+    \end{equation}
     令 $b - 1 = 0$ 且 $a + 1 = 0$，解得 $a = -1, b = 1$。此时常数项部分为：
-    \begin{equation*}
+    \begin{equation}
         (-1)(1) - (-1) + 1 + c + 1 = c + 2
-    \end{equation*}
+    \end{equation}
     取 $c = -2$，则方程化为 $x'y' + z' = 0$，即 $z' = -x'y'$。随后进行坐标旋转，令：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x' = \frac{X - Y}{\sqrt{2}} \\
             y' = \frac{X + Y}{\sqrt{2}}
         \end{cases}
-    \end{equation*}
+    \end{equation}
     代入 $z' = -x'y'$ 得：
-    \begin{equation*}
+    \begin{equation}
         z' = -\frac{X^2 - Y^2}{2} = \frac{Y^2}{2} - \frac{X^2}{2}
-    \end{equation*}
+    \end{equation}
     此方程符合双曲抛物面的标准形式。
 
-    \begin{equation*}
+    \begin{equation}
         \boxed{z' = \frac{Y^2}{2} - \frac{X^2}{2}，\text{双曲抛物面（马鞍面）}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{坐标旋转化简}{Rotation-Transformation}
@@ -3154,42 +3156,42 @@
 
 \begin{solution}
     由于方程中不含 $xy$ 和 $xz$ 项，只需在 $yz$ 平面上进行旋转变换。令坐标变换公式为：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x = x'                              \\
             y = y' \cos \theta - z' \sin \theta \\
             z = y' \sin \theta + z' \cos \theta
         \end{cases}
-    \end{equation*}
+    \end{equation}
     将变换代入方程中的 $y, z$ 相关项 $-3y^2 + 3z^2 + 8yz$：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             -3y^2 + 3z^2 + 8yz & = -3(y' \cos \theta - z' \sin \theta)^2 + 3(y' \sin \theta + z' \cos \theta)^2 + 8(y' \cos \theta - z' \sin \theta)(y' \sin \theta + z' \cos \theta) \\
                                & = (-3\cos^2 \theta + 3\sin^2 \theta + 8\sin \theta \cos \theta) y'^2 + (-3\sin^2 \theta + 3\cos^2 \theta - 8\sin \theta \cos \theta) z'^2            \\
                                & \quad + [6\sin \theta \cos \theta + 6\sin \theta \cos \theta + 8(\cos^2 \theta - \sin^2 \theta)] y'z'                                                \\
                                & = (4\sin 2\theta - 3\cos 2\theta) y'^2 + (3\cos 2\theta - 4\sin 2\theta) z'^2 + (6\sin 2\theta + 8\cos 2\theta) y'z'
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     欲消除混合项 $y'z'$，需满足 $6\sin 2\theta + 8\cos 2\theta = 0$，即 $\tan 2\theta = -\frac{4}{3}$。由此可取：
-    \begin{equation*}
+    \begin{equation}
         \sin 2\theta = \frac{4}{5}, \quad \cos 2\theta = -\frac{3}{5}
-    \end{equation*}
+    \end{equation}
     代入 $y'^2$ 和 $z'^2$ 的系数，可得：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \text{系数}_{y'^2} & = 4 \left( \frac{4}{5} \right) - 3 \left( -\frac{3}{5} \right) = \frac{16 + 9}{5} = 5   \\
             \text{系数}_{z'^2} & = 3 \left( -\frac{3}{5} \right) - 4 \left( \frac{4}{5} \right) = \frac{-9 - 16}{5} = -5
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     故原方程化为：
-    \begin{equation*}
+    \begin{equation}
         5x'^2 + 5y'^2 - 5z'^2 - 5 = 0 \implies x'^2 + y'^2 - z'^2 = 1
-    \end{equation*}
+    \end{equation}
     该方程表示一个单叶双曲面。
 
-    \begin{equation*}
+    \begin{equation}
         \boxed{x'^2 + y'^2 - z'^2 = 1，\text{单叶双曲面}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3213,105 +3215,105 @@
 \begin{solution}
     \ansitem{1}
     代入柱面坐标变换公式 $x = r \cos \theta, y = r \sin \theta$ 得：
-    \begin{equation*}
+    \begin{equation}
         r^2 \cos^2 \theta - r^2 \sin^2 \theta = 25 \implies \boxed{r^2 \cos 2\theta = 25}
-    \end{equation*}
+    \end{equation}
     代入球面坐标变换公式 $x = r \sin \theta \cos \varphi, y = r \sin \theta \sin \varphi, z = r \cos \theta$ 得：
-    \begin{equation*}
+    \begin{equation}
         (r \sin \theta \cos \varphi)^2 - (r \sin \theta \sin \varphi)^2 = 25 \implies \boxed{r^2 \sin^2 \theta \cos 2\varphi = 25}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
     对于柱面坐标系，由于 $x^2 + y^2 = r^2$，直接代入得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{r^2 + 4z^2 = 10}
-    \end{equation*}
+    \end{equation}
     对于球面坐标系，代入 $x^2 + y^2 = r^2 \sin^2 \theta$ 及 $z = r \cos \theta$ 得：
-    \begin{equation*}
+    \begin{equation}
         r^2 \sin^2 \theta + 4r^2 \cos^2 \theta = 10 \implies \boxed{r^2 (1 + 3\cos^2 \theta) = 10}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{3}
     原方程变形为 $2(x^2 + y^2) - 4z^2 = 0$，代入球面坐标变换公式：
-    \begin{equation*}
+    \begin{equation}
         2r^2 \sin^2 \theta - 4r^2 \cos^2 \theta = 0 \implies 2r^2 (\sin^2 \theta - 2\cos^2 \theta) = 0
-    \end{equation*}
+    \end{equation}
     当 $r \neq 0$ 时，$\tan^2 \theta = 2$，即：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\tan \theta = \pm \sqrt{2}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{4}
     代入球面坐标变换公式：
-    \begin{equation*}
+    \begin{equation}
         (r \sin \theta \cos \varphi)^2 - (r \sin \theta \sin \varphi)^2 - (r \cos \theta)^2 = 1
-    \end{equation*}
+    \end{equation}
     提取公因式 $r^2$ 并利用二倍角公式：
-    \begin{equation*}
+    \begin{equation}
         \boxed{r^2 (\sin^2 \theta \cos 2\varphi - \cos^2 \theta) = 1}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{5}
     利用变换关系 $r_{\text{柱}} = r_{\text{球}} \sin \theta$ 及 $z = r_{\text{球}} \cos \theta$ 代入柱面方程：
-    \begin{equation*}
+    \begin{equation}
         (r \sin \theta)^2 + 2(r \cos \theta)^2 = 4 \implies r^2 (\sin^2 \theta + 2\cos^2 \theta) = 4
-    \end{equation*}
+    \end{equation}
     整理得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{r^2 (1 + \cos^2 \theta) = 4}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{6}
     在球面坐标系中 $x = r \sin \theta \cos \varphi$，则 $\cos \varphi = \frac{x}{r \sin \theta}$。代入原方程得：
-    \begin{equation*}
+    \begin{equation}
         r = \frac{2x}{r \sin \theta} \implies r^2 \sin \theta = 2x
-    \end{equation*}
+    \end{equation}
     在柱面坐标系中代入 $r_{\text{球}}^2 = r_{\text{柱}}^2 + z^2$ 及 $\sin \theta = \frac{r_{\text{柱}}}{\sqrt{r_{\text{柱}}^2 + z^2}}$，$x = r_{\text{柱}} \cos \theta_{\text{柱}}$：
-    \begin{equation*}
+    \begin{equation}
         (r^2 + z^2) \cdot \frac{r}{\sqrt{r^2 + z^2}} = 2r \cos \theta \implies \sqrt{r^2 + z^2} = 2 \cos \theta
-    \end{equation*}
+    \end{equation}
     两边平方得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{r^2 + z^2 = 4\cos^2 \theta}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{7}
     代入柱面坐标 $x = r \cos \theta, y = r \sin \theta$ 得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{r (\cos \theta + \sin \theta) = 4}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{8}
     代入球面坐标变换公式：
-    \begin{equation*}
+    \begin{equation}
         r \sin \theta \cos \varphi + r \sin \theta \sin \varphi + r \cos \theta = 1
-    \end{equation*}
+    \end{equation}
     提取公因式 $r$ 得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{r [\sin \theta (\cos \varphi + \sin \varphi) + \cos \theta] = 1}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{9}
     方程两边同乘以 $r$ 得 $r^2 = 2r \sin \theta$。代入 $r^2 = x^2 + y^2$ 及 $y = r \sin \theta$：
-    \begin{equation*}
+    \begin{equation}
         \boxed{x^2 + y^2 = 2y}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{10}
     利用二倍角公式 $r^2 (\cos^2 \theta - \sin^2 \theta) = z$，代入柱面坐标 $x = r \cos \theta, y = r \sin \theta$：
-    \begin{equation*}
+    \begin{equation}
         \boxed{x^2 - y^2 = z}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{11}
     在球面坐标系中 $y = r \sin \theta \sin \varphi$，则 $\sin \varphi = \frac{y}{r \sin \theta}$。代入原方程：
-    \begin{equation*}
+    \begin{equation}
         r \cdot \frac{y}{r \sin \theta} = 1 \implies y = \sin \theta
-    \end{equation*}
+    \end{equation}
     两边平方并利用 $\sin^2 \theta = \frac{x^2 + y^2}{x^2 + y^2 + z^2}$ 得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{y^2 (x^2 + y^2 + z^2) = x^2 + y^2}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3321,13 +3323,13 @@
 
 \begin{solution}
     在 $Ozx$ 平面内，抛物线方程为 $z = 2x^2$。将其绕 $z$ 轴旋转所得曲面在直角坐标系下的方程为
-    \begin{equation*}
+    \begin{equation}
         z = 2(x^2 + y^2)
-    \end{equation*}
+    \end{equation}
     考虑到柱面坐标系中 $\rho^2 = x^2 + y^2$，直接代入上式可得其在柱面坐标系中的方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{z = 2\rho^2}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{旋转曲面}{Surface-of-Revolution-Hyperbola}
@@ -3336,55 +3338,55 @@
 
 \begin{solution}
     在 $Ozx$ 平面内，双曲线方程为 $2x^2 - z^2 = 2$。根据旋转曲面生成原理，曲线绕其对称轴 $z$ 轴旋转所得曲面方程需将 $x^2$ 替换为 $x^2 + y^2$，即
-    \begin{equation*}
+    \begin{equation}
         2(x^2 + y^2) - z^2 = 2
-    \end{equation*}
+    \end{equation}
     引入柱面坐标系关系式 $\rho^2 = x^2 + y^2$，代入上式即得
-    \begin{equation*}
+    \begin{equation}
         \boxed{2\rho^2 - z^2 = 2}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
 \begin{problem}{圆的参数方程}{Circle-Parametric-Equation}
     已知 $Oxy$ 平面上以原点为圆心，$a$ 为半径的圆的参数方程表示为
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x = a \cos t, \\
             y = a \sin t,
         \end{cases} \quad t \in [0, 2\uppi)
-    \end{equation*}
+    \end{equation}
     求 $Oxy$ 平面上以点 $P_0(x_0, y_0)$ 为圆心，$a$ 为半径的圆的一个参数方程表示。
 \end{problem}
 
 \begin{solution}
     对原点处的圆进行平移变换，将圆心从 $(0, 0)$ 平移至 $(x_0, y_0)$，所得参数方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{
         \begin{cases}
             x = x_0 + a \cos t, \\
             y = y_0 + a \sin t,
         \end{cases} \quad t \in [0, 2\uppi)
         }
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
 \begin{problem}{球的参数方程}{Sphere-Parametric-Equation}
     已知 $Oxyz$ 空间中以原点为圆心，$a$ 为半径的球的参数方程表示为
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x = a \sin u \cos v, \\
             y = a \sin u \sin v, \\
             z = a \cos u,
         \end{cases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
-    \end{equation*}
+    \end{equation}
     求 $Oxyz$ 空间中以点 $P_0(x_0, y_0, z_0)$ 为圆心，$a$ 为半径的球的一个参数方程表示。
 \end{problem}
 
 \begin{solution}
     类比平面的平移变换，将球心从 $(0, 0, 0)$ 平移至 $(x_0, y_0, z_0)$，所得参数方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{
         \begin{cases}
             x = x_0 + a \sin u \cos v, \\
@@ -3392,65 +3394,65 @@
             z = z_0 + a \cos u,
         \end{cases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
         }
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
 \begin{problem}{椭球面参数化}{Ellipsoid-Parameterization}
     求椭球面
-    \begin{equation*}
+    \begin{equation}
         \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1
-    \end{equation*}
+    \end{equation}
     的一个参数方程表示。
 \end{problem}
 
 \begin{solution}
     类比球面坐标系，引入参数 $\varphi \in [0, \uppi]$ 与 $\theta \in [0, 2\uppi)$，令
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x = a \sin \varphi \cos \theta \\
             y = b \sin \varphi \sin \theta \\
             z = c \cos \varphi
         \end{cases}
-    \end{equation*}
+    \end{equation}
     代入原方程：
-    \begin{equation*}
+    \begin{equation}
         \frac{a^2 \sin^2 \varphi \cos^2 \theta}{a^2} + \frac{b^2 \sin^2 \varphi \sin^2 \theta}{b^2} + \frac{c^2 \cos^2 \varphi}{c^2} = \sin^2 \varphi (\cos^2 \theta + \sin^2 \theta) + \cos^2 \varphi = \sin^2 \varphi + \cos^2 \varphi = 1
-    \end{equation*}
+    \end{equation}
     验证成立。故其参数方程为：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} x = a \sin \varphi \cos \theta \\ y = b \sin \varphi \sin \theta \\ z = c \cos \varphi \end{cases} \quad (\varphi \in [0, \uppi], \theta \in [0, 2\uppi))}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{双曲线参数化}{Hyperbola-Parameterization}
     利用双曲函数，给出双曲线
-    \begin{equation*}
+    \begin{equation}
         \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
-    \end{equation*}
+    \end{equation}
     的一个参数方程表示。
 \end{problem}
 
 \begin{solution}
     利用双曲恒等式 $\cosh^2 t - \sinh^2 t = 1$，令
-    \begin{equation*}
+    \begin{equation}
         \frac{x}{a} = \cosh t, \quad \frac{y}{b} = \sinh t
-    \end{equation*}
+    \end{equation}
     考虑到双曲线包含两支，需引入符号因子。则有：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} x = \pm a \cosh t \\ y = b \sinh t \end{cases} \quad (t \in \symbb{R})}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 \begin{problem}{双曲面参数化}{Hyperboloid-Parameterization}
     分别求单叶双曲面
-    \begin{equation*}
+    \begin{equation}
         \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1
-    \end{equation*}
+    \end{equation}
     和双叶双曲面
-    \begin{equation*}
+    \begin{equation}
         \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = -1
-    \end{equation*}
+    \end{equation}
     的一个参数方程表示。
 \end{problem}
 
@@ -3458,16 +3460,16 @@
     \ansitem{1}
 
     对于单叶双曲面，方程可变形为 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 + \frac{z^2}{c^2}$。利用双曲函数与三角函数的关系，令 $z = c \sinh u$，则 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = \cosh^2 u$。进一步令 $x = a \cosh u \cos v, y = b \cosh u \sin v$，得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} x = a \cosh u \cos v \\ y = b \cosh u \sin v \\ z = c \sinh u \end{cases} \quad (u \in \symbb{R}, v \in [0, 2\uppi))}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     对于双叶双曲面，方程可变形为 $\frac{z^2}{c^2} - \left( \frac{x^2}{a^2} + \frac{y^2}{b^2} \right) = 1$。令 $x = a \sinh u \cos v, y = b \sinh u \sin v$，则有 $\frac{z^2}{c^2} = 1 + \sinh^2 u = \cosh^2 u$。考虑到曲面分为上下两叶，得：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases} x = a \sinh u \cos v \\ y = b \sinh u \sin v \\ z = \pm c \cosh u \end{cases} \quad (u \in [0, +\infty), v \in [0, 2\uppi))}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3475,41 +3477,41 @@
 
 \begin{problem}{点在平面上的充要条件}{Point-on-Plane-Condition}
     设 $O$ 为一定点, $A, B, C$ 为不共线的三点. 证明: 点 $M$ 位于平面 $ABC$ 上的充分必要条件是存在实数 $k_1, k_2, k_3$ 使得
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{OM} = k_1\overrightarrow{OA} + k_2\overrightarrow{OB} + k_3\overrightarrow{OC}, \text{ 且 } k_1 + k_2 + k_3 = 1.
-    \end{equation*}
+    \end{equation}
 \end{problem}
 
 \begin{myproof}
     必要性：若点 $M$ 位于平面 $ABC$ 上，由于 $A, B, C$ 不共线，则向量 $\overrightarrow{AB}$ 与 $\overrightarrow{AC}$ 不共线。
     故存在实数 $x, y$ 使得
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{AM} = x\overrightarrow{AB} + y\overrightarrow{AC}
-    \end{equation*}
+    \end{equation}
     依据向量的减法规则
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{OM} - \overrightarrow{OA} = x(\overrightarrow{OB} - \overrightarrow{OA}) + y(\overrightarrow{OC} - \overrightarrow{OA})
-    \end{equation*}
+    \end{equation}
     整理得
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{OM} = (1 - x - y)\overrightarrow{OA} + x\overrightarrow{OB} + y\overrightarrow{OC}
-    \end{equation*}
+    \end{equation}
     令 $k_1 = 1 - x - y, k_2 = x, k_3 = y$，则有
-    \begin{equation*}
+    \begin{equation}
         \overrightarrow{OM} = k_1\overrightarrow{OA} + k_2\overrightarrow{OB} + k_3\overrightarrow{OC}
-    \end{equation*}
+    \end{equation}
     且满足
-    \begin{equation*}
+    \begin{equation}
         k_1 + k_2 + k_3 = (1 - x - y) + x + y = 1
-    \end{equation*}
+    \end{equation}
     充分性：若存在 $k_1, k_2, k_3$ 满足题设条件，由 $k_1 = 1 - k_2 - k_3$ 代入得
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \overrightarrow{OM}                                & = (1 - k_2 - k_3)\overrightarrow{OA} + k_2\overrightarrow{OB} + k_3\overrightarrow{OC}            \\
             \implies \overrightarrow{OM} - \overrightarrow{OA} & = k_2(\overrightarrow{OB} - \overrightarrow{OA}) + k_3(\overrightarrow{OC} - \overrightarrow{OA}) \\
             \implies \overrightarrow{AM}                       & = k_2\overrightarrow{AB} + k_3\overrightarrow{AC}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     由于 $\overrightarrow{AM}$ 可由平面 $ABC$ 内的两个不共线向量 $\overrightarrow{AB}, \overrightarrow{AC}$ 线性表示，故点 $M$ 必在平面 $ABC$ 上。
 \end{myproof}
 
@@ -3521,21 +3523,21 @@
 \begin{myproof}
     设 $\symbfit{v}_1 = \symbfit{a} - \symbfit{b} + \symbfit{c}$, $\symbfit{v}_2 = -2\symbfit{a} + 3\symbfit{b} - 2\symbfit{c}$, $\symbfit{v}_3 = 2\symbfit{a} - \symbfit{b} + 2\symbfit{c}$。
     考虑其系数矩阵的行列式（以 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 为基）：
-    \begin{equation*}
+    \begin{equation}
         D = \begin{vmatrix} 1 & -2 & 2 \\ -1 & 3 & -1 \\ 1 & -2 & 2 \end{vmatrix}
-    \end{equation*}
+    \end{equation}
     观察发现第一列与第三列相同（或第一行与第三行相同），根据行列式性质可知
-    \begin{equation*}
+    \begin{equation}
         D = 0
-    \end{equation*}
+    \end{equation}
     这表明 $\symbfit{v}_1, \symbfit{v}_2, \symbfit{v}_3$ 线性相关。具体地，可得线性组合关系：
-    \begin{equation*}
+    \begin{equation}
         4(\symbfit{a} - \symbfit{b} + \symbfit{c}) + (-2\symbfit{a} + 3\symbfit{b} - 2\symbfit{c}) - (2\symbfit{a} - \symbfit{b} + 2\symbfit{c}) = \symbfit{0}
-    \end{equation*}
+    \end{equation}
     即
-    \begin{equation*}
+    \begin{equation}
         \boxed{4\symbfit{v}_1 + \symbfit{v}_2 - \symbfit{v}_3 = \symbfit{0}}
-    \end{equation*}
+    \end{equation}
 \end{myproof}
 
 
@@ -3549,19 +3551,19 @@
     若 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 中存在共面（或共线）的情况，则该子向量组已线性相关，从而整体必线性相关。
 
     若 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 不共面，根据空间向量基本定理，空间中任意向量 $\symbfit{d}$ 均可由这三个不共面向量线性表示。即存在实数 $\lambda_1, \lambda_2, \lambda_3$ 使得
-    \begin{equation*}
+    \begin{equation}
         \symbfit{d} = \lambda_1\symbfit{a} + \lambda_2\symbfit{b} + \lambda_3\symbfit{c}
-    \end{equation*}
+    \end{equation}
     由向量运算性质可得
-    \begin{equation*}
+    \begin{equation}
         \lambda_1\symbfit{a} + \lambda_2\symbfit{b} + \lambda_3\symbfit{c} + (-1)\symbfit{d} = \symbfit{0}
-    \end{equation*}
+    \end{equation}
     由于向量 $\symbfit{d}$ 的系数 $-1 \neq 0$，说明存在不全为零的常数使得该向量组的线性组合为零向量。因此，这四个向量线性相关。
 
     对于四个以上的向量，由于其包含的四个向量子组已经线性相关，根据线性相关性的性质，增加向量后的向量组
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{一定线性相关}}
-    \end{equation*}
+    \end{equation}
 \end{myproof}
 
 
@@ -3577,37 +3579,37 @@
     \ansitem{1}
 
     由于 $\symbfit{e}_1, \symbfit{e}_2, \symbfit{e}_3$ 为一组基，向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 在该基下的坐标构成的行列式为
-    \begin{equation*}
+    \begin{equation}
         D = \begin{vmatrix} 1 & 2 & 3 \\ 2 & 1 & 0 \\ -1 & 1 & 2 \end{vmatrix}
-    \end{equation*}
+    \end{equation}
     按第二行展开得
-    \begin{equation*}
+    \begin{equation}
         D = -2 \cdot \begin{vmatrix} 2 & 3 \\ 1 & 2 \end{vmatrix} + 1 \cdot \begin{vmatrix} 1 & 3 \\ -1 & 2 \end{vmatrix} = -2(4-3) + (2+3) = 3
-    \end{equation*}
+    \end{equation}
     因为 $D = 3 \neq 0$，所以向量组 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 线性无关。
-    \begin{equation*}
+    \begin{equation}
         \boxed{\text{故 } \symbfit{a}, \symbfit{b}, \symbfit{c} \text{ 构成一组基}}
-    \end{equation*}
+    \end{equation}
 
     \ansitem{2}
 
     若向量 $\symbfit{a}, \symbfit{b}, \tilde{\symbfit{c}}$ 共面，则其对应的坐标行列式必为零
-    \begin{equation*}
+    \begin{equation}
         D_x = \begin{vmatrix} 1 & 2 & 3 \\ 2 & 1 & x \\ -1 & 1 & 2 \end{vmatrix} = 0
-    \end{equation*}
+    \end{equation}
     按第三行展开计算行列式
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             D_x & = -1 \cdot \begin{vmatrix} 2 & 3 \\ 1 & x \end{vmatrix} - 1 \cdot \begin{vmatrix} 1 & 3 \\ 2 & x \end{vmatrix} + 2 \cdot \begin{vmatrix} 1 & 2 \\ 2 & 1 \end{vmatrix} \\
                 & = -(2x - 3) - (x - 6) + 2(1 - 4)                                                                                                                                      \\
                 & = -2x + 3 - x + 6 - 6                                                                                                                                                 \\
                 & = 3 - 3x
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     令 $3 - 3x = 0$，解得
-    \begin{equation*}
+    \begin{equation}
         \boxed{x = 1}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3617,29 +3619,29 @@
 
 \begin{solution}
     首先计算 $|\symbfit{a} \times \symbfit{b}|$
-    \begin{equation*}
+    \begin{equation}
         |\symbfit{a} \times \symbfit{b}| = |\symbfit{a}| |\symbfit{b}| \sin 60^\circ = 1 \cdot 2 \cdot \frac{\sqrt{3}}{2} = \sqrt{3}
-    \end{equation*}
+    \end{equation}
     从而有
-    \begin{equation*}
+    \begin{equation}
         \boxed{|\symbfit{a} \times \symbfit{b}|^2 = 3}
-    \end{equation*}
+    \end{equation}
     利用向量积的分配律与性质 $\symbfit{a} \times \symbfit{a} = \symbfit{0}, \symbfit{b} \times \symbfit{a} = - \symbfit{a} \times \symbfit{b}$，可得
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b}) & = \symbfit{a} \times \symbfit{a} - \symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{a} - \symbfit{b} \times \symbfit{b} \\
                                                                            & = \symbfit{0} - \symbfit{a} \times \symbfit{b} - \symbfit{a} \times \symbfit{b} - \symbfit{0}                                       \\
                                                                            & = -2 (\symbfit{a} \times \symbfit{b})
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     对其取模
-    \begin{equation*}
+    \begin{equation}
         |(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})| = |-2 (\symbfit{a} \times \symbfit{b})| = 2 |\symbfit{a} \times \symbfit{b}| = 2\sqrt{3}
-    \end{equation*}
+    \end{equation}
     即
-    \begin{equation*}
+    \begin{equation}
         \boxed{|(\symbfit{a} + \symbfit{b}) \times (\symbfit{a} - \symbfit{b})| = 2\sqrt{3}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3649,18 +3651,18 @@
 
 \begin{myproof}
     根据向量三重积展开公式 $\symbfit{A} \times (\symbfit{B} \times \symbfit{C}) = (\symbfit{A} \cdot \symbfit{C})\symbfit{B} - (\symbfit{A} \cdot \symbfit{B})\symbfit{C}$，以及向量积的反对称性 $(\symbfit{u} \times \symbfit{v}) = - (\symbfit{v} \times \symbfit{u})$，可知
-    \begin{equation*}
+    \begin{equation}
         (\symbfit{a} \times \symbfit{b}) \times \symbfit{c} = - \symbfit{c} \times (\symbfit{a} \times \symbfit{b}) = - [(\symbfit{c} \cdot \symbfit{b})\symbfit{a} - (\symbfit{c} \cdot \symbfit{a})\symbfit{b}] = (\symbfit{c} \cdot \symbfit{a})\symbfit{b} - (\symbfit{c} \cdot \symbfit{b})\symbfit{a}
-    \end{equation*}
+    \end{equation}
     同理可得剩余两项的展开式
-    \begin{equation*}
+    \begin{equation}
         (\symbfit{b} \times \symbfit{c}) \times \symbfit{a} = (\symbfit{a} \cdot \symbfit{b})\symbfit{c} - (\symbfit{a} \cdot \symbfit{c})\symbfit{b}
-    \end{equation*}
-    \begin{equation*}
+    \end{equation}
+    \begin{equation}
         (\symbfit{c} \times \symbfit{a}) \times \symbfit{b} = (\symbfit{b} \cdot \symbfit{c})\symbfit{a} - (\symbfit{b} \cdot \symbfit{a})\symbfit{c}
-    \end{equation*}
+    \end{equation}
     将上述三式相加，并利用数量积的交换律 $\symbfit{u} \cdot \symbfit{v} = \symbfit{v} \cdot \symbfit{u}$
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
              & \quad (\symbfit{a} \times \symbfit{b}) \times \symbfit{c} + (\symbfit{b} \times \symbfit{c}) \times \symbfit{a} + (\symbfit{c} \times \symbfit{a}) \times \symbfit{b}                                                                                                               \\
              & = [(\symbfit{c} \cdot \symbfit{a})\symbfit{b} - (\symbfit{c} \cdot \symbfit{b})\symbfit{a}] + [(\symbfit{a} \cdot \symbfit{b})\symbfit{c} - (\symbfit{a} \cdot \symbfit{c})\symbfit{b}] + [(\symbfit{b} \cdot \symbfit{c})\symbfit{a} - (\symbfit{b} \cdot \symbfit{a})\symbfit{c}] \\
@@ -3668,7 +3670,7 @@
              & = 0\symbfit{b} + 0\symbfit{a} + 0\symbfit{c}                                                                                                                                                                                                                                        \\
              & = \symbfit{0}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     证毕。
 \end{myproof}
 
@@ -3679,29 +3681,29 @@
 
 \begin{solution}
     设 $(x, y, z)$ 为柱面上任一点，其母线方向向量为 $\symbfit{s} = (2, 1, 1)$，则过该点的母线方程为
-    \begin{equation*}
+    \begin{equation}
         \frac{X - x}{2} = \frac{Y - y}{1} = \frac{Z - z}{1} = t
-    \end{equation*}
+    \end{equation}
     母线与准线的交点 $(X, Y, Z)$ 满足
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             X = x + 2t = 1 \\
             Y = y + t      \\
             Z = z + t
         \end{cases}
-    \end{equation*}
+    \end{equation}
     由第一式解得 $t = \frac{1 - x}{2}$，将其代入后两式可得
-    \begin{equation*}
+    \begin{equation}
         Y = y + \frac{1 - x}{2} = \frac{2y - x + 1}{2}, \quad Z = z + \frac{1 - x}{2} = \frac{2z - x + 1}{2}
-    \end{equation*}
+    \end{equation}
     由于交点在准线 $Y^2 + Z^2 = 1$ 上，故有
-    \begin{equation*}
+    \begin{equation}
         \left(\frac{x - 2y - 1}{2}\right)^2 + \left(\frac{x - 2z - 1}{2}\right)^2 = 1 \implies (x - 2y - 1)^2 + (x - 2z - 1)^2 = 4
-    \end{equation*}
+    \end{equation}
     展开整理得柱面的一般方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{x^2 + 2y^2 + 2z^2 - 2xy - 2xz - 2x + 2y + 2z - 1 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3711,29 +3713,29 @@
 
 \begin{solution}
     设 $(x, y, z)$ 为锥面上除顶点外的任一点，连接顶点 $V(2, 1, 1)$ 与该点的直线（母线）方程为
-    \begin{equation*}
+    \begin{equation}
         \frac{X - 2}{x - 2} = \frac{Y - 1}{y - 1} = \frac{Z - 1}{z - 1} = \lambda
-    \end{equation*}
+    \end{equation}
     该母线与准线 $X = 1$ 相交，则有
-    \begin{equation*}
+    \begin{equation}
         \frac{1 - 2}{x - 2} = \lambda \implies \lambda = \frac{1}{2 - x}
-    \end{equation*}
+    \end{equation}
     由此可确定交点坐标为
-    \begin{equation*}
+    \begin{equation}
         Y = \lambda(y - 1) + 1 = \frac{y - x + 1}{2 - x}, \quad Z = \lambda(z - 1) + 1 = \frac{z - x + 1}{2 - x}
-    \end{equation*}
+    \end{equation}
     将 $Y, Z$ 代入准线方程 $Y^2 + Z^2 = 1$ 得
-    \begin{equation*}
+    \begin{equation}
         \left(\frac{y - x + 1}{2 - x}\right)^2 + \left(\frac{z - x + 1}{2 - x}\right)^2 = 1 \implies (x - y - 1)^2 + (x - z - 1)^2 = (x - 2)^2
-    \end{equation*}
+    \end{equation}
     展开各项并合并同类项
-    \begin{equation*}
+    \begin{equation}
         (x^2 + y^2 + 1 - 2xy - 2x + 2y) + (x^2 + z^2 + 1 - 2xz - 2x + 2z) = x^2 - 4x + 4
-    \end{equation*}
+    \end{equation}
     整理得锥面的一般方程为
-    \begin{equation*}
+    \begin{equation}
         \boxed{x^2 + y^2 + z^2 - 2xy - 2xz + 2y + 2z - 2 = 0}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3744,29 +3746,29 @@
 \begin{solution}
     旋转轴为直线 $L: \frac{x-1}{0} = \frac{y-1}{0} = \frac{z}{1}$，其方向向量为 $\symbfit{k} = (0, 0, 1)$。
     设母线上任一点为 $P_0(x_0, y_0, z_0)$，满足：
-    \begin{equation*}
+    \begin{equation}
         x_0 = z_0 + 1, \quad y_0 = z_0.
-    \end{equation*}
+    \end{equation}
     点 $P(x, y, z)$ 在旋转面上，其到旋转轴 $x=1, y=1$ 的距离等于母线上的点到轴的距离，且 $z$ 坐标保持不变：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             (x - 1)^2 + (y - 1)^2          & = (x_0 - 1)^2 + (y_0 - 1)^2     \\
             \implies (x - 1)^2 + (y - 1)^2 & = (z_0 + 1 - 1)^2 + (z_0 - 1)^2 \\
                                            & = z_0^2 + (z_0 - 1)^2.
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     由于 $z = z_0$，代入上式整理得该旋转面的一般方程：
-    \begin{equation*}
+    \begin{equation}
         \boxed{(x - 1)^2 + (y - 1)^2 = 2z^2 - 2z + 1}
-    \end{equation*}
+    \end{equation}
     令 $z = u, \theta = v$，则旋转面的参数方程可表示为：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases}
             x = 1 + \sqrt{2u^2 - 2u + 1} \cos v \\
             y = 1 + \sqrt{2u^2 - 2u + 1} \sin v \\
             z = u
         \end{cases} \quad (u \in \symbb{R}, v \in [0, 2\uppi))}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3777,28 +3779,28 @@
 \begin{solution}
     母线为 $xy$ 平面上的圆 $(x - 2)^2 + y^2 = 1$。将其绕 $y$ 轴旋转时，空间中点 $(x, y, z)$ 满足原母线方程中的 $x$ 被替换为 $\pm \sqrt{x^2 + z^2}$。
     代入母线方程得：
-    \begin{equation*}
+    \begin{equation}
         (\sqrt{x^2 + z^2} - 2)^2 + y^2 = 1.
-    \end{equation*}
+    \end{equation}
     整理得旋转面的一般方程为：
-    \begin{equation*}
+    \begin{equation}
         \boxed{x^2 + y^2 + z^2 - 4\sqrt{x^2 + z^2} + 3 = 0}
-    \end{equation*}
+    \end{equation}
     为求参数方程，先写出母线圆在 $xy$ 平面上的参数表示：
-    \begin{equation*}
+    \begin{equation}
         \begin{cases}
             x = 2 + \cos u \\
             y = \sin u
         \end{cases} \quad (u \in [0, 2\uppi))
-    \end{equation*}
+    \end{equation}
     设绕 $y$ 轴旋转的角度为 $v$，则旋转面上任意一点的坐标为：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{cases}
             x = (2 + \cos u) \cos v \\
             y = \sin u              \\
             z = (2 + \cos u) \sin v
         \end{cases} \quad (u, v \in [0, 2\uppi))}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
@@ -3810,23 +3812,23 @@
     设点在 $[O; \symbfit{e}_1, \symbfit{e}_2, \symbfit{e}_3]$ 下的坐标为 $\symbfit{x} = (x_1, x_2, x_3)^{\symrm{T}}$，在 $[O; \tilde{\symbfit{e}}_1, \tilde{\symbfit{e}}_2, \tilde{\symbfit{e}}_3]$ 下的坐标为 $\tilde{\symbfit{x}} = (\tilde{x}_1, \tilde{x}_2, \tilde{x}_3)^{\symrm{T}}$，在 $[O; \hat{\symbfit{e}}_1, \hat{\symbfit{e}}_2, \hat{\symbfit{e}}_3]$ 下的坐标为 $\hat{\symbfit{x}} = (\hat{x}_1, \hat{x}_2, \hat{x}_3)^{\symrm{T}}$。
 
     根据绕坐标轴旋转的定义，第一次绕 $\symbfit{e}_1$ 旋转的坐标变换矩阵为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{M}_1 = \begin{bmatrix}
             1 & 0          & 0           \\
             0 & \cos\alpha & -\sin\alpha \\
             0 & \sin\alpha & \cos\alpha
         \end{bmatrix}
-    \end{equation*}
+    \end{equation}
     则有 $\symbfit{x} = \symbfit{M}_1 \tilde{\symbfit{x}}$。第二次绕新系的 $\tilde{\symbfit{e}}_2$ 旋转的坐标变换矩阵为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{M}_2 = \begin{bmatrix}
             \cos\beta  & 0 & \sin\beta \\
             0          & 1 & 0         \\
             -\sin\beta & 0 & \cos\beta
         \end{bmatrix}
-    \end{equation*}
+    \end{equation}
     则有 $\tilde{\symbfit{x}} = \symbfit{M}_2 \hat{\symbfit{x}}$。由此可得总的坐标变换公式为
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{x} & = \symbfit{M}_1 \symbfit{M}_2 \hat{\symbfit{x}}                \\
                         & = \begin{bmatrix}
@@ -3844,160 +3846,160 @@
                                 -\cos\alpha\sin\beta & \sin\alpha & \cos\alpha\cos\beta
                             \end{bmatrix} \hat{\symbfit{x}}
         \end{aligned}
-    \end{equation*}
+    \end{equation}
     即坐标变换公式为
-    \begin{equation*}
+    \begin{equation}
         \boxed{\begin{bmatrix} x_1 \\ x_2 \\ x_3 \end{bmatrix} = \begin{bmatrix} \cos\beta & 0 & \sin\beta \\ \sin\alpha\sin\beta & \cos\alpha & -\sin\alpha\cos\beta \\ -\cos\alpha\sin\beta & \sin\alpha & \cos\alpha\cos\beta \end{bmatrix} \begin{bmatrix} \hat{x}_1 \\ \hat{x}_2 \\ \hat{x}_3 \end{bmatrix}}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
 \begin{problem}{二次曲面方程}{Quadric-Surface-Equation}
     已知椭球面的三个半轴长分别为 $a,b,c$，三条对称轴方程分别为
-    \begin{equation*}
+    \begin{equation}
         3 - x = \frac{y}{2} = \frac{z}{2}, \quad \frac{x}{2} = 3 - y = \frac{z}{2}, \quad \frac{x}{2} = \frac{y}{2} = 3 - z,
-    \end{equation*}
+    \end{equation}
     求椭球面的一般方程。
 \end{problem}
 
 \begin{solution}
     首先，将给定的三条对称轴方程化为标准形式：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             L_1 & \colon \frac{x - 3}{-1} = \frac{y}{2} = \frac{z}{2}, \\
             L_2 & \colon \frac{x}{2} = \frac{y - 3}{-1} = \frac{z}{2}, \\
             L_3 & \colon \frac{x}{2} = \frac{y}{2} = \frac{z - 3}{-1}.
         \end{aligned}
-    \end{equation*}
+    \end{equation}
 
     由此可得，这三条对称轴的方向向量依次为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{v}_1 = (-1, 2, 2), \quad \symbfit{v}_2 = (2, -1, 2), \quad \symbfit{v}_3 = (2, 2, -1).
-    \end{equation*}
+    \end{equation}
 
     易验证这三个方向向量两两正交，即 $\symbfit{v}_1 \cdot \symbfit{v}_2 = 0$, $\symbfit{v}_2 \cdot \symbfit{v}_3 = 0$, $\symbfit{v}_3 \cdot \symbfit{v}_1 = 0$。且它们的模长均为
-    \begin{equation*}
+    \begin{equation}
         \|\symbfit{v}_1\| = \|\symbfit{v}_2\| = \|\symbfit{v}_3\| = \sqrt{(-1)^2 + 2^2 + 2^2} = 3.
-    \end{equation*}
+    \end{equation}
 
     因此，对应的单位方向向量为
-    \begin{equation*}
+    \begin{equation}
         \symbfit{e}_1 = \frac{1}{3}(-1, 2, 2), \quad \symbfit{e}_2 = \frac{1}{3}(2, -1, 2), \quad \symbfit{e}_3 = \frac{1}{3}(2, 2, -1).
-    \end{equation*}
+    \end{equation}
 
     其次，求椭球面的对称中心。三条对称轴的交点即为椭球面的中心 $M_0(x_0, y_0, z_0)$。联立 $L_1$ 与 $L_2$ 的方程：
-    \begin{equation*}
+    \begin{equation}
         3 - x = \frac{y}{2} = \frac{z}{2} \quad \text{与} \quad \frac{x}{2} = 3 - y = \frac{z}{2}.
-    \end{equation*}
+    \end{equation}
 
     由 $\frac{z}{2} = \frac{z}{2}$ 可设公共参数为 $t$，则 $z = 2t$。代入得 $x = 3 - t$ 且 $y = 2t$，同时从 $L_2$ 中有 $\frac{3 - t}{2} = 3 - 2t \implies t = 1$。
     将 $t = 1$ 代回，解得交点坐标为 $(2, 2, 2)$。显然该点也满足 $L_3$ 的方程，故椭球面的中心为 $M_0(2, 2, 2)$。
 
     设空间任一点 $P(x, y, z)$ 在以 $M_0$ 为原点，以 $\symbfit{e}_1, \symbfit{e}_2, \symbfit{e}_3$ 为基向量的新直角坐标系中的坐标为 $(X, Y, Z)$。记向量 $\overrightarrow{M_0 P} = (x - 2, y - 2, z - 2)$，则由坐标投影关系可得：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             X & = \overrightarrow{M_0 P} \cdot \symbfit{e}_1 = \frac{-(x - 2) + 2(y - 2) + 2(z - 2)}{3} = \frac{-x + 2y + 2z - 6}{3}, \\
             Y & = \overrightarrow{M_0 P} \cdot \symbfit{e}_2 = \frac{2(x - 2) - (y - 2) + 2(z - 2)}{3} = \frac{2x - y + 2z - 6}{3},   \\
             Z & = \overrightarrow{M_0 P} \cdot \symbfit{e}_3 = \frac{2(x - 2) + 2(y - 2) - (z - 2)}{3} = \frac{2x + 2y - z - 6}{3}.
         \end{aligned}
-    \end{equation*}
+    \end{equation}
 
     在新坐标系下，由于三个半轴长分别为 $a, b, c$，椭球面的标准方程为
-    \begin{equation*}
+    \begin{equation}
         \frac{X^2}{a^2} + \frac{Y^2}{b^2} + \frac{Z^2}{c^2} = 1.
-    \end{equation*}
+    \end{equation}
 
     将上述 $X, Y, Z$ 的表达式代入，即可得到原坐标系下的椭球面一般方程：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\frac{(-x + 2y + 2z - 6)^2}{9a^2} + \frac{(2x - y + 2z - 6)^2}{9b^2} + \frac{(2x + 2y - z - 6)^2}{9c^2} = 1}
-    \end{equation*}
+    \end{equation}
 \end{solution}
 
 
 \begin{problem}{球面坐标系两点距离}{Spherical-Distance}
     设在球面坐标系中有两点 $(r_1, \theta_1, \varphi_1)$ 和 $(r_2, \theta_2, \varphi_2)$， $d$ 是这两点之间的直线距离. 证明：
-    \begin{equation*}
+    \begin{equation}
         d = \sqrt{(r_1 - r_2)^2 + 2r_1 r_2 [1 - \cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 - \cos\theta_1 \cos\theta_2]}.
-    \end{equation*}
+    \end{equation}
 \end{problem}
 
 \begin{myproof}
     设这两点对应的位置向量分别为 $\symbfit{r}_1$ 和 $\symbfit{r}_2$。在直角坐标系下，根据球面坐标与直角坐标的转换关系，有
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{r}_1 & = (r_1 \sin\theta_1 \cos\varphi_1, r_1 \sin\theta_1 \sin\varphi_1, r_1 \cos\theta_1) \\
             \symbfit{r}_2 & = (r_2 \sin\theta_2 \cos\varphi_2, r_2 \sin\theta_2 \sin\varphi_2, r_2 \cos\theta_2)
         \end{aligned}
-    \end{equation*}
+    \end{equation}
 
     两点之间的直线距离的平方等于其位置向量差的模的平方，即
-    \begin{equation*}
+    \begin{equation}
         d^2 = |\symbfit{r}_1 - \symbfit{r}_2|^2 = |\symbfit{r}_1|^2 + |\symbfit{r}_2|^2 - 2 \symbfit{r}_1 \cdot \symbfit{r}_2
-    \end{equation*}
+    \end{equation}
 
     易知 $|\symbfit{r}_1|^2 = r_1^2$，$|\symbfit{r}_2|^2 = r_2^2$。计算两向量的内积可得
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{r}_1 \cdot \symbfit{r}_2 & = (r_1 \sin\theta_1 \cos\varphi_1)(r_2 \sin\theta_2 \cos\varphi_2) + (r_1 \sin\theta_1 \sin\varphi_1)(r_2 \sin\theta_2 \sin\varphi_2) + (r_1 \cos\theta_1)(r_2 \cos\theta_2) \\
                                               & = r_1 r_2 [\sin\theta_1 \sin\theta_2 (\cos\varphi_1 \cos\varphi_2 + \sin\varphi_1 \sin\varphi_2) + \cos\theta_1 \cos\theta_2]                                                \\
                                               & = r_1 r_2 [\cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2]
         \end{aligned}
-    \end{equation*}
+    \end{equation}
 
     将上述结果代入距离平方公式中，得到
-    \begin{equation*}
+    \begin{equation}
         d^2 = r_1^2 + r_2^2 - 2r_1 r_2 [\cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2]
-    \end{equation*}
+    \end{equation}
 
     利用代数恒等式 $(r_1 - r_2)^2 = r_1^2 + r_2^2 - 2r_1 r_2$ 将上式进行配凑变形：
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             d^2 & = (r_1^2 - 2r_1 r_2 + r_2^2) + 2r_1 r_2 - 2r_1 r_2 [\cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2] \\
                 & = (r_1 - r_2)^2 + 2r_1 r_2 [1 - \cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 - \cos\theta_1 \cos\theta_2]
         \end{aligned}
-    \end{equation*}
+    \end{equation}
 
     由于 $d \geqslant 0$，两边同时开平方即得所求证的距离公式
-    \begin{equation*}
+    \begin{equation}
         \boxed{d = \sqrt{(r_1 - r_2)^2 + 2r_1 r_2 [1 - \cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 - \cos\theta_1 \cos\theta_2]}}
-    \end{equation*}
+    \end{equation}
 \end{myproof}
 
 \begin{problem}{球面距离}{Spherical-Surface-Distance}
     设在球面 $r=a$ 上有两个点 $(a, \theta_1, \varphi_1)$ 和 $(a, \theta_2, \varphi_2)$. 证明：这两个点之间的球面距离是 $a\gamma$ $(0 \leqslant \gamma \leqslant \pi)$，其中 $\gamma$ 满足
-    \begin{equation*}
+    \begin{equation}
         \cos\gamma = \cos(\varphi_1 - \varphi_2)\sin\theta_1\sin\theta_2 + \cos\theta_1\cos\theta_2.
-    \end{equation*}
+    \end{equation}
 \end{problem}
 
 \begin{myproof}
     设球心为原点 $O$，两点对应的位置向量分别为 $\symbfit{r}_1$ 和 $\symbfit{r}_2$。由于这两点均位于半径为 $a$ 的球面上，它们在直角坐标系中的位置向量可表示为
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{r}_1 & = a (\sin\theta_1 \cos\varphi_1, \sin\theta_1 \sin\varphi_1, \cos\theta_1) \\
             \symbfit{r}_2 & = a (\sin\theta_2 \cos\varphi_2, \sin\theta_2 \sin\varphi_2, \cos\theta_2)
         \end{aligned}
-    \end{equation*}
+    \end{equation}
 
     球面距离被定义为经过这两点的大圆劣弧的长度。设向量 $\symbfit{r}_1$ 和 $\symbfit{r}_2$ 之间的夹角为 $\gamma$ $(0 \leqslant \gamma \leqslant \pi)$，则由弧长公式可知，该球面距离即为 $a\gamma$。
 
     根据向量内积的几何定义，有
-    \begin{equation*}
+    \begin{equation}
         \symbfit{r}_1 \cdot \symbfit{r}_2 = |\symbfit{r}_1| |\symbfit{r}_2| \cos\gamma = a^2 \cos\gamma
-    \end{equation*}
+    \end{equation}
 
     另一方面，根据向量内积的坐标运算，可得
-    \begin{equation*}
+    \begin{equation}
         \begin{aligned}
             \symbfit{r}_1 \cdot \symbfit{r}_2 & = a^2 (\sin\theta_1 \cos\varphi_1 \sin\theta_2 \cos\varphi_2 + \sin\theta_1 \sin\varphi_1 \sin\theta_2 \sin\varphi_2 + \cos\theta_1 \cos\theta_2) \\
                                               & = a^2 [\sin\theta_1 \sin\theta_2 (\cos\varphi_1 \cos\varphi_2 + \sin\varphi_1 \sin\varphi_2) + \cos\theta_1 \cos\theta_2]                         \\
                                               & = a^2 [\cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2]
         \end{aligned}
-    \end{equation*}
+    \end{equation}
 
     将上述两种内积表达方式的等号相连，由于 $a \neq 0$，等式两边同除以 $a^2$ 即可得出夹角 $\gamma$ 所满足的等式关系：
-    \begin{equation*}
+    \begin{equation}
         \boxed{\cos\gamma = \cos(\varphi_1 - \varphi_2) \sin\theta_1 \sin\theta_2 + \cos\theta_1 \cos\theta_2}
-    \end{equation*}
+    \end{equation}
 \end{myproof}
 

@@ -3489,3 +3489,664 @@
     \end{equation}
 \end{solution}
 
+\section{空间曲线与曲面}
+
+\begin{problem}{向量微分}{Vector-Differentiation}
+    设 $\symbfit{r} = (a \sin t, -a \cos t, b t^2)$，$a, b$ 是常数，求 $\symbfit{r}'(t)$ 和 $\symbfit{r}''(t)$。
+\end{problem}
+
+\begin{solution}
+    对向量函数的各分量分别关于 $t$ 求导：
+    \begin{equation}
+        \begin{aligned}
+            \symbfit{r}'(t) & = \frac{\d}{\d t} (a \sin t, -a \cos t, b t^2) \\
+                            & = (a \cos t, a \sin t, 2bt)
+        \end{aligned}
+    \end{equation}
+    继续对 $t$ 求二阶导数：
+    \begin{equation}
+        \begin{aligned}
+            \symbfit{r}''(t) & = \frac{\d}{\d t} (a \cos t, a \sin t, 2bt) \\
+                             & = (-a \sin t, a \cos t, 2b)
+        \end{aligned}
+    \end{equation}
+    综上所述，最终结果为
+    \begin{equation}
+        \boxed{\symbfit{r}'(t) = (a \cos t, a \sin t, 2bt), \quad \symbfit{r}''(t) = (-a \sin t, a \cos t, 2b)}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{单位向量性质}{Unit-Vector-Property}
+    设 $\symbfit{r}(t)$ 是单位向量，试证明 $\frac{\d \symbfit{r}}{\d t} \perp \symbfit{r}$，并说明它的几何意义。
+\end{problem}
+
+\begin{myproof}
+    因为 $\symbfit{r}(t)$ 是单位向量，故其模长为常数 $1$，则有
+    \begin{equation}
+        |\symbfit{r}(t)|^2 = \symbfit{r} \cdot \symbfit{r} = 1
+    \end{equation}
+    对等式两端关于 $t$ 求导，利用向量点积的导数法则得
+    \begin{equation}
+        \frac{\d \symbfit{r}}{\d t} \cdot \symbfit{r} + \symbfit{r} \cdot \frac{\d \symbfit{r}}{\d t} = 0
+    \end{equation}
+    由于点积满足交换律，上式简化为
+    \begin{equation}
+        2 \symbfit{r} \cdot \frac{\d \symbfit{r}}{\d t} = 0 \implies \symbfit{r} \cdot \frac{\d \symbfit{r}}{\d t} = 0
+    \end{equation}
+    因此，$\frac{\d \symbfit{r}}{\d t} \perp \symbfit{r}$。
+
+    其几何意义为：若曲线落在以原点为球心的球面上，则曲线在任一点处的切向量必垂直于该点到原点的径矢。
+\end{myproof}
+
+
+\begin{problem}{切线方向角}{Tangent-Direction-Angle}
+    证明：曲线 $x = a \cos t, y = a \sin t, z = b t$ 的切线与 $Oz$ 轴成定角。
+\end{problem}
+
+\begin{myproof}
+    设曲线的向量表示为 $\symbfit{r}(t) = (a \cos t, a \sin t, bt)$，其切向量为
+    \begin{equation}
+        \symbfit{T} = \symbfit{r}'(t) = (-a \sin t, a \cos t, b)
+    \end{equation}
+    $Oz$ 轴的方向向量可取为单位向量 $\symbfit{k} = (0, 0, 1)$。设切线与 $Oz$ 轴的夹角为 $\theta$，则有
+    \begin{equation}
+        \begin{aligned}
+            \cos \theta & = \frac{|\symbfit{T} \cdot \symbfit{k}|}{|\symbfit{T}| |\symbfit{k}|}                                              \\
+                        & = \frac{|(-a \sin t) \cdot 0 + (a \cos t) \cdot 0 + b \cdot 1|}{\sqrt{(-a \sin t)^2 + (a \cos t)^2 + b^2} \cdot 1} \\
+                        & = \frac{|b|}{\sqrt{a^2(\sin^2 t + \cos^2 t) + b^2}}                                                                \\
+                        & = \frac{|b|}{\sqrt{a^2 + b^2}}
+        \end{aligned}
+    \end{equation}
+    由于 $a, b$ 为常数，$\cos \theta$ 与 $t$ 无关，是一个常量，故曲线的切线与 $Oz$ 轴成定角。
+\end{myproof}
+
+
+\begin{problem}{曲线分析}{Curve-Analysis}
+    设 $\symbfit{r} = \left(\frac{t}{1+t}, \frac{1+t}{t}, t^2\right) (t > 0)$，判断它是不是简单曲线，是不是光滑曲线，并求出它在 $t = 1$ 时的切线方程和法平面方程。
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 简单曲线与光滑性判断
+
+    对于任意 $t_1, t_2 \in (0, +\infty)$，若 $\symbfit{r}(t_1) = \symbfit{r}(t_2)$，则其第三分量必相等，即 $t_1^2 = t_2^2$。由于 $t > 0$，可得 $t_1 = t_2$。故该曲线没有自交点，是\textbf{简单曲线}。
+
+    计算导向量：
+    \begin{equation}
+        \symbfit{r}'(t) = \left( \frac{1}{(1+t)^2}, -\frac{1}{t^2}, 2t \right)
+    \end{equation}
+    当 $t > 0$ 时，$\symbfit{r}'(t)$ 的各分量均连续且 $|\symbfit{r}'(t)| = \sqrt{\frac{1}{(1+t)^4} + \frac{1}{t^4} + 4t^2} \neq 0$，故该曲线是\textbf{光滑曲线}。
+
+    \ansitem{2} 切线与法平面方程
+
+    当 $t = 1$ 时，切点坐标和切向量分别为
+    \begin{equation}
+        \symbfit{r}(1) = \left( \frac{1}{2}, 2, 1 \right), \quad \symbfit{r}'(1) = \left( \frac{1}{4}, -1, 2 \right)
+    \end{equation}
+    取切线的方向向量为 $\symbfit{s} = (1, -4, 8)$，则切线方程为
+    \begin{equation}
+        \boxed{\frac{x - \frac{1}{2}}{1} = \frac{y - 2}{-4} = \frac{z - 1}{8}}
+    \end{equation}
+    法平面以 $\symbfit{s}$ 为法向量，方程为
+    \begin{equation}
+        1 \cdot \left( x - \frac{1}{2} \right) - 4 \cdot (y - 2) + 8 \cdot (z - 1) = 0
+    \end{equation}
+    化简得
+    \begin{equation}
+        \boxed{2x - 8y + 16z - 1 = 0}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{曲线的切线与法平面}{Tangent-Line-Normal-Plane}
+    求下列曲线的切线与法平面方程
+    \begin{enumerate}
+        \item $x = a \sin^2 t, y = b \sin t \cos t, z = c \cos^2 t$, 在 $t = \frac{\uppi}{4}$;
+        \item $x = t - \cos t, y = 3 + \sin^2 t, z = 1 + \cos 3t$, 在 $t = \frac{\uppi}{2}$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    当 $t = \frac{\uppi}{4}$ 时，切点坐标为 $M_0 \left( \frac{a}{2}, \frac{b}{2}, \frac{c}{2} \right)$。对参数方程求导得：
+    \begin{equation}
+        \begin{aligned}
+            \dot{x} & = 2a \sin t \cos t = a \sin 2t,       \\
+            \dot{y} & = b(\cos^2 t - \sin^2 t) = b \cos 2t, \\
+            \dot{z} & = -2c \cos t \sin t = -c \sin 2t.
+        \end{aligned}
+    \end{equation}
+    在 $t = \frac{\uppi}{4}$ 处，切向量为 $\symbfit{v} = (a, 0, -c)$。
+
+    切线方程为：
+    \begin{equation}
+        \boxed{\frac{x - \frac{a}{2}}{a} = \frac{y - \frac{b}{2}}{0} = \frac{z - \frac{c}{2}}{-c}}
+    \end{equation}
+    也就是
+    \begin{equation}
+        \boxed{
+            \begin{cases}
+                \frac{x - \frac{a}{2}}{a} = \frac{z - \frac{c}{2}}{-c},
+                \\ y = \frac{b}{2}.
+            \end{cases}
+        }
+    \end{equation}
+
+    法平面方程为 $a\left(x - \frac{a}{2}\right) + 0\left(y - \frac{b}{2}\right) - c\left(z - \frac{c}{2}\right) = 0$，即：
+    \begin{equation}
+        \boxed{ax - cz = \frac{a - c}{2}}
+    \end{equation}
+
+    \ansitem{2}
+    当 $t = \frac{\uppi}{2}$ 时，切点坐标为 $M_0 \left( \frac{\uppi}{2}, 4, 1 \right)$。对参数方程求导得：
+    \begin{equation}
+        \begin{aligned}
+            \dot{x} & = 1 + \sin t,                \\
+            \dot{y} & = 2 \sin t \cos t = \sin 2t, \\
+            \dot{z} & = -3 \sin 3t.
+        \end{aligned}
+    \end{equation}
+    在 $t = \frac{\uppi}{2}$ 处，切向量为 $\symbfit{v} = (2, 0, 3)$。
+
+    切线方程为：
+    \begin{equation}
+        \boxed{\frac{x - \frac{\uppi}{2}}{2} = \frac{y - 4}{0} = \frac{z - 1}{3}}
+    \end{equation}
+    也就是
+    \begin{equation}
+        \boxed{
+            \begin{cases}
+                \frac{x - \frac{\uppi}{2}}{2} = \frac{z - 1}{3},
+                \\ y = 4.
+            \end{cases}
+        }
+    \end{equation}
+
+    法平面方程为 $2\left(x - \frac{\uppi}{2}\right) + 0(y - 4) + 3(z - 1) = 0$，即：
+    \begin{equation}
+        \boxed{2x + 3z = \uppi + 3}
+    \end{equation}
+\end{solution}
+
+\begin{note}{切线方程中的分母为零的说明}{Tangent-Line-Denominator-Zero}
+    在上述两题中，切线方程中的分母为零，实际上要求分子也必须为零，才能保证方程有意义。
+    也就是说，切线方程中的分式 $\frac{y - y_0}{0}$ 代表的意义是 $y = y_0$。
+
+    \emph{
+        因此作者建议读者不要将切线方程写成 $\frac{x - x_0}{a} = \frac{y - y_0}{0} = \frac{z - z_0}{-c}$ 的形式，
+        而是直接写成 $x = x_0 + a t, y = y_0, z = z_0 - c t$ 的参数形式，或者写成 $\frac{x - x_0}{a} = \frac{z - z_0}{-c}, y = y_0$ 的形式。
+        这样更清晰明了，而且可以避免被改卷老师制裁
+    }（bushi）\emoji{zany-face}
+
+    \emoji{smiling-face-with-halo}\emoji{smiling-face-with-halo}\emoji{smiling-face-with-halo}
+
+\end{note}
+
+\begin{problem}{曲面的切平面与法线}{Tangent-Plane-Normal-Line}
+    求下列曲面在所示点处的切平面与法线方程.
+    \begin{enumerate}
+        \item $x = u \cos v, y = u \sin v, z = av$, 在 $(u_0, v_0)$;
+        \item $x = a \sin \theta \cos \varphi, y = b \sin \theta \sin \varphi, z = c \cos \theta$, 在 $(\theta_0, \varphi_0)$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    曲面位置向量为 $\symbfit{r}(u, v) = (u \cos v, u \sin v, av)$。求偏导得：
+    \begin{equation}
+        \begin{aligned}
+            \symbfit{r}_u & = (\cos v, \sin v, 0),      \\
+            \symbfit{r}_v & = (-u \sin v, u \cos v, a).
+        \end{aligned}
+    \end{equation}
+    法向量 $\symbfit{n} = \symbfit{r}_u \times \symbfit{r}_v = (a \sin v, -a \cos v, u)$。在 $(u_0, v_0)$ 处 $\symbfit{n}_0 = (a \sin v_0, -a \cos v_0, u_0)$。
+
+    切平面方程为 $a \sin v_0 (x - u_0 \cos v_0) - a \cos v_0 (y - u_0 \sin v_0) + u_0 (z - av_0) = 0$，简化得：
+    \begin{equation}
+        \boxed{ax \sin v_0 - ay \cos v_0 + u_0 z = a u_0 v_0}
+    \end{equation}
+    法线方程为：
+    \begin{equation}
+        \boxed{\frac{x - u_0 \cos v_0}{a \sin v_0} = \frac{y - u_0 \sin v_0}{-a \cos v_0} = \frac{z - av_0}{u_0}}
+    \end{equation}
+
+    \ansitem{2}
+    曲面为椭球面 $\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1$。设 $F(x,y,z) = \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} - 1$。
+    在点 $M_0(a \sin \theta_0 \cos \varphi_0, b \sin \theta_0 \sin \varphi_0, c \cos \theta_0)$ 处的法向量为：
+    \begin{equation}
+        \symbfit{n} = \left( \frac{2x_0}{a^2}, \frac{2y_0}{b^2}, \frac{2z_0}{c^2} \right) \parallel \left( \frac{\sin \theta_0 \cos \varphi_0}{a}, \frac{\sin \theta_0 \sin \varphi_0}{b}, \frac{\cos \theta_0}{c} \right).
+    \end{equation}
+    切平面方程为 $\frac{\sin \theta_0 \cos \varphi_0}{a}(x - a \sin \theta_0 \cos \varphi_0) + \frac{\sin \theta_0 \sin \varphi_0}{b}(y - b \sin \theta_0 \sin \varphi_0) + \frac{\cos \theta_0}{c}(z - c \cos \theta_0) = 0$。
+    利用 $\sin^2 \theta_0(\cos^2 \varphi_0 + \sin^2 \varphi_0) + \cos^2 \theta_0 = 1$ 得：
+    \begin{equation}
+        \boxed{\frac{x}{a} \sin \theta_0 \cos \varphi_0 + \frac{y}{b} \sin \theta_0 \sin \varphi_0 + \frac{z}{c} \cos \theta_0 = 1}
+    \end{equation}
+    法线方程为：
+    \begin{equation}
+        \boxed{\frac{x - a \sin \theta_0 \cos \varphi_0}{\frac{1}{a} \sin \theta_0 \cos \varphi_0} = \frac{y - b \sin \theta_0 \sin \varphi_0}{\frac{1}{b} \sin \theta_0 \sin \varphi_0} = \frac{z - c \cos \theta_0}{\frac{1}{c} \cos \theta_0}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{隐式曲线切线的夹角}{Implicit-Curve-Angle}
+    设两条隐式曲线 $F(x, y) = 0$ 与 $G(x, y) = 0$ 在一点 $(x_0, y_0)$ 相交，求在交点处两条隐式曲线切线的夹角. 这里 $F(x, y), G(x, y)$ 是可微函数.
+\end{problem}
+
+\begin{solution}
+    两曲线在 $(x_0, y_0)$ 处的法向量分别为 $\symbfit{n}_1 = (F_x, F_y)$ 与 $\symbfit{n}_2 = (G_x, G_y)$。
+    两切线的夹角 $\theta$ 等于其法向量夹角（或其补角），其余弦值为：
+    \begin{equation}
+        \cos \theta = \frac{|\symbfit{n}_1 \cdot \symbfit{n}_2|}{|\symbfit{n}_1| \cdot |\symbfit{n}_2|} = \frac{|F_x G_x + F_y G_y|}{\sqrt{F_x^2 + F_y^2} \sqrt{G_x^2 + G_y^2}}
+    \end{equation}
+    其中偏导数均在 $(x_0, y_0)$ 处取值。故夹角为：
+    \begin{equation}
+        \boxed{\theta = \arccos \frac{|F_x(x_0, y_0) G_x(x_0, y_0) + F_y(x_0, y_0) G_y(x_0, y_0)|}{\sqrt{F_x^2(x_0, y_0) + F_y^2(x_0, y_0)} \sqrt{G_x^2(x_0, y_0) + G_y^2(x_0, y_0)}}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{切平面与法线}{Tangent-Normal-Equations}
+    求下列曲面在指定点的切平面和法线方程.
+    \begin{enumerate}
+        \item $z = \sqrt{x^2 + y^2} - xy$, 在点 $(3, 4, -7)$;
+        \item $z = \arctan \frac{y}{x}$, 在点 $(1, 1, \frac{\uppi}{4})$;
+        \item $\e^z - z + xy = 3$, 在点 $(2, 1, 0)$;
+        \item $4 + \sqrt{x^2 + y^2 + z^2} = x + y + z$, 在点 $(2, 3, 6)$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    设 $F(x, y, z) = \sqrt{x^2 + y^2} - xy - z = 0$. 计算其在点 $P_0(3, 4, -7)$ 处的梯度：
+    \begin{equation}
+        \begin{aligned}
+            F_x & = \frac{x}{\sqrt{x^2 + y^2}} - y \implies F_x(P_0) = \frac{3}{5} - 4 = -\frac{17}{5}, \\
+            F_y & = \frac{y}{\sqrt{x^2 + y^2}} - x \implies F_y(P_0) = \frac{4}{5} - 3 = -\frac{11}{5}, \\
+            F_z & = -1.
+        \end{aligned}
+    \end{equation}
+    取曲面在点 $P_0$ 处的法向量为 $\symbfit{n} = (17, 11, 5)$. 则切平面方程为 $17(x - 3) + 11(y - 4) + 5(z + 7) = 0$.
+    \begin{equation}
+        \boxed{17x + 11y + 5z - 60 = 0, \quad \frac{x - 3}{17} = \frac{y - 4}{11} = \frac{z + 7}{5}}
+    \end{equation}
+
+    \ansitem{2}
+
+    设 $F(x, y, z) = \arctan \frac{y}{x} - z = 0$. 在点 $P_0(1, 1, \frac{\uppi}{4})$ 处：
+    \begin{equation}
+        \begin{aligned}
+            F_x & = -\frac{y}{x^2 + y^2} \implies F_x(P_0) = -\frac{1}{2}, \\
+            F_y & = \frac{x}{x^2 + y^2} \implies F_y(P_0) = \frac{1}{2},   \\
+            F_z & = -1.
+        \end{aligned}
+    \end{equation}
+    法向量取 $\symbfit{n} = (1, -1, 2)$. 切平面方程为 $1(x - 1) - 1(y - 1) + 2(z - \frac{\uppi}{4}) = 0$.
+    \begin{equation}
+        \boxed{x - y + 2z - \frac{\uppi}{2} = 0, \quad \frac{x - 1}{1} = \frac{y - 1}{-1} = \frac{z - \frac{\uppi}{4}}{2}}
+    \end{equation}
+
+    \ansitem{3}
+
+    设 $F(x, y, z) = \e^z - z + xy - 3 = 0$. 在点 $P_0(2, 1, 0)$ 处：
+    \begin{equation}
+        \begin{aligned}
+            F_x & = y \implies F_x(P_0) = 1,        \\
+            F_y & = x \implies F_y(P_0) = 2,        \\
+            F_z & = \e^z - 1 \implies F_z(P_0) = 0.
+        \end{aligned}
+    \end{equation}
+    法向量为 $\symbfit{n} = (1, 2, 0)$. 切平面方程为 $1(x - 2) + 2(y - 1) + 0(z - 0) = 0$.
+    \begin{equation}
+        \boxed{x + 2y - 4 = 0, \quad \frac{x - 2}{1} = \frac{y - 1}{2}, z = 0}
+    \end{equation}
+
+    \ansitem{4}
+
+    设 $F(x, y, z) = \sqrt{x^2 + y^2 + z^2} - x - y - z + 4 = 0$. 在点 $P_0(2, 3, 6)$ 处：
+    \begin{equation}
+        \begin{aligned}
+            F_x & = \frac{x}{\sqrt{x^2 + y^2 + z^2}} - 1 \implies F_x(P_0) = \frac{2}{7} - 1 = -\frac{5}{7}, \\
+            F_y & = \frac{y}{\sqrt{x^2 + y^2 + z^2}} - 1 \implies F_y(P_0) = \frac{3}{7} - 1 = -\frac{4}{7}, \\
+            F_z & = \frac{z}{\sqrt{x^2 + y^2 + z^2}} - 1 \implies F_z(P_0) = \frac{6}{7} - 1 = -\frac{1}{7}.
+        \end{aligned}
+    \end{equation}
+    法向量取 $\symbfit{n} = (5, 4, 1)$. 切平面方程为 $5(x - 2) + 4(y - 3) + 1(z - 6) = 0$.
+    \begin{equation}
+        \boxed{5x + 4y + z - 28 = 0, \quad \frac{x - 2}{5} = \frac{y - 3}{4} = \frac{z - 6}{1}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{平行切平面}{Parallel-Tangent-Plane}
+    求椭球面 $x^2 + 2y^2 + z^2 = 1$ 上平行于平面 $x - y + 2z = 0$ 的切平面方程.
+\end{problem}
+
+\begin{solution}
+    设椭球面为 $F(x, y, z) = x^2 + 2y^2 + z^2 - 1 = 0$. 切点为 $P_0(x_0, y_0, z_0)$，在该点处的法向量为：
+    \begin{equation}
+        \nabla F|_{P_0} = (2x_0, 4y_0, 2z_0).
+    \end{equation}
+    由于切平面平行于平面 $x - y + 2z = 0$，其法向量应成比例：
+    \begin{equation}
+        (2x_0, 4y_0, 2z_0) = \lambda(1, -1, 2) \implies x_0 = \frac{\lambda}{2}, \quad y_0 = -\frac{\lambda}{4}, \quad z_0 = \lambda.
+    \end{equation}
+    将点代入椭球面方程：
+    \begin{equation}
+        \left(\frac{\lambda}{2}\right)^2 + 2\left(-\frac{\lambda}{4}\right)^2 + \lambda^2 = 1 \implies \frac{11\lambda^2}{8} = 1 \implies \lambda = \pm \sqrt{\frac{8}{11}}.
+    \end{equation}
+    切平面方程形式为 $x - y + 2z + d = 0$，其中 $d = -(x_0 - y_0 + 2z_0)$：
+    \begin{equation}
+        x_0 - y_0 + 2z_0 = \frac{\lambda}{2} - \left(-\frac{\lambda}{4}\right) + 2\lambda = \frac{11}{4}\lambda = \pm \frac{11}{4} \sqrt{\frac{8}{11}} = \pm \frac{\sqrt{22}}{2}.
+    \end{equation}
+    故所求切平面方程为：
+    \begin{equation}
+        \boxed{2x - 2y + 4z \pm \sqrt{22} = 0}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{曲面法线与平面垂直}{Surface-Normal-Perpendicular}
+    在曲面 $z = xy$ 上求一点，使该点处的法线垂直于平面 $x + 3y + z = 0$，并写出这个法线方程。
+\end{problem}
+
+\begin{solution}
+    设曲面上该点为 $M(x_0, y_0, z_0)$。令 $F(x, y, z) = xy - z$，则曲面在 $M$ 处的法向量为
+    \begin{equation}
+        \symbfit{n}_1 = \nabla F \big|_M = (y_0, x_0, -1).
+    \end{equation}
+    已知平面 $x + 3y + z = 0$ 的法向量为 $\symbfit{n}_2 = (1, 3, 1)$。由于该点处的法线垂直于平面，故 $\symbfit{n}_1 \parallel \symbfit{n}_2$，即存在 $\lambda$ 使得
+    \begin{equation}
+        (y_0, x_0, -1) = \lambda (1, 3, 1).
+    \end{equation}
+    由此可得 $\lambda = -1$，从而推得
+    \begin{equation}
+        \begin{cases}
+            y_0 = -1, \\
+            x_0 = -3.
+        \end{cases}
+    \end{equation}
+    由于点 $M$ 在曲面 $z = xy$ 上，故 $z_0 = (-3) \times (-1) = 3$。即该点为 $(-3, -1, 3)$。
+    此时，法线的方向向量可取为 $\symbfit{n}_2 = (1, 3, 1)$，故法线方程为
+    \begin{equation}
+        \boxed{\frac{x + 3}{1} = \frac{y + 1}{3} = \frac{z - 3}{1}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{椭球面切平面}{Ellipsoid-Tangent-Plane}
+    求椭球面 $x^2 + 2y^2 + 3z^2 = 21$ 上某点 $M$ 处的切平面 $\pi$ 的方程，使 $\pi$ 过已知直线 $L: \frac{x - 6}{2} = \frac{y - 3}{1} = \frac{2z - 1}{-2}$。
+\end{problem}
+
+\begin{solution}
+    设 $M(x_0, y_0, z_0)$，则切平面 $\pi$ 的法向量为 $\symbfit{n} = (2x_0, 4y_0, 6z_0)$。切平面方程为
+    \begin{equation}
+        2x_0(x - x_0) + 4y_0(y - y_0) + 6z_0(z - z_0) = 0 \implies x_0x + 2y_0y + 3z_0z = x_0^2 + 2y_0^2 + 3z_0^2 = 21.
+    \end{equation}
+    直线 $L$ 可改写为 $\frac{x - 6}{2} = \frac{y - 3}{1} = \frac{z - 1/2}{-1}$，其方向向量为 $\symbfit{s} = (2, 1, -1)$，且过点 $P_0(6, 3, \frac{1}{2})$。
+    因为 $L \subset \pi$，故 $\symbfit{n} \cdot \symbfit{s} = 0$ 且 $P_0 \in \pi$，即
+    \begin{equation}
+        \begin{cases}
+            2x_0 + 2y_0 - 3z_0 = 0, \\
+            6x_0 + 6y_0 + \frac{3}{2}z_0 = 21.
+        \end{cases}
+    \end{equation}
+    联立方程组可解得 $x_0 + y_0 = 3$ 且 $z_0 = 2$。代入椭球面方程 $x_0^2 + 2y_0^2 + 3z_0^2 = 21$ 得
+    \begin{equation}
+        x_0^2 + 2(3 - x_0)^2 + 3(2^2) = 21 \implies 3x_0^2 - 12x_0 + 9 = 0 \implies x_0^2 - 4x_0 + 3 = 0.
+    \end{equation}
+    解得 $x_0 = 1$ 或 $x_0 = 3$。
+    \begin{enumerate}
+        \item 当 $x_0 = 1$ 时，$y_0 = 2, z_0 = 2$，切平面方程为 $x + 4y + 6z - 21 = 0$；
+        \item 当 $x_0 = 3$ 时，$y_0 = 0, z_0 = 2$，切平面方程为 $3x + 6z - 21 = 0$，即 $x + 2z - 7 = 0$。
+    \end{enumerate}
+    \begin{equation}
+        \boxed{x + 4y + 6z - 21 = 0 \text{ 或 } x + 2z - 7 = 0}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{直线在切平面上}{Line-On-Tangent-Plane}
+    设直线 $l: \begin{cases} x + y + b = 0, \\ x + ay - z - 3 = 0 \end{cases}$ 在平面 $\pi$ 上，而平面 $\pi$ 与曲面 $z = x^2 + y^2$ 相切于点 $(1, -2, 5)$，求 $a, b$ 之值。
+\end{problem}
+
+\begin{solution}
+    令 $F(x, y, z) = x^2 + y^2 - z$，曲面在点 $(1, -2, 5)$ 处的切平面 $\pi$ 的法向量为
+    \begin{equation}
+        \symbfit{n} = \nabla F \big|_{(1, -2, 5)} = (2x, 2y, -1) \big|_{(1, -2, 5)} = (2, -4, -1).
+    \end{equation}
+    切平面 $\pi$ 的方程为 $2(x - 1) - 4(y + 2) - (z - 5) = 0$，即
+    \begin{equation}
+        \pi: 2x - 4y - z - 5 = 0. \label{eq:tangent-plane}
+    \end{equation}
+    由于直线 $l$ 是两平面的交线且 $l \subset \pi$，则平面 $\pi$ 必属于直线 $l$ 所确定的平束，即
+    \begin{equation}
+        (x + y + b) + \lambda(x + ay - z - 3) = 0 \implies (1 + \lambda)x + (1 + a\lambda)y - \lambda z + (b - 3\lambda) = 0.
+    \end{equation}
+    将其系数与 $\cref{eq:tangent-plane}$ 对应成比例，令 $z$ 的系数相等，得 $-\lambda = -1 \implies \lambda = 1$。
+    进而由其他系数对应相等得
+    \begin{equation}
+        \begin{cases}
+            1 + \lambda = 2,   \\
+            1 + a\lambda = -4, \\
+            b - 3\lambda = -5.
+        \end{cases}
+    \end{equation}
+    将 $\lambda = 1$ 代入上述方程组，解得 $a = -5$ 且 $b = -2$。
+    \begin{equation}
+        \boxed{a = -5, b = -2}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{曲面正交}{Orthogonal-Surfaces}
+    试证曲面 $x^2 + y^2 + z^2 = ax$ 与曲面 $x^2 + y^2 + z^2 = by$ 互相正交。
+\end{problem}
+
+\begin{myproof}
+    设两曲面分别为 $F(x, y, z) = x^2 + y^2 + z^2 - ax = 0$ 和 $G(x, y, z) = x^2 + y^2 + z^2 - by = 0$。其法向量分别为
+    \begin{equation}\label{eq:normals-1}
+        \begin{aligned}
+            \symbfit{n}_1 & = \nabla F = (2x - a, 2y, 2z), \\
+            \symbfit{n}_2 & = \nabla G = (2x, 2y - b, 2z).
+        \end{aligned}
+    \end{equation}
+    在两曲面的任意交点 $(x, y, z)$ 处，法向量的点积为
+    \begin{equation}\label{eq:dot-product-1}
+        \begin{aligned}
+            \symbfit{n}_1 \cdot \symbfit{n}_2 & = (2x - a)(2x) + 2y(2y - b) + (2z)(2z) \\
+                                              & = 4x^2 - 2ax + 4y^2 - 2by + 4z^2       \\
+                                              & = 4(x^2 + y^2 + z^2) - 2ax - 2by.
+        \end{aligned}
+    \end{equation}
+    根据曲面方程，在交点处满足 $ax = x^2 + y^2 + z^2$ 且 $by = x^2 + y^2 + z^2$。代入 \cref{eq:dot-product-1} 得
+    \begin{equation}
+        \symbfit{n}_1 \cdot \symbfit{n}_2 = 4(x^2 + y^2 + z^2) - 2(x^2 + y^2 + z^2) - 2(x^2 + y^2 + z^2) = 0.
+    \end{equation}
+    由于法向量在交点处垂直，故两曲面互相正交。
+    \begin{equation}
+        \boxed{\symbfit{n}_1 \cdot \symbfit{n}_2 = 0}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{曲面相切}{Tangent-Surfaces}
+    证明曲面 $x + 2y - \ln z + 4 = 0$ 和 $x^2 - xy - 8x + z + 5 = 0$ 在点 $(2, -3, 1)$ 处相切（即有公共的切平面）。
+\end{problem}
+
+\begin{myproof}
+    设 $F(x, y, z) = x + 2y - \ln z + 4$ 和 $G(x, y, z) = x^2 - xy - 8x + z + 5$。在点 $P(2, -3, 1)$ 处，计算两曲面的梯度向量：
+    \begin{equation}
+        \symbfit{n}_1 = \nabla F \big|_P = \left( 1, 2, -\frac{1}{z} \right) \bigg|_{(2, -3, 1)} = (1, 2, -1),
+    \end{equation}
+    \begin{equation}
+        \symbfit{n}_2 = \nabla G \big|_P = (2x - y - 8, -x, 1) \big|_{(2, -3, 1)} = (4 + 3 - 8, -2, 1) = (-1, -2, 1).
+    \end{equation}
+    显然有
+    \begin{equation}
+        \symbfit{n}_2 = - \symbfit{n}_1.
+    \end{equation}
+    由于两法向量共线且曲面均经过点 $P$，故两曲面在点 $P$ 处有公共切平面，即在该点处相切。
+    \begin{equation}
+        \boxed{\symbfit{n}_2 = -\symbfit{n}_1}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{切平面过原点}{Tangent-Plane-Origin}
+    证明曲面 $z = x \e^{x/y}$ 的每一切平面都通过原点。
+\end{problem}
+
+\begin{myproof}
+    设曲面上任一点为 $P_0(x_0, y_0, z_0)$，满足 $z_0 = x_0 \e^{x_0/y_0}$。计算各偏导数：
+    \begin{equation}
+        \frac{\partial z}{\partial x} = \e^{x/y} + \frac{x}{y} \e^{x/y} = \e^{x/y} \left( 1 + \frac{x}{y} \right),
+    \end{equation}
+    \begin{equation}
+        \frac{\partial z}{\partial y} = x \e^{x/y} \left( -\frac{x}{y^2} \right) = -\frac{x^2}{y^2} \e^{x/y}.
+    \end{equation}
+    切平面方程为
+    \begin{equation}\label{eq:tangent-plane-eq}
+        Z - z_0 = \e^{x_0/y_0} \left( 1 + \frac{x_0}{y_0} \right) (X - x_0) - \frac{x_0^2}{y_0^2} \e^{x_0/y_0} (Y - y_0).
+    \end{equation}
+    令 $X=0, Y=0$，考查 \cref{eq:tangent-plane-eq} 右侧减左侧的差值 $\varDelta$：
+    \begin{equation}
+        \begin{aligned}
+            \varDelta & = \e^{x_0/y_0} \left( 1 + \frac{x_0}{y_0} \right) (-x_0) - \frac{x_0^2}{y_0^2} \e^{x_0/y_0} (-y_0) + z_0 \\
+                      & = -x_0 \e^{x_0/y_0} - \frac{x_0^2}{y_0} \e^{x_0/y_0} + \frac{x_0^2}{y_0} \e^{x_0/y_0} + z_0              \\
+                      & = -x_0 \e^{x_0/y_0} + z_0.
+        \end{aligned}
+    \end{equation}
+    代入 $z_0 = x_0 \e^{x_0/y_0}$ 得 $\varDelta = 0$，即原点 $(0, 0, 0)$ 始终位于切平面上。
+    \begin{equation}
+        \boxed{\varDelta = 0}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{平面曲线切线与法线}{Plane-Curve-Tangent-Normal}
+    求下列平面曲线在给定点的切线和法线方程
+    \begin{enumerate}
+        \item $x^3y + xy^3 = 3 - x^2y^2$，在点 $(1, 1)$；
+        \item $\cos xy = x + 2y$，在点 $(1, 0)$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    设 $F(x, y) = x^3y + xy^3 + x^2y^2 - 3 = 0$，对 $x, y$ 分别求偏导数
+    \begin{equation}
+        \label{eq:deriv-16-1}
+        \begin{aligned}
+            F_x & = 3x^2y + y^3 + 2xy^2, \\
+            F_y & = x^3 + 3xy^2 + 2x^2y.
+        \end{aligned}
+    \end{equation}
+    在点 $(1, 1)$ 处，$F_x(1, 1) = 6$，$F_y(1, 1) = 6$。故切线斜率为 $k = -\frac{F_x}{F_y} = -1$。
+    切线方程为 $y - 1 = -1(x - 1)$，法线方程为 $y - 1 = 1(x - 1)$。
+    \begin{equation}
+        \boxed{\text{切线：} x + y - 2 = 0, \quad \text{法线：} x - y = 0}
+    \end{equation}
+
+    \ansitem{2}
+
+    设 $F(x, y) = \cos xy - x - 2y = 0$，求偏导数
+    \begin{equation}
+        \label{eq:deriv-16-2}
+        \begin{aligned}
+            F_x & = -y \sin xy - 1, \\
+            F_y & = -x \sin xy - 2.
+        \end{aligned}
+    \end{equation}
+    在点 $(1, 0)$ 处，$F_x(1, 0) = -1$，$F_y(1, 0) = -2$。故切线斜率为 $k = -\frac{-1}{-2} = -\frac{1}{2}$。
+    切线方程为 $y - 0 = -\frac{1}{2}(x - 1)$，法线方程为 $y - 0 = 2(x - 1)$。
+    \begin{equation}
+        \boxed{\text{切线：} x + 2y - 1 = 0, \quad \text{法线：} 2x - y - 2 = 0}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{空间曲线切线与法平面}{Space-Curve-Tangent-Normal}
+    求下列曲线在给定点的切线和法平面方程
+    \begin{enumerate}
+        \item $\begin{cases} y^2 + z^2 = 25, \\ x^2 + y^2 = 10 \end{cases}$ 在点 $(1, 3, 4)$；
+        \item $\begin{cases} 2x^2 + 3y^2 + z^2 = 47, \\ x^2 + 2y^2 = z \end{cases}$ 在点 $(-2, 1, 6)$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    设 $F(x, y, z) = y^2 + z^2 - 25$，$G(x, y, z) = x^2 + y^2 - 10$。各面法向量为
+    \begin{equation}
+        \begin{aligned}
+            \nabla F & = (0, 2y, 2z) \big|_{(1, 3, 4)} = (0, 6, 8), \\
+            \nabla G & = (2x, 2y, 0) \big|_{(1, 3, 4)} = (2, 6, 0).
+        \end{aligned}
+    \end{equation}
+    曲线切向量 $\symbfit{T}$ 为
+    \begin{equation}
+        \symbfit{T} = \nabla F \times \nabla G = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 0 & 3 & 4 \\ 1 & 3 & 0 \end{vmatrix} = (-12, 4, -3).
+    \end{equation}
+    取切向量为 $(12, -4, 3)$。
+    \begin{equation}
+        \boxed{\text{切线：} \frac{x-1}{12} = \frac{y-3}{-4} = \frac{z-4}{3}, \quad \text{法平面：} 12x - 4y + 3z - 12 = 0}
+    \end{equation}
+
+    \ansitem{2}
+
+    设 $F = 2x^2 + 3y^2 + z^2 - 47$，$G = x^2 + 2y^2 - z$。在点 $(-2, 1, 6)$ 处的梯度为
+    \begin{equation}
+        \begin{aligned}
+            \nabla F & = (4x, 6y, 2z) \big|_{(-2, 1, 6)} = (-8, 6, 12), \\
+            \nabla G & = (2x, 4y, -1) \big|_{(-2, 1, 6)} = (-4, 4, -1).
+        \end{aligned}
+    \end{equation}
+    切向量 $\symbfit{T}$ 为
+    \begin{equation}
+        \symbfit{T} = \nabla F \times \nabla G = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ -4 & 3 & 6 \\ -4 & 4 & -1 \end{vmatrix} = (-27, -28, -4).
+    \end{equation}
+    取切向量方向为 $(27, 28, 4)$。法平面方程为 $27(x+2) + 28(y-1) + 4(z-6) = 0$。
+    \begin{equation}
+        \boxed{\text{切线：} \frac{x+2}{27} = \frac{y-1}{28} = \frac{z-6}{4}, \quad \text{法平面：} 27x + 28y + 4z - 2 = 0}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{隐函数求导证明}{Implicit-Function-Partial-Derivative}
+    设方程组 $\begin{cases} pu + qv - t^2 = 0, \\ qu + pv - s^2 = 0 \end{cases}$ ($p^2 - q^2 \neq 0$) 确定了隐函数 $\begin{cases} u = u(s, t), \\ v = v(s, t) \end{cases}$ 以及反函数 $\begin{cases} s = s(u, v), \\ t = t(u, v) \end{cases}$。求证：
+    \begin{equation}
+        \frac{\partial t}{\partial u} \cdot \frac{\partial u}{\partial t} = \frac{\partial s}{\partial v} \cdot \frac{\partial v}{\partial s} = \frac{p^2}{p^2 - q^2}.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    对原方程组求全微分
+    \begin{equation}
+        \label{eq:diff-system}
+        \begin{cases}
+            p \d u + q \d v = 2t \d t, \\
+            q \d u + p \d v = 2s \d s.
+        \end{cases}
+    \end{equation}
+    由 \cref{eq:diff-system} 解得 $\d u, \d v$
+    \begin{equation}
+        \begin{aligned}
+            \d u & = \frac{1}{p^2 - q^2} (2pt \d t - 2qs \d s), \\
+            \d v & = \frac{1}{p^2 - q^2} (2ps \d s - 2qt \d t).
+        \end{aligned}
+    \end{equation}
+    由此可得偏导数
+    \begin{equation}
+        \frac{\partial u}{\partial t} = \frac{2pt}{p^2 - q^2}, \quad \frac{\partial v}{\partial s} = \frac{2ps}{p^2 - q^2}.
+    \end{equation}
+    由 \cref{eq:diff-system} 直接视 $u, v$ 为自变量，可得
+    \begin{equation}
+        2t \frac{\partial t}{\partial u} = p \implies \frac{\partial t}{\partial u} = \frac{p}{2t}, \quad 2s \frac{\partial s}{\partial v} = p \implies \frac{\partial s}{\partial v} = \frac{p}{2s}.
+    \end{equation}
+    计算乘积
+    \begin{equation}
+        \frac{\partial t}{\partial u} \cdot \frac{\partial u}{\partial t} = \frac{p}{2t} \cdot \frac{2pt}{p^2 - q^2} = \frac{p^2}{p^2 - q^2},
+    \end{equation}
+    \begin{equation}
+        \frac{\partial s}{\partial v} \cdot \frac{\partial v}{\partial s} = \frac{p}{2s} \cdot \frac{2ps}{p^2 - q^2} = \frac{p^2}{p^2 - q^2}.
+    \end{equation}
+    原命题得证。
+\end{myproof}

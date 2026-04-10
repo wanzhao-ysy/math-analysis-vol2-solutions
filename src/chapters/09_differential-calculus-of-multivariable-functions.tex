@@ -4417,6 +4417,12 @@
     \end{equation}
 \end{solution}
 
+\begin{note}{}{}
+    在考虑「成立区域」的问题时，此处我更倾向于将其理解为「收敛区域」而非「定义域」。
+    因为有限阶 Taylor 展开式实际上是展开点的邻域中的一个极限等式，只有在某个区域内极限存在时才成立。
+    \footnote{此处与余启帆学长的解答不同 \cite{Yu2021MathAnalysis}}
+\end{note}
+
 
 \begin{problem}{二元函数泰勒展开}{Taylor-Expansion}
     设 $z = z(x,y)$ 是由方程 $z^3 - 2xz + y = 0$ 所确定的隐函数，当 $x = 1, y = 1$ 时 $z = 1$，试按 $(x - 1)$ 和 $(y - 1)$ 的乘幂展开函数 $z$ 至二次项为止。
@@ -4448,7 +4454,7 @@
     代入得 $6 + 3z_{yy} - 2z_{yy} = 0 \implies z_{yy} = -6$。
     展开式为 $z \approx z_0 + z_x \Delta x + z_y \Delta y + \frac{1}{2} (z_{xx} \Delta x^2 + 2z_{xy} \Delta x \Delta y + z_{yy} \Delta y^2)$，即
     \begin{equation}
-        \boxed{z = 1 + 2(x - 1) - (y - 1) - 8(x - 1)^2 + 10(x - 1)(y - 1) - 3(y - 1)^2 + \symcal{O}(\rho^2)}
+        \boxed{z = 1 + 2(x - 1) - (y - 1) - 8(x - 1)^2 + 10(x - 1)(y - 1) - 3(y - 1)^2 + \symcal{O}(\rho^3)}
     \end{equation}
 \end{solution}
 
@@ -4952,3 +4958,264 @@
     若 $k = 0$，则 $g(x) = -x^4$，显然在 $x = 0$ 处取得极大值。
     综上，沿过 $(0, 0)$ 的每条直线，$(0, 0)$ 均为极大值点。
 \end{myproof}
+
+
+\begin{problem}{条件极值}{Tent-Surface-Area}
+    一帐篷, 下部为圆柱形, 上部盖以圆锥形的顶篷, 设帐篷的容积为一定数 $V_0$。
+    试证当 $R = \sqrt{5}H, h = 2H$ 时, (其中 $R, H$ 各为圆柱形的底半径和高, $h$ 为圆锥形的高)，所用蓬布最省。
+\end{problem}
+
+\begin{myproof}
+    设帐篷的表面积为 $S$, 由题意可知, 容积约束为
+    \begin{equation}\label{eq:volume-const-1}
+        V = \uppi R^2 H + \frac{1}{3} \uppi R^2 h = V_0 .
+    \end{equation}
+    所用蓬布面积（侧面积之和）为
+    \begin{equation}\label{eq:surface-area-1}
+        S(R, H, h) = 2 \uppi R H + \uppi R \sqrt{R^2 + h^2} .
+    \end{equation}
+    构造拉格朗日函数
+    \begin{equation}
+        L(R, H, h, \lambda) = 2 \uppi R H + \uppi R \sqrt{R^2 + h^2} + \lambda \left( \uppi R^2 H + \frac{1}{3} \uppi R^2 h - V_0 \right) .
+    \end{equation}
+    对各变量求偏导并令其为零
+    \begin{equation}\label{eq:partial-H}
+        \frac{\partial L}{\partial H} = 2 \uppi R + \lambda \uppi R^2 = 0 \implies \lambda = -\frac{2}{R} ,
+    \end{equation}
+    \begin{equation}\label{eq:partial-h}
+        \frac{\partial L}{\partial h} = \frac{\uppi R h}{\sqrt{R^2 + h^2}} + \frac{1}{3} \lambda \uppi R^2 = 0 .
+    \end{equation}
+    将 $\lambda = -2/R$ 代入 \cref{eq:partial-h} 得
+    \begin{equation}
+        \frac{h}{\sqrt{R^2 + h^2}} = \frac{2}{3} \implies 9h^2 = 4(R^2 + h^2) \implies R = \frac{\sqrt{5}}{2}h .
+    \end{equation}
+    再对 $R$ 求偏导
+    \begin{equation}
+        \frac{\partial L}{\partial R} = 2 \uppi H + \uppi \sqrt{R^2 + h^2} + \frac{\uppi R^2}{\sqrt{R^2 + h^2}} + \lambda \left( 2 \uppi R H + \frac{2}{3} \uppi R h \right) = 0 .
+    \end{equation}
+    代入 $\lambda = -2/R$ 并化简
+    \begin{equation}
+        \begin{aligned}
+                     & 2 \uppi H + \frac{\uppi (2R^2 + h^2)}{\sqrt{R^2 + h^2}} - \frac{2}{R} \left( 2 \uppi R H + \frac{2}{3} \uppi R h \right) = 0 \\
+            \implies & -2 \uppi H + \frac{\uppi (2R^2 + h^2)}{\sqrt{R^2 + h^2}} - \frac{4}{3} \uppi h = 0 .
+        \end{aligned}
+    \end{equation}
+    利用 $R^2 = \frac{5}{4}h^2$ 及 $\sqrt{R^2 + h^2} = \frac{3}{2}h$ 代入上式
+    \begin{equation}
+        \begin{aligned}
+                     & \frac{\uppi \left( 2 \cdot \frac{5}{4}h^2 + h^2 \right)}{\frac{3}{2}h} = 2 \uppi H + \frac{4}{3} \uppi h \\
+            \implies & \frac{7}{3} \uppi h = 2 \uppi H + \frac{4}{3} \uppi h \implies \uppi h = 2 \uppi H \implies h = 2H .
+        \end{aligned}
+    \end{equation}
+    此时 $R = \frac{\sqrt{5}}{2}(2H) = \sqrt{5}H$. 故结论成立.
+\end{myproof}
+
+\begin{problem}{均值不等式}{Parallelepiped-Max-Volume}
+    已知平行六面体所有各棱长之和为 $12a$, 求其最大体积。
+\end{problem}
+
+\begin{solution}
+    设平行六面体的三组棱长分别为 $x, y, z$. 显然当其为长方体时体积最大.
+    由题意得约束条件
+    \begin{equation}
+        4(x + y + z) = 12a \implies x + y + z = 3a .
+    \end{equation}
+    其体积为 $V = xyz$. 根据算术-几何平均值不等式
+    \begin{equation}
+        V = xyz \le \left( \frac{x + y + z}{3} \right)^3 = \left( \frac{3a}{3} \right)^3 = a^3 .
+    \end{equation}
+    等号成立当且仅当 $x = y = z = a$, 即该平行六面体为棱长为 $a$ 的正方体.
+    \begin{equation}
+        \boxed{V_{\max} = a^3}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{切线方程与极值}{Ellipse-Tangent-Triangle}
+    在椭圆 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ 上求一点 $M(x, y) (x, y \ge 0)$, 使椭圆在该点的切线与坐标轴构成的三角形面积为最小, 并求其面积。
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    设椭圆上一点为 $M(x_0, y_0)$, 则该点处的切线方程为
+    \begin{equation}
+        \frac{x_0 x}{a^2} + \frac{y_0 y}{b^2} = 1 .
+    \end{equation}
+    该切线在坐标轴上的截距分别为 $X = \frac{a^2}{x_0}$ 和 $Y = \frac{b^2}{y_0}$. 围成的三角形面积为
+    \begin{equation}
+        S = \frac{1}{2} XY = \frac{a^2 b^2}{2 x_0 y_0} .
+    \end{equation}
+    由于 $\frac{x_0^2}{a^2} + \frac{y_0^2}{b^2} = 1$, 由均值不等式得
+    \begin{equation}
+        1 = \frac{x_0^2}{a^2} + \frac{y_0^2}{b^2} \ge 2 \sqrt{\frac{x_0^2 y_0^2}{a^2 b^2}} = \frac{2 x_0 y_0}{ab} \implies x_0 y_0 \le \frac{ab}{2} .
+    \end{equation}
+    当且仅当 $\frac{x_0^2}{a^2} = \frac{y_0^2}{b^2} = \frac{1}{2}$, 即 $x_0 = \frac{a}{\sqrt{2}}, y_0 = \frac{b}{\sqrt{2}}$ 时面积最小.
+    \begin{equation}
+        \boxed{M = \left( \frac{a}{\sqrt{2}}, \frac{b}{\sqrt{2}} \right)}
+    \end{equation}
+
+    \ansitem{2}
+    将极值点坐标代入面积公式得
+    \begin{equation}
+        S_{\min} = \frac{a^2 b^2}{2 \cdot \frac{a}{\sqrt{2}} \cdot \frac{b}{\sqrt{2}}} = ab .
+    \end{equation}
+    \begin{equation}
+        \boxed{S_{\min} = ab}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{距离平方和最小值}{sum-of-squared-distances}
+    求平面上一点 $(x_0, y_0)$，使其到 $n$ 个定点 $(x_1, y_1), (x_2, y_2), \dots, (x_n, y_n)$ 的距离的平方和最小。
+\end{problem}
+
+\begin{solution}
+    设目标函数为 $f(x_0, y_0)$，表示该点到各定点距离的平方和：
+    \begin{equation}
+        f(x_0, y_0) = \sum_{i=1}^{n} \left[ (x_0 - x_i)^2 + (y_0 - y_i)^2 \right].
+    \end{equation}
+    为了求其极小值点，分别对 $x_0$ 和 $y_0$ 求偏导数并令其为 $0$：
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial f}{\partial x_0} & = \sum_{i=1}^{n} 2(x_0 - x_i) = 2nx_0 - 2\sum_{i=1}^{n} x_i = 0, \\
+            \frac{\partial f}{\partial y_0} & = \sum_{i=1}^{n} 2(y_0 - y_i) = 2ny_0 - 2\sum_{i=1}^{n} y_i = 0.
+        \end{aligned}
+    \end{equation}
+    解得驻点坐标为：
+    \begin{equation}
+        x_0 = \frac{1}{n} \sum_{i=1}^{n} x_i, \quad y_0 = \frac{1}{n} \sum_{i=1}^{n} y_i.
+    \end{equation}
+    由于 $f(x_0, y_0)$ 是关于 $x_0, y_0$ 的开口向上的二次曲面，该驻点即为全局最小值点，对应几何上的形心。
+    \begin{equation}
+        \boxed{(x_0, y_0) = \left( \frac{1}{n} \sum_{i=1}^{n} x_i, \frac{1}{n} \sum_{i=1}^{n} y_i \right)}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{椭球内接长方体最大体积}{max-volume-ellipsoid-box}
+    椭球体 $\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} \le 1$ 的内接长方体中，求体积最大的长方体的体积。
+\end{problem}
+
+\begin{solution}
+    设长方体在第一卦限内的顶点为 $(x, y, z)$，其中 $x, y, z > 0$。根据对称性，长方体的体积 $V$ 为：
+    \begin{equation}
+        V = (2x)(2y)(2z) = 8xyz.
+    \end{equation}
+    该顶点位于椭球面上，满足约束条件：
+    \begin{equation}
+        \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1.
+    \end{equation}
+    利用算术-几何平均值不等式（AM-GM Inequality）：
+    \begin{equation}
+        \frac{\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2}}{3} \ge \sqrt[3]{\frac{x^2 y^2 z^2}{a^2 b^2 c^2}}.
+    \end{equation}
+    将约束条件代入上式，得：
+    \begin{equation}
+        \frac{1}{3} \ge \left( \frac{xyz}{abc} \right)^{\frac{2}{3}} \implies xyz \le \frac{abc}{3\sqrt{3}}.
+    \end{equation}
+    当且仅当 $\frac{x^2}{a^2} = \frac{y^2}{b^2} = \frac{z^2}{c^2} = \frac{1}{3}$ 时等号成立。此时体积取得最大值：
+    \begin{equation}
+        V_{\max} = 8 \cdot \frac{abc}{3\sqrt{3}} = \frac{8\sqrt{3} abc}{9}.
+    \end{equation}
+    \begin{equation}
+        \boxed{V_{\max} = \frac{8\sqrt{3} abc}{9}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{旋转椭球面到平面的最值点}{distance-ellipsoid-plane}
+    在旋转椭球面 $\frac{x^2}{4} + y^2 + z^2 = 1$ 上求距平面 $x + y + 2z = 9$ 最远和最近的点。
+\end{problem}
+
+\begin{solution}
+    椭球面上一点 $(x, y, z)$ 到平面 $x + y + 2z - 9 = 0$ 的距离 $d$ 为：
+    \begin{equation}
+        d = \frac{|x + y + 2z - 9|}{\sqrt{1^2 + 1^2 + 2^2}} = \frac{|x + y + 2z - 9|}{\sqrt{6}}.
+    \end{equation}
+    令 $u = x + y + 2z$。构造 Lagrange 函数以求 $u$ 在 $\frac{x^2}{4} + y^2 + z^2 = 1$ 下的最值：
+    \begin{equation}
+        F(x, y, z, \lambda) = x + y + 2z + \lambda \left( \frac{x^2}{4} + y^2 + z^2 - 1 \right).
+    \end{equation}
+    令偏导数为 $0$：
+    \begin{equation}
+        F_x = 1 + \frac{\lambda x}{2} = 0, \quad F_y = 1 + 2\lambda y = 0, \quad F_z = 2 + 2\lambda z = 0.
+    \end{equation}
+    得到 $x = -\frac{2}{\lambda}, y = -\frac{1}{2\lambda}, z = -\frac{1}{\lambda}$，代入椭球面方程：
+    \begin{equation}
+        \frac{1}{4} \left( -\frac{2}{\lambda} \right)^2 + \left( -\frac{1}{2\lambda} \right)^2 + \left( -\frac{1}{\lambda} \right)^2 = \frac{9}{4\lambda^2} = 1 \implies \lambda = \pm \frac{3}{2}.
+    \end{equation}
+
+    \ansitem{1} 最近点：
+
+    当 $\lambda = -\frac{3}{2}$ 时，对应坐标为 $\left( \frac{4}{3}, \frac{1}{3}, \frac{2}{3} \right)$。此时 $u = 3$，距离 $d = \frac{|3-9|}{\sqrt{6}} = \sqrt{6}$。
+
+    \ansitem{2} 最远点：
+
+    当 $\lambda = \frac{3}{2}$ 时，对应坐标为 $\left( -\frac{4}{3}, -\frac{1}{3}, -\frac{2}{3} \right)$。此时 $u = -3$，距离 $d = \frac{|-3-9|}{\sqrt{6}} = 2\sqrt{6}$。
+
+    \begin{equation}
+        \boxed{\text{最近点为} \left( \frac{4}{3}, \frac{1}{3}, \frac{2}{3} \right), \text{最远点为} \left( -\frac{4}{3}, -\frac{1}{3}, -\frac{2}{3} \right)}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{曲面切平面与体积最值}{Surface-Tangent-Volume}
+    设曲面 $S: \sqrt{x} + \sqrt{y} + \sqrt{z} = \sqrt{a} \, (a > 0)$。
+    \begin{enumerate}
+        \item 证明 $S$ 上任意点处的切平面与各坐标轴的截距之和等于 $a$。
+        \item 在 $S$ 上求一切平面，使此切平面与三坐标面所围成的四面体体积最大，并求四面体体积的最大值。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    设 $P_0(x_0, y_0, z_0)$ 为曲面 $S$ 上任一点，令 $F(x, y, z) = \sqrt{x} + \sqrt{y} + \sqrt{z} - \sqrt{a}$。计算该点处的梯度向量：
+    \begin{equation}
+        \nabla F\big|_{P_0} = \left( \frac{1}{2\sqrt{x_0}}, \frac{1}{2\sqrt{y_0}}, \frac{1}{2\sqrt{z_0}} \right).
+    \end{equation}
+    则 $P_0$ 处的切平面方程为
+    \begin{equation}
+        \frac{1}{2\sqrt{x_0}}(x - x_0) + \frac{1}{2\sqrt{y_0}}(y - y_0) + \frac{1}{2\sqrt{z_0}}(z - z_0) = 0.
+    \end{equation}
+    整理可得
+    \begin{equation}
+        \frac{x}{\sqrt{x_0}} + \frac{y}{\sqrt{y_0}} + \frac{z}{\sqrt{z_0}} = \sqrt{x_0} + \sqrt{y_0} + \sqrt{z_0}.
+    \end{equation}
+    由于 $P_0$ 在曲面 $S$ 上，满足 $\sqrt{x_0} + \sqrt{y_0} + \sqrt{z_0} = \sqrt{a}$，代入上式并化为截距式：
+    \begin{equation}
+        \frac{x}{\sqrt{ax_0}} + \frac{y}{\sqrt{ay_0}} + \frac{z}{\sqrt{az_0}} = 1.
+    \end{equation}
+    因此，切平面在各坐标轴上的截距分别为 $X = \sqrt{ax_0}$、$Y = \sqrt{ay_0}$、$Z = \sqrt{az_0}$。其截距之和为
+    \begin{equation}
+        X + Y + Z = \sqrt{a}(\sqrt{x_0} + \sqrt{y_0} + \sqrt{z_0}) = \sqrt{a} \cdot \sqrt{a} = a.
+    \end{equation}
+    结论成立。
+
+    \ansitem{2}
+
+    由第 (1) 问可知，四面体的体积 $V$ 为
+    \begin{equation}
+        V = \frac{1}{6} XYZ = \frac{1}{6} a\sqrt{a} \sqrt{x_0 y_0 z_0}.
+    \end{equation}
+    根据算术—几何平均值不等式，在 $\sqrt{x_0} + \sqrt{y_0} + \sqrt{z_0} = \sqrt{a}$ 的约束下：
+    \begin{equation}
+        \sqrt[3]{\sqrt{x_0 y_0 z_0}} \le \frac{\sqrt{x_0} + \sqrt{y_0} + \sqrt{z_0}}{3} = \frac{\sqrt{a}}{3}.
+    \end{equation}
+    两边同时立方可得
+    \begin{equation}
+        \sqrt{x_0 y_0 z_0} \le \left( \frac{\sqrt{a}}{3} \right)^3 = \frac{a\sqrt{a}}{27}.
+    \end{equation}
+    当且仅当 $\sqrt{x_0} = \sqrt{y_0} = \sqrt{z_0} = \frac{\sqrt{a}}{3}$，即 $x_0 = y_0 = z_0 = \frac{a}{9}$ 时，等号成立。此时切平面方程为
+    \begin{equation}
+        \frac{x}{\sqrt{a \cdot \frac{a}{9}}} + \frac{y}{\sqrt{a \cdot \frac{a}{9}}} + \frac{z}{\sqrt{a \cdot \frac{a}{9}}} = 1 \implies x + y + z = \frac{a}{3}.
+    \end{equation}
+    体积的最大值为
+    \begin{equation}
+        V_{\max} = \frac{1}{6} a\sqrt{a} \cdot \frac{a\sqrt{a}}{27} = \frac{a^3}{162}.
+    \end{equation}
+    综上所述，最大体积及其对应的切平面方程为
+    \begin{equation}
+        \boxed{x + y + z = \frac{a}{3}, \quad V_{\max} = \frac{a^3}{162}}
+    \end{equation}
+\end{solution}
+

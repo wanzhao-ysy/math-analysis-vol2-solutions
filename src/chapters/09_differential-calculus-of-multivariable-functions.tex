@@ -2993,7 +2993,7 @@
     \end{equation}
     此处取得极大值。
     \begin{equation}
-        \boxed{y_{\text{max}} = 6, \quad y_{\text{min}} = -6}
+        \boxed{y_{\text{loc.max}} = 6, \quad y_{\text{loc.min}} = -6}
     \end{equation}
 \end{solution}
 
@@ -4457,7 +4457,7 @@
     \begin{equation}
         \cos z = \cos x \cos y + \sin x \sin y \cos \theta
     \end{equation}
-    在原点的邻域内转化为欧几里得几何中的余弦定理
+    在原点的邻域内转化为 Euclid（欧几里得）几何中的余弦定理
     \begin{equation}
         z^2 = x^2 + y^2 - 2xy \cos \theta
     \end{equation}
@@ -4487,4 +4487,468 @@
     \begin{equation}
         \boxed{z^2 = x^2 + y^2 - 2xy \cos \theta}
     \end{equation}
+\end{myproof}
+
+
+\begin{problem}{多元函数极值计算}{Multivariable-Function-Extremum}
+    求下列函数的极值.
+    \begin{enumerate}
+        \item $f(x, y) = xy + \frac{50}{x} + \frac{20}{y}$ ($x > 0, y > 0$);
+        \item $f(x, y) = 4(x - y) - x^2 - y^2$;
+        \item $f(x, y) = \e^{2x}(x + 2y + y^2)$;
+        \item $(x^2 + y^2)^2 = a^2(x^2 - y^2)$, 求隐函数 $y = y(x)$ 的极值.
+        \item $x^2 + y^2 + z^2 - 2x + 2y - 4z - 10 = 0$, 求隐函数 $z = z(x, y)$ 的极值.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    求偏导数并令其为零以确定驻点：
+    \begin{equation}
+        \begin{cases}
+            f_x = y - \dfrac{50}{x^2} = 0 \\
+            f_y = x - \dfrac{20}{y^2} = 0
+        \end{cases} \implies
+        \begin{cases}
+            y = \dfrac{50}{x^2} \\
+            x = \dfrac{20}{(50/x^2)^2} = \dfrac{x^4}{125}
+        \end{cases}
+    \end{equation}
+    解得驻点为 $(5, 2)$。计算二阶偏导数：
+    \begin{equation}
+        f_{xx} = \frac{100}{x^3}, \quad f_{xy} = 1, \quad f_{yy} = \frac{40}{y^3}
+    \end{equation}
+    在点 $(5, 2)$ 处：
+    \begin{equation}
+        A = f_{xx}(5, 2) = \frac{100}{125} = 0.8, \quad B = f_{xy}(5, 2) = 1, \quad C = f_{yy}(5, 2) = \frac{40}{8} = 5
+    \end{equation}
+    由 $AC - B^2 = 0.8 \times 5 - 1 = 3 > 0$ 且 $A > 0$，故在该点取得极小值：
+    \begin{equation}
+        \boxed{f_{\text{loc.min}} = f(5, 2) = 30}
+    \end{equation}
+
+    \ansitem{2}
+    求驻点：
+    \begin{equation}
+        \begin{cases}
+            f_x = 4 - 2x = 0 \\
+            f_y = -4 - 2y = 0
+        \end{cases} \implies
+        \begin{cases}
+            x = 2 \\
+            y = -2
+        \end{cases}
+    \end{equation}
+    二阶偏导数为 $A = f_{xx} = -2$, $B = f_{xy} = 0$, $C = f_{yy} = -2$。
+    由于 $AC - B^2 = 4 > 0$ 且 $A < 0$，函数在 $(2, -2)$ 处取得极大值：
+    \begin{equation}
+        \boxed{f_{\text{loc.max}} = f(2, -2) = 8}
+    \end{equation}
+
+    \ansitem{3}
+    求驻点：
+    \begin{equation}
+        \begin{cases}
+            f_x = \e^{2x}(2x + 4y + 2y^2 + 1) = 0 \\
+            f_y = \e^{2x}(2 + 2y) = 0
+        \end{cases} \implies
+        \begin{cases}
+            y = -1 \\
+            2x - 4 + 2 + 1 = 0 \implies x = \dfrac{1}{2}
+        \end{cases}
+    \end{equation}
+    驻点为 $(1/2, -1)$。计算二阶偏导数：
+    \begin{equation}
+        \begin{aligned}
+            f_{xx} & = \e^{2x}(4x + 8y + 4y^2 + 4), \\
+            f_{xy} & = \e^{2x}(4 + 4y),             \\
+            f_{yy} & = 2\e^{2x}
+        \end{aligned}
+    \end{equation}
+    在点 $(1/2, -1)$ 处，$A = 2\e$, $B = 0$, $C = 2\e$。
+    由于 $AC - B^2 = 4\e^2 > 0$ 且 $A > 0$，函数在该点取得极小值：
+    \begin{equation}
+        \boxed{f_{\text{loc.min}} = f\left(\frac{1}{2}, -1\right) = -\frac{1}{2}\e}
+    \end{equation}
+
+    \ansitem{4}
+    令 $F(x, y) = (x^2 + y^2)^2 - a^2(x^2 - y^2) = 0$。由 $y' = -F_x / F_y = 0$ 得：
+    \begin{equation}
+        F_x = 4x(x^2 + y^2) - 2a^2x = 2x(2(x^2 + y^2) - a^2) = 0
+    \end{equation}
+    排除原点（奇点），取 $x^2 + y^2 = a^2/2$。代入原方程：
+    \begin{equation}
+        \left(\frac{a^2}{2}\right)^2 = a^2(x^2 - y^2) \implies x^2 - y^2 = \frac{a^2}{4}
+    \end{equation}
+    联立方程组解得驻点满足 $x^2 = \frac{3}{8}a^2, y^2 = \frac{1}{8}a^2$。利用 $y'' = -F_{xx} / F_y$ 判断：
+    \begin{equation}
+        F_{xx} = 4(x^2 + y^2) + 8x^2 - 2a^2 = 8x^2, \quad F_y = 4y(x^2 + y^2) + 2a^2y = 4a^2y
+    \end{equation}
+    \begin{equation}
+        y'' = -\frac{8x^2}{4a^2y} = -\frac{2x^2}{a^2y}
+    \end{equation}
+    当 $y = \frac{\sqrt{2}}{4}|a|$ 时，$y'' < 0$，取极大值；当 $y = -\frac{\sqrt{2}}{4}|a|$ 时，$y'' > 0$，取极小值。
+    \begin{equation}
+        \boxed{y_{\text{loc.max}} = \frac{\sqrt{2}}{4}|a|, \quad y_{\text{loc.min}} = -\frac{\sqrt{2}}{4}|a|}
+    \end{equation}
+
+    \ansitem{5}
+    方程可化为：
+    \begin{equation}
+        (x - 1)^2 + (y + 1)^2 + (z - 2)^2 = 16
+    \end{equation}
+    这是一个球心在 $(1, -1, 2)$，半径为 $4$ 的球面。
+    当 $x = 1, y = -1$ 时，隐函数 $z$ 取得极值：
+    \begin{equation}
+        (z - 2)^2 = 16 \implies z = 2 \pm 4
+    \end{equation}
+    \begin{equation}
+        \boxed{z_{\text{loc.max}} = 6, \quad z_{\text{loc.min}} = -2}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{三角形正弦乘积最大值}{Triangle-Sine-Product-Maximum}
+    求一个三角形，使得它的三个角的正弦乘积最大.
+\end{problem}
+
+\begin{solution}
+    设三角形的三个内角为 $A, B, C$，目标函数为 $f(A, B, C) = \sin A \sin B \sin C$，满足约束条件 $A + B + C = \uppi$ ($A, B, C > 0$)。
+    消去 $C$ 得：
+    \begin{equation}
+        g(A, B) = \sin A \sin B \sin(A + B)
+    \end{equation}
+    对 $A, B$ 求偏导：
+    \begin{equation}
+        \begin{cases}
+            g_A = \cos A \sin B \sin(A+B) + \sin A \sin B \cos(A+B) = \sin B \sin(2A+B) = 0 \\
+            g_B = \sin A \sin(A+2B) = 0
+        \end{cases}
+    \end{equation}
+    由于 $A, B \in (0, \uppi)$，则 $\sin A \neq 0, \sin B \neq 0$，故有：
+    \begin{equation}
+        \begin{cases}
+            2A + B = \uppi \\
+            A + 2B = \uppi
+        \end{cases} \implies A = B = \frac{\uppi}{3}
+    \end{equation}
+    此时 $C = \uppi - A - B = \dfrac{\uppi}{3}$。由于该实际问题必存在最大值，且驻点唯一。
+    \begin{equation}
+        \boxed{\text{该三角形为等边三角形，即 } A = B = C = \frac{\uppi}{3}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{等值线与约束极值}{Contour-Constrained-Extrema}
+    在约束条件 $(x - 1)^2 + y^2 - 1 = 0$ 下 $z = xy$ 的极值已经给出，请画出 $z = xy$ 的等值线簇与曲线（圆） $(x - 1)^2 + y^2 - 1 = 0$ 相交的情况，并标出极值点的位置的示意图。
+\end{problem}
+
+\begin{solution}
+    目标函数 $z = xy$ 的等值线为双曲线族 $xy = c$。约束条件 $(x - 1)^2 + y^2 = 1$ 表示一个圆心在 $(1, 0)$，半径为 $1$ 的圆。极值点出现在等值线与约束曲线相切之处。
+
+    \begin{center}
+        \begin{tikzpicture}[-latex, scale=2]
+            % 坐标轴
+            \draw ( -0.5, 0) -- (2.5, 0) node[right] {$x$};
+            \draw (0, -1.5) -- (0, 1.5) node[above] {$y$};
+            \node[below left] at (0,0) {$O$};
+
+            % 约束圆
+            \draw[thick, blue] (1, 0) circle (1);
+            \node[blue] at (1.8, 0.8) {$C$};
+
+            % 等值线 xy = 0 (坐标轴)
+            \draw[dashed, red] (0, -1.4) -- (0, 1.4);
+            \draw[dashed, red] (-0.4, 0) -- (2.4, 0);
+
+            % 等值线 xy = 3*sqrt(3)/4 (约 1.299)
+            \draw[samples=100, domain=0.87:2.4, smooth, red] plot (\x, {1.299/\x});
+            \node[red, right] at (2.4, 0.5) {$z = z_{\text{loc.max}}$};
+
+            % 等值线 xy = -3*sqrt(3)/4 (约 -1.299)
+            \draw[samples=100, domain=0.87:2.4, smooth, red] plot (\x, {-1.299/\x});
+            \node[red, right] at (2.4, -0.5) {$z = z_{\text{loc.min}}$};
+
+            % 极值点标注
+            \filldraw (0,0) circle (1pt) node[below right] {$M_1(0,0)$};
+            \filldraw (1.5, 0.866) circle (1pt) node[above right] {$M_2\left(\frac{3}{2}, \frac{\sqrt{3}}{2}\right)$};
+            \filldraw (1.5, -0.866) circle (1pt) node[below right] {$M_3\left(\frac{3}{2}, -\frac{\sqrt{3}}{2}\right)$};
+        \end{tikzpicture}
+    \end{center}
+
+    根据拉格朗日乘数法，极值点分别为：
+    \begin{equation}
+        \begin{aligned}
+            M_1 & = (0, 0),                                          \\
+            M_2 & = \left( \frac{3}{2}, \frac{\sqrt{3}}{2} \right),  \\
+            M_3 & = \left( \frac{3}{2}, -\frac{\sqrt{3}}{2} \right).
+        \end{aligned}
+    \end{equation}
+
+    其中 $M_1$ 为等值线 $z=0$ 与圆的交点（非切点），而 $M_2$ 与 $M_3$ 为等值线与圆的切点，分别对应最大值与最小值。
+
+    \begin{equation}
+        \boxed{z_{\text{loc.max}} = \frac{3\sqrt{3}}{4}, \quad z_{\text{loc.min}} = -\frac{3\sqrt{3}}{4}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{条件极值}{Constrained-Extrema}
+    求下列函数在指定条件下的极值
+    \begin{enumerate}
+        \item $u = x^{2} + y^{2}$, 若 $\frac{x}{a} + \frac{y}{b} = 1$;
+        \item $u = x + y + z$, 若 $\frac{1}{x} + \frac{1}{y} + \frac{1}{z} = 1, x > 0, y > 0, z > 0$;
+        \item $u = \sin x \sin y \sin z$, 若 $x + y + z = \frac{\uppi}{2}, x > 0, y > 0, z > 0$;
+        \item $u = x y z$, 若 $x + y + z = 0$ 且 $x^{2} + y^{2} + z^{2} = 1$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    构造拉格朗日函数 $L(x, y, \lambda) = x^{2} + y^{2} + \lambda \left( \frac{x}{a} + \frac{y}{b} - 1 \right)$。令其偏导数为零：
+    \begin{equation}
+        \label{eq:p1-lagrange}
+        \begin{cases}
+            2x + \frac{\lambda}{a} = 0, \\
+            2y + \frac{\lambda}{b} = 0, \\
+            \frac{x}{a} + \frac{y}{b} = 1.
+        \end{cases}
+    \end{equation}
+    由前两式得 $x = -\frac{\lambda}{2a}, y = -\frac{\lambda}{2b}$，代入约束条件可得：
+    \begin{equation}
+        -\frac{\lambda}{2 a^{2}} - \frac{\lambda}{2 b^{2}} = 1 \implies \lambda = -\frac{2 a^{2} b^{2}}{a^{2} + b^{2}}.
+    \end{equation}
+    此时 $x = \frac{a b^{2}}{a^{2} + b^{2}}, y = \frac{a^{2} b}{a^{2} + b^{2}}$，代入 $u$ 的表达式计算极小值：
+    \begin{equation}
+        \boxed{u = \frac{a^{2} b^{2}}{a^{2} + b^{2}}}.
+    \end{equation}
+
+    \ansitem{2}
+
+    构造拉格朗日函数 $L(x, y, z, \lambda) = x + y + z + \lambda \left( \frac{1}{x} + \frac{1}{y} + \frac{1}{z} - 1 \right)$。求偏导数：
+    \begin{equation}
+        \begin{cases}
+            1 - \frac{\lambda}{x^{2}} = 0, \\
+            1 - \frac{\lambda}{y^{2}} = 0, \\
+            1 - \frac{\lambda}{z^{2}} = 0.
+        \end{cases}
+    \end{equation}
+    结合 $x, y, z > 0$，可得 $x = y = z = \sqrt{\lambda}$。代入约束条件：
+    \begin{equation}
+        \frac{3}{\sqrt{\lambda}} = 1 \implies \sqrt{\lambda} = 3 \implies x = y = z = 3.
+    \end{equation}
+    代入 $u$ 得到极小值：
+    \begin{equation}
+        \boxed{u = 9}.
+    \end{equation}
+
+    \ansitem{3}
+
+    构造拉格朗日函数 $L(x, y, z, \lambda) = \sin x \sin y \sin z + \lambda \left( x + y + z - \frac{\uppi}{2} \right)$。令偏导数为零：
+    \begin{equation}
+        \begin{cases}
+            \cos x \sin y \sin z + \lambda = 0, \\
+            \sin x \cos y \sin z + \lambda = 0, \\
+            \sin x \sin y \cos z + \lambda = 0.
+        \end{cases}
+    \end{equation}
+    由上式可得 $\cos x \sin y \sin z = \sin x \cos y \sin z = \sin x \sin y \cos z$。由于 $x, y, z \in (0, \uppi/2)$，上式等价于：
+    \begin{equation}
+        \cot x = \cot y = \cot z \implies x = y = z.
+    \end{equation}
+    由约束条件 $3x = \frac{\uppi}{2}$ 得 $x = y = z = \frac{\uppi}{6}$，极高值为：
+    \begin{equation}
+        \boxed{u = \frac{1}{8}}.
+    \end{equation}
+
+    \ansitem{4}
+
+    构造拉格朗日函数 $L(x, y, z, \lambda_1, \lambda_2) = x y z + \lambda_{1}(x + y + z) + \lambda_{2}(x^{2} + y^{2} + z^{2} - 1)$。求偏导数：
+    \begin{equation}
+        \begin{cases}
+            y z + \lambda_{1} + 2 \lambda_{2} x = 0, \\
+            x z + \lambda_{1} + 2 \lambda_{2} y = 0, \\
+            x y + \lambda_{1} + 2 \lambda_{2} z = 0.
+        \end{cases}
+    \end{equation}
+    相邻两式相减可得 $(y - x)(z - 2 \lambda_{2}) = 0$, $(z - y)(x - 2 \lambda_{2}) = 0$, $(x - z)(y - 2 \lambda_{2}) = 0$。若 $x, y, z$ 互不相等，则必有 $x = y = z = 2 \lambda_{2}$，产生矛盾。故至少有两项相等。设 $x = y$，由 $x + y + z = 0$ 得 $z = -2x$。代入 $x^{2} + y^{2} + z^{2} = 1$：
+    \begin{equation}
+        x^{2} + x^{2} + 4x^{2} = 1 \implies 6x^{2} = 1 \implies x = \pm \frac{1}{\sqrt{6}}.
+    \end{equation}
+    当 $x = y = \frac{1}{\sqrt{6}}, z = -\frac{2}{\sqrt{6}}$ 时，$u = -\frac{\sqrt{6}}{18}$；当 $x = y = -\frac{1}{\sqrt{6}}, z = \frac{2}{\sqrt{6}}$ 时，$u = \frac{\sqrt{6}}{18}$。由对称性，函数在指定条件下极值为：
+    \begin{equation}
+        \boxed{u = \pm \frac{\sqrt{6}}{18}}.
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{多元函数最值}{Extremum-of-Multivariate-Functions}
+    求下列函数在指定范围内的最大值与最小值.
+    \begin{enumerate}
+        \item $z = x^2 - y^2$, $\{(x, y) \mid x^2 + y^2 \le 4\}$;
+        \item $z = x^2 - xy + y^2$, $\{(x, y) \mid |x| + |y| \le 1\}$;
+        \item $z = \sin x + \sin y - \sin(x + y)$, $\{(x, y) \mid x \ge 0, y \ge 0, x + y \le 2 \uppi\}$;
+        \item $z = x^2 y(4 - x - y)$, $\{(x, y) \mid x \ge 0, y \ge 0, x + y \le 6\}$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    考察区域内部的极值点，由 $\frac{\partial z}{\partial x} = 2x = 0$，$\frac{\partial z}{\partial y} = -2y = 0$ 得驻点 $(0, 0)$，此时 $z(0, 0) = 0$。
+
+    在边界 $x^2 + y^2 = 4$ 上，有 $y^2 = 4 - x^2$，代入原式得
+    \begin{equation}
+        z = x^2 - (4 - x^2) = 2x^2 - 4, \quad x \in [-2, 2].
+    \end{equation}
+    当 $x = \pm 2$ 时，$z = 4$；当 $x = 0$ 时，$z = -4$。
+    \begin{equation}
+        \boxed{z_{\max} = 4, \quad z_{\min} = -4}
+    \end{equation}
+
+    \ansitem{2}
+    考察内部，由 $\frac{\partial z}{\partial x} = 2x - y = 0$ 与 $\frac{\partial z}{\partial y} = 2y - x = 0$ 得驻点 $(0, 0)$，此时 $z(0, 0) = 0$。
+
+    边界为由 $(1, 0), (0, 1), (-1, 0), (0, -1)$ 围成的正方形。
+    在第一象限边界 $x + y = 1$（$x \in [0, 1]$）上：
+    \begin{equation}
+        z = x^2 - x(1 - x) + (1 - x)^2 = 3x^2 - 3x + 1.
+    \end{equation}
+    其在 $x = \frac{1}{2}$ 处取得局部最小 $z = \frac{1}{4}$，在端点处 $z = 1$。
+    在第四象限边界 $x - y = 1$（$x \in [0, 1]$）上：
+    \begin{equation}
+        z = x^2 - x(x - 1) + (x - 1)^2 = x^2 - x + 1.
+    \end{equation}
+    其在 $x = \frac{1}{2}$ 处取得局部最小 $z = \frac{3}{4}$，在端点处 $z = 1$。
+    由对称性可知，边界上的最大值为 $1$，最小值为 $\frac{1}{4}$。
+    \begin{equation}
+        \boxed{z_{\max} = 1, \quad z_{\min} = 0}
+    \end{equation}
+
+    \ansitem{3}
+    利用积化和差公式，原函数可化为
+    \begin{equation}
+        z = 4 \sin \frac{x}{2} \sin \frac{y}{2} \sin \frac{x + y}{2}.
+    \end{equation}
+    在给定区域 $x \ge 0, y \ge 0, x + y \le 2\uppi$ 内，由于 $\frac{x}{2}, \frac{y}{2}, \frac{x + y}{2} \in [0, \uppi]$，故 $z \ge 0$。
+    边界 $x = 0, y = 0, x + y = 2\uppi$ 上 $z$ 均为 $0$，故最小值 $z_{\min} = 0$。
+
+    考察内部驻点：
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial z}{\partial x} & = \cos x - \cos(x + y) = 0 \implies \cos x = \cos(x + y), \\
+            \frac{\partial z}{\partial y} & = \cos y - \cos(x + y) = 0 \implies \cos y = \cos(x + y).
+        \end{aligned}
+    \end{equation}
+    由 $\cos x = \cos y$ 且 $0 < x, y < 2\uppi$，$x + y < 2\uppi$ 得 $x = y$。
+    代入得 $\cos x = \cos 2x$，解得 $x = \frac{2\uppi}{3}$。此时 $z = \sin \frac{2\uppi}{3} + \sin \frac{2\uppi}{3} - \sin \frac{4\uppi}{3} = \frac{3\sqrt{3}}{2}$。
+    \begin{equation}
+        \boxed{z_{\max} = \frac{3\sqrt{3}}{2}, \quad z_{\min} = 0}
+    \end{equation}
+
+    \ansitem{4}
+    在边界 $x = 0, y = 0$ 上 $z = 0$。在边界 $x + y = 6$ 上，$z = x^2(6 - x)(-2) = 2x^3 - 12x^2$。
+    设 $f(x) = 2x^3 - 12x^2$（$x \in [0, 6]$），则 $f'(x) = 6x(x - 4)$。当 $x = 4$ 时，取得极小值 $f(4) = -64$。
+
+    考察内部驻点：
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial z}{\partial x} & = 2xy(4 - x - y) - x^2 y = xy(8 - 3x - 2y) = 0, \\
+            \frac{\partial z}{\partial y} & = x^2(4 - x - y) - x^2 y = x^2(4 - x - 2y) = 0.
+        \end{aligned}
+    \end{equation}
+    在 $x > 0, y > 0$ 时，联立 $3x + 2y = 8$ 与 $x + 2y = 4$，解得 $x = 2, y = 1$。
+    此时 $z(2, 1) = 2^2 \cdot 1 \cdot (4 - 2 - 1) = 4$。比较上述各点：
+    \begin{equation}
+        \boxed{z_{\max} = 4, \quad z_{\min} = -64}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{距离平方和最小}{Distance-Square-Sum}
+    在平面 $3x - 2z = 0$ 上求一点，使它与点 $A(1, 1, 1)$ 和 $B(2, 3, 4)$ 的距离平方和最小。
+\end{problem}
+
+\begin{solution}
+    设所求点为 $P(x, y, z)$，目标函数为 $P$ 到 $A, B$ 两点距离的平方和：
+    \begin{equation}
+        f(x, y, z) = (x-1)^2 + (y-1)^2 + (z-1)^2 + (x-2)^2 + (y-3)^2 + (z-4)^2
+    \end{equation}
+    约束条件为 $g(x, y, z) = 3x - 2z = 0$。构造 Lagrange 函数：
+    \begin{equation}
+        L(x, y, z, \lambda) = (x-1)^2 + (y-1)^2 + (z-1)^2 + (x-2)^2 + (y-3)^2 + (z-4)^2 + \lambda(3x - 2z)
+    \end{equation}
+    对其求偏导数并令其为零：
+    \begin{equation}
+        \begin{cases}
+            L_x = 2(x-1) + 2(x-2) + 3\lambda = 4x - 6 + 3\lambda = 0  \\
+            L_y = 2(y-1) + 2(y-3) = 4y - 8 = 0                        \\
+            L_z = 2(z-1) + 2(z-4) - 2\lambda = 4z - 10 - 2\lambda = 0 \\
+            3x - 2z = 0
+        \end{cases}
+    \end{equation}
+    由第二式得 $y = 2$。由第一、三式消去 $\lambda$ 得：
+    \begin{equation}
+        2(4x - 6) + 3(4z - 10) = 0 \implies 8x + 12z = 42 \implies 4x + 6z = 21
+    \end{equation}
+    代入 $z = \frac{3}{2}x$ 可得：
+    \begin{equation}
+        4x + 6\left( \frac{3}{2}x \right) = 13x = 21 \implies x = \frac{21}{13}
+    \end{equation}
+    进而解得 $z = \frac{63}{26}$。故所求点为：
+    \begin{equation}
+        \boxed{P = \left( \frac{21}{13}, 2, \frac{63}{26} \right)}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{空间曲线极值}{Curve-Extremum}
+    在曲线 $\begin{cases} z = x^2 + 2y^2 \\ z = 6 - 2x^2 - y^2 \end{cases}$ 上，求竖坐标分别为最大值和最小值的点。
+\end{problem}
+
+\begin{solution}
+    消去 $z$ 可得曲线在 $xy$ 平面上的投影曲线方程：
+    \begin{equation}
+        x^2 + 2y^2 = 6 - 2x^2 - y^2 \implies 3x^2 + 3y^2 = 6 \implies x^2 + y^2 = 2
+    \end{equation}
+    在曲线上，竖坐标 $z$ 可表示为：
+    \begin{equation}
+        z = x^2 + 2y^2 = (x^2 + y^2) + y^2 = 2 + y^2
+    \end{equation}
+    由 $x^2 + y^2 = 2$ 可知 $0 \le y^2 \le 2$。
+    当 $y^2 = 0$ 即 $y = 0$ 时，$z$ 取得最小值 $z_{\min} = 2$，此时 $x = \pm\sqrt{2}$。
+    当 $y^2 = 2$ 即 $y = \pm\sqrt{2}$ 时，$z$ 取得最大值 $z_{\max} = 4$，此时 $x = 0$。
+    综上所述，竖坐标最小的点为 $(\pm\sqrt{2}, 0, 2)$，竖坐标最大的点为 $(0, \pm\sqrt{2}, 4)$。
+    \begin{equation}
+        \boxed{P_{\max} = (0, \pm\sqrt{2}, 4), \quad P_{\min} = (\pm\sqrt{2}, 0, 2)}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{极值点判定}{Extremum-Point-Verification}
+    设 $f(x, y) = 3x^2y - x^4 - 2y^2$。证明：$(0, 0)$ 不是它的极值点，但沿过 $(0, 0)$ 点的每条直线，$(0, 0)$ 都是它的极大值点。
+\end{problem}
+
+\begin{myproof}
+    首先，将原函数分解因式：
+    \begin{equation}
+        f(x, y) = -(x^4 - 3x^2y + 2y^2) = -(x^2 - y)(x^2 - 2y)
+    \end{equation}
+    显然 $f(0, 0) = 0$。在 $(0, 0)$ 的任意邻域内：
+    若取点满足 $y = \frac{3}{4}x^2$，则 $f(x, \frac{3}{4}x^2) = -(x^2 - \frac{3}{4}x^2)(x^2 - \frac{3}{2}x^2) = \frac{1}{8}x^4 > 0$；
+    若取点满足 $y = 0$，则 $f(x, 0) = -x^4 < 0$。
+    由于在 $(0, 0)$ 的任意邻域内 $f(x, y)$ 均可取正值和负值，故 $(0, 0)$ 不是极值点。
+
+    其次，考虑过原点的任意直线 $L$。若直线为 $x = 0$，则 $f(0, y) = -2y^2$，在 $y = 0$ 处取得极大值。
+    若直线为 $y = kx$，令 $g(x) = f(x, kx)$：
+    \begin{equation}
+        g(x) = 3kx^3 - x^4 - 2k^2x^2 = x^2(3kx - x^2 - 2k^2)
+    \end{equation}
+    当 $k \neq 0$ 时，有：
+    \begin{equation}
+        g'(x) = 9kx^2 - 4x^3 - 4k^2x, \quad g'(0) = 0
+    \end{equation}
+    \begin{equation}
+        g''(x) = 18kx - 12x^2 - 4k^2, \quad g''(0) = -4k^2 < 0
+    \end{equation}
+    根据二阶导数判别法，$x = 0$ 是 $g(x)$ 的极大值点。
+    若 $k = 0$，则 $g(x) = -x^4$，显然在 $x = 0$ 处取得极大值。
+    综上，沿过 $(0, 0)$ 的每条直线，$(0, 0)$ 均为极大值点。
 \end{myproof}

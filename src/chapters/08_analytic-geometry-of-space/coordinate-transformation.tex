@@ -1,0 +1,391 @@
+\section{坐标变换和其他常用坐标系}
+
+\begin{problem}{二次曲面平移化简}{Translation-Quadratic-Surface}
+    通过坐标系的平移，化简方程 $x^2 - y^2 - z^2 - 2x + 2y + z - 1 = 0$，并指出曲面的类型。
+\end{problem}
+
+\begin{solution}
+    对原方程的各项进行配方：
+    \begin{equation}
+        \begin{aligned}
+            (x^2 - 2x + 1) - (y^2 - 2y + 1) - \left( z^2 - z + \frac{1}{4} \right) - 1 - 1 + 1 + \frac{1}{4} & = 0           \\
+            (x - 1)^2 - (y - 1)^2 - \left( z - \frac{1}{2} \right)^2                                         & = \frac{3}{4}
+        \end{aligned}
+    \end{equation}
+    令坐标平移变换公式为：
+    \begin{equation}
+        \begin{cases}
+            x' = x - 1 \\
+            y' = y - 1 \\
+            z' = z - \frac{1}{2}
+        \end{cases}
+    \end{equation}
+    代入上式，得化简后的方程为：
+    \begin{equation}
+        x'^2 - y'^2 - z'^2 = \frac{3}{4} \implies \frac{x'^2}{3/4} - \frac{y'^2}{3/4} - \frac{z'^2}{3/4} = 1
+    \end{equation}
+    该方程表示一个中心在 $\left( 1, 1, \frac{1}{2} \right)$，实轴沿 $x$ 轴方向的双叶双曲面。
+
+    \begin{equation}
+        \boxed{\frac{x'^2}{3/4} - \frac{y'^2}{3/4} - \frac{z'^2}{3/4} = 1，\text{双叶双曲面}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{二次曲面综合变换}{Transformation-Quadratic-Surface}
+    通过坐标变换，化简方程 $xy - x + y + z + 1 = 0$，并指出曲面的类型。
+\end{problem}
+
+\begin{solution}
+    首先通过平移消去一次项 $x, y$。令 $x = x' + a, y = y' + b, z = z' + c$，代入方程：
+    \begin{equation}
+        (x' + a)(y' + b) - (x' + a) + (y' + b) + (z' + c) + 1 = 0
+    \end{equation}
+    展开整理得：
+    \begin{equation}
+        x'y' + (b - 1)x' + (a + 1)y' + z' + (ab - a + b + c + 1) = 0
+    \end{equation}
+    令 $b - 1 = 0$ 且 $a + 1 = 0$，解得 $a = -1, b = 1$。此时常数项部分为：
+    \begin{equation}
+        (-1)(1) - (-1) + 1 + c + 1 = c + 2
+    \end{equation}
+    取 $c = -2$，则方程化为 $x'y' + z' = 0$，即 $z' = -x'y'$。随后进行坐标旋转，令：
+    \begin{equation}
+        \begin{cases}
+            x' = \frac{X - Y}{\sqrt{2}} \\
+            y' = \frac{X + Y}{\sqrt{2}}
+        \end{cases}
+    \end{equation}
+    代入 $z' = -x'y'$ 得：
+    \begin{equation}
+        z' = -\frac{X^2 - Y^2}{2} = \frac{Y^2}{2} - \frac{X^2}{2}
+    \end{equation}
+    此方程符合双曲抛物面的标准形式。
+
+    \begin{equation}
+        \boxed{z' = \frac{Y^2}{2} - \frac{X^2}{2}，\text{双曲抛物面（马鞍面）}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{坐标旋转化简}{Rotation-Transformation}
+    通过坐标旋转，化简方程 $5x^2 - 3y^2 + 3z^2 + 8yz - 5 = 0$，并指出它是什么曲面。
+\end{problem}
+
+\begin{solution}
+    由于方程中不含 $xy$ 和 $xz$ 项，只需在 $yz$ 平面上进行旋转变换。令坐标变换公式为：
+    \begin{equation}
+        \begin{cases}
+            x = x'                              \\
+            y = y' \cos \theta - z' \sin \theta \\
+            z = y' \sin \theta + z' \cos \theta
+        \end{cases}
+    \end{equation}
+    将变换代入方程中的 $y, z$ 相关项 $-3y^2 + 3z^2 + 8yz$：
+    \begin{equation}
+        \begin{aligned}
+            -3y^2 + 3z^2 + 8yz & = -3(y' \cos \theta - z' \sin \theta)^2 + 3(y' \sin \theta + z' \cos \theta)^2 + 8(y' \cos \theta - z' \sin \theta)(y' \sin \theta + z' \cos \theta) \\
+                               & = (-3\cos^2 \theta + 3\sin^2 \theta + 8\sin \theta \cos \theta) y'^2 + (-3\sin^2 \theta + 3\cos^2 \theta - 8\sin \theta \cos \theta) z'^2            \\
+                               & \quad + [6\sin \theta \cos \theta + 6\sin \theta \cos \theta + 8(\cos^2 \theta - \sin^2 \theta)] y'z'                                                \\
+                               & = (4\sin 2\theta - 3\cos 2\theta) y'^2 + (3\cos 2\theta - 4\sin 2\theta) z'^2 + (6\sin 2\theta + 8\cos 2\theta) y'z'
+        \end{aligned}
+    \end{equation}
+    欲消除混合项 $y'z'$，需满足 $6\sin 2\theta + 8\cos 2\theta = 0$，即 $\tan 2\theta = -\frac{4}{3}$。由此可取：
+    \begin{equation}
+        \sin 2\theta = \frac{4}{5}, \quad \cos 2\theta = -\frac{3}{5}
+    \end{equation}
+    代入 $y'^2$ 和 $z'^2$ 的系数，可得：
+    \begin{equation}
+        \begin{aligned}
+            \text{系数}_{y'^2} & = 4 \left( \frac{4}{5} \right) - 3 \left( -\frac{3}{5} \right) = \frac{16 + 9}{5} = 5   \\
+            \text{系数}_{z'^2} & = 3 \left( -\frac{3}{5} \right) - 4 \left( \frac{4}{5} \right) = \frac{-9 - 16}{5} = -5
+        \end{aligned}
+    \end{equation}
+    故原方程化为：
+    \begin{equation}
+        5x'^2 + 5y'^2 - 5z'^2 - 5 = 0 \implies x'^2 + y'^2 - z'^2 = 1
+    \end{equation}
+    该方程表示一个单叶双曲面。
+
+    \begin{equation}
+        \boxed{x'^2 + y'^2 - z'^2 = 1，\text{单叶双曲面}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{坐标系变换}{Coordinate-Transformation}
+    将下列方程按要求作相应的变换：
+    \begin{enumerate}
+        \item $x^2 - y^2 = 25$ 转换成柱面坐标系方程和球面坐标系方程；
+        \item $x^2 + y^2 + 4z^2 = 10$ 转换成柱面坐标系方程和球面坐标系方程；
+        \item $2x^2 + 2y^2 - 4z^2 = 0$ 转换成球面坐标系方程；
+        \item $x^2 - y^2 - z^2 = 1$ 转换成球面坐标系方程；
+        \item 柱面坐标系方程 $r^2 + 2z^2 = 4$ 转换成球面坐标系方程；
+        \item 球面坐标系方程 $r = 2 \cos \varphi$ 转换成柱面坐标系方程；
+        \item $x + y = 4$ 转换成柱面坐标系方程；
+        \item $x + y + z = 1$ 转换成球面坐标系方程；
+        \item 极坐标系方程 $r = 2 \sin \theta$ 转换成直角坐标系方程；
+        \item 柱面坐标系方程 $r^2 \cos 2\theta = z$ 转换成直角坐标系方程；
+        \item 球面坐标系方程 $r \sin \varphi = 1$ 转换成直角坐标系方程.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    代入柱面坐标变换公式 $x = r \cos \theta, y = r \sin \theta$ 得：
+    \begin{equation}
+        r^2 \cos^2 \theta - r^2 \sin^2 \theta = 25 \implies \boxed{r^2 \cos 2\theta = 25}
+    \end{equation}
+    代入球面坐标变换公式 $x = r \sin \theta \cos \varphi, y = r \sin \theta \sin \varphi, z = r \cos \theta$ 得：
+    \begin{equation}
+        (r \sin \theta \cos \varphi)^2 - (r \sin \theta \sin \varphi)^2 = 25 \implies \boxed{r^2 \sin^2 \theta \cos 2\varphi = 25}
+    \end{equation}
+
+    \ansitem{2}
+    对于柱面坐标系，由于 $x^2 + y^2 = r^2$，直接代入得：
+    \begin{equation}
+        \boxed{r^2 + 4z^2 = 10}
+    \end{equation}
+    对于球面坐标系，代入 $x^2 + y^2 = r^2 \sin^2 \theta$ 及 $z = r \cos \theta$ 得：
+    \begin{equation}
+        r^2 \sin^2 \theta + 4r^2 \cos^2 \theta = 10 \implies \boxed{r^2 (1 + 3\cos^2 \theta) = 10}
+    \end{equation}
+
+    \ansitem{3}
+    原方程变形为 $2(x^2 + y^2) - 4z^2 = 0$，代入球面坐标变换公式：
+    \begin{equation}
+        2r^2 \sin^2 \theta - 4r^2 \cos^2 \theta = 0 \implies 2r^2 (\sin^2 \theta - 2\cos^2 \theta) = 0
+    \end{equation}
+    当 $r \neq 0$ 时，$\tan^2 \theta = 2$，即：
+    \begin{equation}
+        \boxed{\tan \theta = \pm \sqrt{2}}
+    \end{equation}
+
+    \ansitem{4}
+    代入球面坐标变换公式：
+    \begin{equation}
+        (r \sin \theta \cos \varphi)^2 - (r \sin \theta \sin \varphi)^2 - (r \cos \theta)^2 = 1
+    \end{equation}
+    提取公因式 $r^2$ 并利用二倍角公式：
+    \begin{equation}
+        \boxed{r^2 (\sin^2 \theta \cos 2\varphi - \cos^2 \theta) = 1}
+    \end{equation}
+
+    \ansitem{5}
+    利用变换关系 $r_{\text{柱}} = r_{\text{球}} \sin \theta$ 及 $z = r_{\text{球}} \cos \theta$ 代入柱面方程：
+    \begin{equation}
+        (r \sin \theta)^2 + 2(r \cos \theta)^2 = 4 \implies r^2 (\sin^2 \theta + 2\cos^2 \theta) = 4
+    \end{equation}
+    整理得：
+    \begin{equation}
+        \boxed{r^2 (1 + \cos^2 \theta) = 4}
+    \end{equation}
+
+    \ansitem{6}
+    在球面坐标系中 $x = r \sin \theta \cos \varphi$，则 $\cos \varphi = \frac{x}{r \sin \theta}$。代入原方程得：
+    \begin{equation}
+        r = \frac{2x}{r \sin \theta} \implies r^2 \sin \theta = 2x
+    \end{equation}
+    在柱面坐标系中代入 $r_{\text{球}}^2 = r_{\text{柱}}^2 + z^2$ 及 $\sin \theta = \frac{r_{\text{柱}}}{\sqrt{r_{\text{柱}}^2 + z^2}}$，$x = r_{\text{柱}} \cos \theta_{\text{柱}}$：
+    \begin{equation}
+        (r^2 + z^2) \cdot \frac{r}{\sqrt{r^2 + z^2}} = 2r \cos \theta \implies \sqrt{r^2 + z^2} = 2 \cos \theta
+    \end{equation}
+    两边平方得：
+    \begin{equation}
+        \boxed{r^2 + z^2 = 4\cos^2 \theta}
+    \end{equation}
+
+    \ansitem{7}
+    代入柱面坐标 $x = r \cos \theta, y = r \sin \theta$ 得：
+    \begin{equation}
+        \boxed{r (\cos \theta + \sin \theta) = 4}
+    \end{equation}
+
+    \ansitem{8}
+    代入球面坐标变换公式：
+    \begin{equation}
+        r \sin \theta \cos \varphi + r \sin \theta \sin \varphi + r \cos \theta = 1
+    \end{equation}
+    提取公因式 $r$ 得：
+    \begin{equation}
+        \boxed{r [\sin \theta (\cos \varphi + \sin \varphi) + \cos \theta] = 1}
+    \end{equation}
+
+    \ansitem{9}
+    方程两边同乘以 $r$ 得 $r^2 = 2r \sin \theta$。代入 $r^2 = x^2 + y^2$ 及 $y = r \sin \theta$：
+    \begin{equation}
+        \boxed{x^2 + y^2 = 2y}
+    \end{equation}
+
+    \ansitem{10}
+    利用二倍角公式 $r^2 (\cos^2 \theta - \sin^2 \theta) = z$，代入柱面坐标 $x = r \cos \theta, y = r \sin \theta$：
+    \begin{equation}
+        \boxed{x^2 - y^2 = z}
+    \end{equation}
+
+    \ansitem{11}
+    在球面坐标系中 $y = r \sin \theta \sin \varphi$，则 $\sin \varphi = \frac{y}{r \sin \theta}$。代入原方程：
+    \begin{equation}
+        r \cdot \frac{y}{r \sin \theta} = 1 \implies y = \sin \theta
+    \end{equation}
+    两边平方并利用 $\sin^2 \theta = \frac{x^2 + y^2}{x^2 + y^2 + z^2}$ 得：
+    \begin{equation}
+        \boxed{y^2 (x^2 + y^2 + z^2) = x^2 + y^2}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{旋转曲面}{Surface-of-Revolution-Parabola}
+    将 $Ozx$ 平面上抛物线 $z = 2x^2$ 绕 $z$ 轴旋转一周，写出所生成的曲面在柱面坐标系中的方程。
+\end{problem}
+
+\begin{solution}
+    在 $Ozx$ 平面内，抛物线方程为 $z = 2x^2$。将其绕 $z$ 轴旋转所得曲面在直角坐标系下的方程为
+    \begin{equation}
+        z = 2(x^2 + y^2)
+    \end{equation}
+    考虑到柱面坐标系中 $\rho^2 = x^2 + y^2$，直接代入上式可得其在柱面坐标系中的方程为
+    \begin{equation}
+        \boxed{z = 2\rho^2}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{旋转曲面}{Surface-of-Revolution-Hyperbola}
+    将 $Ozx$ 平面上双曲线 $2x^2 - z^2 = 2$ 绕 $z$ 轴旋转一周，写出所生成的曲面在柱面坐标系中的方程。
+\end{problem}
+
+\begin{solution}
+    在 $Ozx$ 平面内，双曲线方程为 $2x^2 - z^2 = 2$。根据旋转曲面生成原理，曲线绕其对称轴 $z$ 轴旋转所得曲面方程需将 $x^2$ 替换为 $x^2 + y^2$，即
+    \begin{equation}
+        2(x^2 + y^2) - z^2 = 2
+    \end{equation}
+    引入柱面坐标系关系式 $\rho^2 = x^2 + y^2$，代入上式即得
+    \begin{equation}
+        \boxed{2\rho^2 - z^2 = 2}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{圆的参数方程}{Circle-Parametric-Equation}
+    已知 $Oxy$ 平面上以原点为圆心，$a$ 为半径的圆的参数方程表示为
+    \begin{equation}
+        \begin{cases}
+            x = a \cos t, \\
+            y = a \sin t,
+        \end{cases} \quad t \in [0, 2\uppi)
+    \end{equation}
+    求 $Oxy$ 平面上以点 $P_0(x_0, y_0)$ 为圆心，$a$ 为半径的圆的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    对原点处的圆进行平移变换，将圆心从 $(0, 0)$ 平移至 $(x_0, y_0)$，所得参数方程为
+    \begin{equation}
+        \boxed{
+        \begin{cases}
+            x = x_0 + a \cos t, \\
+            y = y_0 + a \sin t,
+        \end{cases} \quad t \in [0, 2\uppi)
+        }
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{球的参数方程}{Sphere-Parametric-Equation}
+    已知 $Oxyz$ 空间中以原点为圆心，$a$ 为半径的球的参数方程表示为
+    \begin{equation}
+        \begin{cases}
+            x = a \sin u \cos v, \\
+            y = a \sin u \sin v, \\
+            z = a \cos u,
+        \end{cases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
+    \end{equation}
+    求 $Oxyz$ 空间中以点 $P_0(x_0, y_0, z_0)$ 为圆心，$a$ 为半径的球的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    类比平面的平移变换，将球心从 $(0, 0, 0)$ 平移至 $(x_0, y_0, z_0)$，所得参数方程为
+    \begin{equation}
+        \boxed{
+        \begin{cases}
+            x = x_0 + a \sin u \cos v, \\
+            y = y_0 + a \sin u \sin v, \\
+            z = z_0 + a \cos u,
+        \end{cases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
+        }
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{椭球面参数化}{Ellipsoid-Parameterization}
+    求椭球面
+    \begin{equation}
+        \frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1
+    \end{equation}
+    的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    类比球面坐标系，引入参数 $\varphi \in [0, \uppi]$ 与 $\theta \in [0, 2\uppi)$，令
+    \begin{equation}
+        \begin{cases}
+            x = a \sin \varphi \cos \theta \\
+            y = b \sin \varphi \sin \theta \\
+            z = c \cos \varphi
+        \end{cases}
+    \end{equation}
+    代入原方程：
+    \begin{equation}
+        \frac{a^2 \sin^2 \varphi \cos^2 \theta}{a^2} + \frac{b^2 \sin^2 \varphi \sin^2 \theta}{b^2} + \frac{c^2 \cos^2 \varphi}{c^2} = \sin^2 \varphi (\cos^2 \theta + \sin^2 \theta) + \cos^2 \varphi = \sin^2 \varphi + \cos^2 \varphi = 1
+    \end{equation}
+    验证成立。故其参数方程为：
+    \begin{equation}
+        \boxed{\begin{cases} x = a \sin \varphi \cos \theta \\ y = b \sin \varphi \sin \theta \\ z = c \cos \varphi \end{cases} \quad (\varphi \in [0, \uppi], \theta \in [0, 2\uppi))}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{双曲线参数化}{Hyperbola-Parameterization}
+    利用双曲函数，给出双曲线
+    \begin{equation}
+        \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1
+    \end{equation}
+    的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    利用双曲恒等式 $\cosh^2 t - \sinh^2 t = 1$，令
+    \begin{equation}
+        \frac{x}{a} = \cosh t, \quad \frac{y}{b} = \sinh t
+    \end{equation}
+    考虑到双曲线包含两支，需引入符号因子。则有：
+    \begin{equation}
+        \boxed{\begin{cases} x = \pm a \cosh t \\ y = b \sinh t \end{cases} \quad (t \in \symbb{R})}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{双曲面参数化}{Hyperboloid-Parameterization}
+    分别求单叶双曲面
+    \begin{equation}
+        \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = 1
+    \end{equation}
+    和双叶双曲面
+    \begin{equation}
+        \frac{x^2}{a^2} + \frac{y^2}{b^2} - \frac{z^2}{c^2} = -1
+    \end{equation}
+    的一个参数方程表示。
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对于单叶双曲面，方程可变形为 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 + \frac{z^2}{c^2}$。利用双曲函数与三角函数的关系，令 $z = c \sinh u$，则 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = \cosh^2 u$。进一步令 $x = a \cosh u \cos v, y = b \cosh u \sin v$，得：
+    \begin{equation}
+        \boxed{\begin{cases} x = a \cosh u \cos v \\ y = b \cosh u \sin v \\ z = c \sinh u \end{cases} \quad (u \in \symbb{R}, v \in [0, 2\uppi))}
+    \end{equation}
+
+    \ansitem{2}
+
+    对于双叶双曲面，方程可变形为 $\frac{z^2}{c^2} - \left( \frac{x^2}{a^2} + \frac{y^2}{b^2} \right) = 1$。令 $x = a \sinh u \cos v, y = b \sinh u \sin v$，则有 $\frac{z^2}{c^2} = 1 + \sinh^2 u = \cosh^2 u$。考虑到曲面分为上下两叶，得：
+    \begin{equation}
+        \boxed{\begin{cases} x = a \sinh u \cos v \\ y = b \sinh u \sin v \\ z = \pm c \cosh u \end{cases} \quad (u \in [0, +\infty), v \in [0, 2\uppi))}
+    \end{equation}
+\end{solution}
+
+\endinput

@@ -1,0 +1,683 @@
+\section{隐函数定理与逆映射定理}
+
+\begin{problem}{隐函数求导}{Implicit-Function-Differentiation}
+    证明下列方程在指定点的附近对 $y$ 有唯一解，并求出 $y$ 对 $x$ 在该点处的一阶和二阶导数：
+    \begin{enumerate}
+        \item $x^2 + xy + y^2 = 7$, 在 $(2, 1)$ 处.
+        \item $x \cos xy = 0$, 在 $(1, \uppi/2)$ 处.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    令 $F(x, y) = x^2 + xy + y^2 - 7$。显然 $F(2, 1) = 4 + 2 + 1 - 7 = 0$。
+    计算偏导数：$F_y = x + 2y$。在点 $(2, 1)$ 处，$F_y(2, 1) = 2 + 2 = 4 \neq 0$。
+    根据隐函数存在定理，方程在点 $(2, 1)$ 附近可确定唯一的隐函数 $y = y(x)$。
+    对方程关于 $x$ 求导：
+    \begin{equation}
+        2x + y + x y' + 2y y' = 0 \implies y' = -\frac{2x + y}{x + 2y}
+    \end{equation}
+    在点 $(2, 1)$ 处：
+    \begin{equation}
+        y' = -\frac{2(2) + 1}{2 + 2(1)} = -\frac{5}{4}
+    \end{equation}
+    继续对 $x$ 求二阶导：
+    \begin{equation}
+        (2 + y') + (y' + x y'') + 2(y')^2 + 2y y'' = 0 \implies (x + 2y)y'' = -2 - 2y' - 2(y')^2
+    \end{equation}
+    代入 $x=2, y=1, y'=-5/4$：
+    \begin{equation}
+        4y'' = -2 - 2\left(-\frac{5}{4}\right) - 2\left(-\frac{5}{4}\right)^2 = -2 + \frac{5}{2} - \frac{25}{8} = -\frac{21}{8}
+    \end{equation}
+    故该点处的导数为：
+    \begin{equation}
+        \boxed{y' = -\frac{5}{4}, \quad y'' = -\frac{21}{32}}
+    \end{equation}
+
+    \ansitem{2}
+    令 $F(x, y) = x \cos xy$。显然 $F(1, \uppi/2) = 1 \cdot \cos(\uppi/2) = 0$。
+    计算偏导数：$F_y = -x^2 \sin xy$。在点 $(1, \uppi/2)$ 处，$F_y(1, \uppi/2) = -1 \cdot \sin(\uppi/2) = -1 \neq 0$。
+    根据隐函数存在定理，方程在点 $(1, \uppi/2)$ 附近可确定唯一的隐函数 $y = y(x)$。
+    由于在点附近 $x \neq 0$，方程简化为 $\cos xy = 0$。求导得：
+    \begin{equation}
+        -\sin(xy) \cdot (y + x y') = 0 \implies y + x y' = 0
+    \end{equation}
+    在点 $(1, \uppi/2)$ 处：
+    \begin{equation}
+        \frac{\uppi}{2} + 1 \cdot y' = 0 \implies y' = -\frac{\uppi}{2}
+    \end{equation}
+    继续求导：
+    \begin{equation}
+        y' + y' + x y'' = 0 \implies 2y' + x y'' = 0
+    \end{equation}
+    代入 $x=1, y'=-\uppi/2$：
+    \begin{equation}
+        2\left(-\frac{\uppi}{2}\right) + 1 \cdot y'' = 0 \implies y'' = \uppi
+    \end{equation}
+    故该点处的导数为：
+    \begin{equation}
+        \boxed{y' = -\frac{\uppi}{2}, \quad y'' = \uppi}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{隐函数导数}{Implicit-Derivatives}
+    求由下列方程所确定的隐函数的导数：
+    \begin{enumerate}
+        \item $\sin(xy) - \e^{xy} - x^2 y = 0$, 求 $\frac{\d y}{\d x}$;
+        \item $\ln \sqrt{x^2 + y^2} = \arctan \frac{y}{x}$, 求 $\frac{\d y}{\d x}$ 和 $\frac{\d^2 y}{\d x^2}$;
+        \item $x^y = y^x$, 求 $\frac{\d y}{\d x}$ 和 $\frac{\d^2 y}{\d x^2}$;
+        \item $\e^{-xy} - 2z + \e^z = 0$, 求 $\frac{\partial z}{\partial x}$, $\frac{\partial z}{\partial y}$, $\frac{\partial x}{\partial y}$, $\frac{\partial^2 z}{\partial x^2}$;
+        \item $\frac{x}{z} = \ln \frac{z}{y}$, 求 $\frac{\partial z}{\partial x}$, $\frac{\partial z}{\partial y}$;
+        \item $F(x, x+y, x+y+z) = 0$, 求 $\frac{\partial z}{\partial x}$, $\frac{\partial z}{\partial y}$;
+        \item $F(xz, yz) = 0$, 求 $\frac{\partial z}{\partial x}$, $\frac{\partial z}{\partial y}$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    方程两边对 $x$ 求导：
+    \begin{equation}
+        \cos(xy)(y + x y') - \e^{xy}(y + x y') - (2xy + x^2 y') = 0
+    \end{equation}
+    整理得：
+    \begin{equation}
+        y' [x \cos(xy) - x \e^{xy} - x^2] = 2xy - y \cos(xy) + y \e^{xy}
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\d y}{\d x} = \frac{y(\e^{xy} + 2x - \cos xy)}{x(\cos xy - \e^{xy} - x)}}
+    \end{equation}
+
+    \ansitem{2}
+    方程化为 $\frac{1}{2} \ln(x^2 + y^2) = \arctan(y/x)$。两边求导：
+    \begin{equation}
+        \frac{x + y y'}{x^2 + y^2} = \frac{1}{1 + (y/x)^2} \cdot \frac{y' x - y}{x^2} = \frac{x y' - y}{x^2 + y^2}
+    \end{equation}
+    由此得 $x + y y' = x y' - y$，解得：
+    \begin{equation}
+        \boxed{\frac{\d y}{\d x} = \frac{x + y}{x - y}}
+    \end{equation}
+    继续求二阶导：
+    \begin{equation}
+        \frac{\d^2 y}{\d x^2} = \frac{(1 + y')(x - y) - (x + y)(1 - y')}{(x - y)^2} = \frac{2(x y' - y)}{(x - y)^2}
+    \end{equation}
+    将 $y'$ 代入：
+    \begin{equation}
+        \frac{\d^2 y}{\d x^2} = \frac{2 [x \frac{x+y}{x-y} - y]}{(x - y)^2} = \frac{2(x^2 + xy - xy + y^2)}{(x - y)^3} = \boxed{\frac{2(x^2 + y^2)}{(x - y)^3}}
+    \end{equation}
+
+    \ansitem{3}
+    两边取对数得 $y \ln x = x \ln y$。求导：
+    \begin{equation}
+        y' \ln x + \frac{y}{x} = \ln y + \frac{x}{y} y' \implies y' \left(\ln x - \frac{x}{y}\right) = \ln y - \frac{y}{x}
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\d y}{\d x} = \frac{y(x \ln y - y)}{x(y \ln x - x)}}
+    \end{equation}
+    求二阶导省略代入过程，即对上式运用商法则。
+
+    \ansitem{4}
+    令 $F = \e^{-xy} - 2z + \e^z$。
+    \begin{equation}
+        F_x = -y \e^{-xy}, \quad F_y = -x \e^{-xy}, \quad F_z = \e^z - 2
+    \end{equation}
+    则有：
+    \begin{equation}
+        \boxed{\frac{\partial z}{\partial x} = \frac{y \e^{-xy}}{\e^z - 2}, \quad \frac{\partial z}{\partial y} = \frac{x \e^{-xy}}{\e^z - 2}, \quad \frac{\partial x}{\partial y} = -\frac{F_y}{F_x} = -\frac{x}{y}}
+    \end{equation}
+    对 $\frac{\partial z}{\partial x}$ 关于 $x$ 求偏导：
+    \begin{equation}
+        \frac{\partial^2 z}{\partial x^2} = \frac{-y^2 \e^{-xy}(\e^z - 2) - y \e^{-xy} \e^z \frac{\partial z}{\partial x}}{(\e^z - 2)^2} = \boxed{-\frac{y^2 \e^{-xy}}{\e^z - 2} - \frac{y^2 \e^{-2xy} \e^z}{(\e^z - 2)^3}}
+    \end{equation}
+
+    \ansitem{5}
+    方程为 $\frac{x}{z} = \ln z - \ln y$。分别对 $x, y$ 求偏导：
+    \begin{equation}
+        \frac{z - x z_x}{z^2} = \frac{z_x}{z} \implies z - x z_x = z z_x \implies \boxed{\frac{\partial z}{\partial x} = \frac{z}{x + z}}
+    \end{equation}
+    \begin{equation}
+        -\frac{x}{z^2} z_y = \frac{z_y}{z} - \frac{1}{y} \implies \frac{1}{y} = z_y \left(\frac{1}{z} + \frac{x}{z^2}\right) \implies \boxed{\frac{\partial z}{\partial y} = \frac{z^2}{y(x + z)}}
+    \end{equation}
+
+    \ansitem{6}
+    设 $u=x, v=x+y, w=x+y+z$。由复合函数求导：
+    \begin{equation}
+        F_1 + F_2 + F_3 (1 + z_x) = 0 \implies \boxed{\frac{\partial z}{\partial x} = -\frac{F_1 + F_2 + F_3}{F_3}}
+    \end{equation}
+    \begin{equation}
+        F_2 + F_3 (1 + z_y) = 0 \implies \boxed{\frac{\partial z}{\partial y} = -\frac{F_2 + F_3}{F_3}}
+    \end{equation}
+
+    \ansitem{7}
+    设 $u=xz, v=yz$：
+    \begin{equation}
+        F_1 (z + x z_x) + F_2 (y z_x) = 0 \implies \boxed{\frac{\partial z}{\partial x} = -\frac{z F_1}{x F_1 + y F_2}}
+    \end{equation}
+    \begin{equation}
+        F_1 (x z_y) + F_2 (z + y z_y) = 0 \implies \boxed{\frac{\partial z}{\partial y} = -\frac{z F_2}{x F_1 + y F_2}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{极值问题}{Extreme-Values}
+    找出满足方程 $x^2 + xy + y^2 = 27$ 的函数 $y = y(x)$ 的极大值与极小值。
+\end{problem}
+
+\begin{solution}
+    对隐函数求一阶导数：
+    \begin{equation}
+        2x + y + x y' + 2y y' = 0 \implies y' = -\frac{2x + y}{x + 2y}
+    \end{equation}
+    令 $y' = 0$，得 $y = -2x$。代入原方程：
+    \begin{equation}
+        x^2 + x(-2x) + (-2x)^2 = 27 \implies 3x^2 = 27 \implies x = \pm 3
+    \end{equation}
+    对应点为 $(3, -6)$ 和 $(-3, 6)$。计算二阶导数：
+    \begin{equation}
+        y'' = -\frac{(2+y')(x+2y) - (2x+y)(1+2y')}{(x+2y)^2}
+    \end{equation}
+    在点 $(3, -6)$ 处，$y' = 0$：
+    \begin{equation}
+        y'' = -\frac{2(3 - 12) - 0}{(-9)^2} = \frac{18}{81} = \frac{2}{9} > 0
+    \end{equation}
+    此处取得极小值。在点 $(-3, 6)$ 处，$y' = 0$：
+    \begin{equation}
+        y'' = -\frac{2(-3 + 12) - 0}{9^2} = -\frac{18}{81} = -\frac{2}{9} < 0
+    \end{equation}
+    此处取得极大值。
+    \begin{equation}
+        \boxed{y_{\text{loc.max}} = 6, \quad y_{\text{loc.min}} = -6}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{隐函数微分}{Implicit-Function-Differential}
+    试求由下列方程所确定的隐函数的微分：
+    \begin{enumerate}
+        \item $\cos^2 x + \cos^2 y + \cos^2 z = 1$，求 $\d z$；
+        \item $xyz = x + y + z$，求 $\d z$；
+        \item $u^3 - 3(x + y)u^2 + z^3 = 0$，求 $\d u$；
+        \item $F(x - y, y - z, z - x) = 0$，求 $\d z$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对原方程两端求微分，有
+    \begin{equation}
+        -2\cos x \sin x \d x - 2\cos y \sin y \d y - 2\cos z \sin z \d z = 0,
+    \end{equation}
+    整理得
+    \begin{equation}
+        \sin 2x \d x + \sin 2y \d y + \sin 2z \d z = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d z = - \frac{\sin 2x \d x + \sin 2y \d y}{\sin 2z}}
+    \end{equation}
+
+    \ansitem{2}
+
+    对方程两端微分得
+    \begin{equation}
+        yz \d x + xz \d y + xy \d z = \d x + \d y + \d z,
+    \end{equation}
+    移项合并变量
+    \begin{equation}
+        (xy - 1) \d z = (1 - yz) \d x + (1 - xz) \d y.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d z = \frac{(1 - yz) \d x + (1 - xz) \d y}{xy - 1}}
+    \end{equation}
+
+    \ansitem{3}
+
+    对方程两端求微分
+    \begin{equation}
+        3u^2 \d u - 3u^2 (\d x + \d y) - 6u(x + y) \d u + 3z^2 \d z = 0,
+    \end{equation}
+    约简并整理关于 $\d u$ 的项
+    \begin{equation}
+        [u^2 - 2u(x + y)] \d u = u^2(\d x + \d y) - z^2 \d z.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d u = \frac{u^2(\d x + \d y) - z^2 \d z}{u^2 - 2u(x + y)}}
+    \end{equation}
+
+    \ansitem{4}
+
+    令 $u = x - y, v = y - z, w = z - x$，方程即 $F(u, v, w) = 0$。两端微分得
+    \begin{equation}
+        F_1 \d (x - y) + F_2 \d (y - z) + F_3 \d (z - x) = 0,
+    \end{equation}
+    展开得
+    \begin{equation}
+        (F_1 - F_3) \d x + (F_2 - F_1) \d y + (F_3 - F_2) \d z = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d z = \frac{(F_3 - F_1) \d x + (F_1 - F_2) \d y}{F_2 - F_3}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{隐函数微分性质}{Implicit-Differential-Identity}
+    证明：当 $1 + xy = k(x - y)$（其中 $k$ 为常数）时有等式
+    \begin{equation}
+        \frac{\d x}{1 + x^2} = \frac{\d y}{1 + y^2}.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    由已知条件 $1 + xy = k(x - y)$，可得
+    \begin{equation}
+        \frac{x - y}{1 + xy} = \frac{1}{k}.
+    \end{equation}
+    两端取反正切函数，有
+    \begin{equation}
+        \arctan \left( \frac{x - y}{1 + xy} \right) = \arctan \left( \frac{1}{k} \right),
+    \end{equation}
+    利用反正切恒等式 $\arctan x - \arctan y = \arctan \frac{x - y}{1 + xy}$（在定义域内），则有
+    \begin{equation}
+        \arctan x - \arctan y = C,
+    \end{equation}
+    其中 $C = \arctan \frac{1}{k}$ 为常数。对上式两端求微分得
+    \begin{equation}
+        \d (\arctan x) - \d (\arctan y) = 0,
+    \end{equation}
+    即
+    \begin{equation}
+        \frac{\d x}{1 + x^2} - \frac{\d y}{1 + y^2} = 0.
+    \end{equation}
+    由此得证
+    \begin{equation}
+        \frac{\d x}{1 + x^2} = \frac{\d y}{1 + y^2}.
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{隐函数偏导数}{Partial-Derivative-Verification}
+    设 $z = z(x, y)$ 是由方程 $2\sin(x + 2y - 3z) = x + 2y - 3z$ 所确定的隐函数，试证：
+    \begin{equation}
+        \frac{\partial z}{\partial x} + \frac{\partial z}{\partial y} = 1.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    令 $u = x + 2y - 3z$，则原方程变为 $2\sin u = u$。
+    方程两端对 $x$ 求偏导得
+    \begin{equation}
+        2\cos u \cdot \frac{\partial u}{\partial x} = \frac{\partial u}{\partial x},
+    \end{equation}
+    即
+    \begin{equation}
+        (2\cos u - 1) \frac{\partial u}{\partial x} = 0.
+    \end{equation}
+    若 $2\cos u - 1 = 0$，则 $\cos u = \frac{1}{2}$。由于 $2\sin u = u$ 仅有唯一实根 $u = 0$，而 $\cos 0 = 1 \neq \frac{1}{2}$，故 $2\cos u - 1 \neq 0$。因此必有
+    \begin{equation}
+        \frac{\partial u}{\partial x} = 0 \implies 1 - 3 \frac{\partial z}{\partial x} = 0 \implies \frac{\partial z}{\partial x} = \frac{1}{3}.
+    \end{equation}
+    同理，方程两端对 $y$ 求偏导得
+    \begin{equation}
+        2\cos u \cdot \frac{\partial u}{\partial y} = \frac{\partial u}{\partial y} \implies \frac{\partial u}{\partial y} = 0.
+    \end{equation}
+    由 $\frac{\partial u}{\partial y} = 2 - 3 \frac{\partial z}{\partial y} = 0$，解得
+    \begin{equation}
+        \frac{\partial z}{\partial y} = \frac{2}{3}.
+    \end{equation}
+    综上所述
+    \begin{equation}
+        \frac{\partial z}{\partial x} + \frac{\partial z}{\partial y} = \frac{1}{3} + \frac{2}{3} = 1.
+    \end{equation}
+    由此得证。
+\end{myproof}
+
+
+\begin{problem}{隐函数求导与全微分}{Implicit-Function-Differentiation-2}
+    设 $z = z(x, y)$ 是由方程 $\varphi(cx - az, cy - bz) = 0$ 所确定的隐函数，试证：不论 $\varphi$ 为怎样的可微函数，都有 $a\frac{\partial z}{\partial x} + b\frac{\partial z}{\partial y} = c$。
+\end{problem}
+
+\begin{myproof}
+    令 $u = cx - az$，$v = cy - bz$。对方程 $\varphi(u, v) = 0$ 两端分别关于 $x$ 和 $y$ 求偏导：
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial \varphi}{\partial u} \left( c - a \frac{\partial z}{\partial x} \right) + \frac{\partial \varphi}{\partial v} \left( -b \frac{\partial z}{\partial x} \right) & = 0, \\
+            \frac{\partial \varphi}{\partial u} \left( -a \frac{\partial z}{\partial y} \right) + \frac{\partial \varphi}{\partial v} \left( c - b \frac{\partial z}{\partial y} \right) & = 0.
+        \end{aligned}
+    \end{equation}
+    由上述两式整理得：
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial z}{\partial x} & = \frac{c \varphi_u}{a \varphi_u + b \varphi_v}, \\
+            \frac{\partial z}{\partial y} & = \frac{c \varphi_v}{a \varphi_u + b \varphi_v}.
+        \end{aligned}
+    \end{equation}
+    将上述结果代入待证等式的左端：
+    \begin{equation}
+        a \frac{\partial z}{\partial x} + b \frac{\partial z}{\partial y} = a \left( \frac{c \varphi_u}{a \varphi_u + b \varphi_v} \right) + b \left( \frac{c \varphi_v}{a \varphi_u + b \varphi_v} \right) = \frac{c(a \varphi_u + b \varphi_v)}{a \varphi_u + b \varphi_v} = c.
+    \end{equation}
+    证毕。
+\end{myproof}
+
+\begin{problem}{隐函数的一阶与二阶导数}{Higher-Order-Implicit-Derivative}
+    设 $z = x^2 + y^2$，其中 $y = y(x)$ 为由方程 $x^2 - xy + y^2 = 1$ 所定义的函数，求 $\frac{\d z}{\d x}$ 及 $\frac{\d^2 z}{\d x^2}$。
+\end{problem}
+
+\begin{solution}
+    对方程 $x^2 - xy + y^2 = 1$ 两端关于 $x$ 求导：
+    \begin{equation}
+        2x - (y + x y') + 2yy' = 0 \implies y' = \frac{y - 2x}{2y - x}.
+    \end{equation}
+    注意到 $z = x^2 + y^2 = 1 + xy$，对 $z$ 求一阶导数：
+    \begin{equation}
+        \frac{\d z}{\d x} = y + xy' = y + x \left( \frac{y - 2x}{2y - x} \right) = \frac{2y^2 - xy + xy - 2x^2}{2y - x} = \frac{2(y^2 - x^2)}{2y - x}.
+    \end{equation}
+    对一阶导数表达式继续关于 $x$ 求导以获得二阶导数。首先计算 $y''$：
+    \begin{equation}
+        y'' = \frac{(y' - 2)(2y - x) - (y - 2x)(2y' - 1)}{(2y - x)^2} = \frac{3xy' - 3y}{(2y - x)^2} = \frac{3x\frac{y - 2x}{2y - x} - 3y}{(2y - x)^2} = \frac{-6(x^2 - xy + y^2)}{(2y - x)^3} = \frac{-6}{(2y - x)^3}.
+    \end{equation}
+    进而计算 $z''$：
+    \begin{equation}
+        \frac{\d^2 z}{\d x^2} = 2y' + xy'' = 2 \left( \frac{y - 2x}{2y - x} \right) - \frac{6x}{(2y - x)^3} = \frac{2(y - 2x)(2y - x)^2 - 6x}{(2y - x)^3}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\d z}{\d x} = \frac{2(y^2 - x^2)}{2y - x}, \quad \frac{\d^2 z}{\d x^2} = \frac{2(y - 2x)(2y - x)^2 - 6x}{(2y - x)^3}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{复合隐函数求导}{Implicit-Composite-Chain-Rule}
+    设 $y = f(x + t)$，而 $t$ 是由方程 $y + g(x, t) = 0$ 所确定的 $x, y$ 的函数，求 $\frac{\d y}{\d x}$。
+\end{problem}
+
+\begin{solution}
+    根据题意，将 $y$ 代入含 $t$ 的方程中，有 $f(x + t) + g(x, t) = 0$。两端关于 $x$ 求全导数：
+    \begin{equation}
+        f'(x + t) \cdot \left( 1 + \frac{\d t}{\d x} \right) + \frac{\partial g}{\partial x} + \frac{\partial g}{\partial t} \cdot \frac{\d t}{\d x} = 0. \label{eq:total-diff}
+    \end{equation}
+    解出 $\frac{\d t}{\d x}$ 得：
+    \begin{equation}
+        \frac{\d t}{\d x} = -\frac{f' + g_x}{f' + g_t}.
+    \end{equation}
+    由于 $y = f(x + t)$，其关于 $x$ 的全导数为：
+    \begin{equation}
+        \frac{\d y}{\d x} = f'(x + t) \left( 1 + \frac{\d t}{\d x} \right) = f' \left( 1 - \frac{f' + g_x}{f' + g_t} \right) = f' \cdot \frac{f' + g_t - f' - g_x}{f' + g_t}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\d y}{\d x} = \frac{f'(g_t - g_x)}{f' + g_t}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{隐函数组求导}{Implicit-System-Differentiation}
+    设 $x = x(z), y = y(z)$ 是方程组 $\begin{cases} x + y + z = 0, \\ x^2 + y^2 + z^2 = 1 \end{cases}$ 所确定的隐函数组，求 $\frac{\d x}{\d z}, \frac{\d y}{\d z}$。
+\end{problem}
+
+\begin{solution}
+    将方程组两端关于 $z$ 求导：
+    \begin{equation}
+        \begin{cases}
+            \frac{\d x}{\d z} + \frac{\d y}{\d z} + 1 = 0 \\
+            2x \frac{\d x}{\d z} + 2y \frac{\d y}{\d z} + 2z = 0
+        \end{cases} \implies
+        \begin{cases}
+            \frac{\d x}{\d z} + \frac{\d y}{\d z} = -1 \\
+            x \frac{\d x}{\d z} + y \frac{\d y}{\d z} = -z
+        \end{cases}
+    \end{equation}
+    利用克莱姆法则求解该线性方程组：
+    \begin{equation}
+        \frac{\d x}{\d z} = \frac{\begin{vmatrix} -1 & 1 \\ -z & y \end{vmatrix}}{\begin{vmatrix} 1 & 1 \\ x & y \end{vmatrix}} = \frac{z - y}{y - x}, \quad \frac{\d y}{\d z} = \frac{\begin{vmatrix} 1 & -1 \\ x & -z \end{vmatrix}}{\begin{vmatrix} 1 & 1 \\ x & y \end{vmatrix}} = \frac{x - z}{y - x}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\d x}{\d z} = \frac{z - y}{y - x}, \quad \frac{\d y}{\d z} = \frac{x - z}{y - x}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{雅可比行列式}{Jacobian-Determinant-2}
+    设 $u = u(x,y), v = v(x,y)$ 是由下列方程组所确定的隐函数组，求 $\frac{\partial(u,v)}{\partial(x,y)}$：
+    \begin{enumerate}
+        \item $\begin{cases} u^2 + v^2 + x^2 + y^2 = 1, \\ u + v + x + y = 0; \end{cases}$
+        \item $\begin{cases} xu - yv = 0, \\ yu + xv = 1; \end{cases}$
+        \item $\begin{cases} u = f(ux, v + y), \\ v = g(u - x, v^2y). \end{cases}$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $F = u^2 + v^2 + x^2 + y^2 - 1$，$G = u + v + x + y$。计算偏导数行列式：
+    \begin{equation}
+        \frac{\partial(F,G)}{\partial(u,v)} =
+        \begin{vmatrix}
+            2u & 2v \\
+            1  & 1
+        \end{vmatrix} = 2(u - v),
+    \end{equation}
+    \begin{equation}
+        \frac{\partial(F,G)}{\partial(x,y)} =
+        \begin{vmatrix}
+            2x & 2y \\
+            1  & 1
+        \end{vmatrix} = 2(x - y).
+    \end{equation}
+    根据隐函数求导法则，有：
+    \begin{equation}
+        \frac{\partial(u,v)}{\partial(x,y)} = \frac{\frac{\partial(F,G)}{\partial(x,y)}}{\frac{\partial(F,G)}{\partial(u,v)}} = \frac{2(x - y)}{2(u - v)}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\partial(u,v)}{\partial(x,y)} = \frac{x - y}{u - v}}
+    \end{equation}
+
+    \ansitem{2}
+
+    令 $F = xu - yv$，$G = yu + xv - 1$。计算偏导数行列式：
+    \begin{equation}
+        \frac{\partial(F,G)}{\partial(u,v)} =
+        \begin{vmatrix}
+            x & -y \\
+            y & x
+        \end{vmatrix} = x^2 + y^2,
+    \end{equation}
+    \begin{equation}
+        \frac{\partial(F,G)}{\partial(x,y)} =
+        \begin{vmatrix}
+            u & -v \\
+            v & u
+        \end{vmatrix} = u^2 + v^2.
+    \end{equation}
+    则隐函数组的雅可比行列式为：
+    \begin{equation}
+        \boxed{\frac{\partial(u,v)}{\partial(x,y)} = \frac{u^2 + v^2}{x^2 + y^2}}
+    \end{equation}
+
+    \ansitem{3}
+
+    令 $F = u - f(ux, v + y)$，$G = v - g(u - x, v^2y)$。设 $f_1, f_2$ 与 $g_1, g_2$ 分别为函数 $f, g$ 对其第一、第二个中间变量的偏导数：
+    \begin{equation}
+        \frac{\partial(F,G)}{\partial(u,v)} =
+        \begin{vmatrix}
+            1 - xf_1 & -f_2       \\
+            -g_1     & 1 - 2vyg_2
+        \end{vmatrix} = (1 - xf_1)(1 - 2vyg_2) - f_2g_1,
+    \end{equation}
+    \begin{equation}
+        \frac{\partial(F,G)}{\partial(x,y)} =
+        \begin{vmatrix}
+            -uf_1 & -f_2    \\
+            g_1   & -v^2g_2
+        \end{vmatrix} = uv^2f_1g_2 + f_2g_1.
+    \end{equation}
+    于是得到：
+    \begin{equation}
+        \boxed{\frac{\partial(u,v)}{\partial(x,y)} = \frac{uv^2f_1g_2 + f_2g_1}{(1 - xf_1)(1 - 2vyg_2) - f_2g_1}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{反函数组偏导数}{Inverse-Function-Partial-Derivatives}
+    求下列函数组所确定的反函数组的偏导数 $\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial v}{\partial x}, \frac{\partial v}{\partial y}$：
+    \begin{enumerate}
+        \item $\begin{cases} x = f(u, v), \\ y = g(u, v); \end{cases}$
+        \item $\begin{cases} x = \e^u + u \sin v, \\ y = \e^u - u \cos v. \end{cases}$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对原方程组两边求微分，得
+    \begin{equation}
+        \begin{cases}
+            \d x = f_u \d u + f_v \d v, \\
+            \d y = g_u \d u + g_v \d v.
+        \end{cases}
+    \end{equation}
+    记雅可比行列式 $J = \frac{\partial(f, g)}{\partial(u, v)} = f_u g_v - f_v g_u$，解上述关于 $\d u, \d v$ 的线性方程组，得
+    \begin{equation}
+        \begin{cases}
+            \d u = \frac{1}{J} (g_v \d x - f_v \d y), \\
+            \d v = \frac{1}{J} (-g_u \d x + f_u \d y).
+        \end{cases}
+    \end{equation}
+    根据全微分形式 $\d u = \frac{\partial u}{\partial x} \d x + \frac{\partial u}{\partial y} \d y$，对比系数得
+    \begin{equation}
+        \boxed{\frac{\partial u}{\partial x} = \frac{g_v}{f_u g_v - f_v g_u}, \quad \frac{\partial u}{\partial y} = -\frac{f_v}{f_u g_v - f_v g_u}, \quad \frac{\partial v}{\partial x} = -\frac{g_u}{f_u g_v - f_v g_u}, \quad \frac{\partial v}{\partial y} = \frac{f_u}{f_u g_v - f_v g_u}}
+    \end{equation}
+
+    \ansitem{2}
+
+    计算原函数组的各偏导数：
+    \begin{equation}
+        \begin{aligned}
+            x_u & = \e^u + \sin v, \quad x_v = u \cos v, \\
+            y_u & = \e^u, \quad y_v = u \sin v.
+        \end{aligned}
+    \end{equation}
+    其雅可比行列式为
+    \begin{equation}
+        J = x_u y_v - x_v y_u = (\e^u + \sin v)u \sin v - (u \cos v)\e^u = u \e^u (\sin v - \cos v) + u \sin^2 v.
+    \end{equation}
+    利用反函数偏导数公式
+    \begin{equation}
+        \begin{bmatrix}
+            u_x & u_y \\
+            v_x & v_y
+        \end{bmatrix} = \frac{1}{J}
+        \begin{bmatrix}
+            y_v  & -x_v \\
+            -y_u & x_u
+        \end{bmatrix} = \frac{1}{J}
+        \begin{bmatrix}
+            u \sin v & -u \cos v     \\
+            -\e^u    & \e^u + \sin v
+        \end{bmatrix}.
+    \end{equation}
+    故最终结果为
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                \frac{\partial u}{\partial x} & = \frac{\sin v}{\e^u (\sin v - \cos v) + \sin^2 v},   & \frac{\partial u}{\partial y} & = -\frac{\cos v}{\e^u (\sin v - \cos v) + \sin^2 v},          \\
+                \frac{\partial v}{\partial x} & = -\frac{\e^u}{u[\e^u (\sin v - \cos v) + \sin^2 v]}, & \frac{\partial v}{\partial y} & = \frac{\e^u + \sin v}{u[\e^u (\sin v - \cos v) + \sin^2 v]}.
+            \end{aligned}
+        }
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{复合函数全导数}{Total-Derivative-Composite-Function}
+    设 $u = f(x, y, z)$, $\varphi(x^2, \e^y, z) = 0$, $y = \sin x$, 其中 $f, \varphi$ 都具有一阶连续偏导数, 且 $\frac{\partial \varphi}{\partial z} \neq 0$. 求 $\frac{\d u}{\d x}$.
+\end{problem}
+
+\begin{solution}
+    根据复合函数全导数公式，有
+    \begin{equation}
+        \label{eq:total-u}
+        \frac{\d u}{\d x} = \frac{\partial f}{\partial x} + \frac{\partial f}{\partial y} \frac{\d y}{\d x} + \frac{\partial f}{\partial z} \frac{\d z}{\d x}.
+    \end{equation}
+    已知 $y = \sin x$，则
+    \begin{equation}
+        \label{eq:dy-dx}
+        \frac{\d y}{\d x} = \cos x.
+    \end{equation}
+    对于隐方程 $\varphi(x^2, \e^y, z) = 0$，令其变元分别为 $t_1, t_2, t_3$，方程两边对 $x$ 求导得
+    \begin{equation}
+        \frac{\partial \varphi}{\partial t_1} \cdot 2x + \frac{\partial \varphi}{\partial t_2} \cdot \e^y \frac{\d y}{\d x} + \frac{\partial \varphi}{\partial t_3} \frac{\d z}{\d x} = 0.
+    \end{equation}
+    解得
+    \begin{equation}
+        \label{eq:dz-dx}
+        \frac{\d z}{\d x} = - \frac{2x \varphi_1 + \e^{\sin x} \cos x \varphi_2}{\varphi_3}.
+    \end{equation}
+    将 \cref{eq:dy-dx} 与 \cref{eq:dz-dx} 代入 \cref{eq:total-u} 中，得
+    \begin{equation}
+        \boxed{\frac{\d u}{\d x} = f_x + f_y \cos x - f_z \frac{2x \varphi_1 + \e^{\sin x} \cos x \varphi_2}{\varphi_3}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{隐函数求导}{Implicit-Function-Derivative}
+    设 $y = y(x), z = z(x)$ 是由方程 $z = xf(x+y)$ 和 $F(x,y,z) = 0$ 所确定的函数，其中 $f$ 和 $F$ 分别具有一阶连续导数和一阶连续偏导数. 求 $\frac{\d z}{\d x}$.
+\end{problem}
+
+\begin{solution}
+    对两方程关于 $x$ 求导，得
+    \begin{equation}
+        \begin{cases}
+            \dfrac{\d z}{\d x} = f(x+y) + x f'(x+y) \left( 1 + \dfrac{\d y}{\d x} \right), \\
+            F_x + F_y \dfrac{\d y}{\d x} + F_z \dfrac{\d z}{\d x} = 0.
+        \end{cases}
+    \end{equation}
+    由第二个方程解得
+    \begin{equation}
+        \dfrac{\d y}{\d x} = -\frac{F_x + F_z \frac{\d z}{\d x}}{F_y}.
+    \end{equation}
+    代入第一个方程中，有
+    \begin{equation}
+        \frac{\d z}{\d x} = f + x f' \left( 1 - \frac{F_x + F_z \frac{\d z}{\d x}}{F_y} \right) = f + x f' - \frac{x f' F_x}{F_y} - \frac{x f' F_z}{F_y} \frac{\d z}{\d x}.
+    \end{equation}
+    整理关于 $\frac{\d z}{\d x}$ 的项
+    \begin{equation}
+        \frac{\d z}{\d x} \left( 1 + \frac{x f' F_z}{F_y} \right) = f + x f' - \frac{x f' F_x}{F_y},
+    \end{equation}
+    即
+    \begin{equation}
+        \frac{\d z}{\d x} \frac{F_y + x f' F_z}{F_y} = \frac{f F_y + x f'(F_y - F_x)}{F_y}.
+    \end{equation}
+    解得
+    \begin{equation}
+        \boxed{\frac{\d z}{\d x} = \frac{f F_y + x f'(F_y - F_x)}{F_y + x f' F_z}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{隐函数微分}{Implicit-Function-Differential-2}
+    设 $u = u(x,y), v = v(x,y)$ 是由方程 $F(x,y,u,v) = 0$ 和 $G(x,y,u,v) = 0$ 所确定的隐函数，其中 $F$ 和 $G$ 都具有一阶连续偏导数. 求 $\d u, \d v$.
+\end{problem}
+
+\begin{solution}
+    对原方程组两端求全微分，得
+    \begin{equation}
+        \begin{cases}
+            F_x \d x + F_y \d y + F_u \d u + F_v \d v = 0, \\
+            G_x \d x + G_y \d y + G_u \d u + G_v \d v = 0.
+        \end{cases}
+    \end{equation}
+    整理为关于 $\d u, \d v$ 的线性方程组
+    \begin{equation}
+        \begin{cases}
+            F_u \d u + F_v \d v = -(F_x \d x + F_y \d y), \\
+            G_u \d u + G_v \d v = -(G_x \d x + G_y \d y).
+        \end{cases}
+    \end{equation}
+    记雅可比行列式 $J = \dfrac{\partial(F,G)}{\partial(u,v)} = F_u G_v - F_v G_u$. 根据克莱姆法则，得
+    \ansitem{1}
+    \begin{equation}
+        \d u = \frac{\begin{vmatrix} -(F_x \d x + F_y \d y) & F_v \\ -(G_x \d x + G_y \d y) & G_v \end{vmatrix}}{J} = \frac{(F_v G_x - F_x G_v) \d x + (F_v G_y - F_y G_v) \d y}{J}.
+    \end{equation}
+    \ansitem{2}
+    \begin{equation}
+        \d v = \frac{\begin{vmatrix} F_u & -(F_x \d x + F_y \d y) \\ G_u & -(G_x \d x + G_y \d y) \end{vmatrix}}{J} = \frac{(F_x G_u - F_u G_x) \d x + (F_y G_u - F_u G_y) \d y}{J}.
+    \end{equation}
+    使用雅可比记号简写最终结果：
+    \begin{equation}
+        \boxed{\d u = -\frac{1}{J} \left[ \frac{\partial(F,G)}{\partial(x,v)} \d x + \frac{\partial(F,G)}{\partial(y,v)} \d y \right], \quad \d v = -\frac{1}{J} \left[ \frac{\partial(F,G)}{\partial(u,x)} \d x + \frac{\partial(F,G)}{\partial(u,y)} \d y \right]}
+    \end{equation}
+\end{solution}
+
+\endinput

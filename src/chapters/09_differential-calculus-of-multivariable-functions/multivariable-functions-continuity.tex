@@ -1,0 +1,1122 @@
+\section{多变量函数及其连续性}
+
+\begin{problem}{德·摩根定律}{De-Morgan-Laws}
+    证明：$(A \cap B)^c = A^c \cup B^c$ 且 $(A \cup B)^c = A^c \cap B^c$。
+\end{problem}
+
+\begin{myproof}
+    根据集合相等的定义，通过证明元素的等价性来完成推导。对于第一个等式：
+    \begin{equation}
+        \begin{aligned}
+            x \in (A \cap B)^c & \iff x \notin A \cap B              \\
+                               & \iff \neg (x \in A \land x \in B)   \\
+                               & \iff (x \notin A) \lor (x \notin B) \\
+                               & \iff (x \in A^c) \lor (x \in B^c)   \\
+                               & \iff x \in A^c \cup B^c
+        \end{aligned}
+    \end{equation}
+    从而得证：
+    \begin{equation}
+        \boxed{(A \cap B)^c = A^c \cup B^c}
+    \end{equation}
+    对于第二个等式，同理可得：
+    \begin{equation}
+        \begin{aligned}
+            x \in (A \cup B)^c & \iff x \notin A \cup B               \\
+                               & \iff \neg (x \in A \lor x \in B)     \\
+                               & \iff (x \notin A) \land (x \notin B) \\
+                               & \iff (x \in A^c) \land (x \in B^c)   \\
+                               & \iff x \in A^c \cap B^c
+        \end{aligned}
+    \end{equation}
+    从而得证：
+    \begin{equation}
+        \boxed{(A \cup B)^c = A^c \cap B^c}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{开集与闭集的运算性质}{Open-Closed-Sets-Operations}
+    证明两个开集的交集和并集仍是开集，两个闭集的交集和并集仍是闭集。
+\end{problem}
+
+\begin{myproof}
+    设 $G_1, G_2$ 为两个开集。
+    \begin{itemize}
+        \item 对于并集 $G_1 \cup G_2$：任取 $x \in G_1 \cup G_2$，则 $x \in G_1$ 或 $x \in G_2$。不妨设 $x \in G_1$，由 $G_1$ 的开性知，$\exists \delta > 0$ 使得 $B(x, \delta) \subset G_1 \subset G_1 \cup G_2$，故 $G_1 \cup G_2$ 为开集。
+        \item 对于交集 $G_1 \cap G_2$：任取 $x \in G_1 \cap G_2$，则 $x \in G_1$ 且 $x \in G_2$。由 $G_1, G_2$ 的开性知：
+              \begin{equation}
+                  \exists \delta_1 > 0, B(x, \delta_1) \subset G_1 \quad \text{且} \quad \exists \delta_2 > 0, B(x, \delta_2) \subset G_2
+              \end{equation}
+              令 $\delta = \min\{\delta_1, \delta_2\} > 0$，则 $B(x, \delta) \subset G_1 \cap G_2$，故 $G_1 \cap G_2$ 为开集。
+    \end{itemize}
+    设 $F_1, F_2$ 为两个闭集，则其补集 $F_1^c, F_2^c$ 为开集。由德·摩根定律：
+    \begin{equation}
+        (F_1 \cup F_2)^c = F_1^c \cap F_2^c, \quad (F_1 \cap F_2)^c = F_1^c \cup F_2^c
+    \end{equation}
+    由于开集的有限交与有限并仍为开集，可知 $(F_1 \cup F_2)^c$ 与 $(F_1 \cap F_2)^c$ 均为开集。根据闭集定义，其补集 $F_1 \cup F_2$ 与 $F_1 \cap F_2$ 均为闭集。综上所述：
+    \begin{equation}
+        \boxed{\text{两个开集的交、并集仍为开集；两个闭集的交、并集仍为闭集}}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{开集与边界}{Open-Set-Boundary}
+    证明：满足 $y > ax + b$ 的所有点 $(x, y)$ 是一个开集。在坐标平面上画出它的范围，并求它的边界点应满足的关系。
+\end{problem}
+
+\begin{myproof}
+    令 $f(x, y) = y - ax - b$，则 $f: \symbb{R}^2 \to \symbb{R}$ 为连续函数。
+    设集合 $S = \{ (x, y) \in \symbb{R}^2 \mid y > ax + b \}$，则有
+    \begin{equation}
+        S = \{ (x, y) \in \symbb{R}^2 \mid f(x, y) \in (0, +\infty) \} = f^{-1}\bigl( (0, +\infty) \bigr)
+    \end{equation}
+    由于 $(0, +\infty)$ 是 $\symbb{R}$ 中的开集，且连续函数的原像是开集，故 $S$ 是 $\symbb{R}^2$ 中的一个开集。
+
+    其范围在坐标平面上的示意图如下（以 $a > 0, b > 0$ 为例）：
+    \begin{center}
+        \begin{tikzpicture}[-latex, scale=1.2]
+            \draw (-2.5, 0) -- (2.5, 0) node[right] {$x$};
+            \draw (0, -1) -- (0, 2.5) node[above] {$y$};
+            \node at (-0.2, -0.2) {$O$};
+            \fill[blue!10] (-2, -0.5) -- (2, 1.5) -- (2, 2.5) -- (-2, 2.5) -- cycle;
+            \draw[dashed, thick, domain=-2.2:2.2] plot (\x, {0.5*\x + 0.5});
+            \node[below right] at (1, 1) {$y > ax + b$};
+            \node[right] at (2.2, 1.6) {$y = ax + b$};
+        \end{tikzpicture}
+    \end{center}
+
+    该集合的闭包为 $\overline{S} = \{ (x, y) \mid y \ge ax + b \}$，其内部为 $S^\circ = S$。
+    根据边界的定义 $\partial S = \overline{S} \setminus S^\circ$，可得边界点应满足的关系为
+    \begin{equation}
+        \boxed{y = ax + b}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{距离函数的连续性}{Distance-Function-Continuity}
+    设 $\lim M_n = M_0, \lim M'_n = M'_0$. 求证: $\lim \rho(M_n, M'_n) = \rho(M_0, M'_0)$.
+\end{problem}
+
+\begin{myproof}
+    根据度量空间的三角不等式，有
+    \begin{equation}
+        \rho(M_n, M'_n) \le \rho(M_n, M_0) + \rho(M_0, M'_0) + \rho(M'_0, M'_n)
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \rho(M_n, M'_n) - \rho(M_0, M'_0) \le \rho(M_n, M_0) + \rho(M'_n, M'_0)
+    \end{equation}
+    同理，交换位置可得
+    \begin{equation}
+        \rho(M_0, M'_0) \le \rho(M_0, M_n) + \rho(M_n, M'_n) + \rho(M'_n, M'_0)
+    \end{equation}
+    从而有
+    \begin{equation}
+        \rho(M_0, M'_0) - \rho(M_n, M'_n) \le \rho(M_n, M_0) + \rho(M'_n, M'_0)
+    \end{equation}
+    综合上述两个不等式，得到
+    \begin{equation}
+        |\rho(M_n, M'_n) - \rho(M_0, M'_0)| \le \rho(M_n, M_0) + \rho(M'_n, M'_0)
+    \end{equation}
+    由于已知 $\lim M_n = M_0$ 且 $\lim M'_n = M'_0$, 即
+    \begin{equation}
+        \lim_{n \to \infty} \rho(M_n, M_0) = 0, \quad \lim_{n \to \infty} \rho(M'_n, M'_0) = 0
+    \end{equation}
+    由夹逼定理可知
+    \begin{equation}
+        \lim_{n \to \infty} |\rho(M_n, M'_n) - \rho(M_0, M'_0)| = 0
+    \end{equation}
+    故命题得证
+    \begin{equation}
+        \lim_{n \to \infty} \rho(M_n, M'_n) = \rho(M_0, M'_0)
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{收敛点列的有界性}{Convergence-Boundedness}
+    证明：平面上收敛的点列必然是有界的.
+\end{problem}
+
+\begin{myproof}
+    设平面点列 $\{P_n\}$ 收敛于 $P_0$.
+    根据收敛定义，取 $\varepsilon = 1$, 必存在正整数 $N$, 使得当 $n > N$ 时, 恒有
+    \begin{equation}
+        \rho(P_n, P_0) < 1
+    \end{equation}
+    令
+    \begin{equation}
+        R = \max \left\{ \rho(P_1, P_0), \rho(P_2, P_0), \dots, \rho(P_N, P_0), 1 \right\}
+    \end{equation}
+    显然 $R > 0$. 对于任意正整数 $n$:
+    \begin{enumerate}
+        \item 若 $n \le N$, 则 $\rho(P_n, P_0) \le \max \{ \rho(P_1, P_0), \dots, \rho(P_N, P_0) \} \le R$;
+        \item 若 $n > N$, 则 $\rho(P_n, P_0) < 1 \le R$.
+    \end{enumerate}
+    综上所述, 对于所有正整数 $n$, 恒有 $\rho(P_n, P_0) \le R$.
+    这说明点列 $\{P_n\}$ 包含在以 $P_0$ 为圆心, $R$ 为半径的闭圆盘内, 因此该点列是有界的.
+\end{myproof}
+
+
+\begin{problem}{拓扑正弦曲线}{Topologists-Sine-Curve}
+    证明集合 $E = \{(x,y) : y = \sin \frac{1}{x}, 0 < x \leqslant \frac{2}{\uppi}\} \cup \{(0,y) : 0 \leqslant y \leqslant 1\}$ 是连通的但不是道路连通的。
+
+    \begin{center}
+        \begin{tikzpicture}[scale=2, >=latex]
+            \draw (0,-0.5) -- (0,1.5) node[left] {$y$};
+            \draw (-0.2,0) -- (1,0) node[below] {$x$};
+            \node at (-0.1,-0.1) {$O$};
+            \draw[thick, blue, domain=0.05:0.6366, samples=500] plot (\x, {sin(1/\x r)});
+            \draw[thick, red] (0,0) -- (0,1);
+            \node[blue] at (0.5,1.2) {$y = \sin \frac{1}{x}$};
+            \node[red, left] at (0,0.5) {$L$};
+        \end{tikzpicture}
+    \end{center}
+\end{problem}
+
+\begin{myproof}
+    令 $E_1 = \left\{ \left(x, \sin \frac{1}{x}\right) : 0 < x \leqslant \frac{2}{\uppi} \right\}$ 且 $L = \{(0, y) : 0 \leqslant y \leqslant 1\}$，则 $E = E_1 \cup L$。
+
+    1. \textbf{连通性证明}：
+    由于 $E_1$ 是连续函数 $f(x) = \sin \frac{1}{x}$ 在连通集 $(0, 2/\uppi]$ 上的图像，故 $E_1$ 是道路连通的，从而也是连通的。
+    对于任意 $y \in [0, 1]$，取序列 $x_n = \left( 2n\uppi + \arcsin y \right)^{-1}$，当 $n \to \infty$ 时，$x_n \to 0^+$ 且 $\sin(1/x_n) = y$。
+    这意味着 $(x_n, y) \in E_1$ 且 $(x_n, y) \to (0, y)$，故 $L \subset \overline{E_1}$。
+    根据连通集的性质，若 $E_1 \subset E \subset \overline{E_1}$ 且 $E_1$ 连通，则 $E$ 必为连通集。
+
+    2. \textbf{非道路连通性证明}：
+    假设 $E$ 是道路连通的，则存在连续映射 $\symbfit{\gamma}(t) = (x(t), y(t))$，其中 $t \in [0, 1]$，使得 $\symbfit{\gamma}(0) = (0, 0) \in L$ 且 $\symbfit{\gamma}(1) = (2/\uppi, 1) \in E_1$。
+    定义 $t_0 = \sup \{ t \in [0, 1] : x(t) = 0 \}$。由 $x(t)$ 的连续性及 $x(1) > 0$ 知 $0 \leqslant t_0 < 1$ 且 $x(t_0) = 0$。
+    由于 $\symbfit{\gamma}(t) \in E$ 且对于 $t \in (t_0, 1]$ 有 $x(t) > 0$，故当 $t > t_0$ 时必有 $y(t) = \sin \frac{1}{x(t)}$。
+    由 $\symbfit{\gamma}$ 在 $t_0$ 处的连续性可知：
+    \begin{equation}
+        \lim_{t \to t_0^+} y(t) = y(t_0) \in [0, 1]
+    \end{equation}
+    然而，由于 $\lim_{t \to t_0^+} x(t) = 0$，我们可以构造序列 $t_n \to t_0^+$ 使得 $x(t_n) = \frac{1}{2n\uppi - \uppi/2}$。此时：
+    \begin{equation}
+        y(t_n) = \sin\left( 2n\uppi - \frac{\uppi}{2} \right) = -1
+    \end{equation}
+    从而有 $\lim_{n \to \infty} y(t_n) = -1$，这要求 $y(t_0) = -1$。
+    但这与 $y(t_0) \in [0, 1]$ 矛盾。故不存在这样的连续路径。
+
+    \begin{equation}
+        \boxed{E \text{ 是连通的但不是道路连通的}}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{多元函数定义域与拓扑性质}{Domain-Topology}
+    确定并画出以下函数的定义域, 并指出它们是否是区域, 是否是闭区域.
+    \begin{enumerate}
+        \item $z = \sqrt{x+y}$
+        \item $z = \sqrt{x - 2y^2}$
+        \item $z = \frac{\sqrt{x^2+y^2+2x}}{\sqrt{2x-x^2-y^2}}$
+        \item $z = \sqrt{\sin(x^2+y^2)}$
+        \item $z = \ln\left(1 - \frac{x^2}{a^2} - \frac{y^2}{b^2}\right)$
+        \item $z = \sqrt{\cos x \sin y}$
+        \item $u = \arcsin \frac{\sqrt{x^2+y^2}}{z}$
+        \item $u = \sqrt{2az - x^2 - y^2 - z^2} \quad (a > 0)$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    由 $x+y \ge 0 \implies y \ge -x$.
+    \begin{center}
+        \begin{tikzpicture}[>=latex, scale=0.8]
+            \fill[cyan!10] (-2.5,2.5) -- (2.5,-2.5) -- (2.8,-2.5) -- (2.8,2.8) -- (-2.5,2.8) -- cycle;
+            \draw[->] (-3,0) -- (3,0) node[right] {$x$};
+            \draw[->] (0,-3) -- (0,3) node[above] {$y$};
+            \draw[thick, domain=-2.5:2.5] plot (\x, {-\x}) node[below] {$y=-x$};
+            \node at (0,0) [below left] {$O$};
+        \end{tikzpicture}
+    \end{center}
+    该集合是连通的闭集, 故其不是区域 (非开集), 是闭区域.
+    \begin{equation}
+        \boxed{D = \{ (x, y) \mid x+y \ge 0 \}}
+    \end{equation}
+
+    \ansitem{2}
+
+    由 $x - 2y^2 \ge 0 \implies x \ge 2y^2$.
+    \begin{center}
+        \begin{tikzpicture}[>=latex, scale=0.8]
+            \fill[cyan!10, samples=50, domain=-1.2:1.2] plot ({2*\x*\x}, \x) -- (3, 1.2) -- (3, -1.2) -- cycle;
+            \draw[->] (-1,0) -- (3.5,0) node[right] {$x$};
+            \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+            \draw[thick, samples=50, domain=-1.2:1.2] plot ({2*\x*\x}, \x) node[right] {$x=2y^2$};
+            \node at (0,0) [below left] {$O$};
+        \end{tikzpicture}
+    \end{center}
+    该集合是连通的闭集, 故其不是区域, 是闭区域.
+    \begin{equation}
+        \boxed{D = \{ (x, y) \mid x \ge 2y^2 \}}
+    \end{equation}
+
+    \ansitem{3}
+
+    需满足 $x^2+y^2+2x \ge 0$ 且 $2x-x^2-y^2 > 0$, 即:
+    \begin{equation}
+        \begin{cases} (x+1)^2+y^2 \ge 1 \\ (x-1)^2+y^2 < 1 \end{cases}
+    \end{equation}
+    由于圆盘 $(x-1)^2+y^2 < 1$ 除原点外均在 $(x+1)^2+y^2 > 1$ 范围内.
+    \begin{center}
+        \begin{tikzpicture}[>=latex, scale=1]
+            \draw[dashed, fill=cyan!10] (1,0) circle (1);
+            \draw[thick] (-1,0) circle (1);
+            \draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+            \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+            \fill[white] (0,0) circle (0.06);
+            \draw (0,0) circle (0.06);
+            \node at (1,0) [below] {$(1,0)$};
+        \end{tikzpicture}
+    \end{center}
+    该集合是连通开集, 故其是区域, 不是闭区域.
+    \begin{equation}
+        \boxed{D = \{ (x, y) \mid (x-1)^2+y^2 < 1, (x, y) \neq (0,0) \}}
+    \end{equation}
+
+    \ansitem{4}
+
+    由 $\sin(x^2+y^2) \ge 0 \implies 2k\uppi \le x^2+y^2 \le (2k+1)\uppi \quad (k = 0, 1, 2, \dots)$.
+    \begin{center}
+        \begin{tikzpicture}[>=latex, scale=0.5]
+            \draw[->] (-4,0) -- (4,0) node[right] {$x$};
+            \draw[->] (0,-4) -- (0,4) node[above] {$y$};
+            \fill[cyan!10, even odd rule] (0,0) circle (1.77) (0,0) circle (0);
+            \fill[cyan!10, even odd rule] (0,0) circle (3.06) (0,0) circle (2.5);
+            \draw (0,0) circle (1.77); \draw (0,0) circle (2.5); \draw (0,0) circle (3.06);
+            \node at (0,0) [below left] {$O$};
+        \end{tikzpicture}
+    \end{center}
+    该集合由互不相连的闭环带组成, 不连通, 故既不是区域, 也不是闭区域.
+    \begin{equation}
+        \boxed{D = \bigcup_{k=0}^{\infty} \{ (x, y) \mid 2k\uppi \le x^2+y^2 \le (2k+1)\uppi \}}
+    \end{equation}
+
+    \ansitem{5}
+
+    由 $1 - \frac{x^2}{a^2} - \frac{y^2}{b^2} > 0 \implies \frac{x^2}{a^2} + \frac{y^2}{b^2} < 1$.
+    \begin{center}
+        \begin{tikzpicture}[>=latex, scale=0.8]
+            \draw[dashed, fill=cyan!10] (0,0) ellipse (2 and 1.2);
+            \draw[->] (-2.5,0) -- (2.5,0) node[right] {$x$};
+            \draw[->] (0,-1.5) -- (0,1.5) node[above] {$y$};
+            \node at (0,0) [below left] {$O$};
+        \end{tikzpicture}
+    \end{center}
+    此为椭圆内部开集, 且连通, 故其是区域, 不是闭区域.
+    \begin{equation}
+        \boxed{D = \left\{ (x, y) \mid \frac{x^2}{a^2} + \frac{y^2}{b^2} < 1 \right\}}
+    \end{equation}
+
+    \ansitem{6}
+
+    由 $\cos x \sin y \ge 0$.
+    \begin{center}
+        \begin{tikzpicture}[>=latex, scale=0.5]
+            \foreach \i in {-1, 0, 1} \foreach \j in {-1, 0, 1} {
+                    \pgfmathparse{mod(\i+\j, 2) == 0 ? 1 : 0}
+                    \ifnum\pgfmathresult=1
+                        \fill[cyan!10] ({\i*1.57}, {\j*1.57}) rectangle ({(\i+1)*1.57}, {(\j+1)*1.57});
+                        \draw ({\i*1.57}, {\j*1.57}) rectangle ({(\i+1)*1.57}, {(\j+1)*1.57});
+                    \fi
+                }
+            \draw[->] (-2.5,0) -- (4,0) node[right] {$x$};
+            \draw[->] (0,-2.5) -- (0,4) node[above] {$y$};
+            \node at (1.57,0) [below] {$\frac{\uppi}{2}$};
+            \node at (0,1.57) [left] {$\frac{\uppi}{2}$};
+        \end{tikzpicture}
+    \end{center}
+    该集合由离散分布的闭矩形块组成, 不连通, 故既不是区域, 也不是闭区域.
+    \begin{equation}
+        \boxed{D = \{ (x, y) \mid \cos x \sin y \ge 0 \}}
+    \end{equation}
+
+    \ansitem{7}
+
+    需满足 $\left| \frac{\sqrt{x^2+y^2}}{z} \right| \le 1$ 且 $z \neq 0$, 即 $x^2+y^2 \le z^2$ 且 $z \neq 0$.
+    \begin{center}
+        \begin{tikzpicture}[>=latex, scale=0.8]
+            \fill[cyan!10] (0,0) -- (1.5,2) -- (-1.5,2) -- cycle;
+            \fill[cyan!10] (0,0) -- (1.5,-2) -- (-1.5,-2) -- cycle;
+            \draw[thick] (-1.5,2) -- (1.5,-2);
+            \draw[thick] (1.5,2) -- (-1.5,-2);
+            \draw[->] (-2,0) -- (2,0) node[right] {$x,y$};
+            \draw[->] (0,-2.5) -- (0,2.5) node[above] {$z$};
+            \fill[white] (0,0) circle (0.05);
+            \draw (0,0) circle (0.05);
+        \end{tikzpicture}
+    \end{center}
+    该集合在原点处断开, 不连通, 故既不是区域, 也不是闭区域.
+    \begin{equation}
+        \boxed{D = \{ (x, y, z) \mid x^2+y^2 \le z^2, z \neq 0 \}}
+    \end{equation}
+
+    \ansitem{8}
+
+    由 $2az - x^2 - y^2 - z^2 \ge 0 \implies x^2 + y^2 + (z-a)^2 \le a^2$.
+    \begin{center}
+        \begin{tikzpicture}[>=latex, scale=0.8]
+            \draw[thick] (0,1.5) circle (1.5);
+            \fill[cyan!10, opacity=0.5] (0,1.5) circle (1.5);
+            \draw[dashed] (1.5,1.5) arc (0:180:1.5 and 0.5);
+            \draw (1.5,1.5) arc (0:-180:1.5 and 0.5);
+            \draw[->] (-2,0) -- (2,0) node[right] {$x,y$};
+            \draw[->] (0,-0.5) -- (0,3.5) node[above] {$z$};
+            \node at (0,1.5) [right] {$(0,0,a)$};
+        \end{tikzpicture}
+    \end{center}
+    该集合是连通的闭球体, 故其不是区域, 是闭区域.
+    \begin{equation}
+        \boxed{D = \{ (x, y, z) \mid x^2 + y^2 + (z-a)^2 \le a^2 \}}
+    \end{equation}
+\end{solution}
+
+\begin{note}{关于“区域”定义的讨论}{Region-Definition}
+    以下内容摘录自余启帆学长的讨论 \cite{Yu2021MathAnalysis}
+
+    针对数学分析中“区域”定义的歧义性，现整理讨论如下：
+
+    \begin{enumerate}
+        \item \textbf{《数学分析教程》（上册）：} 连通的开集称为\textbf{区域}，区域的闭包称为\textbf{闭区域}。
+        \item \textbf{《数学分析讲义》（第二册）：} 连通的开集称为\textbf{开区域}，开区域的闭包称为\textbf{闭区域}，开区域和闭区域统称为\textbf{区域}。
+    \end{enumerate}
+
+    在实际应用中，区域不可能泛指“连通的集合”，因为闭区域并不等同于连通的闭集。通常情况下：
+    \begin{itemize}
+        \item 在不严格区分边界的场合（如二元积分计算），“区域”常作为开区域和闭区域的统称。
+        \item 在理论叙述中，“区域”多作为“开区域”的简写。
+    \end{itemize}
+
+    \textbf{命题：} 连通的闭集不一定是闭区域。
+
+    \textbf{证明：}
+    取 $\symbb{R}^2$ 中的子集 $D$ 定义如下：
+    \begin{equation}
+        D = \{ (x,y) \in \symbb{R}^2 \mid x^2 + y^2 \leq 1 \text{ 或 } (x,y) = (t,0), t \in [1,2] \}.
+    \end{equation}
+    显然，$D$ 是一个连通的闭集。然而，根据定义，闭区域必须是某个连通开集 $G$ 的闭包，即 $D = \bar{G}$。
+    对于上述集合 $D$，其内部为
+    \begin{equation}
+        D^{\circ} = \{ (x,y) \in \symbb{R}^2 \mid x^2 + y^2 < 1 \}.
+    \end{equation}
+    对其内部取闭包可得
+    \begin{equation}
+        \overline{D^{\circ}} = \{ (x,y) \in \symbb{R}^2 \mid x^2 + y^2 \leq 1 \} \neq D.
+    \end{equation}
+    由于 $D$ 包含了一条“多余”的线段 $t \in (1,2]$，它无法由任何开集的闭包导出。
+    \begin{equation}
+        \boxed{D \text{ 是连通闭集但不是闭区域}}
+    \end{equation}
+\end{note}
+
+
+
+\begin{problem}{多元函数图形与等高线}{Surface-Level-Curves}
+    画出函数 $z = \cos(2x + y)$ 的略图以及对应于 $z = 0, \pm 1, \pm \frac{1}{2}$ 的等高线。
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    函数 $z = \cos(2x + y)$ 的图形是一个沿直线 $2x + y = C$ 方向延伸的波浪状柱面。其在 $xy$ 平面上的截痕为一系列平行的直线，数值随垂直于这些直线的方向呈余弦规律波动。
+
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                    width=0.6\textwidth,
+                    view={115}{30},
+                    axis lines=center,
+                    xlabel=$x$, ylabel=$y$, zlabel=$z$,
+                    xmin=-2, xmax=2, ymin=-2, ymax=2, zmin=-1.5, zmax=1.5,
+                    ticks=none,
+                    colormap/viridis
+                ]
+                \addplot3[surf, domain=-1.5:1.5, y domain=-1.5:1.5, samples=40] {cos(deg(2*x + y))};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+
+    \ansitem{2}
+    令 $z = C$（其中 $C \in [-1, 1]$），则等高线方程为 $\cos(2x + y) = C$。由此得：
+    \begin{equation}
+        2x + y = 2k\uppi \pm \arccos C, \quad k \in \symbb{Z}
+    \end{equation}
+    这是一组斜率为 $-2$ 的平行直线族。针对给定的 $z$ 值，等高线方程如下：
+    \begin{equation}
+        \begin{aligned}
+            z = 1            & \implies 2x + y = 2k\uppi                         \\
+            z = -1           & \implies 2x + y = (2k+1)\uppi                     \\
+            z = 0            & \implies 2x + y = k\uppi + \frac{\uppi}{2}        \\
+            z = \frac{1}{2}  & \implies 2x + y = 2k\uppi \pm \frac{\uppi}{3}     \\
+            z = -\frac{1}{2} & \implies 2x + y = (2k+1)\uppi \pm \frac{\uppi}{3}
+        \end{aligned}
+    \end{equation}
+
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \draw[-latex] (-3,0) -- (3,0) node[right] {$x$};
+            \draw[-latex] (0,-4) -- (0,4) node[above] {$y$};
+            \node at (0.2,-0.2) {$O$};
+            \clip (-2.5,-3.5) rectangle (2.5,3.5);
+            % z=1 (solid red)
+            \draw[red, thick] plot[domain=-2:2] (\x, {-2*\x});
+            \draw[red, thick] plot[domain=-2:2] (\x, {-2*\x + 6.28});
+            \draw[red, thick] plot[domain=-2:2] (\x, {-2*\x - 6.28});
+            % z=0 (dashed blue)
+            \draw[blue, dashed] plot[domain=-2:2] (\x, {-2*\x + 1.57});
+            \draw[blue, dashed] plot[domain=-2:2] (\x, {-2*\x - 1.57});
+            % z=-1 (dotted black)
+            \draw[black, dash dot] plot[domain=-2:2] (\x, {-2*\x + 3.14});
+            \draw[black, dash dot] plot[domain=-2:2] (\x, {-2*\x - 3.14});
+        \end{tikzpicture}
+    \end{center}
+    综上所述，该函数的等高线方程为：
+    \begin{equation}
+        \boxed{y = -2x + 2k\uppi \pm \arccos z, \quad k \in \symbb{Z}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{多项式项数}{Polynomial-Terms}
+    一个变量的一般形式的 $n$ 次多项式共有 $n+1$ 项单项式 $x^0, x^1, \dots, x^n$。如果对于两个变量而言，单项式定义为 $x^k y^l$，次数定义为 $k+l$，问一般形式的 $n$ 次二元多项式共有多少项单项式？
+\end{problem}
+
+\begin{solution}
+    设二元单项式为 $x^k y^l$，其次数为 $k+l = m$。对于固定的次数 $m \in \{0, 1, \dots, n\}$，满足要求的非负整数对 $(k, l)$ 的个数即为该次数下的单项式数，共有 $m+1$ 个。
+
+    一般形式的 $n$ 次二元多项式包含所有次数满足 $0 \le m \le n$ 的项。记总项数为 $N$，则有：
+    \begin{equation}
+        \begin{aligned}
+            N & = \sum_{m=0}^{n} (m+1)         \\
+              & = 1 + 2 + \cdots + (n+1)       \\
+              & = \frac{(1 + n + 1)(n + 1)}{2} \\
+              & = \frac{(n+1)(n+2)}{2}
+        \end{aligned}
+    \end{equation}
+
+    由此得到最终结果：
+    \begin{equation}
+        \boxed{N = \frac{(n+1)(n+2)}{2}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{多元函数求值}{Multivariable-Function-Evaluation}
+    设 $f(x, y) = \frac{2xy}{x^2+y^2}$，求 $f(1, 1), f(y, x), f(1, \frac{y}{x}), f(u, v), f(\cos t, \sin t)$。
+\end{problem}
+
+\begin{solution}
+    直接代入定义式计算：
+    \begin{equation}
+        \begin{aligned}
+            f(1, 1)                        & = \frac{2 \cdot 1 \cdot 1}{1^2 + 1^2} = 1                                                                                                     \\
+            f(y, x)                        & = \frac{2yx}{y^2 + x^2} = \frac{2xy}{x^2 + y^2}                                                                                               \\
+            f\left( 1, \frac{y}{x} \right) & = \frac{2 \cdot 1 \cdot \frac{y}{x}}{1^2 + \left( \frac{y}{x} \right)^2} = \frac{\frac{2y}{x}}{\frac{x^2 + y^2}{x^2}} = \frac{2xy}{x^2 + y^2} \\
+            f(u, v)                        & = \frac{2uv}{u^2 + v^2}                                                                                                                       \\
+            f(\cos t, \sin t)              & = \frac{2\cos t \sin t}{\cos^2 t + \sin^2 t} = \frac{\sin 2t}{1} = \sin 2t
+        \end{aligned}
+    \end{equation}
+    综上所述，结果分别为：
+    \begin{equation}
+        \boxed{f(1, 1) = 1, f(y, x) = \frac{2xy}{x^2+y^2}, f\left( 1, \frac{y}{x} \right) = \frac{2xy}{x^2+y^2}, f(u, v) = \frac{2uv}{u^2+v^2}, f(\cos t, \sin t) = \sin 2t}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{复合函数解析式}{Composite-Function}
+    设 $f(x, y) = \begin{cases} 1, & y \geqslant x, \\ 0, & y < x, \end{cases}$ 又 $\begin{cases} x = \cos t, \\ y = \sin t, \end{cases}$ 求 $F(t) = f(\cos t, \sin t)$。
+\end{problem}
+
+\begin{solution}
+    根据定义 $F(t) = f(\cos t, \sin t)$，需比较 $\sin t$ 与 $\cos t$ 的大小关系：
+    \begin{equation}
+        \sin t \geqslant \cos t \iff \sqrt{2}\sin\left( t - \frac{\uppi}{4} \right) \geqslant 0 \iff 2k\uppi + \frac{\uppi}{4} \leqslant t \leqslant 2k\uppi + \frac{5\uppi}{4}, \quad k \in \symbb{Z}
+    \end{equation}
+    因此，函数 $F(t)$ 的表达式为：
+    \begin{equation}
+        \boxed{F(t) = \begin{cases} 1, & 2k\uppi + \frac{\uppi}{4} \leqslant t \leqslant 2k\uppi + \frac{5\uppi}{4} \\ 0, & 2k\uppi - \frac{3\uppi}{4} < t < 2k\uppi + \frac{\uppi}{4} \end{cases} \quad (k \in \symbb{Z})}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{抽象函数求值与表达式}{Function-Expression}
+    设 $f(x + y, \frac{y}{x}) = x^2 - y^2 \ (x \neq 0)$，求 $f(2, 3), f(x, y)$。
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    令 $x + y = 2$ 且 $\frac{y}{x} = 3$，由后者得 $y = 3x$。代入前者：
+    \begin{equation}
+        x + 3x = 2 \implies 4x = 2 \implies x = \frac{1}{2}, \quad y = \frac{3}{2}
+    \end{equation}
+    代入原函数关系式得：
+    \begin{equation}
+        f(2, 3) = \left( \frac{1}{2} \right)^2 - \left( \frac{3}{2} \right)^2 = \frac{1}{4} - \frac{9}{4} = -2
+    \end{equation}
+    \begin{equation}
+        \boxed{f(2, 3) = -2}
+    \end{equation}
+
+    \ansitem{2}
+    设 $u = x + y, v = \frac{y}{x}$，则 $y = vx$。代入 $u$ 的表达式：
+    \begin{equation}
+        x + vx = u \implies x = \frac{u}{1+v}, \quad y = \frac{uv}{1+v}
+    \end{equation}
+    将其代入 $f(u, v)$：
+    \begin{equation}
+        \begin{aligned}
+            f(u, v) & = \left( \frac{u}{1+v} \right)^2 - \left( \frac{uv}{1+v} \right)^2 \\
+                    & = \frac{u^2(1 - v^2)}{(1+v)^2}                                     \\
+                    & = \frac{u^2(1-v)(1+v)}{(1+v)^2}                                    \\
+                    & = \frac{u^2(1-v)}{1+v}
+        \end{aligned}
+    \end{equation}
+    将变量名替换回 $x, y$ 得：
+    \begin{equation}
+        \boxed{f(x, y) = \frac{x^2(1-y)}{1+y}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{多元复合函数}{Multivariable-Composition}
+    设 $f(x, y) = x^y, \varphi(x, y) = x + y, \psi(x, y) = x - y$，求 $f[\varphi(x, y), \psi(x, y)], \varphi[f(x, y), \psi(x, y)], \psi[\varphi(x, y), f(x, y)]$。
+\end{problem}
+
+\begin{solution}
+    依次进行复合代入：
+    \begin{equation}
+        \begin{aligned}
+            f[\varphi(x, y), \psi(x, y)] & = f(x+y, x-y) = (x+y)^{x-y}                     \\
+            \varphi[f(x, y), \psi(x, y)] & = \varphi(x^y, x-y) = x^y + (x-y) = x^y + x - y \\
+            \psi[\varphi(x, y), f(x, y)] & = \psi(x+y, x^y) = (x+y) - x^y = x + y - x^y
+        \end{aligned}
+    \end{equation}
+    最终结果为：
+    \begin{equation}
+        \boxed{f[\varphi, \psi] = (x+y)^{x-y}, \quad \varphi[f, \psi] = x^y + x - y, \quad \psi[\varphi, f] = x + y - x^y}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{多元函数极限}{Multivariable-Limit}
+    判断下列各题极限是否存在，若有极限，求出其极限：
+    \begin{enumerate}
+        \item $\lim_{\substack{x \to 0 \\ y \to 0}} \frac{x^2 + y^2}{|x| + |y|}$
+        \item $\lim_{\substack{x \to 0 \\ y \to a}} \frac{\sin xy}{x}$
+        \item $\lim_{\substack{x \to +\infty \\ y \to +\infty}} \left( \frac{xy}{x^2 + y^2} \right)^{x^2}$
+        \item $\lim_{\substack{x \to \infty \\ y \to a}} \left( 1 + \frac{1}{x} \right)^{\frac{x^2}{x+y}}$
+        \item $\lim_{\substack{x \to 0 \\ y \to 0}} \frac{x^3 + y^3}{x^2 + y^2}$
+        \item $\lim_{\substack{x \to \infty \\ y \to \infty}} \frac{x^2 + y^2}{x^4 + y^4}$
+        \item $\lim_{\substack{x \to +\infty \\ y \to +\infty}} (x^2 + y^2) \e^{-(x+y)}$
+        \item $\lim_{\substack{x \to 1 \\ y \to 0}} \frac{\ln (x + \e^y)}{\sqrt{x^2 + y^2}}$
+        \item $\lim_{\substack{x \to 0 \\ y \to 0}} \frac{xy}{\sqrt{xy+1}-1}$
+        \item $\lim_{\substack{x \to 0 \\ y \to 0}} \frac{\sqrt{xy+1}-1}{x+y}$
+        \item $\lim_{\substack{x \to 0 \\ y \to 0}} \frac{1-\cos(x^2+y^2)}{(x^2+y^2)x^2y^2}$
+        \item $\lim_{\substack{x \to 0 \\ y \to 0}} (1 + xy)^{\frac{1}{x+y}}$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+    因为 $0 \le \frac{x^2 + y^2}{|x| + |y|} \le \frac{x^2 + y^2 + 2|xy|}{|x| + |y|} = \frac{(|x| + |y|)^2}{|x| + |y|} = |x| + |y|$，
+    又 $\lim_{\substack{x \to 0 \\ y \to 0}} (|x| + |y|) = 0$，由夹逼定理得：
+    \begin{equation}
+        \boxed{\lim_{\substack{x \to 0 \\ y \to 0}} \frac{x^2 + y^2}{|x| + |y|} = 0}
+    \end{equation}
+
+    \ansitem{2}
+    当 $x \to 0, y \to a$ 时，$xy \to 0$，利用等价无穷小 $\sin xy \sim xy$ 得：
+    \begin{equation}
+        \lim_{\substack{x \to 0 \\ y \to a}} \frac{\sin xy}{x} = \lim_{\substack{x \to 0 \\ y \to a}} \frac{xy}{x} = \lim_{y \to a} y = a
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{\substack{x \to 0 \\ y \to a}} \frac{\sin xy}{x} = a}
+    \end{equation}
+
+    \ansitem{3}
+    由于 $x^2 + y^2 \ge 2xy$，则 $0 < \frac{xy}{x^2 + y^2} \le \frac{1}{2}$，从而：
+    \begin{equation}
+        0 < \left( \frac{xy}{x^2 + y^2} \right)^{x^2} \le \left( \frac{1}{2} \right)^{x^2}
+    \end{equation}
+    由于 $\lim_{x \to +\infty} \left( \frac{1}{2} \right)^{x^2} = 0$，由夹逼定理知极限为 $0$。
+    \begin{equation}
+        \boxed{\lim_{\substack{x \to +\infty \\ y \to +\infty}} \left( \frac{xy}{x^2 + y^2} \right)^{x^2} = 0}
+    \end{equation}
+
+    \ansitem{4}
+    利用重要极限 $\lim_{x \to \infty} (1 + 1/x)^x = \e$：
+    \begin{equation}
+        \lim_{\substack{x \to \infty \\ y \to a}} \left( 1 + \frac{1}{x} \right)^{\frac{x^2}{x+y}} = \lim_{\substack{x \to \infty \\ y \to a}} \left[ \left( 1 + \frac{1}{x} \right)^x \right]^{\frac{x}{x+y}}
+    \end{equation}
+    由 $\lim_{\substack{x \to \infty \\ y \to a}} \frac{x}{x+y} = \lim_{x \to \infty} \frac{1}{1 + a/x} = 1$，得：
+    \begin{equation}
+        \boxed{\lim_{\substack{x \to \infty \\ y \to a}} \left( 1 + \frac{1}{x} \right)^{\frac{x^2}{x+y}} = \e}
+    \end{equation}
+
+    \ansitem{5}
+    采用极坐标变换，令 $x = r \cos \theta, y = r \sin \theta$：
+    \begin{equation}
+        \left| \frac{x^3 + y^3}{x^2 + y^2} \right| = \left| \frac{r^3(\cos^3 \theta + \sin^3 \theta)}{r^2} \right| = r |\cos^3 \theta + \sin^3 \theta| \le 2r \to 0 \quad (r \to 0)
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{\substack{x \to 0 \\ y \to 0}} \frac{x^3 + y^3}{x^2 + y^2} = 0}
+    \end{equation}
+
+    \ansitem{6}
+    当 $x \to \infty, y \to \infty$ 时：
+    \begin{equation}
+        0 \le \frac{x^2 + y^2}{x^4 + y^4} \le \frac{x^2}{x^4} + \frac{y^2}{y^4} = \frac{1}{x^2} + \frac{1}{y^2} \to 0
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{\substack{x \to \infty \\ y \to \infty}} \frac{x^2 + y^2}{x^4 + y^4} = 0}
+    \end{equation}
+
+    \ansitem{7}
+    由于 $(x^2 + y^2) \e^{-(x+y)} = \frac{x^2}{\e^x \e^y} + \frac{y^2}{\e^x \e^y}$，当 $x, y \to +\infty$ 时：
+    \begin{equation}
+        \lim_{x \to +\infty} \frac{x^2}{\e^x} = 0, \quad \lim_{y \to +\infty} \frac{1}{\e^y} = 0 \implies \lim_{\substack{x \to +\infty \\ y \to +\infty}} \frac{x^2}{\e^{x+y}} = 0
+    \end{equation}
+    同理 $\lim y^2 \e^{-(x+y)} = 0$，故：
+    \begin{equation}
+        \boxed{\lim_{\substack{x \to +\infty \\ y \to +\infty}} (x^2 + y^2) \e^{-(x+y)} = 0}
+    \end{equation}
+
+    \ansitem{8}
+    函数在 $(1, 0)$ 处连续，直接代入得：
+    \begin{equation}
+        \lim_{\substack{x \to 1 \\ y \to 0}} \frac{\ln (x + \e^y)}{\sqrt{x^2 + y^2}} = \frac{\ln(1 + \e^0)}{\sqrt{1^2 + 0^2}} = \frac{\ln 2}{1} = \ln 2
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{\substack{x \to 1 \\ y \to 0}} \frac{\ln (x + \e^y)}{\sqrt{x^2 + y^2}} = \ln 2}
+    \end{equation}
+
+    \ansitem{9}
+    利用分子有理化或等价无穷小 $\sqrt{u+1}-1 \sim \frac{1}{2}u$：
+    \begin{equation}
+        \lim_{\substack{x \to 0 \\ y \to 0}} \frac{xy}{\sqrt{xy+1}-1} = \lim_{\substack{x \to 0 \\ y \to 0}} \frac{xy(\sqrt{xy+1}+1)}{(xy+1)-1} = \lim_{\substack{x \to 0 \\ y \to 0}} (\sqrt{xy+1}+1) = 2
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{\substack{x \to 0 \\ y \to 0}} \frac{xy}{\sqrt{xy+1}-1} = 2}
+    \end{equation}
+
+    \ansitem{10}
+    利用 $\sqrt{xy+1}-1 \sim \frac{1}{2}xy$。考查沿直线 $y = kx$ 趋于原点：
+    \begin{equation}
+        \lim_{x \to 0} \frac{\frac{1}{2}kx^2}{(1+k)x} = \lim_{x \to 0} \frac{kx}{2(1+k)} = 0
+    \end{equation}
+    再考查沿曲线 $y = -x + x^3$ 趋于原点：
+    \begin{equation}
+        \lim_{x \to 0} \frac{\frac{1}{2}x(-x+x^3)}{x+(-x+x^3)} = \lim_{x \to 0} \frac{-\frac{1}{2}x^2 + \frac{1}{2}x^4}{x^3} = \lim_{x \to 0} \left( -\frac{1}{2x} + \frac{x}{2} \right) = \infty
+    \end{equation}
+    由于趋近路径不同，极限值不同，故：
+    \begin{equation}
+        \boxed{\text{该极限不存在}}
+    \end{equation}
+
+    \ansitem{11}
+    当 $x^2 + y^2 \to 0$ 时，$1 - \cos(x^2+y^2) \sim \frac{1}{2}(x^2+y^2)^2$：
+    \begin{equation}
+        \lim_{\substack{x \to 0 \\ y \to 0}} \frac{1-\cos(x^2+y^2)}{(x^2+y^2)x^2y^2} = \lim_{\substack{x \to 0 \\ y \to 0}} \frac{\frac{1}{2}(x^2+y^2)^2}{(x^2+y^2)x^2y^2} = \lim_{\substack{x \to 0 \\ y \to 0}} \frac{x^2+y^2}{2x^2y^2} = \lim_{\substack{x \to 0 \\ y \to 0}} \left( \frac{1}{2y^2} + \frac{1}{2x^2} \right) = \infty
+    \end{equation}
+    \begin{equation}
+        \boxed{\text{该极限不存在 (为 } \infty \text{)}}
+    \end{equation}
+
+    \ansitem{12}
+    考虑沿路径 $L_1: y = x$ 趋于原点，则有
+    \begin{equation}
+        \lim_{x \to 0} (1 + x^2)^{\frac{1}{2x}} = \lim_{x \to 0} \e^{\frac{\ln(1 + x^2)}{2x}} = \e^{\lim\limits_{x \to 0} \frac{x^2 + \symcal{O}(x^2)}{2x}} = \e^0 = 1
+    \end{equation}
+    考虑沿路径 $L_2: y = \frac{x}{x - 1}$ 趋于原点，此时有 $x + y = \frac{x^2}{x - 1}$ 且 $xy = \frac{x^2}{x - 1}$，即 $x + y = xy$。
+    当 $x \to 0$ 时，$y \to 0$，则有
+    \begin{equation}
+        \lim_{x \to 0} (1 + xy)^{\frac{1}{xy}} = \e
+    \end{equation}
+    由于沿不同路径所得极限值 $1 \neq \e$，根据极限唯一性可知该二元极限不存在。
+    \begin{equation}
+        \boxed{\text{极限不存在}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{极坐标下的极限}{Polar-Limit}
+    若 $x = r \cos \theta, y = r \sin \theta$，问沿怎样的方向 $\theta$ ($0 \leqslant \theta \leqslant 2\uppi$)，下列极限存在？
+    \begin{enumerate}
+        \item $\displaystyle \lim_{r \to 0^+} \e^{\frac{1}{x^2 - y^2}}$;
+        \item $\displaystyle \lim_{r \to +\infty} \e^{x^2 - y^2} \cdot \sin 2xy$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    将极坐标代入被积表达式，得 $x^2 - y^2 = r^2(\cos^2 \theta - \sin^2 \theta) = r^2 \cos 2\theta$。故待求极限为
+    \begin{equation}
+        L = \lim_{r \to 0^+} \e^{\frac{1}{r^2 \cos 2\theta}}
+    \end{equation}
+    若 $\cos 2\theta > 0$，则当 $r \to 0^+$ 时，分量 $\frac{1}{r^2 \cos 2\theta} \to +\infty$，从而 $L \to +\infty$，极限不存在；\\
+    若 $\cos 2\theta = 0$，则分母为 $0$，函数无定义；\\
+    若 $\cos 2\theta < 0$，则当 $r \to 0^+$ 时，分量 $\frac{1}{r^2 \cos 2\theta} \to -\infty$，从而 $L = \e^{-\infty} = 0$，极限存在。\\
+    由 $\cos 2\theta < 0$ 且 $0 \leqslant \theta \leqslant 2\uppi$ 可解得
+    \begin{equation}
+        \frac{\uppi}{2} < 2\theta < \frac{3\uppi}{2} \quad \text{或} \quad \frac{5\uppi}{2} < 2\theta < \frac{7\uppi}{2}
+    \end{equation}
+    \begin{equation}
+        \boxed{\theta \in \left( \frac{\uppi}{4}, \frac{3\uppi}{4} \right) \cup \left( \frac{5\uppi}{4}, \frac{7\uppi}{4} \right)}
+    \end{equation}
+
+    \ansitem{2}
+
+    代入极坐标得 $x^2 - y^2 = r^2 \cos 2\theta$ 及 $2xy = r^2 \sin 2\theta$，则极限为
+    \begin{equation}
+        L = \lim_{r \to +\infty} \e^{r^2 \cos 2\theta} \sin(r^2 \sin 2\theta)
+    \end{equation}
+    若 $\cos 2\theta < 0$，则 $\e^{r^2 \cos 2\theta} \to 0$，而 $|\sin(r^2 \sin 2\theta)| \leqslant 1$，由夹逼定理知 $L = 0$；\\
+    若 $\cos 2\theta = 0$，则 $L = \lim_{r \to +\infty} \sin(\pm r^2)$，极限不存在；\\
+    若 $\cos 2\theta > 0$，考虑 $\sin 2\theta$：
+    \begin{itemize}
+        \item 若 $\sin 2\theta \neq 0$，则 $\e^{r^2 \cos 2\theta} \to +\infty$ 且 $\sin(r^2 \sin 2\theta)$ 在 $[-1, 1]$ 振荡，极限不存在；
+        \item 若 $\sin 2\theta = 0$，则 $L = \lim_{r \to +\infty} \e^{r^2 \cos 2\theta} \cdot 0 = 0$，极限存在。此时 $2\theta = 0, 2\uppi, 4\uppi$。
+    \end{itemize}
+    综上，极限存在的条件为 $\cos 2\theta < 0$ 或 $\sin 2\theta = 0$ 且 $\cos 2\theta > 0$。即
+    \begin{equation}
+        \boxed{\theta \in \left( \frac{\uppi}{4}, \frac{3\uppi}{4} \right) \cup \left( \frac{5\uppi}{4}, \frac{7\uppi}{4} \right) \cup \{0, \uppi, 2\uppi\}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{累次极限与重极限}{Iterated-Limit-Theorem}
+    证明：当极限 $\displaystyle \lim_{(x,y) \to (x_0, y_0)} f(x,y) = A$ 存在时，
+    \begin{enumerate}
+        \item 若 $y \neq y_0, \displaystyle \lim_{x \to x_0} f(x,y)$ 存在，则 $\displaystyle \lim_{y \to y_0} \lim_{x \to x_0} f(x,y) = A$;
+        \item 若 $x \neq x_0, \displaystyle \lim_{y \to y_0} f(x,y)$ 存在，则 $\displaystyle \lim_{x \to x_0} \lim_{y \to y_0} f(x,y) = A$.
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    根据二重极限的定义，对任意 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $0 < \sqrt{(x-x_0)^2 + (y-y_0)^2} < \delta$ 时，有
+    \begin{equation} \label{eq:limit-def-1}
+        |f(x,y) - A| < \varepsilon
+    \end{equation}
+    对满足 $0 < |y - y_0| < \delta$ 的固定值 $y$，取 $x$ 满足 $0 < |x - x_0| < \sqrt{\delta^2 - (y-y_0)^2}$。此时 $(x,y)$ 满足二重极限的邻域条件，故 \cref{eq:limit-def-1} 成立。\\
+    令 $\varphi(y) = \displaystyle \lim_{x \to x_0} f(x,y)$。在 \cref{eq:limit-def-1} 中对 $x \to x_0$ 取极限，由极限的保号性及性质可得
+    \begin{equation}
+        |\varphi(y) - A| \leqslant \varepsilon
+    \end{equation}
+    上述不等式对所有满足 $0 < |y - y_0| < \delta$ 的 $y$ 均成立。根据极限定义，这说明
+    \begin{equation}
+        \lim_{y \to y_0} \varphi(y) = \lim_{y \to y_0} \lim_{x \to x_0} f(x,y) = A
+    \end{equation}
+
+    \ansitem{2}
+
+    同理，固定 $x$ 满足 $0 < |x - x_0| < \delta$，当 $0 < |y - y_0| < \sqrt{\delta^2 - (x-x_0)^2}$ 时，有 $|f(x,y) - A| < \varepsilon$。\\
+    令 $\psi(x) = \displaystyle \lim_{y \to y_0} f(x,y)$。对 $y \to y_0$ 取极限得 $|\psi(x) - A| \leqslant \varepsilon$。\\
+    由 $\varepsilon$ 的任意性知
+    \begin{equation}
+        \lim_{x \to x_0} \psi(x) = \lim_{x \to x_0} \lim_{y \to y_0} f(x,y) = A
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{多元函数连续性}{Multivariate-Continuity}
+    研究下列函数的连续性：
+    \begin{enumerate}
+        \item $f(x, y) = \begin{cases} \dfrac{xy}{x-y}, & x \neq y, \\ 0, & x = y; \end{cases}$
+        \item $f(x, y) = \begin{cases} x \sin \dfrac{1}{y}, & y \neq 0, \\ 0, & y = 0; \end{cases}$
+        \item $f(x, y) = \begin{cases} \dfrac{x^2y}{x^2+y^2}, & (x, y) \neq (0, 0), \\ 0, & (x, y) = (0, 0); \end{cases}$
+        \item $f(x, y) = \begin{cases} \dfrac{x-y}{x+y}, & x + y \neq 0, \\ 0, & x + y = 0. \end{cases}$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    当 $x \neq y$ 时，$f(x, y)$ 为初等函数，在其定义域内连续。
+    考虑直线 $x = y$ 上的点 $(x_0, x_0)$：
+    若 $x_0 \neq 0$，取路径 $y = x - (x-x_0)^2$，当 $x \to x_0$ 时：
+    \begin{equation}
+        \lim_{x \to x_0} f(x, x - (x-x_0)^2) = \lim_{x \to x_0} \frac{x(x - (x-x_0)^2)}{(x-x_0)^2} = \infty
+    \end{equation}
+    若 $x_0 = 0$，取路径 $y = x - x^2$，当 $x \to 0$ 时：
+    \begin{equation}
+        \lim_{x \to 0} f(x, x - x^2) = \lim_{x \to 0} \frac{x(x - x^2)}{x^2} = \lim_{x \to 0} (1 - x) = 1 \neq f(0, 0)
+    \end{equation}
+    故 $f(x, y)$ 在直线 $x = y$ 上处处不连续。
+    \begin{equation}
+        \boxed{f(x, y) \in \symcal{C}\left( \{(x, y) \in \symbb{R}^2 \mid x \neq y\} \right)}
+    \end{equation}
+
+    \ansitem{2}
+
+    当 $y \neq 0$ 时，$f(x, y)$ 为初等函数，在其定义域内连续。
+    考虑直线 $y = 0$ 上的点 $(x_0, 0)$：
+    若 $x_0 = 0$，因为 $\left| x \sin \frac{1}{y} \right| \le |x|$，且 $\lim_{(x, y) \to (0, 0)} |x| = 0$。
+    由夹逼定理得 $\lim_{(x, y) \to (0, 0)} f(x, y) = 0 = f(0, 0)$，故在 $(0, 0)$ 点连续。
+    若 $x_0 \neq 0$，$\lim_{(x, y) \to (x_0, 0)} x \sin \frac{1}{y} = x_0 \lim_{y \to 0} \sin \frac{1}{y}$ 不存在。
+    故 $f(x, y)$ 在 $y = 0$ 上除原点外处处不连续。
+    \begin{equation}
+        \boxed{f(x, y) \in \symcal{C}\left( \{(x, y) \in \symbb{R}^2 \mid y \neq 0\} \cup \{(0, 0)\} \right)}
+    \end{equation}
+
+    \ansitem{3}
+
+    当 $(x, y) \neq (0, 0)$ 时，$f(x, y)$ 显然连续。
+    在原点 $(0, 0)$ 处，利用极坐标代换 $x = r \cos \theta, y = r \sin \theta$：
+    \begin{equation}
+        |f(r \cos \theta, r \sin \theta) - 0| = \left| \frac{r^3 \cos^2 \theta \sin \theta}{r^2} \right| = |r \cos^2 \theta \sin \theta| \le r
+    \end{equation}
+    由于 $\lim_{r \to 0^+} r = 0$，故 $\lim_{(x, y) \to (0, 0)} f(x, y) = 0 = f(0, 0)$。
+    函数在原点处连续。
+    \begin{equation}
+        \boxed{f(x, y) \in \symcal{C}(\symbb{R}^2)}
+    \end{equation}
+
+    \ansitem{4}
+
+    当 $x + y \neq 0$ 时，$f(x, y)$ 为初等函数，在其定义域内连续。
+    考虑直线 $x + y = 0$ 上的点 $(x_0, -x_0)$：
+    若 $x_0 \neq 0$，当 $(x, y) \to (x_0, -x_0)$ 时，分子 $x - y \to 2x_0 \neq 0$，而分母 $x + y \to 0$。
+    此时 $\lim_{(x, y) \to (x_0, -x_0)} f(x, y) = \infty$，不连续。
+    若 $x_0 = 0$，取路径 $y = kx$，当 $x \to 0$ 时：
+    \begin{equation}
+        \lim_{x \to 0} f(x, kx) = \lim_{x \to 0} \frac{x - kx}{x + kx} = \frac{1 - k}{1 + k} \quad (k \neq -1)
+    \end{equation}
+    极限值随 $k$ 的不同而改变，故极限不存在。
+    综上，$f(x, y)$ 在直线 $x + y = 0$ 上处处不连续。
+    \begin{equation}
+        \boxed{f(x, y) \in \symcal{C}\left( \{(x, y) \in \symbb{R}^2 \mid x + y \neq 0\} \right)}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{多元函数连续性与射线极限}{Directional-Continuity}
+    证明函数 $f(x, y) = \begin{cases} \frac{x^2y}{x^4+y^2}, & x^2+y^2 > 0 \\ 0, & x^2+y^2 = 0 \end{cases}$ 在点 $(0,0)$ 沿着过此点的每一射线 $x = t \cos \alpha, y = t \sin \alpha, (0 \le t < +\infty)$ 连续，即 $\lim_{t \to 0} f(t \cos \alpha, t \sin \alpha) = f(0,0)$. 但此函数在点 $(0,0)$ 并不连续.
+\end{problem}
+
+\begin{myproof}
+    考虑沿任一射线 $x = t \cos \alpha, y = t \sin \alpha$（其中 $\alpha$ 为常数，$t \to 0^{+}$）的极限：
+    \begin{equation}
+        \begin{aligned}
+            \text{当 } \sin \alpha = 0 \text{ 时，}    & y = 0 \implies f(t \cos \alpha, 0) = 0 \implies \lim_{t \to 0} f(t \cos \alpha, t \sin \alpha) = 0                                                                                            \\
+            \text{当 } \sin \alpha \neq 0 \text{ 时，} & f(t \cos \alpha, t \sin \alpha) = \frac{t^2 \cos^2 \alpha \cdot t \sin \alpha}{t^4 \cos^4 \alpha + t^2 \sin^2 \alpha} = \frac{t \cos^2 \alpha \sin \alpha}{t^2 \cos^4 \alpha + \sin^2 \alpha} \\
+                                                    & \implies \lim_{t \to 0} f(t \cos \alpha, t \sin \alpha) = \frac{0}{0 + \sin^2 \alpha} = 0
+        \end{aligned}
+    \end{equation}
+    由于 $f(0,0) = 0$，故函数在点 $(0,0)$ 沿每一射线均连续。
+
+    然而，若选取动点 $(x, y)$ 沿曲线 $y = x^2$ 趋于原点，则有：
+    \begin{equation}
+        \lim_{\substack{x \to 0 \\ y = x^2}} f(x, y) = \lim_{x \to 0} \frac{x^2 \cdot x^2}{x^4 + (x^2)^2} = \lim_{x \to 0} \frac{x^4}{2x^4} = \frac{1}{2} \neq f(0,0)
+    \end{equation}
+    由于沿不同路径趋于原点时极限值不相等，根据多元函数极限定义，
+    \begin{equation}
+        \boxed{f(x, y) \text{ 在点 } (0,0) \text{ 并不连续}}
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{二元函数的连续性证明}{Bivariate-Continuity}
+    设 $f(x,y)$ 在 $D \subset \symbb{R}^2$ 上分别对 $x$ 和 $y$ 连续，且关于变量 $y$ 是单调的，证明：$f(x,y)$ 在 $D$ 上连续.
+\end{problem}
+
+\begin{myproof}
+    不妨设 $f(x, y)$ 关于 $y$ 是单调不减的。任取 $(x_0, y_0) \in D$，对于任意给定的 $\varepsilon > 0$：
+
+    由 $f(x_0, y)$ 关于 $y$ 的连续性可知，存在 $\delta_1 > 0$，使得当 $|y - y_0| \le \delta_1$ 时：
+    \begin{equation}
+        f(x_0, y_0) - \frac{\varepsilon}{2} < f(x_0, y_0 - \delta_1) \le f(x_0, y_0) \le f(x_0, y_0 + \delta_1) < f(x_0, y_0) + \frac{\varepsilon}{2}
+    \end{equation}
+    再由 $f(x, y)$ 分别在 $y = y_0 - \delta_1$ 与 $y = y_0 + \delta_1$ 处关于 $x$ 的连续性，存在 $\delta_2 > 0$，使得当 $|x - x_0| < \delta_2$ 时：
+    \begin{equation}
+        \begin{aligned}
+             & |f(x, y_0 - \delta_1) - f(x_0, y_0 - \delta_1)| < \frac{\varepsilon}{2} \implies f(x, y_0 - \delta_1) > f(x_0, y_0 - \delta_1) - \frac{\varepsilon}{2} > f(x_0, y_0) - \varepsilon \\
+             & |f(x, y_0 + \delta_1) - f(x_0, y_0 + \delta_1)| < \frac{\varepsilon}{2} \implies f(x, y_0 + \delta_1) < f(x_0, y_0 + \delta_1) + \frac{\varepsilon}{2} < f(x_0, y_0) + \varepsilon
+        \end{aligned}
+    \end{equation}
+    当 $|x - x_0| < \delta_2$ 且 $|y - y_0| < \delta_1$ 时，利用 $f$ 关于 $y$ 的单调性得：
+    \begin{equation}
+        f(x, y_0 - \delta_1) \le f(x, y) \le f(x, y_0 + \delta_1)
+    \end{equation}
+    结合上述不等式，有：
+    \begin{equation}
+        f(x_0, y_0) - \varepsilon < f(x, y) < f(x_0, y_0) + \varepsilon \iff |f(x, y) - f(x_0, y_0)| < \varepsilon
+    \end{equation}
+    综上所述，
+    \begin{equation}
+        \boxed{f(x, y) \text{ 在 } D \text{ 上连续}}
+    \end{equation}
+\end{myproof}
+
+
+\begin{note}{伪证说明与反例分析}{Pseudo-Proof-Analysis}
+    以下内容摘录自余启帆学长的反例说明 \cite{Yu2021MathAnalysis}
+
+    该命题常见的错误证明（伪证）如下：
+    由函数分别对 $x, y$ 连续知，对于 $\forall(x_0, y_0) \in D$ 及 $\forall \varepsilon > 0$：
+    $\exists \delta_1 > 0$，使得当 $|x - x_0| < \delta_1$ 时，有 $|f(x, y) - f(x_0, y)| < \frac{\varepsilon}{2}$；
+    同时 $\exists \delta_2 > 0$，使得当 $|y - y_0| < \delta_2$ 时，有 $|f(x_0, y) - f(x_0, y_0)| < \frac{\varepsilon}{2}$。
+    取 $\delta = \min\{\delta_1, \delta_2\}$，从而由三角不等式得
+    \begin{equation}
+        |f(x, y) - f(x_0, y_0)| \le |f(x, y) - f(x_0, y)| + |f(x_0, y) - f(x_0, y_0)| < \varepsilon.
+    \end{equation}
+
+    错误的核心在于：由于 $\delta_1 = \delta_1(x_0, y, \varepsilon)$ 与变量 $y$ 的取值有关，当 $y \to y_0$ 时，可能出现 $\delta_1 \to 0$ 的情况，导致无法找到一个对所有满足 $|y-y_0|<\delta_2$ 的 $y$ 都一致成立的统一 $\delta$。
+
+    例如，考虑如下函数：
+    \begin{equation}
+        \boxed{f(x, y) = \begin{cases} \frac{x^2 y}{x^4 + y^2}, & (x, y) \neq (0, 0) \\ 0, & (x, y) = (0, 0) \end{cases}}
+    \end{equation}
+    该函数在 $(0,0)$ 处关于 $x$ 和 $y$ 分别连续，但在 $(0,0)$ 点处不连续。
+    其在原点附近的行为如下图所示：
+
+    \begin{center}
+        \begin{tikzpicture}[>=latex]
+            \begin{axis}[
+                    axis lines = center,
+                    xlabel = $x$,
+                    ylabel = $y$,
+                    zlabel = $z$,
+                    ticks = none,
+                    view = {120}{30},
+                    domain = -2:2,
+                    y domain = -2:2,
+                    samples = 30,
+                    samples y = 30,
+                    zmin = -0.6, zmax = 0.6,
+                    colormap/viridis
+                ]
+                \addplot3[surf, shader=interp, opacity=0.8] { (x^2 * y) / (x^4 + y^2) };
+                % 绘制 y = x^2 路径上的脊线
+                \addplot3[domain=-1.4:1.4, samples=50, samples y=0, thick, red] (x, {x^2}, {0.5});
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+
+    由图可见，尽管沿坐标轴趋于原点时极限为 $0$，但沿抛物线 $y = x^2$ 趋于原点时，函数值恒为 $1/2$，故二元极限不存在。
+\end{note}
+
+
+
+\begin{problem}{投影函数的连续性与闭性}{Projection-Continuity-Closedness}
+    设 $D \subset \mathbb{R}^2$，对任意 $(x, y) \in D$，令 $f(x, y) = x$。称其为 $D$ 在 $x$ 轴的投影函数。证明投影函数是连续函数，但是它不一定将闭集映射成闭集。
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    对于 $\forall (x_0, y_0) \in D$ 及 $\forall \varepsilon > 0$，取 $\delta = \varepsilon$。当 $(x, y) \in D$ 满足 $\sqrt{(x - x_0)^2 + (y - y_0)^2} < \delta$ 时，有
+    \begin{equation}
+        |f(x, y) - f(x_0, y_0)| = |x - x_0| \le \sqrt{(x - x_0)^2 + (y - y_0)^2} < \delta = \varepsilon.
+    \end{equation}
+    由此可知投影函数 $f(x, y)$ 在 $D$ 上连续。
+
+    \ansitem{2}
+
+    考虑 $\mathbb{R}^2$ 中的闭集 $D = \{(x, y) \in \mathbb{R}^2 \mid xy = 1, x > 0\}$。
+    其在 $x$ 轴上的投影为
+    \begin{equation}
+        f(D) = \{x \mid (x, y) \in D\} = (0, +\infty).
+    \end{equation}
+    由于 $(0, +\infty)$ 不是 $\mathbb{R}$ 中的闭集，故投影函数不一定将闭集映射成闭集。
+\end{myproof}
+
+
+\begin{problem}{二元函数 Cauchy 收敛准则}{Cauchy-Convergence-Criterion}
+    给出二元函数 $f(x, y)$ 在 $(x_0, y_0)$ 处收敛的 Cauchy 收敛准则完整的描述并证明之.
+\end{problem}
+
+\begin{myproof}
+    二元函数 $f(x, y)$ 在点 $P_0(x_0, y_0)$ 处收敛的 \textbf{Cauchy 收敛准则}描述如下：
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & \lim_{P \to P_0} f(P) \text{ 存在的充分必要条件是：}                                                                                                                     \\
+                 & \forall \varepsilon > 0, \exists \delta > 0, \text{ 使得 } \forall P_1, P_2 \in \mathring{U}(P_0, \delta) \cap D_f, \text{ 恒有 } |f(P_1) - f(P_2)| < \varepsilon
+            \end{aligned}
+        }
+    \end{equation}
+
+    现予以证明：
+
+    \textbf{必要性}：若 $\lim_{P \to P_0} f(P) = A$，则由定义可知，对于 $\forall \varepsilon > 0, \exists \delta > 0$，使得当 $P \in \mathring{U}(P_0, \delta) \cap D_f$ 时，恒有 $|f(P) - A| < \frac{\varepsilon}{2}$.
+    于是对于任意的 $P_1, P_2 \in \mathring{U}(P_0, \delta) \cap D_f$，根据三角不等式有
+    \begin{equation}
+        |f(P_1) - f(P_2)| = |(f(P_1) - A) - (f(P_2) - A)| \le |f(P_1) - A| + |f(P_2) - A| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon
+    \end{equation}
+
+    \textbf{充分性}：任取趋于 $P_0$ 的点列 $\{P_n\} \subset D_f \setminus \{P_0\}$，即 $\lim_{n \to \infty} P_n = P_0$.
+    根据题设条件，对于 $\forall \varepsilon > 0, \exists \delta > 0$，当 $n, m$ 充分大时，$P_n, P_m \in \mathring{U}(P_0, \delta)$，从而有
+    \begin{equation}
+        |f(P_n) - f(P_m)| < \varepsilon
+    \end{equation}
+    由 $\symbb{R}$ 的完备性可知，数列 $\{f(P_n)\}$ 收敛.
+
+    设对于点列 $\{P_n\}$，有 $f(P_n) \to A$；对于另一趋于 $P_0$ 的点列 $\{P_n'\}$，有 $f(P_n') \to A'$.
+    构造新点列 $\{Q_k\} = \{P_1, P_1', P_2, P_2', \dots\}$，由于 $Q_k \to P_0$，由上述论证可知 $\{f(Q_k)\}$ 也收敛，其子序列必然收敛于同一极限，故 $A = A'$.
+    由 \textbf{Heine 定理}（海涅定理）可知，$\lim_{P \to P_0} f(P)$ 存在.
+\end{myproof}
+
+\begin{note}{海涅定理}{Heine-Theorem}
+    \textbf{Heine 定理}（海涅定理）是分析学中的一个重要定理，描述了函数极限的性质。\emoji{thinking-face} \emoji{face-savoring-food}
+    该定理指出，如果一个函数在某点的极限存在，那么对于任何趋于该点的数列，函数值的极限也存在，并且与函数在该点的极限相等。
+    反之，如果对于所有趋于该点的数列，函数值的极限都存在且相等，那么函数在该点的极限也存在，并且等于这些数列极限的共同值。
+    用公式表示如下：
+    \begin{equation}
+        \lim_{x \to x_0} f(x) = A \iff \forall \{x_n\} \to x_0, \lim_{n \to \infty} f(x_n) = A
+    \end{equation}
+
+\end{note}
+
+
+\begin{problem}{复合函数连续性}{Composite-Function-Continuity}
+    设 $f(x,y)$ 在 $(x_0, y_0)$ 处连续，$x = x(u,v)$，$y = y(u,v)$ 在 $(u_0, v_0)$ 处连续。用 $\varepsilon - \delta$ 语言证明复合函数 $f(x(u,v), y(u,v))$ 在 $(u_0, v_0)$ 处连续。
+\end{problem}
+
+\begin{myproof}
+    记 $x_0 = x(u_0, v_0)$，$y_0 = y(u_0, v_0)$。任给 $\varepsilon > 0$，由于 $f(x,y)$ 在 $(x_0, y_0)$ 处连续，故存在 $\eta > 0$，使得当 $\sqrt{(x-x_0)^2 + (y-y_0)^2} < \eta$ 时，有
+    \begin{equation}
+        |f(x,y) - f(x_0, y_0)| < \varepsilon.
+        \label{eq:f-continuity}
+    \end{equation}
+    对于上述 $\eta > 0$，由于 $x(u,v)$ 和 $y(u,v)$ 在 $(u_0, v_0)$ 处连续，故存在 $\delta > 0$，使得当 $\sqrt{(u-u_0)^2 + (v-v_0)^2} < \delta$ 时，有
+    \begin{equation}
+        |x(u,v) - x_0| < \frac{\eta}{\sqrt{2}}, \quad |y(u,v) - y_0| < \frac{\eta}{\sqrt{2}}.
+        \label{eq:xy-continuity}
+    \end{equation}
+    此时，对应的点 $(x,y)$ 满足
+    \begin{equation}
+        \sqrt{(x-x_0)^2 + (y-y_0)^2} < \sqrt{\left( \frac{\eta}{\sqrt{2}} \right)^2 + \left( \frac{\eta}{\sqrt{2}} \right)^2} = \eta.
+    \end{equation}
+    由 \cref{eq:f-continuity} 可得 $|f(x(u,v), y(u,v)) - f(x_0, y_0)| < \varepsilon$。
+    \begin{equation}
+        \boxed{f(x(u,v), y(u,v)) \text{ 在 } (u_0, v_0) \text{ 处连续}}
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{一致连续性}{Uniform-Continuity}
+    设 $f(x,y) = \frac{1}{1-xy}$，$(x,y) \in [0,1] \times [0,1], (x,y) \neq (1,1)$，证明函数连续但不一致连续。
+\end{problem}
+
+\begin{myproof}
+    首先证明连续性。在定义域 $D = [0,1] \times [0,1] \setminus \{(1,1)\}$ 上，恒有 $xy < 1$。
+    由于分母 $1-xy$ 在 $D$ 上连续且不为零，由连续函数的四则运算法则可知，$f(x,y)$ 在 $D$ 上连续。
+
+    其次证明非一致连续性。取两点序列 $\symbfit{P}_n = (1 - \frac{1}{n}, 1)$ 与 $\symbfit{Q}_n = (1 - \frac{1}{2n}, 1)$，显然 $\symbfit{P}_n, \symbfit{Q}_n \in D$。
+    考察其距离：
+    \begin{equation}
+        d(\symbfit{P}_n, \symbfit{Q}_n) = \sqrt{\left( \left( 1 - \frac{1}{n} \right) - \left( 1 - \frac{1}{2n} \right) \right)^2 + (1-1)^2} = \frac{1}{2n} \to 0 \quad (n \to \infty).
+    \end{equation}
+    然而，对应的函数值之差为
+    \begin{equation}
+        \begin{aligned}
+            |f(\symbfit{P}_n) - f(\symbfit{Q}_n)| & = \left| \frac{1}{1 - (1 - \frac{1}{n}) \cdot 1} - \frac{1}{1 - (1 - \frac{1}{2n}) \cdot 1} \right| \\
+                                                  & = |n - 2n| = n \to \infty \quad (n \to \infty).
+        \end{aligned}
+    \end{equation}
+    这说明对于 $\varepsilon_0 = 1$，无论 $\delta$ 如何小，总能找到上述点对使得距离小于 $\delta$ 但函数值差大于 $\varepsilon_0$。
+    \begin{equation}
+        \boxed{f(x,y) \text{ 在 } D \text{ 上连续但不一致连续}}
+    \end{equation}
+\end{myproof}
+
+\endinput

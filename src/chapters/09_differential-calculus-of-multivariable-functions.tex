@@ -2282,24 +2282,24 @@
 \begin{problem}{梯度计算}{Gradient-Calculation}
     设 $\symbfit{r} = x\symbfit{i} + y\symbfit{j} + z\symbfit{k}$，$r = |\symbfit{r}|$，试求
     \begin{enumerate}
-        \item $\operatorname{grad} \frac{1}{r^2}$；
-        \item $\operatorname{grad} \ln r$。
+        \item $\operatorname{\symbf{grad}} \frac{1}{r^2}$；
+        \item $\operatorname{\symbf{grad}} \ln r$。
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
 
-    由于 $\operatorname{grad} r = \frac{\symbfit{r}}{r}$，根据复合函数求导法则有
+    由于 $\operatorname{\symbf{grad}} r = \frac{\symbfit{r}}{r}$，根据复合函数求导法则有
     \begin{equation}
         \begin{aligned}
-            \operatorname{grad} \frac{1}{r^2} & = -\frac{2}{r^3} \operatorname{grad} r       \\
+            \operatorname{\symbf{grad}} \frac{1}{r^2} & = -\frac{2}{r^3} \operatorname{\symbf{grad}} r       \\
                                               & = -\frac{2}{r^3} \cdot \frac{\symbfit{r}}{r} \\
                                               & = -\frac{2 \symbfit{r}}{r^4}.
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{\operatorname{grad} \frac{1}{r^2} = -\frac{2 \symbfit{r}}{r^4}}
+        \boxed{\operatorname{\symbf{grad}} \frac{1}{r^2} = -\frac{2 \symbfit{r}}{r^4}}
     \end{equation}
 
     \ansitem{2}
@@ -2307,13 +2307,13 @@
     同理可得
     \begin{equation}
         \begin{aligned}
-            \operatorname{grad} \ln r & = \frac{1}{r} \operatorname{grad} r       \\
+            \operatorname{\symbf{grad}} \ln r & = \frac{1}{r} \operatorname{\symbf{grad}} r       \\
                                       & = \frac{1}{r} \cdot \frac{\symbfit{r}}{r} \\
                                       & = \frac{\symbfit{r}}{r^2}.
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{\operatorname{grad} \ln r = \frac{\symbfit{r}}{r^2}}
+        \boxed{\operatorname{\symbf{grad}} \ln r = \frac{\symbfit{r}}{r^2}}
     \end{equation}
 \end{solution}
 
@@ -5219,3 +5219,551 @@
     \end{equation}
 \end{solution}
 
+
+\section{向量场的微商}
+
+\begin{problem}{散度与旋度}{Divergence-And-Curl}
+    求电场强度 $\symbfit{E} = \frac{q}{r^3} \symbfit{r}$ ($r = |\symbfit{r}|$) 的散度和旋度。
+\end{problem}
+
+\begin{solution}
+    当 $r \neq 0$ 时，利用向量恒等式 $\nabla \cdot (f \symbfit{A}) = \nabla f \cdot \symbfit{A} + f (\nabla \cdot \symbfit{A})$ 计算散度：
+    \begin{equation}
+        \begin{aligned}
+            \nabla \cdot \symbfit{E} & = \nabla (q r^{-3}) \cdot \symbfit{r} + q r^{-3} (\nabla \cdot \symbfit{r}) \\
+                                     & = -3q r^{-4} \frac{\symbfit{r}}{r} \cdot \symbfit{r} + q r^{-3} \cdot 3     \\
+                                     & = -3q r^{-5} r^2 + 3q r^{-3}                                                \\
+                                     & = 0.
+        \end{aligned} \label{eq:divergence-calc}
+    \end{equation}
+    利用恒等式 $\nabla \times (f \symbfit{A}) = \nabla f \times \symbfit{A} + f (\nabla \times \symbfit{A})$ 计算旋度：
+    \begin{equation}
+        \begin{aligned}
+            \nabla \times \symbfit{E} & = \nabla (q r^{-3}) \times \symbfit{r} + q r^{-3} (\nabla \times \symbfit{r}) \\
+                                      & = \left( -3q r^{-5} \symbfit{r} \right) \times \symbfit{r} + \symbfit{0}      \\
+                                      & = \symbfit{0}.
+        \end{aligned} \label{eq:curl-calc}
+    \end{equation}
+    \begin{equation}
+        \boxed{\nabla \cdot \symbfit{E} = 0, \quad \nabla \times \symbfit{E} = \symbfit{0}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{刚体定轴转动}{Rigid-Body-Rotation}
+    设 $\symbfit{\omega} = \omega_1 \symbfit{i} + \omega_2 \symbfit{j} + \omega_3 \symbfit{k}$ 是一个常值向量，求向量场
+    \begin{equation}
+        \symbfit{v} = \symbfit{\omega} \times \symbfit{r}
+    \end{equation}
+    的旋度 $\nabla \times \symbfit{v}$，并给出合理的物理解释。这里 $\symbfit{r} = x \symbfit{i} + y \symbfit{j} + z \symbfit{k}$ 是位置向量。
+\end{problem}
+
+\begin{solution}
+    由于 $\symbfit{\omega}$ 为常值向量，利用公式 $\nabla \times (\symbfit{A} \times \symbfit{B}) = \symbfit{A}(\nabla \cdot \symbfit{B}) - \symbfit{B}(\nabla \cdot \symbfit{A}) + (\symbfit{B} \cdot \nabla) \symbfit{A} - (\symbfit{A} \cdot \nabla) \symbfit{B}$ 可得：
+    \begin{equation}
+        \begin{aligned}
+            \nabla \times (\symbfit{\omega} \times \symbfit{r}) & = \symbfit{\omega} (\nabla \cdot \symbfit{r}) - (\symbfit{\omega} \cdot \nabla) \symbfit{r}                                                                                                                                                                                                                         \\
+                                                                & = \symbfit{\omega} \left( \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} \right) - \left( \omega_1 \frac{\partial}{\partial x} + \omega_2 \frac{\partial}{\partial y} + \omega_3 \frac{\partial}{\partial z} \right) (x \symbfit{i} + y \symbfit{j} + z \symbfit{k}) \\
+                                                                & = 3 \symbfit{\omega} - (\omega_1 \symbfit{i} + \omega_2 \symbfit{j} + \omega_3 \symbfit{k})                                                                                                                                                                                                                         \\
+                                                                & = 3 \symbfit{\omega} - \symbfit{\omega} = 2 \symbfit{\omega}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\nabla \times \symbfit{v} = 2 \symbfit{\omega}}
+    \end{equation}
+    物理解释：该向量场描述刚体以角速度 $\symbfit{\omega}$ 绕过原点的轴旋转时各点的速度分布。计算结果表明，速度场的旋度等于该刚体角速度的两倍，反映了流体或刚体局部的旋转强度。
+\end{solution}
+
+
+\begin{problem}{散度计算}{Divergence-Calculation}
+    求下列向量场在指定点的散度：
+    \begin{enumerate}
+        \item $\symbfit{v} = (3x^2 - 2yz, y^3 + yz^2, xyz - 3xz^2)$ 在 $M(1, -2, 2)$ 处；
+        \item $\symbfit{v} = x^2 \sin y \symbfit{i} + y^2 \sin(xz) \symbfit{j} + xy \sin(\cos z) \symbfit{k}$ 在 $M(x, y, z)$ 处。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    根据散度的定义，设 $\symbfit{v} = (P, Q, R)$，则有
+    \begin{equation}
+        \label{eq:Div-Def-1}
+        \begin{aligned}
+            \operatorname{div} \symbfit{v} & = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}                                \\
+                                           & = \frac{\partial}{\partial x}(3x^2 - 2yz) + \frac{\partial}{\partial y}(y^3 + yz^2) + \frac{\partial}{\partial z}(xyz - 3xz^2) \\
+                                           & = 6x + (3y^2 + z^2) + (xy - 6xz)。
+        \end{aligned}
+    \end{equation}
+    将点 $M(1, -2, 2)$ 代入 \cref{eq:Div-Def-1} 中，可得
+    \begin{equation}
+        \left. \operatorname{div} \symbfit{v} \right|_{M} = 6(1) + 3(-2)^2 + 2^2 + (1)(-2) - 6(1)(2) = 6 + 12 + 4 - 2 - 12 = 8。
+    \end{equation}
+    \begin{equation}
+        \operatorname{div} \symbfit{v} = \boxed{8}
+    \end{equation}
+
+    \ansitem{2}
+
+    由散度定义式计算各分量的偏导数：
+    \begin{equation}
+        \begin{aligned}
+            \operatorname{div} \symbfit{v} & = \frac{\partial}{\partial x}(x^2 \sin y) + \frac{\partial}{\partial y}(y^2 \sin(xz)) + \frac{\partial}{\partial z}(xy \sin(\cos z)) \\
+                                           & = 2x \sin y + 2y \sin(xz) + xy \cos(\cos z) \cdot (-\sin z)。
+        \end{aligned}
+    \end{equation}
+    整理各项，得到散度的表达式为
+    \begin{equation}
+        \operatorname{div} \symbfit{v} = \boxed{2x \sin y + 2y \sin(xz) - xy \sin z \cos(\cos z)}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{向量恒等式散度计算}{Vector-Divergence-Identities}
+    设 $\symbfit{w}$ 是常向量，$\symbfit{r} = x\symbfit{i} + y\symbfit{j} + z\symbfit{k}$，$r = |\symbfit{r}|$，求
+    \begin{enumerate}
+        \item $\operatorname{div} [(\symbfit{r} \cdot \symbfit{w})\symbfit{w}]$；
+        \item $\operatorname{div} \frac{\symbfit{r}}{r}$；
+        \item $\operatorname{div} (\symbfit{w} \times \symbfit{r})$；
+        \item $\operatorname{div} (r^2 \symbfit{w})$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    利用恒等式 $\operatorname{div} (\varphi \symbfit{A}) = \nabla \varphi \cdot \symbfit{A} + \varphi \operatorname{div} \symbfit{A}$，令 $\varphi = \symbfit{r} \cdot \symbfit{w}$ 且 $\symbfit{A} = \symbfit{w}$。
+    由于 $\symbfit{w}$ 为常向量，有 $\operatorname{div} \symbfit{w} = 0$ 以及 $\nabla(\symbfit{r} \cdot \symbfit{w}) = \symbfit{w}$。
+    \begin{equation}
+        \begin{aligned}
+            \operatorname{div} [(\symbfit{r} \cdot \symbfit{w})\symbfit{w}] & = \nabla(\symbfit{r} \cdot \symbfit{w}) \cdot \symbfit{w} + (\symbfit{r} \cdot \symbfit{w}) \operatorname{div} \symbfit{w} \\
+                                                                            & = \symbfit{w} \cdot \symbfit{w} + 0。
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \operatorname{div} [(\symbfit{r} \cdot \symbfit{w})\symbfit{w}] = \boxed{w^2}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用径向函数性质，注意到 $\nabla r = \frac{\symbfit{r}}{r}$ 且 $\operatorname{div} \symbfit{r} = 3$。
+    \begin{equation}
+        \begin{aligned}
+            \operatorname{div} \frac{\symbfit{r}}{r} & = \operatorname{div} (r^{-1} \symbfit{r}) = \nabla(r^{-1}) \cdot \symbfit{r} + r^{-1} \operatorname{div} \symbfit{r} \\
+                                                     & = -r^{-2} \nabla r \cdot \symbfit{r} + \frac{3}{r}                                                                   \\
+                                                     & = -\frac{\symbfit{r}}{r^3} \cdot \symbfit{r} + \frac{3}{r} = -\frac{r^2}{r^3} + \frac{3}{r}。
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \operatorname{div} \frac{\symbfit{r}}{r} = \boxed{\frac{2}{r}}
+    \end{equation}
+
+    \ansitem{3}
+
+    利用恒等式 $\operatorname{div} (\symbfit{A} \times \symbfit{B}) = \symbfit{B} \cdot (\operatorname{curl} \symbfit{A}) - \symbfit{A} \cdot (\operatorname{curl} \symbfit{B})$。
+    由于 $\symbfit{w}$ 是常向量，$\operatorname{curl} \symbfit{w} = \symbfit{0}$；又位置向量场是无旋场，即 $\operatorname{curl} \symbfit{r} = \symbfit{0}$。
+    \begin{equation}
+        \begin{aligned}
+            \operatorname{div} (\symbfit{w} \times \symbfit{r}) & = \symbfit{r} \cdot (\operatorname{curl} \symbfit{w}) - \symbfit{w} \cdot (\operatorname{curl} \symbfit{r}) \\
+                                                                & = \symbfit{r} \cdot \symbfit{0} - \symbfit{w} \cdot \symbfit{0}。
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \operatorname{div} (\symbfit{w} \times \symbfit{r}) = \boxed{0}
+    \end{equation}
+
+    \ansitem{4}
+
+    同理利用 $\operatorname{div} (\varphi \symbfit{A}) = \nabla \varphi \cdot \symbfit{A} + \varphi \operatorname{div} \symbfit{A}$，令 $\varphi = r^2$ 且 $\symbfit{A} = \symbfit{w}$。
+    \begin{equation}
+        \begin{aligned}
+            \operatorname{div} (r^2 \symbfit{w}) & = \nabla(r^2) \cdot \symbfit{w} + r^2 \operatorname{div} \symbfit{w} \\
+                                                 & = (2r \nabla r) \cdot \symbfit{w} + 0                                \\
+                                                 & = 2r \frac{\symbfit{r}}{r} \cdot \symbfit{w}。
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \operatorname{div} (r^2 \symbfit{w}) = \boxed{2 \symbfit{r} \cdot \symbfit{w}}
+    \end{equation}
+\end{solution}
+
+\begin{note}{旋度符号的不同表示}{Curl-Vs-Rot}
+    上述解析中的 $\operatorname{curl}$ 和 $\operatorname{\symbf{rot}}$ 均表示旋度。
+    \begin{itemize}
+        \item $\operatorname{curl}$：源自英语 "curl"（卷曲）。主要流行于美国、英国等英语系国家的数学和物理教材中。
+        \item $\operatorname{\symbf{rot}}$：源自拉丁语 "rotatio" 或德语 "Rotation"（旋转）。主要流行于德国、俄罗斯以及欧洲大陆的国家。
+    \end{itemize}
+    在中国的高等数学教材中，这两个符号通常通用，但在偏物理的电磁学教材中 $\operatorname{\symbf{rot}}$ 出现频率较高。
+\end{note}
+
+
+\begin{problem}{向量场的旋度}{Curl-Calculation}
+    求下列向量场的旋度：
+    \begin{enumerate}
+        \item $\symbfit{v} = y^2 \symbfit{i} + z^2 \symbfit{j} + x^2 \symbfit{k}$；
+        \item $\symbfit{v} = (x \e^y + y)\symbfit{i} + (z + \e^y)\symbfit{j} + (y + 2z \e^y)\symbfit{k}$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    根据旋度的定义，向量场 $\symbfit{v} = P \symbfit{i} + Q \symbfit{j} + R \symbfit{k}$ 的旋度为
+    \begin{equation} \label{eq:curl-def-1}
+        \operatorname{\symbf{rot}} \symbfit{v} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ y^2 & z^2 & x^2 \end{vmatrix}
+    \end{equation}
+    展开 \cref{eq:curl-def-1} 可得
+    \begin{equation} \label{eq:curl-res-1}
+        \begin{aligned}
+            \operatorname{\symbf{rot}} \symbfit{v} & = \left( \frac{\partial}{\partial y} (x^2) - \frac{\partial}{\partial z} (z^2) \right) \symbfit{i} + \left( \frac{\partial}{\partial z} (y^2) - \frac{\partial}{\partial x} (x^2) \right) \symbfit{j} + \left( \frac{\partial}{\partial x} (z^2) - \frac{\partial}{\partial y} (y^2) \right) \symbfit{k} \\
+                                                   & = -2z \symbfit{i} - 2x \symbfit{j} - 2y \symbfit{k}
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\operatorname{\symbf{rot}} \symbfit{v} = -2(z \symbfit{i} + x \symbfit{j} + y \symbfit{k})}
+    \end{equation}
+
+    \ansitem{2}
+
+    同理，对第二问中的向量场计算旋度
+    \begin{equation} \label{eq:curl-def-2}
+        \operatorname{\symbf{rot}} \symbfit{v} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ x \e^y + y & z + \e^y & y + 2z \e^y \end{vmatrix}
+    \end{equation}
+    各分量计算如下：
+    \begin{equation} \label{eq:curl-res-2}
+        \begin{aligned}
+            \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} & = (1 + 2z \e^y) - 1 = 2z \e^y    \\
+            \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} & = 0 - 0 = 0                      \\
+            \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} & = 0 - (x \e^y + 1) = -x \e^y - 1
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\operatorname{\symbf{rot}} \symbfit{v} = 2z \e^y \symbfit{i} - (x \e^y + 1) \symbfit{k}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{向量场微分恒等式}{Vector-Field-Identities}
+    设 $\symbfit{w}$ 是常向量，$\symbfit{r} = x \symbfit{i} + y \symbfit{j} + z \symbfit{k}$，$r = |\symbfit{r}|$，求：
+    \begin{enumerate}
+        \item $\operatorname{\symbf{rot}} (\symbfit{w} \times \symbfit{r})$；
+        \item $\operatorname{\symbf{rot}} [f(r) \symbfit{r}]$；
+        \item $\operatorname{\symbf{rot}} [f(r) \symbfit{w}]$；
+        \item $\operatorname{div} [\symbfit{r} \times f(r) \symbfit{w}]$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    利用公式 $\operatorname{\symbf{rot}} (\symbfit{A} \times \symbfit{B}) = (\symbfit{B} \cdot \nabla) \symbfit{A} - (\symbfit{A} \cdot \nabla) \symbfit{B} + \symbfit{A} \operatorname{div} \symbfit{B} - \symbfit{B} \operatorname{div} \symbfit{A}$。令 $\symbfit{A} = \symbfit{w}$，$\symbfit{B} = \symbfit{r}$，由于 $\symbfit{w}$ 为常向量，有
+    \begin{equation}
+        \begin{aligned}
+            \operatorname{\symbf{rot}} (\symbfit{w} \times \symbfit{r}) & = -(\symbfit{w} \cdot \nabla) \symbfit{r} + \symbfit{w} \operatorname{div} \symbfit{r} \\
+                                                                        & = -(w_x \symbfit{i} + w_y \symbfit{j} + w_z \symbfit{k}) + 3\symbfit{w}                \\
+                                                                        & = -\symbfit{w} + 3\symbfit{w} = 2\symbfit{w}
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\operatorname{\symbf{rot}} (\symbfit{w} \times \symbfit{r}) = 2\symbfit{w}}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用公式 $\operatorname{\symbf{rot}} (\varphi \symbfit{A}) = \nabla \varphi \times \symbfit{A} + \varphi \operatorname{\symbf{rot}} \symbfit{A}$。注意 $\nabla f(r) = f'(r) \frac{\symbfit{r}}{r}$ 且 $\operatorname{\symbf{rot}} \symbfit{r} = \symbfit{0}$
+    \begin{equation}
+        \begin{aligned}
+            \operatorname{\symbf{rot}} [f(r) \symbfit{r}] & = \nabla f(r) \times \symbfit{r} + f(r) \operatorname{\symbf{rot}} \symbfit{r} \\
+                                                          & = f'(r) \frac{\symbfit{r}}{r} \times \symbfit{r} + \symbfit{0} = \symbfit{0}
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\operatorname{\symbf{rot}} [f(r) \symbfit{r}] = \symbfit{0}}
+    \end{equation}
+
+    \ansitem{3}
+
+    同理，由于 $\operatorname{\symbf{rot}} \symbfit{w} = \symbfit{0}$
+    \begin{equation}
+        \begin{aligned}
+            \operatorname{\symbf{rot}} [f(r) \symbfit{w}] & = \nabla f(r) \times \symbfit{w} + f(r) \operatorname{\symbf{rot}} \symbfit{w} \\
+                                                          & = \frac{f'(r)}{r} \symbfit{r} \times \symbfit{w}
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\operatorname{\symbf{rot}} [f(r) \symbfit{w}] = \frac{f'(r)}{r} (\symbfit{r} \times \symbfit{w})}
+    \end{equation}
+
+    \ansitem{4}
+
+    利用公式 $\operatorname{div} (\symbfit{A} \times \symbfit{B}) = \symbfit{B} \cdot \operatorname{\symbf{rot}} \symbfit{A} - \symbfit{A} \cdot \operatorname{\symbf{rot}} \symbfit{B}$。令 $\symbfit{A} = \symbfit{r}$，$\symbfit{B} = f(r) \symbfit{w}$
+    \begin{equation}
+        \begin{aligned}
+            \operatorname{div} [\symbfit{r} \times f(r) \symbfit{w}] & = f(r) \symbfit{w} \cdot \operatorname{\symbf{rot}} \symbfit{r} - \symbfit{r} \cdot \operatorname{\symbf{rot}} [f(r) \symbfit{w}] \\
+                                                                     & = \symbfit{0} - \symbfit{r} \cdot \left[ \frac{f'(r)}{r} (\symbfit{r} \times \symbfit{w}) \right]
+        \end{aligned}
+    \end{equation}
+    由于 $\symbfit{r} \perp (\symbfit{r} \times \symbfit{w})$，其点积为 $0$
+    \begin{equation}
+        \boxed{\operatorname{div} [\symbfit{r} \times f(r) \symbfit{w}] = 0}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{向量场恒等式计算}{Vector-Field-Identities-2}
+    设 $\symbfit{w}$ 是常向量，$\symbfit{r} = x\symbfit{i} + y\symbfit{j} + z\symbfit{k}$，$r = |\symbfit{r}|$，$f(r)$ 是 $r$ 的可微函数，试通过 $\nabla$ 运算求：
+    \begin{enumerate}
+        \item $\nabla(\symbfit{w} \cdot f(r)\symbfit{r})$；
+        \item $\nabla \cdot (\symbfit{w} \times f(r)\symbfit{r})$；
+        \item $\nabla \times (\symbfit{w} \times f(r)\symbfit{r})$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    根据标量函数的梯度运算法则，有
+    \begin{equation}
+        \label{eq:grad-calculation}
+        \begin{aligned}
+            \nabla(\symbfit{w} \cdot f(r)\symbfit{r}) & = \nabla [f(r)(\symbfit{w} \cdot \symbfit{r})]                                              \\
+                                                      & = (\symbfit{w} \cdot \symbfit{r}) \nabla f(r) + f(r) \nabla (\symbfit{w} \cdot \symbfit{r})
+        \end{aligned}
+    \end{equation}
+    考虑到 $\nabla f(r) = f'(r) \frac{\symbfit{r}}{r}$ 以及 $\nabla (\symbfit{w} \cdot \symbfit{r}) = \symbfit{w}$，将其代入 \cref{eq:grad-calculation} 得
+    \begin{equation}
+        \boxed{\nabla(\symbfit{w} \cdot f(r)\symbfit{r}) = f(r)\symbfit{w} + \frac{f'(r)}{r}(\symbfit{w} \cdot \symbfit{r})\symbfit{r}}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用向量算符恒等式 $\nabla \cdot (\symbfit{u} \times \symbfit{v}) = \symbfit{v} \cdot (\nabla \times \symbfit{u}) - \symbfit{u} \cdot (\nabla \times \symbfit{v})$，令 $\symbfit{u} = \symbfit{w}$，$\symbfit{v} = f(r)\symbfit{r}$，可得
+    \begin{equation}
+        \nabla \cdot (\symbfit{w} \times f(r)\symbfit{r}) = f(r)\symbfit{r} \cdot (\nabla \times \symbfit{w}) - \symbfit{w} \cdot [\nabla \times (f(r)\symbfit{r})]
+    \end{equation}
+    由于 $\symbfit{w}$ 为常向量，则 $\nabla \times \symbfit{w} = \symbfit{0}$。又由旋度性质知
+    \begin{equation}
+        \nabla \times (f(r)\symbfit{r}) = \nabla f(r) \times \symbfit{r} + f(r) (\nabla \times \symbfit{r}) = \frac{f'(r)}{r} \symbfit{r} \times \symbfit{r} + \symbfit{0} = \symbfit{0}
+    \end{equation}
+    从而得出
+    \begin{equation}
+        \boxed{\nabla \cdot (\symbfit{w} \times f(r)\symbfit{r}) = 0}
+    \end{equation}
+
+    \ansitem{3}
+
+    利用向量算符恒等式 $\nabla \times (\symbfit{u} \times \symbfit{v}) = (\symbfit{v} \cdot \nabla)\symbfit{u} - (\symbfit{u} \cdot \nabla)\symbfit{v} + \symbfit{u}(\nabla \cdot \symbfit{v}) - \symbfit{v}(\nabla \cdot \symbfit{u})$，令 $\symbfit{u} = \symbfit{w}$，$\symbfit{v} = f(r)\symbfit{r}$，并注意到 $\symbfit{w}$ 为常向量，原式化简为
+    \begin{equation}
+        \label{eq:curl-expansion}
+        \nabla \times (\symbfit{w} \times f(r)\symbfit{r}) = \symbfit{w} [\nabla \cdot (f(r)\symbfit{r})] - (\symbfit{w} \cdot \nabla)(f(r)\symbfit{r})
+    \end{equation}
+    分别计算两项分量：
+    \begin{equation}
+        \nabla \cdot (f(r)\symbfit{r}) = \nabla f(r) \cdot \symbfit{r} + f(r) (\nabla \cdot \symbfit{r}) = f'(r) \frac{\symbfit{r} \cdot \symbfit{r}}{r} + 3f(r) = r f'(r) + 3f(r)
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            (\symbfit{w} \cdot \nabla)(f(r)\symbfit{r}) & = [(\symbfit{w} \cdot \nabla) f(r)]\symbfit{r} + f(r) [(\symbfit{w} \cdot \nabla)\symbfit{r}] \\
+                                                        & = (\symbfit{w} \cdot \frac{f'(r)}{r}\symbfit{r})\symbfit{r} + f(r) \symbfit{w}
+        \end{aligned}
+    \end{equation}
+    将以上分量代入 \cref{eq:curl-expansion} 整理得
+    \begin{equation}
+        \boxed{\nabla \times (\symbfit{w} \times f(r)\symbfit{r}) = (r f'(r) + 2f(r))\symbfit{w} - \frac{f'(r)}{r}(\symbfit{w} \cdot \symbfit{r})\symbfit{r}}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{场论恒等式证明}{Field-Identities}
+    设 $\varphi, \psi$ 是数量场, $\symbfit{a}, \symbfit{b}$ 为向量场, 证明
+    \begin{enumerate}
+        \item $\nabla(\varphi + \psi) = \nabla \varphi + \nabla \psi$
+        \item $\nabla \cdot (\symbfit{a} + \symbfit{b}) = \nabla \cdot \symbfit{a} + \nabla \cdot \symbfit{b}$
+        \item $\nabla \times (\symbfit{a} + \symbfit{b}) = \nabla \times \symbfit{a} + \nabla \times \symbfit{b}$
+        \item $\nabla(\varphi \psi) = \varphi \nabla \psi + \psi \nabla \varphi$
+        \item $\nabla \cdot (\varphi \symbfit{a}) = \varphi \nabla \cdot \symbfit{a} + \symbfit{a} \cdot \nabla \varphi$
+        \item $\nabla \cdot (\symbfit{a} \times \symbfit{b}) = \symbfit{b} \cdot \nabla \times \symbfit{a} - \symbfit{a} \cdot \nabla \times \symbfit{b}$
+        \item $\nabla \times (\varphi \symbfit{a}) = \nabla \varphi \times \symbfit{a} + \varphi \nabla \times \symbfit{a}$
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    根据梯度的定义, 在直角坐标系下有
+    \begin{equation}
+        \begin{aligned}
+            \nabla (\varphi + \psi) & = \frac{\partial (\varphi + \psi)}{\partial x} \symbfit{i} + \frac{\partial (\varphi + \psi)}{\partial y} \symbfit{j} + \frac{\partial (\varphi + \psi)}{\partial z} \symbfit{k}                                                                                                                                                 \\
+                                    & = \left( \frac{\partial \varphi}{\partial x} + \frac{\partial \psi}{\partial x} \right) \symbfit{i} + \left( \frac{\partial \varphi}{\partial y} + \frac{\partial \psi}{\partial y} \right) \symbfit{j} + \left( \frac{\partial \varphi}{\partial z} + \frac{\partial \psi}{\partial z} \right) \symbfit{k}                      \\
+                                    & = \left( \frac{\partial \varphi}{\partial x} \symbfit{i} + \frac{\partial \varphi}{\partial y} \symbfit{j} + \frac{\partial \varphi}{\partial z} \symbfit{k} \right) + \left( \frac{\partial \psi}{\partial x} \symbfit{i} + \frac{\partial \psi}{\partial y} \symbfit{j} + \frac{\partial \psi}{\partial z} \symbfit{k} \right)
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\nabla(\varphi + \psi) = \nabla \varphi + \nabla \psi}
+    \end{equation}
+
+    \ansitem{2}
+
+    设 $\symbfit{a} = a_x \symbfit{i} + a_y \symbfit{j} + a_z \symbfit{k}$, $\symbfit{b} = b_x \symbfit{i} + b_y \symbfit{j} + b_z \symbfit{k}$, 则
+    \begin{equation}
+        \begin{aligned}
+            \nabla \cdot (\symbfit{a} + \symbfit{b}) & = \frac{\partial (a_x + b_x)}{\partial x} + \frac{\partial (a_y + b_y)}{\partial y} + \frac{\partial (a_z + b_z)}{\partial z}                                                                                                             \\
+                                                     & = \left( \frac{\partial a_x}{\partial x} + \frac{\partial a_y}{\partial y} + \frac{\partial a_z}{\partial z} \right) + \left( \frac{\partial b_x}{\partial x} + \frac{\partial b_y}{\partial y} + \frac{\partial b_z}{\partial z} \right)
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\nabla \cdot (\symbfit{a} + \symbfit{b}) = \nabla \cdot \symbfit{a} + \nabla \cdot \symbfit{b}}
+    \end{equation}
+
+    \ansitem{3}
+
+    利用行列式定义证明旋度的线性性
+    \begin{equation}
+        \begin{aligned}
+            \nabla \times (\symbfit{a} + \symbfit{b}) & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ a_x + b_x & a_y + b_y & a_z + b_z \end{vmatrix}                                                                                                                                                                     \\
+                                                      & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ a_x & a_y & a_z \end{vmatrix} + \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ b_x & b_y & b_z \end{vmatrix}
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\nabla \times (\symbfit{a} + \symbfit{b}) = \nabla \times \symbfit{a} + \nabla \times \symbfit{b}}
+    \end{equation}
+
+    \ansitem{4}
+
+    利用一元偏导数的乘积法则
+    \begin{equation}
+        \begin{aligned}
+            \nabla(\varphi \psi) & = \frac{\partial (\varphi \psi)}{\partial x} \symbfit{i} + \frac{\partial (\varphi \psi)}{\partial y} \symbfit{j} + \frac{\partial (\varphi \psi)}{\partial z} \symbfit{k}                                                                                                                                                                         \\
+                                 & = \left( \psi \frac{\partial \varphi}{\partial x} + \varphi \frac{\partial \psi}{\partial x} \right) \symbfit{i} + \left( \psi \frac{\partial \varphi}{\partial y} + \varphi \frac{\partial \psi}{\partial y} \right) \symbfit{j} + \left( \psi \frac{\partial \varphi}{\partial z} + \varphi \frac{\partial \psi}{\partial z} \right) \symbfit{k} \\
+                                 & = \psi \left( \frac{\partial \varphi}{\partial x} \symbfit{i} + \frac{\partial \varphi}{\partial y} \symbfit{j} + \frac{\partial \varphi}{\partial z} \symbfit{k} \right) + \varphi \left( \frac{\partial \psi}{\partial x} \symbfit{i} + \frac{\partial \psi}{\partial y} \symbfit{j} + \frac{\partial \psi}{\partial z} \symbfit{k} \right)
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\nabla(\varphi \psi) = \varphi \nabla \psi + \psi \nabla \varphi}
+    \end{equation}
+
+    \ansitem{5}
+
+    直接展开左端的散度表达式
+    \begin{equation}
+        \begin{aligned}
+            \nabla \cdot (\varphi \symbfit{a}) & = \frac{\partial (\varphi a_x)}{\partial x} + \frac{\partial (\varphi a_y)}{\partial y} + \frac{\partial (\varphi a_z)}{\partial z}                                                                                                                                                                      \\
+                                               & = \left( \varphi \frac{\partial a_x}{\partial x} + a_x \frac{\partial \varphi}{\partial x} \right) + \left( \varphi \frac{\partial a_y}{\partial y} + a_y \frac{\partial \varphi}{\partial y} \right) + \left( \varphi \frac{\partial a_z}{\partial z} + a_z \frac{\partial \varphi}{\partial z} \right) \\
+                                               & = \varphi \left( \frac{\partial a_x}{\partial x} + \frac{\partial a_y}{\partial y} + \frac{\partial a_z}{\partial z} \right) + \left( a_x \frac{\partial \varphi}{\partial x} + a_y \frac{\partial \varphi}{\partial y} + a_z \frac{\partial \varphi}{\partial z} \right)
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\nabla \cdot (\varphi \symbfit{a}) = \varphi \nabla \cdot \symbfit{a} + \symbfit{a} \cdot \nabla \varphi}
+    \end{equation}
+
+    \ansitem{6}
+
+    首先写出 $\symbfit{a} \times \symbfit{b}$ 的分量表示, 然后计算其散度
+    \begin{equation}
+        \begin{aligned}
+            \nabla \cdot (\symbfit{a} \times \symbfit{b}) & = \frac{\partial}{\partial x}(a_y b_z - a_z b_y) + \frac{\partial}{\partial y}(a_z b_x - a_x b_z) + \frac{\partial}{\partial z}(a_x b_y - a_y b_x)                                                                                                                                                                                            \\
+                                                          & = \left( b_z \frac{\partial a_y}{\partial x} + a_y \frac{\partial b_z}{\partial x} - b_y \frac{\partial a_z}{\partial x} - a_z \frac{\partial b_y}{\partial x} \right) + \left( b_x \frac{\partial a_z}{\partial y} + a_z \frac{\partial b_x}{\partial y} - b_z \frac{\partial a_x}{\partial y} - a_x \frac{\partial b_z}{\partial y} \right) \\
+                                                          & \quad + \left( b_y \frac{\partial a_x}{\partial z} + a_x \frac{\partial b_y}{\partial z} - b_x \frac{\partial a_y}{\partial z} - a_y \frac{\partial b_x}{\partial z} \right)
+        \end{aligned}
+    \end{equation}
+    整理关于 $b_i$ 和 $a_i$ 的项可得
+    \begin{equation}
+        \begin{aligned}
+            \nabla \cdot (\symbfit{a} \times \symbfit{b}) & = b_x \left( \frac{\partial a_z}{\partial y} - \frac{\partial a_y}{\partial z} \right) + b_y \left( \frac{\partial a_x}{\partial z} - \frac{\partial a_z}{\partial x} \right) + b_z \left( \frac{\partial a_y}{\partial x} - \frac{\partial a_x}{\partial y} \right)                      \\
+                                                          & \quad - \left[ a_x \left( \frac{\partial b_z}{\partial y} - \frac{\partial b_y}{\partial z} \right) + a_y \left( \frac{\partial b_x}{\partial z} - \frac{\partial b_z}{\partial x} \right) + a_z \left( \frac{\partial b_y}{\partial x} - \frac{\partial b_x}{\partial y} \right) \right]
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\nabla \cdot (\symbfit{a} \times \symbfit{b}) = \symbfit{b} \cdot \nabla \times \symbfit{a} - \symbfit{a} \cdot \nabla \times \symbfit{b}}
+    \end{equation}
+
+    \ansitem{7}
+
+    考察 $\nabla \times (\varphi \symbfit{a})$ 的 $x$ 分量
+    \begin{equation}
+        \begin{aligned}
+            \relax [\nabla \times (\varphi \symbfit{a})]_x & = \frac{\partial (\varphi a_z)}{\partial y} - \frac{\partial (\varphi a_y)}{\partial z}                                                                                                               \\
+                                                           & = \left( \varphi \frac{\partial a_z}{\partial y} + a_z \frac{\partial \varphi}{\partial y} \right) - \left( \varphi \frac{\partial a_y}{\partial z} + a_y \frac{\partial \varphi}{\partial z} \right) \\
+                                                           & = \varphi \left( \frac{\partial a_z}{\partial y} - \frac{\partial a_y}{\partial z} \right) + \left( \frac{\partial \varphi}{\partial y} a_z - \frac{\partial \varphi}{\partial z} a_y \right)         \\
+                                                           & = \varphi (\nabla \times \symbfit{a})_x + (\nabla \varphi \times \symbfit{a})_x
+        \end{aligned}
+    \end{equation}
+    同理可得 $y$ 与 $z$ 分量均满足此形式
+    \begin{equation}
+        \boxed{\nabla \times (\varphi \symbfit{a}) = \nabla \varphi \times \symbfit{a} + \varphi \nabla \times \symbfit{a}}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{向量微分恒等式}{Vector-Differential-Identities}
+    证明下列等式：
+    \begin{enumerate}
+        \item $\operatorname{\symbf{rot}} \operatorname{\symbf{grad}} \varphi = \nabla \times \nabla \varphi = \symbf{0}$；
+        \item $\operatorname{div} \operatorname{\symbf{rot}} \symbfit{a} = \nabla \cdot (\nabla \times \symbfit{a}) = 0$。
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    在直角坐标系下，设标量场 $\varphi$ 具有二阶连续偏导数。根据旋度与梯度的定义展开
+    \begin{equation}\label{eq:rot-grad-proof}
+        \begin{aligned}
+            \nabla \times \nabla \varphi & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ \frac{\partial \varphi}{\partial x} & \frac{\partial \varphi}{\partial y} & \frac{\partial \varphi}{\partial z} \end{vmatrix}                                                                                                               \\
+                                         & = \left( \frac{\partial^2 \varphi}{\partial y \partial z} - \frac{\partial^2 \varphi}{\partial z \partial y} \right) \symbfit{i} + \left( \frac{\partial^2 \varphi}{\partial z \partial x} - \frac{\partial^2 \varphi}{\partial x \partial z} \right) \symbfit{j} + \left( \frac{\partial^2 \varphi}{\partial x \partial y} - \frac{\partial^2 \varphi}{\partial y \partial x} \right) \symbfit{k}.
+        \end{aligned}
+    \end{equation}
+    根据混合偏导数相等定理，上式中各分量均为 $0$，故得
+    \begin{equation}\label{eq:rot-grad-final}
+        \boxed{\operatorname{\symbf{rot}} \operatorname{\symbf{grad}} \varphi = \symbf{0}}
+    \end{equation}
+
+    \ansitem{2}
+
+    设向量场为 $\symbfit{a} = a_x \symbfit{i} + a_y \symbfit{j} + a_z \symbfit{k}$。其旋度的表达式为
+    \begin{equation}\label{eq:curl-def}
+        \nabla \times \symbfit{a} = \left( \frac{\partial a_z}{\partial y} - \frac{\partial a_y}{\partial z} \right) \symbfit{i} + \left( \frac{\partial a_x}{\partial z} - \frac{\partial a_z}{\partial x} \right) \symbfit{j} + \left( \frac{\partial a_y}{\partial x} - \frac{\partial a_x}{\partial y} \right) \symbfit{k}.
+    \end{equation}
+    对 \cref{eq:curl-def} 求散度可得
+    \begin{equation}\label{eq:div-rot-calc}
+        \begin{aligned}
+            \nabla \cdot (\nabla \times \symbfit{a}) & = \frac{\partial}{\partial x} \left( \frac{\partial a_z}{\partial y} - \frac{\partial a_y}{\partial z} \right) + \frac{\partial}{\partial y} \left( \frac{\partial a_x}{\partial z} - \frac{\partial a_z}{\partial x} \right) + \frac{\partial}{\partial z} \left( \frac{\partial a_y}{\partial x} - \frac{\partial a_x}{\partial y} \right) \\
+                                                     & = \left( \frac{\partial^2 a_z}{\partial x \partial y} - \frac{\partial^2 a_z}{\partial y \partial x} \right) + \left( \frac{\partial^2 a_x}{\partial y \partial z} - \frac{\partial^2 a_x}{\partial z \partial y} \right) + \left( \frac{\partial^2 a_y}{\partial z \partial x} - \frac{\partial^2 a_y}{\partial x \partial z} \right)       \\
+                                                     & = 0.
+        \end{aligned}
+    \end{equation}
+    因此恒等式成立
+    \begin{equation}\label{eq:div-rot-final}
+        \boxed{\operatorname{div} \operatorname{\symbf{rot}} \symbfit{a} = 0}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{二阶向量导数恒等式}{Curl-Of-Curl-Identity}
+    证明恒等式：
+    \begin{equation*}
+        \nabla \times (\nabla \times \symbfit{v}) = \nabla (\nabla \cdot \symbfit{v}) - \nabla^2 \symbfit{v}.
+    \end{equation*}
+\end{problem}
+
+\begin{myproof}
+
+    在直角坐标系下，考察左端项的 $x$ 分量
+    \begin{equation}\label{eq:curl-curl-lhs}
+        \begin{aligned}
+            \relax [\nabla \times (\nabla \times \symbfit{v})]_x & = \frac{\partial}{\partial y} (\nabla \times \symbfit{v})_z - \frac{\partial}{\partial z} (\nabla \times \symbfit{v})_y                                                                                                       \\
+                                                                 & = \frac{\partial}{\partial y} \left( \frac{\partial v_y}{\partial x} - \frac{\partial v_x}{\partial y} \right) - \frac{\partial}{\partial z} \left( \frac{\partial v_x}{\partial z} - \frac{\partial v_z}{\partial x} \right) \\
+                                                                 & = \frac{\partial^2 v_y}{\partial y \partial x} - \frac{\partial^2 v_x}{\partial y^2} - \frac{\partial^2 v_x}{\partial z^2} + \frac{\partial^2 v_z}{\partial z \partial x}.
+        \end{aligned}
+    \end{equation}
+    考察右端项的 $x$ 分量
+    \begin{equation}\label{eq:curl-curl-rhs}
+        \begin{aligned}
+            \relax [\nabla (\nabla \cdot \symbfit{v}) - \nabla^2 \symbfit{v}]_x & = \frac{\partial}{\partial x} \left( \frac{\partial v_x}{\partial x} + \frac{\partial v_y}{\partial y} + \frac{\partial v_z}{\partial z} \right) - \left( \frac{\partial^2 v_x}{\partial x^2} + \frac{\partial^2 v_x}{\partial y^2} + \frac{\partial^2 v_x}{\partial z^2} \right) \\
+                                                                                & = \frac{\partial^2 v_x}{\partial x^2} + \frac{\partial^2 v_y}{\partial x \partial y} + \frac{\partial^2 v_z}{\partial x \partial z} - \frac{\partial^2 v_x}{\partial x^2} - \frac{\partial^2 v_x}{\partial y^2} - \frac{\partial^2 v_x}{\partial z^2}                             \\
+                                                                                & = \frac{\partial^2 v_y}{\partial x \partial y} + \frac{\partial^2 v_z}{\partial x \partial z} - \frac{\partial^2 v_x}{\partial y^2} - \frac{\partial^2 v_x}{\partial z^2}.
+        \end{aligned}
+    \end{equation}
+    比较 \cref{eq:curl-curl-lhs} 与 \cref{eq:curl-curl-rhs}，由偏导数求导次序的可交换性可知两式 $x$ 分量相等。同理可证 $y$、$z$ 分量亦分别相等。故
+    \begin{equation}\label{eq:curl-curl-final}
+        \boxed{\nabla \times (\nabla \times \symbfit{v}) = \nabla (\nabla \cdot \symbfit{v}) - \nabla^2 \symbfit{v}}
+    \end{equation}
+\end{myproof}

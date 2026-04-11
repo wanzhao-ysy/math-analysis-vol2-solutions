@@ -1,0 +1,307 @@
+\section{第 9 章综合习题}
+
+\begin{problem}{多元函数微分学}{Partial-Derivative-Condition}
+    设 $a_1, a_2, \cdots, a_n$ 是非零常数。$f(x_1, x_2, \cdots, x_n)$ 在 $\mathbb{R}^n$ 上可微。求证：存在 $\mathbb{R}$ 上一元可微函数 $F(s)$ 使得 $f(x_1, x_2, \cdots, x_n) = F(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n)$ 的充分必要条件是 $a_j \frac{\partial f}{\partial x_i} = a_i \frac{\partial f}{\partial x_j}, i, j = 1, 2, \cdots, n$。
+\end{problem}
+
+\begin{solution}
+
+    \textbf{必要性}：
+    设 $s = \sum_{k=1}^n a_k x_k$，且 $f(x_1, \dots, x_n) = F(s)$。
+    由链式法则，对任意 $i \in \{1, \dots, n\}$，有
+    \begin{equation}
+        \frac{\partial f}{\partial x_i} = F'(s) \frac{\partial s}{\partial x_i} = a_i F'(s).
+    \end{equation}
+    同理，对任意 $j \in \{1, \dots, n\}$，有
+    \begin{equation}
+        \frac{\partial f}{\partial x_j} = a_j F'(s).
+    \end{equation}
+    从而
+    \begin{equation}
+        a_j \frac{\partial f}{\partial x_i} = a_j a_i F'(s) = a_i a_j F'(s) = a_i \frac{\partial f}{\partial x_j}.
+    \end{equation}
+    必要性得证。
+
+    \textbf{充分性}：
+    已知 $a_j \frac{\partial f}{\partial x_i} = a_i \frac{\partial f}{\partial x_j}$ 对所有 $i, j$ 成立。
+    由于 $a_k \neq 0$，可变形为
+    \begin{equation}
+        \frac{1}{a_i} \frac{\partial f}{\partial x_i} = \frac{1}{a_j} \frac{\partial f}{\partial x_j}.
+    \end{equation}
+    这表明 $\frac{1}{a_k} \frac{\partial f}{\partial x_k}$ 的值与下标 $k$ 无关。记该公共值为 $g(x_1, \dots, x_n)$，即
+    \begin{equation}
+        \frac{\partial f}{\partial x_k} = a_k g(x_1, \dots, x_n), \quad k=1, \dots, n.
+    \end{equation}
+    考虑 $f$ 的全微分：
+    \begin{equation}
+        \d f = \sum_{k=1}^n \frac{\partial f}{\partial x_k} \d x_k = \sum_{k=1}^n a_k g \d x_k = g \sum_{k=1}^n a_k \d x_k = g \d \left( \sum_{k=1}^n a_k x_k \right).
+    \end{equation}
+    令 $s = \sum_{k=1}^n a_k x_k$。上式表明 $\d f = g \d s$。
+    这意味着 $f$ 的全微分仅依赖于 $\d s$，即 $f$ 的变化完全由 $s$ 的变化决定。
+    在单连通区域 $\mathbb{R}^n$ 上，这意味着 $f$ 仅是 $s$ 的函数。
+    即存在一元可微函数 $F$，使得
+    \begin{equation}
+        f(x_1, \dots, x_n) = F(s) = F(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n).
+    \end{equation}
+    充分性得证。
+\end{solution}
+
+v
+
+\begin{problem}{多元复合函数求导}{Partial-Derivative-Chain-Rule-3}
+    设 $f(x,y,z) = F(u,v,w)$，其中 $x^2 = vw$、$y^2 = wu$、$z^2 = uv$。求证：
+    \begin{equation}
+        x \frac{\partial f}{\partial x} + y \frac{\partial f}{\partial y} + z \frac{\partial f}{\partial z} = u \frac{\partial F}{\partial u} + v \frac{\partial F}{\partial v} + w \frac{\partial F}{\partial w}.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    将 $x^2 = vw$、$y^2 = wu$、$z^2 = uv$ 关于 $x$ 求偏导，得
+    \begin{equation}
+        \begin{cases}
+            2x = v \frac{\partial w}{\partial x} + w \frac{\partial v}{\partial x} \\
+            0 = w \frac{\partial u}{\partial x} + u \frac{\partial w}{\partial x}  \\
+            0 = u \frac{\partial v}{\partial x} + v \frac{\partial u}{\partial x}
+        \end{cases}
+        \label{eq:differentiation-system}
+    \end{equation}
+    由 \cref{eq:differentiation-system} 后两式可得 $\frac{\partial w}{\partial x} = -\frac{w}{u} \frac{\partial u}{\partial x}$ 且 $\frac{\partial v}{\partial x} = -\frac{v}{u} \frac{\partial u}{\partial x}$。代入第一式，得
+    \begin{equation}
+        2x = v \left( -\frac{w}{u} \frac{\partial u}{\partial x} \right) + w \left( -\frac{v}{u} \frac{\partial u}{\partial x} \right) = -\frac{2vw}{u} \frac{\partial u}{\partial x} = -\frac{2x^2}{u} \frac{\partial u}{\partial x}.
+    \end{equation}
+    由此解得 $\frac{\partial u}{\partial x} = -\frac{u}{x}$，进而可得 $\frac{\partial v}{\partial x} = \frac{v}{x}$、$\frac{\partial w}{\partial x} = \frac{w}{x}$。由对称性可得所有偏导项：
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial u}{\partial x} = -\frac{u}{x}, \quad \frac{\partial v}{\partial x} = \frac{v}{x}, \quad \frac{\partial w}{\partial x} = \frac{w}{x}; \\
+            \frac{\partial u}{\partial y} = \frac{u}{y}, \quad \frac{\partial v}{\partial y} = -\frac{v}{y}, \quad \frac{\partial w}{\partial y} = \frac{w}{y}; \\
+            \frac{\partial u}{\partial z} = \frac{u}{z}, \quad \frac{\partial v}{\partial z} = \frac{v}{z}, \quad \frac{\partial w}{\partial z} = -\frac{w}{z}.
+        \end{aligned}
+    \end{equation}
+    根据复合函数求导法则，有
+    \begin{equation}
+        \begin{aligned}
+            x \frac{\partial f}{\partial x} & = x \left( \frac{\partial F}{\partial u} \frac{\partial u}{\partial x} + \frac{\partial F}{\partial v} \frac{\partial v}{\partial x} + \frac{\partial F}{\partial w} \frac{\partial w}{\partial x} \right) = -u \frac{\partial F}{\partial u} + v \frac{\partial F}{\partial v} + w \frac{\partial F}{\partial w}, \\
+            y \frac{\partial f}{\partial y} & = y \left( \frac{\partial F}{\partial u} \frac{\partial u}{\partial y} + \frac{\partial F}{\partial v} \frac{\partial v}{\partial y} + \frac{\partial F}{\partial w} \frac{\partial w}{\partial y} \right) = u \frac{\partial F}{\partial u} - v \frac{\partial F}{\partial v} + w \frac{\partial F}{\partial w},  \\
+            z \frac{\partial f}{\partial z} & = z \left( \frac{\partial F}{\partial u} \frac{\partial u}{\partial z} + \frac{\partial F}{\partial v} \frac{\partial v}{\partial z} + \frac{\partial F}{\partial w} \frac{\partial w}{\partial z} \right) = u \frac{\partial F}{\partial u} + v \frac{\partial F}{\partial v} - w \frac{\partial F}{\partial w}.
+        \end{aligned}
+    \end{equation}
+    将上述三式相加，整理可得
+    \begin{equation}
+        \boxed{x \frac{\partial f}{\partial x} + y \frac{\partial f}{\partial y} + z \frac{\partial f}{\partial z} = u \frac{\partial F}{\partial u} + v \frac{\partial F}{\partial v} + w \frac{\partial F}{\partial w}}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{齐次函数欧拉定理}{Euler-Theorem-Homogeneous}
+    若函数 $u = f(x, y, z)$ 满足恒等式 $f(tx, ty, tz) = t^k f(x, y, z)$ ($t > 0$)，则称 $f(x, y, z)$ 为 $k$ 次齐次函数。试证下述关于齐次函数的欧拉定理：可微函数 $f(x, y, z)$ 为 $k$ 次齐次函数的充要条件是：
+    \begin{equation}
+        x f'_x(x, y, z) + y f'_y(x, y, z) + z f'_z(x, y, z) = k f(x, y, z).
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    必要性：若 $f(x, y, z)$ 是 $k$ 次齐次函数，则有恒等式 $f(tx, ty, tz) = t^k f(x, y, z)$。对此式两端关于 $t$ 求导，由多元复合函数求导法则得：
+    \begin{equation}
+        \begin{aligned}
+            \frac{\d}{\d t} f(tx, ty, tz) & = \frac{\partial f}{\partial (tx)} \cdot \frac{\d (tx)}{\d t} + \frac{\partial f}{\partial (ty)} \cdot \frac{\d (ty)}{\d t} + \frac{\partial f}{\partial (tz)} \cdot \frac{\d (tz)}{\d t} \\
+                                          & = x f'_x(tx, ty, tz) + y f'_y(tx, ty, tz) + z f'_z(tx, ty, tz).
+        \end{aligned} \label{eq:Diff-LHS}
+    \end{equation}
+    同时，等式右端关于 $t$ 的导数为：
+    \begin{equation}
+        \frac{\d}{\d t} \left[ t^k f(x, y, z) \right] = k t^{k-1} f(x, y, z). \label{eq:Diff-RHS}
+    \end{equation}
+    联立 \cref{eq:Diff-LHS} 与 \cref{eq:Diff-RHS}，并令 $t = 1$，即得：
+    \begin{equation}
+        x f'_x(x, y, z) + y f'_y(x, y, z) + z f'_z(x, y, z) = k f(x, y, z).
+    \end{equation}
+
+    充分性：若已知题设微分方程成立。对于任意固定的 $(x, y, z)$，构造辅助函数：
+    \begin{equation}
+        G(t) = \frac{f(tx, ty, tz)}{t^k} = t^{-k} f(tx, ty, tz) \quad (t > 0).
+    \end{equation}
+    对 $G(t)$ 关于 $t$ 求导得：
+    \begin{equation}
+        \begin{aligned}
+            G'(t) & = -k t^{-k-1} f(tx, ty, tz) + t^{-k} \frac{\d}{\d t} f(tx, ty, tz)                                                           \\
+                  & = -k t^{-k-1} f(tx, ty, tz) + t^{-k} \left[ x f'_x(tx, ty, tz) + y f'_y(tx, ty, tz) + z f'_z(tx, ty, tz) \right]             \\
+                  & = -k t^{-k-1} f(tx, ty, tz) + t^{-k-1} \left[ (tx) f'_x(tx, ty, tz) + (ty) f'_y(tx, ty, tz) + (tz) f'_z(tx, ty, tz) \right].
+        \end{aligned}
+    \end{equation}
+    由于题设等式对任意点均成立，将点 $(x, y, z)$ 替换为 $(tx, ty, tz)$ 可得：
+    \begin{equation}
+        (tx) f'_x(tx, ty, tz) + (ty) f'_y(tx, ty, tz) + (tz) f'_z(tx, ty, tz) = k f(tx, ty, tz).
+    \end{equation}
+    代入 $G'(t)$ 的表达式中，有：
+    \begin{equation}
+        G'(t) = -k t^{-k-1} f(tx, ty, tz) + t^{-k-1} \left[ k f(tx, ty, tz) \right] = 0.
+    \end{equation}
+    因此 $G(t)$ 为常数。由 $G(1) = f(x, y, z)$ 可知 $G(t) = f(x, y, z)$，即：
+    \begin{equation}
+        \frac{f(tx, ty, tz)}{t^k} = f(x, y, z) \implies f(tx, ty, tz) = t^k f(x, y, z).
+    \end{equation}
+    综上所述，原命题得证。
+    \begin{equation}
+        \boxed{x f'_x(x, y, z) + y f'_y(x, y, z) + z f'_z(x, y, z) = k f(x, y, z)}
+    \end{equation}
+\end{myproof}
+
+
+\begin{problem}{齐次函数与隐函数}{Homogeneous-Implicit-Function}
+    设 $f(x,y,z)$ 是 $n$ 次齐次的可微函数。若方程 $f(x,y,z) = 0$ 隐含函数 $z = \varphi(x,y)$ (即，$f'_z \neq 0$), 则 $\varphi(x,y)$ 是一次齐次函数。
+\end{problem}
+
+\begin{myproof}
+    由于 $f(x, y, z)$ 是 $n$ 次齐次函数，根据齐次函数的定义，对于任意 $t > 0$，恒有
+    \begin{equation}
+        f(tx, ty, tz) = t^n f(x, y, z). \label{eq:homo-def}
+    \end{equation}
+    由题意，$z = \varphi(x, y)$ 是方程 $f(x, y, z) = 0$ 确定的隐函数，即满足
+    \begin{equation}
+        f(x, y, \varphi(x, y)) \equiv 0. \label{eq:implicit-relation}
+    \end{equation}
+    在 \cref{eq:homo-def} 中，令 $z = \varphi(x, y)$，并结合 \cref{eq:implicit-relation} 可得
+    \begin{equation}
+        f(tx, ty, t\varphi(x, y)) = t^n f(x, y, \varphi(x, y)) = t^n \cdot 0 = 0. \label{eq:scaled-zero}
+    \end{equation}
+    另一方面，对于点 $(tx, ty)$，隐函数 $z = \varphi(tx, ty)$ 同样满足方程
+    \begin{equation}
+        f(tx, ty, \varphi(tx, ty)) = 0. \label{eq:scaled-implicit}
+    \end{equation}
+    由于 $f'_z \neq 0$，根据隐函数存在定理，方程 $f(tx, ty, z) = 0$ 在该点附近确定的解 $z$ 是唯一的。通过比较 \cref{eq:scaled-zero} 与 \cref{eq:scaled-implicit} 可知
+    \begin{equation}
+        \varphi(tx, ty) = t\varphi(x, y).
+    \end{equation}
+    由此证明 $\varphi(x, y)$ 是一次齐次函数。
+    \begin{equation}
+        \boxed{\varphi(tx, ty) = t\varphi(x, y)}
+    \end{equation}
+\end{myproof}
+
+
+
+\begin{problem}{多元函数方程}{Multivariate-Functional-Equation}
+    设 $f(x,y)$ 在 $\mathbb{R}^2$ 上有连续二阶偏导数，且对任意实数 $x,y,z$ 满足 $f(x,y)=f(y,x)$ 和
+    \begin{equation}
+        f(x,y) + f(y,z) + f(z,x) = 3f\left(\frac{x+y+z}{3}, \frac{x+y+z}{3}\right).
+    \end{equation}
+    试求 $f(x,y)$。
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    记 $g(t) = f(t,t)$。对原方程两端关于 $x$ 求偏导得：
+    \begin{equation}
+        \frac{\partial f}{\partial x}(x,y) + \frac{\partial f}{\partial x}(z,x) = g'\left( \frac{x+y+z}{3} \right).
+    \end{equation}
+    由 $f(x,y) = f(y,x)$ 的对称性可知 $\frac{\partial f}{\partial x}(z,x) = \frac{\partial f}{\partial x}(x,z)$，代入上式得：
+    \begin{equation}
+        \frac{\partial f}{\partial x}(x,y) + \frac{\partial f}{\partial x}(x,z) = g'\left( \frac{x+y+z}{3} \right). \label{eq:partial-x-1}
+    \end{equation}
+    将 \cref{eq:partial-x-1} 两端关于 $y$ 求偏导：
+    \begin{equation}
+        \frac{\partial^2 f}{\partial x \partial y}(x,y) = \frac{1}{3} g''\left( \frac{x+y+z}{3} \right). \label{eq:second-partial-1}
+    \end{equation}
+    由于 \cref{eq:second-partial-1} 左端仅与 $x,y$ 相关，而右端包含变量 $z$，取 $z = -x-y$，$x$ 和 $y$ 自由变化时右侧为定值，故 $\frac{\partial^2 f}{\partial x \partial y}$ 必为常数。设该常数为 $4a$，则：
+    \begin{equation}
+        f(x,y) = 4axy + \phi(x) + \psi(y).
+    \end{equation}
+    由 $f(x,y) = f(y,x)$ 可知 $\phi(x) + \psi(y) = \phi(y) + \psi(x)$，由此推得 $\phi(x) - \psi(x) = C$。令 $h(x) = \phi(x) - \frac{C}{2}$，则 $f(x,y)$ 可表示为：
+    \begin{equation}
+        f(x,y) = 4axy + h(x) + h(y).
+    \end{equation}
+    此时 $g(t) = f(t,t) = 4at^2 + 2h(t)$。代入 \cref{eq:second-partial-1} 可得 $4a = \frac{1}{3}(8a + 2h''(t))$，解得 $h''(t) = 2a$。故 $h(x) = ax^2 + bx + c$。综上所述：
+    \begin{equation}
+        f(x,y) = 4axy + ax^2 + bx + ay^2 + by + C = a(x^2 + y^2 + 4xy) + b(x+y) + C.
+    \end{equation}
+    代入原方程验证，左端为：
+    \begin{equation}
+        \begin{aligned}
+            \text{LHS} & = a(x^2+y^2+4xy + y^2+z^2+4yz + z^2+x^2+4zx) + 2b(x+y+z) + 3C \\
+                       & = 2a(x^2+y^2+z^2 + 2xy + 2yz + 2zx) + 2b(x+y+z) + 3C          \\
+                       & = 2a(x+y+z)^2 + 2b(x+y+z) + 3C.
+        \end{aligned}
+    \end{equation}
+    右端为：
+    \begin{equation}
+        \begin{aligned}
+            \text{RHS} & = 3 \left[ 6a \left( \frac{x+y+z}{3} \right)^2 + 2b \left( \frac{x+y+z}{3} \right) + C \right] \\
+                       & = 2a(x+y+z)^2 + 2b(x+y+z) + 3C.
+        \end{aligned}
+    \end{equation}
+    两端相等，故结果正确。
+    \begin{equation}
+        \boxed{f(x,y) = a(x^2 + y^2 + 4xy) + b(x + y) + C}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{多元函数不等式}{Multivariate-Inequality}
+    证明：不等式 $\frac{x^2+y^2}{4} \leqslant \e^{x+y-2}$ ($x \geqslant 0, y \geqslant 0$)。
+\end{problem}
+
+\begin{myproof}
+    构造辅助函数
+    \begin{equation}
+        g(x, y) = (x^2 + y^2) \e^{2-x-y}, \quad x \geqslant 0, y \geqslant 0.
+    \end{equation}
+    对 $g(x, y)$ 求偏导数，可得
+    \begin{equation}
+        \begin{aligned}
+            \frac{\partial g}{\partial x} & = (2x - x^2 - y^2) \e^{2-x-y}, \\
+            \frac{\partial g}{\partial y} & = (2y - x^2 - y^2) \e^{2-x-y}.
+        \end{aligned}
+    \end{equation}
+    令偏导数均为零，由于指数项恒大于零，在第一象限内部需满足 $x^2 + y^2 = 2x$ 且 $x^2 + y^2 = 2y$。由此可解得区域内的唯一驻点为 $(1, 1)$。此时函数值为
+    \begin{equation}
+        g(1, 1) = 2 \e^{2-1-1} = 2.
+    \end{equation}
+    考虑区域边界。当 $x = 0$ 时，$g(0, y) = y^2 \e^{2-y}$。令其关于 $y$ 的导数 $(2y - y^2) \e^{2-y} = 0$，得临界点 $y = 0$ 或 $y = 2$。计算边界上的极值点：
+    \begin{equation}
+        g(0, 0) = 0, \quad g(0, 2) = 4.
+    \end{equation}
+    对称地，当 $y = 0$ 时，最大值为 $g(2, 0) = 4$。由于当 $x \to +\infty$ 或 $y \to +\infty$ 时，指数衰减速度远快于多项式增长，故 $g(x, y) \to 0$。综上可知，$g(x, y)$ 在闭区域 $x \geqslant 0, y \geqslant 0$ 上的全局最大值为 $4$。即满足
+    \begin{equation}
+        (x^2 + y^2) \e^{2-x-y} \leqslant 4.
+    \end{equation}
+    将不等式两边同除以 $4\e^{2-x-y}$，即得
+    \begin{equation}
+        \boxed{\frac{x^2+y^2}{4} \leqslant \e^{x+y-2}}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{多元函数连续性}{Multivariate-Continuity}
+    设在 $\symbb{R}^3$ 上定义的 $u = f(x,y,z)$ 是 $z$ 的连续函数，且 $\frac{\partial f}{\partial x}$、$\frac{\partial f}{\partial y}$ 在 $\symbb{R}^3$ 上连续。证明 $u$ 在 $\symbb{R}^3$ 上连续。
+\end{problem}
+
+\begin{myproof}
+    任取点 $P_0(x_0, y_0, z_0) \in \symbb{R}^3$。考察函数在该点的改变量
+    \begin{equation}
+        \Delta f = f(x, y, z) - f(x_0, y_0, z_0).
+    \end{equation}
+    将其分解为
+    \begin{equation}
+        \Delta f = [f(x, y, z) - f(x_0, y, z)] + [f(x_0, y, z) - f(x_0, y_0, z)] + [f(x_0, y_0, z) - f(x_0, y_0, z_0)].
+    \end{equation}
+    利用拉格朗日中值定理，对前两项分别有
+    \begin{equation}
+        \begin{aligned}
+            f(x, y, z) - f(x_0, y, z)     & = \frac{\partial f}{\partial x}(\xi, y, z) (x - x_0), \quad \xi \text{ 介于 } x, x_0 \text{ 之间}；     \\
+            f(x_0, y, z) - f(x_0, y_0, z) & = \frac{\partial f}{\partial y}(x_0, \eta, z) (y - y_0), \quad \eta \text{ 介于 } y, y_0 \text{ 之间}。
+        \end{aligned}
+    \end{equation}
+    由于偏导数 $\frac{\partial f}{\partial x}$ 与 $\frac{\partial f}{\partial y}$ 在 $\symbb{R}^3$ 上连续，故在 $P_0$ 的任一紧邻域内必有界。设在该邻域内满足 $\left| \frac{\partial f}{\partial x} \right| \leqslant M$ 且 $\left| \frac{\partial f}{\partial y} \right| \leqslant M$，则有
+    \begin{equation}
+        |\Delta f| \leqslant M|x - x_0| + M|y - y_0| + |f(x_0, y_0, z) - f(x_0, y_0, z_0)|.
+    \end{equation}
+    当 $(x, y, z) \to (x_0, y_0, z_0)$ 时，显然有 $|x - x_0| \to 0$ 且 $|y - y_0| \to 0$。此外，由 $f$ 是关于 $z$ 的连续函数知
+    \begin{equation}
+        \lim_{z \to z_0} [f(x_0, y_0, z) - f(x_0, y_0, z_0)] = 0.
+    \end{equation}
+    根据夹逼定理，必有 $\lim_{(x, y, z) \to (x_0, y_0, z_0)} \Delta f = 0$，即
+    \begin{equation}
+        \boxed{\lim_{(x, y, z) \to (x_0, y_0, z_0)} f(x, y, z) = f(x_0, y_0, z_0)}.
+    \end{equation}
+    由于 $P_0$ 具有任意性，证得 $u = f(x, y, z)$ 在 $\symbb{R}^3$ 上连续。
+\end{myproof}

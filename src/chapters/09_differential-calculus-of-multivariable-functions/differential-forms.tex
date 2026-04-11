@@ -1,2 +1,173 @@
 \section{微分形式}
 
+\begin{problem}{微分形式的外积运算}{Exterior-Product-Calculation}
+    计算：
+    \begin{enumerate}
+        \item $(x \d x + y \d y) \wedge (z \d z - z \d x)$；
+        \item $(\d x + \d y + \d z) \wedge (x \d x \wedge \d y - z \d y \wedge \d z)$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    利用外积的线性性质与交错性 $\d x_i \wedge \d x_i = 0$ 以及 $\d x_i \wedge \d x_j = -\d x_j \wedge \d x_i$，展开原式：
+    \begin{equation}
+        \begin{aligned}
+            (x \d x + y \d y) \wedge (z \d z - z \d x) & = x z \d x \wedge \d z - x z \d x \wedge \d x + y z \d y \wedge \d z - y z \d y \wedge \d x \\
+                                                       & = x z \d x \wedge \d z - 0 + y z \d y \wedge \d z + y z \d x \wedge \d y                    \\
+                                                       & = y z \d x \wedge \d y + y z \d y \wedge \d z - x z \d z \wedge \d x.
+        \end{aligned}
+        \label{eq:ext-prod-1}
+    \end{equation}
+    整理得到最终结果：
+    \begin{equation}
+        \boxed{(x \d x + y \d y) \wedge (z \d z - z \d x) = y z \d x \wedge \d y + y z \d y \wedge \d z - x z \d z \wedge \d x}
+    \end{equation}
+
+    \ansitem{2}
+
+    根据外积的性质，项中若包含重复的微分因子则为零：
+    \begin{equation}
+        \begin{aligned}
+            (\d x + \d y + \d z) \wedge (x \d x \wedge \d y - z \d y \wedge \d z) & = \d x \wedge (x \d x \wedge \d y) - \d x \wedge (z \d y \wedge \d z)        \\
+                                                                                  & \quad + \d y \wedge (x \d x \wedge \d y) - \d y \wedge (z \d y \wedge \d z)  \\
+                                                                                  & \quad + \d z \wedge (x \d x \wedge \d y) - \d z \wedge (z \d y \wedge \d z).
+        \end{aligned}
+        \label{eq:ext-prod-2-step1}
+    \end{equation}
+    分析\cref{eq:ext-prod-2-step1}中的各项：
+    \begin{equation}
+        \begin{aligned}
+            \d x \wedge \d x \wedge \d y & = 0, \\
+            \d y \wedge \d x \wedge \d y & = 0, \\
+            \d y \wedge \d y \wedge \d z & = 0, \\
+            \d z \wedge \d y \wedge \d z & = 0.
+        \end{aligned}
+        \label{eq:ext-prod-2-zero-terms}
+    \end{equation}
+    保留非零项并注意 $\d z \wedge \d x \wedge \d y = \d x \wedge \d y \wedge \d z$：
+    \begin{equation}
+        \begin{aligned}
+            (\d x + \d y + \d z) \wedge (x \d x \wedge \d y - z \d y \wedge \d z) & = -z \d x \wedge \d y \wedge \d z + x \d z \wedge \d x \wedge \d y \\
+                                                                                  & = -z \d x \wedge \d y \wedge \d z + x \d x \wedge \d y \wedge \d z \\
+                                                                                  & = (x - z) \d x \wedge \d y \wedge \d z.
+        \end{aligned}
+        \label{eq:ext-prod-2-final}
+    \end{equation}
+    故最终结果为：
+    \begin{equation}
+        \boxed{(\d x + \d y + \d z) \wedge (x \d x \wedge \d y - z \d y \wedge \d z) = (x - z) \d x \wedge \d y \wedge \d z}
+    \end{equation}
+\end{solution}
+
+
+\begin{problem}{微分形式的外微分}{Differential-Forms}
+    对下列微分形式 $\omega$，计算它们的微分，即计算 $\d \omega$：
+    \begin{enumerate}
+        \item $\omega = xy + yz + zx$;
+        \item $\omega = xy \d x$;
+        \item $\omega = xy \d x + x^2 \d y$;
+        \item $\omega = x^2 y \d x - yz \e^2 \d y + \sin xyz \d z$;
+        \item $\omega = xy^2 \d y \wedge \d z - xz^2 \d x \wedge \d y$;
+        \item $\omega = xy \d y \wedge \d z + yz \d z \wedge \d x + zx \d x \wedge \d y$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    根据 0-形式的外微分定义，有
+    \begin{equation}
+        \label{eq:Diff-1}
+        \begin{aligned}
+            \d \omega & = \frac{\partial \omega}{\partial x} \d x + \frac{\partial \omega}{\partial y} \d y + \frac{\partial \omega}{\partial z} \d z \\
+                      & = (y + z) \d x + (x + z) \d y + (z + x) \d z.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\d \omega = (y + z) \d x + (x + z) \d y + (x + y) \d z}
+    \end{equation}
+
+    \ansitem{2}
+
+    计算 1-形式的外微分
+    \begin{equation}
+        \label{eq:Diff-2}
+        \begin{aligned}
+            \d \omega & = \d(xy) \wedge \d x                       \\
+                      & = (y \d x + x \d y) \wedge \d x            \\
+                      & = y \d x \wedge \d x + x \d y \wedge \d x.
+        \end{aligned}
+    \end{equation}
+    由于 $\d x \wedge \d x = 0$ 且 $\d y \wedge \d x = -\d x \wedge \d y$，故
+    \begin{equation}
+        \boxed{\d \omega = -x \d x \wedge \d y}
+    \end{equation}
+
+    \ansitem{3}
+
+    计算可得
+    \begin{equation}
+        \label{eq:Diff-3}
+        \begin{aligned}
+            \d \omega & = \d(xy) \wedge \d x + \d(x^2) \wedge \d y            \\
+                      & = (y \d x + x \d y) \wedge \d x + 2x \d x \wedge \d y \\
+                      & = x \d y \wedge \d x + 2x \d x \wedge \d y.
+        \end{aligned}
+    \end{equation}
+    整理得
+    \begin{equation}
+        \boxed{\d \omega = x \d x \wedge \d y}
+    \end{equation}
+
+    \ansitem{4}
+
+    分别对各分量计算外微分
+    \begin{equation}
+        \label{eq:Diff-4}
+        \begin{aligned}
+            \d \omega & = \d(x^2 y) \wedge \d x - \d(yz \e^2) \wedge \d y + \d(\sin xyz) \wedge \d z                                                                         \\
+                      & = (2xy \d x + x^2 \d y) \wedge \d x - (z \e^2 \d y + y \e^2 \d z) \wedge \d y + (yz \cos xyz \d x + xz \cos xyz \d y + xy \cos xyz \d z) \wedge \d z \\
+                      & = -x^2 \d x \wedge \d y + y \e^2 \d y \wedge \d z + yz \cos xyz \d x \wedge \d z + xz \cos xyz \d y \wedge \d z.
+        \end{aligned}
+    \end{equation}
+    按照标准基底顺序排列得
+    \begin{equation}
+        \boxed{\d \omega = (xz \cos xyz + y \e^2) \d y \wedge \d z - yz \cos xyz \d z \wedge \d x - x^2 \d x \wedge \d y}
+    \end{equation}
+
+    \ansitem{5}
+
+    计算 2-形式的外微分
+    \begin{equation}
+        \label{eq:Diff-5}
+        \begin{aligned}
+            \d \omega & = \d(xy^2) \wedge \d y \wedge \d z - \d(xz^2) \wedge \d x \wedge \d y                           \\
+                      & = (y^2 \d x + 2xy \d y) \wedge \d y \wedge \d z - (z^2 \d x + 2xz \d z) \wedge \d x \wedge \d y \\
+                      & = y^2 \d x \wedge \d y \wedge \d z - 2xz \d z \wedge \d x \wedge \d y.
+        \end{aligned}
+    \end{equation}
+    利用轮换对称性 $\d z \wedge \d x \wedge \d y = \d x \wedge \d y \wedge \d z$，有
+    \begin{equation}
+        \boxed{\d \omega = (y^2 - 2xz) \d x \wedge \d y \wedge \d z}
+    \end{equation}
+
+    \ansitem{6}
+
+    计算可得
+    \begin{equation}
+        \label{eq:Diff-6}
+        \begin{aligned}
+            \d \omega & = \d(xy) \wedge \d y \wedge \d z + \d(yz) \wedge \d z \wedge \d x + \d(zx) \wedge \d x \wedge \d y \\
+                      & = y \d x \wedge \d y \wedge \d z + z \d y \wedge \d z \wedge \d x + x \d z \wedge \d x \wedge \d y \\
+                      & = (x + y + z) \d x \wedge \d y \wedge \d z.
+        \end{aligned}
+    \end{equation}
+    故最终结果为
+    \begin{equation}
+        \boxed{\d \omega = (x + y + z) \d x \wedge \d y \wedge \d z}
+    \end{equation}
+\end{solution}
+
+\endinput

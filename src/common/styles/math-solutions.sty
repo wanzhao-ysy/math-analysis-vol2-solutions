@@ -2,7 +2,6 @@
 \ProvidesPackage{math-solutions}
 
 % 预配置
-% 防止 fontspec 干扰数学字体（在使用 XeLaTeX 时建议启用）
 \PassOptionsToPackage{no-math}{fontspec}
 \PassOptionsToPackage{partial=upright}{unicode-math}
 
@@ -13,12 +12,12 @@
     svgnames
 ]{xcolor}                            % 颜色支持
 
-\definecolor{ThemeDarkBlue}{RGB}{71, 85, 142}    % 深藏青：权威、严谨（用于章标题）
-\definecolor{ThemeMidBlue}{RGB}{105, 130, 185}   % 灰蓝：冷静、逻辑（用于节标题、页眉）
-\definecolor{ThemeLightBlue}{RGB}{188, 202, 224} % 雾蓝：辅助、分界（用于分界线、背景）
-\definecolor{ThemePaper}{RGB}{241, 239, 236}     % 米白：护眼、质感（用于框图底色）
-\definecolor{ThemeRose}{RGB}{174, 107, 129}      % 绛粉：温润、提示（用于定义、关键词）
-\definecolor{ThemeWine}{RGB}{130, 45, 74}        % 藏红：重点、警示（用于链接、重要定理）
+\definecolor{ThemeDarkBlue}{RGB}{71, 85, 142}    % 深藏青
+\definecolor{ThemeMidBlue}{RGB}{105, 130, 185}   % 灰蓝
+\definecolor{ThemeLightBlue}{RGB}{188, 202, 224} % 雾蓝
+\definecolor{ThemePaper}{RGB}{241, 239, 236}     % 米白
+\definecolor{ThemeRose}{RGB}{174, 107, 129}      % 绛粉
+\definecolor{ThemeWine}{RGB}{130, 45, 74}        % 藏红
 
 \colorlet{ThemePaperLight}{ThemePaper!30!white}
 \pagecolor{ThemePaperLight}
@@ -46,13 +45,13 @@
 
 \ctexset{
     chapter = {
-      % 标题整体居中/居左（根据需求，这里推荐居左）
+      % 标题整体居左
       format = \huge\bfseries\color{ThemeDarkBlue},
       name = {第,章},
       % 章编号：使用藏红，加宽一点间距
       number = \textcolor{ThemeWine}{\thechapter},
       aftername = \hspace{1em},
-      % 关键增强：在章标题下方绘制装饰线
+      % 在章标题下方绘制装饰线
       aftertitle = {
               \par\vspace{0.5em}
               {\color{ThemeWine}\hrule height 2pt}
@@ -92,7 +91,7 @@
 % \setmathfont{texgyretermes-math.otf}
 
 % 常用正体符号定义
-\newcommand{\e}{\symup{e}}          % 自然对数底
+\newcommand{\e}{\symup{e}}           % 自然对数底
 \newcommand{\uppi}{\symup{\pi}}      % 圆周率
 \newcommand{\ii}{\symup{i}}          % 虚数单位
 
@@ -131,7 +130,7 @@
     backref=true
 ]{biblatex}
 
-% 交叉引用与超链接（严格加载顺序：hyperref -> bookmark -> cleveref）
+% 交叉引用与超链接（加载顺序：hyperref -> bookmark -> cleveref）
 \RequirePackage{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -174,7 +173,7 @@
 }
 
 % tcb配置
-% --- 0. 基础样式定义 (抽离公用参数) ---
+% 基础样式定义
 \tcbset{
     my_base_style/.style={
             enhanced,
@@ -199,7 +198,7 @@
         }
 }
 
-% --- 1. 习题环境 (Problem): 深蓝/灰蓝配色 ---
+% 习题环境 (Problem): 深蓝/灰蓝配色
 \newtcbtheorem[number within=section]{problem}{习题}{
     my_base_style,
     colframe=ThemeDarkBlue,          % 边框深蓝色
@@ -209,7 +208,7 @@
     segmentation style={ThemeMidBlue}
 }{prob}
 
-% --- 2. 注释环境 (Note): 绛粉/藏红配色 ---
+% 注释环境 (Note): 绛粉/藏红配色
 \newtcbtheorem[number within=section]{note}{注释}{
     my_base_style,
     colframe=ThemeRose,              % 边框绛粉色
@@ -231,16 +230,14 @@
 
 % 页码：使用藏红 ThemeWine，加粗
 \fancyhead[LE]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeWine}\bfseries\thepage}
-% 章标题：使用深蓝色，保持学术稳重感
+% 章标题：使用深蓝色
 \fancyhead[RE]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeDarkBlue}\leftmark}
 
-% --- 奇数页设置 (Odd Pages) ---
 % 节标题：使用深蓝色
 \fancyhead[LO]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeDarkBlue}\rightmark}
 % 页码：使用藏红 ThemeWine
 \fancyhead[RO]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeWine}\bfseries\thepage}
 
-% --- 线条定制 (彩色装饰线) ---
 % 重新定义 headrule，使其带颜色并有粗细变化
 \renewcommand{\headrule}{
     {\color{ThemeWine}\hrule width\headwidth height 1.5pt} % 主色线
@@ -249,8 +246,7 @@
 }
 \renewcommand{\footrulewidth}{0pt}
 
-% --- 标记格式化 (Marks) ---
-% 使用 \CTEXthechapter 配合颜色
+% 标记格式化
 \renewcommand{\chaptermark}[1]{%
     \markboth{\color{ThemeRose}\if@mainmatter\CTEXthechapter\quad\fi\color{ThemeDarkBlue}#1}{}%
 }
@@ -260,7 +256,6 @@
     \markright{\color{ThemeRose}\S\thesection\quad\color{ThemeDarkBlue}#1}%
 }
 
-
 % 目录排版优化
 \renewcommand\tableofcontents{%
     \chapter*{\contentsname}%
@@ -269,7 +264,6 @@
         \@starttoc{toc}%
     \end{multicols}
 }
-
 
 % 警告控制规范化
 % \hfuzz=10000pt

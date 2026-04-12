@@ -19,10 +19,10 @@
 \definecolor{ThemeRose}{RGB}{174, 107, 129}      % 绛粉
 \definecolor{ThemeWine}{RGB}{130, 45, 74}        % 藏红
 
-\colorlet{ThemePaperLight}{ThemePaper!30!white}
+\colorlet{ThemePaperLight}{ThemePaper!40!white}
 \pagecolor{ThemePaperLight}
 
-\colorlet{MainTextColor}{ThemeDarkBlue!50!black}
+\colorlet{MainTextColor}{ThemeDarkBlue!40!black}
 \AtBeginDocument{\color{MainTextColor}}
 
 % 页面布局与几何设置
@@ -182,6 +182,7 @@
             arc=2mm,
             outer arc=2mm,
             top=1.2em,            % 为悬浮标题留出顶部空间
+            colupper=MainTextColor,
             fonttitle=\heiti,
             description font=\normalfont\kaishu,
             separator sign none,  % 移除默认冒号
@@ -216,7 +217,7 @@
     coltitle=ThemeWine,              % 标题文字使用深红，保证对比度
     boxed title style={colframe=ThemeRose},
     segmentation style={ThemeRose}
-}{nt}
+}{note}
 
 
 % 页眉页脚设定 (fancyhdr)

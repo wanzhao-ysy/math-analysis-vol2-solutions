@@ -12,7 +12,19 @@
     dvipsnames,
     svgnames
 ]{xcolor}                            % 颜色支持
-% \RequirePackage{emptypage}           % 自动清除偶数空白页的页眉页脚（优雅替代手工 hack）
+
+\definecolor{ThemeDarkBlue}{RGB}{71, 85, 142}    % 深藏青：权威、严谨（用于章标题）
+\definecolor{ThemeMidBlue}{RGB}{105, 130, 185}   % 灰蓝：冷静、逻辑（用于节标题、页眉）
+\definecolor{ThemeLightBlue}{RGB}{188, 202, 224} % 雾蓝：辅助、分界（用于分界线、背景）
+\definecolor{ThemePaper}{RGB}{241, 239, 236}     % 米白：护眼、质感（用于框图底色）
+\definecolor{ThemeRose}{RGB}{174, 107, 129}      % 绛粉：温润、提示（用于定义、关键词）
+\definecolor{ThemeWine}{RGB}{130, 45, 74}        % 藏红：重点、警示（用于链接、重要定理）
+
+\colorlet{ThemePaperLight}{ThemePaper!30!white}
+\pagecolor{ThemePaperLight}
+
+\colorlet{MainTextColor}{ThemeDarkBlue!50!black}
+\AtBeginDocument{\color{MainTextColor}}
 
 % 页面布局与几何设置
 \RequirePackage[
@@ -22,12 +34,47 @@
     bottom=1.5cm,
     marginparwidth=2cm,
     marginparsep=0.4cm,
+    includehead,
     includefoot,
     heightrounded
 ]{geometry}
+
 % \raggedbottom                      % 允许页面底部不对齐，避免过度拉伸垂直间距
+
 \RequirePackage{titlesec}            % 标题格式定制
 \newcommand{\sectionbreak}{\clearpage}
+
+\ctexset{
+    chapter = {
+      % 标题整体居中/居左（根据需求，这里推荐居左）
+      format = \huge\bfseries\color{ThemeDarkBlue},
+      name = {第,章},
+      % 章编号：使用藏红，加宽一点间距
+      number = \textcolor{ThemeWine}{\thechapter},
+      aftername = \hspace{1em},
+      % 关键增强：在章标题下方绘制装饰线
+      aftertitle = {
+              \par\vspace{0.5em}
+              {\color{ThemeWine}\hrule height 2pt}
+              \vspace{0.2em}
+              {\color{ThemeRose}\hrule height 0.5pt}
+          },
+      beforeskip = {-10pt}, % 向上微调，减少顶部留白
+      afterskip = {30pt}    % 与正文保持一定距离
+     },
+    section = {
+      format = \Large\bfseries\color{ThemeDarkBlue},
+      name = {第,节},
+      number = \textcolor{ThemeWine}{\thesection},
+      aftername = \hspace{0.5em}
+     },
+    subsection = {
+            format = \large\bfseries\color{ThemeWine}, % 子标题直接用藏红
+            indent = 0pt
+        }
+}
+
+
 
 % 数学与物理核心宏包
 \RequirePackage{amsmath}             % AMS 数学核心
@@ -88,9 +135,9 @@
 \RequirePackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=red,
-    citecolor=red,
-    urlcolor=red,
+    linkcolor=ThemeDarkBlue,
+    citecolor=ThemeRose,
+    urlcolor=ThemeWine,
     bookmarksnumbered=true,
     pdfstartview=FitH
 }
@@ -127,58 +174,92 @@
 }
 
 % tcb配置
+% --- 0. 基础样式定义 (抽离公用参数) ---
+\tcbset{
+    my_base_style/.style={
+            enhanced,
+            breakable,
+            boxrule=0.6pt,
+            arc=2mm,
+            outer arc=2mm,
+            top=1.2em,            % 为悬浮标题留出顶部空间
+            fonttitle=\heiti,
+            description font=\normalfont\kaishu,
+            separator sign none,  % 移除默认冒号
+            description delimiters={---}{}, % 自动包裹描述
+            colback=ThemePaper,   % 统一使用米白底色
+            % 标题框设置
+            attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+            boxed title style={
+                    boxrule=0.5pt,
+                    arc=1mm,
+                },
+            % 虚线分割线设置
+            segmentation style={dash pattern=on 3pt off 2pt, opacity=0.5}
+        }
+}
+
+% --- 1. 习题环境 (Problem): 深蓝/灰蓝配色 ---
 \newtcbtheorem[number within=section]{problem}{习题}{
-    enhanced,
-    breakable,
-    colback=gray!2,
-    colframe=gray!60,
-    colbacktitle=gray!15,  % 标题背景颜色
-    coltitle=black,
-    fonttitle=\heiti,      % 使用中文字体黑体
-    boxrule=0.6pt,
-    titlerule=0.4pt,       % 标题与内容间的分割线
-    arc=2mm,
-    top=1em,
-    separator sign none,
-    description font=\normalfont\kaishu, % 备注使用楷体
-    after title={\hspace{0.5em}---},     % 标题后的横杠
-    segmentation style={dash pattern=on 3pt off 2pt, gray!40}, % 如果有分割线用虚线
+    my_base_style,
+    colframe=ThemeDarkBlue,          % 边框深蓝色
+    colbacktitle=ThemeDarkBlue,      % 标题背景深蓝色
+    coltitle=white,                  % 标题文字白色
+    boxed title style={colframe=ThemeDarkBlue},
+    segmentation style={ThemeMidBlue}
 }{prob}
 
+% --- 2. 注释环境 (Note): 绛粉/藏红配色 ---
 \newtcbtheorem[number within=section]{note}{注释}{
-    enhanced,
-    breakable,
-    colback=orange!2,
-    colframe=orange!60,
-    colbacktitle=orange!15,  % 标题背景颜色
-    coltitle=black,
-    fonttitle=\heiti,      % 使用中文字体黑体
-    boxrule=0.6pt,
-    titlerule=0.4pt,       % 标题与内容间的分割线
-    arc=2mm,
-    top=1em,
-    separator sign none,
-    description font=\normalfont\kaishu, % 备注使用楷体
-    after title={\hspace{0.5em}---},     % 标题后的横杠
-    segmentation style={dash pattern=on 3pt off 2pt, orange!40}, % 如果有分割线用虚线
-}{note}
+    my_base_style,
+    colframe=ThemeRose,              % 边框绛粉色
+    colbacktitle=ThemeRose!10!ThemePaper, % 标题背景淡淡的粉色 (浅化处理)
+    coltitle=ThemeWine,              % 标题文字使用深红，保证对比度
+    boxed title style={colframe=ThemeRose},
+    segmentation style={ThemeRose}
+}{nt}
+
 
 % 页眉页脚设定 (fancyhdr)
 \RequirePackage{fancyhdr}
-\addtolength{\headheight}{1.6pt}
+\RequirePackage{zhnumber} % 用于中文页码（可选）
+
+\setlength{\headheight}{18pt}     % 直接设置足够的高度，消除警告
+\addtolength{\topmargin}{-3.5pt}  % 相应地把顶边距往上提一点，保持视觉平衡
 \pagestyle{fancy}
-\fancyhf{} % 清空默认的页眉页脚
+\fancyhf{}
 
-\fancyhead[LE]{\bfseries\thepage}
-\fancyhead[RE]{\bfseries\leftmark}
-\fancyhead[LO]{\bfseries\rightmark}
-\fancyhead[RO]{\bfseries\thepage}
+% 页码：使用藏红 ThemeWine，加粗
+\fancyhead[LE]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeWine}\bfseries\thepage}
+% 章标题：使用深蓝色，保持学术稳重感
+\fancyhead[RE]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeDarkBlue}\leftmark}
 
-\renewcommand{\headrulewidth}{0.4pt}
+% --- 奇数页设置 (Odd Pages) ---
+% 节标题：使用深蓝色
+\fancyhead[LO]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeDarkBlue}\rightmark}
+% 页码：使用藏红 ThemeWine
+\fancyhead[RO]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeWine}\bfseries\thepage}
+
+% --- 线条定制 (彩色装饰线) ---
+% 重新定义 headrule，使其带颜色并有粗细变化
+\renewcommand{\headrule}{
+    {\color{ThemeWine}\hrule width\headwidth height 1.5pt} % 主色线
+    \vspace{1pt}
+    {\color{ThemeRose}\hrule width\headwidth height 0.5pt} % 辅助细线（绛粉）
+}
 \renewcommand{\footrulewidth}{0pt}
 
-\renewcommand{\chaptermark}[1]{\markboth{\if@mainmatter\CTEXthechapter\fi\quad #1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\S\thesection\quad #1}}
+% --- 标记格式化 (Marks) ---
+% 使用 \CTEXthechapter 配合颜色
+\renewcommand{\chaptermark}[1]{%
+    \markboth{\color{ThemeRose}\if@mainmatter\CTEXthechapter\quad\fi\color{ThemeDarkBlue}#1}{}%
+}
+
+% 节标记：将 § 符号设为绛粉色 ThemeRose
+\renewcommand{\sectionmark}[1]{%
+    \markright{\color{ThemeRose}\S\thesection\quad\color{ThemeDarkBlue}#1}%
+}
+
 
 % 目录排版优化
 \renewcommand\tableofcontents{%

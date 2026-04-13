@@ -142,13 +142,18 @@
 % 交叉引用与超链接（加载顺序：hyperref -> bookmark -> cleveref）
 \RequirePackage{hyperref}
 \hypersetup{
-    colorlinks=true,
-    linkcolor=ThemeDarkBlue,
-    citecolor=ThemeRose,
-    urlcolor=ThemeWine,
+    plainpages=false,               % 逻辑页码与锚点绑定（防止 i 和 1 冲突）
+    pdfpagelabels=true,             % 在 PDF 阅读器中显示正确的逻辑页码
+    unicode=true,                   % 支持中文书签，防止乱码
+    colorlinks=false,               % 关闭文字着色
+    pdfborderstyle={/S/U/W 1},      % 设置边框风格：/S/U 表示 Underline，/W 1 表示线宽 1pt
+    linkbordercolor=ThemeDarkBlue,
+    citebordercolor=ThemeRose,
+    urlbordercolor=ThemeWine,
     bookmarksnumbered=true,
     pdfstartview=FitH
 }
+
 \RequirePackage{bookmark}            % 书签增强
 
 \RequirePackage{cleveref}            % 智能交叉引用

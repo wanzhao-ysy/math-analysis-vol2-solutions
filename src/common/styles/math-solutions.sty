@@ -142,7 +142,22 @@
     backref=true
 ]{biblatex}
 
-% 交叉引用与超链接（加载顺序：hyperref -> bookmark -> cleveref）
+% 交叉引用与超链接
+\RequirePackage{zref-clever}
+\zcRefTypeSetup{equation}{
+    Name-sg = 公式,
+    name-sg = 公式,
+    Name-pl = 公式,
+    name-pl = 公式,
+    refbounds = {(,,,)},
+}
+\zcsetup{
+    tlastsep = { 和 },
+    pairsep = { 和 },
+    listsep = {, },
+    nameinlink=false
+}
+
 \RequirePackage{hyperref}
 \hypersetup{
     plainpages=false,               % 逻辑页码与锚点绑定（防止 i 和 1 冲突）
@@ -157,10 +172,6 @@
 }
 
 \RequirePackage{bookmark}            % 书签增强
-
-\RequirePackage{cleveref}            % 智能交叉引用
-\crefname{equation}{公式}{公式}
-\Crefname{equation}{公式}{公式}
 
 
 % 解析环境配置

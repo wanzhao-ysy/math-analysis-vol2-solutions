@@ -65,7 +65,7 @@ v
         \end{cases}
         \label{eq:differentiation-system}
     \end{equation}
-    由 \cref{eq:differentiation-system} 后两式可得 $\frac{\partial w}{\partial x} = -\frac{w}{u} \frac{\partial u}{\partial x}$ 且 $\frac{\partial v}{\partial x} = -\frac{v}{u} \frac{\partial u}{\partial x}$。代入第一式，得
+    由 \zcref{eq:differentiation-system} 后两式可得 $\frac{\partial w}{\partial x} = -\frac{w}{u} \frac{\partial u}{\partial x}$ 且 $\frac{\partial v}{\partial x} = -\frac{v}{u} \frac{\partial u}{\partial x}$。代入第一式，得
     \begin{equation}
         2x = v \left( -\frac{w}{u} \frac{\partial u}{\partial x} \right) + w \left( -\frac{v}{u} \frac{\partial u}{\partial x} \right) = -\frac{2vw}{u} \frac{\partial u}{\partial x} = -\frac{2x^2}{u} \frac{\partial u}{\partial x}.
     \end{equation}
@@ -111,7 +111,7 @@ v
     \begin{equation}
         \frac{\d}{\d t} \left[ t^k f(x, y, z) \right] = k t^{k-1} f(x, y, z). \label{eq:Diff-RHS}
     \end{equation}
-    联立 \cref{eq:Diff-LHS} 与 \cref{eq:Diff-RHS}，并令 $t = 1$，即得：
+    联立 \zcref{eq:Diff-LHS} 与 \zcref{eq:Diff-RHS}，并令 $t = 1$，即得：
     \begin{equation}
         x f'_x(x, y, z) + y f'_y(x, y, z) + z f'_z(x, y, z) = k f(x, y, z).
     \end{equation}
@@ -160,7 +160,7 @@ v
     \begin{equation}
         f(x, y, \varphi(x, y)) \equiv 0. \label{eq:implicit-relation}
     \end{equation}
-    在 \cref{eq:homo-def} 中，令 $z = \varphi(x, y)$，并结合 \cref{eq:implicit-relation} 可得
+    在 \zcref{eq:homo-def} 中，令 $z = \varphi(x, y)$，并结合 \zcref{eq:implicit-relation} 可得
     \begin{equation}
         f(tx, ty, t\varphi(x, y)) = t^n f(x, y, \varphi(x, y)) = t^n \cdot 0 = 0. \label{eq:scaled-zero}
     \end{equation}
@@ -168,7 +168,7 @@ v
     \begin{equation}
         f(tx, ty, \varphi(tx, ty)) = 0. \label{eq:scaled-implicit}
     \end{equation}
-    由于 $f'_z \neq 0$，根据隐函数存在定理，方程 $f(tx, ty, z) = 0$ 在该点附近确定的解 $z$ 是唯一的。通过比较 \cref{eq:scaled-zero} 与 \cref{eq:scaled-implicit} 可知
+    由于 $f'_z \neq 0$，根据隐函数存在定理，方程 $f(tx, ty, z) = 0$ 在该点附近确定的解 $z$ 是唯一的。通过比较 \zcref{eq:scaled-zero} 与 \zcref{eq:scaled-implicit} 可知
     \begin{equation}
         \varphi(tx, ty) = t\varphi(x, y).
     \end{equation}
@@ -199,11 +199,11 @@ v
     \begin{equation}
         \frac{\partial f}{\partial x}(x,y) + \frac{\partial f}{\partial x}(x,z) = g'\left( \frac{x+y+z}{3} \right). \label{eq:partial-x-1}
     \end{equation}
-    将 \cref{eq:partial-x-1} 两端关于 $y$ 求偏导：
+    将 \zcref{eq:partial-x-1} 两端关于 $y$ 求偏导：
     \begin{equation}
         \frac{\partial^2 f}{\partial x \partial y}(x,y) = \frac{1}{3} g''\left( \frac{x+y+z}{3} \right). \label{eq:second-partial-1}
     \end{equation}
-    由于 \cref{eq:second-partial-1} 左端仅与 $x,y$ 相关，而右端包含变量 $z$，取 $z = -x-y$，$x$ 和 $y$ 自由变化时右侧为定值，故 $\frac{\partial^2 f}{\partial x \partial y}$ 必为常数。设该常数为 $4a$，则：
+    由于 \zcref{eq:second-partial-1} 左端仅与 $x,y$ 相关，而右端包含变量 $z$，取 $z = -x-y$，$x$ 和 $y$ 自由变化时右侧为定值，故 $\frac{\partial^2 f}{\partial x \partial y}$ 必为常数。设该常数为 $4a$，则：
     \begin{equation}
         f(x,y) = 4axy + \phi(x) + \psi(y).
     \end{equation}
@@ -211,7 +211,7 @@ v
     \begin{equation}
         f(x,y) = 4axy + h(x) + h(y).
     \end{equation}
-    此时 $g(t) = f(t,t) = 4at^2 + 2h(t)$。代入 \cref{eq:second-partial-1} 可得 $4a = \frac{1}{3}(8a + 2h''(t))$，解得 $h''(t) = 2a$。故 $h(x) = ax^2 + bx + c$。综上所述：
+    此时 $g(t) = f(t,t) = 4at^2 + 2h(t)$。代入 \zcref{eq:second-partial-1} 可得 $4a = \frac{1}{3}(8a + 2h''(t))$，解得 $h''(t) = 2a$。故 $h(x) = ax^2 + bx + c$。综上所述：
     \begin{equation}
         f(x,y) = 4axy + ax^2 + bx + ay^2 + by + C = a(x^2 + y^2 + 4xy) + b(x+y) + C.
     \end{equation}
@@ -320,7 +320,7 @@ v
     \begin{equation}
         F'(t) = x \frac{\partial f}{\partial x}(tx, ty) + y \frac{\partial f}{\partial y}(tx, ty).
     \end{equation}
-    当 $t \in (0, 1]$ 时，由于 $(tx, ty) \in D$，利用 \cref{eq:Euler-PDE} 可得
+    当 $t \in (0, 1]$ 时，由于 $(tx, ty) \in D$，利用 \zcref{eq:Euler-PDE} 可得
     \begin{equation}
         F'(t) = \frac{1}{t} \left[ (tx) \frac{\partial f}{\partial x}(tx, ty) + (ty) \frac{\partial f}{\partial y}(tx, ty) \right] = 0.
     \end{equation}
@@ -354,7 +354,7 @@ v
     \begin{equation}
         \frac{\d}{\d t} f(tx, ty) = x \frac{\partial f}{\partial x}(tx, ty) + y \frac{\partial f}{\partial y}(tx, ty).
     \end{equation}
-    代入 \cref{eq:FTC-Expansion}，并利用积分的线性性质得
+    代入 \zcref{eq:FTC-Expansion}，并利用积分的线性性质得
     \begin{equation}
         f(x, y) = x \int_0^1 \frac{\partial f}{\partial x}(tx, ty) \d t + y \int_0^1 \frac{\partial f}{\partial y}(tx, ty) \d t.
     \end{equation}
@@ -384,7 +384,7 @@ v
         \Delta z = [f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0, y_0 + \Delta y)] + [f(x_0, y_0 + \Delta y) - f(x_0, y_0)].
         \label{eq:increment-split}
     \end{equation}
-    对 \cref{eq:increment-split} 中第一项关于变量 $x$ 使用一元拉格朗日中值定理，对第二项利用 $f_y(x_0, y_0)$ 的存在性：
+    对 \zcref{eq:increment-split} 中第一项关于变量 $x$ 使用一元拉格朗日中值定理，对第二项利用 $f_y(x_0, y_0)$ 的存在性：
     \begin{equation}
         \begin{aligned}
             \Delta z & = f_x(x_0 + \theta \Delta x, y_0 + \Delta y) \Delta x + [f_y(x_0, y_0) \Delta y + o(\Delta y)]    \\
@@ -397,7 +397,7 @@ v
         f_x(x_0 + \theta \Delta x, y_0 + \Delta y) = f_x(x_0, y_0) + \beta,
         \label{eq:fx-cont}
     \end{equation}
-    其中 $\beta \to 0$。代入 \cref{eq:mvt-apply} 得
+    其中 $\beta \to 0$。代入 \zcref{eq:mvt-apply} 得
     \begin{equation}
         \Delta z = f_x(x_0, y_0) \Delta x + f_y(x_0, y_0) \Delta y + \beta \Delta x + \alpha \Delta y.
         \label{eq:final-form}
@@ -431,7 +431,7 @@ v
         \frac{\partial^2 v}{\partial x \partial y} = \frac{\partial}{\partial y} \left( \frac{1}{u} \frac{\partial u}{\partial x} \right) = \frac{u \frac{\partial^2 u}{\partial y \partial x} - \frac{\partial u}{\partial y} \frac{\partial u}{\partial x}}{u^2}.
         \label{eq:vxy-pde}
     \end{equation}
-    若 \cref{eq:pde-origin} 成立，则有 $\frac{\partial^2 v}{\partial x \partial y} = 0$。积分得
+    若 \zcref{eq:pde-origin} 成立，则有 $\frac{\partial^2 v}{\partial x \partial y} = 0$。积分得
     \begin{equation}
         \frac{\partial v}{\partial x} = A(x) \implies v(x, y) = \int A(x) \d x + \Psi(y) = \Phi(x) + \Psi(y).
         \label{eq:v-integral}
@@ -456,7 +456,7 @@ v
         \end{aligned}
         \label{eq:suff-verify}
     \end{equation}
-    两端相等，故方程 \cref{eq:pde-origin} 成立。
+    两端相等，故方程 \zcref{eq:pde-origin} 成立。
 \end{myproof}
 
 
@@ -494,7 +494,7 @@ v
                              & = |\symbfit{r}(b) - \symbfit{r}(a)| \cdot |\symbfit{r}'(\theta)|.
         \end{aligned} \label{eq:cauchy-schwarz}
     \end{equation}
-    将 \cref{eq:left-side} 和 \cref{eq:cauchy-schwarz} 代入 \cref{eq:lagrange}，有
+    将 \zcref{eq:left-side} 和 \zcref{eq:cauchy-schwarz} 代入 \zcref{eq:lagrange}，有
     \begin{equation}
         |\symbfit{r}(b) - \symbfit{r}(a)|^2 \le |\symbfit{r}(b) - \symbfit{r}(a)| \cdot |\symbfit{r}'(\theta)| (b - a).
     \end{equation}
@@ -528,7 +528,7 @@ v
         \label{eq:step2}
         f(x+y, 0, z) = f(x+y+z, 0, 0).
     \end{equation}
-    结合 \cref{eq:step1} 与 \cref{eq:step2} 可得，对任意 $(x,y,z) \in \mathbb{R}^3$，均有
+    结合 \zcref{eq:step1} 与 \zcref{eq:step2} 可得，对任意 $(x,y,z) \in \mathbb{R}^3$，均有
     \begin{equation}
         f(x,y,z) = f(x+y+z, 0, 0).
     \end{equation}
@@ -601,17 +601,17 @@ v
         \frac{\partial L}{\partial x_k} = \frac{\partial f}{\partial x_k} + \lambda = \sum_{i \neq k} \frac{P}{x_i x_k} + \lambda = \frac{1}{x_k} \left( f - \frac{P}{x_k} \right) + \lambda = 0, \quad k = 1, 2, \dots, n.
     \end{equation}
 
-    整理 \cref{eq:Partial-Deriv} 可得：
+    整理 \zcref{eq:Partial-Deriv} 可得：
     \begin{equation}\label{eq:Condition-1}
         f - \frac{P}{x_k} + \lambda x_k = 0.
     \end{equation}
 
-    对 \cref{eq:Condition-1} 关于 $k$ 求和：
+    对 \zcref{eq:Condition-1} 关于 $k$ 求和：
     \begin{equation}
         \sum_{k=1}^n \left( f - \frac{P}{x_k} + \lambda x_k \right) = nf - f + \lambda n = (n-1)f + \lambda n = 0 \Rightarrow \lambda = -\frac{n-1}{n} f.
     \end{equation}
 
-    代入 \cref{eq:Condition-1} 得：
+    代入 \zcref{eq:Condition-1} 得：
     \begin{equation}
         f - \frac{P}{x_k} - \frac{n-1}{n} f x_k = 0 \Rightarrow \frac{n-1}{n} f x_k^2 - f x_k + P = 0.
     \end{equation}
@@ -656,7 +656,7 @@ v
     \begin{equation}
         \frac{a_1 + \cdots + a_n}{n} \le \left( \frac{a_1^p + \cdots + a_n^p}{n} \right)^{1/p}.
     \end{equation}
-    由于 $f(x)$ 为严格凸函数，根据 \cref{eq:jensen-apply}，等号成立的充分必要条件为
+    由于 $f(x)$ 为严格凸函数，根据 \zcref{eq:jensen-apply}，等号成立的充分必要条件为
     \begin{equation}
         \boxed{a_1 = a_2 = \cdots = a_n.}
     \end{equation}
@@ -676,7 +676,7 @@ v
         \d y_i = \sum_{j=1}^n \frac{\partial y_i}{\partial x_j} \d x_j. \label{eq:diff-definition-1}
     \end{equation}
 
-    将 \cref{eq:diff-definition-1} 代入左端的外积表达式中，利用外积的线性性质，得
+    将 \zcref{eq:diff-definition-1} 代入左端的外积表达式中，利用外积的线性性质，得
     \begin{equation}
         \begin{aligned}
             \d y_1 \wedge \d y_2 \wedge \dots \wedge \d y_n & = \left( \sum_{j_1=1}^n \frac{\partial y_1}{\partial x_{j_1}} \d x_{j_1} \right) \wedge \left( \sum_{j_2=1}^n \frac{\partial y_2}{\partial x_{j_2}} \d x_{j_2} \right) \wedge \dots \wedge \left( \sum_{j_n=1}^n \frac{\partial y_n}{\partial x_{j_n}} \d x_{j_n} \right) \\

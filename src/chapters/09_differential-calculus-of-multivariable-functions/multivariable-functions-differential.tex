@@ -498,7 +498,7 @@
 
     \ansitem{1}
 
-    对 \cref{eq:first-order} 继续求二阶偏导数：
+    对 \zcref{eq:first-order} 继续求二阶偏导数：
     \begin{equation}
         \begin{aligned}
             \frac{\partial^2 r}{\partial x^2} & = \frac{\partial}{\partial x} \left( \frac{x}{r} \right) = \frac{r - x \cdot \frac{\partial r}{\partial x}}{r^2} \\
@@ -591,7 +591,7 @@
         \label{eq:origin-first-order-2}
         f_x(0, 0) = \lim_{h \to 0} \frac{f(h, 0) - f(0, 0)}{h} = 0, \quad f_y(0, 0) = \lim_{k \to 0} \frac{f(0, k) - f(0, 0)}{k} = 0.
     \end{equation}
-    结合 \cref{eq:first-order-partials-1} 与 \cref{eq:origin-first-order-2}，计算 $(0, 0)$ 处的二阶偏导数
+    结合 \zcref{eq:first-order-partials-1} 与 \zcref{eq:origin-first-order-2}，计算 $(0, 0)$ 处的二阶偏导数
     \begin{equation}
         \label{eq:second-order-at-origin-3}
         \begin{aligned}
@@ -601,7 +601,7 @@
             f_{yx}''(0, 0) & = \lim_{h \to 0} \frac{f_y(h, 0) - f_y(0, 0)}{h} = \lim_{h \to 0} \frac{h - 0}{h} = 1.
         \end{aligned}
     \end{equation}
-    由 \cref{eq:second-order-at-origin-3} 可知二阶偏导数在 $(0, 0)$ 均存在，且满足
+    由 \zcref{eq:second-order-at-origin-3} 可知二阶偏导数在 $(0, 0)$ 均存在，且满足
     \begin{equation}
         \boxed{f_{xy}''(0, 0) = -1 \neq 1 = f_{yx}''(0, 0)}.
     \end{equation}
@@ -705,7 +705,7 @@
                        & = g \Delta f + f \Delta g + \Delta f \Delta g
         \end{aligned}
     \end{equation}
-    将 \cref{eq:inc-fg} 代入上式：
+    将 \zcref{eq:inc-fg} 代入上式：
     \begin{equation}
         \begin{aligned}
             \Delta(fg) & = g (\d f + \symcal{o}(\rho)) + f (\d g + \symcal{o}(\rho)) + (\d f + \symcal{o}(\rho))(\d g + \symcal{o}(\rho)) \\
@@ -775,7 +775,7 @@
         \frac{f(\Delta x, \Delta y) - [f(0, 0) + f_x(0, 0)\Delta x + f_y(0, 0)\Delta y]}{\rho} = \frac{\Delta x^2 \Delta y}{(\Delta x^2 + \Delta y^2)^{3/2}}.
         \label{eq:diff-limit}
     \end{equation}
-    取路径 $\Delta y = \Delta x > 0$ 趋于 $0$，则 \cref{eq:diff-limit} 式变为：
+    取路径 $\Delta y = \Delta x > 0$ 趋于 $0$，则 \zcref{eq:diff-limit} 式变为：
     \begin{equation}
         \lim_{\Delta x \to 0^+} \frac{\Delta x^3}{(2 \Delta x^2)^{3/2}} = \lim_{\Delta x \to 0^+} \frac{\Delta x^3}{2\sqrt{2} \Delta x^3} = \frac{1}{2\sqrt{2}} \neq 0.
     \end{equation}
@@ -1254,7 +1254,7 @@
             \frac{\partial z}{\partial y} & = f'(u) \cdot \frac{\partial u}{\partial y} = f'(u) \cdot \left( -\frac{1}{y^2} \right).
         \end{aligned}
     \end{equation}
-    将 \cref{eq:z-partial} 中的结果代入待证等式的左端：
+    将 \zcref{eq:z-partial} 中的结果代入待证等式的左端：
     \begin{equation}
         x \frac{\partial z}{\partial x} + y^2 \frac{\partial z}{\partial y} = x \cdot \left( \frac{1}{x} f'(u) \right) + y^2 \cdot \left( -\frac{1}{y^2} f'(u) \right) = f'(u) - f'(u) = 0.
     \end{equation}
@@ -1288,7 +1288,7 @@
             \frac{\partial^2 u}{\partial t^2} & = -a \varphi''(\xi) \frac{\partial \xi}{\partial t} + a \psi''(\eta) \frac{\partial \eta}{\partial t} = (-a)^2 \varphi''(\xi) + a^2 \psi''(\eta) = a^2 \left[ \varphi''(\xi) + \psi''(\eta) \right].
         \end{aligned}
     \end{equation}
-    比较 \cref{eq:u-xx} 与 \cref{eq:u-tt} 可得：
+    比较 \zcref{eq:u-xx} 与 \zcref{eq:u-tt} 可得：
     \begin{equation}
         \frac{\partial^2 u}{\partial t^2} = a^2 \left[ \varphi''(\xi) + \psi''(\eta) \right] = a^2 \frac{\partial^2 u}{\partial x^2}.
     \end{equation}
@@ -1320,7 +1320,7 @@
         \label{eq:chain-rule-2}
         \frac{1}{r} \frac{\partial u}{\partial \varphi} = -\frac{\partial u}{\partial x} \sin \varphi + \frac{\partial u}{\partial y} \cos \varphi.
     \end{equation}
-    将 \cref{eq:chain-rule-1} 与 \cref{eq:chain-rule-2} 的等号两边分别平方并相加，得
+    将 \zcref{eq:chain-rule-1} 与 \zcref{eq:chain-rule-2} 的等号两边分别平方并相加，得
     \begin{equation}
         \begin{aligned}
             \left(\frac{\partial u}{\partial r}\right)^2 + \left(\frac{1}{r} \frac{\partial u}{\partial \varphi}\right)^2 & = \left( \frac{\partial u}{\partial x} \cos \varphi + \frac{\partial u}{\partial y} \sin \varphi \right)^2 + \left( -\frac{\partial u}{\partial x} \sin \varphi + \frac{\partial u}{\partial y} \cos \varphi \right)^2 \\
@@ -1533,22 +1533,22 @@
     \begin{equation}\label{eq:uxx-1}
         u''_{xx}(x, 2x) + 2u''_{xy}(x, 2x) = 2x
     \end{equation}
-    对 \cref{eq:uy-val} 两端关于 $x$ 求导，得
+    对 \zcref{eq:uy-val} 两端关于 $x$ 求导，得
     \begin{equation}
         u''_{yx}(x, 2x) + 2u''_{yy}(x, 2x) = -x
     \end{equation}
-    由于二阶偏导数连续，则 $u''_{xy} = u''_{yx}$，结合 \cref{eq:pde-1} 得
+    由于二阶偏导数连续，则 $u''_{xy} = u''_{yx}$，结合 \zcref{eq:pde-1} 得
     \begin{equation}\label{eq:uxx-2}
         u''_{xy}(x, 2x) + 2u''_{xx}(x, 2x) = -x
     \end{equation}
-    联立 \cref{eq:uxx-1} 与 \cref{eq:uxx-2} 构建方程组：
+    联立 \zcref{eq:uxx-1} 与 \zcref{eq:uxx-2} 构建方程组：
     \begin{equation}
         \begin{cases}
             u''_{xx} + 2u''_{xy} = 2x \\
             2u''_{xx} + u''_{xy} = -x
         \end{cases}
     \end{equation}
-    解得 $u''_{xx} = -\frac{4}{3}x$，$u''_{xy} = \frac{5}{3}x$。由 \cref{eq:pde-1} 可得 $u''_{yy} = -\frac{4}{3}x$。
+    解得 $u''_{xx} = -\frac{4}{3}x$，$u''_{xy} = \frac{5}{3}x$。由 \zcref{eq:pde-1} 可得 $u''_{yy} = -\frac{4}{3}x$。
     \begin{equation}
         \boxed{u''_{xx}(x, 2x) = -\frac{4}{3}x, \quad u''_{xy}(x, 2x) = \frac{5}{3}x, \quad u''_{yy}(x, 2x) = -\frac{4}{3}x}
     \end{equation}

@@ -22,7 +22,7 @@
 \colorlet{ThemePaperLight}{ThemePaper!40!white}
 \pagecolor{ThemePaperLight}
 
-\colorlet{MainTextColor}{ThemeDarkBlue!40!black}
+\colorlet{MainTextColor}{ThemeDarkBlue!50!black}
 \AtBeginDocument{\color{MainTextColor}}
 
 % 页面布局与几何设置
@@ -101,6 +101,15 @@
 \newfontfamily\emojifont{Noto Color Emoji}[Renderer=Harfbuzz]
 
 % 图形与表格
+\RequirePackage{memoize}             % 结果缓存，避免重复计算（如复杂图形或表格生成）
+\mmzset{
+    prefix=memo-cache/,
+    auto={problem}{nomemoize},
+    auto={note}{nomemoize},
+    auto={tikzpicture}{memoize},
+    auto={axis}{memoize}
+}
+
 \RequirePackage{graphicx}            % 图片插入
 \RequirePackage{float}               % 浮动体控制（H 选项）
 \RequirePackage{caption}             % 图表标题定制
@@ -187,7 +196,7 @@
             description font=\normalfont\kaishu,
             separator sign none,  % 移除默认冒号
             description delimiters={---}{}, % 自动包裹描述
-            colback=ThemePaper,   % 统一使用米白底色
+            colback=ThemePaper!80!white,   % 统一使用米白混合20%的白色，保持整体风格一致
             % 标题框设置
             attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
             boxed title style={

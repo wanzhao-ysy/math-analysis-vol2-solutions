@@ -740,8 +740,8 @@
 \begin{problem}{极坐标下的极限}{Polar-Limit}
     若 $x = r \cos \theta, y = r \sin \theta$，问沿怎样的方向 $\theta$ ($0 \leqslant \theta \leqslant 2\uppi$)，下列极限存在？
     \begin{enumerate}
-        \item $\displaystyle \lim_{r \to 0^+} \e^{\frac{1}{x^2 - y^2}}$;
-        \item $\displaystyle \lim_{r \to +\infty} \e^{x^2 - y^2} \cdot \sin 2xy$.
+        \item $ \lim_{r \to 0^+} \e^{\frac{1}{x^2 - y^2}}$;
+        \item $ \lim_{r \to +\infty} \e^{x^2 - y^2} \cdot \sin 2xy$.
     \end{enumerate}
 \end{problem}
 
@@ -784,10 +784,10 @@
 
 
 \begin{problem}{累次极限与重极限}{Iterated-Limit-Theorem}
-    证明：当极限 $\displaystyle \lim_{(x,y) \to (x_0, y_0)} f(x,y) = A$ 存在时，
+    证明：当极限 $ \lim_{(x,y) \to (x_0, y_0)} f(x,y) = A$ 存在时，
     \begin{enumerate}
-        \item 若 $y \neq y_0, \displaystyle \lim_{x \to x_0} f(x,y)$ 存在，则 $\displaystyle \lim_{y \to y_0} \lim_{x \to x_0} f(x,y) = A$;
-        \item 若 $x \neq x_0, \displaystyle \lim_{y \to y_0} f(x,y)$ 存在，则 $\displaystyle \lim_{x \to x_0} \lim_{y \to y_0} f(x,y) = A$.
+        \item 若 $y \neq y_0,  \lim_{x \to x_0} f(x,y)$ 存在，则 $ \lim_{y \to y_0} \lim_{x \to x_0} f(x,y) = A$;
+        \item 若 $x \neq x_0,  \lim_{y \to y_0} f(x,y)$ 存在，则 $ \lim_{x \to x_0} \lim_{y \to y_0} f(x,y) = A$.
     \end{enumerate}
 \end{problem}
 
@@ -799,7 +799,7 @@
         |f(x,y) - A| < \varepsilon
     \end{equation}
     对满足 $0 < |y - y_0| < \delta$ 的固定值 $y$，取 $x$ 满足 $0 < |x - x_0| < \sqrt{\delta^2 - (y-y_0)^2}$。此时 $(x,y)$ 满足二重极限的邻域条件，故 \cref{eq:limit-def-1} 成立。\\
-    令 $\varphi(y) = \displaystyle \lim_{x \to x_0} f(x,y)$。在 \cref{eq:limit-def-1} 中对 $x \to x_0$ 取极限，由极限的保号性及性质可得
+    令 $\varphi(y) =  \lim_{x \to x_0} f(x,y)$。在 \cref{eq:limit-def-1} 中对 $x \to x_0$ 取极限，由极限的保号性及性质可得
     \begin{equation}
         |\varphi(y) - A| \leqslant \varepsilon
     \end{equation}
@@ -811,7 +811,7 @@
     \ansitem{2}
 
     同理，固定 $x$ 满足 $0 < |x - x_0| < \delta$，当 $0 < |y - y_0| < \sqrt{\delta^2 - (x-x_0)^2}$ 时，有 $|f(x,y) - A| < \varepsilon$。\\
-    令 $\psi(x) = \displaystyle \lim_{y \to y_0} f(x,y)$。对 $y \to y_0$ 取极限得 $|\psi(x) - A| \leqslant \varepsilon$。\\
+    令 $\psi(x) =  \lim_{y \to y_0} f(x,y)$。对 $y \to y_0$ 取极限得 $|\psi(x) - A| \leqslant \varepsilon$。\\
     由 $\varepsilon$ 的任意性知
     \begin{equation}
         \lim_{x \to x_0} \psi(x) = \lim_{x \to x_0} \lim_{y \to y_0} f(x,y) = A

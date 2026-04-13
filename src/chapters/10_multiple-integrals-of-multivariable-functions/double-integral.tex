@@ -189,12 +189,12 @@
                                                                              & = \int_{0}^{1} \left[ -\frac{1}{\sqrt{1+x^{2}+y^{2}}} \right]_{0}^{1} \d x                             \\
                                                                              & = \int_{0}^{1} \left( \frac{1}{\sqrt{1+x^{2}}} - \frac{1}{\sqrt{x^{2}+2}} \right) \d x                 \\
                                                                              & = \left[ \ln \left( x + \sqrt{1+x^{2}} \right) - \ln \left( x + \sqrt{2+x^{2}} \right) \right]_{0}^{1} \\
-                                                                             & = \ln (1+\sqrt{2}) - \ln (1+\sqrt{3}) + \ln \sqrt{2}。
+                                                                             & = \ln (1+\sqrt{2}) - \ln (1+\sqrt{3}) + \ln \sqrt{2}
         \end{aligned}
     \end{equation}
     整理得到
     \begin{equation}
-        I = \boxed{\ln \frac{2+\sqrt{2}}{1+\sqrt{3}}}。
+        I = \boxed{\ln \frac{2+\sqrt{2}}{1+\sqrt{3}}}
     \end{equation}
 
     \ansitem{2}
@@ -205,12 +205,12 @@
             \iint_{D} \sin (x+y) \d x \d y & = \int_{0}^{\uppi} \d x \int_{0}^{\uppi} \sin (x+y) \d y \\
                                            & = \int_{0}^{\uppi} [-\cos (x+y)]_{0}^{\uppi} \d x        \\
                                            & = \int_{0}^{\uppi} (\cos x - \cos (x+\uppi)) \d x        \\
-                                           & = \int_{0}^{\uppi} 2 \cos x \d x。
+                                           & = \int_{0}^{\uppi} 2 \cos x \d x
         \end{aligned}
     \end{equation}
     于是有
     \begin{equation}
-        I = \boxed{0}。
+        I = \boxed{0}
     \end{equation}
 
     \ansitem{3}
@@ -218,16 +218,16 @@
     积分区域为 $D = \{ (x, y) \mid 0 \le y \le \uppi, 0 \le x \le y \}$，则
     \begin{equation}
         \begin{aligned}
-            \iint_{D} \cos (x+y) \d x \d y & = \int_{0}^{\uppi} \d y \int_{0}^{y} \cos (x+y) \d x                 \\
-                                           & = \int_{0}^{\uppi} [\sin(x+y)]_{0}^{y} \d y                          \\
-                                           & = \int_{0}^{\uppi} (\sin 2y - \sin y) \d y                           \\
-                                           & = \left[ -\frac{1}{2} \cos 2y + \cos y \right]_{0}^{\uppi}           \\
-                                           & = \left( -\frac{1}{2} - 1 \right) - \left( -\frac{1}{2} + 1 \right)。
+            \iint_{D} \cos (x+y) \d x \d y & = \int_{0}^{\uppi} \d y \int_{0}^{y} \cos (x+y) \d x                \\
+                                           & = \int_{0}^{\uppi} [\sin(x+y)]_{0}^{y} \d y                         \\
+                                           & = \int_{0}^{\uppi} (\sin 2y - \sin y) \d y                          \\
+                                           & = \left[ -\frac{1}{2} \cos 2y + \cos y \right]_{0}^{\uppi}          \\
+                                           & = \left( -\frac{1}{2} - 1 \right) - \left( -\frac{1}{2} + 1 \right)
         \end{aligned}
     \end{equation}
     计算得出
     \begin{equation}
-        I = \boxed{-2}。
+        I = \boxed{-2}
     \end{equation}
 
     \ansitem{4}
@@ -238,12 +238,12 @@
             \iint_{D} (x+y) \d x \d y & = \int_{0}^{\uppi/2} \d \theta \int_{0}^{a} r (\cos \theta + \sin \theta) r \d r           \\
                                       & = \int_{0}^{\uppi/2} (\cos \theta + \sin \theta) \d \theta \int_{0}^{a} r^{2} \d r         \\
                                       & = [\sin \theta - \cos \theta]_{0}^{\uppi/2} \cdot \left[ \frac{1}{3} r^{3} \right]_{0}^{a} \\
-                                      & = (1 - (-1)) \cdot \frac{a^{3}}{3}。
+                                      & = (1 - (-1)) \cdot \frac{a^{3}}{3}
         \end{aligned}
     \end{equation}
     因此
     \begin{equation}
-        I = \boxed{\frac{2 a^{3}}{3}}。
+        I = \boxed{\frac{2 a^{3}}{3}}
     \end{equation}
 
     \ansitem{5}
@@ -255,12 +255,12 @@
                                         & = \int_{a}^{3 a} \left[ 2 u v - \frac{1}{2} u^{2} - u \right]_{0}^{a} \d v  \\
                                         & = \int_{a}^{3 a} (2 a v - \frac{1}{2} a^{2} - a) \d v                       \\
                                         & = \left[ a v^{2} - \left( \frac{1}{2} a^{2} + a \right) v \right]_{a}^{3 a} \\
-                                        & = 8 a^{3} - \left( \frac{1}{2} a^{2} + a \right) (2 a)。
+                                        & = 8 a^{3} - \left( \frac{1}{2} a^{2} + a \right) (2 a)
         \end{aligned}
     \end{equation}
     化简得到
     \begin{equation}
-        I = \boxed{7 a^{3}-2 a^{2}}。
+        I = \boxed{7 a^{3}-2 a^{2}}
     \end{equation}
 
     \ansitem{6}
@@ -272,12 +272,12 @@
                                                  & = \int_{0}^{1} \frac{\sin y}{y} (y - y^{2}) \d y           \\
                                                  & = \int_{0}^{1} (\sin y - y \sin y) \d y                    \\
                                                  & = [-\cos y]_{0}^{1} - [ -y \cos y + \sin y ]_{0}^{1}       \\
-                                                 & = (1 - \cos 1) - (- \cos 1 + \sin 1)。
+                                                 & = (1 - \cos 1) - (- \cos 1 + \sin 1)
         \end{aligned}
     \end{equation}
     得到
     \begin{equation}
-        I = \boxed{1-\sin 1}。
+        I = \boxed{1-\sin 1}
     \end{equation}
 
     \ansitem{7}
@@ -288,12 +288,12 @@
             \iint_{D} \frac{x^{2}}{y^{2}} \d x \d y & = \int_{1}^{2} x^{2} \d x \int_{1 / x}^{x} \frac{1}{y^{2}} \d y   \\
                                                     & = \int_{1}^{2} x^{2} \left[ -\frac{1}{y} \right]_{1 / x}^{x} \d x \\
                                                     & = \int_{1}^{2} x^{2} \left( x - \frac{1}{x} \right) \d x          \\
-                                                    & = \left[ \frac{1}{4} x^{4} - \frac{1}{2} x^{2} \right]_{1}^{2}。
+                                                    & = \left[ \frac{1}{4} x^{4} - \frac{1}{2} x^{2} \right]_{1}^{2}
         \end{aligned}
     \end{equation}
     计算结果为
     \begin{equation}
-        I = \boxed{\frac{9}{4}}。
+        I = \boxed{\frac{9}{4}}
     \end{equation}
 
     \ansitem{8}
@@ -304,12 +304,12 @@
             I & = \iint_{D_{x+y \le \frac{\uppi}{2}}} \cos (x+y) \d A + \iint_{D_{x+y \ge \frac{\uppi}{2}}} -\cos (x+y) \d A                         \\
               & = \int_{0}^{\uppi/4} \d y \int_{y}^{\uppi/2-y} \cos (x+y) \d x + \int_{\uppi/4}^{\uppi/2} \d x \int_{\uppi/2-x}^{x} -\cos (x+y) \d y \\
               & = \int_{0}^{\uppi/4} (1 - \sin 2y) \d y + \int_{\uppi/4}^{\uppi/2} (1 - \sin 2x) \d x                                                \\
-              & = \left[ y + \frac{1}{2} \cos 2y \right]_{0}^{\uppi/4} + \left[ x + \frac{1}{2} \cos 2x \right]_{\uppi/4}^{\uppi/2}。
+              & = \left[ y + \frac{1}{2} \cos 2y \right]_{0}^{\uppi/4} + \left[ x + \frac{1}{2} \cos 2x \right]_{\uppi/4}^{\uppi/2}
         \end{aligned}
     \end{equation}
     计算得出
     \begin{equation}
-        I = \left( \frac{\uppi}{4} - \frac{1}{2} \right) + \left( \frac{\uppi}{4} - \frac{1}{2} \right) = \boxed{\frac{\uppi}{2}-1}。
+        I = \left( \frac{\uppi}{4} - \frac{1}{2} \right) + \left( \frac{\uppi}{4} - \frac{1}{2} \right) = \boxed{\frac{\uppi}{2}-1}
     \end{equation}
 \end{solution}
 

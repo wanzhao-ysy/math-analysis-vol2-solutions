@@ -14,11 +14,11 @@
 
     对 $x$ 求偏导数得
     \begin{equation}
-        f'_x(x, y) = 1 - \frac{x}{\sqrt{x^2 + y^2}}。
+        f'_x(x, y) = 1 - \frac{x}{\sqrt{x^2 + y^2}}
     \end{equation}
     代入点 $(3,4)$ 可得
     \begin{equation}
-        f'_x(3,4) = 1 - \frac{3}{\sqrt{3^2 + 4^2}} = 1 - \frac{3}{5}。
+        f'_x(3,4) = 1 - \frac{3}{\sqrt{3^2 + 4^2}} = 1 - \frac{3}{5}
     \end{equation}
     \begin{equation}
         \boxed{f'_x(3,4) = \frac{2}{5}}
@@ -42,13 +42,13 @@
 
     令 $u = xy^2 + yx^2$，则 $f(x,y) = \ln(u + \sqrt{1 + u^2})$。由此可得
     \begin{equation}
-        \frac{\partial f}{\partial u} = \frac{1}{\sqrt{1 + u^2}}。
+        \frac{\partial f}{\partial u} = \frac{1}{\sqrt{1 + u^2}}
     \end{equation}
     分别对 $x, y$ 求偏导数
     \begin{equation}
         \begin{aligned}
             f'_x(x, y) & = \frac{\partial f}{\partial u} \cdot \frac{\partial u}{\partial x} = \frac{y^2 + 2xy}{\sqrt{1 + (xy^2 + yx^2)^2}}, \\
-            f'_y(x, y) & = \frac{\partial f}{\partial u} \cdot \frac{\partial u}{\partial y} = \frac{2xy + x^2}{\sqrt{1 + (xy^2 + yx^2)^2}}。
+            f'_y(x, y) & = \frac{\partial f}{\partial u} \cdot \frac{\partial u}{\partial y} = \frac{2xy + x^2}{\sqrt{1 + (xy^2 + yx^2)^2}}.
         \end{aligned}
     \end{equation}
     令 $x=1$，则 $u = y^2 + y$，代入得
@@ -76,7 +76,7 @@
     \ansitem{1}
 
     \begin{equation}
-        \frac{\partial z}{\partial x} = \frac{\e^y}{y^2}, \quad \frac{\partial z}{\partial y} = \frac{x \e^y \cdot y^2 - x \e^y \cdot 2y}{y^4} = \frac{x \e^y(y - 2)}{y^3}。
+        \frac{\partial z}{\partial x} = \frac{\e^y}{y^2}, \quad \frac{\partial z}{\partial y} = \frac{x \e^y \cdot y^2 - x \e^y \cdot 2y}{y^4} = \frac{x \e^y(y - 2)}{y^3}
     \end{equation}
     \begin{equation}
         \boxed{\frac{\partial z}{\partial x} = \frac{\e^y}{y^2}, \quad \frac{\partial z}{\partial y} = \frac{x(y - 2)\e^y}{y^3}}
@@ -87,7 +87,7 @@
     \begin{equation}
         \begin{aligned}
             \frac{\partial z}{\partial x} & = 3^{-\frac{y}{x}} \ln 3 \cdot \frac{\partial}{\partial x}\left( -\frac{y}{x} \right) = \frac{y \ln 3}{x^2} 3^{-\frac{y}{x}}, \\
-            \frac{\partial z}{\partial y} & = 3^{-\frac{y}{x}} \ln 3 \cdot \frac{\partial}{\partial y}\left( -\frac{y}{x} \right) = -\frac{\ln 3}{x} 3^{-\frac{y}{x}}。
+            \frac{\partial z}{\partial y} & = 3^{-\frac{y}{x}} \ln 3 \cdot \frac{\partial}{\partial y}\left( -\frac{y}{x} \right) = -\frac{\ln 3}{x} 3^{-\frac{y}{x}}.
         \end{aligned}
     \end{equation}
     \begin{equation}
@@ -99,7 +99,7 @@
     \begin{equation}
         \begin{aligned}
             \frac{\partial z}{\partial x} & = \frac{1}{y} \cos \frac{x}{y} \cos \frac{y}{x} + \sin \frac{x}{y} \left( -\sin \frac{y}{x} \right) \left( -\frac{y}{x^2} \right) = \frac{1}{y} \cos \frac{x}{y} \cos \frac{y}{x} + \frac{y}{x^2} \sin \frac{x}{y} \sin \frac{y}{x},  \\
-            \frac{\partial z}{\partial y} & = -\frac{x}{y^2} \cos \frac{x}{y} \cos \frac{y}{x} + \sin \frac{x}{y} \left( -\sin \frac{y}{x} \right) \left( \frac{1}{x} \right) = -\frac{x}{y^2} \cos \frac{x}{y} \cos \frac{y}{x} - \frac{1}{x} \sin \frac{x}{y} \sin \frac{y}{x}。
+            \frac{\partial z}{\partial y} & = -\frac{x}{y^2} \cos \frac{x}{y} \cos \frac{y}{x} + \sin \frac{x}{y} \left( -\sin \frac{y}{x} \right) \left( \frac{1}{x} \right) = -\frac{x}{y^2} \cos \frac{x}{y} \cos \frac{y}{x} - \frac{1}{x} \sin \frac{x}{y} \sin \frac{y}{x}.
         \end{aligned}
     \end{equation}
     \begin{equation}
@@ -111,7 +111,7 @@
     \begin{equation}
         \begin{aligned}
             \frac{\partial z}{\partial x} & = \frac{1}{x + \sqrt{x^2 + y^2}} \left( 1 + \frac{x}{\sqrt{x^2 + y^2}} \right) = \frac{1}{\sqrt{x^2 + y^2}}, \\
-            \frac{\partial z}{\partial y} & = \frac{1}{x + \sqrt{x^2 + y^2}} \cdot \frac{y}{\sqrt{x^2 + y^2}} = \frac{y}{x\sqrt{x^2 + y^2} + x^2 + y^2}。
+            \frac{\partial z}{\partial y} & = \frac{1}{x + \sqrt{x^2 + y^2}} \cdot \frac{y}{\sqrt{x^2 + y^2}} = \frac{y}{x\sqrt{x^2 + y^2} + x^2 + y^2}.
         \end{aligned}
     \end{equation}
     \begin{equation}
@@ -123,7 +123,7 @@
     \begin{equation}
         \begin{aligned}
             \frac{\partial u}{\partial x} & = \frac{1}{1 + \left( \frac{x+y}{x-y} \right)^2} \cdot \frac{(x-y) - (x+y)}{(x-y)^2} = \frac{-2y}{(x-y)^2 + (x+y)^2} = -\frac{y}{x^2 + y^2},   \\
-            \frac{\partial u}{\partial y} & = \frac{1}{1 + \left( \frac{x+y}{x-y} \right)^2} \cdot \frac{(x-y) - (x+y)(-1)}{(x-y)^2} = \frac{2x}{(x-y)^2 + (x+y)^2} = \frac{x}{x^2 + y^2}。
+            \frac{\partial u}{\partial y} & = \frac{1}{1 + \left( \frac{x+y}{x-y} \right)^2} \cdot \frac{(x-y) - (x+y)(-1)}{(x-y)^2} = \frac{2x}{(x-y)^2 + (x+y)^2} = \frac{x}{x^2 + y^2}.
         \end{aligned}
     \end{equation}
     \begin{equation}
@@ -136,7 +136,7 @@
         \begin{aligned}
             \frac{\partial u}{\partial x} & = \e^{x(x^2 + y^2 + z^2)} \cdot (x^2 + y^2 + z^2 + 2x^2) = (3x^2 + y^2 + z^2) \e^{x(x^2 + y^2 + z^2)}, \\
             \frac{\partial u}{\partial y} & = \e^{x(x^2 + y^2 + z^2)} \cdot (2xy) = 2xy \e^{x(x^2 + y^2 + z^2)},                                   \\
-            \frac{\partial u}{\partial z} & = \e^{x(x^2 + y^2 + z^2)} \cdot (2xz) = 2xz \e^{x(x^2 + y^2 + z^2)}。
+            \frac{\partial u}{\partial z} & = \e^{x(x^2 + y^2 + z^2)} \cdot (2xz) = 2xz \e^{x(x^2 + y^2 + z^2)}.
         \end{aligned}
     \end{equation}
     \begin{equation}

@@ -1,17 +1,3 @@
-# # LaTeXmk 配置文件
-
-# $pdf_mode = 4; # 使用 LuaLaTeX 引擎直接生成 PDF
-# $postscript_mode = 0; # 不生成 PostScript 文件
-# $dvi_mode = 0; # 不生成 DVI 文件
-
-# # %O 是 latexmk 传递的其它选项占位符，%S 是源文件占位符
-# $lualatex = 'lualatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error %O %S';
-
-# # 使用相对路径引用共享资源
-# $ENV{'TEXINPUTS'} = './common/styles//:' . ($ENV{'TEXINPUTS'} || ''); # 添加 common/styles 目录到 TEXINPUTS 环境变量
-# $ENV{'BIBINPUTS'} = './common/bib//:' . ($ENV{'BIBINPUTS'} || ''); # 添加 common/bib 目录到 BIBINPUTS 环境变量
-
-
 # 操作系统判定
 # MSWin32: 原生 Windows
 # cygwin/msys: Windows 下的类 Unix 模拟层

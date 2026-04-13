@@ -104,7 +104,7 @@
 \newfontfamily\emojifont{Noto Color Emoji}[Renderer=Harfbuzz]
 
 % 图形与表格
-\RequirePackage{memoize}             % 结果缓存，避免重复计算（如复杂图形或表格生成）
+\RequirePackage[extract=python]{memoize}             % 结果缓存，避免重复计算（如复杂图形或表格生成）
 \mmzset{
     prefix=memo-cache/,
     auto={problem}{nomemoize},

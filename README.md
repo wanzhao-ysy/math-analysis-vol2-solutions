@@ -10,15 +10,26 @@
 本项目是 **《数学分析讲义（第二册）》** （程艺 陈卿 李平 编著）第一版 的详细习题解答。基于 `ctexbook` 文档类编写，旨在提供一份排版、内容完备的参考方案。
 
 > [!NOTE]
-> 本项目特别使用了 **LaTeXmk** 配合 **LuaLaTeX** 引擎，以支持更好的 OpenType 字体处理和原生 Emoji 渲染。
+> 本项目特别使用了 **l3buid** 配合 **LaTeXmk** 基于 **LuaLaTeX** 引擎，以支持更好的 OpenType 字体处理和原生 Emoji 渲染。
+---
+
+## 📖 快速使用
+
+请转到 [Release](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/releases/latest) 页面下载最新的 PDF 版本，或按照下方的编译指南自行编译。
 
 ---
 
 ## 📸 预览 (Preview)
 
-| 页面预览 | 关键特性 |
-| :--- | :--- |
-| <img src="docs/assets/preview_chapter1.png" width="400" alt="预览图"> | <ul><li>基于 TikZ 的几何绘图</li><li>完整简明的推导过程</li><li>方框突出答案显示</li><li>舒适的配色</li></ul> |
+---
+
+## 🌟 主要特性
+
+- **全面解答**：~~计划~~涵盖教材中所有习题的详细解答，确保每个步骤都清晰易懂。
+- **柔和配色**：采用 ~~原神中神里绫华的~~ 柔和舒适的配色方案，提升阅读体验，减少视觉疲劳。
+- **丰富绘图**：使用 `TikZ` 和 `pgfplot` 等宏包绘制高质量的数学图形，更易理解。
+- **高质量排版**：使用 `ctexbook` 文档类和 `LXGW-fonts` 字体，提供专业级的数学文档排版。
+- **现代编译工具**：采用 `l3build` 和 `LaTeXmk` 进行自动化构建，确保编译过程高效且稳定。
 
 ---
 
@@ -37,12 +48,11 @@
 ## 🛠️ 环境要求
 
 - **操作系统**: Windows 10/11, macOS 10.15+ 或 Linux（任意发行版，包含 WSL 环境）。
-- **TeX 发行版**: [TeX Live 2025](https://www.tug.org/texlive/) 或更高版本。
+- **TeX 发行版**: [TeX Live 2025](https://www.tug.org/texlive/) 或更高版本，及对等的 MacTeX 发行版和 MiKTeX 发行版。
 - **编译引擎**: `LuaLaTeX` (由于 CTeX 宏包在 LuaTeX 下对中文字体处理更佳)。
 - **字体要求**:
   - 主字体使用 `LXGW-fonts` 宏包提供的 **LXGW**（落霞孤鹜） 系列字体。
   - 数学字体使用 **New Computer Modern**，通过 `unicode-math` 宏包加载。
-- **Python 环境**: 用于 `memoize` 生成 TikZ 图形图形的缓存文件时需要的 `pdfrw2` 库。
 - **编辑器推荐**: [VSCode](https://code.visualstudio.com/) + [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) 扩展。
 
 ---
@@ -56,30 +66,13 @@
     cd math-analysis-vol2-solutions
     ```
 
-2. 安装依赖：
-    - 确保 TeX Live 2025 已安装，并且 `LuaLaTeX` 可用。
-    - 安装 Python 依赖：
+2. 启动编译：
 
     ```bash
-    uv sync
+    l3build doc
     ```
 
-3. 编译文档：
-
-    ```bash
-    cd src
-    uv run latexmk main.tex
-    ```
-
-    这一步也可以直接在 VSCode 中使用 LaTeX Workshop 的编译功能，在打开 `main.tex` 文件后点击编译按钮或使用快捷键 `Ctrl+Alt+B`。
-
-4. 编译完成后，结尾提示为
-
-    ```bash
-    Latexmk: All targets (main.pdf) are up-to-date
-    ```
-
-5. 生成的 PDF 文件位于 `src` 目录下，命名为 `main.pdf`。
+    PDF 输出 `main.pdf` 将位于根目录下
 
 ---
 

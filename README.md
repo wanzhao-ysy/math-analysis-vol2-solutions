@@ -7,16 +7,21 @@
   <img src="https://img.shields.io/badge/Fonts-LXGW--WenKai-66ccff?style=flat-square" alt="Fonts">
 </p>
 
-本项目提供 **《数学分析讲义（第二册）》**（程艺、陈卿、李平 编著）第一版的详细习题解答。基于 `ctexbook` 文档类，结合现代 LaTeX 技术栈，旨在打造一份排版精美、逻辑清晰的数学参考。
+<p align="center">
+  中文 | <a href="https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/blob/main/README_en.md">English</a>
+</p>
+
+本项目整理并撰写 **《数学分析讲义（第二册）》**（程艺、陈卿、李平 编著，第一版）习题详解，力求提供一份 **推导完整、排版清晰、适合自学与复习** 的数学参考资料。
+
+项目基于 `ctexbook` 文档类构建，采用 **LuaLaTeX + l3build** 工作流，结合 `TikZ` / `pgfplots` 绘图与 OpenType 字体方案，生成高质量 PDF 文档。
 
 > [!TIP]
-> 本项目采用 **l3build** + **LuaLaTeX** 构建，完美支持 OpenType 字体与原生 Emoji 渲染。
+> 推荐使用 **TeX Live 2025 及以上版本** 进行编译，以获得更稳定的字体与排版效果。
 
 ---
 
 ## 📸 预览 (Preview)
 
-<!-- 使用表格实现 2x2 紧凑布局 -->
 <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr style="border: none;">
     <td width="50%" style="border: none; padding: 5px;">

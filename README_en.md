@@ -25,7 +25,7 @@ The project is built on the `ctexbook` document class, utilizing a **LuaLaTeX + 
 <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr style="border: none;">
     <td width="50%" style="border: none; padding: 5px;">
-      <img src="https://github.com/user-attachments/assets/b87d4bd1-25b4-4fde-b6f0-fce1d51df21d" width="100%">
+      <img src="https://github.com/user-attachments/assets/638b16b0-317e-4ab0-9062-a41dad946132" width="100%">
     </td>
     <td width="50%" style="border: none; padding: 5px;">
       <img src="https://github.com/user-attachments/assets/46c6de7a-8644-4a92-a26c-eb9774502d3b" width="100%">

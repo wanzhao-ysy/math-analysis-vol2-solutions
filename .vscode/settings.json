@@ -12,5 +12,6 @@
             "tools": ["uv-latexmk"]
         }
     ],
-    "latex-workshop.latex.build.fromWorkspaceFolder": false
+    "latex-workshop.latex.build.fromWorkspaceFolder": false,
+    "latex-workshop.latex.recipe.default": "first"
 }

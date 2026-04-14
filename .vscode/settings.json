@@ -1,17 +1,7 @@
 {
-    "latex-workshop.latex.tools": [
-        {
-            "name": "uv-latexmk",
-            "command": "uv",
-            "args": ["run", "latexmk", "%DOCFILE%"]
-        }
-    ],
-    "latex-workshop.latex.recipes": [
-        {
-            "name": "uv-run-latexmk",
-            "tools": ["uv-latexmk"]
-        }
-    ],
-    "latex-workshop.latex.build.fromWorkspaceFolder": false,
-    "latex-workshop.latex.recipe.default": "first"
+    "Lua.diagnostics.disable": [
+        "undefined-global",
+        "lowercase-global",
+        "undefined-field"
+    ]
 }

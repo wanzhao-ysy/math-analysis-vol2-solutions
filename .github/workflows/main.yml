@@ -1,0 +1,142 @@
+# ============================================================
+#  《数学分析讲义（第二册）》习题解析 — 自动编译工作流
+#  TeX Live 方案: scheme-full（完整安装，避免任何缺包问题）
+# ============================================================
+name: 📄 Build & Release PDF
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["v*.*.*"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+# 同一分支有新提交时，自动取消旧的运行
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  TEXLIVE_VERSION: "2025"
+  CACHE_BUST: "1"
+
+# ============================================================
+jobs:
+
+  # ──────────────────────────────────────────────────────────
+  #  Job 1: 编译 PDF
+  # ──────────────────────────────────────────────────────────
+  build:
+    name: 🔨 Compile with LuaLaTeX
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. 检出代码
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      # ── Python & uv ──────────────────────────────────────
+      # 2. 安装 uv
+      - name: 🐍 Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      # 3. 安装项目声明的 Python 版本
+      - name: Set up Python
+        run: uv python install
+
+      # 4. 安装 pdfrw2 等依赖
+      - name: 📦 Install Python dependencies
+        run: uv sync --frozen
+
+      # ── TeX Live ─────────────────────────────────────────
+      # 5. 安装 TeX Live 完整方案
+      #    scheme-full 包含所有宏包和字体，首次约 20-30 min
+      #    命中缓存后约 1-2 min
+      - name: 🔤 Setup TeX Live ${{ env.TEXLIVE_VERSION }} (Full)
+        uses: teatimeguest/setup-texlive-action@v3
+        with:
+          version: ${{ env.TEXLIVE_VERSION }}
+          cache: true
+          packages: |
+            scheme-full
+
+      # ── memoize 缓存 ─────────────────────────────────────
+      # 6. 恢复 TikZ 图形的 memoize 缓存
+      #    .tex 文件内容变动时自动失效并重建
+      - name: 💾 Restore memoize cache
+        id: memoize-cache
+        uses: actions/cache@v4
+        with:
+          path: src/memo-cache/
+          key: >-
+            memoize-v${{ env.CACHE_BUST }}-
+            ${{ runner.os }}-
+            ${{ hashFiles('src/**/*.tex') }}
+          restore-keys: |
+            memoize-v${{ env.CACHE_BUST }}-${{ runner.os }}-
+
+      # ── 编译 ─────────────────────────────────────────────
+      # 7. 使用 uv run 代理 latexmk，确保 memoize Python 脚本可用
+      - name: 🔨 Compile main.tex
+        working-directory: src
+        run: uv run latexmk main.tex
+
+      # 8. 编译失败时上传日志（方便排查）
+      - name: 📋 Upload LaTeX log on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: latex-logs-${{ github.sha }}
+          path: |
+            src/main.log
+            src/main.fls
+          retention-days: 7
+
+      # ── 上传产物 ─────────────────────────────────────────
+      # 9. 上传 PDF，所有触发场景均可在 Actions 页面下载
+      - name: 📤 Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: math-analysis-vol2-solutions
+          path: src/main.pdf
+          retention-days: 30
+          if-no-files-found: error
+
+  # ──────────────────────────────────────────────────────────
+  #  Job 2: 发布 Release（仅 v* Tag 触发）
+  # ──────────────────────────────────────────────────────────
+  release:
+    name: 🚀 Publish GitHub Release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      # 10. 下载 build job 产出的 PDF
+      - name: 📥 Download PDF artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: math-analysis-vol2-solutions
+          path: dist/
+
+      # 11. 创建 GitHub Release 并附上 PDF
+      - name: 🎉 Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: "📖 ${{ github.ref_name }}"
+          files: dist/main.pdf
+          generate_release_notes: true
+          body: |
+            ## 📄 《数学分析讲义（第二册）》习题解析 `${{ github.ref_name }}`
+
+            > 🤖 由 **GitHub Actions** 使用 **LuaLaTeX + TeX Live ${{ env.TEXLIVE_VERSION }}** 自动编译生成。
+
+            ### 📥 下载
+            点击下方 **Assets** 中的 `main.pdf` 即可下载最新版本。

@@ -326,6 +326,5 @@ TSWLatexianTemp*
 #*Notes.bib
 
 # Memoization cache for the memoize package
-src/memo-cache/
 
-src/main.mmz
+bulid/

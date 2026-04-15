@@ -569,20 +569,40 @@
 
 
 \begin{problem}{向量坐标计算}{Vector-Coordinates}
-    已知 $xy$ 平面的向量 $\symbfit{a}$ 与 $x$ 轴和 $y$ 轴所夹的角分别是 $a = 60^\circ, b = 120^\circ$, 且 $|\symbfit{a}| = 2$, 试求 $\symbfit{a}$ 的坐标.
+    已知 $Oxy$ 平面的向量 $\symbfit{a}$ 与 $x$ 轴和 $y$ 轴所夹的角分别是 $\alpha = 60^\circ, \beta = 120^\circ$, 且 $|\symbfit{a}| = 2$, 试求 $\symbfit{a}$ 的坐标。
 \end{problem}
 
+\begin{note}{}{}
+    这个题目实际上存在题设自相矛盾的问题，直接使用分量法计算得到的向量坐标为 $\symbfit{a} = (1, -1, 0)$，但该向量的模长为 $\sqrt{1^2 + (-1)^2} = \sqrt{2}$，与题设的 $|\symbfit{a}| = 2$ 不符。
+    这说明题设中的角度与在 $Oxy$ 平面上的条件存在矛盾，无法同时满足。{\emojifont 😀😅}
+
+    但考虑尊重教材的原文，我们做最小的修正，即去掉题设中「在 $Oxy$ 平面内」的条件，将向量 $\symbfit{a}$ 视为一个一般的三维向量进行解答。
+\end{note}
+
 \begin{solution}
-    由于向量 $\symbfit{a}$ 位于 $xy$ 平面内, 故其 $z$ 轴方向的分量 $a_z = 0$. 根据坐标定义:
+    设向量 $\symbfit{a}$ 与 $z$ 轴的夹角为 $\gamma$。根据空间向量的方向余弦性质，满足恒等式
+    \begin{equation}
+        \cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma = 1. \label{eq:direction-cosine-1}
+    \end{equation}
+    将已知角度代入 \zcref{eq:direction-cosine-1}，可得
+    \begin{equation}
+        \cos^2 60^\circ + \cos^2 120^\circ + \cos^2 \gamma = 1.
+    \end{equation}
+    计算各项数值，得
+    \begin{equation}
+        \left( \frac{1}{2} \right)^2 + \left( -\frac{1}{2} \right)^2 + \cos^2 \gamma = 1,
+    \end{equation}
+    即 $\cos^2 \gamma = \frac{1}{2}$，从而求得 $\cos \gamma = \pm \frac{\sqrt{2}}{2}$。向量 $\symbfit{a}$ 的坐标分量可由其模长与方向余弦的乘积表示为
     \begin{equation}
         \begin{aligned}
-            a_x & = |\symbfit{a}| \cos 60^\circ = 2 \cdot \frac{1}{2} = 1                   \\
-            a_y & = |\symbfit{a}| \cos 120^\circ = 2 \cdot \left( -\frac{1}{2} \right) = -1
+            a_x & = |\symbfit{a}| \cos \alpha = 2 \cdot \frac{1}{2} = 1,                                      \\
+            a_y & = |\symbfit{a}| \cos \beta = 2 \cdot \left( -\frac{1}{2} \right) = -1,                      \\
+            a_z & = |\symbfit{a}| \cos \gamma = 2 \cdot \left( \pm \frac{\sqrt{2}}{2} \right) = \pm \sqrt{2}.
         \end{aligned}
     \end{equation}
-    联立得向量的坐标表示为:
+    综上所述，向量 $\symbfit{a}$ 的坐标为
     \begin{equation}
-        \boxed{\symbfit{a} = (1, -1, 0)}
+        \boxed{\symbfit{a} = (1, -1, \pm \sqrt{2})}.
     \end{equation}
 \end{solution}
 

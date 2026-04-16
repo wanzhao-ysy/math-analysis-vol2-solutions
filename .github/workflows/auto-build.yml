@@ -1,0 +1,45 @@
+name: Auto Build PDF
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            latexmk \
+            texlive-luatex \
+            texlive-lang-chinese \
+            texlive-latex-extra \
+            texlive-pictures \
+            lmodern
+
+      - name: Verify l3build
+        run: l3build --version
+
+      - name: Build with l3build (build.lua)
+        run: l3build doc
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf-output
+          path: |
+            build/doc/*.pdf
+            main.pdf
+          if-no-files-found: warn

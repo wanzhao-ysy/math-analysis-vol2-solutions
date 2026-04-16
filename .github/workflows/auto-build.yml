@@ -1,4 +1,4 @@
-name: Auto Build PDF
+name: LaTeX Documentation Build
 
 on:
   push:
@@ -23,6 +23,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y \
             latexmk \
+            texlive-latex-base \
+            texlive-latex-recommended \
             texlive-luatex \
             texlive-lang-chinese \
             texlive-latex-extra \
@@ -35,11 +37,23 @@ jobs:
       - name: Build with l3build (build.lua)
         run: l3build doc
 
+      - name: Collect PDF artifacts
+        run: |
+          mkdir -p artifacts
+          if [ -d build/doc ]; then
+            find build/doc -maxdepth 1 -type f -name '*.pdf' -exec cp {} artifacts/ \;
+          fi
+          if [ -f main.pdf ]; then
+            cp main.pdf artifacts/
+          fi
+          if [ -z "$(find artifacts -maxdepth 1 -type f -name '*.pdf' -print -quit)" ]; then
+            echo "No PDF artifacts found in build/doc or repository root. Check l3build output for compilation errors."
+            exit 1
+          fi
+
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
         with:
           name: pdf-output
-          path: |
-            build/doc/*.pdf
-            main.pdf
-          if-no-files-found: warn
+          path: artifacts/
+          if-no-files-found: error

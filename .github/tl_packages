@@ -8,6 +8,7 @@ makeindex
 pdftex
 xetex
 luatex
+biber
 
 # =========================================
 # LaTeX core

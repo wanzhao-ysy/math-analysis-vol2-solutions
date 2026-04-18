@@ -1,0 +1,56 @@
+name: Publish PDF Release
+
+on:
+    push:
+        paths:
+            - "announcement.md"
+    workflow_dispatch:
+
+jobs:
+    create-release:
+        permissions:
+            contents: write
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v6
+            - name: Install TeX Live
+              uses: zauguin/install-texlive@v4
+              with:
+                  package_file: .github/tl_packages
+            - name: Run l3build
+              run: l3build doc
+            - name: Read version from build.lua
+              run: |
+                  VERSION=$(perl -nle 'print $1 if /version\s*=\s*"([^"]+)"/' build.lua)
+                  echo "VERSION=$VERSION" >> $GITHUB_ENV
+            - name: Prepare release PDF
+              run: |
+                  PDF_NAME="math-analysis-vol2-solutions_${{ env.VERSION }}_release.pdf"
+                  cp main.pdf "$PDF_NAME"
+                  echo "PDF_NAME=$PDF_NAME" >> $GITHUB_ENV
+                  test -f "$PDF_NAME"
+            - name: Create version tag
+              run: |
+                  TAG_NAME="${{ env.VERSION }}"
+                  RLS_NAME="Mathematical Analysis (Volume II) Exercise Solutions ${{ env.VERSION }}"
+
+                  echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
+                  echo "RLS_NAME=$RLS_NAME" >> $GITHUB_ENV
+
+                  git fetch --tags
+                  if git rev-parse "$TAG_NAME" >/dev/null 2>&1; then
+                    echo "Tag $TAG_NAME already exists. Skipping tag creation."
+                  else
+                    git tag $TAG_NAME
+                    git push origin $TAG_NAME
+                  fi
+            - name: Create and Publish Release
+              uses: softprops/action-gh-release@v3
+              with:
+                  tag_name: ${{ env.TAG_NAME }}
+                  name: ${{ env.RLS_NAME }}
+                  files: ${{ env.PDF_NAME }}
+                  body_path: announcement.md
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

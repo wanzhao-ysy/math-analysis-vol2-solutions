@@ -1,4 +1,4 @@
-name: Automated testing
+name: Automatic compilation
 
 on:
     push:

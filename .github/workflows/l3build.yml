@@ -1,4 +1,4 @@
-name: Automatic Compilation Test
+name: Build Check
 
 on:
     push:

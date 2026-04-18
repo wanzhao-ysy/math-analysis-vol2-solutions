@@ -16,7 +16,6 @@ latex
 l3kernel
 l3backend
 l3packages
-xparse
 
 # =========================================
 # Chinese / CTeX / fonts
@@ -28,7 +27,6 @@ unicode-math
 luatexja
 luatexbase
 ctablestack
-ctex-kit
 lxgw-fonts
 lm
 cm-super
@@ -38,7 +36,6 @@ ec
 # Graphics / color
 # =========================================
 graphics
-graphicx
 xcolor
 pgf
 pgfplots
@@ -49,8 +46,6 @@ tikzfill
 # =========================================
 amsmath
 amsfonts
-amssymb
-amsthm
 lualatex-math
 fixdif
 
@@ -71,21 +66,16 @@ multirow
 tabularray
 ninecolors
 enumitem
-multicol
-calc
 
 # =========================================
 # Boxes / environments / utility
 # =========================================
 tcolorbox
-verbatim
 environ
 trimspaces
 scalerel
 etoolbox
 iftex
-ifvtex
-ifluatex
 xkeyval
 
 # =========================================
@@ -104,7 +94,6 @@ zref-clever
 zref
 hyperref
 bookmark
-nameref
 rerunfilecheck
 
 # =========================================

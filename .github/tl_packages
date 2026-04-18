@@ -1,0 +1,124 @@
+# =========================================
+# Build tools / engines
+# =========================================
+l3build
+latex-bin
+latexmk
+makeindex
+pdftex
+xetex
+luatex
+
+# =========================================
+# LaTeX core
+# =========================================
+latex
+l3kernel
+l3backend
+l3packages
+xparse
+
+# =========================================
+# Chinese / CTeX / fonts
+# =========================================
+ctex
+zhnumber
+fontspec
+unicode-math
+luatexja
+luatexbase
+ctablestack
+ctex-kit
+lxgw-fonts
+lm
+cm-super
+ec
+
+# =========================================
+# Graphics / color
+# =========================================
+graphics
+graphicx
+xcolor
+pgf
+pgfplots
+tikzfill
+
+# =========================================
+# Math
+# =========================================
+amsmath
+amsfonts
+amssymb
+amsthm
+lualatex-math
+fixdif
+
+# =========================================
+# Page layout / titles / headers
+# =========================================
+geometry
+titlesec
+fancyhdr
+float
+caption
+
+# =========================================
+# Tables / lists / columns
+# =========================================
+booktabs
+multirow
+tabularray
+ninecolors
+enumitem
+multicol
+calc
+
+# =========================================
+# Boxes / environments / utility
+# =========================================
+tcolorbox
+verbatim
+environ
+trimspaces
+scalerel
+etoolbox
+iftex
+ifvtex
+ifluatex
+xkeyval
+
+# =========================================
+# Bibliography
+# =========================================
+biblatex
+xstring
+gbt7714
+logreq
+url
+
+# =========================================
+# References / hyperlinks
+# =========================================
+zref-clever
+zref
+hyperref
+bookmark
+nameref
+rerunfilecheck
+
+# =========================================
+# PDF / EPS support
+# =========================================
+pdfpages
+pdflscape
+pdfcol
+epstopdf-pkg
+
+# =========================================
+# Misc frequently needed support packages
+# =========================================
+tools
+psnfss
+hologo
+oberdiek

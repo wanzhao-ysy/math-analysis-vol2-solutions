@@ -6,7 +6,9 @@ typesetsuppfiles = {
     "chapters/**/*.tex",
     "bib/*.bib",
     "preambles/*.sty",
-    "fonts/*.ttf"
+    "fonts/*.ttf",
+    "fonts/*.otf"
+
 }
 
 function typeset(file)

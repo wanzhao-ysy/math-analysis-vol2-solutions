@@ -33,7 +33,7 @@ jobs:
             - name: Create version tag
               run: |
                   TAG_NAME="${{ env.VERSION }}"
-                  RLS_NAME='"Mathematical Analysis (Volume II) Exercise Solutions" '"$TAG_NAME"
+                  RLS_NAME='"Mathematical Analysis (Volume II)" Exercise Solutions '"$TAG_NAME"
 
                   echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
                   echo "RLS_NAME=$RLS_NAME" >> $GITHUB_ENV

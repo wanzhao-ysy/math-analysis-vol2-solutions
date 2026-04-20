@@ -1,3 +1,3 @@
-Version 1.5.0 released on 2026-04-19.
+Version 1.6.0 released on 2026-04-20.
 
-- 更新了 CI/CD 流程，增加了自动发布功能。
+- 完成了习题 10.3 解析的编写和校对。

@@ -205,9 +205,9 @@ v
     \end{equation}
     由于 \zcref{eq:second-partial-1} 左端仅与 $x,y$ 相关，而右端包含变量 $z$，取 $z = -x-y$，$x$ 和 $y$ 自由变化时右侧为定值，故 $\frac{\partial^2 f}{\partial x \partial y}$ 必为常数。设该常数为 $4a$，则：
     \begin{equation}
-        f(x,y) = 4axy + \phi(x) + \psi(y).
+        f(x,y) = 4axy + \varphi(x) + \psi(y).
     \end{equation}
-    由 $f(x,y) = f(y,x)$ 可知 $\phi(x) + \psi(y) = \phi(y) + \psi(x)$，由此推得 $\phi(x) - \psi(x) = C$。令 $h(x) = \phi(x) - \frac{C}{2}$，则 $f(x,y)$ 可表示为：
+    由 $f(x,y) = f(y,x)$ 可知 $\varphi(x) + \psi(y) = \varphi(y) + \psi(x)$，由此推得 $\varphi(x) - \psi(x) = C$。令 $h(x) = \varphi(x) - \frac{C}{2}$，则 $f(x,y)$ 可表示为：
     \begin{equation}
         f(x,y) = 4axy + h(x) + h(y).
     \end{equation}
@@ -433,15 +433,15 @@ v
     \end{equation}
     若 \zcref{eq:pde-origin} 成立，则有 $\frac{\partial^2 v}{\partial x \partial y} = 0$。积分得
     \begin{equation}
-        \frac{\partial v}{\partial x} = A(x) \implies v(x, y) = \int A(x) \d x + \Psi(y) = \Phi(x) + \Psi(y).
+        \frac{\partial v}{\partial x} = A(x) \implies v(x, y) = \int A(x) \d x + \Psi(y) = \varphi(x) + \Psi(y).
         \label{eq:v-integral}
     \end{equation}
     从而有
     \begin{equation}
-        u(x, y) = \e^{\Phi(x) + \Psi(y)} = \e^{\Phi(x)} \cdot \e^{\Psi(y)}.
+        u(x, y) = \e^{\varphi(x) + \Psi(y)} = \e^{\varphi(x)} \cdot \e^{\Psi(y)}.
         \label{eq:u-sep-form}
     \end{equation}
-    取 $f(x) = \e^{\Phi(x)}$，$g(y) = \e^{\Psi(y)}$ 即证。
+    取 $f(x) = \e^{\varphi(x)}$，$g(y) = \e^{\Psi(y)}$ 即证。
 
     充分性：设 $u(x, y) = f(x)g(y)$。直接计算其偏导数：
     \begin{equation}

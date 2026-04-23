@@ -46,9 +46,7 @@ tikzfill
 # =========================================
 # Math
 # =========================================
-mathtools
 amsmath
-amsfonts
 lualatex-math
 fixdif
 thmtools
@@ -87,7 +85,6 @@ xkeyval
 # =========================================
 biblatex
 xstring
-gbt7714
 logreq
 url
 biblatex-gb7714-2015
@@ -96,7 +93,6 @@ biblatex-gb7714-2015
 # References / hyperlinks
 # =========================================
 zref-clever
-zref
 hyperref
 bookmark
 rerunfilecheck

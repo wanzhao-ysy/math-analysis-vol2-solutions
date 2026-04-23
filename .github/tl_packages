@@ -50,6 +50,7 @@ amsmath
 amsfonts
 lualatex-math
 fixdif
+thmtools
 
 # =========================================
 # Page layout / titles / headers

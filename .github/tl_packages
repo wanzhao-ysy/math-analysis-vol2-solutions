@@ -46,6 +46,7 @@ tikzfill
 # =========================================
 # Math
 # =========================================
+mathtools
 amsmath
 amsfonts
 lualatex-math

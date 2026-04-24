@@ -1,0 +1,11 @@
+# .chktexrc
+# 格式：Ignore "文件名" [警告编号]
+
+# 忽略某个子文件的所有警告
+; Ignore "appendix.tex"
+
+# 忽略某个子文件中特定编号的警告
+Ignore "main.tex" 27
+
+# 忽略某个文件夹下的所有 .tex 文件
+# Ignore "generated/*.tex"   # 通配符支持

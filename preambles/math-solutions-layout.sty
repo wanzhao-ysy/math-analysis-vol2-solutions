@@ -1,0 +1,105 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-solutions-layout}
+
+% 页面布局与几何设置
+\RequirePackage[
+    inner=2cm,
+    outer=2cm,
+    top=2cm,
+    bottom=2cm,
+    marginparwidth=1.5cm,
+    marginparsep=0.3cm,
+    includehead,
+    includefoot,
+    heightrounded,
+    headheight=16pt     % 确保页眉高度足够，避免警告
+]{geometry}
+
+% \raggedbottom                      % 允许页面底部不对齐，避免过度拉伸垂直间距
+
+% 章节格式设置
+\RequirePackage{titlesec}            % 标题格式定制
+\newcommand{\sectionbreak}{\clearpage}
+
+\ctexset{
+    chapter = {
+      % 标题整体居左
+      format = \huge\bfseries\color{ThemeDarkBlue},
+      name = {第,章},
+      % 章编号：使用藏红，加宽一点间距
+      number = \textcolor{ThemeWine}{\thechapter},
+      aftername = \hspace{1em},
+      % 在章标题下方绘制装饰线
+      aftertitle = {
+              \par\vspace{0.5em}
+              {\color{ThemeWine}\hrule height 2pt}
+              \vspace{0.2em}
+              {\color{ThemeRose}\hrule height 0.5pt}
+          },
+      beforeskip = {-10pt}, % 向上微调，减少顶部留白
+      afterskip = {30pt}    % 与正文保持一定距离
+     },
+    section = {
+      format = \Large\bfseries\color{ThemeDarkBlue},
+      name = {第,节},
+      number = \textcolor{ThemeWine}{\thesection},
+      aftername = \hspace{0.5em}
+     },
+    subsection = {
+            format = \large\bfseries\color{ThemeWine}, % 子标题直接用藏红
+            indent = 0pt
+        }
+}
+
+% 页眉页脚设定
+\RequirePackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+% 页码：使用藏红 ThemeWine，加粗
+\fancyhead[LE]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeWine}\bfseries\thepage}
+% 章标题：使用深蓝色
+\fancyhead[RE]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeDarkBlue}\leftmark}
+
+% 节标题：使用深蓝色
+\fancyhead[LO]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeDarkBlue}\rightmark}
+% 页码：使用藏红 ThemeWine
+\fancyhead[RO]{\fontsize{10.5pt}{12pt}\selectfont\color{ThemeWine}\bfseries\thepage}
+
+% 重新定义 headrule，使其带颜色并有粗细变化
+\renewcommand{\headrule}{
+    {\color{ThemeWine}\hrule width\headwidth height 1.5pt} % 主色线
+    \vspace{1pt}
+    {\color{ThemeRose}\hrule width\headwidth height 0.5pt} % 辅助细线（绛粉）
+}
+\renewcommand{\footrulewidth}{0pt}
+
+% 标记格式化
+\renewcommand{\chaptermark}[1]{%
+    \markboth{\color{ThemeRose}\if@mainmatter\CTEXthechapter\quad\fi\color{ThemeDarkBlue}#1}{}%
+}
+
+% 节标记：将 § 符号设为绛粉色 ThemeRose
+\renewcommand{\sectionmark}[1]{%
+    \markright{\color{ThemeRose}\S\thesection\quad\color{ThemeDarkBlue}#1}%
+}
+
+% 目录双栏排版
+\RequirePackage{multicol} % 多栏环境
+
+\renewcommand\tableofcontents{%
+    \chapter*{\contentsname}%
+    \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
+    \begin{multicols}{2}
+        \@starttoc{toc}%
+    \end{multicols}
+}
+
+% 警告控制规范化
+% \hfuzz=10000pt
+% \vfuzz=10000pt
+% \hbadness=10000
+% \vbadness=10000
+
+\endinput

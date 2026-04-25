@@ -1,0 +1,25 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-solutions-colors}
+
+% 颜色支持
+\RequirePackage{xcolor}
+
+\definecolor{ThemeDarkBlue}{RGB}{71, 85, 142}        % 深藏青
+\definecolor{ThemeMidBlue}{RGB}{105, 130, 185}       % 灰蓝
+\definecolor{ThemeLightBlue}{RGB}{188, 202, 224}     % 雾蓝
+\definecolor{ThemePaper}{RGB}{241, 239, 236}         % 米白
+\definecolor{ThemeRose}{RGB}{174, 107, 129}          % 绛粉
+\definecolor{ThemeWine}{RGB}{130, 45, 74}            % 藏红
+
+\colorlet{ThemePaperLight}{ThemePaper!40!white}      % 浅米白
+\pagecolor{ThemePaperLight}                          % 页面背景色
+
+\colorlet{MainTextColor}{ThemeDarkBlue!50!black}     % 主文本颜色
+\AddToHook{begindocument/end}{%
+    \color{MainTextColor}%
+    \makeatletter
+    \let\default@color\current@color
+    \makeatother
+}
+
+\endinput

@@ -1,0 +1,54 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-solutions-tcb}
+
+% 彩色盒子
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+
+% 基础样式定义
+\tcbset{
+    my_base_style/.style={
+            enhanced,
+            breakable,
+            boxrule=0.6pt,
+            arc=2mm,
+            outer arc=2mm,
+            top=1.2em,            % 为悬浮标题留出顶部空间
+            colupper=MainTextColor,
+            fonttitle=\heiti,
+            description font=\normalfont\kaishu,
+            separator sign none,  % 移除默认冒号
+            description delimiters={---}{}, % 自动包裹描述
+            colback=ThemePaper!80!white,
+            % 标题框设置
+            attach boxed title to top left={xshift=3mm, yshift=-3mm, yshifttext=-1mm},
+            boxed title style={
+                    boxrule=0.5pt,
+                    arc=1mm,
+                },
+            % 虚线分割线设置
+            segmentation style={dash pattern=on 3pt off 2pt, opacity=0.5}
+        }
+}
+
+% 习题环境 (Problem): 深蓝/灰蓝配色
+\newtcbtheorem[number within=section]{problem}{习题}{
+    my_base_style,
+    colframe=ThemeDarkBlue,          % 边框深蓝色
+    colbacktitle=ThemeDarkBlue,      % 标题背景深蓝色
+    coltitle=white,                  % 标题文字白色
+    boxed title style={colframe=ThemeDarkBlue},
+    segmentation style={ThemeMidBlue}
+}{prob}
+
+% 注释环境 (Note): 绛粉/藏红配色
+\newtcbtheorem[number within=section]{note}{注释}{
+    my_base_style,
+    colframe=ThemeRose,              % 边框绛粉色
+    colbacktitle=ThemeRose!10!ThemePaper, % 标题背景淡淡的粉色 (浅化处理)
+    coltitle=ThemeWine,              % 标题文字使用深红，保证对比度
+    boxed title style={colframe=ThemeRose},
+    segmentation style={ThemeRose}
+}{note}
+
+\endinput

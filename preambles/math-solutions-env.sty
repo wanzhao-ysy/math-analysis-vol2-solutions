@@ -1,0 +1,29 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-solutions-env}
+
+% 列表样式自定义
+\setlist[enumerate,1]{
+    label=(\arabic*),
+    leftmargin=2.6em,
+    itemsep=0.25ex,
+    topsep=0.5ex,
+    parsep=0pt,
+    partopsep=0pt
+}
+
+% 解答环境
+\NewDocumentEnvironment{solution}{}%
+{\par\smallskip\noindent\textbf{解}\par\noindent\ignorespaces}%
+{\par\noindent\hfill$\mdblksquare$\par\smallskip}
+
+% 证明环境
+\NewDocumentEnvironment{myproof}{}%
+{\par\smallskip\noindent\textbf{证明}\par\noindent\ignorespaces}%
+{\par\noindent\hfill$\mdwhtsquare$\par\smallskip}
+
+% 子问题标记
+\newcommand{\ansitem}[1]{%
+    \par\smallskip\noindent{(#1)}\quad\ignorespaces
+}
+
+\endinput

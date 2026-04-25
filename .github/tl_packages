@@ -22,7 +22,6 @@ l3packages
 # Chinese / CTeX / fonts
 # =========================================
 ctex
-zhnumber
 fontspec
 unicode-math
 luatexja

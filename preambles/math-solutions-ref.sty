@@ -1,0 +1,45 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math-solutions-ref}
+
+% 现代化的智能引用
+\RequirePackage{zref-clever}
+\zcRefTypeSetup{equation}{
+    Name-sg = 公式,
+    name-sg = 公式,
+    Name-pl = 公式,
+    name-pl = 公式,
+    refbounds = {(,,,)},
+}
+\zcsetup{
+    tlastsep = { 和 },
+    pairsep = { 和 },
+    listsep = {, },
+    nameinlink=false
+}
+
+% 超链接设置
+\RequirePackage{hyperref}
+\hypersetup{
+    plainpages=false,               % 逻辑页码与锚点绑定（防止 i 和 1 冲突）
+    unicode=true,                   % 支持中文书签，防止乱码
+    colorlinks=false,               % 关闭文字着色
+    pdfborderstyle={/S/U/W 0.5},
+    linkbordercolor=ThemeWine,
+    citebordercolor=ThemeRose,
+    urlbordercolor=ThemeWine,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+}
+
+% 书签增强
+\RequirePackage{bookmark}
+
+% 参考文献管理
+\RequirePackage[
+    backend=biber,
+    style=gb7714-2025,
+    sorting=none,
+    backref=true
+]{biblatex}
+
+\endinput

@@ -22,7 +22,13 @@
 \pagecolor{ThemePaperLight}
 
 \colorlet{MainTextColor}{ThemeDarkBlue!50!black}
-\AtBeginDocument{\color{MainTextColor}}
+\AddToHook{begindocument/end}{%
+    \color{MainTextColor}%
+    \makeatletter
+    \let\default@color\current@color
+    \makeatother
+}
+
 
 % 页面布局与几何设置
 \RequirePackage[

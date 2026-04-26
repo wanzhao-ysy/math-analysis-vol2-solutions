@@ -589,45 +589,49 @@ v
 \end{problem}
 
 \begin{myproof}
-    令 $f(x_1, x_2, \dots, x_n) = \sum_{i=1}^n \frac{\prod_{j=1}^n x_j}{x_i}$，约束条件为 $g(x_1, x_2, \dots, x_n) = \sum_{i=1}^n x_i - n = 0$。
+    \ansitem{1}
 
-    构造 Lagrange 函数：
-    \begin{equation}\label{eq:Lagrange-Function}
+    令目标函数与约束条件分别为
+    \begin{equation}
+        f(x_1, x_2, \dots, x_n) = \sum_{i=1}^n \frac{\prod_{j=1}^n x_j}{x_i}, \quad g(x_1, x_2, \dots, x_n) = \sum_{i=1}^n x_i - n = 0.
+    \end{equation}
+    记 $P = \prod_{j=1}^n x_j$，则 $f = \sum_{i=1}^n \frac{P}{x_i}$。构造 Lagrange 函数：
+    \begin{equation}
         L(x_1, x_2, \dots, x_n, \lambda) = f(x_1, x_2, \dots, x_n) + \lambda \left( \sum_{i=1}^n x_i - n \right).
     \end{equation}
-
-    令 $P = \prod_{j=1}^n x_j$，则 $f = \sum_{i=1}^n \frac{P}{x_i}$。对各变量求偏导数：
-    \begin{equation}\label{eq:Partial-Deriv}
-        \frac{\partial L}{\partial x_k} = \frac{\partial f}{\partial x_k} + \lambda = \sum_{i \neq k} \frac{P}{x_i x_k} + \lambda = \frac{1}{x_k} \left( f - \frac{P}{x_k} \right) + \lambda = 0, \quad k = 1, 2, \dots, n.
+    对 $x_k$ ($k = 1, 2, \dots, n$) 求偏导数。注意到 $\frac{\partial P}{\partial x_k} = \frac{P}{x_k}$，故有
+    \begin{equation}\label{eq:partial-f}
+        \frac{\partial f}{\partial x_k} = \frac{\partial}{\partial x_k} \left( \frac{P}{x_k} + \sum_{i \neq k} \frac{P}{x_i} \right) = 0 + \sum_{i \neq k} \frac{P}{x_i x_k} = \frac{1}{x_k} \left( f - \frac{P}{x_k} \right).
     \end{equation}
-
-    整理 \zcref{eq:Partial-Deriv} 可得：
-    \begin{equation}\label{eq:Condition-1}
-        f - \frac{P}{x_k} + \lambda x_k = 0.
+    令 $\frac{\partial L}{\partial x_k} = 0$，得方程组
+    \begin{equation}\label{eq:stationary-cond}
+        \frac{1}{x_k} \left( f - \frac{P}{x_k} \right) + \lambda = 0 \implies \lambda x_k = \frac{P}{x_k} - f.
     \end{equation}
-
-    对 \zcref{eq:Condition-1} 关于 $k$ 求和：
+    对 \zcref{eq:stationary-cond} 关于 $k$ 从 $1$ 到 $n$ 求和，利用 $\sum_{k=1}^n x_k = n$ 和 $\sum_{k=1}^n \frac{P}{x_k} = f$，得
     \begin{equation}
-        \sum_{k=1}^n \left( f - \frac{P}{x_k} + \lambda x_k \right) = nf - f + \lambda n = (n-1)f + \lambda n = 0 \Rightarrow \lambda = -\frac{n-1}{n} f.
+        \lambda n = f - nf \implies \lambda = \frac{1-n}{n} f.
     \end{equation}
-
-    代入 \zcref{eq:Condition-1} 得：
+    将 $\lambda$ 代回 \zcref{eq:stationary-cond}，整理得关于 $x_k$ 的二次方程：
+    \begin{equation}\label{eq:quadratic-res}
+        \frac{n-1}{n} f x_k^2 - f x_k + P = 0.
+    \end{equation}
+    由于该二次方程对所有 $k$ 形式相同且至多有两个正根，结合对称性及约束条件 $\sum x_i = n$，考察所有变量相等的情况。令 $x_1 = x_2 = \dots = x_n = 1$，代入 \zcref{eq:quadratic-res} 验证：
     \begin{equation}
-        f - \frac{P}{x_k} - \frac{n-1}{n} f x_k = 0 \Rightarrow \frac{n-1}{n} f x_k^2 - f x_k + P = 0.
+        \frac{n-1}{n} \cdot n \cdot (1)^2 - n \cdot (1) + 1 = (n-1) - n + 1 = 0.
     \end{equation}
-
-    由于该关于 $x_k$ 的二次方程至多有两个正根，结合对称性及约束条件 $\sum x_i = n$，可知驻点为 $x_1 = x_2 = \dots = x_n = 1$。此时：
+    此时驻点处函数值为 $f(1, 1, \dots, 1) = n$。
+    若定义域边界存在 $x_i \to 0$，则 $P \to 0$。由算术--几何平均值不等式可知，当其余 $n-1$ 个变量趋于一致时 $f$ 取边界极大值：
     \begin{equation}
-        f(1, 1, \dots, 1) = \sum_{i=1}^n 1 = n.
+        \lim_{x_n \to 0} f = \prod_{j=1}^{n-1} x_j \leqslant \left( \frac{\sum_{j=1}^{n-1} x_j}{n-1} \right)^{n-1} = \left( \frac{n}{n-1} \right)^{n-1} = \left( 1 + \frac{1}{n-1} \right)^{n-1} < \e.
     \end{equation}
+    对于 $n \geqslant 3$，有 $\e < n$；对于 $n=2$，原式为 $x_1 x_2 (\frac{1}{x_1} + \frac{1}{x_2}) = x_1 + x_2 = 2$ 恒成立。
+    因此，$f$ 在 $(1, 1, \dots, 1)$ 处取得最大值 $n$。
 
-    考虑边界情况，若某些 $x_i \to 0$，则 $P \to 0$，从而 $f$ 的极限值不大于 $n$。故 $f$ 在该点取得最大值。
-
-    因此，原不等式成立：
     \begin{equation}
         \boxed{x_1 x_2 \dots x_n \left( \frac{1}{x_1} + \frac{1}{x_2} + \dots + \frac{1}{x_n} \right) \leqslant n}
     \end{equation}
 \end{myproof}
+
 
 
 

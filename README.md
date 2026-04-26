@@ -1,7 +1,7 @@
 # 《数学分析讲义（第二册）》习题解析
 
 <p align="left">
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/License-GFDL--1.3-blue.svg?style=flat-square" alt="License">
   <img src="https://img.shields.io/badge/TeX%20Live-%20%3E%3D2025-green?logo=latex&style=flat-square" alt="TeX Live">
   <img src="https://img.shields.io/badge/Engine-LuaLaTeX-orange?style=flat-square" alt="Engine">
   <img src="https://img.shields.io/badge/Fonts-LXGW--WenKai-66ccff?style=flat-square" alt="Fonts">
@@ -88,4 +88,4 @@
 
 ## 🤝 贡献与许可证
 
-欢迎通过 [Issue](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/issues)  提交更正建议。本项目采用 [MIT](LICENSE) 协议。
+欢迎通过 [Issue](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/issues)  提交更正建议。本项目采用 [GNU Free Documentation License 1.3](LICENSE) 协议。

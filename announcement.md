@@ -1,3 +1,3 @@
-Version 1.6.1 released on 2026-04-26.
+Version 1.7.0 released on 2026-04-27.
 
-- 模块化了 STY 文件，提高可维护性与可迁移性。
+- 更新了习题 10.4 的解析

@@ -1,0 +1,189 @@
+\section{\texorpdfstring{$n$}{n} 重积分}
+
+\begin{problem}{n 重积分计算}{Multiple-Integral-Calculation}
+    计算下列 $n$ 重积分。
+    \begin{enumerate}
+        \item $\int \cdots \int_{[0,1]^n} (x_1^2 + \cdots + x_n^2) \d x_1 \cdots \d x_n$，其中
+              \begin{equation}
+                  [0, 1]^n = \underbrace{[0, 1] \times [0, 1] \times \cdots \times [0, 1]}_{n \text{个}};
+              \end{equation}
+        \item $\int \cdots \int_{[0,1]^n} (x_1 + \cdots + x_n)^2 \d x_1 \cdots \d x_n$;
+        \item $\int_0^1 \d x_1 \int_0^{x_1} \d x_2 \cdots \int_0^{x_{n-1}} x_1 \cdots x_n \d x_n$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    根据积分区域的对称性与积分的线性性质，设所求积分为 $I_1$，有
+    \begin{equation}
+        \begin{aligned}
+            I_1 & = \sum_{i=1}^{n} \int \cdots \int_{[0,1]^n} x_i^2 \d x_1 \cdots \d x_n                       \\
+                & = \sum_{i=1}^{n} \left( \int_0^1 x_i^2 \d x_i \cdot \prod_{j \neq i} \int_0^1 \d x_j \right) \\
+                & = \sum_{i=1}^{n} \left( \frac{1}{3} \cdot 1^{n-1} \right)                                    \\
+                & = \frac{n}{3}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{I_1 = \frac{n}{3}}
+    \end{equation}
+
+    \ansitem{2}
+
+    展开被积函数，设所求积分为 $I_2$，有
+    \begin{equation}
+        \begin{aligned}
+            I_2 & = \int \cdots \int_{[0,1]^n} \left( \sum_{i=1}^n x_i^2 + \sum_{i \neq j} x_i x_j \right) \d x_1 \cdots \d x_n                                   \\
+                & = \sum_{i=1}^n \int \cdots \int_{[0,1]^n} x_i^2 \prod_{k=1}^n \d x_k + \sum_{i \neq j} \int \cdots \int_{[0,1]^n} x_i x_j \prod_{k=1}^n \d x_k.
+        \end{aligned} \label{eq:expansion-2}
+    \end{equation}
+    由第 (1) 问可知第一项为 $\frac{n}{3}$。对于第二项，共有 $n(n-1)$ 个并列项，每一项为
+    \begin{equation}
+        \int_0^1 x_i \d x_i \cdot \int_0^1 x_j \d x_j \cdot \prod_{k \neq i,j} \int_0^1 \d x_k = \frac{1}{2} \cdot \frac{1}{2} \cdot 1^{n-2} = \frac{1}{4}.
+    \end{equation}
+    代入 \zcref{eq:expansion-2} 得
+    \begin{equation}
+        I_2 = \frac{n}{3} + \frac{n(n-1)}{4} = \frac{3n^2 + n}{12}.
+    \end{equation}
+    \begin{equation}
+        \boxed{I_2 = \frac{3n^2 + n}{12}}
+    \end{equation}
+
+    \ansitem{3}
+
+    设所求积分为 $I_3$，从最内层开始逐次积分。记
+    \begin{equation}
+        f_k(x_{n-k}) = \int_0^{x_{n-k}} \d x_{n-k+1} \int_0^{x_{n-k+1}} \d x_{n-k+2} \cdots \int_0^{x_{n-1}} x_{n-k+1} \cdots x_n \d x_n,
+    \end{equation}
+    当 $k=1$ 时
+    \begin{equation}
+        f_1(x_{n-1}) = \int_0^{x_{n-1}} x_n \d x_n = \frac{x_{n-1}^2}{2}.
+    \end{equation}
+    当 $k=2$ 时
+    \begin{equation}
+        f_2(x_{n-2}) = \int_0^{x_{n-2}} x_{n-1} f_1(x_{n-1}) \d x_{n-1} = \int_0^{x_{n-2}} \frac{x_{n-1}^3}{2} \d x_{n-1} = \frac{x_{n-2}^4}{2 \cdot 4}.
+    \end{equation}
+    依此类推，假设对 $k-1$ 成立 $f_{k-1}(x_{n-k+1}) = \frac{x_{n-k+1}^{2(k-1)}}{2^{k-1} (k-1)!}$，则
+    \begin{equation}
+        f_k(x_{n-k}) = \int_0^{x_{n-k}} x_{n-k+1} \cdot \frac{x_{n-k+1}^{2k-2}}{2^{k-1} (k-1)!} \d x_{n-k+1} = \frac{x_{n-k}^{2k}}{2^k k!}.
+    \end{equation}
+    最终积分为 $f_n(x_0)$，其中 $x_0 = 1$，故
+    \begin{equation}
+        I_3 = \frac{1^{2n}}{2^n n!} = \frac{1}{2^n n!}.
+    \end{equation}
+    \begin{equation}
+        \boxed{I_3 = \frac{1}{2^n n!}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{n 维单纯形体积}{N-Simplex-Volume}
+    计算下列集合 $V_n = \left\{ (x_1, \dots, x_n) \mid \frac{x_1}{a_1} + \dots + \frac{x_n}{a_n} \leqslant 1, x_1, \dots, x_n \geqslant 0 \right\}$ 的体积。
+\end{problem}
+
+\begin{solution}
+    作变量代换 $x_i = a_i u_i$（其中 $i = 1, \dots, n$），其雅可比行列式为
+
+    \begin{equation}
+        J = \frac{\partial(x_1, \dots, x_n)}{\partial(u_1, \dots, u_n)} = \prod_{i=1}^n a_i.
+    \end{equation}
+
+    此时积分区域转化为标准 $n$ 维单纯形 $\Omega_n = \left\{ (u_1, \dots, u_n) \mid \sum_{i=1}^n u_1 \leqslant 1, u_i \geqslant 0 \right\}$。集合 $V_n$ 的体积可通过下式计算：
+
+    \begin{equation}
+        \operatorname{Vol}(V_n) = \int \dots \int_{V_n} \d x_1 \dots \d x_n = \left( \prod_{i=1}^n a_i \right) \int \dots \int_{\Omega_n} \d u_1 \dots \d u_n.
+    \end{equation}
+
+    记 $I_n = \int \dots \int_{\Omega_n} \d u_1 \dots \d u_n$。根据 $n$ 重积分的性质，有递推关系：
+
+    \begin{equation}
+        \begin{aligned}
+            I_n & = \int_0^1 \d u_1 \int_0^{1-u_1} \d u_2 \dots \int_0^{1-\sum_{i=1}^{n-1} u_i} \d u_n \\
+                & = \int_0^1 I_{n-1}(1-u_1)^{n-1} \d u_1                                               \\
+                & = I_{n-1} \left[ -\frac{1}{n} (1-u_1)^n \right]_0^1                                  \\
+                & = \frac{1}{n} I_{n-1}.
+        \end{aligned}
+    \end{equation}
+
+    结合初始条件 $I_1 = \int_0^1 \d u_1 = 1$，由归纳法可得 $I_n = \frac{1}{n!}$。因此，所求体积为
+
+    \begin{equation}
+        \boxed{\operatorname{Vol}(V_n) = \frac{1}{n!} \prod_{i=1}^n a_i}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Cauchy 多重积分公式}{Cauchy-Repeated-Integral}
+    设 $f(x)$ 连续，证明：
+    \begin{equation}
+        \int_{0}^{a} \d x_1 \int_{0}^{x_1} \d x_2 \cdots \int_{0}^{x_{n-1}} f(x_n) \d x_n = \frac{1}{(n-1)!} \int_{0}^{a} f(t)(a-t)^{n-1} \d t.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    对 $n$ 使用数学归纳法。当 $n=1$ 时，等式显然成立。
+
+    设对 $n-1$ 阶多重积分，下式成立：
+    \begin{equation}
+        \label{eq:Induction-Hypothesis}
+        I_{n-1}(x) = \int_{0}^{x} \d x_2 \int_{0}^{x_2} \d x_3 \cdots \int_{0}^{x_{n-1}} f(x_n) \d x_n = \frac{1}{(n-2)!} \int_{0}^{x} f(t)(x-t)^{n-2} \d t.
+    \end{equation}
+    对于 $n$ 阶积分 $I_n(a)$，利用 \zcref{eq:Induction-Hypothesis} 可得：
+    \begin{equation}
+        \begin{aligned}
+            I_n(a) & = \int_{0}^{a} I_{n-1}(x_1) \d x_1                                                           \\
+                   & = \int_{0}^{a} \left[ \frac{1}{(n-2)!} \int_{0}^{x_1} f(t)(x_1-t)^{n-2} \d t \right] \d x_1.
+        \end{aligned}
+    \end{equation}
+    交换积分次序。其积分区域为 $D = \{ (t, x_1) \mid 0 \le t \le x_1 \le a \}$。变换为先对 $x_1$ 积分，则有：
+    \begin{equation}
+        \begin{aligned}
+            I_n(a) & = \frac{1}{(n-2)!} \int_{0}^{a} \d t \int_{t}^{a} f(t)(x_1-t)^{n-2} \d x_1                         \\
+                   & = \frac{1}{(n-2)!} \int_{0}^{a} f(t) \left[ \int_{t}^{a} (x_1-t)^{n-2} \d x_1 \right] \d t         \\
+                   & = \frac{1}{(n-2)!} \int_{0}^{a} f(t) \left[ \frac{(x_1-t)^{n-1}}{n-1} \right]_{x_1=t}^{x_1=a} \d t \\
+                   & = \frac{1}{(n-1)!} \int_{0}^{a} f(t)(a-t)^{n-1} \d t.
+        \end{aligned}
+    \end{equation}
+    因此，结论成立：
+    \begin{equation}
+        \boxed{ \int_{0}^{a} \d x_1 \int_{0}^{x_1} \d x_2 \cdots \int_{0}^{x_{n-1}} f(x_n) \d x_n = \frac{1}{(n-1)!} \int_{0}^{a} f(t)(a-t)^{n-1} \d t }
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{重积分的降维推导}{Multiple-Integral-Identity}
+    设 $f(x)$ 连续，证明：
+    \begin{equation}
+        \int_{0}^{a} \d x_{1} \int_{0}^{x_{1}} \d x_{2} \cdots \int_{0}^{x_{n-1}} f(x_{1}) f(x_{2}) \cdots f(x_{n}) \d x_{n} = \frac{1}{n!} \left( \int_{0}^{a} f(t) \d t \right)^{n}.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    记 $F(x) = \int_{0}^{x} f(t) \d t$，则由微积分基本定理得 $F'(x) = f(x)$。
+    设 $J_k(x)$ 为 $k$ 重积分函数
+    \begin{equation}
+        J_k(x) = \int_{0}^{x} \d x_{1} \int_{0}^{x_{1}} \d x_{2} \cdots \int_{0}^{x_{k-1}} f(x_{1}) f(x_{2}) \cdots f(x_{k}) \d x_{k}. \label{eq:integral-def}
+    \end{equation}
+    当 $k=1$ 时，$J_1(x) = \int_{0}^{x} f(x_1) \d x_1 = F(x) = \frac{1}{1!} F^1(x)$。
+    假设当 $k=m$ 时，命题 $J_m(x) = \frac{1}{m!} F^m(x)$ 成立。
+    则对于 $k=m+1$，由 \zcref{eq:integral-def} 递推关系得
+    \begin{equation}
+        \begin{aligned}
+            J_{m+1}(x) & = \int_{0}^{x} f(x_1) \left( \int_{0}^{x_1} \d x_2 \cdots \int_{0}^{x_{m}} f(x_2) \cdots f(x_{m+1}) \d x_{m+1} \right) \d x_1 \\
+                       & = \int_{0}^{x} f(x_1) J_m(x_1) \d x_1                                                                                         \\
+                       & = \int_{0}^{x} \frac{1}{m!} F^m(x_1) \d F(x_1).
+        \end{aligned}
+    \end{equation}
+    执行积分运算
+    \begin{equation}
+        \begin{aligned}
+            J_{m+1}(x) & = \frac{1}{m!} \cdot \frac{1}{m+1} F^{m+1}(x_1) \bigg|_{0}^{x} \\
+                       & = \frac{1}{(m+1)!} F^{m+1}(x).
+        \end{aligned}
+    \end{equation}
+    根据数学归纳法，对于任意正整数 $n$，均有 $J_n(a) = \frac{1}{n!} F^n(a)$。
+
+    \begin{equation}
+        \boxed{\int_{0}^{a} \d x_{1} \int_{0}^{x_{1}} \d x_{2} \cdots \int_{0}^{x_{n-1}} f(x_{1}) \cdots f(x_{n}) \d x_{n} = \frac{1}{n!} \left( \int_{0}^{a} f(t) \d t \right)^{n}}.
+    \end{equation}
+\end{myproof}
+
+
+\endinput

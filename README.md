@@ -20,7 +20,7 @@
 
 ---
 
-## 📸 预览 (Preview)
+## 📸 预览
 
 <table style="width: 100%; border-collapse: collapse; border: none;">
   <tr style="border: none;">
@@ -52,7 +52,7 @@
 
 ---
 
-## 📈 编写进度 (Progress)
+## 📈 编写进度
 
 | 章节 | 标题 | 状态 | 备注 |
 | :--- | :--- | :---: | :--- |

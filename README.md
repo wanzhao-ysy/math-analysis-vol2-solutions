@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  中文 | <a href="https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/blob/main/README_en.md">English</a>
+  中文 | <a href="https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/blob/main/README.en.md">English</a>
 </p>
 
 本项目整理并撰写 **《数学分析讲义（第二册）》**（程艺、陈卿、李平 编著，第一版）习题详解，力求提供一份 **推导完整、排版清晰、适合自学与复习** 的数学参考资料。

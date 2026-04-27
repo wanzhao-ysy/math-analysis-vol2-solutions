@@ -1,7 +1,7 @@
-# Solutions to Exercises in *Lectures on Mathematical Analysis (Volume 2)*
+# Solutions to Exercises in *Mathematical Analysis Notes (Volume II)*
 
 <p align="left">
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/License-GFDL--1.3-blue.svg?style=flat-square" alt="License">
   <img src="https://img.shields.io/badge/TeX%20Live-%20%3E%3D2025-green?logo=latex&style=flat-square" alt="TeX Live">
   <img src="https://img.shields.io/badge/Engine-LuaLaTeX-orange?style=flat-square" alt="Engine">
   <img src="https://img.shields.io/badge/Fonts-LXGW--WenKai-66ccff?style=flat-square" alt="Fonts">
@@ -11,12 +11,12 @@
   <a href="https://github.com/wanzhao-ysy/math-analysis-vol2-solutions">中文</a> | English
 </p>
 
-This project compiles and writes detailed solutions to the exercises in **"Lectures on Mathematical Analysis (Volume 2)"** (First Edition, authored by Cheng Yi, Chen Qing, and Li Ping). It aims to provide a mathematical reference resource that is **complete in derivation, clear in typesetting, and suitable for self-study and review**.
+This project compiles and writes detailed solutions to the exercises in **"Mathematical Analysis Notes (Volume II)"** (Cheng Yi, Chen Qing, Li Ping, First Edition), aiming to provide a **complete derivation, clear layout, and a mathematical reference suitable for self-study and review**.
 
-The project is built on the `ctexbook` document class, utilizing a **LuaLaTeX + l3build** workflow, combined with `TikZ` / `pgfplots` for drawing and an OpenType font scheme to generate high-quality PDF documents.
+The project is built on the `ctexbook` document class, using the **LuaLaTeX + l3build** workflow, combined with `TikZ` / `pgfplots` for graphics and OpenType font schemes, to produce high-quality PDF documents.
 
 > [!TIP]
-> It is recommended to use **TeX Live 2025 or later** for compilation to achieve more stable font and typesetting results.
+> It is recommended to use **TeX Live 2025 or later** for compilation to ensure more stable fonts and layout effects.
 
 ---
 
@@ -45,10 +45,10 @@ The project is built on the `ctexbook` document class, utilizing a **LuaLaTeX + 
 
 ## 🌟 Key Features
 
-- 🎨 **Soft Color Scheme**: Customized color palette (Inspired by Ayaka in Genshin Impact), comfortable for extended reading.
-- 📐 **Vector Graphics**: All drawings are created using `TikZ` / `pgfplots`, supporting lossless zoom.
-- 🖋️ **Elegant Fonts**: Built-in `LXGW-fonts` (Luo Xia Gu Wu) paired with `New Computer Modern` math fonts.
-- 🛠️ **Automated Pipeline**: Integrated `l3build` build system, supporting one-click PDF generation.
+- 🎨 **Soft Color Scheme**: Customized color scheme (Inspired by Ayaka in Genshin Impact), comfortable for long reading.
+- 📐 **Vector Graphics**: Full use of `TikZ` / `pgfplots` for illustrations, supporting lossless scaling.
+- 🖋️ **Elegant Fonts**: Built-in `LXGW-fonts` (LuoXiaGuWu) paired with `New Computer Modern` math fonts.
+- 🛠️ **Automated Pipeline**: Integrated `l3build` build system for one-click PDF generation.
 
 ---
 
@@ -56,10 +56,10 @@ The project is built on the `ctexbook` document class, utilizing a **LuaLaTeX + 
 
 | Chapter | Title | Status | Notes |
 | :--- | :--- | :---: | :--- |
-| Chapter 8 | Analytic Geometry of Space | ✅ | Proofreading completed |
+| Chapter 8 | Spatial Analytic Geometry | ✅ | Proofreading completed |
 | Chapter 9 | Differential Calculus of Multivariable Functions | ✅ | Proofreading completed |
 | Chapter 10 | Multiple Integrals of Multivariable Functions | 🚧 | Under construction |
-| Chapter 11 | Line Integrals and Surface Integrals | ⏳ | Pending |
+| Chapter 11 | Line and Surface Integrals | ⏳ | Pending |
 
 ---
 
@@ -67,9 +67,9 @@ The project is built on the `ctexbook` document class, utilizing a **LuaLaTeX + 
 
 ### Get the PDF
 
-Go directly to the [Latest Release](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/releases/latest) to download.
+Go directly to the [latest Release](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/releases/latest) to download.
 
-### Local Compilation
+### Compile Locally
 
 1. **Clone the repository**:
 
@@ -78,7 +78,7 @@ Go directly to the [Latest Release](https://github.com/wanzhao-ysy/math-analysis
    cd math-analysis-vol2-solutions
    ```
 
-2. **Execute the build**:
+2. **Run the build**:
 
    ```bash
    l3build doc
@@ -86,6 +86,6 @@ Go directly to the [Latest Release](https://github.com/wanzhao-ysy/math-analysis
 
 ---
 
-## 🤝 Contribution & License
+## 🤝 Contributions & License
 
-Corrections and suggestions are welcome via [Issues](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/issues). This project is licensed under the [MIT](LICENSE) License.
+Contributions and corrections are welcome via [Issues](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/issues). This project is licensed under the [GNU Free Documentation License 1.3](LICENSE).

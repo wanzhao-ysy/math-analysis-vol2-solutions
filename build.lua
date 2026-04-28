@@ -2,7 +2,7 @@ module           = "math-analysis-vol2-solutions"
 version          = "v1.7.0"
 
 typesetfiles     = { "main.tex" }
-supportdir       = "."
+supportdir       = "./src"
 typesetruns      = 1
 typesetsuppfiles = {
     "chapters/**/*.tex",
@@ -14,6 +14,6 @@ typesetsuppfiles = {
 }
 
 function typeset(file)
-    local cmd = "latexmk -lualatex -interaction=nonstopmode -file-line-error -shell-escape -synctex=1 " .. file
+    local cmd = "latexmk -lualatex -interaction=nonstopmode -file-line-error -shell-escape " .. file
     return runcmd(cmd, typesetdir)
 end

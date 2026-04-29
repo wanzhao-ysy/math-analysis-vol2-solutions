@@ -164,12 +164,12 @@
 \end{solution}
 
 \begin{note}{旋度符号的不同表示}{Curl-Vs-Rot}
-    上述解析中的 $\operatorname{curl}$ 和 $\operatorname{\symbf{rot}}$ 均表示旋度。
+    上述解析中的 $\operatorname{curl}$ 和 $\operatorname{rot}$ 均表示旋度。
     \begin{itemize}
         \item $\operatorname{curl}$：源自英语 "curl"（卷曲）。主要流行于美国、英国等英语系国家的数学和物理教材中。
-        \item $\operatorname{\symbf{rot}}$：源自拉丁语 "rotatio" 或德语 "Rotation"（旋转）。主要流行于德国、俄罗斯以及欧洲大陆的国家。
+        \item $\operatorname{rot}$：源自拉丁语 "rotatio" 或德语 "Rotation"（旋转）。主要流行于德国、俄罗斯以及欧洲大陆的国家。
     \end{itemize}
-    在中国的高等数学教材中，这两个符号通常通用，但在偏物理的电磁学教材中 $\operatorname{\symbf{rot}}$ 出现频率较高。
+    在中国的高等数学教材中，这两个符号通常通用，但在偏物理的电磁学教材中 $\operatorname{rot}$ 出现频率较高。
 \end{note}
 
 
@@ -186,24 +186,24 @@
 
     根据旋度的定义，向量场 $\symbfit{v} = P \symbfit{i} + Q \symbfit{j} + R \symbfit{k}$ 的旋度为
     \begin{equation} \label{eq:curl-def-1}
-        \operatorname{\symbf{rot}} \symbfit{v} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ y^2 & z^2 & x^2 \end{vmatrix}
+        \operatorname{rot} \symbfit{v} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ y^2 & z^2 & x^2 \end{vmatrix}
     \end{equation}
     展开 \zcref{eq:curl-def-1} 可得
     \begin{equation} \label{eq:curl-res-1}
         \begin{aligned}
-            \operatorname{\symbf{rot}} \symbfit{v} & = \left( \frac{\partial}{\partial y} (x^2) - \frac{\partial}{\partial z} (z^2) \right) \symbfit{i} + \left( \frac{\partial}{\partial z} (y^2) - \frac{\partial}{\partial x} (x^2) \right) \symbfit{j} + \left( \frac{\partial}{\partial x} (z^2) - \frac{\partial}{\partial y} (y^2) \right) \symbfit{k} \\
+            \operatorname{rot} \symbfit{v} & = \left( \frac{\partial}{\partial y} (x^2) - \frac{\partial}{\partial z} (z^2) \right) \symbfit{i} + \left( \frac{\partial}{\partial z} (y^2) - \frac{\partial}{\partial x} (x^2) \right) \symbfit{j} + \left( \frac{\partial}{\partial x} (z^2) - \frac{\partial}{\partial y} (y^2) \right) \symbfit{k} \\
                                                    & = -2z \symbfit{i} - 2x \symbfit{j} - 2y \symbfit{k}
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{\operatorname{\symbf{rot}} \symbfit{v} = -2(z \symbfit{i} + x \symbfit{j} + y \symbfit{k})}
+        \boxed{\operatorname{rot} \symbfit{v} = -2(z \symbfit{i} + x \symbfit{j} + y \symbfit{k})}
     \end{equation}
 
     \ansitem{2}
 
     同理，对第二问中的向量场计算旋度
     \begin{equation} \label{eq:curl-def-2}
-        \operatorname{\symbf{rot}} \symbfit{v} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ x \e^y + y & z + \e^y & y + 2z \e^y \end{vmatrix}
+        \operatorname{rot} \symbfit{v} = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ x \e^y + y & z + \e^y & y + 2z \e^y \end{vmatrix}
     \end{equation}
     各分量计算如下：
     \begin{equation} \label{eq:curl-res-2}
@@ -214,7 +214,7 @@
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{\operatorname{\symbf{rot}} \symbfit{v} = 2z \e^y \symbfit{i} - (x \e^y + 1) \symbfit{k}}
+        \boxed{\operatorname{rot} \symbfit{v} = 2z \e^y \symbfit{i} - (x \e^y + 1) \symbfit{k}}
     \end{equation}
 \end{solution}
 
@@ -222,9 +222,9 @@
 \begin{problem}{向量场微分恒等式}{Vector-Field-Identities}
     设 $\symbfit{w}$ 是常向量，$\symbfit{r} = x \symbfit{i} + y \symbfit{j} + z \symbfit{k}$，$r = |\symbfit{r}|$，求：
     \begin{enumerate}
-        \item $\operatorname{\symbf{rot}} (\symbfit{w} \times \symbfit{r})$；
-        \item $\operatorname{\symbf{rot}} [f(r) \symbfit{r}]$；
-        \item $\operatorname{\symbf{rot}} [f(r) \symbfit{w}]$；
+        \item $\operatorname{rot} (\symbfit{w} \times \symbfit{r})$；
+        \item $\operatorname{rot} [f(r) \symbfit{r}]$；
+        \item $\operatorname{rot} [f(r) \symbfit{w}]$；
         \item $\operatorname{div} [\symbfit{r} \times f(r) \symbfit{w}]$。
     \end{enumerate}
 \end{problem}
@@ -232,50 +232,50 @@
 \begin{solution}
     \ansitem{1}
 
-    利用公式 $\operatorname{\symbf{rot}} (\symbfit{A} \times \symbfit{B}) = (\symbfit{B} \cdot \nabla) \symbfit{A} - (\symbfit{A} \cdot \nabla) \symbfit{B} + \symbfit{A} \operatorname{div} \symbfit{B} - \symbfit{B} \operatorname{div} \symbfit{A}$。令 $\symbfit{A} = \symbfit{w}$，$\symbfit{B} = \symbfit{r}$，由于 $\symbfit{w}$ 为常向量，有
+    利用公式 $\operatorname{rot} (\symbfit{A} \times \symbfit{B}) = (\symbfit{B} \cdot \nabla) \symbfit{A} - (\symbfit{A} \cdot \nabla) \symbfit{B} + \symbfit{A} \operatorname{div} \symbfit{B} - \symbfit{B} \operatorname{div} \symbfit{A}$。令 $\symbfit{A} = \symbfit{w}$，$\symbfit{B} = \symbfit{r}$，由于 $\symbfit{w}$ 为常向量，有
     \begin{equation}
         \begin{aligned}
-            \operatorname{\symbf{rot}} (\symbfit{w} \times \symbfit{r}) & = -(\symbfit{w} \cdot \nabla) \symbfit{r} + \symbfit{w} \operatorname{div} \symbfit{r} \\
+            \operatorname{rot} (\symbfit{w} \times \symbfit{r}) & = -(\symbfit{w} \cdot \nabla) \symbfit{r} + \symbfit{w} \operatorname{div} \symbfit{r} \\
                                                                         & = -(w_x \symbfit{i} + w_y \symbfit{j} + w_z \symbfit{k}) + 3\symbfit{w}                \\
                                                                         & = -\symbfit{w} + 3\symbfit{w} = 2\symbfit{w}
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{\operatorname{\symbf{rot}} (\symbfit{w} \times \symbfit{r}) = 2\symbfit{w}}
+        \boxed{\operatorname{rot} (\symbfit{w} \times \symbfit{r}) = 2\symbfit{w}}
     \end{equation}
 
     \ansitem{2}
 
-    利用公式 $\operatorname{\symbf{rot}} (\varphi \symbfit{A}) = \nabla \varphi \times \symbfit{A} + \varphi \operatorname{\symbf{rot}} \symbfit{A}$。注意 $\nabla f(r) = f'(r) \frac{\symbfit{r}}{r}$ 且 $\operatorname{\symbf{rot}} \symbfit{r} = \symbfit{0}$
+    利用公式 $\operatorname{rot} (\varphi \symbfit{A}) = \nabla \varphi \times \symbfit{A} + \varphi \operatorname{rot} \symbfit{A}$。注意 $\nabla f(r) = f'(r) \frac{\symbfit{r}}{r}$ 且 $\operatorname{rot} \symbfit{r} = \symbfit{0}$
     \begin{equation}
         \begin{aligned}
-            \operatorname{\symbf{rot}} [f(r) \symbfit{r}] & = \nabla f(r) \times \symbfit{r} + f(r) \operatorname{\symbf{rot}} \symbfit{r} \\
+            \operatorname{rot} [f(r) \symbfit{r}] & = \nabla f(r) \times \symbfit{r} + f(r) \operatorname{rot} \symbfit{r} \\
                                                           & = f'(r) \frac{\symbfit{r}}{r} \times \symbfit{r} + \symbfit{0} = \symbfit{0}
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{\operatorname{\symbf{rot}} [f(r) \symbfit{r}] = \symbfit{0}}
+        \boxed{\operatorname{rot} [f(r) \symbfit{r}] = \symbfit{0}}
     \end{equation}
 
     \ansitem{3}
 
-    同理，由于 $\operatorname{\symbf{rot}} \symbfit{w} = \symbfit{0}$
+    同理，由于 $\operatorname{rot} \symbfit{w} = \symbfit{0}$
     \begin{equation}
         \begin{aligned}
-            \operatorname{\symbf{rot}} [f(r) \symbfit{w}] & = \nabla f(r) \times \symbfit{w} + f(r) \operatorname{\symbf{rot}} \symbfit{w} \\
+            \operatorname{rot} [f(r) \symbfit{w}] & = \nabla f(r) \times \symbfit{w} + f(r) \operatorname{rot} \symbfit{w} \\
                                                           & = \frac{f'(r)}{r} \symbfit{r} \times \symbfit{w}
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{\operatorname{\symbf{rot}} [f(r) \symbfit{w}] = \frac{f'(r)}{r} (\symbfit{r} \times \symbfit{w})}
+        \boxed{\operatorname{rot} [f(r) \symbfit{w}] = \frac{f'(r)}{r} (\symbfit{r} \times \symbfit{w})}
     \end{equation}
 
     \ansitem{4}
 
-    利用公式 $\operatorname{div} (\symbfit{A} \times \symbfit{B}) = \symbfit{B} \cdot \operatorname{\symbf{rot}} \symbfit{A} - \symbfit{A} \cdot \operatorname{\symbf{rot}} \symbfit{B}$。令 $\symbfit{A} = \symbfit{r}$，$\symbfit{B} = f(r) \symbfit{w}$
+    利用公式 $\operatorname{div} (\symbfit{A} \times \symbfit{B}) = \symbfit{B} \cdot \operatorname{rot} \symbfit{A} - \symbfit{A} \cdot \operatorname{rot} \symbfit{B}$。令 $\symbfit{A} = \symbfit{r}$，$\symbfit{B} = f(r) \symbfit{w}$
     \begin{equation}
         \begin{aligned}
-            \operatorname{div} [\symbfit{r} \times f(r) \symbfit{w}] & = f(r) \symbfit{w} \cdot \operatorname{\symbf{rot}} \symbfit{r} - \symbfit{r} \cdot \operatorname{\symbf{rot}} [f(r) \symbfit{w}] \\
+            \operatorname{div} [\symbfit{r} \times f(r) \symbfit{w}] & = f(r) \symbfit{w} \cdot \operatorname{rot} \symbfit{r} - \symbfit{r} \cdot \operatorname{rot} [f(r) \symbfit{w}] \\
                                                                      & = \symbfit{0} - \symbfit{r} \cdot \left[ \frac{f'(r)}{r} (\symbfit{r} \times \symbfit{w}) \right]
         \end{aligned}
     \end{equation}
@@ -474,8 +474,8 @@
 \begin{problem}{向量微分恒等式}{Vector-Differential-Identities}
     证明下列等式：
     \begin{enumerate}
-        \item $\operatorname{\symbf{rot}} \operatorname{\symbf{grad}} \varphi = \nabla \times \nabla \varphi = \symbf{0}$；
-        \item $\operatorname{div} \operatorname{\symbf{rot}} \symbfit{a} = \nabla \cdot (\nabla \times \symbfit{a}) = 0$。
+        \item $\operatorname{rot} \operatorname{grad} \varphi = \nabla \times \nabla \varphi = \symbf{0}$；
+        \item $\operatorname{div} \operatorname{rot} \symbfit{a} = \nabla \cdot (\nabla \times \symbfit{a}) = 0$。
     \end{enumerate}
 \end{problem}
 
@@ -491,7 +491,7 @@
     \end{equation}
     根据混合偏导数相等定理，上式中各分量均为 $0$，故得
     \begin{equation}\label{eq:rot-grad-final}
-        \boxed{\operatorname{\symbf{rot}} \operatorname{\symbf{grad}} \varphi = \symbf{0}}
+        \boxed{\operatorname{rot} \operatorname{grad} \varphi = \symbf{0}}
     \end{equation}
 
     \ansitem{2}
@@ -510,7 +510,7 @@
     \end{equation}
     因此恒等式成立
     \begin{equation}\label{eq:div-rot-final}
-        \boxed{\operatorname{div} \operatorname{\symbf{rot}} \symbfit{a} = 0}
+        \boxed{\operatorname{div} \operatorname{rot} \symbfit{a} = 0}
     \end{equation}
 \end{myproof}
 

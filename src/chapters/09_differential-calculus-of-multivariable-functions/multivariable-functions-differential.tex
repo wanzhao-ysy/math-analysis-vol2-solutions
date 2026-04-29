@@ -1157,24 +1157,24 @@
 \begin{problem}{梯度计算}{Gradient-Calculation}
     设 $\symbfit{r} = x\symbfit{i} + y\symbfit{j} + z\symbfit{k}$，$r = |\symbfit{r}|$，试求
     \begin{enumerate}
-        \item $\operatorname{\symbf{grad}} \frac{1}{r^2}$；
-        \item $\operatorname{\symbf{grad}} \ln r$。
+        \item $\operatorname{grad} \frac{1}{r^2}$；
+        \item $\operatorname{grad} \ln r$。
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
 
-    由于 $\operatorname{\symbf{grad}} r = \frac{\symbfit{r}}{r}$，根据复合函数求导法则有
+    由于 $\operatorname{grad} r = \frac{\symbfit{r}}{r}$，根据复合函数求导法则有
     \begin{equation}
         \begin{aligned}
-            \operatorname{\symbf{grad}} \frac{1}{r^2} & = -\frac{2}{r^3} \operatorname{\symbf{grad}} r \\
-                                                      & = -\frac{2}{r^3} \cdot \frac{\symbfit{r}}{r}   \\
-                                                      & = -\frac{2 \symbfit{r}}{r^4}.
+            \operatorname{grad} \frac{1}{r^2} & = -\frac{2}{r^3} \operatorname{grad} r       \\
+                                              & = -\frac{2}{r^3} \cdot \frac{\symbfit{r}}{r} \\
+                                              & = -\frac{2 \symbfit{r}}{r^4}.
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{\operatorname{\symbf{grad}} \frac{1}{r^2} = -\frac{2 \symbfit{r}}{r^4}}
+        \boxed{\operatorname{grad} \frac{1}{r^2} = -\frac{2 \symbfit{r}}{r^4}}
     \end{equation}
 
     \ansitem{2}
@@ -1182,13 +1182,13 @@
     同理可得
     \begin{equation}
         \begin{aligned}
-            \operatorname{\symbf{grad}} \ln r & = \frac{1}{r} \operatorname{\symbf{grad}} r \\
-                                              & = \frac{1}{r} \cdot \frac{\symbfit{r}}{r}   \\
-                                              & = \frac{\symbfit{r}}{r^2}.
+            \operatorname{grad} \ln r & = \frac{1}{r} \operatorname{grad} r       \\
+                                      & = \frac{1}{r} \cdot \frac{\symbfit{r}}{r} \\
+                                      & = \frac{\symbfit{r}}{r^2}.
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{\operatorname{\symbf{grad}} \ln r = \frac{\symbfit{r}}{r^2}}
+        \boxed{\operatorname{grad} \ln r = \frac{\symbfit{r}}{r^2}}
     \end{equation}
 \end{solution}
 

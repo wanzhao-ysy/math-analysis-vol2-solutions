@@ -1,3 +1,3 @@
-Version 1.7.0 released on 2026-04-27.
+Version 1.8.0 released on 2026-04-29.
 
-- 更新了习题 10.4 的解析
+- 更新至第 10 章综合习题的解析

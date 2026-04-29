@@ -6,7 +6,7 @@
         \item $\iiint_V xy \d x \d y \d z$，$V: 1 \le x \le 2, -2 \le y \le 1, 0 \le z \le \frac{1}{2}$；
         \item $\iiint_V xy^2 z^3 \d x \d y \d z$，$V$：由 $z = xy, y = x, x = 1, z = 0$ 围成；
         \item $\iiint_V y \cos(x + z) \d x \d y \d z$，$V$：由 $y = \sqrt{x}, y = 0, z = 0, x + z = \frac{\uppi}{2}$ 围成；
-        \item $\iiint_V (a - y) \d x \d y \d z$，$V$：由 $y = 0, z = 0, 2x + y = a, x + y = a, y + z = a$ 围成。
+        \item $\iiint_V (a - y) \d x \d y \d z$，$V$：由 $y = 0, z = 0, 2x + y = a, x + y = a, y + z = a$ 围成．
     \end{enumerate}
 \end{problem}
 
@@ -56,7 +56,7 @@
     \end{equation}
 
     \ansitem{4}
-    由边界条件可知，对于固定的 $y \in [0, a]$，截面区域在 $xz$ 平面上满足 $0 \le z \le a - y$ 且 $\frac{a-y}{2} \le x \le a - y$。积分计算如下
+    由边界条件可知，对于固定的 $y \in [0, a]$，截面区域在 $xz$ 平面上满足 $0 \le z \le a - y$ 且 $\frac{a-y}{2} \le x \le a - y$．积分计算如下
     \begin{equation}
         \begin{aligned}
             I & = \int_0^a \d y \int_{(a-y)/2}^{a-y} \d x \int_0^{a-y} (a-y) \d z \\
@@ -77,13 +77,13 @@
         \item $\int_{0}^{2} \d x \int_{0}^{\sqrt{2x-x^{2}}} \d y \int_{0}^{a} z \sqrt{x^{2}+y^{2}} \d z$；
         \item $\int_{-R}^{R} \d x \int_{-\sqrt{R^{2}-x^{2}}}^{\sqrt{R^{2}-x^{2}}} \d y \int_{0}^{\sqrt{R^{2}-x^{2}-y^{2}}} (x^{2}+y^{2}) \d z$；
         \item $\int_{0}^{1} \d x \int_{0}^{\sqrt{1-x^{2}}} \d y \int_{0}^{\sqrt{1-x^{2}-y^{2}}} \sqrt{x^{2}+y^{2}+z^{2}} \d z$；
-        \item $\int_{0}^{1} \d x \int_{0}^{\sqrt{1-x^{2}}} \d y \int_{\sqrt{x^{2}+y^{2}}}^{\sqrt{2-x^{2}-y^{2}}} z^{2} \d z$。
+        \item $\int_{0}^{1} \d x \int_{0}^{\sqrt{1-x^{2}}} \d y \int_{\sqrt{x^{2}+y^{2}}}^{\sqrt{2-x^{2}-y^{2}}} z^{2} \d z$．
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
-    积分区域在 $xy$ 平面上的投影为 $D = \{(x, y) \mid 0 \le x \le 2, 0 \le y \le \sqrt{2x-x^{2}}\}$，这是一个半圆 $(x-1)^{2} + y^{2} \le 1$ ($y \ge 0$)。采用柱面坐标，有 $x = r \cos \theta, y = r \sin \theta$，其边界为 $r = 2 \cos \theta$，范围为 $\theta \in [0, \uppi/2], r \in [0, 2\cos \theta]$。
+    积分区域在 $xy$ 平面上的投影为 $D = \{(x, y) \mid 0 \le x \le 2, 0 \le y \le \sqrt{2x-x^{2}}\}$，这是一个半圆 $(x-1)^{2} + y^{2} \le 1$ ($y \ge 0$)．采用柱面坐标，有 $x = r \cos \theta, y = r \sin \theta$，其边界为 $r = 2 \cos \theta$，范围为 $\theta \in [0, \uppi/2], r \in [0, 2\cos \theta]$．
     \begin{equation}
         \begin{aligned}
             \text{原式} & = \int_{0}^{\uppi/2} \d \theta \int_{0}^{2\cos \theta} r \d r \int_{0}^{a} z \cdot r \d z \\
@@ -97,14 +97,14 @@
     \end{equation}
 
     \ansitem{2}
-    积分区域为上半球体 $x^{2} + y^{2} + z^{2} \le R^{2}$ ($z \ge 0$)。采用柱面坐标，有 $x^{2} + y^{2} = r^{2}$，区域表示为 $0 \le \theta \le 2\uppi, 0 \le r \le R, 0 \le z \le \sqrt{R^{2}-r^{2}}$。
+    积分区域为上半球体 $x^{2} + y^{2} + z^{2} \le R^{2}$ ($z \ge 0$)．采用柱面坐标，有 $x^{2} + y^{2} = r^{2}$，区域表示为 $0 \le \theta \le 2\uppi, 0 \le r \le R, 0 \le z \le \sqrt{R^{2}-r^{2}}$．
     \begin{equation}
         \begin{aligned}
             \text{原式} & = \int_{0}^{2\uppi} \d \theta \int_{0}^{R} r \d r \int_{0}^{\sqrt{R^{2}-r^{2}}} r^{2} \d z \\
                       & = 2\uppi \int_{0}^{R} r^{3} \sqrt{R^{2}-r^{2}} \d r \label{eq:integral-2}
         \end{aligned}
     \end{equation}
-    令 $u = \sqrt{R^{2}-r^{2}}$，则 $r^{2} = R^{2}-u^{2}, r \d r = -u \d u$。
+    令 $u = \sqrt{R^{2}-r^{2}}$，则 $r^{2} = R^{2}-u^{2}, r \d r = -u \d u$．
     \begin{equation}
         \begin{aligned}
             \text{原式} & = 2\uppi \int_{R}^{0} (R^{2}-u^{2}) \cdot u \cdot (-u) \d u   \\
@@ -117,7 +117,7 @@
     \end{equation}
 
     \ansitem{3}
-    积分区域为单位球在第一卦限的部分。采用球面坐标，有 $0 \le \rho \le 1, 0 \le \theta \le \uppi/2, 0 \le \varphi \le \uppi/2$。
+    积分区域为单位球在第一卦限的部分．采用球面坐标，有 $0 \le \rho \le 1, 0 \le \theta \le \uppi/2, 0 \le \varphi \le \uppi/2$．
     \begin{equation}
         \begin{aligned}
             \text{原式} & = \int_{0}^{\uppi/2} \d \theta \int_{0}^{\uppi/2} \sin \varphi \d \varphi \int_{0}^{1} \rho \cdot \rho^{2} \d \rho                         \\
@@ -129,7 +129,7 @@
     \end{equation}
 
     \ansitem{4}
-    积分区域由锥面 $z = \sqrt{x^{2}+y^{2}}$ 与球面 $x^{2}+y^{2}+z^{2} = 2$ 在第一卦限围成。采用球面坐标，锥面对应 $\varphi = \uppi/4$，球面对应 $\rho = \sqrt{2}$。区域为 $0 \le \theta \le \uppi/2, 0 \le \varphi \le \uppi/4, 0 \le \rho \le \sqrt{2}$。
+    积分区域由锥面 $z = \sqrt{x^{2}+y^{2}}$ 与球面 $x^{2}+y^{2}+z^{2} = 2$ 在第一卦限围成．采用球面坐标，锥面对应 $\varphi = \uppi/4$，球面对应 $\rho = \sqrt{2}$．区域为 $0 \le \theta \le \uppi/2, 0 \le \varphi \le \uppi/4, 0 \le \rho \le \sqrt{2}$．
     \begin{equation}
         \begin{aligned}
             \text{原式} & = \int_{0}^{\uppi/2} \d \theta \int_{0}^{\uppi/4} \d \varphi \int_{0}^{\sqrt{2}} (\rho \cos \varphi)^{2} \cdot \rho^{2} \sin \varphi \d \rho \\
@@ -153,13 +153,13 @@
         \item $\iiint_{V} x^{2} \d x \d y \d z$，其中 $V$ 是由曲面 $z=y^{2}$、$z=4 y^{2}(y>0)$ 及平面 $z=x$、$z=2 x$、$z=1$ 所围成的区域；
         \item $\iiint_{V}\left|x^{2}+y^{2}+z^{2}-1\right| \d x \d y \d z$，其中 $V: x^{2}+y^{2}+z^{2} \leqslant 4$；
         \item $\iiint_{V} \e^{|z|} \d x \d y \d z$，其中 $V: x^{2}+y^{2}+z^{2} \leqslant 1$；
-        \item $\iiint_{V}(|x|+z) \e^{-\left(x^{2}+y^{2}+z^{2}\right)} \d x \d y \d z$，其中 $V: 1 \leqslant x^{2}+y^{2}+z^{2} \leqslant 4$。
+        \item $\iiint_{V}(|x|+z) \e^{-\left(x^{2}+y^{2}+z^{2}\right)} \d x \d y \d z$，其中 $V: 1 \leqslant x^{2}+y^{2}+z^{2} \leqslant 4$．
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
-    采用柱面坐标，令 $x=\rho \cos \theta$、$y=\rho \sin \theta$、$z=z$。积分区域 $V$ 可表示为 $0 \leqslant \theta \leqslant 2 \uppi$、$0 \leqslant z \leqslant 2$、$0 \leqslant \rho \leqslant \sqrt{2 z}$。
+    采用柱面坐标，令 $x=\rho \cos \theta$、$y=\rho \sin \theta$、$z=z$．积分区域 $V$ 可表示为 $0 \leqslant \theta \leqslant 2 \uppi$、$0 \leqslant z \leqslant 2$、$0 \leqslant \rho \leqslant \sqrt{2 z}$．
 
     \begin{equation}
         \begin{aligned}
@@ -176,7 +176,7 @@
     \end{equation}
 
     \ansitem{2}
-    采用柱面坐标，积分区域 $V$ 可表示为 $0 \leqslant \theta \leqslant 2 \uppi$、$0 \leqslant z \leqslant 1$、$0 \leqslant \rho \leqslant z$。
+    采用柱面坐标，积分区域 $V$ 可表示为 $0 \leqslant \theta \leqslant 2 \uppi$、$0 \leqslant z \leqslant 1$、$0 \leqslant \rho \leqslant z$．
 
     \begin{equation}
         \begin{aligned}
@@ -192,7 +192,7 @@
     \end{equation}
 
     \ansitem{3}
-    联立方程 $\sqrt{4-x^{2}-y^{2}}=z$ 与 $x^{2}+y^{2}=3 z$。由于 $z \geqslant 0$，解得交线位于 $z=1$ 平面处。积分区域在 $xy$ 平面上的投影为圆盘 $D: x^2+y^2 \leqslant 3$。
+    联立方程 $\sqrt{4-x^{2}-y^{2}}=z$ 与 $x^{2}+y^{2}=3 z$．由于 $z \geqslant 0$，解得交线位于 $z=1$ 平面处．积分区域在 $xy$ 平面上的投影为圆盘 $D: x^2+y^2 \leqslant 3$．
 
     \begin{equation}
         \begin{aligned}
@@ -209,7 +209,7 @@
     \end{equation}
 
     \ansitem{4}
-    采用球坐标，积分区域 $V$ 对应的参数范围为 $0 \leqslant r \leqslant 1$、$0 \leqslant \theta \leqslant \frac{\uppi}{2}$、$0 \leqslant \varphi \leqslant \frac{\uppi}{2}$。
+    采用球坐标，积分区域 $V$ 对应的参数范围为 $0 \leqslant r \leqslant 1$、$0 \leqslant \theta \leqslant \frac{\uppi}{2}$、$0 \leqslant \varphi \leqslant \frac{\uppi}{2}$．
 
     \begin{equation}
         \begin{aligned}
@@ -224,7 +224,7 @@
     \end{equation}
 
     \ansitem{5}
-    根据围成区域的曲面方程，选取积分顺序。对于固定的 $z \in [0, 1]$，区域的截面范围为 $x \in [\frac{z}{2}, z]$ 及 $y \in [\frac{\sqrt{z}}{2}, \sqrt{z}]$。
+    根据围成区域的曲面方程，选取积分顺序．对于固定的 $z \in [0, 1]$，区域的截面范围为 $x \in [\frac{z}{2}, z]$ 及 $y \in [\frac{\sqrt{z}}{2}, \sqrt{z}]$．
 
     \begin{equation}
         \begin{aligned}
@@ -240,7 +240,7 @@
     \end{equation}
 
     \ansitem{6}
-    采用球坐标，由于被积函数和积分区域均关于原点对称。
+    采用球坐标，由于被积函数和积分区域均关于原点对称．
 
     \begin{equation}
         \begin{aligned}
@@ -257,7 +257,7 @@
     \end{equation}
 
     \ansitem{7}
-    采用截面法，对于固定的 $z \in [-1, 1]$，截面面积为 $A(z) = \uppi(1-z^2)$。
+    采用截面法，对于固定的 $z \in [-1, 1]$，截面面积为 $A(z) = \uppi(1-z^2)$．
 
     \begin{equation}
         \begin{aligned}
@@ -273,7 +273,7 @@
     \end{equation}
 
     \ansitem{8}
-    由于函数 $f(x, y, z) = z \e^{-(x^2+y^2+z^2)}$ 是关于 $z$ 的奇函数且区域 $V$ 对称，该项积分为零。
+    由于函数 $f(x, y, z) = z \e^{-(x^2+y^2+z^2)}$ 是关于 $z$ 的奇函数且区域 $V$ 对称，该项积分为零．
 
     \begin{equation}
         \begin{aligned}
@@ -297,13 +297,13 @@
         \item $\iiint_{V} \sqrt{x^{2}+y^{2}+z^{2}} \d x \d y \d z, V: x^{2}+y^{2}+z^{2} \leqslant x$；
         \item $\iiint_{V}\left(x^{2}+y^{2}\right) \d x \d y \d z, V: r^{2} \leqslant x^{2}+y^{2}+z^{2} \leqslant R^{2}, z \geqslant 0$；
         \item $\iiint_{V} \sqrt{1-\frac{x^{2}}{a^{2}}-\frac{y^{2}}{b^{2}}-\frac{z^{2}}{c^{2}}} \d x \d y \d z, V: \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}} \leqslant 1$；
-        \item $\iiint_{V} \frac{z \ln \left(x^{2}+y^{2}+z^{2}+1\right)}{x^{2}+y^{2}+z^{2}+1} \d x \d y \d z, V: x^{2}+y^{2}+z^{2} \leqslant 1$。
+        \item $\iiint_{V} \frac{z \ln \left(x^{2}+y^{2}+z^{2}+1\right)}{x^{2}+y^{2}+z^{2}+1} \d x \d y \d z, V: x^{2}+y^{2}+z^{2} \leqslant 1$．
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
-    积分区域 $V$ 关于 $yz$ 平面与 $xz$ 平面对称。被积函数 $f(x, y, z) = x + y$ 为关于 $x$ 和 $y$ 的奇函数。由对称性得
+    积分区域 $V$ 关于 $yz$ 平面与 $xz$ 平面对称．被积函数 $f(x, y, z) = x + y$ 为关于 $x$ 和 $y$ 的奇函数．由对称性得
     \begin{equation}
         \iiint_{V} x \d x \d y \d z = 0, \quad \iiint_{V} y \d x \d y \d z = 0.
     \end{equation}
@@ -313,13 +313,13 @@
     \end{equation}
 
     \ansitem{2}
-    积分区域 $V$ 关于 $yz$ 平面对称。被积函数 $f(x, y, z) = x$ 关于变量 $x$ 为奇函数。由对称性得
+    积分区域 $V$ 关于 $yz$ 平面对称．被积函数 $f(x, y, z) = x$ 关于变量 $x$ 为奇函数．由对称性得
     \begin{equation}
         \boxed{I = 0}.
     \end{equation}
 
     \ansitem{3}
-    建立球面坐标系 $x = \rho \sin \varphi \cos \theta$、$y = \rho \sin \varphi \sin \theta$、$z = \rho \cos \varphi$。积分区域 $V$ 的范围为 $\theta \in [-\frac{\uppi}{2}, \frac{\uppi}{2}]$、$\varphi \in [0, \uppi]$、$\rho \in [0, \sin \varphi \cos \theta]$。
+    建立球面坐标系 $x = \rho \sin \varphi \cos \theta$、$y = \rho \sin \varphi \sin \theta$、$z = \rho \cos \varphi$．积分区域 $V$ 的范围为 $\theta \in [-\frac{\uppi}{2}, \frac{\uppi}{2}]$、$\varphi \in [0, \uppi]$、$\rho \in [0, \sin \varphi \cos \theta]$．
     \begin{equation}
         \begin{aligned}
             I & = \int_{-\frac{\uppi}{2}}^{\frac{\uppi}{2}} \d \theta \int_{0}^{\uppi} \d \varphi \int_{0}^{\sin \varphi \cos \theta} \rho \cdot \rho^{2} \sin \varphi \d \rho \\
@@ -336,7 +336,7 @@
     \end{equation}
 
     \ansitem{4}
-    采用球面坐标系。由于区域 $V$ 为上半球壳，其范围为 $\theta \in [0, 2\uppi]$、$\varphi \in [0, \frac{\uppi}{2}]$、$\rho \in [r, R]$。
+    采用球面坐标系．由于区域 $V$ 为上半球壳，其范围为 $\theta \in [0, 2\uppi]$、$\varphi \in [0, \frac{\uppi}{2}]$、$\rho \in [r, R]$．
     \begin{equation}
         \begin{aligned}
             I & = \int_{0}^{2\uppi} \d \theta \int_{0}^{\frac{\uppi}{2}} \d \varphi \int_{r}^{R} (\rho \sin \varphi)^{2} \cdot \rho^{2} \sin \varphi \d \rho \\
@@ -353,7 +353,7 @@
     \end{equation}
 
     \ansitem{5}
-    引入广义球面坐标 $x = a \rho \sin \varphi \cos \theta$、$y = b \rho \sin \varphi \sin \theta$、$z = c \rho \cos \varphi$，雅可比行列式 $|J| = abc \rho^{2} \sin \varphi$。
+    引入广义球面坐标 $x = a \rho \sin \varphi \cos \theta$、$y = b \rho \sin \varphi \sin \theta$、$z = c \rho \cos \varphi$，雅可比行列式 $|J| = abc \rho^{2} \sin \varphi$．
     \begin{equation}
         \begin{aligned}
             I & = \int_{0}^{2\uppi} \d \theta \int_{0}^{\uppi} \d \varphi \int_{0}^{1} \sqrt{1 - \rho^{2}} \cdot abc \rho^{2} \sin \varphi \d \rho \\
@@ -370,11 +370,11 @@
     \end{equation}
 
     \ansitem{6}
-    积分区域 $V$ 为单位球体，关于 $xy$ 平面对称。被积函数
+    积分区域 $V$ 为单位球体，关于 $xy$ 平面对称．被积函数
     \begin{equation}
         f(x, y, z) = \frac{z \ln(x^{2} + y^{2} + z^{2} + 1)}{x^{2} + y^{2} + z^{2} + 1}
     \end{equation}
-    关于变量 $z$ 为奇函数。由对称性得
+    关于变量 $z$ 为奇函数．由对称性得
     \begin{equation}
         \boxed{I = 0}.
     \end{equation}
@@ -390,12 +390,12 @@
         \item $\frac{x^2}{9} + \frac{y^2}{4} = 1, z = xy$ (在第一卦限部分)；
         \item $x^2 + y^2 + z^2 = 2az, x^2 + y^2 = z^2$ (含 $z$ 轴部分)；
         \item $\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2} = 1, \frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{z^2}{c^2}$ (含 $z$ 轴部分)；
-        \item $(x^2 + y^2 + z^2)^2 = a^3 x$。
+        \item $(x^2 + y^2 + z^2)^2 = a^3 x$．
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
-    \ansitem{1} 设立体在 $xy$ 平面上的投影区域为 $D$，由题意可知 $D$ 是由直线 $y=0$、$x = 2 - y/3$ 与 $x = 4 - 2y/3$ 围成的三角形。
+    \ansitem{1} 设立体在 $xy$ 平面上的投影区域为 $D$，由题意可知 $D$ 是由直线 $y=0$、$x = 2 - y/3$ 与 $x = 4 - 2y/3$ 围成的三角形．
 
     根据积分区域的边界，体积可表示为
     \begin{equation}
@@ -410,7 +410,7 @@
         V = \boxed{12}
     \end{equation}
 
-    \ansitem{2} 投影区域 $D$ 由 $y = x$ 与 $y = x^2$ 围成，其中 $x \in [0, 1]$。
+    \ansitem{2} 投影区域 $D$ 由 $y = x$ 与 $y = x^2$ 围成，其中 $x \in [0, 1]$．
 
     体积计算如下
     \begin{equation}
@@ -424,7 +424,7 @@
         V = \boxed{\frac{3}{35}}
     \end{equation}
 
-    \ansitem{3} 立体在 $xz$ 平面上的投影区域为圆 $D \colon x^2 + z^2 \le 1$，其高度由 $y=0$ 至 $y = 3 - x - z$。
+    \ansitem{3} 立体在 $xz$ 平面上的投影区域为圆 $D \colon x^2 + z^2 \le 1$，其高度由 $y=0$ 至 $y = 3 - x - z$．
 
     利用极坐标 $x = r \cos \theta$、$z = r \sin \theta$，体积为
     \begin{equation}
@@ -439,7 +439,7 @@
         V = \boxed{3\uppi}
     \end{equation}
 
-    \ansitem{4} 投影区域 $D$ 为圆 $(x-1)^2 + y^2 \le 1$，在极坐标下表示为 $r = 2\cos \theta$，其中 $\theta \in [-\uppi/2, \uppi/2]$。
+    \ansitem{4} 投影区域 $D$ 为圆 $(x-1)^2 + y^2 \le 1$，在极坐标下表示为 $r = 2\cos \theta$，其中 $\theta \in [-\uppi/2, \uppi/2]$．
 
     体积计算为
     \begin{equation}
@@ -453,7 +453,7 @@
         V = \boxed{\frac{3\uppi}{2}}
     \end{equation}
 
-    \ansitem{5} 采用广义极坐标变换 $x = 3r \cos \theta$、$y = 2r \sin \theta$，此时雅可比行列式为 $J = 6r$。
+    \ansitem{5} 采用广义极坐标变换 $x = 3r \cos \theta$、$y = 2r \sin \theta$，此时雅可比行列式为 $J = 6r$．
 
     第一卦限内 $r \in [0, 1]$、$\theta \in [0, \uppi/2]$，体积为
     \begin{equation}
@@ -467,7 +467,7 @@
         V = \boxed{\frac{9}{2}}
     \end{equation}
 
-    \ansitem{6} 在球面坐标系下，球面方程为 $\rho = 2a \cos \varphi$，锥面方程为 $\varphi = \uppi/4$。
+    \ansitem{6} 在球面坐标系下，球面方程为 $\rho = 2a \cos \varphi$，锥面方程为 $\varphi = \uppi/4$．
 
     含 $z$ 轴部分对应 $0 \le \varphi \le \uppi/4$，体积为
     \begin{equation}
@@ -481,7 +481,7 @@
         V = \boxed{\uppi a^3}
     \end{equation}
 
-    \ansitem{7} 令 $x = au, y = bv, z = cw$，雅可比行列式为 $abc$。变换后的区域在 $uvw$ 空间中由 $u^2+v^2+w^2=1$ 及 $u^2+v^2=w^2$ 围成。
+    \ansitem{7} 令 $x = au, y = bv, z = cw$，雅可比行列式为 $abc$．变换后的区域在 $uvw$ 空间中由 $u^2+v^2+w^2=1$ 及 $u^2+v^2=w^2$ 围成．
 
     利用对称性与球面坐标，体积为
     \begin{equation}
@@ -495,7 +495,7 @@
         V = \boxed{\frac{2\uppi abc}{3} (2 - \sqrt{2})}
     \end{equation}
 
-    \ansitem{8} 在球面坐标系下，曲面方程为 $\rho = a (\sin \varphi \cos \theta)^{1/3}$。为保证 $\rho \ge 0$，需 $\cos \theta \ge 0$，即 $\theta \in [-\uppi/2, \uppi/2]$。
+    \ansitem{8} 在球面坐标系下，曲面方程为 $\rho = a (\sin \varphi \cos \theta)^{1/3}$．为保证 $\rho \ge 0$，需 $\cos \theta \ge 0$，即 $\theta \in [-\uppi/2, \uppi/2]$．
 
     体积计算如下
     \begin{equation}
@@ -511,23 +511,23 @@
 \end{solution}
 
 \begin{problem}{三重积分平均值}{Average-Value-Triple-Integral}
-    求函数 $f(x, y, z) = x^2 + y^2 + z^2$ 在域 $x^2 + y^2 + z^2 \leqslant x + y + z$ 内的平均值。
+    求函数 $f(x, y, z) = x^2 + y^2 + z^2$ 在域 $x^2 + y^2 + z^2 \leqslant x + y + z$ 内的平均值．
 \end{problem}
 
 \begin{solution}
-    设域 $\Omega$ 为 $x^2 + y^2 + z^2 \leqslant x + y + z$。将其配方可得
+    设域 $\Omega$ 为 $x^2 + y^2 + z^2 \leqslant x + y + z$．将其配方可得
     \begin{equation}\label{eq:Domain-Center-1}
         \left( x - \frac{1}{2} \right)^2 + \left( y - \frac{1}{2} \right)^2 + \left( z - \frac{1}{2} \right)^2 \leqslant \frac{3}{4}.
     \end{equation}
-    此为中心位于 $(\frac{1}{2}, \frac{1}{2}, \frac{1}{2})$，半径 $R = \frac{\sqrt{3}}{2}$ 的球体。其体积为
+    此为中心位于 $(\frac{1}{2}, \frac{1}{2}, \frac{1}{2})$，半径 $R = \frac{\sqrt{3}}{2}$ 的球体．其体积为
     \begin{equation}\label{eq:Volume-1}
         V = \frac{4}{3} \uppi R^3 = \frac{4}{3} \uppi \left( \frac{\sqrt{3}}{2} \right)^3 = \frac{\sqrt{3} \uppi}{2}.
     \end{equation}
-    作变量代换 $u = x - \frac{1}{2}$、$v = y - \frac{1}{2}$、$w = z - \frac{1}{2}$，则 $\Omega$ 变换为原点处的球域 $\Omega': u^2 + v^2 + w^2 \leqslant \frac{3}{4}$。被积函数变为
+    作变量代换 $u = x - \frac{1}{2}$、$v = y - \frac{1}{2}$、$w = z - \frac{1}{2}$，则 $\Omega$ 变换为原点处的球域 $\Omega': u^2 + v^2 + w^2 \leqslant \frac{3}{4}$．被积函数变为
     \begin{equation}\label{eq:Function-Decomp-1}
         f = \left( u + \frac{1}{2} \right)^2 + \left( v + \frac{1}{2} \right)^2 + \left( w + \frac{1}{2} \right)^2 = u^2 + v^2 + w^2 + u + v + w + \frac{3}{4}.
     \end{equation}
-    利用球域的对称性，线性项 $u$、$v$、$w$ 的三重积分为零。计算函数在域上的积分
+    利用球域的对称性，线性项 $u$、$v$、$w$ 的三重积分为零．计算函数在域上的积分
     \begin{equation}\label{eq:Integral-Calculation-1}
         \begin{aligned}
             \iiint_{\Omega} f \d v & = \iiint_{\Omega'} \left( u^2 + v^2 + w^2 + \frac{3}{4} \right) \d u \d v \d w                                         \\
@@ -545,11 +545,11 @@
 \end{solution}
 
 \begin{problem}{球坐标变换}{Triple-Integral-Derivative}
-    设 $F(t) = \iiint_{x^2+y^2+z^2 \le t^2} f(x^2+y^2+z^2) \d x \d y \d z$，其中 $f$ 为可微分函数，求 $F'(t)$。
+    设 $F(t) = \iiint_{x^2+y^2+z^2 \le t^2} f(x^2+y^2+z^2) \d x \d y \d z$，其中 $f$ 为可微分函数，求 $F'(t)$．
 \end{problem}
 
 \begin{solution}
-    利用球坐标变换 $x = r \sin \varphi \cos \theta$、$y = r \sin \varphi \sin \theta$、$z = r \cos \varphi$，其雅可比行列式为 $J = r^2 \sin \varphi$。积分区域对应为 $0 \le r \le |t|$、$0 \le \varphi \le \uppi$、$0 \le \theta \le 2\uppi$。
+    利用球坐标变换 $x = r \sin \varphi \cos \theta$、$y = r \sin \varphi \sin \theta$、$z = r \cos \varphi$，其雅可比行列式为 $J = r^2 \sin \varphi$．积分区域对应为 $0 \le r \le |t|$、$0 \le \varphi \le \uppi$、$0 \le \theta \le 2\uppi$．
 
     \begin{equation}
         \begin{aligned}
@@ -559,7 +559,7 @@
         \label{eq:F-integral-form}
     \end{equation}
 
-    对 \zcref{eq:F-integral-form} 关于 $t$ 求导。不妨设 $t > 0$，根据变上限积分求导法则：
+    对 \zcref{eq:F-integral-form} 关于 $t$ 求导．不妨设 $t > 0$，根据变上限积分求导法则：
 
     \begin{equation}
         \boxed{F'(t) = 4\uppi t^2 f(t^2)}
@@ -567,11 +567,11 @@
 \end{solution}
 
 \begin{problem}{三重积分截面法}{Triple-Integral-Slicing}
-    证明：$\iiint_{x^2+y^2+z^2 \le 1} f(z) \d v = \uppi \int_{-1}^1 f(z)(1 - z^2) \d z$。
+    证明：$\iiint_{x^2+y^2+z^2 \le 1} f(z) \d v = \uppi \int_{-1}^1 f(z)(1 - z^2) \d z$．
 \end{problem}
 
 \begin{myproof}
-    采用平行于 $xy$ 平面的截面法。对于固定的 $z \in [-1, 1]$，积分区域的截面是一个圆盘 $D_z = \{ (x, y) \mid x^2 + y^2 \le 1 - z^2 \}$。
+    采用平行于 $xy$ 平面的截面法．对于固定的 $z \in [-1, 1]$，积分区域的截面是一个圆盘 $D_z = \{ (x, y) \mid x^2 + y^2 \le 1 - z^2 \}$．
 
     该截面的面积为：
     \begin{equation}
@@ -601,7 +601,7 @@
 \end{problem}
 
 \begin{myproof}
-    记积分区域为 $\Omega$。根据左侧累次积分的限，区域 $\Omega$ 可表示为：
+    记积分区域为 $\Omega$．根据左侧累次积分的限，区域 $\Omega$ 可表示为：
     \begin{equation}
         \Omega = \{ (x, y, z) \mid a \le x \le b, a \le y \le x, a \le z \le y \}.
     \end{equation}
@@ -613,9 +613,9 @@
     \end{equation}
 
     若要将积分次序变换为先对 $x$ 积分，再对 $y$ 积分，最后对 $z$ 积分，则根据 \zcref{eq:chain-ineq} 确定各变量的范围：
-    1. $z$ 的全局范围为 $a \le z \le b$。
-    2. 当 $z$ 固定时，$y$ 的范围满足 $z \le y \le b$。
-    3. 当 $z$ 和 $y$ 固定时，$x$ 的范围满足 $y \le x \le b$。
+    1. $z$ 的全局范围为 $a \le z \le b$．
+    2. 当 $z$ 固定时，$y$ 的范围满足 $z \le y \le b$．
+    3. 当 $z$ 和 $y$ 固定时，$x$ 的范围满足 $y \le x \le b$．
 
     因此，变换积分次序后的累次积分为：
     \begin{equation}
@@ -624,11 +624,11 @@
 \end{myproof}
 
 \begin{problem}{二重积分的应用}{Ellipse-Plate-Mass}
-    求椭圆薄片 $\frac{x^2}{a^2} + \frac{y^2}{b^2} \leqslant 1$ 的质量，设密度 $\rho = \frac{x^2}{a^2} + \frac{y^2}{b^2}$。
+    求椭圆薄片 $\frac{x^2}{a^2} + \frac{y^2}{b^2} \leqslant 1$ 的质量，设密度 $\rho = \frac{x^2}{a^2} + \frac{y^2}{b^2}$．
 \end{problem}
 
 \begin{solution}
-    设椭圆域为 $D$。引入广义极坐标变换，令 $x = ar \cos \theta$，$y = br \sin \theta$，其雅可比行列式绝对值为 $J = abr$。此时积分区域 $D$ 映射为 $D' = \{(r, \theta) \mid 0 \leqslant r \leqslant 1, 0 \leqslant \theta \leqslant 2\uppi\}$。质量 $M$ 的计算过程如下：
+    设椭圆域为 $D$．引入广义极坐标变换，令 $x = ar \cos \theta$，$y = br \sin \theta$，其雅可比行列式绝对值为 $J = abr$．此时积分区域 $D$ 映射为 $D' = \{(r, \theta) \mid 0 \leqslant r \leqslant 1, 0 \leqslant \theta \leqslant 2\uppi\}$．质量 $M$ 的计算过程如下：
 
     \begin{equation}
         \begin{aligned}
@@ -645,11 +645,11 @@
 \end{solution}
 
 \begin{problem}{二重积分的应用}{Annulus-Mass}
-    一个平面圆环是由半径为 $R$ 和 $r$ ($R > r$) 的两个同心圆所围成的，已知材料各点的密度和到圆心的距离成反比，并在内圆的圆周上密度为 $1$，求环的质量。
+    一个平面圆环是由半径为 $R$ 和 $r$ ($R > r$) 的两个同心圆所围成的，已知材料各点的密度和到圆心的距离成反比，并在内圆的圆周上密度为 $1$，求环的质量．
 \end{problem}
 
 \begin{solution}
-    设圆环区域为 $D$，距离圆心的距离为 $u = \sqrt{x^2 + y^2}$。根据题意，密度函数可表示为 $\rho(u) = \frac{C}{u}$。由已知条件 $\rho(r) = 1$，得 $\frac{C}{r} = 1$，即 $C = r$。因此密度函数为 $\rho(u) = \frac{r}{u}$。利用极坐标系计算质量 $M$：
+    设圆环区域为 $D$，距离圆心的距离为 $u = \sqrt{x^2 + y^2}$．根据题意，密度函数可表示为 $\rho(u) = \frac{C}{u}$．由已知条件 $\rho(r) = 1$，得 $\frac{C}{r} = 1$，即 $C = r$．因此密度函数为 $\rho(u) = \frac{r}{u}$．利用极坐标系计算质量 $M$：
 
     \begin{equation}
         \begin{aligned}
@@ -666,11 +666,11 @@
 \end{solution}
 
 \begin{problem}{三重积分的应用}{Spherical-Shell-Mass}
-    一个物体是由两个半径各为 $R$ 和 $r$ ($R > r$) 的同心球所围成，已知材料的密度和到球心的距离成反比，且在距离等于 $1$ 处的密度等于 $k$，求物体的总质量。
+    一个物体是由两个半径各为 $R$ 和 $r$ ($R > r$) 的同心球所围成，已知材料的密度和到球心的距离成反比，且在距离等于 $1$ 处的密度等于 $k$，求物体的总质量．
 \end{problem}
 
 \begin{solution}
-    设该物体占据的区域为 $\Omega$，距离球心的距离为 $u = \sqrt{x^2 + y^2 + z^2}$。密度函数可设为 $\rho(u) = \frac{C}{u}$。已知 $\rho(1) = k$，则 $C = k$，即 $\rho(u) = \frac{k}{u}$。利用球面坐标变换或体积元素 $\d V = 4\uppi u^2 \d u$ 计算总质量 $M$：
+    设该物体占据的区域为 $\Omega$，距离球心的距离为 $u = \sqrt{x^2 + y^2 + z^2}$．密度函数可设为 $\rho(u) = \frac{C}{u}$．已知 $\rho(1) = k$，则 $C = k$，即 $\rho(u) = \frac{k}{u}$．利用球面坐标变换或体积元素 $\d V = 4\uppi u^2 \d u$ 计算总质量 $M$：
 
     \begin{equation}
         \begin{aligned}
@@ -687,17 +687,17 @@
 \end{solution}
 
 \begin{problem}{二重积分重心}{Center-Of-Mass-Nonuniform-Disk}
-    半径为 $a$ 的圆盘，其各点的密度和到圆心的距离成正比（比例系数为 1），今内切于圆盘截去半径为 $\frac{a}{2}$ 之小圆，求余下部分的重心坐标。
+    半径为 $a$ 的圆盘，其各点的密度和到圆心的距离成正比（比例系数为 1），今内切于圆盘截去半径为 $\frac{a}{2}$ 之小圆，求余下部分的重心坐标．
 \end{problem}
 
 \begin{solution}
-    建立直角坐标系，设大圆盘 $D_1$ 中心位于原点，小圆 $D_2$ 中心位于 $(a/2, 0)$。由对称性可知，余下部分 $D = D_1 \setminus D_2$ 的重心纵坐标 $\bar{y} = 0$。
+    建立直角坐标系，设大圆盘 $D_1$ 中心位于原点，小圆 $D_2$ 中心位于 $(a/2, 0)$．由对称性可知，余下部分 $D = D_1 \setminus D_2$ 的重心纵坐标 $\bar{y} = 0$．
 
     计算大圆盘的质量 $M_1$：
     \begin{equation}\label{eq:mass-total}
         M_1 = \iint_{D_1} \sqrt{x^2+y^2} \d A = \int_0^{2\uppi} \d \theta \int_0^a r \cdot r \d r = \frac{2}{3} \uppi a^3.
     \end{equation}
-    在极坐标系下，$D_2$ 的边界方程为 $r = a \cos \theta, -\frac{\uppi}{2} \le \theta \le \frac{\uppi}{2}$。计算其质量 $M_2$：
+    在极坐标系下，$D_2$ 的边界方程为 $r = a \cos \theta, -\frac{\uppi}{2} \le \theta \le \frac{\uppi}{2}$．计算其质量 $M_2$：
     \begin{equation}\label{eq:mass-sub}
         M_2 = \iint_{D_2} \sqrt{x^2+y^2} \d A = \int_{-\uppi/2}^{\uppi/2} \d \theta \int_0^{a \cos \theta} r^2 \d r = \frac{a^3}{3} \int_{-\uppi/2}^{\uppi/2} \cos^3 \theta \d \theta = \frac{4}{9} a^3.
     \end{equation}
@@ -722,7 +722,7 @@
 \end{problem}
 
 \begin{solution}
-    以半圆中心为原点建立坐标系，设半圆位于 $y \ge 0$ 区域，其面积为 $A_1 = \frac{1}{2} \uppi a^2$，重心纵坐标为 $y_1 = \frac{4a}{3\uppi}$。长方形拼接于直径下方，其面积为 $A_2 = 2ab$，重心纵坐标为 $y_2 = -\frac{b}{2}$。
+    以半圆中心为原点建立坐标系，设半圆位于 $y \ge 0$ 区域，其面积为 $A_1 = \frac{1}{2} \uppi a^2$，重心纵坐标为 $y_1 = \frac{4a}{3\uppi}$．长方形拼接于直径下方，其面积为 $A_2 = 2ab$，重心纵坐标为 $y_2 = -\frac{b}{2}$．
 
     \begin{center}
         \begin{tikzpicture}[scale=1.2]
@@ -748,11 +748,11 @@
 \end{solution}
 
 \begin{problem}{三重积分重心}{Center-Of-Mass-Elliptic-Cone}
-    求由曲面 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{z^2}{c^2}$ 和 $z = c$ 所围成的均匀物体的重心坐标。
+    求由曲面 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = \frac{z^2}{c^2}$ 和 $z = c$ 所围成的均匀物体的重心坐标．
 \end{problem}
 
 \begin{solution}
-    由几何对称性可知，均匀物体的重心位于 $z$ 轴上，即 $\bar{x} = 0, \bar{y} = 0$。
+    由几何对称性可知，均匀物体的重心位于 $z$ 轴上，即 $\bar{x} = 0, \bar{y} = 0$．
 
     该立体在高度 $z$ 处的截面为椭圆，其面积为：
     \begin{equation}\label{eq:area-z}
@@ -775,11 +775,11 @@
 \end{solution}
 
 \begin{problem}{重心坐标计算}{Center-of-Mass-Sphere}
-    设球体 $x^2 + y^2 + z^2 \leqslant 2az$ 内各点密度与各点到原点的距离成反比，求其重心坐标。
+    设球体 $x^2 + y^2 + z^2 \leqslant 2az$ 内各点密度与各点到原点的距离成反比，求其重心坐标．
 \end{problem}
 
 \begin{solution}
-    由于球体 $\Omega$ 及其密度分布关于 $z$ 轴具有旋转对称性，故其重心必在 $z$ 轴上，即 $\bar{x} = 0$、$\bar{y} = 0$。设各点密度函数为 $\rho(x, y, z) = \frac{k}{\sqrt{x^2 + y^2 + z^2}}$，其中 $k$ 为比例常数。采用球面坐标系进行计算：
+    由于球体 $\Omega$ 及其密度分布关于 $z$ 轴具有旋转对称性，故其重心必在 $z$ 轴上，即 $\bar{x} = 0$、$\bar{y} = 0$．设各点密度函数为 $\rho(x, y, z) = \frac{k}{\sqrt{x^2 + y^2 + z^2}}$，其中 $k$ 为比例常数．采用球面坐标系进行计算：
     \begin{equation}
         \label{eq:Coordinate-Transformation-1}
         \begin{cases}
@@ -788,7 +788,7 @@
             z = r \cos \varphi.
         \end{cases}
     \end{equation}
-    球体方程化为 $r \leqslant 2a \cos \varphi$，积分区域可表示为 $0 \leqslant \theta \leqslant 2\uppi$、$0 \leqslant \varphi \leqslant \frac{\uppi}{2}$、$0 \leqslant r \leqslant 2a \cos \varphi$。
+    球体方程化为 $r \leqslant 2a \cos \varphi$，积分区域可表示为 $0 \leqslant \theta \leqslant 2\uppi$、$0 \leqslant \varphi \leqslant \frac{\uppi}{2}$、$0 \leqslant r \leqslant 2a \cos \varphi$．
 
     首先计算球体的总质量 $M$：
     \begin{equation}
@@ -825,9 +825,9 @@
 \end{problem}
 
 \begin{solution}
-    建立空间直角坐标系，设球心位于原点 $O(0, 0, 0)$。由对称性可知重心必在轴线上。设半球位于上方 $z \in [0, a]$，其底面与高为 $h$ 的圆柱顶面相接，则圆柱占据的范围为 $z \in [-h, 0]$。
+    建立空间直角坐标系，设球心位于原点 $O(0, 0, 0)$．由对称性可知重心必在轴线上．设半球位于上方 $z \in [0, a]$，其底面与高为 $h$ 的圆柱顶面相接，则圆柱占据的范围为 $z \in [-h, 0]$．
 
-    根据质量分布均匀性，各部分质量与其体积成正比。设半球体积为 $V_1$，重心坐标为 $z_1$；圆柱体积为 $V_2$，重心坐标为 $z_2$。由几何性质可知：
+    根据质量分布均匀性，各部分质量与其体积成正比．设半球体积为 $V_1$，重心坐标为 $z_1$；圆柱体积为 $V_2$，重心坐标为 $z_2$．由几何性质可知：
     \begin{equation}
         \label{eq:Geometry-Params}
         \begin{aligned}
@@ -856,15 +856,15 @@
 \begin{problem}{转动惯量}{Moment-of-Inertia}
     求以下各物体的转动惯量（设 $\rho$ 为常数）：
     \begin{enumerate}
-        \item 质量为 $m$，半径为 $R$ 的薄圆盘，对于：(a) 通过圆心并垂直圆盘的轴； (b) 直径。
-        \item 质量为 $m$，半径为 $R$ 的球体，对于通过球心的轴线。
+        \item 质量为 $m$，半径为 $R$ 的薄圆盘，对于：(a) 通过圆心并垂直圆盘的轴； (b) 直径．
+        \item 质量为 $m$，半径为 $R$ 的球体，对于通过球心的轴线．
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
 
-    (a) 设圆盘面密度为 $\sigma = \frac{m}{\uppi R^2}$。在盘上取半径为 $r$、宽度为 $\d r$ 的圆环，其质量为 $\d m = \sigma \cdot 2\uppi r \d r$。
+    (a) 设圆盘面密度为 $\sigma = \frac{m}{\uppi R^2}$．在盘上取半径为 $r$、宽度为 $\d r$ 的圆环，其质量为 $\d m = \sigma \cdot 2\uppi r \d r$．
     \begin{equation}
         \label{eq:inertia-disk-z}
         \begin{aligned}
@@ -878,7 +878,7 @@
         I_z = \boxed{ \frac{1}{2} mR^2 }
     \end{equation}
 
-    (b) 根据垂直轴定理，若 $x, y$ 轴位于圆盘平面内且互相垂直，则有 $I_z = I_x + I_y$。由对称性知 $I_x = I_y$，故
+    (b) 根据垂直轴定理，若 $x, y$ 轴位于圆盘平面内且互相垂直，则有 $I_z = I_x + I_y$．由对称性知 $I_x = I_y$，故
     \begin{equation}
         \label{eq:inertia-disk-x}
         I_x = \frac{1}{2} I_z.
@@ -890,7 +890,7 @@
 
     \ansitem{2}
 
-    设球体密度为 $\rho = \frac{m}{\frac{4}{3}\uppi R^3}$。采用球坐标系，取转动轴为 $z$ 轴，则体积元 $\d V = r^2 \sin \theta \d r \d \theta \d \varphi$，点到 $z$ 轴距离为 $d = r \sin \theta$。
+    设球体密度为 $\rho = \frac{m}{\frac{4}{3}\uppi R^3}$．采用球坐标系，取转动轴为 $z$ 轴，则体积元 $\d V = r^2 \sin \theta \d r \d \theta \d \varphi$，点到 $z$ 轴距离为 $d = r \sin \theta$．
     \begin{equation}
         \label{eq:inertia-sphere}
         \begin{aligned}
@@ -910,13 +910,13 @@
 \end{solution}
 
 \begin{problem}{万有引力}{Gravitational-Attraction-Spherical-Cone}
-    求密度为 $\rho$ 的均匀球锥体对于在其顶点为一单位质量的质点的吸引力，设球的半径为 $R$，而轴截面的扇形的角等于 $2\alpha$。
+    求密度为 $\rho$ 的均匀球锥体对于在其顶点为一单位质量的质点的吸引力，设球的半径为 $R$，而轴截面的扇形的角等于 $2\alpha$．
 \end{problem}
 
 \begin{solution}
-    建立球坐标系，使球锥体的顶点位于原点，对称轴与 $z$ 轴重合。由于对称性，合引力 $\symbfit{F}$ 仅有 $z$ 分量。
+    建立球坐标系，使球锥体的顶点位于原点，对称轴与 $z$ 轴重合．由于对称性，合引力 $\symbfit{F}$ 仅有 $z$ 分量．
 
-    在球坐标下，球锥体的范围为 $0 \le r \le R$，$0 \le \theta \le \alpha$，$0 \le \varphi \le 2\uppi$。体积元 $\d m = \rho r^2 \sin \theta \d r \d \theta \d \varphi$ 对原点单位质量质点的引力 $z$ 分量为：
+    在球坐标下，球锥体的范围为 $0 \le r \le R$，$0 \le \theta \le \alpha$，$0 \le \varphi \le 2\uppi$．体积元 $\d m = \rho r^2 \sin \theta \d r \d \theta \d \varphi$ 对原点单位质量质点的引力 $z$ 分量为：
     \begin{equation}
         \label{eq:gravity-integral}
         \begin{aligned}

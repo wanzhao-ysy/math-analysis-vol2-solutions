@@ -13,7 +13,7 @@
 \end{problem}
 
 \begin{solution}
-    \ansitem{1} 积分区域为 $x^2 + y^2 \le 1$ 且 $y \ge 0$ 的上半圆盘。
+    \ansitem{1} 积分区域为 $x^2 + y^2 \le 1$ 且 $y \ge 0$ 的上半圆盘．
 
     \begin{center}
         \begin{tikzpicture}[scale=1.5]
@@ -30,12 +30,12 @@
         \end{tikzpicture}
     \end{center}
 
-    当交换积分次序为先对 $x$ 积分时，$y$ 的取值范围为 $[0, 1]$。对于固定的 $y$，变量 $x$ 从 $-\sqrt{1-y^2}$ 变化至 $\sqrt{1-y^2}$。因此有
+    当交换积分次序为先对 $x$ 积分时，$y$ 的取值范围为 $[0, 1]$．对于固定的 $y$，变量 $x$ 从 $-\sqrt{1-y^2}$ 变化至 $\sqrt{1-y^2}$．因此有
     \begin{equation}
         \int_{-1}^{1} \d x \int_{0}^{\sqrt{1-x^2}} f(x, y) \d y = \boxed{\int_{0}^{1} \d y \int_{-\sqrt{1-y^2}}^{\sqrt{1-y^2}} f(x, y) \d x}
     \end{equation}
 
-    \ansitem{2} 积分区域是由直线 $x = 0$、$y = 2x$ 及 $y = 6 - x$ 围成的三角形区域。
+    \ansitem{2} 积分区域是由直线 $x = 0$、$y = 2x$ 及 $y = 6 - x$ 围成的三角形区域．
 
     \begin{center}
         \begin{tikzpicture}[scale=0.8]
@@ -52,12 +52,12 @@
         \end{tikzpicture}
     \end{center}
 
-    其顶点分别为 $(0, 0)$、$(2, 4)$ 及 $(0, 6)$。改变积分次序时需按 $y = 4$ 分段。当 $y \in [0, 4]$ 时，$0 \le x \le \frac{y}{2}$；当 $y \in [4, 6]$ 时，$0 \le x \le 6 - y$。因此有
+    其顶点分别为 $(0, 0)$、$(2, 4)$ 及 $(0, 6)$．改变积分次序时需按 $y = 4$ 分段．当 $y \in [0, 4]$ 时，$0 \le x \le \frac{y}{2}$；当 $y \in [4, 6]$ 时，$0 \le x \le 6 - y$．因此有
     \begin{equation}
         \int_{0}^{2} \d x \int_{2x}^{6-x} f(x, y) \d y = \boxed{\int_{0}^{4} \d y \int_{0}^{y/2} f(x, y) \d x + \int_{4}^{6} \d y \int_{0}^{6-y} f(x, y) \d x}
     \end{equation}
 
-    \ansitem{3} 积分区域为圆 $(x-a)^2 + y^2 \le a^2$ 位于 $y \ge 0$ 的上半圆部分。
+    \ansitem{3} 积分区域为圆 $(x-a)^2 + y^2 \le a^2$ 位于 $y \ge 0$ 的上半圆部分．
 
     \begin{center}
         \begin{tikzpicture}[scale=1.5]
@@ -75,12 +75,12 @@
         \end{tikzpicture}
     \end{center}
 
-    由 $x = a \pm \sqrt{a^2 - y^2}$ 可知，圆心在 $(a, 0)$，半径为 $a$。当改变次序先对 $y$ 积分时，$x$ 的范围为 $[0, 2a]$。对于固定的 $x$，有 $0 \le y \le \sqrt{a^2 - (x-a)^2} = \sqrt{2ax - x^2}$。故
+    由 $x = a \pm \sqrt{a^2 - y^2}$ 可知，圆心在 $(a, 0)$，半径为 $a$．当改变次序先对 $y$ 积分时，$x$ 的范围为 $[0, 2a]$．对于固定的 $x$，有 $0 \le y \le \sqrt{a^2 - (x-a)^2} = \sqrt{2ax - x^2}$．故
     \begin{equation}
         \int_{0}^{a} \d y \int_{a-\sqrt{a^2-y^2}}^{a+\sqrt{a^2-y^2}} f(x, y) \d x = \boxed{\int_{0}^{2a} \d x \int_{0}^{\sqrt{2ax-x^2}} f(x, y) \d y}
     \end{equation}
 
-    \ansitem{4} 积分区域为由直线 $x = y$、$x = b$ 及 $y = a$ 围成的三角形区域。
+    \ansitem{4} 积分区域为由直线 $x = y$、$x = b$ 及 $y = a$ 围成的三角形区域．
 
     \begin{center}
         \begin{tikzpicture}[scale=1.5]
@@ -98,12 +98,12 @@
         \end{tikzpicture}
     \end{center}
 
-    其顶点为 $(a, a)$、$(b, b)$ 及 $(b, a)$。改为先对 $y$ 积分，则 $x$ 范围为 $[a, b]$。对于固定的 $x$，$y$ 的范围由下边界 $y = a$ 至上边界 $y = x$。即
+    其顶点为 $(a, a)$、$(b, b)$ 及 $(b, a)$．改为先对 $y$ 积分，则 $x$ 范围为 $[a, b]$．对于固定的 $x$，$y$ 的范围由下边界 $y = a$ 至上边界 $y = x$．即
     \begin{equation}
         \int_{a}^{b} \d y \int_{y}^{b} f(x, y) \d x = \boxed{\int_{a}^{b} \d x \int_{a}^{x} f(x, y) \d y}
     \end{equation}
 
-    \ansitem{5} 积分区域由两个三角形区域合并而成。
+    \ansitem{5} 积分区域由两个三角形区域合并而成．
 
     \begin{center}
         \begin{tikzpicture}[scale=1.5]
@@ -120,12 +120,12 @@
         \end{tikzpicture}
     \end{center}
 
-    合并后的区域是以 $(0, 0)$、$(1, 1)$、$(2, 0)$ 为顶点的三角形。若改为先对 $x$ 积分，则 $y$ 的范围为 $[0, 1]$。对于固定的 $y$，$x$ 从直线 $x = y$ 变化到 $x = 2 - y$。故有
+    合并后的区域是以 $(0, 0)$、$(1, 1)$、$(2, 0)$ 为顶点的三角形．若改为先对 $x$ 积分，则 $y$ 的范围为 $[0, 1]$．对于固定的 $y$，$x$ 从直线 $x = y$ 变化到 $x = 2 - y$．故有
     \begin{equation}
         \int_{0}^{1} \d x \int_{0}^{x} f(x, y) \d y + \int_{1}^{2} \d x \int_{0}^{2-x} f(x, y) \d y = \boxed{\int_{0}^{1} \d y \int_{y}^{2-y} f(x, y) \d x}
     \end{equation}
 
-    \ansitem{6} 积分区域由矩形区域与曲边梯形区域合并而成。
+    \ansitem{6} 积分区域由矩形区域与曲边梯形区域合并而成．
 
     \begin{center}
         \begin{tikzpicture}[scale=2.5]
@@ -158,7 +158,7 @@
         \end{tikzpicture}
     \end{center}
 
-    第一部分区域为 $x \in [1/2, 1]$、$y \in [0, 1]$；第二部分由 $y \in [1, 2]$ 且 $1/2 \le x \le 1/y$ 限定。合并后的总区域满足 $1/2 \le x \le 1$。对于固定的 $x$，变量 $y$ 的范围从 $0$ 到曲线 $y = 1/x$。因此
+    第一部分区域为 $x \in [1/2, 1]$、$y \in [0, 1]$；第二部分由 $y \in [1, 2]$ 且 $1/2 \le x \le 1/y$ 限定．合并后的总区域满足 $1/2 \le x \le 1$．对于固定的 $x$，变量 $y$ 的范围从 $0$ 到曲线 $y = 1/x$．因此
     \begin{equation}
         \int_{0}^{1} \d y \int_{1/2}^{1} f(x, y) \d x + \int_{1}^{2} \d y \int_{1/2}^{1/y} f(x, y) \d x = \boxed{\int_{1/2}^{1} \d x \int_{0}^{1/x} f(x, y) \d y}
     \end{equation}
@@ -175,7 +175,7 @@
         \item $\iint_{D}(x+y-1) \d x \d y, D$：由 $y=x, y=x+a, y=a, y=3 a$ 围成；
         \item $\iint_{D} \frac{\sin y}{y} \d x \d y, D$：由 $y=x$ 和 $x=y^{2}$ 围成；
         \item $\iint_{D} \frac{x^{2}}{y^{2}} \d x \d y, D$：由 $x=2, y=x$ 及 $x y=1$ 围成；
-        \item $\iint_{D}|\cos (x+y)| \d x \d y$，$D$：由 $y=x, y=0, x=\frac{\uppi}{2}$ 所围成。
+        \item $\iint_{D}|\cos (x+y)| \d x \d y$，$D$：由 $y=x, y=0, x=\frac{\uppi}{2}$ 所围成．
     \end{enumerate}
 \end{problem}
 
@@ -298,7 +298,7 @@
 
     \ansitem{8}
 
-    积分区域为 $D = \{ (x, y) \mid 0 \le x \le \frac{\uppi}{2}, 0 \le y \le x \}$。直线 $x+y = \frac{\uppi}{2}$ 将区域分为两部分，分别对应 $\cos(x+y)$ 的正负性
+    积分区域为 $D = \{ (x, y) \mid 0 \le x \le \frac{\uppi}{2}, 0 \le y \le x \}$．直线 $x+y = \frac{\uppi}{2}$ 将区域分为两部分，分别对应 $\cos(x+y)$ 的正负性
     \begin{equation}
         \begin{aligned}
             I & = \iint_{D_{x+y \le \frac{\uppi}{2}}} \cos (x+y) \d A + \iint_{D_{x+y \ge \frac{\uppi}{2}}} -\cos (x+y) \d A                         \\
@@ -344,12 +344,12 @@
 
     \ansitem{2}
 
-    观察积分区域 $D$ 的边界方程 $x^2 - y^2 = 1$ 与 $x^2 + y^2 = 9$ 可知，若点 $(x, y) \in D$，则点 $(-x, y) \in D$。这意味着区域 $D$ 关于 $y$ 轴（即直线 $x=0$）是对称的。
+    观察积分区域 $D$ 的边界方程 $x^2 - y^2 = 1$ 与 $x^2 + y^2 = 9$ 可知，若点 $(x, y) \in D$，则点 $(-x, y) \in D$．这意味着区域 $D$ 关于 $y$ 轴（即直线 $x=0$）是对称的．
     令被积函数为 $g(x, y) = \sin x \sin y$，考察其关于变量 $x$ 的奇偶性
     \begin{equation}\label{eq:parity-check}
         g(-x, y) = \sin(-x) \sin y = -\sin x \sin y = -g(x, y).
     \end{equation}
-    由 \zcref{eq:parity-check} 可知，$g(x, y)$ 是关于 $x$ 的奇函数。根据二重积分的对称性质，奇函数在关于坐标轴对称的区域上的积分为零。故有
+    由 \zcref{eq:parity-check} 可知，$g(x, y)$ 是关于 $x$ 的奇函数．根据二重积分的对称性质，奇函数在关于坐标轴对称的区域上的积分为零．故有
     \begin{equation}
         \boxed{\iint_{D} \sin x \sin y \d x \d y = 0}
     \end{equation}
@@ -365,15 +365,15 @@
 
 \begin{myproof}
 
-    由于 $\varphi(x)$ 与 $\psi(y)$ 分别在闭区间上可积，故它们在该区间上必有界。设存在常数 $M_1, M_2 > 0$ 使得 $|\varphi(x)| \leqslant M_1$ 且 $|\psi(y)| \leqslant M_2$，则有
+    由于 $\varphi(x)$ 与 $\psi(y)$ 分别在闭区间上可积，故它们在该区间上必有界．设存在常数 $M_1, M_2 > 0$ 使得 $|\varphi(x)| \leqslant M_1$ 且 $|\psi(y)| \leqslant M_2$，则有
     \begin{equation}
         |f(x, y)| = |\varphi(x)| \cdot |\psi(y)| \leqslant M_1 M_2,
     \end{equation}
-    即 $f(x, y)$ 在矩形区域 $D$ 上有界。记 $S_\varphi$ 与 $S_\psi$ 分别为 $\varphi$ 与 $\psi$ 的不连续点集，由可积性定义可知其勒贝格测度 $\mu(S_\varphi) = 0$ 且 $\mu(S_\psi) = 0$。函数 $f(x, y)$ 的不连续点集 $S_f$ 满足
+    即 $f(x, y)$ 在矩形区域 $D$ 上有界．记 $S_\varphi$ 与 $S_\psi$ 分别为 $\varphi$ 与 $\psi$ 的不连续点集，由可积性定义可知其勒贝格测度 $\mu(S_\varphi) = 0$ 且 $\mu(S_\psi) = 0$．函数 $f(x, y)$ 的不连续点集 $S_f$ 满足
     \begin{equation}
         S_f \subseteq (S_\varphi \times [c, d]) \cup ([a, b] \times S_\psi).
     \end{equation}
-    根据测度性质，零测集与有界闭区间的笛卡尔积仍为零测集，故 $\mu(S_f) = 0$。因此 $f(x, y)$ 在 $D$ 上可积。
+    根据测度性质，零测集与有界闭区间的笛卡尔积仍为零测集，故 $\mu(S_f) = 0$．因此 $f(x, y)$ 在 $D$ 上可积．
     根据累次积分定理（Fubini 定理），可得
     \begin{equation}\label{eq:fubini-calc}
         \iint_{D} f(x, y) \d x \d y = \int_{a}^{b} \left( \int_{c}^{d} \varphi(x) \psi(y) \d y \right) \d x.
@@ -393,14 +393,14 @@
     设函数 $f(x)$ 在 $[0, a]$ 上连续，证明：
     \begin{enumerate}
         \item $\int_0^a \d x \int_0^x f(x)f(y) \d y = \frac{1}{2} \left( \int_0^a f(x) \d x \right)^2$；
-        \item $\int_0^a \d x \int_0^x f(y) \d y = \int_0^a (a-x)f(x) \d x$。
+        \item $\int_0^a \d x \int_0^x f(y) \d y = \int_0^a (a-x)f(x) \d x$．
     \end{enumerate}
 \end{problem}
 
 \begin{myproof}
     \ansitem{1}
 
-    记该二重积分为 $I$。由于积分区域为三角形区域 $D = \{ (x, y) \mid 0 \le x \le a, 0 \le y \le x \}$，交换积分次序可得
+    记该二重积分为 $I$．由于积分区域为三角形区域 $D = \{ (x, y) \mid 0 \le x \le a, 0 \le y \le x \}$，交换积分次序可得
     \begin{equation}
         I = \int_0^a \d y \int_y^a f(x)f(y) \d x \label{eq:Ident-1}
     \end{equation}
@@ -482,7 +482,7 @@
 \end{problem}
 
 \begin{solution}
-    令 $D_r = \{ (x, y) \mid x^2 + y^2 \le r^2 \}$。根据二重积分中值定理，由于 $f(x, y)$ 在闭区域 $D_r$ 上连续，存在点 $(\xi, \eta) \in D_r$，使得
+    令 $D_r = \{ (x, y) \mid x^2 + y^2 \le r^2 \}$．根据二重积分中值定理，由于 $f(x, y)$ 在闭区域 $D_r$ 上连续，存在点 $(\xi, \eta) \in D_r$，使得
     \begin{equation}
         \iint_{D_r} f(x, y) \d x \d y = f(\xi, \eta) \cdot \operatorname{Area}(D_r) \label{eq:MVT}
     \end{equation}
@@ -494,7 +494,7 @@
     \begin{equation}
         \lim_{r \to 0} \frac{1}{\uppi r^2} \cdot f(\xi, \eta) \cdot \uppi r^2 = \lim_{r \to 0} f(\xi, \eta)
     \end{equation}
-    当 $r \to 0$ 时，由于 $(\xi, \eta) \in D_r$，显然有 $(\xi, \eta) \to (0, 0)$。由 $f(x, y)$ 的连续性可知
+    当 $r \to 0$ 时，由于 $(\xi, \eta) \in D_r$，显然有 $(\xi, \eta) \to (0, 0)$．由 $f(x, y)$ 的连续性可知
     \begin{equation}
         \lim_{r \to 0} f(\xi, \eta) = f(0, 0)
     \end{equation}

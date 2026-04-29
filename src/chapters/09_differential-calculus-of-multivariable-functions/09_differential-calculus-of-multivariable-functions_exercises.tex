@@ -1,13 +1,13 @@
 \section{第 9 章综合习题}
 
 \begin{problem}{多元函数微分学}{Partial-Derivative-Condition}
-    设 $a_1, a_2, \cdots, a_n$ 是非零常数。$f(x_1, x_2, \cdots, x_n)$ 在 $\mathbb{R}^n$ 上可微。求证：存在 $\mathbb{R}$ 上一元可微函数 $F(s)$ 使得 $f(x_1, x_2, \cdots, x_n) = F(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n)$ 的充分必要条件是 $a_j \frac{\partial f}{\partial x_i} = a_i \frac{\partial f}{\partial x_j}, i, j = 1, 2, \cdots, n$。
+    设 $a_1, a_2, \cdots, a_n$ 是非零常数．$f(x_1, x_2, \cdots, x_n)$ 在 $\mathbb{R}^n$ 上可微．求证：存在 $\mathbb{R}$ 上一元可微函数 $F(s)$ 使得 $f(x_1, x_2, \cdots, x_n) = F(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n)$ 的充分必要条件是 $a_j \frac{\partial f}{\partial x_i} = a_i \frac{\partial f}{\partial x_j}, i, j = 1, 2, \cdots, n$．
 \end{problem}
 
 \begin{solution}
 
     \textbf{必要性}：
-    设 $s = \sum_{k=1}^n a_k x_k$，且 $f(x_1, \dots, x_n) = F(s)$。
+    设 $s = \sum_{k=1}^n a_k x_k$，且 $f(x_1, \dots, x_n) = F(s)$．
     由链式法则，对任意 $i \in \{1, \dots, n\}$，有
     \begin{equation}
         \frac{\partial f}{\partial x_i} = F'(s) \frac{\partial s}{\partial x_i} = a_i F'(s).
@@ -20,15 +20,15 @@
     \begin{equation}
         a_j \frac{\partial f}{\partial x_i} = a_j a_i F'(s) = a_i a_j F'(s) = a_i \frac{\partial f}{\partial x_j}.
     \end{equation}
-    必要性得证。
+    必要性得证．
 
     \textbf{充分性}：
-    已知 $a_j \frac{\partial f}{\partial x_i} = a_i \frac{\partial f}{\partial x_j}$ 对所有 $i, j$ 成立。
+    已知 $a_j \frac{\partial f}{\partial x_i} = a_i \frac{\partial f}{\partial x_j}$ 对所有 $i, j$ 成立．
     由于 $a_k \neq 0$，可变形为
     \begin{equation}
         \frac{1}{a_i} \frac{\partial f}{\partial x_i} = \frac{1}{a_j} \frac{\partial f}{\partial x_j}.
     \end{equation}
-    这表明 $\frac{1}{a_k} \frac{\partial f}{\partial x_k}$ 的值与下标 $k$ 无关。记该公共值为 $g(x_1, \dots, x_n)$，即
+    这表明 $\frac{1}{a_k} \frac{\partial f}{\partial x_k}$ 的值与下标 $k$ 无关．记该公共值为 $g(x_1, \dots, x_n)$，即
     \begin{equation}
         \frac{\partial f}{\partial x_k} = a_k g(x_1, \dots, x_n), \quad k=1, \dots, n.
     \end{equation}
@@ -36,20 +36,20 @@
     \begin{equation}
         \d f = \sum_{k=1}^n \frac{\partial f}{\partial x_k} \d x_k = \sum_{k=1}^n a_k g \d x_k = g \sum_{k=1}^n a_k \d x_k = g \d \left( \sum_{k=1}^n a_k x_k \right).
     \end{equation}
-    令 $s = \sum_{k=1}^n a_k x_k$。上式表明 $\d f = g \d s$。
-    这意味着 $f$ 的全微分仅依赖于 $\d s$，即 $f$ 的变化完全由 $s$ 的变化决定。
-    在单连通区域 $\mathbb{R}^n$ 上，这意味着 $f$ 仅是 $s$ 的函数。
+    令 $s = \sum_{k=1}^n a_k x_k$．上式表明 $\d f = g \d s$．
+    这意味着 $f$ 的全微分仅依赖于 $\d s$，即 $f$ 的变化完全由 $s$ 的变化决定．
+    在单连通区域 $\mathbb{R}^n$ 上，这意味着 $f$ 仅是 $s$ 的函数．
     即存在一元可微函数 $F$，使得
     \begin{equation}
         f(x_1, \dots, x_n) = F(s) = F(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n).
     \end{equation}
-    充分性得证。
+    充分性得证．
 \end{solution}
 
 v
 
 \begin{problem}{多元复合函数求导}{Partial-Derivative-Chain-Rule-3}
-    设 $f(x,y,z) = F(u,v,w)$，其中 $x^2 = vw$、$y^2 = wu$、$z^2 = uv$。求证：
+    设 $f(x,y,z) = F(u,v,w)$，其中 $x^2 = vw$、$y^2 = wu$、$z^2 = uv$．求证：
     \begin{equation}
         x \frac{\partial f}{\partial x} + y \frac{\partial f}{\partial y} + z \frac{\partial f}{\partial z} = u \frac{\partial F}{\partial u} + v \frac{\partial F}{\partial v} + w \frac{\partial F}{\partial w}.
     \end{equation}
@@ -65,11 +65,11 @@ v
         \end{cases}
         \label{eq:differentiation-system}
     \end{equation}
-    由 \zcref{eq:differentiation-system} 后两式可得 $\frac{\partial w}{\partial x} = -\frac{w}{u} \frac{\partial u}{\partial x}$ 且 $\frac{\partial v}{\partial x} = -\frac{v}{u} \frac{\partial u}{\partial x}$。代入第一式，得
+    由 \zcref{eq:differentiation-system} 后两式可得 $\frac{\partial w}{\partial x} = -\frac{w}{u} \frac{\partial u}{\partial x}$ 且 $\frac{\partial v}{\partial x} = -\frac{v}{u} \frac{\partial u}{\partial x}$．代入第一式，得
     \begin{equation}
         2x = v \left( -\frac{w}{u} \frac{\partial u}{\partial x} \right) + w \left( -\frac{v}{u} \frac{\partial u}{\partial x} \right) = -\frac{2vw}{u} \frac{\partial u}{\partial x} = -\frac{2x^2}{u} \frac{\partial u}{\partial x}.
     \end{equation}
-    由此解得 $\frac{\partial u}{\partial x} = -\frac{u}{x}$，进而可得 $\frac{\partial v}{\partial x} = \frac{v}{x}$、$\frac{\partial w}{\partial x} = \frac{w}{x}$。由对称性可得所有偏导项：
+    由此解得 $\frac{\partial u}{\partial x} = -\frac{u}{x}$，进而可得 $\frac{\partial v}{\partial x} = \frac{v}{x}$、$\frac{\partial w}{\partial x} = \frac{w}{x}$．由对称性可得所有偏导项：
     \begin{equation}
         \begin{aligned}
             \frac{\partial u}{\partial x} = -\frac{u}{x}, \quad \frac{\partial v}{\partial x} = \frac{v}{x}, \quad \frac{\partial w}{\partial x} = \frac{w}{x}; \\
@@ -93,14 +93,14 @@ v
 
 
 \begin{problem}{齐次函数欧拉定理}{Euler-Theorem-Homogeneous}
-    若函数 $u = f(x, y, z)$ 满足恒等式 $f(tx, ty, tz) = t^k f(x, y, z)$ ($t > 0$)，则称 $f(x, y, z)$ 为 $k$ 次齐次函数。试证下述关于齐次函数的欧拉定理：可微函数 $f(x, y, z)$ 为 $k$ 次齐次函数的充要条件是：
+    若函数 $u = f(x, y, z)$ 满足恒等式 $f(tx, ty, tz) = t^k f(x, y, z)$ ($t > 0$)，则称 $f(x, y, z)$ 为 $k$ 次齐次函数．试证下述关于齐次函数的欧拉定理：可微函数 $f(x, y, z)$ 为 $k$ 次齐次函数的充要条件是：
     \begin{equation}
         x f'_x(x, y, z) + y f'_y(x, y, z) + z f'_z(x, y, z) = k f(x, y, z).
     \end{equation}
 \end{problem}
 
 \begin{myproof}
-    必要性：若 $f(x, y, z)$ 是 $k$ 次齐次函数，则有恒等式 $f(tx, ty, tz) = t^k f(x, y, z)$。对此式两端关于 $t$ 求导，由多元复合函数求导法则得：
+    必要性：若 $f(x, y, z)$ 是 $k$ 次齐次函数，则有恒等式 $f(tx, ty, tz) = t^k f(x, y, z)$．对此式两端关于 $t$ 求导，由多元复合函数求导法则得：
     \begin{equation}
         \begin{aligned}
             \frac{\d}{\d t} f(tx, ty, tz) & = \frac{\partial f}{\partial (tx)} \cdot \frac{\d (tx)}{\d t} + \frac{\partial f}{\partial (ty)} \cdot \frac{\d (ty)}{\d t} + \frac{\partial f}{\partial (tz)} \cdot \frac{\d (tz)}{\d t} \\
@@ -116,7 +116,7 @@ v
         x f'_x(x, y, z) + y f'_y(x, y, z) + z f'_z(x, y, z) = k f(x, y, z).
     \end{equation}
 
-    充分性：若已知题设微分方程成立。对于任意固定的 $(x, y, z)$，构造辅助函数：
+    充分性：若已知题设微分方程成立．对于任意固定的 $(x, y, z)$，构造辅助函数：
     \begin{equation}
         G(t) = \frac{f(tx, ty, tz)}{t^k} = t^{-k} f(tx, ty, tz) \quad (t > 0).
     \end{equation}
@@ -136,11 +136,11 @@ v
     \begin{equation}
         G'(t) = -k t^{-k-1} f(tx, ty, tz) + t^{-k-1} \left[ k f(tx, ty, tz) \right] = 0.
     \end{equation}
-    因此 $G(t)$ 为常数。由 $G(1) = f(x, y, z)$ 可知 $G(t) = f(x, y, z)$，即：
+    因此 $G(t)$ 为常数．由 $G(1) = f(x, y, z)$ 可知 $G(t) = f(x, y, z)$，即：
     \begin{equation}
         \frac{f(tx, ty, tz)}{t^k} = f(x, y, z) \implies f(tx, ty, tz) = t^k f(x, y, z).
     \end{equation}
-    综上所述，原命题得证。
+    综上所述，原命题得证．
     \begin{equation}
         \boxed{x f'_x(x, y, z) + y f'_y(x, y, z) + z f'_z(x, y, z) = k f(x, y, z)}
     \end{equation}
@@ -148,7 +148,7 @@ v
 
 
 \begin{problem}{齐次函数与隐函数}{Homogeneous-Implicit-Function}
-    设 $f(x,y,z)$ 是 $n$ 次齐次的可微函数。若方程 $f(x,y,z) = 0$ 隐含函数 $z = \varphi(x,y)$ (即，$f'_z \neq 0$), 则 $\varphi(x,y)$ 是一次齐次函数。
+    设 $f(x,y,z)$ 是 $n$ 次齐次的可微函数．若方程 $f(x,y,z) = 0$ 隐含函数 $z = \varphi(x,y)$ (即，$f'_z \neq 0$), 则 $\varphi(x,y)$ 是一次齐次函数．
 \end{problem}
 
 \begin{myproof}
@@ -168,11 +168,11 @@ v
     \begin{equation}
         f(tx, ty, \varphi(tx, ty)) = 0. \label{eq:scaled-implicit}
     \end{equation}
-    由于 $f'_z \neq 0$，根据隐函数存在定理，方程 $f(tx, ty, z) = 0$ 在该点附近确定的解 $z$ 是唯一的。通过比较 \zcref{eq:scaled-zero} 与 \zcref{eq:scaled-implicit} 可知
+    由于 $f'_z \neq 0$，根据隐函数存在定理，方程 $f(tx, ty, z) = 0$ 在该点附近确定的解 $z$ 是唯一的．通过比较 \zcref{eq:scaled-zero} 与 \zcref{eq:scaled-implicit} 可知
     \begin{equation}
         \varphi(tx, ty) = t\varphi(x, y).
     \end{equation}
-    由此证明 $\varphi(x, y)$ 是一次齐次函数。
+    由此证明 $\varphi(x, y)$ 是一次齐次函数．
     \begin{equation}
         \boxed{\varphi(tx, ty) = t\varphi(x, y)}
     \end{equation}
@@ -185,13 +185,13 @@ v
     \begin{equation}
         f(x,y) + f(y,z) + f(z,x) = 3f\left(\frac{x+y+z}{3}, \frac{x+y+z}{3}\right).
     \end{equation}
-    试求 $f(x,y)$。
+    试求 $f(x,y)$．
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
 
-    记 $g(t) = f(t,t)$。对原方程两端关于 $x$ 求偏导得：
+    记 $g(t) = f(t,t)$．对原方程两端关于 $x$ 求偏导得：
     \begin{equation}
         \frac{\partial f}{\partial x}(x,y) + \frac{\partial f}{\partial x}(z,x) = g'\left( \frac{x+y+z}{3} \right).
     \end{equation}
@@ -203,15 +203,15 @@ v
     \begin{equation}
         \frac{\partial^2 f}{\partial x \partial y}(x,y) = \frac{1}{3} g''\left( \frac{x+y+z}{3} \right). \label{eq:second-partial-1}
     \end{equation}
-    由于 \zcref{eq:second-partial-1} 左端仅与 $x,y$ 相关，而右端包含变量 $z$，取 $z = -x-y$，$x$ 和 $y$ 自由变化时右侧为定值，故 $\frac{\partial^2 f}{\partial x \partial y}$ 必为常数。设该常数为 $4a$，则：
+    由于 \zcref{eq:second-partial-1} 左端仅与 $x,y$ 相关，而右端包含变量 $z$，取 $z = -x-y$，$x$ 和 $y$ 自由变化时右侧为定值，故 $\frac{\partial^2 f}{\partial x \partial y}$ 必为常数．设该常数为 $4a$，则：
     \begin{equation}
         f(x,y) = 4axy + \varphi(x) + \psi(y).
     \end{equation}
-    由 $f(x,y) = f(y,x)$ 可知 $\varphi(x) + \psi(y) = \varphi(y) + \psi(x)$，由此推得 $\varphi(x) - \psi(x) = C$。令 $h(x) = \varphi(x) - \frac{C}{2}$，则 $f(x,y)$ 可表示为：
+    由 $f(x,y) = f(y,x)$ 可知 $\varphi(x) + \psi(y) = \varphi(y) + \psi(x)$，由此推得 $\varphi(x) - \psi(x) = C$．令 $h(x) = \varphi(x) - \frac{C}{2}$，则 $f(x,y)$ 可表示为：
     \begin{equation}
         f(x,y) = 4axy + h(x) + h(y).
     \end{equation}
-    此时 $g(t) = f(t,t) = 4at^2 + 2h(t)$。代入 \zcref{eq:second-partial-1} 可得 $4a = \frac{1}{3}(8a + 2h''(t))$，解得 $h''(t) = 2a$。故 $h(x) = ax^2 + bx + c$。综上所述：
+    此时 $g(t) = f(t,t) = 4at^2 + 2h(t)$．代入 \zcref{eq:second-partial-1} 可得 $4a = \frac{1}{3}(8a + 2h''(t))$，解得 $h''(t) = 2a$．故 $h(x) = ax^2 + bx + c$．综上所述：
     \begin{equation}
         f(x,y) = 4axy + ax^2 + bx + ay^2 + by + C = a(x^2 + y^2 + 4xy) + b(x+y) + C.
     \end{equation}
@@ -230,7 +230,7 @@ v
                        & = 2a(x+y+z)^2 + 2b(x+y+z) + 3C.
         \end{aligned}
     \end{equation}
-    两端相等，故结果正确。
+    两端相等，故结果正确．
     \begin{equation}
         \boxed{f(x,y) = a(x^2 + y^2 + 4xy) + b(x + y) + C}
     \end{equation}
@@ -238,7 +238,7 @@ v
 
 
 \begin{problem}{多元函数不等式}{Multivariate-Inequality}
-    证明：不等式 $\frac{x^2+y^2}{4} \leqslant \e^{x+y-2}$ ($x \geqslant 0, y \geqslant 0$)。
+    证明：不等式 $\frac{x^2+y^2}{4} \leqslant \e^{x+y-2}$ ($x \geqslant 0, y \geqslant 0$)．
 \end{problem}
 
 \begin{myproof}
@@ -253,15 +253,15 @@ v
             \frac{\partial g}{\partial y} & = (2y - x^2 - y^2) \e^{2-x-y}.
         \end{aligned}
     \end{equation}
-    令偏导数均为零，由于指数项恒大于零，在第一象限内部需满足 $x^2 + y^2 = 2x$ 且 $x^2 + y^2 = 2y$。由此可解得区域内的唯一驻点为 $(1, 1)$。此时函数值为
+    令偏导数均为零，由于指数项恒大于零，在第一象限内部需满足 $x^2 + y^2 = 2x$ 且 $x^2 + y^2 = 2y$．由此可解得区域内的唯一驻点为 $(1, 1)$．此时函数值为
     \begin{equation}
         g(1, 1) = 2 \e^{2-1-1} = 2.
     \end{equation}
-    考虑区域边界。当 $x = 0$ 时，$g(0, y) = y^2 \e^{2-y}$。令其关于 $y$ 的导数 $(2y - y^2) \e^{2-y} = 0$，得临界点 $y = 0$ 或 $y = 2$。计算边界上的极值点：
+    考虑区域边界．当 $x = 0$ 时，$g(0, y) = y^2 \e^{2-y}$．令其关于 $y$ 的导数 $(2y - y^2) \e^{2-y} = 0$，得临界点 $y = 0$ 或 $y = 2$．计算边界上的极值点：
     \begin{equation}
         g(0, 0) = 0, \quad g(0, 2) = 4.
     \end{equation}
-    对称地，当 $y = 0$ 时，最大值为 $g(2, 0) = 4$。由于当 $x \to +\infty$ 或 $y \to +\infty$ 时，指数衰减速度远快于多项式增长，故 $g(x, y) \to 0$。综上可知，$g(x, y)$ 在闭区域 $x \geqslant 0, y \geqslant 0$ 上的全局最大值为 $4$。即满足
+    对称地，当 $y = 0$ 时，最大值为 $g(2, 0) = 4$．由于当 $x \to +\infty$ 或 $y \to +\infty$ 时，指数衰减速度远快于多项式增长，故 $g(x, y) \to 0$．综上可知，$g(x, y)$ 在闭区域 $x \geqslant 0, y \geqslant 0$ 上的全局最大值为 $4$．即满足
     \begin{equation}
         (x^2 + y^2) \e^{2-x-y} \leqslant 4.
     \end{equation}
@@ -272,11 +272,11 @@ v
 \end{myproof}
 
 \begin{problem}{多元函数连续性}{Multivariate-Continuity-2}
-    设在 $\symbb{R}^3$ 上定义的 $u = f(x,y,z)$ 是 $z$ 的连续函数，且 $\frac{\partial f}{\partial x}$、$\frac{\partial f}{\partial y}$ 在 $\symbb{R}^3$ 上连续。证明：$u$ 在 $\symbb{R}^3$ 上连续。
+    设在 $\symbb{R}^3$ 上定义的 $u = f(x,y,z)$ 是 $z$ 的连续函数，且 $\frac{\partial f}{\partial x}$、$\frac{\partial f}{\partial y}$ 在 $\symbb{R}^3$ 上连续．证明：$u$ 在 $\symbb{R}^3$ 上连续．
 \end{problem}
 
 \begin{myproof}
-    任取点 $P_0(x_0, y_0, z_0) \in \symbb{R}^3$。考察函数在该点的改变量
+    任取点 $P_0(x_0, y_0, z_0) \in \symbb{R}^3$．考察函数在该点的改变量
     \begin{equation}
         \Delta f = f(x, y, z) - f(x_0, y_0, z_0).
     \end{equation}
@@ -288,14 +288,14 @@ v
     \begin{equation}
         \begin{aligned}
             f(x, y, z) - f(x_0, y, z)     & = \frac{\partial f}{\partial x}(\xi, y, z) (x - x_0), \quad \xi \text{ 介于 } x, x_0 \text{ 之间}；     \\
-            f(x_0, y, z) - f(x_0, y_0, z) & = \frac{\partial f}{\partial y}(x_0, \eta, z) (y - y_0), \quad \eta \text{ 介于 } y, y_0 \text{ 之间}。
+            f(x_0, y, z) - f(x_0, y_0, z) & = \frac{\partial f}{\partial y}(x_0, \eta, z) (y - y_0), \quad \eta \text{ 介于 } y, y_0 \text{ 之间}．
         \end{aligned}
     \end{equation}
-    由于偏导数 $\frac{\partial f}{\partial x}$ 与 $\frac{\partial f}{\partial y}$ 在 $\symbb{R}^3$ 上连续，故在 $P_0$ 的任一紧邻域内必有界。设在该邻域内满足 $\left| \frac{\partial f}{\partial x} \right| \leqslant M$ 且 $\left| \frac{\partial f}{\partial y} \right| \leqslant M$，则有
+    由于偏导数 $\frac{\partial f}{\partial x}$ 与 $\frac{\partial f}{\partial y}$ 在 $\symbb{R}^3$ 上连续，故在 $P_0$ 的任一紧邻域内必有界．设在该邻域内满足 $\left| \frac{\partial f}{\partial x} \right| \leqslant M$ 且 $\left| \frac{\partial f}{\partial y} \right| \leqslant M$，则有
     \begin{equation}
         |\Delta f| \leqslant M|x - x_0| + M|y - y_0| + |f(x_0, y_0, z) - f(x_0, y_0, z_0)|.
     \end{equation}
-    当 $(x, y, z) \to (x_0, y_0, z_0)$ 时，显然有 $|x - x_0| \to 0$ 且 $|y - y_0| \to 0$。此外，由 $f$ 是关于 $z$ 的连续函数知
+    当 $(x, y, z) \to (x_0, y_0, z_0)$ 时，显然有 $|x - x_0| \to 0$ 且 $|y - y_0| \to 0$．此外，由 $f$ 是关于 $z$ 的连续函数知
     \begin{equation}
         \lim_{z \to z_0} [f(x_0, y_0, z) - f(x_0, y_0, z_0)] = 0.
     \end{equation}
@@ -303,20 +303,20 @@ v
     \begin{equation}
         \boxed{\lim_{(x, y, z) \to (x_0, y_0, z_0)} f(x, y, z) = f(x_0, y_0, z_0)}.
     \end{equation}
-    由于 $P_0$ 具有任意性，证得 $u = f(x, y, z)$ 在 $\symbb{R}^3$ 上连续。
+    由于 $P_0$ 具有任意性，证得 $u = f(x, y, z)$ 在 $\symbb{R}^3$ 上连续．
 \end{myproof}
 
 
 \begin{problem}{常值函数判定}{Constant-Function-Convex-Domain}
-    设 $D \subset \mathbb{R}^2$ 是包含原点的凸区域，$f \in C^1(D)$。证明：若
+    设 $D \subset \mathbb{R}^2$ 是包含原点的凸区域，$f \in C^1(D)$．证明：若
     \begin{equation}
         x \frac{\partial f(x,y)}{\partial x} + y \frac{\partial f(x,y)}{\partial y} = 0, \quad ((x,y) \in D), \label{eq:Euler-PDE}
     \end{equation}
-    则 $f(x,y)$ 是常数。
+    则 $f(x,y)$ 是常数．
 \end{problem}
 
 \begin{myproof}
-    对任意 $(x, y) \in D$，构造辅助函数 $F(t) = f(tx, ty)$，$t \in [0, 1]$。由于 $D$ 是包含原点的凸区域，对于所有 $t \in [0, 1]$，点 $(tx, ty)$ 均属于 $D$。由复合函数求导法则有
+    对任意 $(x, y) \in D$，构造辅助函数 $F(t) = f(tx, ty)$，$t \in [0, 1]$．由于 $D$ 是包含原点的凸区域，对于所有 $t \in [0, 1]$，点 $(tx, ty)$ 均属于 $D$．由复合函数求导法则有
     \begin{equation}
         F'(t) = x \frac{\partial f}{\partial x}(tx, ty) + y \frac{\partial f}{\partial y}(tx, ty).
     \end{equation}
@@ -324,11 +324,11 @@ v
     \begin{equation}
         F'(t) = \frac{1}{t} \left[ (tx) \frac{\partial f}{\partial x}(tx, ty) + (ty) \frac{\partial f}{\partial y}(tx, ty) \right] = 0.
     \end{equation}
-    由于 $f \in C^1(D)$，其偏导数连续，故 $F'(t)$ 在 $[0, 1]$ 上连续。由 $F'(t) = 0$ 在 $(0, 1]$ 上成立及连续性可知，$F'(t) \equiv 0$ 对所有 $t \in [0, 1]$ 成立。因此
+    由于 $f \in C^1(D)$，其偏导数连续，故 $F'(t)$ 在 $[0, 1]$ 上连续．由 $F'(t) = 0$ 在 $(0, 1]$ 上成立及连续性可知，$F'(t) \equiv 0$ 对所有 $t \in [0, 1]$ 成立．因此
     \begin{equation}
         f(x, y) = F(1) = F(0) = f(0, 0).
     \end{equation}
-    这表明 $f(x, y)$ 在 $D$ 上恒为常数。
+    这表明 $f(x, y)$ 在 $D$ 上恒为常数．
     \begin{equation}
         \boxed{f(x, y) = C}
     \end{equation}
@@ -336,7 +336,7 @@ v
 
 
 \begin{problem}{Hadamard 引理}{Hadamard-Lemma-R2}
-    设 $f \in C^1(\mathbb{R}^2)$，$f(0,0) = 0$。证明：存在 $\mathbb{R}^2$ 上的连续函数 $g_1, g_2$ 使得
+    设 $f \in C^1(\mathbb{R}^2)$，$f(0,0) = 0$．证明：存在 $\mathbb{R}^2$ 上的连续函数 $g_1, g_2$ 使得
     \begin{equation}
         f(x,y) = x g_1(x,y) + y g_2(x,y).
     \end{equation}
@@ -362,7 +362,7 @@ v
     \begin{equation}
         g_1(x, y) = \int_0^1 \frac{\partial f}{\partial x}(tx, ty) \d t, \quad g_2(x, y) = \int_0^1 \frac{\partial f}{\partial y}(tx, ty) \d t.
     \end{equation}
-    由于 $f \in C^1(\mathbb{R}^2)$，其偏导数 $\frac{\partial f}{\partial x}$ 与 $\frac{\partial f}{\partial y}$ 在 $\mathbb{R}^2$ 上连续。根据含参变量积分的连续性定理可知，$g_1(x, y)$ 与 $g_2(x, y)$ 在 $\mathbb{R}^2$ 上均为连续函数。由此得证
+    由于 $f \in C^1(\mathbb{R}^2)$，其偏导数 $\frac{\partial f}{\partial x}$ 与 $\frac{\partial f}{\partial y}$ 在 $\mathbb{R}^2$ 上连续．根据含参变量积分的连续性定理可知，$g_1(x, y)$ 与 $g_2(x, y)$ 在 $\mathbb{R}^2$ 上均为连续函数．由此得证
     \begin{equation}
         \boxed{f(x, y) = x g_1(x, y) + y g_2(x, y)}
     \end{equation}
@@ -370,11 +370,11 @@ v
 
 
 \begin{problem}{全微分存在性充分条件}{Differentiability-Condition}
-    设 $f(x, y)$ 在 $(x_0, y_0)$ 的某个邻域 $U$ 上有定义，$\frac{\partial f}{\partial x}$ 和 $\frac{\partial f}{\partial y}$ 在 $U$ 上存在。证明：如果 $\frac{\partial f}{\partial x}$ 和 $\frac{\partial f}{\partial y}$ 中有一个在 $(x_0, y_0)$ 处连续，那么 $f(x, y)$ 在 $(x_0, y_0)$ 可微。
+    设 $f(x, y)$ 在 $(x_0, y_0)$ 的某个邻域 $U$ 上有定义，$\frac{\partial f}{\partial x}$ 和 $\frac{\partial f}{\partial y}$ 在 $U$ 上存在．证明：如果 $\frac{\partial f}{\partial x}$ 和 $\frac{\partial f}{\partial y}$ 中有一个在 $(x_0, y_0)$ 处连续，那么 $f(x, y)$ 在 $(x_0, y_0)$ 可微．
 \end{problem}
 
 \begin{myproof}
-    不妨设 $\frac{\partial f}{\partial x}$ 在 $(x_0, y_0)$ 处连续。考虑全增量
+    不妨设 $\frac{\partial f}{\partial x}$ 在 $(x_0, y_0)$ 处连续．考虑全增量
     \begin{equation}
         \Delta z = f(x_0 + \Delta x, y_0 + \Delta y) - f(x_0, y_0).
         \label{eq:diff-def-1}
@@ -392,12 +392,12 @@ v
         \end{aligned}
         \label{eq:mvt-apply}
     \end{equation}
-    其中 $0 < \theta < 1$，且当 $\Delta y \to 0$ 时，$\alpha \to 0$。由于 $f_x$ 在 $(x_0, y_0)$ 处连续，当 $\rho = \sqrt{(\Delta x)^2 + (\Delta y)^2} \to 0$ 时，有
+    其中 $0 < \theta < 1$，且当 $\Delta y \to 0$ 时，$\alpha \to 0$．由于 $f_x$ 在 $(x_0, y_0)$ 处连续，当 $\rho = \sqrt{(\Delta x)^2 + (\Delta y)^2} \to 0$ 时，有
     \begin{equation}
         f_x(x_0 + \theta \Delta x, y_0 + \Delta y) = f_x(x_0, y_0) + \beta,
         \label{eq:fx-cont}
     \end{equation}
-    其中 $\beta \to 0$。代入 \zcref{eq:mvt-apply} 得
+    其中 $\beta \to 0$．代入 \zcref{eq:mvt-apply} 得
     \begin{equation}
         \Delta z = f_x(x_0, y_0) \Delta x + f_y(x_0, y_0) \Delta y + \beta \Delta x + \alpha \Delta y.
         \label{eq:final-form}
@@ -407,21 +407,21 @@ v
         \frac{|\beta \Delta x + \alpha \Delta y|}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} \leqslant |\beta| \frac{|\Delta x|}{\rho} + |\alpha| \frac{|\Delta y|}{\rho} \leqslant |\beta| + |\alpha| \to 0.
         \label{eq:limit-zero}
     \end{equation}
-    故 $\beta \Delta x + \alpha \Delta y = o(\rho)$。因此 $f(x, y)$ 在 $(x_0, y_0)$ 处可微。
+    故 $\beta \Delta x + \alpha \Delta y = o(\rho)$．因此 $f(x, y)$ 在 $(x_0, y_0)$ 处可微．
 \end{myproof}
 
 \begin{problem}{变量分离型偏微分方程}{Separation-of-Variables-PDE}
-    设 $u(x, y)$ 在 $\symbb{R}^2$ 上取正值且有二阶连续偏导数。证明：$u$ 满足方程
+    设 $u(x, y)$ 在 $\symbb{R}^2$ 上取正值且有二阶连续偏导数．证明：$u$ 满足方程
     \begin{equation}
         u \frac{\partial^2 u}{\partial x \partial y} = \frac{\partial u}{\partial x} \frac{\partial u}{\partial y}
         \label{eq:pde-origin}
     \end{equation}
-    的充分必要条件是存在一元函数 $f$ 和 $g$ 使得 $u(x, y) = f(x)g(y)$。
+    的充分必要条件是存在一元函数 $f$ 和 $g$ 使得 $u(x, y) = f(x)g(y)$．
 \end{problem}
 
 \begin{myproof}
 
-    必要性：由 $u(x, y) > 0$，令 $v(x, y) = \ln u(x, y)$。对 $v$ 求偏导得
+    必要性：由 $u(x, y) > 0$，令 $v(x, y) = \ln u(x, y)$．对 $v$ 求偏导得
     \begin{equation}
         \frac{\partial v}{\partial x} = \frac{1}{u} \frac{\partial u}{\partial x},
         \label{eq:vx-pde}
@@ -431,7 +431,7 @@ v
         \frac{\partial^2 v}{\partial x \partial y} = \frac{\partial}{\partial y} \left( \frac{1}{u} \frac{\partial u}{\partial x} \right) = \frac{u \frac{\partial^2 u}{\partial y \partial x} - \frac{\partial u}{\partial y} \frac{\partial u}{\partial x}}{u^2}.
         \label{eq:vxy-pde}
     \end{equation}
-    若 \zcref{eq:pde-origin} 成立，则有 $\frac{\partial^2 v}{\partial x \partial y} = 0$。积分得
+    若 \zcref{eq:pde-origin} 成立，则有 $\frac{\partial^2 v}{\partial x \partial y} = 0$．积分得
     \begin{equation}
         \frac{\partial v}{\partial x} = A(x) \implies v(x, y) = \int A(x) \d x + \Psi(y) = \varphi(x) + \Psi(y).
         \label{eq:v-integral}
@@ -441,9 +441,9 @@ v
         u(x, y) = \e^{\varphi(x) + \Psi(y)} = \e^{\varphi(x)} \cdot \e^{\Psi(y)}.
         \label{eq:u-sep-form}
     \end{equation}
-    取 $f(x) = \e^{\varphi(x)}$，$g(y) = \e^{\Psi(y)}$ 即证。
+    取 $f(x) = \e^{\varphi(x)}$，$g(y) = \e^{\Psi(y)}$ 即证．
 
-    充分性：设 $u(x, y) = f(x)g(y)$。直接计算其偏导数：
+    充分性：设 $u(x, y) = f(x)g(y)$．直接计算其偏导数：
     \begin{equation}
         \frac{\partial u}{\partial x} = f'(x)g(y), \quad \frac{\partial u}{\partial y} = f(x)g'(y), \quad \frac{\partial^2 u}{\partial x \partial y} = f'(x)g'(y).
         \label{eq:suff-deriv}
@@ -456,21 +456,21 @@ v
         \end{aligned}
         \label{eq:suff-verify}
     \end{equation}
-    两端相等，故方程 \zcref{eq:pde-origin} 成立。
+    两端相等，故方程 \zcref{eq:pde-origin} 成立．
 \end{myproof}
 
 
 \begin{problem}{中值定理与向量值函数}{Vector-Mean-Value-Theorem}
-    设 $\symbfit{r}(t) = x(t)\symbfit{i} + y(t)\symbfit{j}$，$t \in [a, b]$ 有连续的导数。证明：存在 $\theta \in (a, b)$，使得
+    设 $\symbfit{r}(t) = x(t)\symbfit{i} + y(t)\symbfit{j}$，$t \in [a, b]$ 有连续的导数．证明：存在 $\theta \in (a, b)$，使得
     \begin{equation}
         |\symbfit{r}(b) - \symbfit{r}(a)| \le |\symbfit{r}'(\theta)|(b - a). \label{eq:target-inequality}
     \end{equation}
-    提示：令 $\varphi(t) = (x(b) - x(a))x(t) + (y(b) - y(a))y(t)$，对函数 $\varphi(t)$ 使用微分中值定理，并利用 Cauchy-Schwarz（柯西-施瓦茨）不等式：$(a_1b_1 + a_2b_2)^2 \le (a_1^2 + a_2^2)(b_1^2 + b_2^2)$。
+    提示：令 $\varphi(t) = (x(b) - x(a))x(t) + (y(b) - y(a))y(t)$，对函数 $\varphi(t)$ 使用微分中值定理，并利用 Cauchy-Schwarz（柯西-施瓦茨）不等式：$(a_1b_1 + a_2b_2)^2 \le (a_1^2 + a_2^2)(b_1^2 + b_2^2)$．
 \end{problem}
 
 \begin{myproof}
 
-    构造辅助函数 $\varphi(t) = (x(b) - x(a))x(t) + (y(b) - y(a))y(t)$。由于 $x(t)$、$y(t)$ 在 $[a, b]$ 上具有连续的导数，故 $\varphi(t)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 内可导。
+    构造辅助函数 $\varphi(t) = (x(b) - x(a))x(t) + (y(b) - y(a))y(t)$．由于 $x(t)$、$y(t)$ 在 $[a, b]$ 上具有连续的导数，故 $\varphi(t)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 内可导．
     根据 Lagrange 中值定理，存在 $\theta \in (a, b)$ 使得
     \begin{equation}
         \varphi(b) - \varphi(a) = \varphi'(\theta)(b - a). \label{eq:lagrange}
@@ -506,11 +506,11 @@ v
 
 
 \begin{problem}{偏导数方程}{Partial-Differential-Equation}
-    设 $f(x,y,z)$ 在 $\mathbb{R}^3$ 上有一阶连续偏导数，且满足 $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = \frac{\partial f}{\partial z}$。 如果 $f(x,0,0) > 0$ 对任意的 $x \in \mathbb{R}$ 成立，求证：对任意的 $(x,y,z) \in \mathbb{R}^3$，也有 $f(x,y,z) > 0$。
+    设 $f(x,y,z)$ 在 $\mathbb{R}^3$ 上有一阶连续偏导数，且满足 $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = \frac{\partial f}{\partial z}$． 如果 $f(x,0,0) > 0$ 对任意的 $x \in \mathbb{R}$ 成立，求证：对任意的 $(x,y,z) \in \mathbb{R}^3$，也有 $f(x,y,z) > 0$．
 \end{problem}
 
 \begin{myproof}
-    构造辅助函数 $g(t) = f(x+t, y-t, z)$。由复合函数求导法则可得
+    构造辅助函数 $g(t) = f(x+t, y-t, z)$．由复合函数求导法则可得
     \begin{equation}
         \frac{\d g}{\d t} = \frac{\partial f}{\partial x} \cdot 1 + \frac{\partial f}{\partial y} \cdot (-1) = \frac{\partial f}{\partial x} - \frac{\partial f}{\partial y} = 0.
     \end{equation}
@@ -532,7 +532,7 @@ v
     \begin{equation}
         f(x,y,z) = f(x+y+z, 0, 0).
     \end{equation}
-    令 $u = x+y+z \in \mathbb{R}$。根据题设条件，对任意 $u \in \mathbb{R}$，均有 $f(u,0,0) > 0$。因此
+    令 $u = x+y+z \in \mathbb{R}$．根据题设条件，对任意 $u \in \mathbb{R}$，均有 $f(u,0,0) > 0$．因此
     \begin{equation}
         f(x,y,z) = f(u, 0, 0) > 0.
     \end{equation}
@@ -540,11 +540,11 @@ v
 
 
 \begin{problem}{多元函数最值}{Multivariable-Extrema}
-    求函数 $f(x,y) = x^2 + xy^2 - x$ 在区域 $D = \{(x,y) \mid x^2 + y^2 \leqslant 2\}$ 上的最大值和最小值。
+    求函数 $f(x,y) = x^2 + xy^2 - x$ 在区域 $D = \{(x,y) \mid x^2 + y^2 \leqslant 2\}$ 上的最大值和最小值．
 \end{problem}
 
 \begin{solution}
-    首先寻找区域 $D$ 内部的驻点。令其偏导数为零：
+    首先寻找区域 $D$ 内部的驻点．令其偏导数为零：
     \begin{equation}
         \label{eq:stationary-points}
         \left\{ \begin{aligned}
@@ -552,28 +552,28 @@ v
             f_y & = 2xy = 0.
         \end{aligned} \right.
     \end{equation}
-    由 $f_y = 0$ 可得 $x=0$ 或 $y=0$。
+    由 $f_y = 0$ 可得 $x=0$ 或 $y=0$．
 
     \begin{enumerate}
-        \item 若 $x=0$，代入 $f_x=0$ 得 $y^2 = 1$，即 $y = \pm 1$。得到驻点 $(0, 1)$、$(0, -1)$，均在 $D$ 内。此时 $f(0, \pm 1) = 0$。
-        \item 若 $y=0$，代入 $f_x=0$ 得 $x = \frac{1}{2}$。得到驻点 $(\frac{1}{2}, 0)$，在 $D$ 内。此时 $f(\frac{1}{2}, 0) = -\frac{1}{4}$。
+        \item 若 $x=0$，代入 $f_x=0$ 得 $y^2 = 1$，即 $y = \pm 1$．得到驻点 $(0, 1)$、$(0, -1)$，均在 $D$ 内．此时 $f(0, \pm 1) = 0$．
+        \item 若 $y=0$，代入 $f_x=0$ 得 $x = \frac{1}{2}$．得到驻点 $(\frac{1}{2}, 0)$，在 $D$ 内．此时 $f(\frac{1}{2}, 0) = -\frac{1}{4}$．
     \end{enumerate}
 
-    再考察边界 $x^2 + y^2 = 2$。将 $y^2 = 2 - x^2$ 代入原函数，得一元函数
+    再考察边界 $x^2 + y^2 = 2$．将 $y^2 = 2 - x^2$ 代入原函数，得一元函数
     \begin{equation}
         g(x) = x^2 + x(2 - x^2) - x = -x^3 + x^2 + x, \quad x \in [-\sqrt{2}, \sqrt{2}].
     \end{equation}
-    求导得 $g'(x) = -3x^2 + 2x + 1 = 0$，解得 $x_1 = 1$，$x_2 = -\frac{1}{3}$。计算相关点的函数值：
+    求导得 $g'(x) = -3x^2 + 2x + 1 = 0$，解得 $x_1 = 1$，$x_2 = -\frac{1}{3}$．计算相关点的函数值：
     \begin{enumerate}
-        \item 当 $x=1$ 时，$g(1) = 1$。
-        \item 当 $x=-\frac{1}{3}$ 时，$g(-\frac{1}{3}) = \frac{1}{27} + \frac{1}{9} - \frac{1}{3} = -\frac{5}{27}$。
+        \item 当 $x=1$ 时，$g(1) = 1$．
+        \item 当 $x=-\frac{1}{3}$ 时，$g(-\frac{1}{3}) = \frac{1}{27} + \frac{1}{9} - \frac{1}{3} = -\frac{5}{27}$．
         \item 考察边界端点 $x = \pm \sqrt{2}$：
               \begin{equation}
                   g(\sqrt{2}) = 2 - \sqrt{2}, \quad g(-\sqrt{2}) = 2 + \sqrt{2}.
               \end{equation}
     \end{enumerate}
 
-    比较所有候选值：$0$、$-\frac{1}{4}$、$-\frac{5}{27}$、$1$、$2-\sqrt{2}$、$2+\sqrt{2}$。易见最大值为 $2+\sqrt{2}$。由于 $-\frac{1}{4} < -\frac{5}{27}$，故最小值为 $-\frac{1}{4}$。
+    比较所有候选值：$0$、$-\frac{1}{4}$、$-\frac{5}{27}$、$1$、$2-\sqrt{2}$、$2+\sqrt{2}$．易见最大值为 $2+\sqrt{2}$．由于 $-\frac{1}{4} < -\frac{5}{27}$，故最小值为 $-\frac{1}{4}$．
     \begin{equation}
         \boxed{f_{\max} = 2 + \sqrt{2}, \quad f_{\min} = -\frac{1}{4}}
     \end{equation}
@@ -581,11 +581,11 @@ v
 
 
 \begin{problem}{Lagrange 乘数法}{Lagrange-Multipliers-Inequality}
-    设 $x_1, x_2, \dots, x_n$ 是正数，且 $x_1 + x_2 + \dots + x_n = n$。用 Lagrange 乘数法证明
+    设 $x_1, x_2, \dots, x_n$ 是正数，且 $x_1 + x_2 + \dots + x_n = n$．用 Lagrange 乘数法证明
     \begin{equation}
         x_1 x_2 \dots x_n \left( \frac{1}{x_1} + \frac{1}{x_2} + \dots + \frac{1}{x_n} \right) \leqslant n,
     \end{equation}
-    等号当且仅当 $x_1 = x_2 = \dots = x_n = 1$ 时成立。
+    等号当且仅当 $x_1 = x_2 = \dots = x_n = 1$ 时成立．
 \end{problem}
 
 \begin{myproof}
@@ -595,11 +595,11 @@ v
     \begin{equation}
         f(x_1, x_2, \dots, x_n) = \sum_{i=1}^n \frac{\prod_{j=1}^n x_j}{x_i}, \quad g(x_1, x_2, \dots, x_n) = \sum_{i=1}^n x_i - n = 0.
     \end{equation}
-    记 $P = \prod_{j=1}^n x_j$，则 $f = \sum_{i=1}^n \frac{P}{x_i}$。构造 Lagrange 函数：
+    记 $P = \prod_{j=1}^n x_j$，则 $f = \sum_{i=1}^n \frac{P}{x_i}$．构造 Lagrange 函数：
     \begin{equation}
         L(x_1, x_2, \dots, x_n, \lambda) = f(x_1, x_2, \dots, x_n) + \lambda \left( \sum_{i=1}^n x_i - n \right).
     \end{equation}
-    对 $x_k$ ($k = 1, 2, \dots, n$) 求偏导数。注意到 $\frac{\partial P}{\partial x_k} = \frac{P}{x_k}$，故有
+    对 $x_k$ ($k = 1, 2, \dots, n$) 求偏导数．注意到 $\frac{\partial P}{\partial x_k} = \frac{P}{x_k}$，故有
     \begin{equation}\label{eq:partial-f}
         \frac{\partial f}{\partial x_k} = \frac{\partial}{\partial x_k} \left( \frac{P}{x_k} + \sum_{i \neq k} \frac{P}{x_i} \right) = 0 + \sum_{i \neq k} \frac{P}{x_i x_k} = \frac{1}{x_k} \left( f - \frac{P}{x_k} \right).
     \end{equation}
@@ -615,17 +615,17 @@ v
     \begin{equation}\label{eq:quadratic-res}
         \frac{n-1}{n} f x_k^2 - f x_k + P = 0.
     \end{equation}
-    由于该二次方程对所有 $k$ 形式相同且至多有两个正根，结合对称性及约束条件 $\sum x_i = n$，考察所有变量相等的情况。令 $x_1 = x_2 = \dots = x_n = 1$，代入 \zcref{eq:quadratic-res} 验证：
+    由于该二次方程对所有 $k$ 形式相同且至多有两个正根，结合对称性及约束条件 $\sum x_i = n$，考察所有变量相等的情况．令 $x_1 = x_2 = \dots = x_n = 1$，代入 \zcref{eq:quadratic-res} 验证：
     \begin{equation}
         \frac{n-1}{n} \cdot n \cdot (1)^2 - n \cdot (1) + 1 = (n-1) - n + 1 = 0.
     \end{equation}
-    此时驻点处函数值为 $f(1, 1, \dots, 1) = n$。
-    若定义域边界存在 $x_i \to 0$，则 $P \to 0$。由算术--几何平均值不等式可知，当其余 $n-1$ 个变量趋于一致时 $f$ 取边界极大值：
+    此时驻点处函数值为 $f(1, 1, \dots, 1) = n$．
+    若定义域边界存在 $x_i \to 0$，则 $P \to 0$．由算术--几何平均值不等式可知，当其余 $n-1$ 个变量趋于一致时 $f$ 取边界极大值：
     \begin{equation}
         \lim_{x_n \to 0} f = \prod_{j=1}^{n-1} x_j \leqslant \left( \frac{\sum_{j=1}^{n-1} x_j}{n-1} \right)^{n-1} = \left( \frac{n}{n-1} \right)^{n-1} = \left( 1 + \frac{1}{n-1} \right)^{n-1} < \e.
     \end{equation}
-    对于 $n \geqslant 3$，有 $\e < n$；对于 $n=2$，原式为 $x_1 x_2 (\frac{1}{x_1} + \frac{1}{x_2}) = x_1 + x_2 = 2$ 恒成立。
-    因此，$f$ 在 $(1, 1, \dots, 1)$ 处取得最大值 $n$。
+    对于 $n \geqslant 3$，有 $\e < n$；对于 $n=2$，原式为 $x_1 x_2 (\frac{1}{x_1} + \frac{1}{x_2}) = x_1 + x_2 = 2$ 恒成立．
+    因此，$f$ 在 $(1, 1, \dots, 1)$ 处取得最大值 $n$．
 
     \begin{equation}
         \boxed{x_1 x_2 \dots x_n \left( \frac{1}{x_1} + \frac{1}{x_2} + \dots + \frac{1}{x_n} \right) \leqslant n}
@@ -636,19 +636,19 @@ v
 
 
 \begin{problem}{Jensen 不等式}{Power-Mean-Inequality}
-    设 $a_i \ge 0$ ($i = 1, 2, \dots, n$)、$p > 1$。证明：
+    设 $a_i \ge 0$ ($i = 1, 2, \dots, n$)、$p > 1$．证明：
     \begin{equation}
         \frac{a_1 + \cdots + a_n}{n} \le \left( \frac{a_1^p + \cdots + a_n^p}{n} \right)^{1/p},
     \end{equation}
-    并讨论等号成立的条件。
+    并讨论等号成立的条件．
 \end{problem}
 
 \begin{myproof}
-    考虑函数 $f(x) = x^p$，$x \in [0, +\infty)$。由于 $p > 1$，计算其二阶导数得
+    考虑函数 $f(x) = x^p$，$x \in [0, +\infty)$．由于 $p > 1$，计算其二阶导数得
     \begin{equation}
         f''(x) = p(p-1)x^{p-2}. \label{eq:second-derivative}
     \end{equation}
-    当 $x > 0$ 时，$f''(x) > 0$，故 $f(x)$ 在 $[0, +\infty)$ 上为严格凸函数。根据 Jensen 不等式，有
+    当 $x > 0$ 时，$f''(x) > 0$，故 $f(x)$ 在 $[0, +\infty)$ 上为严格凸函数．根据 Jensen 不等式，有
     \begin{equation}
         f\left( \frac{1}{n} \sum_{i=1}^{n} a_i \right) \le \frac{1}{n} \sum_{i=1}^{n} f(a_i), \label{eq:jensen-apply}
     \end{equation}
@@ -688,7 +688,7 @@ v
         \end{aligned}
     \end{equation}
 
-    利用外积的反对称性，当指标序列 $(j_1, j_2, \dots, j_n)$ 中存在重复数字时，对应的微分形式乘积为零。因此，求和仅需遍历 $\{1, 2, \dots, n\}$ 的所有排列 $\sigma$。令 $j_i = \sigma(i)$，则有
+    利用外积的反对称性，当指标序列 $(j_1, j_2, \dots, j_n)$ 中存在重复数字时，对应的微分形式乘积为零．因此，求和仅需遍历 $\{1, 2, \dots, n\}$ 的所有排列 $\sigma$．令 $j_i = \sigma(i)$，则有
     \begin{equation}
         \d x_{\sigma(1)} \wedge \d x_{\sigma(2)} \wedge \dots \wedge \d x_{\sigma(n)} = \operatorname{sgn}(\sigma) \d x_1 \wedge \d x_2 \wedge \dots \wedge \d x_n.
     \end{equation}

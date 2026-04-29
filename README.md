@@ -11,12 +11,12 @@
   中文 | <a href="https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/blob/main/README.en.md">English</a>
 </p>
 
-本项目整理并撰写 **《数学分析讲义（第二册）》**（程艺、陈卿、李平 编著，第一版）习题详解，力求提供一份 **推导完整、排版清晰、适合自学与复习** 的数学参考资料。
+本项目整理并撰写 **《数学分析讲义（第二册）》**（程艺、陈卿、李平 编著，第一版）习题详解，力求提供一份 **推导完整、排版清晰、适合自学与复习** 的数学参考资料．
 
-项目基于 `ctexbook` 文档类构建，采用 **LuaLaTeX + l3build** 工作流，结合 `TikZ` / `pgfplots` 绘图与 OpenType 字体方案，生成高质量 PDF 文档。
+项目基于 `ctexbook` 文档类构建，采用 **LuaLaTeX + l3build** 工作流，结合 `TikZ` / `pgfplots` 绘图与 OpenType 字体方案，生成高质量 PDF 文档．
 
 > [!TIP]
-> 推荐使用 **TeX Live 2025 及以上版本** 进行编译，以获得更稳定的字体与排版效果。
+> 推荐使用 **TeX Live 2025 及以上版本** 进行编译，以获得更稳定的字体与排版效果．
 
 ---
 
@@ -45,10 +45,10 @@
 
 ## 🌟 主要特性
 
-- 🎨 **柔和配色**：定制化配色方案（Inspired by Ayaka in Genshin Impact），长时间阅读不疲劳。
-- 📐 **矢量绘图**：全量使用 `TikZ` / `pgfplots` 绘制，支持无损放大。
-- 🖋️ **优美字体**：内置 `LXGW-fonts` (落霞孤鹜) 配合 `New Computer Modern` 数学字体。
-- 🛠️ **自动化流水线**：集成 `l3build` 构建系统，支持一键生成 PDF。
+- 🎨 **柔和配色**：定制化配色方案（Inspired by Ayaka in Genshin Impact），长时间阅读不疲劳．
+- 📐 **矢量绘图**：全量使用 `TikZ` / `pgfplots` 绘制，支持无损放大．
+- 🖋️ **优美字体**：内置 `LXGW-fonts` (落霞孤鹜) 配合 `New Computer Modern` 数学字体．
+- 🛠️ **自动化流水线**：集成 `l3build` 构建系统，支持一键生成 PDF．
 
 ---
 
@@ -67,7 +67,7 @@
 
 ### 获取 PDF
 
-直接前往 [最新 Release](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/releases/latest) 下载。
+直接前往 [最新 Release](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/releases/latest) 下载．
 
 ### 本地编译
 
@@ -88,4 +88,4 @@
 
 ## 🤝 贡献与许可证
 
-欢迎通过 [Issue](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/issues)  提交更正建议。本项目采用 [GNU Free Documentation License 1.3](LICENSE) 协议。
+欢迎通过 [Issue](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/issues)  提交更正建议．本项目采用 [GNU Free Documentation License 1.3](LICENSE) 协议．

@@ -10,7 +10,7 @@
 \end{problem}
 
 \begin{myproof}
-    设 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$。
+    设 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$．
 
     \ansitem{1}
 
@@ -63,13 +63,13 @@
 \begin{problem}{向量积的运算性质}{Vector-Cross-Product-Properties}
     证明向量积的如下性质：
     \begin{enumerate}
-        \item $(\lambda\symbfit{a}) \times \symbfit{b} = \symbfit{a} \times (\lambda\symbfit{b}) = \lambda(\symbfit{a} \times \symbfit{b})$，其中 $\lambda \in \symbb{R}$。
+        \item $(\lambda\symbfit{a}) \times \symbfit{b} = \symbfit{a} \times (\lambda\symbfit{b}) = \lambda(\symbfit{a} \times \symbfit{b})$，其中 $\lambda \in \symbb{R}$．
         \item $\symbfit{a} \times \symbfit{b} = -\symbfit{b} \times \symbfit{a}$
     \end{enumerate}
 \end{problem}
 
 \begin{myproof}
-    设 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$，基向量为 $\symbfit{i}, \symbfit{j}, \symbfit{k}$。
+    设 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$，基向量为 $\symbfit{i}, \symbfit{j}, \symbfit{k}$．
 
     \ansitem{1}
 
@@ -124,20 +124,20 @@
 \end{problem}
 
 \begin{solution}
-    \ansitem{1} 不成立。
+    \ansitem{1} 不成立．
 
-    两个非零向量垂直时，其数量积为零。设 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则有
+    两个非零向量垂直时，其数量积为零．设 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则有
     \begin{equation}
         \symbfit{a} \cdot \symbfit{b} = 1 \cdot 0 + 0 \cdot 1 + 0 \cdot 0 = 0
     \end{equation}
-    显然 $\symbfit{a} \neq \symbfit{0}$ 且 $\symbfit{b} \neq \symbfit{0}$。
+    显然 $\symbfit{a} \neq \symbfit{0}$ 且 $\symbfit{b} \neq \symbfit{0}$．
     \begin{equation}
         \boxed{\text{结论不成立}}
     \end{equation}
 
-    \ansitem{2} 不成立。
+    \ansitem{2} 不成立．
 
-    由 $\symbfit{a} \times \symbfit{c} = \symbfit{a} \times \symbfit{b} \implies \symbfit{a} \times (\symbfit{c} - \symbfit{b}) = \symbfit{0}$，这仅说明 $\symbfit{a}$ 与 $\symbfit{c} - \symbfit{b}$ 共线。
+    由 $\symbfit{a} \times \symbfit{c} = \symbfit{a} \times \symbfit{b} \implies \symbfit{a} \times (\symbfit{c} - \symbfit{b}) = \symbfit{0}$，这仅说明 $\symbfit{a}$ 与 $\symbfit{c} - \symbfit{b}$ 共线．
     取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，$\symbfit{c} = (1, 1, 0)$，则
     \begin{equation}
         \begin{aligned}
@@ -145,25 +145,25 @@
             \symbfit{a} \times \symbfit{c} & = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 0 & 0 \\ 1 & 1 & 0 \end{vmatrix} = (0, 0, 1)
         \end{aligned}
     \end{equation}
-    虽然 $\symbfit{a} \times \symbfit{c} = \symbfit{a} \times \symbfit{b}$，但 $\symbfit{c} \neq \symbfit{b}$。
+    虽然 $\symbfit{a} \times \symbfit{c} = \symbfit{a} \times \symbfit{b}$，但 $\symbfit{c} \neq \symbfit{b}$．
     \begin{equation}
         \boxed{\text{结论不成立}}
     \end{equation}
 
-    \ansitem{3} 不成立。
+    \ansitem{3} 不成立．
 
-    设两单位向量为 $\symbfit{e}_1, \symbfit{e}_2$，夹角为 $\theta$。
-    其数量积 $\symbfit{e}_1 \cdot \symbfit{e}_2 = |\symbfit{e}_1||\symbfit{e}_2|\cos\theta = \cos\theta$，仅在 $\theta = 0$ 时等于 $1$。
-    其向量积模长 $|\symbfit{e}_1 \times \symbfit{e}_2| = |\symbfit{e}_1||\symbfit{e}_2|\sin\theta = \sin\theta$，仅在 $\theta = \frac{\uppi}{2}$ 时为单位向量。
+    设两单位向量为 $\symbfit{e}_1, \symbfit{e}_2$，夹角为 $\theta$．
+    其数量积 $\symbfit{e}_1 \cdot \symbfit{e}_2 = |\symbfit{e}_1||\symbfit{e}_2|\cos\theta = \cos\theta$，仅在 $\theta = 0$ 时等于 $1$．
+    其向量积模长 $|\symbfit{e}_1 \times \symbfit{e}_2| = |\symbfit{e}_1||\symbfit{e}_2|\sin\theta = \sin\theta$，仅在 $\theta = \frac{\uppi}{2}$ 时为单位向量．
     取 $\symbfit{e}_1 = (1, 0, 0)$，$\symbfit{e}_2 = (0, 1, 0)$，则 $\symbfit{e}_1 \cdot \symbfit{e}_2 = 0 \neq 1$；
-    取 $\symbfit{e}_1 = \symbfit{e}_2$，则 $\symbfit{e}_1 \times \symbfit{e}_2 = \symbfit{0}$，非单位向量。
+    取 $\symbfit{e}_1 = \symbfit{e}_2$，则 $\symbfit{e}_1 \times \symbfit{e}_2 = \symbfit{0}$，非单位向量．
     \begin{equation}
         \boxed{\text{结论不成立}}
     \end{equation}
 
-    \ansitem{4} 不成立。
+    \ansitem{4} 不成立．
 
-    $(\symbfit{a} \cdot \symbfit{b})\symbfit{c}$ 的方向与 $\symbfit{c}$ 相同或相反，而 $\symbfit{a}(\symbfit{b} \cdot \symbfit{c})$ 的方向与 $\symbfit{a}$ 相同或相反。
+    $(\symbfit{a} \cdot \symbfit{b})\symbfit{c}$ 的方向与 $\symbfit{c}$ 相同或相反，而 $\symbfit{a}(\symbfit{b} \cdot \symbfit{c})$ 的方向与 $\symbfit{a}$ 相同或相反．
     设 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (1, 0, 0)$，$\symbfit{c} = (0, 1, 0)$，则
     \begin{equation}
         \begin{aligned}
@@ -171,14 +171,14 @@
             \symbfit{a}(\symbfit{b} \cdot \symbfit{c}) & = (1, 0, 0) \cdot 0 = (0, 0, 0)
         \end{aligned}
     \end{equation}
-    二者不相等。
+    二者不相等．
     \begin{equation}
         \boxed{\text{结论不成立}}
     \end{equation}
 
-    \ansitem{5} 不成立。
+    \ansitem{5} 不成立．
 
-    根据定义 $|\symbfit{a} \cdot \symbfit{b}|^2 = |\symbfit{a}|^2 |\symbfit{b}|^2 \cos^2\theta$。只有当 $\cos^2\theta = 1$（即两向量共线）时才成立。
+    根据定义 $|\symbfit{a} \cdot \symbfit{b}|^2 = |\symbfit{a}|^2 |\symbfit{b}|^2 \cos^2\theta$．只有当 $\cos^2\theta = 1$（即两向量共线）时才成立．
     取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则
     \begin{equation}
         \begin{aligned}
@@ -190,7 +190,7 @@
         \boxed{\text{结论不成立}}
     \end{equation}
 
-    \ansitem{6} 不成立。
+    \ansitem{6} 不成立．
 
     由向量积的分配律及反交换性可知
     \begin{equation}
@@ -200,8 +200,8 @@
                                                                            & = \symbfit{0}
         \end{aligned}
     \end{equation}
-    而原命题右端为 $\symbfit{a} \times \symbfit{a} + 2\symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{b} = 2\symbfit{a} \times \symbfit{b}$。
-    取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则右端为 $(0, 0, 2) \neq \symbfit{0}$。
+    而原命题右端为 $\symbfit{a} \times \symbfit{a} + 2\symbfit{a} \times \symbfit{b} + \symbfit{b} \times \symbfit{b} = 2\symbfit{a} \times \symbfit{b}$．
+    取 $\symbfit{a} = (1, 0, 0)$，$\symbfit{b} = (0, 1, 0)$，则右端为 $(0, 0, 2) \neq \symbfit{0}$．
     \begin{equation}
         \boxed{\text{结论不成立}}
     \end{equation}
@@ -213,11 +213,11 @@
 \end{problem}
 
 \begin{myproof}
-    设各向量在直角坐标系下的坐标分别为 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$，$\symbfit{c} = (c_1, c_2, c_3)$。根据向量混合积的定义可知，其值等于以这三个向量为棱的平行六面体的体积，对应行列式形式为
+    设各向量在直角坐标系下的坐标分别为 $\symbfit{a} = (a_1, a_2, a_3)$，$\symbfit{b} = (b_1, b_2, b_3)$，$\symbfit{c} = (c_1, c_2, c_3)$．根据向量混合积的定义可知，其值等于以这三个向量为棱的平行六面体的体积，对应行列式形式为
     \begin{equation}
         \symbfit{a} \times \symbfit{b} \cdot \symbfit{c} = \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}
     \end{equation}
-    根据行列式性质，交换任意两行，行列式的值反号。通过两次行对换（即一次轮换），行列式的值保持不变，则有
+    根据行列式性质，交换任意两行，行列式的值反号．通过两次行对换（即一次轮换），行列式的值保持不变，则有
     \begin{equation}
         \begin{aligned}
             \begin{vmatrix} a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{vmatrix}
@@ -375,7 +375,7 @@
     已知向量 $\symbfit{a}$ 和 $\symbfit{b}$ 的夹角 $\theta = \frac{2\uppi}{3}$，又 $|\symbfit{a}| = 1, |\symbfit{b}| = 2$，试计算：
     \begin{enumerate}
         \item $|\symbfit{a} \times \symbfit{b}|^2$；
-        \item $|(\symbfit{a} + 3\symbfit{b}) \times (3\symbfit{a} - \symbfit{b})|^2$。
+        \item $|(\symbfit{a} + 3\symbfit{b}) \times (3\symbfit{a} - \symbfit{b})|^2$．
     \end{enumerate}
 \end{problem}
 
@@ -426,7 +426,7 @@
 \end{problem}
 
 \begin{myproof}
-    由已知条件得 $\symbfit{a} + \symbfit{b} = -\symbfit{c}$。在此等式两端左叉乘 $\symbfit{a}$ 有
+    由已知条件得 $\symbfit{a} + \symbfit{b} = -\symbfit{c}$．在此等式两端左叉乘 $\symbfit{a}$ 有
     \begin{equation}
         \symbfit{a} \times (\symbfit{a} + \symbfit{b}) = \symbfit{a} \times (-\symbfit{c}) \implies \symbfit{a} \times \symbfit{a} + \symbfit{a} \times \symbfit{b} = -\symbfit{a} \times \symbfit{c}
     \end{equation}
@@ -442,12 +442,12 @@
     \begin{equation}
         \symbfit{b} \times \symbfit{c} = \symbfit{a} \times \symbfit{b}
     \end{equation}
-    综上所述，原命题成立。
+    综上所述，原命题成立．
 \end{myproof}
 
 
 \begin{problem}{非共线向量和}{Non-Collinear-Sum}
-    已知 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 不共线，且 $\symbfit{a} \times \symbfit{b} = \symbfit{b} \times \symbfit{c} = \symbfit{c} \times \symbfit{a}$，求证：$\symbfit{a} + \symbfit{b} + \symbfit{c} = \symbfit{0}$。
+    已知 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 不共线，且 $\symbfit{a} \times \symbfit{b} = \symbfit{b} \times \symbfit{c} = \symbfit{c} \times \symbfit{a}$，求证：$\symbfit{a} + \symbfit{b} + \symbfit{c} = \symbfit{0}$．
 \end{problem}
 
 \begin{myproof}
@@ -455,13 +455,13 @@
     \begin{equation}
         \symbfit{a} \times \symbfit{b} - \symbfit{b} \times \symbfit{c} = \symbfit{0} \implies \symbfit{a} \times \symbfit{b} + \symbfit{c} \times \symbfit{b} = \symbfit{0} \implies (\symbfit{a} + \symbfit{c}) \times \symbfit{b} = \symbfit{0}
     \end{equation}
-    这意味着向量 $\symbfit{a} + \symbfit{c}$ 与 $\symbfit{b}$ 平行，设 $\symbfit{a} + \symbfit{c} = \lambda \symbfit{b}$。
+    这意味着向量 $\symbfit{a} + \symbfit{c}$ 与 $\symbfit{b}$ 平行，设 $\symbfit{a} + \symbfit{c} = \lambda \symbfit{b}$．
 
     又由 $\symbfit{a} \times \symbfit{b} = \symbfit{c} \times \symbfit{a}$ 可得
     \begin{equation}
         \symbfit{a} \times \symbfit{b} - \symbfit{c} \times \symbfit{a} = \symbfit{0} \implies \symbfit{a} \times \symbfit{b} + \symbfit{a} \times \symbfit{c} = \symbfit{0} \implies \symbfit{a} \times (\symbfit{b} + \symbfit{c}) = \symbfit{0}
     \end{equation}
-    这意味着向量 $\symbfit{b} + \symbfit{c}$ 与 $\symbfit{a}$ 平行，设 $\symbfit{b} + \symbfit{c} = \mu \symbfit{a}$。
+    这意味着向量 $\symbfit{b} + \symbfit{c}$ 与 $\symbfit{a}$ 平行，设 $\symbfit{b} + \symbfit{c} = \mu \symbfit{a}$．
 
     将 $\symbfit{c} = \mu \symbfit{a} - \symbfit{b}$ 代入第一个关系式 $\symbfit{a} + \symbfit{c} = \lambda \symbfit{b}$ 中
     \begin{equation}
@@ -479,7 +479,7 @@
 
 
 \begin{problem}{拉格朗日恒等式}{Lagrange-Identity}
-    求证：$|\symbfit{a} \times \symbfit{b}|^2 = |\symbfit{a}|^2 |\symbfit{b}|^2 - (\symbfit{a} \cdot \symbfit{b})^2$。
+    求证：$|\symbfit{a} \times \symbfit{b}|^2 = |\symbfit{a}|^2 |\symbfit{b}|^2 - (\symbfit{a} \cdot \symbfit{b})^2$．
 \end{problem}
 
 \begin{myproof}
@@ -497,7 +497,7 @@
                                                                                 & = |\symbfit{a} \times \symbfit{b}|^2
         \end{aligned}
     \end{equation}
-    证毕。
+    证毕．
 \end{myproof}
 
 
@@ -569,18 +569,18 @@
 
 
 \begin{problem}{向量坐标计算}{Vector-Coordinates}
-    已知 $Oxy$ 平面的向量 $\symbfit{a}$ 与 $x$ 轴和 $y$ 轴所夹的角分别是 $\alpha = 60^\circ, \beta = 120^\circ$, 且 $|\symbfit{a}| = 2$, 试求 $\symbfit{a}$ 的坐标。
+    已知 $Oxy$ 平面的向量 $\symbfit{a}$ 与 $x$ 轴和 $y$ 轴所夹的角分别是 $\alpha = 60^\circ, \beta = 120^\circ$, 且 $|\symbfit{a}| = 2$, 试求 $\symbfit{a}$ 的坐标．
 \end{problem}
 
 \begin{note}{}{}
-    这个题目实际上存在题设自相矛盾的问题，直接使用分量法计算得到的向量坐标为 $\symbfit{a} = (1, -1, 0)$，但该向量的模长为 $\sqrt{1^2 + (-1)^2} = \sqrt{2}$，与题设的 $|\symbfit{a}| = 2$ 不符。
-    这说明题设中的角度与在 $Oxy$ 平面上的条件存在矛盾，无法同时满足。{\emojifont 😀😅}
+    这个题目实际上存在题设自相矛盾的问题，直接使用分量法计算得到的向量坐标为 $\symbfit{a} = (1, -1, 0)$，但该向量的模长为 $\sqrt{1^2 + (-1)^2} = \sqrt{2}$，与题设的 $|\symbfit{a}| = 2$ 不符．
+    这说明题设中的角度与在 $Oxy$ 平面上的条件存在矛盾，无法同时满足．{\emojifont 😀😅}
 
-    但考虑尊重教材的原文，我们做最小的修正，即去掉题设中「在 $Oxy$ 平面内」的条件，将向量 $\symbfit{a}$ 视为一个一般的三维向量进行解答。
+    但考虑尊重教材的原文，我们做最小的修正，即去掉题设中「在 $Oxy$ 平面内」的条件，将向量 $\symbfit{a}$ 视为一个一般的三维向量进行解答．
 \end{note}
 
 \begin{solution}
-    设向量 $\symbfit{a}$ 与 $z$ 轴的夹角为 $\gamma$。根据空间向量的方向余弦性质，满足恒等式
+    设向量 $\symbfit{a}$ 与 $z$ 轴的夹角为 $\gamma$．根据空间向量的方向余弦性质，满足恒等式
     \begin{equation}
         \cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma = 1. \label{eq:direction-cosine-1}
     \end{equation}
@@ -592,7 +592,7 @@
     \begin{equation}
         \left( \frac{1}{2} \right)^2 + \left( -\frac{1}{2} \right)^2 + \cos^2 \gamma = 1,
     \end{equation}
-    即 $\cos^2 \gamma = \frac{1}{2}$，从而求得 $\cos \gamma = \pm \frac{\sqrt{2}}{2}$。向量 $\symbfit{a}$ 的坐标分量可由其模长与方向余弦的乘积表示为
+    即 $\cos^2 \gamma = \frac{1}{2}$，从而求得 $\cos \gamma = \pm \frac{\sqrt{2}}{2}$．向量 $\symbfit{a}$ 的坐标分量可由其模长与方向余弦的乘积表示为
     \begin{equation}
         \begin{aligned}
             a_x & = |\symbfit{a}| \cos \alpha = 2 \cdot \frac{1}{2} = 1,                                      \\
@@ -623,7 +623,7 @@
     \begin{equation}
         \overrightarrow{AB} = \overrightarrow{BC}
     \end{equation}
-    因为 $\overrightarrow{AB} \parallel \overrightarrow{BC}$ 且两向量有公共点 $B$，所以 $A, B, C$ 三点共线。
+    因为 $\overrightarrow{AB} \parallel \overrightarrow{BC}$ 且两向量有公共点 $B$，所以 $A, B, C$ 三点共线．
     \begin{equation}
         \boxed{A, B, C \text{ 三点共线}}
     \end{equation}
@@ -673,7 +673,7 @@
         \item $\symbfit{a} \cdot \symbfit{b}$；
         \item $\sqrt{\symbfit{b} \cdot \symbfit{b}}$；
         \item $(2\symbfit{a} - 3\symbfit{b}) \cdot (\symbfit{a} + 2\symbfit{b})$；
-        \item $|\symbfit{a} - \symbfit{b}|^2$。
+        \item $|\symbfit{a} - \symbfit{b}|^2$．
     \end{enumerate}
 \end{problem}
 
@@ -779,7 +779,7 @@
     已知向量 $\symbfit{a} = (3, -1, -2)$ 和 $\symbfit{b} = (1, 2, -1)$，试求下列向量积的坐标：
     \begin{enumerate}
         \item $\symbfit{a} \times \symbfit{b}$；
-        \item $(2\symbfit{a} - \symbfit{b}) \times (2\symbfit{a} + \symbfit{b})$。
+        \item $(2\symbfit{a} - \symbfit{b}) \times (2\symbfit{a} + \symbfit{b})$．
     \end{enumerate}
 \end{problem}
 
@@ -816,7 +816,7 @@
 \end{solution}
 
 \begin{problem}{三角形面积}{Triangle-Area}
-    已知点 $A(1, 2, 0), B(3, 0, -3), C(5, 2, 6)$，求三角形 $ABC$ 的面积。
+    已知点 $A(1, 2, 0), B(3, 0, -3), C(5, 2, 6)$，求三角形 $ABC$ 的面积．
 \end{problem}
 
 \begin{solution}
@@ -846,7 +846,7 @@
 \end{solution}
 
 \begin{problem}{四面体体积}{Tetrahedron-Volume}
-    计算顶点为 $A(2, -1, 1), B(5, 5, 4), C(3, 2, -1), D(4, 1, 3)$ 的四面体的体积。
+    计算顶点为 $A(2, -1, 1), B(5, 5, 4), C(3, 2, -1), D(4, 1, 3)$ 的四面体的体积．
 \end{problem}
 
 \begin{solution}
@@ -876,7 +876,7 @@
     判断下列向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 是否共面？
     \begin{enumerate}
         \item $\symbfit{a} = (2, 3, -1)$, $\symbfit{b} = (1, -1, 3)$, $\symbfit{c} = (1, 9, -11)$；
-        \item $\symbfit{a} = (3, -2, 1)$, $\symbfit{b} = (2, 1, 2)$, $\symbfit{c} = (3, -1, -2)$。
+        \item $\symbfit{a} = (3, -2, 1)$, $\symbfit{b} = (2, 1, 2)$, $\symbfit{c} = (3, -1, -2)$．
     \end{enumerate}
 \end{problem}
 
@@ -886,7 +886,7 @@
     \begin{equation}
         (\symbfit{a}, \symbfit{b}, \symbfit{c}) = \begin{vmatrix} 2 & 3 & -1 \\ 1 & -1 & 3 \\ 1 & 9 & -11 \end{vmatrix} = 2(11 - 27) - 3(-11 - 3) - 1(9 + 1) = -32 + 42 - 10 = 0
     \end{equation}
-    因为混合积为零，故向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 共面。
+    因为混合积为零，故向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 共面．
     \begin{equation}
         \boxed{\text{向量 } \symbfit{a}, \symbfit{b}, \symbfit{c} \text{ 共面}}
     \end{equation}
@@ -896,7 +896,7 @@
     \begin{equation}
         (\symbfit{a}, \symbfit{b}, \symbfit{c}) = \begin{vmatrix} 3 & -2 & 1 \\ 2 & 1 & 2 \\ 3 & -1 & -2 \end{vmatrix} = 3(-2 + 2) + 2(-4 - 6) + 1(-2 - 3) = 0 - 20 - 5 = -25 \neq 0
     \end{equation}
-    因为混合积不为零，故向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 不共面。
+    因为混合积不为零，故向量 $\symbfit{a}, \symbfit{b}, \symbfit{c}$ 不共面．
     \begin{equation}
         \boxed{\text{向量 } \symbfit{a}, \symbfit{b}, \symbfit{c} \text{ 不共面}}
     \end{equation}
@@ -919,7 +919,7 @@
     \begin{equation}
         (\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}) = \begin{vmatrix} -1 & -1 & 6 \\ -2 & 0 & 2 \\ 1 & -1 & 4 \end{vmatrix} = -(-2)(-4 + 6) + 0 - 2(1 + 1) = 4 - 4 = 0
     \end{equation}
-    由于混合积为零，表明向量 $\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}$ 共面。
+    由于混合积为零，表明向量 $\overrightarrow{AB}, \overrightarrow{AC}, \overrightarrow{AD}$ 共面．
     \begin{equation}
         \boxed{A, B, C, D \text{ 四点共面}}
     \end{equation}
@@ -928,7 +928,7 @@
 \begin{problem}{坐标对称性}{Coordinate-Symmetry}
     \begin{enumerate}
         \item 给定点 $A(a, b, c)$，求它关于三个坐标平面对称点的坐标；
-        \item 求定点 $(a, b, c)$ 关于三个坐标轴对称点的坐标。
+        \item 求定点 $(a, b, c)$ 关于三个坐标轴对称点的坐标．
     \end{enumerate}
 \end{problem}
 
@@ -938,7 +938,7 @@
     \begin{itemize}
         \item 关于 $xOy$ 面：保持 $x, y$ 不变，$z$ 取相反数，即 $(a, b, -c)$；
         \item 关于 $yOz$ 面：保持 $y, z$ 不变，$x$ 取相反数，即 $(-a, b, c)$；
-        \item 关于 $zOx$ 面：保持 $z, x$ 不变，$y$ 取相反数，即 $(a, -b, c)$。
+        \item 关于 $zOx$ 面：保持 $z, x$ 不变，$y$ 取相反数，即 $(a, -b, c)$．
     \end{itemize}
     \begin{equation}
         \boxed{\text{关于 } xOy, yOz, zOx \text{ 面对称点分别为 } (a, b, -c), (-a, b, c), (a, -b, c)}
@@ -949,7 +949,7 @@
     \begin{itemize}
         \item 关于 $x$ 轴：保持 $x$ 不变，$y, z$ 取相反数，即 $(a, -b, -c)$；
         \item 关于 $y$ 轴：保持 $y$ 不变，$x, z$ 取相反数，即 $(-a, b, -c)$；
-        \item 关于 $z$ 轴：保持 $z$ 不变，$x, y$ 取相反数，即 $(-a, -b, c)$。
+        \item 关于 $z$ 轴：保持 $z$ 不变，$x, y$ 取相反数，即 $(-a, -b, c)$．
     \end{itemize}
     \begin{equation}
         \boxed{\text{关于 } x, y, z \text{ 轴对称点分别为 } (a, -b, -c), (-a, b, -c), (-a, -b, c)}
@@ -958,11 +958,11 @@
 
 
 \begin{problem}{点到原点及坐标轴的距离}{Point-To-Axis-Distance}
-    求点 $P(4, -3, 5)$ 到坐标原点以及到各坐标轴的距离。
+    求点 $P(4, -3, 5)$ 到坐标原点以及到各坐标轴的距离．
 \end{problem}
 
 \begin{solution}
-    设点 $P$ 的坐标为 $(x, y, z) = (4, -3, 5)$。根据空间两点间距离公式及点到坐标轴的距离公式，有
+    设点 $P$ 的坐标为 $(x, y, z) = (4, -3, 5)$．根据空间两点间距离公式及点到坐标轴的距离公式，有
     \begin{equation}
         \begin{aligned}
             d_{PO} & = \sqrt{x^2 + y^2 + z^2} = \sqrt{4^2 + (-3)^2 + 5^2} = \sqrt{50} = 5\sqrt{2} \\
@@ -978,11 +978,11 @@
 \end{solution}
 
 \begin{problem}{平面内的等距点}{Equidistant-Point-In-Plane}
-    在 $Oyz$ 平面上求一点 $P$，使它与三已知点 $A(3, 1, 2)$, $B(4, -2, -2)$ 及 $C(0, 5, 1)$ 等距离。
+    在 $Oyz$ 平面上求一点 $P$，使它与三已知点 $A(3, 1, 2)$, $B(4, -2, -2)$ 及 $C(0, 5, 1)$ 等距离．
 \end{problem}
 
 \begin{solution}
-    因为点 $P$ 在 $Oyz$ 平面上，设其坐标为 $P(0, y, z)$。由题意 $PA = PB = PC$，即 $PA^2 = PB^2$ 且 $PA^2 = PC^2$。
+    因为点 $P$ 在 $Oyz$ 平面上，设其坐标为 $P(0, y, z)$．由题意 $PA = PB = PC$，即 $PA^2 = PB^2$ 且 $PA^2 = PC^2$．
     \begin{equation}
         \begin{cases}
             (0 - 3)^2 + (y - 1)^2 + (z - 2)^2 = (0 - 4)^2 + (y + 2)^2 + (z + 2)^2 \\
@@ -1012,7 +1012,7 @@
     \begin{equation}
         3y + 4(4y - 6) = -5 \implies 19y = 19 \implies y = 1
     \end{equation}
-    进而求得 $z = 4(1) - 6 = -2$。故点 $P$ 的坐标为
+    进而求得 $z = 4(1) - 6 = -2$．故点 $P$ 的坐标为
     \begin{equation}
         \boxed{P(0, 1, -2)}
     \end{equation}

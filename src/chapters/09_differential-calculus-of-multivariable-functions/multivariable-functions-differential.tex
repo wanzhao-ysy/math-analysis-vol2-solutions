@@ -5,7 +5,7 @@
     \begin{enumerate}
         \item 设 $f(x,y) = x + y - \sqrt{x^2 + y^2}$，求 $f'_x(3,4)$；
         \item 设 $f(x,y) = \sin x^2 y$，求 $f'_x(1, \uppi)$；
-        \item 设 $f(x,y) = \ln[xy^2 + yx^2 + \sqrt{1 + (xy^2 + yx^2)^2}]$，求 $f'_x(1, y), f'_y(1, y)$。
+        \item 设 $f(x,y) = \ln[xy^2 + yx^2 + \sqrt{1 + (xy^2 + yx^2)^2}]$，求 $f'_x(1, y), f'_y(1, y)$．
     \end{enumerate}
 \end{problem}
 
@@ -28,11 +28,11 @@
 
     对 $x$ 求偏导数得
     \begin{equation}
-        f'_x(x, y) = \cos(x^2 y) \cdot 2xy。
+        f'_x(x, y) = \cos(x^2 y) \cdot 2xy．
     \end{equation}
     将 $x=1, y=\uppi$ 代入上式得
     \begin{equation}
-        f'_x(1, \uppi) = 2 \cdot 1 \cdot \uppi \cdot \cos(\uppi) = -2\uppi。
+        f'_x(1, \uppi) = 2 \cdot 1 \cdot \uppi \cdot \cos(\uppi) = -2\uppi．
     \end{equation}
     \begin{equation}
         \boxed{f'_x(1, \uppi) = -2\uppi}
@@ -40,7 +40,7 @@
 
     \ansitem{3}
 
-    令 $u = xy^2 + yx^2$，则 $f(x,y) = \ln(u + \sqrt{1 + u^2})$。由此可得
+    令 $u = xy^2 + yx^2$，则 $f(x,y) = \ln(u + \sqrt{1 + u^2})$．由此可得
     \begin{equation}
         \frac{\partial f}{\partial u} = \frac{1}{\sqrt{1 + u^2}}
     \end{equation}
@@ -68,7 +68,7 @@
         \item $u = \arctan \frac{x + y}{x - y}$；
         \item $u = \e^{x(x^2 + y^2 + z^2)}$；
         \item $u = x^{y^z}$；
-        \item $u = x \e^{-z} + \ln(x + \ln y) + z$。
+        \item $u = x \e^{-z} + \ln(x + \ln y) + z$．
     \end{enumerate}
 \end{problem}
 
@@ -150,7 +150,7 @@
         \begin{aligned}
             \frac{\partial u}{\partial x} & = y^z x^{y^z - 1},               \\
             \frac{\partial u}{\partial y} & = x^{y^z} \ln x \cdot z y^{z-1}, \\
-            \frac{\partial u}{\partial z} & = x^{y^z} \ln x \cdot y^z \ln y。
+            \frac{\partial u}{\partial z} & = x^{y^z} \ln x \cdot y^z \ln y．
         \end{aligned}
     \end{equation}
     \begin{equation}
@@ -163,7 +163,7 @@
         \begin{aligned}
             \frac{\partial u}{\partial x} & = \e^{-z} + \frac{1}{x + \ln y},                                  \\
             \frac{\partial u}{\partial y} & = \frac{1}{x + \ln y} \cdot \frac{1}{y} = \frac{1}{y(x + \ln y)}, \\
-            \frac{\partial u}{\partial z} & = -x \e^{-z} + 1。
+            \frac{\partial u}{\partial z} & = -x \e^{-z} + 1．
         \end{aligned}
     \end{equation}
     \begin{equation}
@@ -173,7 +173,7 @@
 
 
 \begin{problem}{变限积分求导}{Variable-Limit-Integral}
-    设 $f(x, y) = \int_1^{x^2 y} \frac{\sin t}{t} \d t$，求 $\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}$。
+    设 $f(x, y) = \int_1^{x^2 y} \frac{\sin t}{t} \d t$，求 $\frac{\partial f}{\partial x}, \frac{\partial f}{\partial y}$．
 \end{problem}
 
 \begin{solution}
@@ -201,7 +201,7 @@
 
 
 \begin{problem}{偏导数定义}{Partial-Derivative-Definition}
-    设 $f(x, y) = \begin{cases} y \sin \frac{1}{x^2+y^2}, & x^2 + y^2 \neq 0, \\ 0, & x^2 + y^2 = 0 \end{cases}$，考察函数 $f(x, y)$ 在原点 $(0, 0)$ 的偏导数。
+    设 $f(x, y) = \begin{cases} y \sin \frac{1}{x^2+y^2}, & x^2 + y^2 \neq 0, \\ 0, & x^2 + y^2 = 0 \end{cases}$，考察函数 $f(x, y)$ 在原点 $(0, 0)$ 的偏导数．
 \end{problem}
 
 \begin{solution}
@@ -213,7 +213,7 @@
     \begin{equation}
         f_y(0, 0) = \lim_{\Delta y \to 0} \frac{f(0, \Delta y) - f(0, 0)}{\Delta y} = \lim_{\Delta y \to 0} \frac{\Delta y \sin \frac{1}{\Delta y^2} - 0}{\Delta y} = \lim_{\Delta y \to 0} \sin \frac{1}{\Delta y^2}.
     \end{equation}
-    由于当 $\Delta y \to 0$ 时，$\sin \frac{1}{\Delta y^2}$ 在 $[-1, 1]$ 之间剧烈振荡，极限不存在。
+    由于当 $\Delta y \to 0$ 时，$\sin \frac{1}{\Delta y^2}$ 在 $[-1, 1]$ 之间剧烈振荡，极限不存在．
     \begin{equation}
         \boxed{f_x(0, 0) = 0, \quad f_y(0, 0) \text{ 不存在}}
     \end{equation}
@@ -221,16 +221,16 @@
 
 
 \begin{problem}{连续性与偏导数}{Continuity-Partial-Derivative}
-    证明函数 $z = \sqrt{x^2 + y^2}$ 在点 $(0,0)$ 连续但偏导数不存在。
+    证明函数 $z = \sqrt{x^2 + y^2}$ 在点 $(0,0)$ 连续但偏导数不存在．
 \end{problem}
 
 \begin{myproof}
-    考察函数在点 $(0,0)$ 处的极限。由于
+    考察函数在点 $(0,0)$ 处的极限．由于
     \begin{equation}
         \lim_{(x,y) \to (0,0)} \sqrt{x^2 + y^2} = 0
     \end{equation}
-    且 $f(0,0) = 0$，故有 $\lim_{(x,y) \to (0,0)} f(x,y) = f(0,0)$，即函数在点 $(0,0)$ 处连续。
-    再考察该点处的偏导数。根据定义有
+    且 $f(0,0) = 0$，故有 $\lim_{(x,y) \to (0,0)} f(x,y) = f(0,0)$，即函数在点 $(0,0)$ 处连续．
+    再考察该点处的偏导数．根据定义有
     \begin{equation}
         \begin{aligned}
             f_x(0,0) & = \lim_{\Delta x \to 0} \frac{f(\Delta x, 0) - f(0,0)}{\Delta x}       \\
@@ -238,12 +238,12 @@
                      & = \lim_{\Delta x \to 0} \frac{|\Delta x|}{\Delta x}
         \end{aligned}
     \end{equation}
-    由于左极限 $\lim_{\Delta x \to 0^-} \frac{|\Delta x|}{\Delta x} = -1$，右极限 $\lim_{\Delta x \to 0^+} \frac{|\Delta x|}{\Delta x} = 1$，两者不相等，故 $f_x(0,0)$ 不存在。
-    由对称性可知，偏导数 $f_y(0,0)$ 同样不存在。
+    由于左极限 $\lim_{\Delta x \to 0^-} \frac{|\Delta x|}{\Delta x} = -1$，右极限 $\lim_{\Delta x \to 0^+} \frac{|\Delta x|}{\Delta x} = 1$，两者不相等，故 $f_x(0,0)$ 不存在．
+    由对称性可知，偏导数 $f_y(0,0)$ 同样不存在．
 \end{myproof}
 
 \begin{problem}{曲线切线与坐标轴夹角}{Tangent-Line-Angle}
-    求曲面 $z = \frac{x^2+y^2}{4}$ 与平面 $y = 4$ 的交线在点 $(2, 4, 5)$ 处的切线与 $Ox$ 轴的正向所成的角度。
+    求曲面 $z = \frac{x^2+y^2}{4}$ 与平面 $y = 4$ 的交线在点 $(2, 4, 5)$ 处的切线与 $Ox$ 轴的正向所成的角度．
 \end{problem}
 
 \begin{solution}
@@ -262,7 +262,7 @@
     \begin{equation}
         \symbfit{v} = (1, 0, k) = (1, 0, 1)
     \end{equation}
-    $Ox$ 轴正向的单位向量为 $\symbfit{i} = (1, 0, 0)$。设切线与 $Ox$ 轴正向所成的角度为 $\alpha$，则有
+    $Ox$ 轴正向的单位向量为 $\symbfit{i} = (1, 0, 0)$．设切线与 $Ox$ 轴正向所成的角度为 $\alpha$，则有
     \begin{equation}
         \cos \alpha = \frac{\symbfit{v} \cdot \symbfit{i}}{|\symbfit{v}| |\symbfit{i}|} = \frac{1}{\sqrt{1^2 + 0^2 + 1^2} \cdot 1} = \frac{1}{\sqrt{2}}
     \end{equation}
@@ -403,7 +403,7 @@
     \end{equation}
 
     \ansitem{4}
-    利用 $\sin^{2} \theta = \frac{1 - \cos 2\theta}{2}$，令 $u = ax+by$，则 $z = \frac{1 - \cos 2u}{2}$。
+    利用 $\sin^{2} \theta = \frac{1 - \cos 2\theta}{2}$，令 $u = ax+by$，则 $z = \frac{1 - \cos 2u}{2}$．
     \begin{equation}
         \frac{\partial z}{\partial x} = a \sin 2u, \quad \frac{\partial z}{\partial y} = b \sin 2u.
     \end{equation}
@@ -413,7 +413,7 @@
     \end{equation}
 
     \ansitem{5}
-    将原式写作 $z = \e^{\ln x \ln y}$。
+    将原式写作 $z = \e^{\ln x \ln y}$．
     \begin{equation}
         \frac{\partial z}{\partial x} = \frac{y^{\ln x} \ln y}{x}, \quad \frac{\partial z}{\partial y} = \ln x \cdot y^{\ln x - 1}.
     \end{equation}
@@ -450,7 +450,7 @@
 \end{solution}
 
 \begin{problem}{多元函数高阶偏导数}{Higher-Order-Partial-Derivative}
-    设 $u = \e^{xyz}$，求 $\frac{\partial^{3} u}{\partial x \partial y \partial z}, \frac{\partial^{3} u}{\partial x \partial y^{2}}$。
+    设 $u = \e^{xyz}$，求 $\frac{\partial^{3} u}{\partial x \partial y \partial z}, \frac{\partial^{3} u}{\partial x \partial y^{2}}$．
 \end{problem}
 
 \begin{solution}
@@ -505,7 +505,7 @@
                                               & = \frac{r - x \cdot \frac{x}{r}}{r^2} = \frac{r^2 - x^2}{r^3}.
         \end{aligned}
     \end{equation}
-    同理可得 $\frac{\partial^2 r}{\partial y^2} = \frac{r^2 - y^2}{r^3}$ 及 $\frac{\partial^2 r}{\partial z^2} = \frac{r^2 - z^2}{r^3}$。将三式相加：
+    同理可得 $\frac{\partial^2 r}{\partial y^2} = \frac{r^2 - y^2}{r^3}$ 及 $\frac{\partial^2 r}{\partial z^2} = \frac{r^2 - z^2}{r^3}$．将三式相加：
     \begin{equation}
         \begin{aligned}
             \frac{\partial^2 r}{\partial x^2} + \frac{\partial^2 r}{\partial y^2} + \frac{\partial^2 r}{\partial z^2} & = \frac{3r^2 - (x^2 + y^2 + z^2)}{r^3}  \\
@@ -530,7 +530,7 @@
                                                   & = \frac{r^2 - 2x \cdot \frac{x}{r} \cdot r}{r^4} = \frac{r^2 - 2x^2}{r^4}.
         \end{aligned}
     \end{equation}
-    同理可得 $\frac{\partial^2 \ln r}{\partial y^2} = \frac{r^2 - 2y^2}{r^4}$ 及 $\frac{\partial^2 \ln r}{\partial z^2} = \frac{r^2 - 2z^2}{r^4}$。相加得：
+    同理可得 $\frac{\partial^2 \ln r}{\partial y^2} = \frac{r^2 - 2y^2}{r^4}$ 及 $\frac{\partial^2 \ln r}{\partial z^2} = \frac{r^2 - 2z^2}{r^4}$．相加得：
     \begin{equation}
         \begin{aligned}
             \sum \frac{\partial^2 \ln r}{\partial x^2} & = \frac{3r^2 - 2(x^2 + y^2 + z^2)}{r^4}    \\
@@ -574,7 +574,7 @@
     \begin{equation}
         f(x, y) = \begin{cases} xy \frac{x^2 - y^2}{x^2 + y^2}, & x^2 + y^2 \neq 0, \\ 0, & x^2 + y^2 = 0. \end{cases}
     \end{equation}
-    证明：函数的二阶偏导数存在，但所有二阶偏导数（特别是两个混合偏导数）在 $(0, 0)$ 不连续，且 $f_{xy}''(0, 0) \neq f_{yx}''(0, 0)$。
+    证明：函数的二阶偏导数存在，但所有二阶偏导数（特别是两个混合偏导数）在 $(0, 0)$ 不连续，且 $f_{xy}''(0, 0) \neq f_{yx}''(0, 0)$．
 \end{problem}
 
 \begin{myproof}
@@ -605,7 +605,7 @@
     \begin{equation}
         \boxed{f_{xy}''(0, 0) = -1 \neq 1 = f_{yx}''(0, 0)}.
     \end{equation}
-    根据二阶混合偏导数相等定理（克莱罗(Clairaut)定理），若混合偏导数在某点连续，则该点处的混合偏导数必与求导次序无关。由上述不等关系推知 $f_{xy}''$ 与 $f_{yx}''$ 在 $(0, 0)$ 处均不连续。同理可验证 $f_{xx}''$ 与 $f_{yy}''$ 在该点的极限与趋近路径相关，故二阶偏导数在 $(0, 0)$ 均不连续。
+    根据二阶混合偏导数相等定理（克莱罗(Clairaut)定理），若混合偏导数在某点连续，则该点处的混合偏导数必与求导次序无关．由上述不等关系推知 $f_{xy}''$ 与 $f_{yx}''$ 在 $(0, 0)$ 处均不连续．同理可验证 $f_{xx}''$ 与 $f_{yy}''$ 在该点的极限与趋近路径相关，故二阶偏导数在 $(0, 0)$ 均不连续．
 \end{myproof}
 
 
@@ -623,7 +623,7 @@
 
 \begin{solution}
     \ansitem{1}
-    计算偏导数可得 $\frac{\partial z}{\partial x} = \frac{2x}{x^2+y^2}$，$\frac{\partial z}{\partial y} = \frac{2y}{x^2+y^2}$。
+    计算偏导数可得 $\frac{\partial z}{\partial x} = \frac{2x}{x^2+y^2}$，$\frac{\partial z}{\partial y} = \frac{2y}{x^2+y^2}$．
     \begin{equation}
         \boxed{\d z = \frac{2x \d x + 2y \d y}{x^2 + y^2}}
     \end{equation}
@@ -674,12 +674,12 @@
     \end{equation}
 
     \ansitem{6}
-    函数偏导数为 $\frac{\partial z}{\partial x} = 4x^3 - 8xy^2$，$\frac{\partial z}{\partial y} = 4y^3 - 8x^2y$。
-    在点 $(0,0)$ 处，偏导数均为 $0$。
+    函数偏导数为 $\frac{\partial z}{\partial x} = 4x^3 - 8xy^2$，$\frac{\partial z}{\partial y} = 4y^3 - 8x^2y$．
+    在点 $(0,0)$ 处，偏导数均为 $0$．
     \begin{equation}
         \boxed{\d z|_{(0,0)} = 0}
     \end{equation}
-    在点 $(1,1)$ 处，$\frac{\partial z}{\partial x} = 4 - 8 = -4$，$\frac{\partial z}{\partial y} = 4 - 8 = -4$。
+    在点 $(1,1)$ 处，$\frac{\partial z}{\partial x} = 4 - 8 = -4$，$\frac{\partial z}{\partial y} = 4 - 8 = -4$．
     \begin{equation}
         \boxed{\d z|_{(1,1)} = -4 \d x - 4 \d y}
     \end{equation}
@@ -690,7 +690,7 @@
 \end{problem}
 
 \begin{myproof}
-    设 $\symbfit{x} = (x_1, \dots, x_n)$。由于 $f, g$ 在 $\symbfit{x}$ 处可微，其增量可表示为：
+    设 $\symbfit{x} = (x_1, \dots, x_n)$．由于 $f, g$ 在 $\symbfit{x}$ 处可微，其增量可表示为：
     \begin{equation}
         \label{eq:inc-fg}
         \begin{aligned}
@@ -698,7 +698,7 @@
             \Delta g & = \d g + \symcal{o}(\rho)
         \end{aligned}
     \end{equation}
-    其中 $\rho = \|\Delta \symbfit{x}\|$。分析乘积 $fg$ 的增量：
+    其中 $\rho = \|\Delta \symbfit{x}\|$．分析乘积 $fg$ 的增量：
     \begin{equation}
         \begin{aligned}
             \Delta(fg) & = (f + \Delta f)(g + \Delta g) - fg           \\
@@ -712,11 +712,11 @@
                        & = (g \d f + f \d g) + (g + f) \symcal{o}(\rho) + \d f \d g + \symcal{o}(\rho)^2
         \end{aligned}
     \end{equation}
-    由于 $\d f, \d g$ 是关于 $\Delta x_i$ 的线性齐次式，故 $\d f \d g$ 是关于 $\Delta x_i$ 的二次齐次式，满足 $\d f \d g = \symcal{o}(\rho)$。由此得：
+    由于 $\d f, \d g$ 是关于 $\Delta x_i$ 的线性齐次式，故 $\d f \d g$ 是关于 $\Delta x_i$ 的二次齐次式，满足 $\d f \d g = \symcal{o}(\rho)$．由此得：
     \begin{equation}
         \Delta(fg) = (g \d f + f \d g) + \symcal{o}(\rho)
     \end{equation}
-    根据全微分的定义与线性主要部分的唯一性，结论成立。
+    根据全微分的定义与线性主要部分的唯一性，结论成立．
     \begin{equation}
         \boxed{\d(fg) = g \d f + f \d g}
     \end{equation}
@@ -746,20 +746,20 @@
     \begin{equation}
         L = \lim_{\Delta x \to 0} \frac{\sqrt{\Delta x^2}}{\sqrt{2\Delta x^2}} = \frac{1}{\sqrt{2}} \neq 0
     \end{equation}
-    故该极限不为 $0$，函数在原点处不可微。
+    故该极限不为 $0$，函数在原点处不可微．
 \end{myproof}
 
 
 \begin{problem}{多元函数连续性与可微性}{Multivariable-Continuity-Differentiability}
-    证明：函数 $f(x, y) = \begin{cases} \frac{x^2 y}{x^2 + y^2}, & x^2 + y^2 \neq 0, \\ 0, & x^2 + y^2 = 0 \end{cases}$ 在点 $(0, 0)$ 连续且偏导数存在，但在此点不可微。
+    证明：函数 $f(x, y) = \begin{cases} \frac{x^2 y}{x^2 + y^2}, & x^2 + y^2 \neq 0, \\ 0, & x^2 + y^2 = 0 \end{cases}$ 在点 $(0, 0)$ 连续且偏导数存在，但在此点不可微．
 \end{problem}
 
 \begin{myproof}
-    考察 $f(x, y)$ 在 $(0, 0)$ 处的连续性。由不等式 $|xy| \leq \frac{1}{2}(x^2 + y^2)$ 可得：
+    考察 $f(x, y)$ 在 $(0, 0)$ 处的连续性．由不等式 $|xy| \leq \frac{1}{2}(x^2 + y^2)$ 可得：
     \begin{equation}
         |f(x, y) - f(0, 0)| = \left| \frac{x^2 y}{x^2 + y^2} \right| = |x| \cdot \frac{|xy|}{x^2 + y^2} \leq \frac{1}{2} |x|.
     \end{equation}
-    由于 $\lim_{(x, y) \to (0, 0)} \frac{1}{2} |x| = 0$，根据夹逼定理知 $\lim_{(x, y) \to (0, 0)} f(x, y) = 0 = f(0, 0)$，故函数在 $(0, 0)$ 连续。
+    由于 $\lim_{(x, y) \to (0, 0)} \frac{1}{2} |x| = 0$，根据夹逼定理知 $\lim_{(x, y) \to (0, 0)} f(x, y) = 0 = f(0, 0)$，故函数在 $(0, 0)$ 连续．
 
     利用偏导数定义计算 $(0, 0)$ 处的偏导数：
     \begin{equation}
@@ -768,9 +768,9 @@
             f_y(0, 0) & = \lim_{\Delta y \to 0} \frac{f(0, \Delta y) - f(0, 0)}{\Delta y} = \lim_{\Delta y \to 0} \frac{0 - 0}{\Delta y} = 0.
         \end{aligned}
     \end{equation}
-    故偏导数 $f_x(0, 0)$ 与 $f_y(0, 0)$ 均存在。
+    故偏导数 $f_x(0, 0)$ 与 $f_y(0, 0)$ 均存在．
 
-    考查函数在 $(0, 0)$ 处的可微性。令 $\rho = \sqrt{\Delta x^2 + \Delta y^2}$，需判断下式极限是否为 $0$：
+    考查函数在 $(0, 0)$ 处的可微性．令 $\rho = \sqrt{\Delta x^2 + \Delta y^2}$，需判断下式极限是否为 $0$：
     \begin{equation}
         \frac{f(\Delta x, \Delta y) - [f(0, 0) + f_x(0, 0)\Delta x + f_y(0, 0)\Delta y]}{\rho} = \frac{\Delta x^2 \Delta y}{(\Delta x^2 + \Delta y^2)^{3/2}}.
         \label{eq:diff-limit}
@@ -779,39 +779,39 @@
     \begin{equation}
         \lim_{\Delta x \to 0^+} \frac{\Delta x^3}{(2 \Delta x^2)^{3/2}} = \lim_{\Delta x \to 0^+} \frac{\Delta x^3}{2\sqrt{2} \Delta x^3} = \frac{1}{2\sqrt{2}} \neq 0.
     \end{equation}
-    故极限不为 $0$，函数在 $(0, 0)$ 不可微。
+    故极限不为 $0$，函数在 $(0, 0)$ 不可微．
 
     \begin{equation}
-        \boxed{f(x, y) \text{ 在 } (0, 0) \text{ 连续、偏导数存在但不可微。}}
+        \boxed{f(x, y) \text{ 在 } (0, 0) \text{ 连续、偏导数存在但不可微．}}
     \end{equation}
 \end{myproof}
 
 
 \begin{problem}{多元函数连续、可微与偏导数}{Continuity-Differentiability-Partials}
-    证明：函数 $f(x,y) = \begin{cases} (x^2 + y^2) \sin \frac{1}{\sqrt{x^2+y^2}}, & x^2 + y^2 \neq 0, \\ 0, & x^2 + y^2 = 0 \end{cases}$ 在点 $(0,0)$ 连续且偏导数存在，但偏导数在点 $(0,0)$ 不连续，而 $f$ 在原点 $(0,0)$ 可微。
+    证明：函数 $f(x,y) = \begin{cases} (x^2 + y^2) \sin \frac{1}{\sqrt{x^2+y^2}}, & x^2 + y^2 \neq 0, \\ 0, & x^2 + y^2 = 0 \end{cases}$ 在点 $(0,0)$ 连续且偏导数存在，但偏导数在点 $(0,0)$ 不连续，而 $f$ 在原点 $(0,0)$ 可微．
 \end{problem}
 
 \begin{myproof}
-    令 $r = \sqrt{x^2 + y^2}$。由于 $\left| (x^2 + y^2) \sin \frac{1}{\sqrt{x^2+y^2}} \right| \leq x^2 + y^2$，则有
+    令 $r = \sqrt{x^2 + y^2}$．由于 $\left| (x^2 + y^2) \sin \frac{1}{\sqrt{x^2+y^2}} \right| \leq x^2 + y^2$，则有
     \begin{equation}
         \lim_{(x,y) \to (0,0)} f(x,y) = \lim_{r \to 0} r^2 \sin \frac{1}{r} = 0 = f(0,0).
     \end{equation}
-    故 $f(x,y)$ 在点 $(0,0)$ 连续。由偏导数定义：
+    故 $f(x,y)$ 在点 $(0,0)$ 连续．由偏导数定义：
     \begin{equation}
         \begin{aligned}
             f_x(0,0) & = \lim_{\Delta x \to 0} \frac{f(\Delta x, 0) - f(0,0)}{\Delta x} = \lim_{\Delta x \to 0} \frac{\Delta x^2 \sin \frac{1}{|\Delta x|}}{\Delta x} = 0, \\
             f_y(0,0) & = \lim_{\Delta y \to 0} \frac{f(0, \Delta y) - f(0,0)}{\Delta y} = \lim_{\Delta y \to 0} \frac{\Delta y^2 \sin \frac{1}{|\Delta y|}}{\Delta y} = 0.
         \end{aligned}
     \end{equation}
-    故偏导数在 $(0,0)$ 处存在。考察可微性，由于
+    故偏导数在 $(0,0)$ 处存在．考察可微性，由于
     \begin{equation}
         \lim_{(\Delta x, \Delta y) \to (0,0)} \frac{f(\Delta x, \Delta y) - f(0,0) - [f_x(0,0) \Delta x + f_y(0,0) \Delta y]}{\sqrt{\Delta x^2 + \Delta y^2}} = \lim_{r \to 0} \frac{r^2 \sin \frac{1}{r}}{r} = 0,
     \end{equation}
-    故 $f(x,y)$ 在点 $(0,0)$ 可微。当 $(x,y) \neq (0,0)$ 时，计算 $f_x(x,y)$ 得
+    故 $f(x,y)$ 在点 $(0,0)$ 可微．当 $(x,y) \neq (0,0)$ 时，计算 $f_x(x,y)$ 得
     \begin{equation}
         f_x(x,y) = 2x \sin \frac{1}{\sqrt{x^2 + y^2}} - \frac{x}{\sqrt{x^2 + y^2}} \cos \frac{1}{\sqrt{x^2 + y^2}}.
     \end{equation}
-    当 $(x,y) \to (0,0)$ 时，第一项趋于 $0$，但第二项极限不存在（震荡），故 $f_x(x,y)$ 在 $(0,0)$ 不连续。同理可知 $f_y(x,y)$ 在 $(0,0)$ 亦不连续。
+    当 $(x,y) \to (0,0)$ 时，第一项趋于 $0$，但第二项极限不存在（震荡），故 $f_x(x,y)$ 在 $(0,0)$ 不连续．同理可知 $f_y(x,y)$ 在 $(0,0)$ 亦不连续．
 \end{myproof}
 
 \begin{problem}{多元复合函数求导}{Chain-Rule-Derivatives}
@@ -825,7 +825,7 @@
 \begin{solution}
     \ansitem{1}
 
-    将中间变量代入，原函数化简为 $z = x^2 \ln \frac{1}{1+y} = -x^2 \ln(1+y)$。
+    将中间变量代入，原函数化简为 $z = x^2 \ln \frac{1}{1+y} = -x^2 \ln(1+y)$．
     其一阶偏导数为
     \begin{equation}
         z_x = -2x \ln(1+y), \quad z_y = -\frac{x^2}{1+y}.
@@ -1055,7 +1055,7 @@
 
 
 \begin{problem}{方向导数}{Directional-Derivative-Basic}
-    求函数 $u = xyz$ 在点 $(1, 2, -1)$ 沿方向 $\symbfit{l} = (3, -1, 1)$ 的方向微商。
+    求函数 $u = xyz$ 在点 $(1, 2, -1)$ 沿方向 $\symbfit{l} = (3, -1, 1)$ 的方向微商．
 \end{problem}
 
 \begin{solution}
@@ -1087,7 +1087,7 @@
 
 
 \begin{problem}{曲线方向导数}{Curve-Directional-Derivative}
-    试求函数 $z = \arctan \frac{y}{x}$ 在圆 $x^2 + y^2 - 2x = 0$ 上一点 $P\left(\frac{1}{2}, \frac{\sqrt{3}}{2}\right)$ 处沿该圆周逆时针方向上的方向微商。
+    试求函数 $z = \arctan \frac{y}{x}$ 在圆 $x^2 + y^2 - 2x = 0$ 上一点 $P\left(\frac{1}{2}, \frac{\sqrt{3}}{2}\right)$ 处沿该圆周逆时针方向上的方向微商．
 \end{problem}
 
 \begin{solution}
@@ -1099,7 +1099,7 @@
     \begin{equation}
         \nabla z|_{P} = \left( -\frac{\sqrt{3}}{2}, \frac{1}{2} \right).
     \end{equation}
-    圆方程为 $(x-1)^2 + y^2 = 1$，设其参数方程为 $x = 1 + \cos \theta, y = \sin \theta$。在点 $P$ 处有：
+    圆方程为 $(x-1)^2 + y^2 = 1$，设其参数方程为 $x = 1 + \cos \theta, y = \sin \theta$．在点 $P$ 处有：
     \begin{equation}
         \cos \theta = -\frac{1}{2}, \quad \sin \theta = \frac{\sqrt{3}}{2} \implies \theta = \frac{2\uppi}{3}.
     \end{equation}
@@ -1119,7 +1119,7 @@
 
 
 \begin{problem}{梯度与最大方向导数}{Gradient-Max-Derivative}
-    求函数 $u = x^2 + 2y^2 + 3z^2 + xy + 3x - 2y - 6z$ 在点 $(1, 1, -1)$ 的梯度和最大方向微商。
+    求函数 $u = x^2 + 2y^2 + 3z^2 + xy + 3x - 2y - 6z$ 在点 $(1, 1, -1)$ 的梯度和最大方向微商．
 \end{problem}
 
 \begin{solution}
@@ -1158,7 +1158,7 @@
     设 $\symbfit{r} = x\symbfit{i} + y\symbfit{j} + z\symbfit{k}$，$r = |\symbfit{r}|$，试求
     \begin{enumerate}
         \item $\operatorname{grad} \frac{1}{r^2}$；
-        \item $\operatorname{grad} \ln r$。
+        \item $\operatorname{grad} \ln r$．
     \end{enumerate}
 \end{problem}
 
@@ -1193,11 +1193,11 @@
 \end{solution}
 
 \begin{problem}{多元复合函数偏导数}{Partial-Derivative-Chain-Rule}
-    设 $u = f(t)$，$t = \varphi(xy, x + y)$，其中 $f, \varphi$ 分别具有连续的二阶导数及偏导数，求 $\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial^2 u}{\partial x \partial y}$。
+    设 $u = f(t)$，$t = \varphi(xy, x + y)$，其中 $f, \varphi$ 分别具有连续的二阶导数及偏导数，求 $\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial^2 u}{\partial x \partial y}$．
 \end{problem}
 
 \begin{solution}
-    记 $v = xy$，$w = x + y$，则 $t = \varphi(v, w)$。由链式法则得
+    记 $v = xy$，$w = x + y$，则 $t = \varphi(v, w)$．由链式法则得
     \begin{equation}
         \frac{\partial u}{\partial x} = \frac{\d f}{\d t} \left( \frac{\partial \varphi}{\partial v} \frac{\partial v}{\partial x} + \frac{\partial \varphi}{\partial w} \frac{\partial w}{\partial x} \right) = f'(t) (y \varphi_1 + \varphi_2)
     \end{equation}
@@ -1219,11 +1219,11 @@
 \end{solution}
 
 \begin{problem}{偏导数恒等式证明}{Partial-Derivative-Identity}
-    设 $z = f(xy)$，$f$ 为可微函数。证明 $x \frac{\partial z}{\partial x} - y \frac{\partial z}{\partial y} = 0$。
+    设 $z = f(xy)$，$f$ 为可微函数．证明 $x \frac{\partial z}{\partial x} - y \frac{\partial z}{\partial y} = 0$．
 \end{problem}
 
 \begin{myproof}
-    令 $u = xy$，则 $z = f(u)$。计算其偏导数
+    令 $u = xy$，则 $z = f(u)$．计算其偏导数
     \begin{equation}
         \frac{\partial z}{\partial x} = f'(u) \frac{\partial u}{\partial x} = y f'(xy)
     \end{equation}
@@ -1238,12 +1238,12 @@
                                                                               & = 0.
         \end{aligned}
     \end{equation}
-    得证。
+    得证．
 \end{myproof}
 
 
 \begin{problem}{复合函数求导}{Composite-Function-Differentiation}
-    设 $z = f\left(\ln x + \frac{1}{y}\right)$，$f$ 为可微函数。证明 $x \frac{\partial z}{\partial x} + y^2 \frac{\partial z}{\partial y} = 0$。
+    设 $z = f\left(\ln x + \frac{1}{y}\right)$，$f$ 为可微函数．证明 $x \frac{\partial z}{\partial x} + y^2 \frac{\partial z}{\partial y} = 0$．
 \end{problem}
 
 \begin{myproof}
@@ -1258,7 +1258,7 @@
     \begin{equation}
         x \frac{\partial z}{\partial x} + y^2 \frac{\partial z}{\partial y} = x \cdot \left( \frac{1}{x} f'(u) \right) + y^2 \cdot \left( -\frac{1}{y^2} f'(u) \right) = f'(u) - f'(u) = 0.
     \end{equation}
-    由此可知，原等式成立。
+    由此可知，原等式成立．
     \begin{equation}
         \boxed{x \frac{\partial z}{\partial x} + y^2 \frac{\partial z}{\partial y} = 0}
     \end{equation}
@@ -1270,11 +1270,11 @@
     \begin{equation}
         \frac{\partial^2 u}{\partial t^2} = a^2 \frac{\partial^2 u}{\partial x^2},
     \end{equation}
-    其中 $\varphi, \psi$ 有连续的二阶微商。
+    其中 $\varphi, \psi$ 有连续的二阶微商．
 \end{problem}
 
 \begin{myproof}
-    令 $\xi = x - at$，$\eta = x + at$。对 $u$ 关于 $x$ 求一阶及二阶偏导数：
+    令 $\xi = x - at$，$\eta = x + at$．对 $u$ 关于 $x$ 求一阶及二阶偏导数：
     \begin{equation} \label{eq:u-xx}
         \begin{aligned}
             \frac{\partial u}{\partial x}     & = \varphi'(\xi) \frac{\partial \xi}{\partial x} + \psi'(\eta) \frac{\partial \eta}{\partial x} = \varphi'(\xi) + \psi'(\eta),     \\
@@ -1292,7 +1292,7 @@
     \begin{equation}
         \frac{\partial^2 u}{\partial t^2} = a^2 \left[ \varphi''(\xi) + \psi''(\eta) \right] = a^2 \frac{\partial^2 u}{\partial x^2}.
     \end{equation}
-    结论得证。
+    结论得证．
     \begin{equation}
         \boxed{\frac{\partial^2 u}{\partial t^2} = a^2 \frac{\partial^2 u}{\partial x^2}}
     \end{equation}
@@ -1300,7 +1300,7 @@
 
 
 \begin{problem}{极坐标变换}{Polar-Coordinate-Substitution}
-    若 $u = F(x, y)$，$F$ 任意二阶偏导存在，而 $x = r \cos \varphi$，$y = r \sin \varphi$。证明：
+    若 $u = F(x, y)$，$F$ 任意二阶偏导存在，而 $x = r \cos \varphi$，$y = r \sin \varphi$．证明：
     \begin{equation}
         \left(\frac{\partial u}{\partial r}\right)^2 + \left(\frac{1}{r} \frac{\partial u}{\partial \varphi}\right)^2 = \left(\frac{\partial u}{\partial x}\right)^2 + \left(\frac{\partial u}{\partial y}\right)^2.
     \end{equation}
@@ -1335,7 +1335,7 @@
 \end{myproof}
 
 \begin{problem}{偏微分方程变量代换}{PDE-Variable-Substitution}
-    试证：方程 $\frac{\partial^2 u}{\partial x^2} + 2 \frac{\partial^2 u}{\partial x \partial y} - 3 \frac{\partial^2 u}{\partial y^2} + 2 \frac{\partial u}{\partial x} + 6 \frac{\partial u}{\partial y} = 0$ 经变化 $\xi = x + y, \eta = 3x - y$ 后变成 $\frac{\partial^2 u}{\partial \eta \partial \xi} + \frac{1}{2} \frac{\partial u}{\partial \xi} = 0$。（其中二阶偏导数均连续）
+    试证：方程 $\frac{\partial^2 u}{\partial x^2} + 2 \frac{\partial^2 u}{\partial x \partial y} - 3 \frac{\partial^2 u}{\partial y^2} + 2 \frac{\partial u}{\partial x} + 6 \frac{\partial u}{\partial y} = 0$ 经变化 $\xi = x + y, \eta = 3x - y$ 后变成 $\frac{\partial^2 u}{\partial \eta \partial \xi} + \frac{1}{2} \frac{\partial u}{\partial \xi} = 0$．（其中二阶偏导数均连续）
 \end{problem}
 
 \begin{myproof}
@@ -1380,7 +1380,7 @@
 
 
 \begin{problem}{偏导数坐标变换}{PDE-Transformation}
-    试证：方程 $\frac{\partial^2 u}{\partial x^2} + 2 \frac{\partial^2 u}{\partial x \partial y} \cos x - \frac{\partial^2 u}{\partial y^2} \sin^2 x - \frac{\partial u}{\partial y} \sin x = 0$ 经变换 $\xi = x - \sin x + y, \eta = x + \sin x - y$ 后变成 $\frac{\partial^2 u}{\partial \xi \partial \eta} = 0$。（其中二阶偏导数均连续）
+    试证：方程 $\frac{\partial^2 u}{\partial x^2} + 2 \frac{\partial^2 u}{\partial x \partial y} \cos x - \frac{\partial^2 u}{\partial y^2} \sin^2 x - \frac{\partial u}{\partial y} \sin x = 0$ 经变换 $\xi = x - \sin x + y, \eta = x + \sin x - y$ 后变成 $\frac{\partial^2 u}{\partial \xi \partial \eta} = 0$．（其中二阶偏导数均连续）
 \end{problem}
 
 \begin{myproof}
@@ -1429,7 +1429,7 @@
 
 
 \begin{problem}{偏导数变量替换}{Variable-Substitution}
-    设变换 $\begin{cases} u = x - 2y, \\ v = x + ay \end{cases}$ 可把方程 $6 \frac{\partial^2 z}{\partial x^2} + \frac{\partial^2 z}{\partial x \partial y} - \frac{\partial^2 z}{\partial y^2} = 0$ 简化为 $\frac{\partial^2 z}{\partial u \partial v} = 0$。求常数 $a$。（其中二阶偏导数均连续）
+    设变换 $\begin{cases} u = x - 2y, \\ v = x + ay \end{cases}$ 可把方程 $6 \frac{\partial^2 z}{\partial x^2} + \frac{\partial^2 z}{\partial x \partial y} - \frac{\partial^2 z}{\partial y^2} = 0$ 简化为 $\frac{\partial^2 z}{\partial u \partial v} = 0$．求常数 $a$．（其中二阶偏导数均连续）
 \end{problem}
 
 \begin{solution}
@@ -1457,11 +1457,11 @@
     \begin{equation}
         (5a + 10)z_{uv} + (6 + a - a^2)z_{vv} = 0.
     \end{equation}
-    要使方程简化为 $z_{uv} = 0$，需满足系数 $6 + a - a^2 = 0$ 且 $5a + 10 \neq 0$。解得：
+    要使方程简化为 $z_{uv} = 0$，需满足系数 $6 + a - a^2 = 0$ 且 $5a + 10 \neq 0$．解得：
     \begin{equation}
         a^2 - a - 6 = (a - 3)(a + 2) = 0 \implies a = 3 \text{ 或 } a = -2.
     \end{equation}
-    由于当 $a = -2$ 时，变换的雅可比行列式为零且 $5a + 10 = 0$ 导致方程失效，故舍去。取 $a = 3$。
+    由于当 $a = -2$ 时，变换的雅可比行列式为零且 $5a + 10 = 0$ 导致方程失效，故舍去．取 $a = 3$．
     \begin{equation}
         \boxed{a = 3}
     \end{equation}
@@ -1469,7 +1469,7 @@
 
 
 \begin{problem}{偏微分方程}{First-Order-PDE}
-    求方程 $\frac{\partial z}{\partial y} = x^2 + 2y$ 满足条件 $z(x, x^2) = 1$ 的解 $z = z(x, y)$。
+    求方程 $\frac{\partial z}{\partial y} = x^2 + 2y$ 满足条件 $z(x, x^2) = 1$ 的解 $z = z(x, y)$．
 \end{problem}
 
 \begin{solution}
@@ -1477,11 +1477,11 @@
     \begin{equation}
         z(x, y) = \int (x^2 + 2y) \d y = x^2 y + y^2 + \varphi(x)
     \end{equation}
-    其中 $\varphi(x)$ 为待定函数。代入边界条件 $z(x, x^2) = 1$，有
+    其中 $\varphi(x)$ 为待定函数．代入边界条件 $z(x, x^2) = 1$，有
     \begin{equation}
         x^2 \cdot x^2 + (x^2)^2 + \varphi(x) = 1 \implies 2x^4 + \varphi(x) = 1
     \end{equation}
-    解得 $\varphi(x) = 1 - 2x^4$。将其代入通解表达式，得到
+    解得 $\varphi(x) = 1 - 2x^4$．将其代入通解表达式，得到
     \begin{equation}
         \boxed{z(x, y) = x^2 y + y^2 + 1 - 2x^4}
     \end{equation}
@@ -1489,11 +1489,11 @@
 
 
 \begin{problem}{复合函数求导}{Partial-Derivative-Chain-Rule-2}
-    设 $u = u(x, y)$，当 $y = x^2$ 时有 $u = 1, \frac{\partial u}{\partial x} = x$，求当 $y = x^2$ 时的 $\frac{\partial u}{\partial y}$。
+    设 $u = u(x, y)$，当 $y = x^2$ 时有 $u = 1, \frac{\partial u}{\partial x} = x$，求当 $y = x^2$ 时的 $\frac{\partial u}{\partial y}$．
 \end{problem}
 
 \begin{solution}
-    已知当 $y = x^2$ 时，$u(x, x^2) = 1$。方程两端对 $x$ 求全导数，应用复合函数链式法则得
+    已知当 $y = x^2$ 时，$u(x, x^2) = 1$．方程两端对 $x$ 求全导数，应用复合函数链式法则得
     \begin{equation}
         \frac{\d}{\d x} [u(x, x^2)] = \frac{\partial u}{\partial x} \cdot \frac{\d x}{\d x} + \frac{\partial u}{\partial y} \cdot \frac{\d (x^2)}{\d x} = 0
     \end{equation}
@@ -1513,7 +1513,7 @@
 
 
 \begin{problem}{二阶偏导数计算}{Second-Order-Partial-Derivatives}
-    设 $u = u(x, y)$ 满足方程 $\frac{\partial^2 u}{\partial x^2} - \frac{\partial^2 u}{\partial y^2} = 0$ 以及条件 $u(x, 2x) = x, u'_x(x, 2x) = x^2$，求 $u''_{xx}(x, 2x), u''_{xy}(x, 2x), u''_{yy}(x, 2x)$。（其中二阶偏导数均连续）
+    设 $u = u(x, y)$ 满足方程 $\frac{\partial^2 u}{\partial x^2} - \frac{\partial^2 u}{\partial y^2} = 0$ 以及条件 $u(x, 2x) = x, u'_x(x, 2x) = x^2$，求 $u''_{xx}(x, 2x), u''_{xy}(x, 2x), u''_{yy}(x, 2x)$．（其中二阶偏导数均连续）
 \end{problem}
 
 \begin{solution}
@@ -1548,7 +1548,7 @@
             2u''_{xx} + u''_{xy} = -x
         \end{cases}
     \end{equation}
-    解得 $u''_{xx} = -\frac{4}{3}x$，$u''_{xy} = \frac{5}{3}x$。由 \zcref{eq:pde-1} 可得 $u''_{yy} = -\frac{4}{3}x$。
+    解得 $u''_{xx} = -\frac{4}{3}x$，$u''_{xy} = \frac{5}{3}x$．由 \zcref{eq:pde-1} 可得 $u''_{yy} = -\frac{4}{3}x$．
     \begin{equation}
         \boxed{u''_{xx}(x, 2x) = -\frac{4}{3}x, \quad u''_{xy}(x, 2x) = \frac{5}{3}x, \quad u''_{yy}(x, 2x) = -\frac{4}{3}x}
     \end{equation}
@@ -1630,11 +1630,11 @@
 \end{solution}
 
 \begin{problem}{球坐标下拉普拉斯方程}{Spherical-Laplace-Equation}
-    求在球坐标下的 Laplace 方程的形式。
+    求在球坐标下的 Laplace 方程的形式．
 \end{problem}
 
 \begin{solution}
-    在球坐标系 $(r, \theta, \varphi)$ 下，其中 $r$ 为径向距离，$\theta$ 为极角（余纬角），$\varphi$ 为方位角。坐标变换为：
+    在球坐标系 $(r, \theta, \varphi)$ 下，其中 $r$ 为径向距离，$\theta$ 为极角（余纬角），$\varphi$ 为方位角．坐标变换为：
     \begin{equation}
         \left\{
         \begin{aligned}
@@ -1654,7 +1654,7 @@
 \end{solution}
 
 \begin{problem}{雅可比行列式}{Jacobian-Determinant}
-    求直角坐标和极坐标的坐标变换 $x = x(r, \theta) = r \cos \theta, y = y(r, \theta) = r \sin \theta$ 的 Jacobi 行列式。
+    求直角坐标和极坐标的坐标变换 $x = x(r, \theta) = r \cos \theta, y = y(r, \theta) = r \sin \theta$ 的 Jacobi 行列式．
 \end{problem}
 
 \begin{solution}

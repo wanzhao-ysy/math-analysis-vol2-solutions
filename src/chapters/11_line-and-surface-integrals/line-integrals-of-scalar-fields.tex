@@ -1,0 +1,361 @@
+\section{数量场在曲线上的积分}
+
+\begin{problem}{曲线弧长}{Arc-Length-Calculation}
+    计算下列曲线的弧长。
+    \begin{enumerate}
+        \item $\symbfit{r}(t) = \e^t \cos t \symbfit{i} + \e^t \sin t \symbfit{j} + \e^t \symbfit{k}$ ($0 \le t \le 2\uppi$)；
+        \item $x = 3t, y = 3t^2, z = 2t^3$ 从 $O(0,0,0)$ 到 $A(3,3,2)$ 那一段；
+        \item $x = a \cos t, y = a \sin t, z = a \ln \cos t$ ($0 \le t \le \frac{\uppi}{4}$)；
+        \item $z^2 = 2ax$ 与 $9y^2 = 16xz$ 的交线，由点 $O(0,0,0)$ 到点 $A(2a, \frac{8a}{3}, 2a)$；
+        \item $4ax = (y+z)^2$ 与 $4x^2 + 3y^2 = 3z^2$ 的交线，由原点到点 $M(x,y,z)$ ($a > 0, z \ge 0$)。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对向量函数 $\symbfit{r}(t)$ 关于 $t$ 求导得
+    \begin{equation}
+        \symbfit{r}'(t) = (\e^t \cos t - \e^t \sin t) \symbfit{i} + (\e^t \sin t + \e^t \cos t) \symbfit{j} + \e^t \symbfit{k}.
+    \end{equation}
+    计算其模长可得
+    \begin{equation}
+        \begin{aligned}
+            \|\symbfit{r}'(t)\| & = \sqrt{\e^{2t}(\cos t - \sin t)^2 + \e^{2t}(\sin t + \cos t)^2 + \e^{2t}} \\
+                                & = \sqrt{\e^{2t}(1 - 2\sin t \cos t + 1 + 2\sin t \cos t + 1)}              \\
+                                & = \sqrt{3}\e^t.
+        \end{aligned}
+    \end{equation}
+    因此曲线弧长为
+    \begin{equation}
+        s = \int_{0}^{2\uppi} \sqrt{3}\e^t \d t = \sqrt{3} \left[ \e^t \right]_0^{2\uppi}.
+    \end{equation}
+    \begin{equation}
+        \boxed{s = \sqrt{3}(\e^{2\uppi} - 1)}
+    \end{equation}
+
+    \ansitem{2}
+
+    由题意可知，点 $O$ 对应参数 $t=0$，点 $A$ 对应参数 $t=1$。对参数方程求导得
+    \begin{equation}
+        x' = 3, \quad y' = 6t, \quad z' = 6t^2.
+    \end{equation}
+    弧长微元为
+    \begin{equation}
+        \d s = \sqrt{3^2 + (6t)^2 + (6t^2)^2} \d t = 3\sqrt{1 + 4t^2 + 4t^4} \d t = 3(1 + 2t^2) \d t.
+    \end{equation}
+    积分计算弧长
+    \begin{equation}
+        s = \int_{0}^{1} 3(1 + 2t^2) \d t = \left[ 3t + 2t^3 \right]_0^1.
+    \end{equation}
+    \begin{equation}
+        \boxed{s = 5}
+    \end{equation}
+
+    \ansitem{3}
+
+    对曲线方程求导得
+    \begin{equation}
+        x' = -a \sin t, \quad y' = a \cos t, \quad z' = -a \tan t.
+    \end{equation}
+    计算弧长微元
+    \begin{equation}
+        \d s = \sqrt{(-a\sin t)^2 + (a\cos t)^2 + (-a\tan t)^2} \d t = \sqrt{a^2(1 + \tan^2 t)} \d t = |a| \sec t \d t.
+    \end{equation}
+    在区间 $[0, \frac{\uppi}{4}]$ 上进行积分
+    \begin{equation}
+        s = \int_{0}^{\frac{\uppi}{4}} |a| \sec t \d t = |a| \ln |\sec t + \tan t| \Big|_0^{\frac{\uppi}{4}}.
+    \end{equation}
+    \begin{equation}
+        \boxed{s = |a| \ln (\sqrt{2} + 1)}
+    \end{equation}
+
+    \ansitem{4}
+
+    选取 $z = t$ 作为参数，则有 $x = \frac{t^2}{2a}$。代入第二个方程得 $9y^2 = \frac{8}{a}t^3$。
+    点 $O$ 对应 $t=0$，点 $A$ 对应 $t=2a$。各分量导数满足
+    \begin{equation}
+        (x')^2 = \frac{t^2}{a^2}, \quad (y')^2 = \frac{2t}{a}, \quad (z')^2 = 1.
+    \end{equation}
+    弧长微元为
+    \begin{equation}
+        \d s = \sqrt{\frac{t^2}{a^2} + \frac{2t}{a} + 1} |\d t| = \left| \frac{t}{a} + 1 \right| |\d t|.
+    \end{equation}
+    由于 $t$ 在 $0$ 与 $2a$ 之间，故 $\frac{t}{a} \in [0, 2]$，从而 $\frac{t}{a} + 1 > 0$。积分得
+    \begin{equation}
+        s = \left| \int_{0}^{2a} \left( \frac{t}{a} + 1 \right) \d t \right| = \left| \left[ \frac{t^2}{2a} + t \right]_0^{2a} \right| = |2a + 2a|.
+    \end{equation}
+    \begin{equation}
+        \boxed{s = 4|a|}
+    \end{equation}
+
+    \ansitem{5}
+
+    由 $4ax = (y+z)^2$ 及 $z \ge 0$ 可知 $y+z = 2\sqrt{ax}$。
+    由 $4x^2 + 3y^2 = 3z^2$ 得 $4x^2 = 3(z-y)(z+y)$，代入上式得
+    \begin{equation}
+        z-y = \frac{4x^2}{3(2\sqrt{ax})} = \frac{2x^{\frac{3}{2}}}{3\sqrt{a}}.
+    \end{equation}
+    解得 $y, z$ 关于 $x$ 的表达式并求导
+    \begin{equation}
+        \frac{\d z}{\d x} = \frac{\sqrt{a}}{2\sqrt{x}} + \frac{\sqrt{x}}{2\sqrt{a}}, \quad \frac{\d y}{\d x} = \frac{\sqrt{a}}{2\sqrt{x}} - \frac{\sqrt{x}}{2\sqrt{a}}.
+    \end{equation}
+    弧长微元满足
+    \begin{equation}
+        \left( \frac{\d s}{\d x} \right)^2 = 1 + \left( \frac{\d y}{\d x} \right)^2 + \left( \frac{\d z}{\d x} \right)^2 = 1 + \frac{a}{2x} + \frac{x}{2a} = \frac{(x+a)^2}{2ax}.
+    \end{equation}
+    积分计算弧长
+    \begin{equation}
+        s = \int_{0}^{x} \frac{t+a}{\sqrt{2at}} \d t = \frac{1}{\sqrt{2a}} \left[ \frac{2}{3}t^{\frac{3}{2}} + 2at^{\frac{1}{2}} \right]_0^x.
+    \end{equation}
+    \begin{equation}
+        \boxed{s = \frac{x+3a}{3}\sqrt{\frac{2x}{a}}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{第一类曲线积分}{Line-Integrals-First-Kind}
+    计算下列曲线积分。
+    \begin{enumerate}
+        \item $\int_{L} y^{2} \d s$, $L$: $x=a(t-\sin t)$, $y=a(1-\cos t)$, ($0 \leqslant t \leqslant 2 \uppi$)；
+        \item $\int_{L} \frac{z^{2}}{x^{2}+y^{2}} \d s$, $L$: $x=a \cos t$, $y=a \sin t$, $z=a t$, ($0 \leqslant t \leqslant 2 \uppi$)；
+        \item $\int_{L}(x+y) \d s$, $L$: 顶点为 $O(0,0)$、$A(1,0)$、$B(0,1)$ 的三角形周界；
+        \item $\int_{L} \frac{\d s}{x-y}$, $L$: 联结点 $A(0,-2)$ 到点 $B(4,0)$ 的直线段；
+        \item $\int_{L}(x+y+z) \d s$, $L$: 直线段 $AB$: $A(1,1,0)$、$B(1,0,0)$ 及螺线 $BC$: $x=\cos t$, $y=\sin t$, $z=t$ ($0 \leqslant t \leqslant 2 \uppi$) 组成；
+        \item $\int_{L} \e^{\sqrt{x^{2}+y^{2}}} \d s$, $L$: 由曲线 $r=a$, $\varphi=0$, $\varphi=\frac{\uppi}{4}$ 所围成的区域边界；
+        \item $\int_{L} x \d s$, $L$: 对数螺线 $r=a \e^{k \varphi}$ ($k>0$) 在圆 $r=a$ 内的那一段；
+        \item $\int_{L} z \d s$, $L$ 是圆锥螺线 $x=t \cos t$, $y=t \sin t$, $z=t$ ($0 \leqslant t \leqslant t_{0}$)；
+        \item $\int_{L} x \sqrt{x^{2}-y^{2}} \d s$, $L$: 双纽线 $\left(x^{2}+y^{2}\right)^{2}=a^{2}\left(x^{2}-y^{2}\right)$ ($x \geqslant 0$) 的一半；
+        \item $\int_{L}\left(x^{2}+y^{2}+z^{2}\right)^{n} \d s$, $L$: 圆周 $x^{2}+y^{2}=a^{2}$, $z=0$；
+        \item $\int_{L} x^{2} \d s$, $L$: 圆周 $x^{2}+y^{2}+z^{2}=a^{2}$, $x+y+z=0$；
+        \item $\int_{L}(x y+y z+z x) \d s$, $L$: 圆周 $x^{2}+y^{2}+z^{2}=a^{2}$, $x+y+z=0$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    根据曲线方程得 $\d x = a(1-\cos t) \d t$，$\d y = a \sin t \d t$，故
+    \begin{equation}
+        \d s = \sqrt{[a(1-\cos t)]^{2}+(a \sin t)^{2}} \d t = \sqrt{2 a^{2}(1-\cos t)} \d t = 2 |a| \sin \frac{t}{2} \d t
+    \end{equation}
+    积分式为
+    \begin{equation}
+        \begin{aligned}
+            \int_{L} y^{2} \d s & = \int_{0}^{2 \uppi} a^{2}(1-\cos t)^{2} \cdot 2 |a| \sin \frac{t}{2} \d t                                         \\
+                                & = 8 a^{2} |a| \int_{0}^{2 \uppi} \sin^{5} \frac{t}{2} \d t                                                         \\
+                                & = 16 a^{2} |a| \int_{0}^{\uppi} \sin^{5} u \d u                                                                    \\
+                                & = 32 a^{2} |a| \int_{0}^{\frac{\uppi}{2}} \sin^{5} u \d u = 32 a^{2} |a| \cdot \frac{4 \cdot 2}{5 \cdot 3 \cdot 1}
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L} y^{2} \d s = \frac{256}{15} a^{2} |a| }
+    \end{equation}
+
+    \ansitem{2}
+
+    由参数方程得 $\d s = \sqrt{(-a \sin t)^{2}+(a \cos t)^{2}+a^{2}} \d t = \sqrt{2} |a| \d t$。
+    \begin{equation}
+        \int_{L} \frac{z^{2}}{x^{2}+y^{2}} \d s = \int_{0}^{2 \uppi} \frac{a^{2} t^{2}}{a^{2}} \sqrt{2} |a| \d t = \sqrt{2} |a| \int_{0}^{2 \uppi} t^{2} \d t = \sqrt{2} |a| \cdot \left[ \frac{t^{3}}{3} \right]_{0}^{2 \uppi}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L} \frac{z^{2}}{x^{2}+y^{2}} \d s = \frac{8 \sqrt{2} \uppi^{3} |a| }{3}}
+    \end{equation}
+
+    \ansitem{3}
+
+    三角形三边分别为 $L_{OA}$ ($y=0$)，$L_{AB}$ ($y=1-x$)，$L_{BO}$ ($x=0$)。
+    \begin{equation}
+        \begin{aligned}
+            \int_{L}(x+y) \d s & = \int_{0}^{1} x \d x + \int_{0}^{1}(x+1-x) \sqrt{1+(-1)^{2}} \d x + \int_{0}^{1} y \d y \\
+                               & = \frac{1}{2} + \sqrt{2} + \frac{1}{2}
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L}(x+y) \d s = 1+\sqrt{2}}
+    \end{equation}
+
+    \ansitem{4}
+
+    直线段 $AB$ 方程为 $y = \frac{1}{2}x - 2$，即 $x-2y-4=0$，其中 $x \in [0, 4]$，$\d s = \sqrt{1+(1/2)^{2}} \d x = \frac{\sqrt{5}}{2} \d x$。
+    \begin{equation}
+        \int_{L} \frac{\d s}{x-y} = \int_{0}^{4} \frac{\frac{\sqrt{5}}{2}}{x - (\frac{1}{2}x - 2)} \d x = \sqrt{5} \int_{0}^{4} \frac{1}{x+4} \d x = \sqrt{5} \ln \frac{x+4}{4} \Big|_{0}^{4}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L} \frac{\d s}{x-y} = \sqrt{5} \ln 2}
+    \end{equation}
+
+    \ansitem{5}
+
+    对 $AB$ 段：$x=1$，$z=0$，$y \in [0, 1]$，$\d s = \d y$。$\int_{AB} = \int_{0}^{1}(1+y+0) \d y = \frac{3}{2}$。
+    对 $BC$ 段：$\d s = \sqrt{2} \d t$。$\int_{BC} = \int_{0}^{2 \uppi}(\cos t + \sin t + t) \sqrt{2} \d t = \sqrt{2} \cdot \frac{(2 \uppi)^{2}}{2} = 2 \sqrt{2} \uppi^{2}$。
+    \begin{equation}
+        \boxed{\int_{L}(x+y+z) \d s = \frac{3}{2} + 2 \sqrt{2} \uppi^{2}}
+    \end{equation}
+
+    \ansitem{6}
+
+    边界由圆弧 $L_{1}$ ($r=a, \varphi \in [0, \frac{\uppi}{4}]$) 及两段半径 $L_{2}, L_{3}$ 组成。
+    \begin{equation}
+        \begin{aligned}
+            \int_{L} \e^{\sqrt{x^{2}+y^{2}}} \d s & = \int_{0}^{\frac{\uppi}{4}} \e^{a} \cdot a \d \varphi + \int_{0}^{a} \e^{r} \d r + \int_{0}^{a} \e^{r} \d r \\
+                                                  & = \frac{a \uppi \e^{a}}{4} + 2(\e^{a}-1)
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L} \e^{\sqrt{x^{2}+y^{2}}} \d s = \e^{a}\left(2 + \frac{a \uppi}{4}\right) - 2}
+    \end{equation}
+
+    \ansitem{7}
+
+    由 $r = a \e^{k \varphi} \leqslant a$ 且 $k>0$ 知 $\varphi \leqslant 0$，故 $\varphi \in (-\infty, 0]$。
+    $\d s = \sqrt{r^{2} + (r')^{2}} \d \varphi = a \sqrt{1+k^{2}} \e^{k \varphi} \d \varphi$，$x = a \e^{k \varphi} \cos \varphi$。
+    \begin{equation}
+        \int_{L} x \d s = a^{2} \sqrt{1+k^{2}} \int_{-\infty}^{0} \e^{2k \varphi} \cos \varphi \d \varphi = a^{2} \sqrt{1+k^{2}} \left[ \frac{\e^{2k \varphi}(2k \cos \varphi + \sin \varphi)}{4k^{2}+1} \right]_{-\infty}^{0}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L} x \d s = \frac{2 k a^{2} \sqrt{1+k^{2}}}{4 k^{2}+1}}
+    \end{equation}
+
+    \ansitem{8}
+
+    由参数方程得 $\d s = \sqrt{(\cos t - t \sin t)^{2} + (\sin t + t \cos t)^{2} + 1} \d t = \sqrt{t^{2}+2} \d t$。
+    \begin{equation}
+        \int_{L} z \d s = \int_{0}^{t_{0}} t \sqrt{t^{2}+2} \d t = \frac{1}{2} \int_{0}^{t_{0}} (t^{2}+2)^{\frac{1}{2}} \d(t^{2}+2) = \frac{1}{3} \left[ (t^{2}+2)^{\frac{3}{2}} \right]_{0}^{t_{0}}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L} z \d s = \frac{1}{3} \left[ (t_{0}^{2}+2)^{\frac{3}{2}} - 2 \sqrt{2} \right]}
+    \end{equation}
+
+    \ansitem{9}
+
+    极坐标下 $r^{2} = a^{2} \cos 2 \varphi$，由 $x \geqslant 0$ 知 $\varphi \in [-\uppi/4, \uppi/4]$，$\d s = \frac{|a|}{\sqrt{\cos 2 \varphi}} \d \varphi$。
+    \begin{equation}
+        \int_{L} x \sqrt{x^{2}-y^{2}} \d s = \int_{-\frac{\uppi}{4}}^{\frac{\uppi}{4}} r \cos \varphi \cdot r \sqrt{\cos 2 \varphi} \cdot \frac{|a|}{\sqrt{\cos 2 \varphi}} \d \varphi = a^{2} |a| \int_{-\frac{\uppi}{4}}^{\frac{\uppi}{4}} \cos 2 \varphi \cos \varphi \d \varphi
+    \end{equation}
+    \begin{equation}
+        \int_{-\frac{\uppi}{4}}^{\frac{\uppi}{4}} (1-2\sin^{2} \varphi) \d (\sin \varphi) = \left[ 2 \sin \varphi - \frac{4}{3} \sin^{3} \varphi \right]_{0}^{\frac{\uppi}{4}} = \sqrt{2} - \frac{\sqrt{2}}{3} = \frac{2\sqrt{2}}{3}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L} x \sqrt{x^{2}-y^{2}} \d s = \frac{2 \sqrt{2}}{3} a^{2} |a|}
+    \end{equation}
+
+    \ansitem{10}
+
+    在曲线 $L$ 上 $x^{2}+y^{2}+z^{2} = a^{2}$，曲线长度为 $2 \uppi |a|$。
+    \begin{equation}
+        \int_{L}\left(x^{2}+y^{2}+z^{2}\right)^{n} \d s = \int_{L}(a^{2})^{n} \d s = 2 \uppi |a| \cdot a^{2n}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L}\left(x^{2}+y^{2}+z^{2}\right)^{n} \d s = 2 \uppi a^{2n} |a|}
+    \end{equation}
+
+    \ansitem{11}
+
+    曲线为大圆，半径为 $|a|$。由轮换对称性知 $\int_{L} x^{2} \d s = \int_{L} y^{2} \d s = \int_{L} z^{2} \d s$。
+    \begin{equation}
+        3 \int_{L} x^{2} \d s = \int_{L}(x^{2}+y^{2}+z^{2}) \d s = \int_{L} a^{2} \d s = 2 \uppi a^{2} |a|
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L} x^{2} \d s = \frac{2}{3} \uppi a^{2} |a|}
+    \end{equation}
+
+    \ansitem{12}
+
+    由 $(x+y+z)^{2} = x^{2}+y^{2}+z^{2} + 2(xy+yz+zx) = 0$ 知 $xy+yz+zx = -a^{2}/2$。
+    \begin{equation}
+        \int_{L}(xy+yz+zx) \d s = \int_{L} \left( -\frac{a^{2}}{2} \right) \d s = -\frac{a^{2}}{2} \cdot 2 \uppi |a|
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{L}(xy+yz+zx) \d s = - \uppi a^{2} |a|}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{第一型曲线积分}{Curve-Mass-Calculation}
+    求曲线 $x = \e^t \cos t$、$y = \e^t \sin t$、$z = \e^t$ 从 $t = 0$ 到任意点间那段弧的质量，设它各点的密度与该点到原点的距离平方成反比，且在点 $(1, 0, 1)$ 处的密度为 $1$。
+\end{problem}
+
+\begin{solution}
+    设该点到原点的距离为 $r$，则有
+    \begin{equation}
+        r^2 = x^2 + y^2 + z^2 = \e^{2t} \cos^2 t + \e^{2t} \sin^2 t + \e^{2t} = 2\e^{2t}.
+    \end{equation}
+    根据题意，密度函数 $\rho = \frac{k}{r^2}$。由点 $(1, 0, 1)$ 对应 $t = 0$，此时 $r^2 = 2$ 且 $\rho = 1$，可得 $k = 2$。故密度函数为
+    \begin{equation}
+        \rho(t) = \frac{2}{2\e^{2t}} = \e^{-2t}.
+    \end{equation}
+    计算弧长微元 $\d s$，由于
+    \begin{equation}
+        \left\{ \begin{aligned}
+            \frac{\d x}{\d t} & = \e^t (\cos t - \sin t), \\
+            \frac{\d y}{\d t} & = \e^t (\sin t + \cos t), \\
+            \frac{\d z}{\d t} & = \e^t,
+        \end{aligned} \right.
+    \end{equation}
+    则有
+    \begin{equation}
+        \frac{\d s}{\d t} = \sqrt{\left(\frac{\d x}{\d t}\right)^2 + \left(\frac{\d y}{\d t}\right)^2 + \left(\frac{\d z}{\d t}\right)^2} = \sqrt{\e^{2t} (1 - 2\sin t \cos t + 1 + 2\sin t \cos t + 1)} = \sqrt{3}\e^t.
+    \end{equation}
+    因此，从 $t = 0$ 到任意点 $t$ 的弧段质量为
+    \begin{equation}
+        m = \left| \int_{0}^{t} \rho(u) \frac{\d s}{\d u} \d u \right| = \left| \int_{0}^{t} \e^{-2u} \cdot \sqrt{3}\e^u \d u \right| = \left| \sqrt{3} \int_{0}^{t} \e^{-u} \d u \right| .
+    \end{equation}
+    计算积分得
+    \begin{equation}
+        \boxed{m = \sqrt{3} \left|1 - \e^{-t}\right| }.
+    \end{equation}
+\end{solution}
+
+\begin{problem}{转动惯量}{Moment-of-Inertia-Helix}
+    求螺旋线一圈 $x = a \cos t$、$y = a \sin t$、$z = \frac{h}{2\uppi} t$ ($0 \leqslant t \leqslant 2\uppi$) 对于各坐标轴的转动惯量（设密度 $\rho = 1$）。
+\end{problem}
+
+\begin{solution}
+    弧长微元为
+    \begin{equation}
+        \d s = \sqrt{(-a \sin t)^2 + (a \cos t)^2 + \left(\frac{h}{2\uppi}\right)^2} \d t = \sqrt{a^2 + \frac{h^2}{4\uppi^2}} \d t.
+    \end{equation}
+    令 $K = \sqrt{a^2 + \frac{h^2}{4\uppi^2}}$，则对于 $z$ 轴的转动惯量为
+    \begin{equation}
+        I_z = \int_{C} (x^2 + y^2) \d s = \int_{0}^{2\uppi} a^2 K \d t = 2\uppi a^2 K.
+    \end{equation}
+    对于 $x$ 轴和 $y$ 轴的转动惯量分别为
+    \begin{equation}
+        I_x = \int_{C} (y^2 + z^2) \d s = K \int_{0}^{2\uppi} \left( a^2 \sin^2 t + \frac{h^2}{4\uppi^2} t^2 \right) \d t,
+    \end{equation}
+    \begin{equation}
+        I_y = \int_{C} (x^2 + z^2) \d s = K \int_{0}^{2\uppi} \left( a^2 \cos^2 t + \frac{h^2}{4\uppi^2} t^2 \right) \d t.
+    \end{equation}
+    由于 $\int_{0}^{2\uppi} \sin^2 t \d t = \int_{0}^{2\uppi} \cos^2 t \d t = \uppi$，且 $\int_{0}^{2\uppi} t^2 \d t = \frac{8\uppi^3}{3}$，代入计算得
+    \begin{equation}
+        I_x = I_y = K \left( \uppi a^2 + \frac{h^2}{4\uppi^2} \cdot \frac{8\uppi^3}{3} \right) = \uppi K \left( a^2 + \frac{2}{3}h^2 \right).
+    \end{equation}
+    综上所述
+    \begin{equation}
+        \boxed{\left\{ \begin{aligned} I_x = I_y &= \frac{\sqrt{4\uppi^2 a^2 + h^2}}{2} \left( a^2 + \frac{2}{3}h^2 \right), \\ I_z &= a^2 \sqrt{4\uppi^2 a^2 + h^2}. \end{aligned} \right.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{引力计算}{Gravitational-Attraction-Arc}
+    求半径为 $a$ 的均匀半圆弧（密度为 $\rho$）对于处在圆心 $O$ 质量为 $M$ 的质点的引力。
+\end{problem}
+
+\begin{solution}
+    建立直角坐标系，使圆心位于原点 $O$，半圆弧位于 $x$ 轴上方且对称于 $y$ 轴。
+    \begin{equation}
+        L: \left\{ \begin{aligned} x &= a \cos \theta, \\ y &= a \sin \theta, \end{aligned} \right. \quad \theta \in [0, \uppi].
+    \end{equation}
+    由对称性可知，引力在 $x$ 方向的分量 $F_x = 0$。在 $y$ 方向上的引力元为
+    \begin{equation}
+        \d F_y = \frac{G M (\rho a \d \theta)}{a^2} \sin \theta = \frac{G M \rho}{a} \sin \theta \d \theta.
+    \end{equation}
+    对 $\theta$ 在 $[0, \uppi]$ 上积分得
+    \begin{equation}
+        F_y = \int_{0}^{\uppi} \frac{G M \rho}{a} \sin \theta \d \theta = \frac{G M \rho}{a} [-\cos \theta]_{0}^{\uppi} = \frac{2 G M \rho}{a}.
+    \end{equation}
+    故引力大小为
+    \begin{equation}
+        \boxed{F = \frac{2 G M \rho}{a}}.
+    \end{equation}
+\end{solution}
+
+\endinput

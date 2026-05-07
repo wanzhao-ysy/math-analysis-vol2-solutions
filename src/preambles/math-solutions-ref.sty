@@ -3,18 +3,18 @@
 
 % 现代化的智能引用
 \RequirePackage{zref-clever}
+\zcsetup{
+    tlastsep = { 和 },
+    pairsep = { 和 },
+    listsep = {, },
+    refbounds = {,(,),},
+    nameinlink=true
+}
 \zcRefTypeSetup{equation}{
     Name-sg = 公式,
     name-sg = 公式,
     Name-pl = 公式,
     name-pl = 公式,
-    refbounds = {(,,,)},
-}
-\zcsetup{
-    tlastsep = { 和 },
-    pairsep = { 和 },
-    listsep = {, },
-    nameinlink=false
 }
 
 % 超链接设置
@@ -23,10 +23,11 @@
     plainpages=false,               % 逻辑页码与锚点绑定（防止 i 和 1 冲突）
     unicode=true,                   % 支持中文书签，防止乱码
     colorlinks=false,               % 关闭文字着色
-    pdfborderstyle={/S/U/W 0.5},
+    pdfborderstyle={/S/W 1},
     linkbordercolor=ThemeWine,
     citebordercolor=ThemeRose,
     urlbordercolor=ThemeWine,
+    pdfhighlight=/O,
     bookmarksnumbered=true,
     pdfstartview=FitH
 }

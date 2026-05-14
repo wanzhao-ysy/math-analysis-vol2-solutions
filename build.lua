@@ -5,7 +5,7 @@ typesetfiles     = { "main.tex" }
 supportdir       = "./src"
 typesetruns      = 1
 typesetsuppfiles = {
-    "chapters/**/*.tex",
+    "tex/**/*.tex",
     "bib/*.bib",
     "stys/*.sty",
     "fonts/*.ttf",

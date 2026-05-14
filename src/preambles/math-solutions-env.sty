@@ -22,8 +22,11 @@
 {\par\noindent\hfill$\mdwhtsquare$\par\smallskip}
 
 % 子问题标记
-\newcommand{\ansitem}[1]{%
-    \par\smallskip\noindent{(#1)}\quad\ignorespaces
+% \newcommand{\ansitem}[1]{%
+%     \par\smallskip\noindent{(#1)}\quad\ignorespaces
+% }
+\NewDocumentCommand{\ansitem}{ m }{%
+    \par\smallskip\noindent(#1)\quad\ignorespaces
 }
 
 \endinput

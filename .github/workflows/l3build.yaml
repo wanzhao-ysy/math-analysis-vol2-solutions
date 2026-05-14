@@ -2,9 +2,6 @@ name: Build Check
 
 on:
     push:
-        branches:
-            - "**"
-    pull_request:
 
 jobs:
     get-commits:
@@ -12,29 +9,31 @@ jobs:
         outputs:
             commits: ${{ steps.set-commits.outputs.commits }}
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v4
               with:
                   fetch-depth: 0
             - id: set-commits
+              shell: bash
               run: |
                   COMMITS=$(git rev-list ${{ github.event.before }}..${{ github.event.after }} --reverse)
-                  JSON=$(echo "$COMMITS" | jq -R -s -c 'split("\n") | map(select(length > 0))')
+                  JSON=$(printf '%s\n' "$COMMITS" | jq -R -s -c 'split("\n") | map(select(length > 0))')
                   echo "commits=$JSON" >> "$GITHUB_OUTPUT"
 
     l3build:
         needs: get-commits
+        runs-on: ${{ matrix.os }}
         strategy:
+            fail-fast: false
             matrix:
                 os: [ubuntu-latest, macos-latest, windows-latest]
                 commit: ${{ fromJSON(needs.get-commits.outputs.commits) }}
-        runs-on: ${{ matrix.os }}
         steps:
-            - uses: actions/checkout@v6
+            - uses: actions/checkout@v4
               with:
-                  fetch-depth: 0
-            - name: Switch to commit
-              run: git checkout ${{ matrix.commit }}
+                  ref: ${{ matrix.commit }}
+
             - uses: zauguin/install-texlive@v4
               with:
                   package_file: .github/tl_packages
+
             - run: l3build doc

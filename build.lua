@@ -8,8 +8,8 @@ typesetsuppfiles = {
     "tex/**/*.tex",
     "bib/*.bib",
     "stys/*.sty",
-    "fonts/*.ttf",
-    "fonts/*.otf"
+    "assets/fonts/*.ttf",
+    "assets/fonts/*.otf"
 
 }
 

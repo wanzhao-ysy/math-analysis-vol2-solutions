@@ -7,7 +7,7 @@ typesetruns      = 1
 typesetsuppfiles = {
     "chapters/**/*.tex",
     "bib/*.bib",
-    "preambles/*.sty",
+    "stys/*.sty",
     "fonts/*.ttf",
     "fonts/*.otf"
 

@@ -58,6 +58,7 @@ titlesec
 fancyhdr
 float
 caption
+emptypage
 
 # =========================================
 # Tables / lists / columns

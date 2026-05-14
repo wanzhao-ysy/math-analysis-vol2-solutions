@@ -9,7 +9,7 @@ jobs:
         outputs:
             commits: ${{ steps.set-commits.outputs.commits }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
               with:
                   fetch-depth: 0
             - id: set-commits
@@ -28,7 +28,7 @@ jobs:
                 os: [ubuntu-latest, macos-latest, windows-latest]
                 commit: ${{ fromJSON(needs.get-commits.outputs.commits) }}
         steps:
-            - uses: actions/checkout@v4
+            - uses: actions/checkout@v6
               with:
                   ref: ${{ matrix.commit }}
 

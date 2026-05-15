@@ -6,8 +6,8 @@ supportdir       = "./src"
 typesetruns      = 1
 typesetsuppfiles = {
     "tex/**/*.tex",
-    "bib/*.bib",
-    "stys/*.sty",
+    "bibliography/*.bib",
+    "styles/*.sty",
     "assets/fonts/*.ttf",
     "assets/fonts/*.otf"
 

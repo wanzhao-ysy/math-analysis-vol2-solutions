@@ -5,12 +5,11 @@ typesetfiles     = { "main.tex" }
 supportdir       = "./src"
 typesetruns      = 1
 typesetsuppfiles = {
-    "tex/**/*.tex",
+    "contents/**/*.tex",
     "bibliography/*.bib",
     "styles/*.sty",
     "assets/fonts/*.ttf",
     "assets/fonts/*.otf"
-
 }
 
 function typeset(file)

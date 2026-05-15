@@ -1,2 +1,6 @@
 # 强制所有文本文件在仓库中为 LF，并在检出到工作区时也保持 LF
 * text=auto eol=lf
+
+# 将特定的二进制文件标记为二进制，避免 Git 在处理这些文件时进行文本转换
+*.otf binary
+*.ttf binary

@@ -327,4 +327,9 @@ TSWLatexianTemp*
 
 # Memoization cache for the memoize package
 
+# build directory for l3build
 build/
+
+# Opencode cache
+.sisyphus/
+

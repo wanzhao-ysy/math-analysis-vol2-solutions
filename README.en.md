@@ -55,11 +55,12 @@ The project is built on the `ctexbook` document class, using the **LuaLaTeX + l3
 ## 📈 Progress
 
 | Chapter | Title | Status | Notes |
-| :--- | :--- | :---: | :--- |
-| Chapter 8 | Spatial Analytic Geometry | ✅ | Proofreading completed |
-| Chapter 9 | Differential Calculus of Multivariable Functions | ✅ | Proofreading completed |
-| Chapter 10 | Multiple Integrals of Multivariable Functions | 🚧 | Under construction |
-| Chapter 11 | Line and Surface Integrals | ⏳ | Pending |
+| --- | --- | --- | --- |
+| Chapter 8 | Spatial Analytic Geometry | ✅ | Proofreading complete |
+| Chapter 9 | Differential Calculus of Multivariable Functions | ✅ | Proofreading complete |
+| Chapter 10 | Multiple Integrals of Multivariable Functions | ✅ | Proofreading complete |
+| Chapter 11 | Line and Surface Integrals | 🚧 | Under construction |
+| Chapter 12 | Fourier Analysis | ⏳ | Pending |
 
 ---
 

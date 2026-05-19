@@ -1,3 +1,3 @@
-Version 1.11.2 released on 2026-05-15.
+Version 1.12.0 released on 2026-05-19.
 
-- 极大的重构了仓库结构
+- 新增并校对了 11.4

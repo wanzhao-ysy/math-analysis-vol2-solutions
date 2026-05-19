@@ -115,7 +115,7 @@
 \begin{problem}{曲面积分}{Surface-Integral-Calculations}
     计算下列曲面积分：
     \begin{enumerate}
-        \item $\iint_{S}(x+y+z) \d S$，$S$：立方体 $0 \leqslant x \leqslant 1$、$0 \leqslant y \leqslant 1$、$0 \leqslant z \leqslant 1$ 的全表面；
+        \item $\iint_{S}(x+y+z) \d S$，$S$：立方体 $0 \le x \le 1$、$0 \le y \le 1$、$0 \le z \le 1$ 的全表面；
         \item $\iint_{S} x y z \d S$，$S$：$x+y+z=1$ 在第一卦限部分；
         \item $\iint_{S}\left(x^{2}+y^{2}\right) \d S$，$S$：由 $z=\sqrt{x^{2}+y^{2}}$ 和 $z=1$ 所围成的立体表面；
         \item $\iint_{S}(x y+y z+z x) \d S$，$S$：锥面 $z=\sqrt{x^{2}+y^{2}}$ 被柱面 $x^{2}+y^{2}=2 a x$ ($a>0$) 所割下的那块曲面；
@@ -143,7 +143,7 @@
 
     \ansitem{2}
 
-    曲面 $S$ 在 $xOy$ 面上的投影区域为 $D = \{(x, y) \mid 0 \leqslant x \leqslant 1, 0 \leqslant y \leqslant 1-x\}$．由于 $z = 1-x-y$，故 $\d S = \sqrt{1 + z_x^2 + z_y^2} \d x \d y = \sqrt{3} \d x \d y$．
+    曲面 $S$ 在 $xOy$ 面上的投影区域为 $D = \{(x, y) \mid 0 \le x \le 1, 0 \le y \le 1-x\}$．由于 $z = 1-x-y$，故 $\d S = \sqrt{1 + z_x^2 + z_y^2} \d x \d y = \sqrt{3} \d x \d y$．
     \begin{equation}
         \begin{aligned}
             \iint_{S} x y z \d S & = \sqrt{3} \iint_{D} x y(1-x-y) \d x \d y                                \\
@@ -157,14 +157,14 @@
 
     \ansitem{3}
 
-    表面 $S$ 由锥面 $S_1: z = \sqrt{x^2+y^2}$ ($x^2+y^2 \leqslant 1$) 和顶面 $S_2: z=1$ ($x^2+y^2 \leqslant 1$) 组成．
+    表面 $S$ 由锥面 $S_1: z = \sqrt{x^2+y^2}$ ($x^2+y^2 \le 1$) 和顶面 $S_2: z=1$ ($x^2+y^2 \le 1$) 组成．
     对于 $S_1$，$\d S = \sqrt{2} \d x \d y$：
     \begin{equation}
-        \iint_{S_1} (x^2+y^2) \d S = \sqrt{2} \iint_{x^2+y^2 \leqslant 1} (x^2+y^2) \d x \d y = \sqrt{2} \int_{0}^{2\uppi} \d \theta \int_{0}^{1} r^3 \d r = \frac{\uppi \sqrt{2}}{2}
+        \iint_{S_1} (x^2+y^2) \d S = \sqrt{2} \iint_{x^2+y^2 \le 1} (x^2+y^2) \d x \d y = \sqrt{2} \int_{0}^{2\uppi} \d \theta \int_{0}^{1} r^3 \d r = \frac{\uppi \sqrt{2}}{2}
     \end{equation}
     对于 $S_2$，$\d S = \d x \d y$：
     \begin{equation}
-        \iint_{S_2} (x^2+y^2) \d S = \iint_{x^2+y^2 \leqslant 1} (x^2+y^2) \d x \d y = \frac{\uppi}{2}
+        \iint_{S_2} (x^2+y^2) \d S = \iint_{x^2+y^2 \le 1} (x^2+y^2) \d x \d y = \frac{\uppi}{2}
     \end{equation}
     \begin{equation}
         \boxed{\iint_{S} (x^2+y^2) \d S = \frac{\uppi}{2}(1+\sqrt{2})}
@@ -172,7 +172,7 @@
 
     \ansitem{4}
 
-    在锥面 $z=\sqrt{x^2+y^2}$ 上，$\d S = \sqrt{2} \d x \d y$．投影区域为 $D: x^2+y^2 \leqslant 2ax$．利用对称性 $\iint_D xy \d A = 0$：
+    在锥面 $z=\sqrt{x^2+y^2}$ 上，$\d S = \sqrt{2} \d x \d y$．投影区域为 $D: x^2+y^2 \le 2ax$．利用对称性 $\iint_D xy \d A = 0$：
     \begin{equation}
         \begin{aligned}
             \iint_{S} (xy+yz+zx) \d S & = \sqrt{2} \iint_{D} (xy + (x+y)\sqrt{x^2+y^2}) \d x \d y                                                                \\
@@ -188,7 +188,7 @@
 
     注意到被积函数可化为 $(x^2-y^2)(x^2+y^2-z^2) + 1$．在锥面 $z^2 = x^2+y^2$ 上，前项为 $0$．故：
     \begin{equation}
-        \iint_{S} (x^4-y^4+y^2z^2-x^2z^2+1) \d S = \iint_{S} 1 \d S = \sqrt{2} \iint_{x^2+y^2 \leqslant 2x} \d x \d y = \sqrt{2} \uppi
+        \iint_{S} (x^4-y^4+y^2z^2-x^2z^2+1) \d S = \iint_{S} 1 \d S = \sqrt{2} \iint_{x^2+y^2 \le 2x} \d x \d y = \sqrt{2} \uppi
     \end{equation}
     \begin{equation}
         \boxed{\iint_{S} (x^4-y^4+y^2z^2-x^2z^2+1) \d S = \sqrt{2}\uppi}
@@ -206,7 +206,7 @@
 
     \ansitem{7}
 
-    由于曲面方程为 $z=x^{2}+y^{2}$，其在 $xOy$ 面上的投影区域为 $D: x^{2}+y^{2} \leqslant 1$．面积元为：
+    由于曲面方程为 $z=x^{2}+y^{2}$，其在 $xOy$ 面上的投影区域为 $D: x^{2}+y^{2} \le 1$．面积元为：
     \begin{equation}
         \d S = \sqrt{1+\left(\frac{\partial z}{\partial x}\right)^{2}+\left(\frac{\partial z}{\partial y}\right)^{2}} \d x \d y = \sqrt{1+4\left(x^{2}+y^{2}\right)} \d x \d y
     \end{equation}
@@ -241,7 +241,7 @@
     利用对称性计算下列曲面积分：
     \begin{enumerate}
         \item $\iint_{S} (x^2 + y^2) \d S$，其中 $S$ 为球面 $x^2 + y^2 + z^2 = R^2$；
-        \item $\iint_{S} (x + y + z) \d S$，其中 $S$ 为半球面 $x^2 + y^2 + z^2 = a^2$ ($z \geqslant 0$)．
+        \item $\iint_{S} (x + y + z) \d S$，其中 $S$ 为半球面 $x^2 + y^2 + z^2 = a^2$ ($z \ge 0$)．
     \end{enumerate}
 \end{problem}
 
@@ -278,7 +278,7 @@
     \begin{equation}
         \iint_{S} (x + y + z) \d S = \iint_{S} z \d S.
     \end{equation}
-    采用球面坐标系，令 $z = a \cos \theta$，面积元素 $\d S = a^2 \sin \theta \d \theta \d \varphi$．对于上半球面 $S$，积分区域为 $0 \leqslant \varphi \leqslant 2\uppi$，$0 \leqslant \theta \leqslant \frac{\uppi}{2}$，则
+    采用球面坐标系，令 $z = a \cos \theta$，面积元素 $\d S = a^2 \sin \theta \d \theta \d \varphi$．对于上半球面 $S$，积分区域为 $0 \le \varphi \le 2\uppi$，$0 \le \theta \le \frac{\uppi}{2}$，则
     \begin{equation}
         \begin{aligned}
             \iint_{S} z \d S & = \int_{0}^{2\uppi} \d \varphi \int_{0}^{\frac{\uppi}{2}} (a \cos \theta) (a^2 \sin \theta) \d \theta \\
@@ -385,7 +385,7 @@
 \end{solution}
 
 \begin{problem}{引力}{Gravitational-Force-Conical-Surface}
-    一个密度为 $\rho$ 的均匀截锥面 $z = \sqrt{x^2 + y^2}$ ($0 < a \leqslant z \leqslant b$)，求它对于处在锥顶的质量为 $m$ 的质点的引力．
+    一个密度为 $\rho$ 的均匀截锥面 $z = \sqrt{x^2 + y^2}$ ($0 < a \le z \le b$)，求它对于处在锥顶的质量为 $m$ 的质点的引力．
 \end{problem}
 
 \begin{solution}

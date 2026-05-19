@@ -149,17 +149,17 @@
         \item $\iiint_{V}\left(x^{2}+y^{2}\right) \d x \d y \d z$，其中 $V$ 是由 $x^{2}+y^{2}=2 z$ 与 $z=2$ 围成的区域；
         \item $\iiint_{V} \sqrt{x^{2}+y^{2}} \d x \d y \d z$，其中 $V$ 是由 $x^{2}+y^{2}=z^{2}$ 与 $z=1$ 围成的区域；
         \item $\iiint_{V} z \d x \d y \d z$，其中 $V$ 是由 $\sqrt{4-x^{2}-y^{2}}=z$ 与 $x^{2}+y^{2}=3 z$ 围成的区域；
-        \item $\iiint_{V} x y z \d x \d y \d z$，其中 $V$ 是 $x^{2}+y^{2}+z^{2} \leqslant 1$ 的第一卦限部分；
+        \item $\iiint_{V} x y z \d x \d y \d z$，其中 $V$ 是 $x^{2}+y^{2}+z^{2} \le 1$ 的第一卦限部分；
         \item $\iiint_{V} x^{2} \d x \d y \d z$，其中 $V$ 是由曲面 $z=y^{2}$、$z=4 y^{2}(y>0)$ 及平面 $z=x$、$z=2 x$、$z=1$ 所围成的区域；
-        \item $\iiint_{V}\left|x^{2}+y^{2}+z^{2}-1\right| \d x \d y \d z$，其中 $V: x^{2}+y^{2}+z^{2} \leqslant 4$；
-        \item $\iiint_{V} \e^{|z|} \d x \d y \d z$，其中 $V: x^{2}+y^{2}+z^{2} \leqslant 1$；
-        \item $\iiint_{V}(|x|+z) \e^{-\left(x^{2}+y^{2}+z^{2}\right)} \d x \d y \d z$，其中 $V: 1 \leqslant x^{2}+y^{2}+z^{2} \leqslant 4$．
+        \item $\iiint_{V}\left|x^{2}+y^{2}+z^{2}-1\right| \d x \d y \d z$，其中 $V: x^{2}+y^{2}+z^{2} \le 4$；
+        \item $\iiint_{V} \e^{|z|} \d x \d y \d z$，其中 $V: x^{2}+y^{2}+z^{2} \le 1$；
+        \item $\iiint_{V}(|x|+z) \e^{-\left(x^{2}+y^{2}+z^{2}\right)} \d x \d y \d z$，其中 $V: 1 \le x^{2}+y^{2}+z^{2} \le 4$．
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
-    采用柱面坐标，令 $x=\rho \cos \theta$、$y=\rho \sin \theta$、$z=z$．积分区域 $V$ 可表示为 $0 \leqslant \theta \leqslant 2 \uppi$、$0 \leqslant z \leqslant 2$、$0 \leqslant \rho \leqslant \sqrt{2 z}$．
+    采用柱面坐标，令 $x=\rho \cos \theta$、$y=\rho \sin \theta$、$z=z$．积分区域 $V$ 可表示为 $0 \le \theta \le 2 \uppi$、$0 \le z \le 2$、$0 \le \rho \le \sqrt{2 z}$．
 
     \begin{equation}
         \begin{aligned}
@@ -176,7 +176,7 @@
     \end{equation}
 
     \ansitem{2}
-    采用柱面坐标，积分区域 $V$ 可表示为 $0 \leqslant \theta \leqslant 2 \uppi$、$0 \leqslant z \leqslant 1$、$0 \leqslant \rho \leqslant z$．
+    采用柱面坐标，积分区域 $V$ 可表示为 $0 \le \theta \le 2 \uppi$、$0 \le z \le 1$、$0 \le \rho \le z$．
 
     \begin{equation}
         \begin{aligned}
@@ -192,7 +192,7 @@
     \end{equation}
 
     \ansitem{3}
-    联立方程 $\sqrt{4-x^{2}-y^{2}}=z$ 与 $x^{2}+y^{2}=3 z$．由于 $z \geqslant 0$，解得交线位于 $z=1$ 平面处．积分区域在 $xy$ 平面上的投影为圆盘 $D: x^2+y^2 \leqslant 3$．
+    联立方程 $\sqrt{4-x^{2}-y^{2}}=z$ 与 $x^{2}+y^{2}=3 z$．由于 $z \ge 0$，解得交线位于 $z=1$ 平面处．积分区域在 $xy$ 平面上的投影为圆盘 $D: x^2+y^2 \le 3$．
 
     \begin{equation}
         \begin{aligned}
@@ -209,7 +209,7 @@
     \end{equation}
 
     \ansitem{4}
-    采用球坐标，积分区域 $V$ 对应的参数范围为 $0 \leqslant r \leqslant 1$、$0 \leqslant \theta \leqslant \frac{\uppi}{2}$、$0 \leqslant \varphi \leqslant \frac{\uppi}{2}$．
+    采用球坐标，积分区域 $V$ 对应的参数范围为 $0 \le r \le 1$、$0 \le \theta \le \frac{\uppi}{2}$、$0 \le \varphi \le \frac{\uppi}{2}$．
 
     \begin{equation}
         \begin{aligned}
@@ -294,10 +294,10 @@
     \begin{enumerate}
         \item $\iiint_{V} (x+y) \d x \d y \d z, V:$ 由 $z=1-x^{2}-y^{2}$ 和 $z=0$ 围成；
         \item $\iiint_{V} x \d x \d y \d z, V:$ 由 $x^{2}+y^{2}=z^{2}、x^{2}+y^{2}=1$ 围成；
-        \item $\iiint_{V} \sqrt{x^{2}+y^{2}+z^{2}} \d x \d y \d z, V: x^{2}+y^{2}+z^{2} \leqslant x$；
-        \item $\iiint_{V}\left(x^{2}+y^{2}\right) \d x \d y \d z, V: r^{2} \leqslant x^{2}+y^{2}+z^{2} \leqslant R^{2}, z \geqslant 0$；
-        \item $\iiint_{V} \sqrt{1-\frac{x^{2}}{a^{2}}-\frac{y^{2}}{b^{2}}-\frac{z^{2}}{c^{2}}} \d x \d y \d z, V: \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}} \leqslant 1$；
-        \item $\iiint_{V} \frac{z \ln \left(x^{2}+y^{2}+z^{2}+1\right)}{x^{2}+y^{2}+z^{2}+1} \d x \d y \d z, V: x^{2}+y^{2}+z^{2} \leqslant 1$．
+        \item $\iiint_{V} \sqrt{x^{2}+y^{2}+z^{2}} \d x \d y \d z, V: x^{2}+y^{2}+z^{2} \le x$；
+        \item $\iiint_{V}\left(x^{2}+y^{2}\right) \d x \d y \d z, V: r^{2} \le x^{2}+y^{2}+z^{2} \le R^{2}, z \ge 0$；
+        \item $\iiint_{V} \sqrt{1-\frac{x^{2}}{a^{2}}-\frac{y^{2}}{b^{2}}-\frac{z^{2}}{c^{2}}} \d x \d y \d z, V: \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}+\frac{z^{2}}{c^{2}} \le 1$；
+        \item $\iiint_{V} \frac{z \ln \left(x^{2}+y^{2}+z^{2}+1\right)}{x^{2}+y^{2}+z^{2}+1} \d x \d y \d z, V: x^{2}+y^{2}+z^{2} \le 1$．
     \end{enumerate}
 \end{problem}
 
@@ -511,19 +511,19 @@
 \end{solution}
 
 \begin{problem}{三重积分平均值}{Average-Value-Triple-Integral}
-    求函数 $f(x, y, z) = x^2 + y^2 + z^2$ 在域 $x^2 + y^2 + z^2 \leqslant x + y + z$ 内的平均值．
+    求函数 $f(x, y, z) = x^2 + y^2 + z^2$ 在域 $x^2 + y^2 + z^2 \le x + y + z$ 内的平均值．
 \end{problem}
 
 \begin{solution}
-    设域 $\Omega$ 为 $x^2 + y^2 + z^2 \leqslant x + y + z$．将其配方可得
+    设域 $\Omega$ 为 $x^2 + y^2 + z^2 \le x + y + z$．将其配方可得
     \begin{equation}\label{eq:Domain-Center-1}
-        \left( x - \frac{1}{2} \right)^2 + \left( y - \frac{1}{2} \right)^2 + \left( z - \frac{1}{2} \right)^2 \leqslant \frac{3}{4}.
+        \left( x - \frac{1}{2} \right)^2 + \left( y - \frac{1}{2} \right)^2 + \left( z - \frac{1}{2} \right)^2 \le \frac{3}{4}.
     \end{equation}
     此为中心位于 $(\frac{1}{2}, \frac{1}{2}, \frac{1}{2})$，半径 $R = \frac{\sqrt{3}}{2}$ 的球体．其体积为
     \begin{equation}\label{eq:Volume-1}
         V = \frac{4}{3} \uppi R^3 = \frac{4}{3} \uppi \left( \frac{\sqrt{3}}{2} \right)^3 = \frac{\sqrt{3} \uppi}{2}.
     \end{equation}
-    作变量代换 $u = x - \frac{1}{2}$、$v = y - \frac{1}{2}$、$w = z - \frac{1}{2}$，则 $\Omega$ 变换为原点处的球域 $\Omega': u^2 + v^2 + w^2 \leqslant \frac{3}{4}$．被积函数变为
+    作变量代换 $u = x - \frac{1}{2}$、$v = y - \frac{1}{2}$、$w = z - \frac{1}{2}$，则 $\Omega$ 变换为原点处的球域 $\Omega': u^2 + v^2 + w^2 \le \frac{3}{4}$．被积函数变为
     \begin{equation}\label{eq:Function-Decomp-1}
         f = \left( u + \frac{1}{2} \right)^2 + \left( v + \frac{1}{2} \right)^2 + \left( w + \frac{1}{2} \right)^2 = u^2 + v^2 + w^2 + u + v + w + \frac{3}{4}.
     \end{equation}
@@ -624,11 +624,11 @@
 \end{myproof}
 
 \begin{problem}{二重积分的应用}{Ellipse-Plate-Mass}
-    求椭圆薄片 $\frac{x^2}{a^2} + \frac{y^2}{b^2} \leqslant 1$ 的质量，设密度 $\rho = \frac{x^2}{a^2} + \frac{y^2}{b^2}$．
+    求椭圆薄片 $\frac{x^2}{a^2} + \frac{y^2}{b^2} \le 1$ 的质量，设密度 $\rho = \frac{x^2}{a^2} + \frac{y^2}{b^2}$．
 \end{problem}
 
 \begin{solution}
-    设椭圆域为 $D$．引入广义极坐标变换，令 $x = ar \cos \theta$，$y = br \sin \theta$，其雅可比行列式绝对值为 $J = abr$．此时积分区域 $D$ 映射为 $D' = \{(r, \theta) \mid 0 \leqslant r \leqslant 1, 0 \leqslant \theta \leqslant 2\uppi\}$．质量 $M$ 的计算过程如下：
+    设椭圆域为 $D$．引入广义极坐标变换，令 $x = ar \cos \theta$，$y = br \sin \theta$，其雅可比行列式绝对值为 $J = abr$．此时积分区域 $D$ 映射为 $D' = \{(r, \theta) \mid 0 \le r \le 1, 0 \le \theta \le 2\uppi\}$．质量 $M$ 的计算过程如下：
 
     \begin{equation}
         \begin{aligned}
@@ -775,7 +775,7 @@
 \end{solution}
 
 \begin{problem}{重心坐标计算}{Center-of-Mass-Sphere}
-    设球体 $x^2 + y^2 + z^2 \leqslant 2az$ 内各点密度与各点到原点的距离成反比，求其重心坐标．
+    设球体 $x^2 + y^2 + z^2 \le 2az$ 内各点密度与各点到原点的距离成反比，求其重心坐标．
 \end{problem}
 
 \begin{solution}
@@ -788,7 +788,7 @@
             z = r \cos \varphi.
         \end{cases}
     \end{equation}
-    球体方程化为 $r \leqslant 2a \cos \varphi$，积分区域可表示为 $0 \leqslant \theta \leqslant 2\uppi$、$0 \leqslant \varphi \leqslant \frac{\uppi}{2}$、$0 \leqslant r \leqslant 2a \cos \varphi$．
+    球体方程化为 $r \le 2a \cos \varphi$，积分区域可表示为 $0 \le \theta \le 2\uppi$、$0 \le \varphi \le \frac{\uppi}{2}$、$0 \le r \le 2a \cos \varphi$．
 
     首先计算球体的总质量 $M$：
     \begin{equation}

@@ -116,15 +116,15 @@
 \begin{problem}{第一类曲线积分}{Line-Integrals-First-Kind}
     计算下列曲线积分．
     \begin{enumerate}
-        \item $\int_{L} y^{2} \d s$, $L$: $x=a(t-\sin t)$, $y=a(1-\cos t)$, ($0 \leqslant t \leqslant 2 \uppi$)；
-        \item $\int_{L} \frac{z^{2}}{x^{2}+y^{2}} \d s$, $L$: $x=a \cos t$, $y=a \sin t$, $z=a t$, ($0 \leqslant t \leqslant 2 \uppi$)；
+        \item $\int_{L} y^{2} \d s$, $L$: $x=a(t-\sin t)$, $y=a(1-\cos t)$, ($0 \le t \le 2 \uppi$)；
+        \item $\int_{L} \frac{z^{2}}{x^{2}+y^{2}} \d s$, $L$: $x=a \cos t$, $y=a \sin t$, $z=a t$, ($0 \le t \le 2 \uppi$)；
         \item $\int_{L}(x+y) \d s$, $L$: 顶点为 $O(0,0)$、$A(1,0)$、$B(0,1)$ 的三角形周界；
         \item $\int_{L} \frac{\d s}{x-y}$, $L$: 联结点 $A(0,-2)$ 到点 $B(4,0)$ 的直线段；
-        \item $\int_{L}(x+y+z) \d s$, $L$: 直线段 $AB$: $A(1,1,0)$、$B(1,0,0)$ 及螺线 $BC$: $x=\cos t$, $y=\sin t$, $z=t$ ($0 \leqslant t \leqslant 2 \uppi$) 组成；
+        \item $\int_{L}(x+y+z) \d s$, $L$: 直线段 $AB$: $A(1,1,0)$、$B(1,0,0)$ 及螺线 $BC$: $x=\cos t$, $y=\sin t$, $z=t$ ($0 \le t \le 2 \uppi$) 组成；
         \item $\int_{L} \e^{\sqrt{x^{2}+y^{2}}} \d s$, $L$: 由曲线 $r=a$, $\varphi=0$, $\varphi=\frac{\uppi}{4}$ 所围成的区域边界；
         \item $\int_{L} x \d s$, $L$: 对数螺线 $r=a \e^{k \varphi}$ ($k>0$) 在圆 $r=a$ 内的那一段；
-        \item $\int_{L} z \d s$, $L$ 是圆锥螺线 $x=t \cos t$, $y=t \sin t$, $z=t$ ($0 \leqslant t \leqslant t_{0}$)；
-        \item $\int_{L} x \sqrt{x^{2}-y^{2}} \d s$, $L$: 双纽线 $\left(x^{2}+y^{2}\right)^{2}=a^{2}\left(x^{2}-y^{2}\right)$ ($x \geqslant 0$) 的一半；
+        \item $\int_{L} z \d s$, $L$ 是圆锥螺线 $x=t \cos t$, $y=t \sin t$, $z=t$ ($0 \le t \le t_{0}$)；
+        \item $\int_{L} x \sqrt{x^{2}-y^{2}} \d s$, $L$: 双纽线 $\left(x^{2}+y^{2}\right)^{2}=a^{2}\left(x^{2}-y^{2}\right)$ ($x \ge 0$) 的一半；
         \item $\int_{L}\left(x^{2}+y^{2}+z^{2}\right)^{n} \d s$, $L$: 圆周 $x^{2}+y^{2}=a^{2}$, $z=0$；
         \item $\int_{L} x^{2} \d s$, $L$: 圆周 $x^{2}+y^{2}+z^{2}=a^{2}$, $x+y+z=0$；
         \item $\int_{L}(x y+y z+z x) \d s$, $L$: 圆周 $x^{2}+y^{2}+z^{2}=a^{2}$, $x+y+z=0$．
@@ -207,7 +207,7 @@
 
     \ansitem{7}
 
-    由 $r = a \e^{k \varphi} \leqslant a$ 且 $k>0$ 知 $\varphi \leqslant 0$，故 $\varphi \in (-\infty, 0]$．
+    由 $r = a \e^{k \varphi} \le a$ 且 $k>0$ 知 $\varphi \le 0$，故 $\varphi \in (-\infty, 0]$．
     $\d s = \sqrt{r^{2} + (r')^{2}} \d \varphi = a \sqrt{1+k^{2}} \e^{k \varphi} \d \varphi$，$x = a \e^{k \varphi} \cos \varphi$．
     \begin{equation}
         \int_{L} x \d s = a^{2} \sqrt{1+k^{2}} \int_{-\infty}^{0} \e^{2k \varphi} \cos \varphi \d \varphi = a^{2} \sqrt{1+k^{2}} \left[ \frac{\e^{2k \varphi}(2k \cos \varphi + \sin \varphi)}{4k^{2}+1} \right]_{-\infty}^{0}
@@ -228,7 +228,7 @@
 
     \ansitem{9}
 
-    极坐标下 $r^{2} = a^{2} \cos 2 \varphi$，由 $x \geqslant 0$ 知 $\varphi \in [-\uppi/4, \uppi/4]$，$\d s = \frac{|a|}{\sqrt{\cos 2 \varphi}} \d \varphi$．
+    极坐标下 $r^{2} = a^{2} \cos 2 \varphi$，由 $x \ge 0$ 知 $\varphi \in [-\uppi/4, \uppi/4]$，$\d s = \frac{|a|}{\sqrt{\cos 2 \varphi}} \d \varphi$．
     \begin{equation}
         \int_{L} x \sqrt{x^{2}-y^{2}} \d s = \int_{-\frac{\uppi}{4}}^{\frac{\uppi}{4}} r \cos \varphi \cdot r \sqrt{\cos 2 \varphi} \cdot \frac{|a|}{\sqrt{\cos 2 \varphi}} \d \varphi = a^{2} |a| \int_{-\frac{\uppi}{4}}^{\frac{\uppi}{4}} \cos 2 \varphi \cos \varphi \d \varphi
     \end{equation}
@@ -306,7 +306,7 @@
 \end{solution}
 
 \begin{problem}{转动惯量}{Moment-of-Inertia-Helix}
-    求螺旋线一圈 $x = a \cos t$、$y = a \sin t$、$z = \frac{h}{2\uppi} t$ ($0 \leqslant t \leqslant 2\uppi$) 对于各坐标轴的转动惯量（设密度 $\rho = 1$）．
+    求螺旋线一圈 $x = a \cos t$、$y = a \sin t$、$z = \frac{h}{2\uppi} t$ ($0 \le t \le 2\uppi$) 对于各坐标轴的转动惯量（设密度 $\rho = 1$）．
 \end{problem}
 
 \begin{solution}

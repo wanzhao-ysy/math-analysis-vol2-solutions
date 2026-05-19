@@ -755,9 +755,9 @@
 \end{problem}
 
 \begin{myproof}
-    考察 $f(x, y)$ 在 $(0, 0)$ 处的连续性．由不等式 $|xy| \leq \frac{1}{2}(x^2 + y^2)$ 可得：
+    考察 $f(x, y)$ 在 $(0, 0)$ 处的连续性．由不等式 $|xy| \le \frac{1}{2}(x^2 + y^2)$ 可得：
     \begin{equation}
-        |f(x, y) - f(0, 0)| = \left| \frac{x^2 y}{x^2 + y^2} \right| = |x| \cdot \frac{|xy|}{x^2 + y^2} \leq \frac{1}{2} |x|.
+        |f(x, y) - f(0, 0)| = \left| \frac{x^2 y}{x^2 + y^2} \right| = |x| \cdot \frac{|xy|}{x^2 + y^2} \le \frac{1}{2} |x|.
     \end{equation}
     由于 $\lim_{(x, y) \to (0, 0)} \frac{1}{2} |x| = 0$，根据夹逼定理知 $\lim_{(x, y) \to (0, 0)} f(x, y) = 0 = f(0, 0)$，故函数在 $(0, 0)$ 连续．
 
@@ -792,7 +792,7 @@
 \end{problem}
 
 \begin{myproof}
-    令 $r = \sqrt{x^2 + y^2}$．由于 $\left| (x^2 + y^2) \sin \frac{1}{\sqrt{x^2+y^2}} \right| \leq x^2 + y^2$，则有
+    令 $r = \sqrt{x^2 + y^2}$．由于 $\left| (x^2 + y^2) \sin \frac{1}{\sqrt{x^2+y^2}} \right| \le x^2 + y^2$，则有
     \begin{equation}
         \lim_{(x,y) \to (0,0)} f(x,y) = \lim_{r \to 0} r^2 \sin \frac{1}{r} = 0 = f(0,0).
     \end{equation}

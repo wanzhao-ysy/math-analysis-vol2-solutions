@@ -150,22 +150,22 @@
 \begin{problem}{二重积分的计算}{Double-Integral-Calculation}
     计算下列二重积分：
     \begin{enumerate}
-        \item $\iint_{D} \sqrt{x^{2}+y^{2}} \d x \d y$，其中 $D: x^{2}+y^{2} \leqslant x+y$；
+        \item $\iint_{D} \sqrt{x^{2}+y^{2}} \d x \d y$，其中 $D: x^{2}+y^{2} \le x+y$；
         \item $\iint_{D} \sqrt{\frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}} \d x \d y$，其中 $D: \frac{x^{2}}{a^{2}}+\frac{y^{2}}{b^{2}}=4, y=0, y=x$ 所围成的第一象限部分；
         \item $\iint_{D} (x^{2}+y^{2}) \d x \d y$，其中 $D$ 为由 $xy=1, xy=2, y=x, y=2x$ 围成的第一象限部分；
         \item $\iint_{D} \d x \d y$，其中 $D$ 为由 $y^{2}=ax, y^{2}=bx, x^{2}=my, x^{2}=ny$ 围成的区域 ($a>b>0, m>n>0$)；
         \item $\iint_{D} xy \d x \d y$，其中 $D$ 为 $xy=a, xy=b, y^{2}=cx, y^{2}=dx$ 围成的第一象限部分 ($0<a<b, 0<c<d$)；
-        \item $\iint_{D} 4xy \d x \d y$，其中 $D: x^{4}+y^{4} \leqslant 1, x \geqslant 0, y \geqslant 0$ 围成的区域；
-        \item $\iint_{D} \frac{x^{2}-y^{2}}{\sqrt{x+y+3}} \d x \d y$，其中 $D: |x|+|y| \leqslant 1$；
+        \item $\iint_{D} 4xy \d x \d y$，其中 $D: x^{4}+y^{4} \le 1, x \ge 0, y \ge 0$ 围成的区域；
+        \item $\iint_{D} \frac{x^{2}-y^{2}}{\sqrt{x+y+3}} \d x \d y$，其中 $D: |x|+|y| \le 1$；
         \item $\iint_{D} \sin \frac{y}{x+y} \d x \d y$，其中 $D$ 为由直线 $x+y=1, x=0, y=0$ 围成的区域；
-        \item $\iint_{D} |xy| \d x \d y$，其中 $D = \{(x,y) : x^2 + y^2 \leqslant a^2\}$．
+        \item $\iint_{D} |xy| \d x \d y$，其中 $D = \{(x,y) : x^2 + y^2 \le a^2\}$．
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
 
-    利用极坐标变换 $x = r \cos \theta$、$y = r \sin \theta$，区域 $D$ 的边界方程为 $r^2 \leqslant r(\cos \theta + \sin \theta)$，即 $r \leqslant \sqrt{2} \cos(\theta - \uppi/4)$，对应的辐角范围为 $\theta \in [-\uppi/4, 3\uppi/4]$．积分计算如下：
+    利用极坐标变换 $x = r \cos \theta$、$y = r \sin \theta$，区域 $D$ 的边界方程为 $r^2 \le r(\cos \theta + \sin \theta)$，即 $r \le \sqrt{2} \cos(\theta - \uppi/4)$，对应的辐角范围为 $\theta \in [-\uppi/4, 3\uppi/4]$．积分计算如下：
     \begin{equation}
         \begin{aligned}
             \iint_D \sqrt{x^2+y^2} \d x \d y & = \int_{-\uppi/4}^{3\uppi/4} \d \theta \int_0^{\sqrt{2}\cos(\theta - \uppi/4)} r^2 \d r                   \\
@@ -247,7 +247,7 @@
 
     \ansitem{7}
 
-    积分区域 $D: |x|+|y| \leqslant 1$ 关于直线 $y=x$ 对称．将被积函数中的 $x$ 与 $y$ 对换，根据对称性有
+    积分区域 $D: |x|+|y| \le 1$ 关于直线 $y=x$ 对称．将被积函数中的 $x$ 与 $y$ 对换，根据对称性有
     \begin{equation}
         I = \iint_D \frac{x^2-y^2}{\sqrt{x+y+3}} \d x \d y = \iint_D \frac{y^2-x^2}{\sqrt{y+x+3}} \d y \d x = -I,
     \end{equation}
@@ -258,7 +258,7 @@
 
     \ansitem{8}
 
-    引入变换 $u = x+y$、$v = y$，则 $\d x \d y = \d u \d v$．区域 $D$ 映射为 $0 \leqslant u \leqslant 1$，$0 \leqslant v \leqslant u$．积分如下：
+    引入变换 $u = x+y$、$v = y$，则 $\d x \d y = \d u \d v$．区域 $D$ 映射为 $0 \le u \le 1$，$0 \le v \le u$．积分如下：
     \begin{equation}
         \begin{aligned}
             \iint_D \sin \frac{y}{x+y} \d x \d y & = \int_0^1 \d u \int_0^u \sin \frac{v}{u} \d v                                                 \\

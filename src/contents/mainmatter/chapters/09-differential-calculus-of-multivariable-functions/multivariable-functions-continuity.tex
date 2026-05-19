@@ -159,7 +159,7 @@
 
 
 \begin{problem}{拓扑正弦曲线}{Topologists-Sine-Curve}
-    证明：集合 $E = \{(x,y) : y = \sin \frac{1}{x}, 0 < x \leqslant \frac{2}{\uppi}\} \cup \{(0,y) : 0 \leqslant y \leqslant 1\}$ 是连通的但不是道路连通的．
+    证明：集合 $E = \{(x,y) : y = \sin \frac{1}{x}, 0 < x \le \frac{2}{\uppi}\} \cup \{(0,y) : 0 \le y \le 1\}$ 是连通的但不是道路连通的．
 
     \begin{center}
         \begin{tikzpicture}[scale=2, >=latex]
@@ -175,7 +175,7 @@
 \end{problem}
 
 \begin{myproof}
-    令 $E_1 = \left\{ \left(x, \sin \frac{1}{x}\right) : 0 < x \leqslant \frac{2}{\uppi} \right\}$ 且 $L = \{(0, y) : 0 \leqslant y \leqslant 1\}$，则 $E = E_1 \cup L$．
+    令 $E_1 = \left\{ \left(x, \sin \frac{1}{x}\right) : 0 < x \le \frac{2}{\uppi} \right\}$ 且 $L = \{(0, y) : 0 \le y \le 1\}$，则 $E = E_1 \cup L$．
 
     1. \textbf{连通性证明}：
     由于 $E_1$ 是连续函数 $f(x) = \sin \frac{1}{x}$ 在连通集 $(0, 2/\uppi]$ 上的图像，故 $E_1$ 是道路连通的，从而也是连通的．
@@ -185,7 +185,7 @@
 
     2. \textbf{非道路连通性证明}：
     假设 $E$ 是道路连通的，则存在连续映射 $\symbfit{\gamma}(t) = (x(t), y(t))$，其中 $t \in [0, 1]$，使得 $\symbfit{\gamma}(0) = (0, 0) \in L$ 且 $\symbfit{\gamma}(1) = (2/\uppi, 1) \in E_1$．
-    定义 $t_0 = \sup \{ t \in [0, 1] : x(t) = 0 \}$．由 $x(t)$ 的连续性及 $x(1) > 0$ 知 $0 \leqslant t_0 < 1$ 且 $x(t_0) = 0$．
+    定义 $t_0 = \sup \{ t \in [0, 1] : x(t) = 0 \}$．由 $x(t)$ 的连续性及 $x(1) > 0$ 知 $0 \le t_0 < 1$ 且 $x(t_0) = 0$．
     由于 $\symbfit{\gamma}(t) \in E$ 且对于 $t \in (t_0, 1]$ 有 $x(t) > 0$，故当 $t > t_0$ 时必有 $y(t) = \sin \frac{1}{x(t)}$．
     由 $\symbfit{\gamma}$ 在 $t_0$ 处的连续性可知：
     \begin{equation}
@@ -394,7 +394,7 @@
     \textbf{证明：}
     取 $\symbb{R}^2$ 中的子集 $D$ 定义如下：
     \begin{equation}
-        D = \{ (x,y) \in \symbb{R}^2 \mid x^2 + y^2 \leq 1 \text{ 或 } (x,y) = (t,0), t \in [1,2] \}.
+        D = \{ (x,y) \in \symbb{R}^2 \mid x^2 + y^2 \le 1 \text{ 或 } (x,y) = (t,0), t \in [1,2] \}.
     \end{equation}
     显然，$D$ 是一个连通的闭集．然而，根据定义，闭区域必须是某个连通开集 $G$ 的闭包，即 $D = \bar{G}$．
     对于上述集合 $D$，其内部为
@@ -403,7 +403,7 @@
     \end{equation}
     对其内部取闭包可得
     \begin{equation}
-        \overline{D^{\circ}} = \{ (x,y) \in \symbb{R}^2 \mid x^2 + y^2 \leq 1 \} \neq D.
+        \overline{D^{\circ}} = \{ (x,y) \in \symbb{R}^2 \mid x^2 + y^2 \le 1 \} \neq D.
     \end{equation}
     由于 $D$ 包含了一条“多余”的线段 $t \in (1,2]$，它无法由任何开集的闭包导出．
     \begin{equation}
@@ -524,17 +524,17 @@
 \end{solution}
 
 \begin{problem}{复合函数解析式}{Composite-Function}
-    设 $f(x, y) = \begin{cases} 1, & y \geqslant x, \\ 0, & y < x, \end{cases}$ 又 $\begin{cases} x = \cos t, \\ y = \sin t, \end{cases}$ 求 $F(t) = f(\cos t, \sin t)$．
+    设 $f(x, y) = \begin{cases} 1, & y \ge x, \\ 0, & y < x, \end{cases}$ 又 $\begin{cases} x = \cos t, \\ y = \sin t, \end{cases}$ 求 $F(t) = f(\cos t, \sin t)$．
 \end{problem}
 
 \begin{solution}
     根据定义 $F(t) = f(\cos t, \sin t)$，需比较 $\sin t$ 与 $\cos t$ 的大小关系：
     \begin{equation}
-        \sin t \geqslant \cos t \iff \sqrt{2}\sin\left( t - \frac{\uppi}{4} \right) \geqslant 0 \iff 2k\uppi + \frac{\uppi}{4} \leqslant t \leqslant 2k\uppi + \frac{5\uppi}{4}, \quad k \in \symbb{Z}
+        \sin t \ge \cos t \iff \sqrt{2}\sin\left( t - \frac{\uppi}{4} \right) \ge 0 \iff 2k\uppi + \frac{\uppi}{4} \le t \le 2k\uppi + \frac{5\uppi}{4}, \quad k \in \symbb{Z}
     \end{equation}
     因此，函数 $F(t)$ 的表达式为：
     \begin{equation}
-        \boxed{F(t) = \begin{cases} 1, & 2k\uppi + \frac{\uppi}{4} \leqslant t \leqslant 2k\uppi + \frac{5\uppi}{4} \\ 0, & 2k\uppi - \frac{3\uppi}{4} < t < 2k\uppi + \frac{\uppi}{4} \end{cases} \quad (k \in \symbb{Z})}
+        \boxed{F(t) = \begin{cases} 1, & 2k\uppi + \frac{\uppi}{4} \le t \le 2k\uppi + \frac{5\uppi}{4} \\ 0, & 2k\uppi - \frac{3\uppi}{4} < t < 2k\uppi + \frac{\uppi}{4} \end{cases} \quad (k \in \symbb{Z})}
     \end{equation}
 \end{solution}
 
@@ -738,7 +738,7 @@
 
 
 \begin{problem}{极坐标下的极限}{Polar-Limit}
-    若 $x = r \cos \theta, y = r \sin \theta$，问沿怎样的方向 $\theta$ ($0 \leqslant \theta \leqslant 2\uppi$)，下列极限存在？
+    若 $x = r \cos \theta, y = r \sin \theta$，问沿怎样的方向 $\theta$ ($0 \le \theta \le 2\uppi$)，下列极限存在？
     \begin{enumerate}
         \item $ \lim_{r \to 0^+} \e^{\frac{1}{x^2 - y^2}}$;
         \item $ \lim_{r \to +\infty} \e^{x^2 - y^2} \cdot \sin 2xy$.
@@ -755,7 +755,7 @@
     若 $\cos 2\theta > 0$，则当 $r \to 0^+$ 时，分量 $\frac{1}{r^2 \cos 2\theta} \to +\infty$，从而 $L \to +\infty$，极限不存在；\\
     若 $\cos 2\theta = 0$，则分母为 $0$，函数无定义；\\
     若 $\cos 2\theta < 0$，则当 $r \to 0^+$ 时，分量 $\frac{1}{r^2 \cos 2\theta} \to -\infty$，从而 $L = \e^{-\infty} = 0$，极限存在．\\
-    由 $\cos 2\theta < 0$ 且 $0 \leqslant \theta \leqslant 2\uppi$ 可解得
+    由 $\cos 2\theta < 0$ 且 $0 \le \theta \le 2\uppi$ 可解得
     \begin{equation}
         \frac{\uppi}{2} < 2\theta < \frac{3\uppi}{2} \quad \text{或} \quad \frac{5\uppi}{2} < 2\theta < \frac{7\uppi}{2}
     \end{equation}
@@ -769,7 +769,7 @@
     \begin{equation}
         L = \lim_{r \to +\infty} \e^{r^2 \cos 2\theta} \sin(r^2 \sin 2\theta)
     \end{equation}
-    若 $\cos 2\theta < 0$，则 $\e^{r^2 \cos 2\theta} \to 0$，而 $|\sin(r^2 \sin 2\theta)| \leqslant 1$，由夹逼定理知 $L = 0$；\\
+    若 $\cos 2\theta < 0$，则 $\e^{r^2 \cos 2\theta} \to 0$，而 $|\sin(r^2 \sin 2\theta)| \le 1$，由夹逼定理知 $L = 0$；\\
     若 $\cos 2\theta = 0$，则 $L = \lim_{r \to +\infty} \sin(\pm r^2)$，极限不存在；\\
     若 $\cos 2\theta > 0$，考虑 $\sin 2\theta$：
     \begin{itemize}
@@ -801,7 +801,7 @@
     对满足 $0 < |y - y_0| < \delta$ 的固定值 $y$，取 $x$ 满足 $0 < |x - x_0| < \sqrt{\delta^2 - (y-y_0)^2}$．此时 $(x,y)$ 满足二重极限的邻域条件，故 \zcref{eq:limit-def-1} 成立．\\
     令 $\varphi(y) =  \lim_{x \to x_0} f(x,y)$．在 \zcref{eq:limit-def-1} 中对 $x \to x_0$ 取极限，由极限的保号性及性质可得
     \begin{equation}
-        |\varphi(y) - A| \leqslant \varepsilon
+        |\varphi(y) - A| \le \varepsilon
     \end{equation}
     上述不等式对所有满足 $0 < |y - y_0| < \delta$ 的 $y$ 均成立．根据极限定义，这说明
     \begin{equation}
@@ -811,7 +811,7 @@
     \ansitem{2}
 
     同理，固定 $x$ 满足 $0 < |x - x_0| < \delta$，当 $0 < |y - y_0| < \sqrt{\delta^2 - (x-x_0)^2}$ 时，有 $|f(x,y) - A| < \varepsilon$．\\
-    令 $\psi(x) =  \lim_{y \to y_0} f(x,y)$．对 $y \to y_0$ 取极限得 $|\psi(x) - A| \leqslant \varepsilon$．\\
+    令 $\psi(x) =  \lim_{y \to y_0} f(x,y)$．对 $y \to y_0$ 取极限得 $|\psi(x) - A| \le \varepsilon$．\\
     由 $\varepsilon$ 的任意性知
     \begin{equation}
         \lim_{x \to x_0} \psi(x) = \lim_{x \to x_0} \lim_{y \to y_0} f(x,y) = A

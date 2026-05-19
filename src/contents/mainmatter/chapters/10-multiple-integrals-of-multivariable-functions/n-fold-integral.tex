@@ -77,7 +77,7 @@
 \end{solution}
 
 \begin{problem}{$n$ 维单纯形体积}{N-Simplex-Volume}
-    计算下列集合 $V_n = \left\{ (x_1, \dots, x_n) \mid \frac{x_1}{a_1} + \dots + \frac{x_n}{a_n} \leqslant 1, x_1, \dots, x_n \geqslant 0 \right\}$ 的体积．
+    计算下列集合 $V_n = \left\{ (x_1, \dots, x_n) \mid \frac{x_1}{a_1} + \dots + \frac{x_n}{a_n} \le 1, x_1, \dots, x_n \ge 0 \right\}$ 的体积．
 \end{problem}
 
 \begin{solution}
@@ -87,7 +87,7 @@
         J = \frac{\partial(x_1, \dots, x_n)}{\partial(u_1, \dots, u_n)} = \prod_{i=1}^n a_i.
     \end{equation}
 
-    此时积分区域转化为标准 $n$ 维单纯形 $\Omega_n = \left\{ (u_1, \dots, u_n) \mid \sum_{i=1}^n u_1 \leqslant 1, u_i \geqslant 0 \right\}$．集合 $V_n$ 的体积可通过下式计算：
+    此时积分区域转化为标准 $n$ 维单纯形 $\Omega_n = \left\{ (u_1, \dots, u_n) \mid \sum_{i=1}^n u_1 \le 1, u_i \ge 0 \right\}$．集合 $V_n$ 的体积可通过下式计算：
 
     \begin{equation}
         \operatorname{Vol}(V_n) = \int \dots \int_{V_n} \d x_1 \dots \d x_n = \left( \prod_{i=1}^n a_i \right) \int \dots \int_{\Omega_n} \d u_1 \dots \d u_n.

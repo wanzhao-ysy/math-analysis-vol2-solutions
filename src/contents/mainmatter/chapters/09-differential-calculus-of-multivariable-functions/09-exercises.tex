@@ -238,13 +238,13 @@ v
 
 
 \begin{problem}{多元函数不等式}{Multivariate-Inequality}
-    证明：不等式 $\frac{x^2+y^2}{4} \leqslant \e^{x+y-2}$ ($x \geqslant 0, y \geqslant 0$)．
+    证明：不等式 $\frac{x^2+y^2}{4} \le \e^{x+y-2}$ ($x \ge 0, y \ge 0$)．
 \end{problem}
 
 \begin{myproof}
     构造辅助函数
     \begin{equation}
-        g(x, y) = (x^2 + y^2) \e^{2-x-y}, \quad x \geqslant 0, y \geqslant 0.
+        g(x, y) = (x^2 + y^2) \e^{2-x-y}, \quad x \ge 0, y \ge 0.
     \end{equation}
     对 $g(x, y)$ 求偏导数，可得
     \begin{equation}
@@ -261,13 +261,13 @@ v
     \begin{equation}
         g(0, 0) = 0, \quad g(0, 2) = 4.
     \end{equation}
-    对称地，当 $y = 0$ 时，最大值为 $g(2, 0) = 4$．由于当 $x \to +\infty$ 或 $y \to +\infty$ 时，指数衰减速度远快于多项式增长，故 $g(x, y) \to 0$．综上可知，$g(x, y)$ 在闭区域 $x \geqslant 0, y \geqslant 0$ 上的全局最大值为 $4$．即满足
+    对称地，当 $y = 0$ 时，最大值为 $g(2, 0) = 4$．由于当 $x \to +\infty$ 或 $y \to +\infty$ 时，指数衰减速度远快于多项式增长，故 $g(x, y) \to 0$．综上可知，$g(x, y)$ 在闭区域 $x \ge 0, y \ge 0$ 上的全局最大值为 $4$．即满足
     \begin{equation}
-        (x^2 + y^2) \e^{2-x-y} \leqslant 4.
+        (x^2 + y^2) \e^{2-x-y} \le 4.
     \end{equation}
     将不等式两边同除以 $4\e^{2-x-y}$，即得
     \begin{equation}
-        \boxed{\frac{x^2+y^2}{4} \leqslant \e^{x+y-2}}.
+        \boxed{\frac{x^2+y^2}{4} \le \e^{x+y-2}}.
     \end{equation}
 \end{myproof}
 
@@ -291,9 +291,9 @@ v
             f(x_0, y, z) - f(x_0, y_0, z) & = \frac{\partial f}{\partial y}(x_0, \eta, z) (y - y_0), \quad \eta \text{ 介于 } y, y_0 \text{ 之间}．
         \end{aligned}
     \end{equation}
-    由于偏导数 $\frac{\partial f}{\partial x}$ 与 $\frac{\partial f}{\partial y}$ 在 $\symbb{R}^3$ 上连续，故在 $P_0$ 的任一紧邻域内必有界．设在该邻域内满足 $\left| \frac{\partial f}{\partial x} \right| \leqslant M$ 且 $\left| \frac{\partial f}{\partial y} \right| \leqslant M$，则有
+    由于偏导数 $\frac{\partial f}{\partial x}$ 与 $\frac{\partial f}{\partial y}$ 在 $\symbb{R}^3$ 上连续，故在 $P_0$ 的任一紧邻域内必有界．设在该邻域内满足 $\left| \frac{\partial f}{\partial x} \right| \le M$ 且 $\left| \frac{\partial f}{\partial y} \right| \le M$，则有
     \begin{equation}
-        |\Delta f| \leqslant M|x - x_0| + M|y - y_0| + |f(x_0, y_0, z) - f(x_0, y_0, z_0)|.
+        |\Delta f| \le M|x - x_0| + M|y - y_0| + |f(x_0, y_0, z) - f(x_0, y_0, z_0)|.
     \end{equation}
     当 $(x, y, z) \to (x_0, y_0, z_0)$ 时，显然有 $|x - x_0| \to 0$ 且 $|y - y_0| \to 0$．此外，由 $f$ 是关于 $z$ 的连续函数知
     \begin{equation}
@@ -404,7 +404,7 @@ v
     \end{equation}
     注意到
     \begin{equation}
-        \frac{|\beta \Delta x + \alpha \Delta y|}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} \leqslant |\beta| \frac{|\Delta x|}{\rho} + |\alpha| \frac{|\Delta y|}{\rho} \leqslant |\beta| + |\alpha| \to 0.
+        \frac{|\beta \Delta x + \alpha \Delta y|}{\sqrt{(\Delta x)^2 + (\Delta y)^2}} \le |\beta| \frac{|\Delta x|}{\rho} + |\alpha| \frac{|\Delta y|}{\rho} \le |\beta| + |\alpha| \to 0.
         \label{eq:limit-zero}
     \end{equation}
     故 $\beta \Delta x + \alpha \Delta y = o(\rho)$．因此 $f(x, y)$ 在 $(x_0, y_0)$ 处可微．
@@ -540,7 +540,7 @@ v
 
 
 \begin{problem}{多元函数最值}{Multivariable-Extrema}
-    求函数 $f(x,y) = x^2 + xy^2 - x$ 在区域 $D = \{(x,y) \mid x^2 + y^2 \leqslant 2\}$ 上的最大值和最小值．
+    求函数 $f(x,y) = x^2 + xy^2 - x$ 在区域 $D = \{(x,y) \mid x^2 + y^2 \le 2\}$ 上的最大值和最小值．
 \end{problem}
 
 \begin{solution}
@@ -583,7 +583,7 @@ v
 \begin{problem}{Lagrange 乘数法}{Lagrange-Multipliers-Inequality}
     设 $x_1, x_2, \dots, x_n$ 是正数，且 $x_1 + x_2 + \dots + x_n = n$．用 Lagrange 乘数法证明
     \begin{equation}
-        x_1 x_2 \dots x_n \left( \frac{1}{x_1} + \frac{1}{x_2} + \dots + \frac{1}{x_n} \right) \leqslant n,
+        x_1 x_2 \dots x_n \left( \frac{1}{x_1} + \frac{1}{x_2} + \dots + \frac{1}{x_n} \right) \le n,
     \end{equation}
     等号当且仅当 $x_1 = x_2 = \dots = x_n = 1$ 时成立．
 \end{problem}
@@ -622,13 +622,13 @@ v
     此时驻点处函数值为 $f(1, 1, \dots, 1) = n$．
     若定义域边界存在 $x_i \to 0$，则 $P \to 0$．由算术--几何平均值不等式可知，当其余 $n-1$ 个变量趋于一致时 $f$ 取边界极大值：
     \begin{equation}
-        \lim_{x_n \to 0} f = \prod_{j=1}^{n-1} x_j \leqslant \left( \frac{\sum_{j=1}^{n-1} x_j}{n-1} \right)^{n-1} = \left( \frac{n}{n-1} \right)^{n-1} = \left( 1 + \frac{1}{n-1} \right)^{n-1} < \e.
+        \lim_{x_n \to 0} f = \prod_{j=1}^{n-1} x_j \le \left( \frac{\sum_{j=1}^{n-1} x_j}{n-1} \right)^{n-1} = \left( \frac{n}{n-1} \right)^{n-1} = \left( 1 + \frac{1}{n-1} \right)^{n-1} < \e.
     \end{equation}
-    对于 $n \geqslant 3$，有 $\e < n$；对于 $n=2$，原式为 $x_1 x_2 (\frac{1}{x_1} + \frac{1}{x_2}) = x_1 + x_2 = 2$ 恒成立．
+    对于 $n \ge 3$，有 $\e < n$；对于 $n=2$，原式为 $x_1 x_2 (\frac{1}{x_1} + \frac{1}{x_2}) = x_1 + x_2 = 2$ 恒成立．
     因此，$f$ 在 $(1, 1, \dots, 1)$ 处取得最大值 $n$．
 
     \begin{equation}
-        \boxed{x_1 x_2 \dots x_n \left( \frac{1}{x_1} + \frac{1}{x_2} + \dots + \frac{1}{x_n} \right) \leqslant n}
+        \boxed{x_1 x_2 \dots x_n \left( \frac{1}{x_1} + \frac{1}{x_2} + \dots + \frac{1}{x_n} \right) \le n}
     \end{equation}
 \end{myproof}
 

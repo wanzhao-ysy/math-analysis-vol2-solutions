@@ -193,7 +193,7 @@
 \end{solution}
 
 \begin{problem}{二重积分}{Double-Integral}
-    设 $D = \{(x, y) \mid x^2 + y^2 \leqslant 1\}$．求 $I = \iint_D \left| \frac{x+y}{\sqrt{2}} - x^2 - y^2 \right| \d x \d y$．
+    设 $D = \{(x, y) \mid x^2 + y^2 \le 1\}$．求 $I = \iint_D \left| \frac{x+y}{\sqrt{2}} - x^2 - y^2 \right| \d x \d y$．
 \end{problem}
 
 \begin{solution}
@@ -209,7 +209,7 @@
         I = \int_0^{2\uppi} \d \alpha \int_0^1 r^2 |\sin \alpha - r| \d r. \label{eq:Integral-Form-2}
     \end{equation}
     设内层积分为 $f(\alpha)$，分情况讨论如下：
-    当 $\sin \alpha \leqslant 0$ 时，即 $\alpha \in [\uppi, 2\uppi]$，有
+    当 $\sin \alpha \le 0$ 时，即 $\alpha \in [\uppi, 2\uppi]$，有
     \begin{equation}
         f(\alpha) = \int_0^1 r^2 (r - \sin \alpha) \d r = \frac{1}{4} - \frac{1}{3} \sin \alpha.
     \end{equation}
@@ -232,7 +232,7 @@
 \end{solution}
 
 \begin{problem}{二重积分的应用与极坐标面积}{Lemniscate-Circle-Intersection}
-    试求圆盘 $(x-a)^2 + (y-a)^2 \leqslant a^2$ 与曲线 $(x^2 + y^2)^2 = 8a^2 xy$ 所围部分相交的区域 $D$ 的面积．
+    试求圆盘 $(x-a)^2 + (y-a)^2 \le a^2$ 与曲线 $(x^2 + y^2)^2 = 8a^2 xy$ 所围部分相交的区域 $D$ 的面积．
 \end{problem}
 
 \begin{solution}
@@ -248,7 +248,7 @@
     \begin{equation}
         r^2 = 4a^2 \sin 2\theta \implies r = 2a \sqrt{\sin 2\theta}
     \end{equation}
-    根据题意，区域 $D$ 是圆盘内部与双纽线内部的交集．由于双纽线在第一象限的部分满足 $r \leqslant 2a\sqrt{\sin 2\theta}$，而圆盘内部满足 $a(\cos \theta + \sin \theta) - a \sqrt{\sin 2\theta} \leqslant r \leqslant a(\cos \theta + \sin \theta) + a \sqrt{\sin 2\theta}$．令两曲线边界相交，有
+    根据题意，区域 $D$ 是圆盘内部与双纽线内部的交集．由于双纽线在第一象限的部分满足 $r \le 2a\sqrt{\sin 2\theta}$，而圆盘内部满足 $a(\cos \theta + \sin \theta) - a \sqrt{\sin 2\theta} \le r \le a(\cos \theta + \sin \theta) + a \sqrt{\sin 2\theta}$．令两曲线边界相交，有
     \begin{equation}
         2a\sqrt{\sin 2\theta} = a(\cos \theta + \sin \theta) - a\sqrt{\sin 2\theta} \implies 3\sqrt{\sin 2\theta} = \sqrt{1 + \sin 2\theta}
     \end{equation}
@@ -496,9 +496,9 @@
 
 
 \begin{problem}{Poincaré 不等式}{Poincare-Inequality}
-    设 $\varphi(x), \psi(x)$ 是 $[a, b]$ 上的连续函数，$f(x, y)$ 在区域 $D = \{(x, y) : a \leqslant x \leqslant b, \varphi(x) \leqslant y \leqslant \psi(x)\}$ 上连续可微，且有 $f(x, \varphi(x)) = 0$，则存在 $M > 0$，使得
+    设 $\varphi(x), \psi(x)$ 是 $[a, b]$ 上的连续函数，$f(x, y)$ 在区域 $D = \{(x, y) : a \le x \le b, \varphi(x) \le y \le \psi(x)\}$ 上连续可微，且有 $f(x, \varphi(x)) = 0$，则存在 $M > 0$，使得
     \begin{equation}
-        \iint_D f^2(x, y) \d x \d y \leqslant M \iint_D (f'_y(x, y))^2 \d x \d y.
+        \iint_D f^2(x, y) \d x \d y \le M \iint_D (f'_y(x, y))^2 \d x \d y.
     \end{equation}
 \end{problem}
 
@@ -511,16 +511,16 @@
     应用 Cauchy-Schwarz 不等式，有
     \begin{equation}
         \begin{aligned}
-            f^2(x, y) & = \left( \int_{\varphi(x)}^y 1 \cdot f'_t(x, t) \d t \right)^2                                               \\
-                      & \leqslant \left( \int_{\varphi(x)}^y 1^2 \d t \right) \left( \int_{\varphi(x)}^y (f'_t(x, t))^2 \d t \right) \\
-                      & \leqslant (y - \varphi(x)) \int_{\varphi(x)}^{\psi(x)} (f'_y(x, y))^2 \d y.
+            f^2(x, y) & = \left( \int_{\varphi(x)}^y 1 \cdot f'_t(x, t) \d t \right)^2                                         \\
+                      & \le \left( \int_{\varphi(x)}^y 1^2 \d t \right) \left( \int_{\varphi(x)}^y (f'_t(x, t))^2 \d t \right) \\
+                      & \le (y - \varphi(x)) \int_{\varphi(x)}^{\psi(x)} (f'_y(x, y))^2 \d y.
         \end{aligned} \label{eq:CS-Inequality}
     \end{equation}
 
     将 \zcref{eq:CS-Inequality} 关于 $y$ 在 $[\varphi(x), \psi(x)]$ 上积分
     \begin{equation}
         \begin{aligned}
-            \int_{\varphi(x)}^{\psi(x)} f^2(x, y) \d y & \leqslant \int_{\varphi(x)}^{\psi(x)} (y - \varphi(x)) \d y \cdot \int_{\varphi(x)}^{\psi(x)} (f'_y(x, y))^2 \d y \\
+            \int_{\varphi(x)}^{\psi(x)} f^2(x, y) \d y & \le \int_{\varphi(x)}^{\psi(x)} (y - \varphi(x)) \d y \cdot \int_{\varphi(x)}^{\psi(x)} (f'_y(x, y))^2 \d y \\
                                                        & = \frac{1}{2} (\psi(x) - \varphi(x))^2 \int_{\varphi(x)}^{\psi(x)} (f'_y(x, y))^2 \d y.
         \end{aligned} \label{eq:Integral-Y}
     \end{equation}
@@ -528,27 +528,27 @@
     由于 $\varphi(x), \psi(x)$ 在闭区间 $[a, b]$ 上连续，令 $L = \max_{x \in [a, b]} (\psi(x) - \varphi(x))$，则取 $M = \frac{1}{2} L^2 > 0$．对 \zcref{eq:Integral-Y} 关于 $x$ 在 $[a, b]$ 上积分，得
     \begin{equation}
         \begin{aligned}
-            \iint_D f^2(x, y) \d x \d y & = \int_a^b \left( \int_{\varphi(x)}^{\psi(x)} f^2(x, y) \d y \right) \d x                \\
-                                        & \leqslant \int_a^b M \left( \int_{\varphi(x)}^{\psi(x)} (f'_y(x, y))^2 \d y \right) \d x \\
+            \iint_D f^2(x, y) \d x \d y & = \int_a^b \left( \int_{\varphi(x)}^{\psi(x)} f^2(x, y) \d y \right) \d x          \\
+                                        & \le \int_a^b M \left( \int_{\varphi(x)}^{\psi(x)} (f'_y(x, y))^2 \d y \right) \d x \\
                                         & = M \iint_D (f'_y(x, y))^2 \d x \d y.
         \end{aligned}
     \end{equation}
 
     综上所述，存在常数 $M$，使得
     \begin{equation}
-        \boxed{\iint_D f^2(x, y) \d x \d y \leqslant M \iint_D (f'_y(x, y))^2 \d x \d y.}
+        \boxed{\iint_D f^2(x, y) \d x \d y \le M \iint_D (f'_y(x, y))^2 \d x \d y.}
     \end{equation}
 \end{myproof}
 
 \begin{problem}{多重积分}{Multiple-Integral}
-    设 $a > 0, \Omega_n(a) : x_1 + \cdots + x_n \leqslant a, x_i \geqslant 0 (i = 1, 2, \cdots , n)$．求积分
+    设 $a > 0, \Omega_n(a) : x_1 + \cdots + x_n \le a, x_i \ge 0 (i = 1, 2, \cdots , n)$．求积分
     \begin{equation}
         I_n(a) = \int \cdots \int_{\Omega_n(a)} x_1 x_2 \cdots x_n \d x_1 \d x_2 \cdots \d x_n.
     \end{equation}
 \end{problem}
 
 \begin{solution}
-    通过对变量 $x_n$ 采用累次积分法，积分区域 $\Omega_n(a)$ 可表示为 $0 \leqslant x_n \leqslant a$ 且其投影区域为 $\Omega_{n-1}(a - x_n)$．由此建立如下递推关系
+    通过对变量 $x_n$ 采用累次积分法，积分区域 $\Omega_n(a)$ 可表示为 $0 \le x_n \le a$ 且其投影区域为 $\Omega_{n-1}(a - x_n)$．由此建立如下递推关系
     \begin{equation}
         \begin{aligned}
             I_n(a) & = \int_0^a x_n \left( \int \cdots \int_{\Omega_{n-1}(a - x_n)} x_1 x_2 \cdots x_{n-1} \d x_1 \d x_2 \cdots \d x_{n-1} \right) \d x_n \\

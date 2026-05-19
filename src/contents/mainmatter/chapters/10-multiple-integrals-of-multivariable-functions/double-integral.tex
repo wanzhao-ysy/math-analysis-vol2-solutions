@@ -317,7 +317,7 @@
 \begin{problem}{利用对称性计算二重积分}{Double-Integral-Symmetry}
     利用函数的奇偶性计算下列积分：
     \begin{enumerate}
-        \item $\iint_{D} (x^{2}+y^{2}) \d x \d y$，$D: -1 \leqslant x \leqslant 1, -1 \leqslant y \leqslant 1$；
+        \item $\iint_{D} (x^{2}+y^{2}) \d x \d y$，$D: -1 \le x \le 1, -1 \le y \le 1$；
         \item $\iint_{D} \sin x \sin y \d x \d y$，$D: x^{2}-y^{2}=1, x^{2}+y^{2}=9$ 围成的含原点的部分；
     \end{enumerate}
 \end{problem}
@@ -365,9 +365,9 @@
 
 \begin{myproof}
 
-    由于 $\varphi(x)$ 与 $\psi(y)$ 分别在闭区间上可积，故它们在该区间上必有界．设存在常数 $M_1, M_2 > 0$ 使得 $|\varphi(x)| \leqslant M_1$ 且 $|\psi(y)| \leqslant M_2$，则有
+    由于 $\varphi(x)$ 与 $\psi(y)$ 分别在闭区间上可积，故它们在该区间上必有界．设存在常数 $M_1, M_2 > 0$ 使得 $|\varphi(x)| \le M_1$ 且 $|\psi(y)| \le M_2$，则有
     \begin{equation}
-        |f(x, y)| = |\varphi(x)| \cdot |\psi(y)| \leqslant M_1 M_2,
+        |f(x, y)| = |\varphi(x)| \cdot |\psi(y)| \le M_1 M_2,
     \end{equation}
     即 $f(x, y)$ 在矩形区域 $D$ 上有界．记 $S_\varphi$ 与 $S_\psi$ 分别为 $\varphi$ 与 $\psi$ 的不连续点集，由可积性定义可知其勒贝格测度 $\mu(S_\varphi) = 0$ 且 $\mu(S_\psi) = 0$．函数 $f(x, y)$ 的不连续点集 $S_f$ 满足
     \begin{equation}

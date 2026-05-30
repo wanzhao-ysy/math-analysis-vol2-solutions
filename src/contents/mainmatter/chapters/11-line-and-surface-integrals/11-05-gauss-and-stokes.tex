@@ -1,0 +1,936 @@
+\section{Gauss 定理和 Stokes 定理}
+
+\begin{problem}{曲面积分}{Surface-Integrals}
+    计算下列曲面积分：
+    \begin{enumerate}
+        \item $\iint_S (x+1) \d y \d z + y \d z \d x + (xy + z) \d x \d y$，其中 $S$ 是以 $O(0,0,0)$、$A(1,0,0)$、$B(0,1,0)$、$C(0,0,1)$ 为顶点的四面体的外表面；
+        \item $\iint_S xy \d y \d z + yz \d z \d x + zx \d x \d y$，其中 $S$ 是由 $x=0$、$y=0$、$z=0$、$x+y+z=1$ 所围成的四面体的外侧表面；
+        \item $\iint_S x^2 \d y \d z + y^2 \d z \d x + z^2 \d x \d y$，其中 $S$ 是球面 $(x-a)^2 + (y-b)^2 + (z-c)^2 = R^2$ 的外侧；
+        \item $\iint_S xy^2 \d y \d z + yz^2 \d z \d x + zx^2 \d x \d y$，其中 $S$ 是球面 $x^2 + y^2 + z^2 = z$ 的外侧；
+        \item $\iint_S (x-z) \d y \d z + (y-x) \d z \d x + (z-y) \d x \d y$，其中 $S$ 是旋转抛物面 $z = x^2 + y^2$ ($0 \le z \le 1$) 的下侧；
+        \item $\iint_S (y^2+z^2) \d y \d z + (z^2+x^2) \d z \d x + (x^2+y^2) \d x \d y$，其中 $S$ 是上半球面 $x^2 + y^2 + z^2 = a^2$ ($z \ge 0$) 的上侧。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    记四面体 $OABC$ 所围成的区域为 $V$。根据高斯公式，有
+    \begin{equation}
+        \label{eq:part1-1}
+        \frac{\partial}{\partial x}(x+1) + \frac{\partial}{\partial y}(y) + \frac{\partial}{\partial z}(xy+z) = 1 + 1 + 1 = 3.
+    \end{equation}
+    因此，积分值为
+    \begin{equation}
+        \label{eq:part1-2}
+        I = 3 \iiint_V \d x \d y \d z.
+    \end{equation}
+    由于四面体 $V$ 的体积为
+    \begin{equation}
+        \label{eq:part1-3}
+        \operatorname{Vol}(V) = \frac{1}{6} \times 1 \times 1 \times 1 = \frac{1}{6},
+    \end{equation}
+    故有
+    \begin{equation}
+        \label{eq:part1-4}
+        I = \boxed{\frac{1}{2}}.
+    \end{equation}
+
+    \ansitem{2}
+
+    记四面体所围成的区域为 $V$。根据高斯公式，有
+    \begin{equation}
+        \label{eq:part2-1}
+        I = \iiint_V (x + y + z) \d x \d y \d z.
+    \end{equation}
+    利用对称性，可得
+    \begin{equation}
+        \label{eq:part2-2}
+        I = 3 \iiint_V x \d x \d y \d z.
+    \end{equation}
+    其中，三重积分计算如下：
+    \begin{equation}
+        \label{eq:part2-3}
+        \begin{aligned}
+            \iiint_V x \d x \d y \d z & = \int_0^1 x \d x \int_0^{1-x} \d y \int_0^{1-x-y} \d z \\
+                                      & = \int_0^1 x \d x \int_0^{1-x} (1 - x - y) \d y         \\
+                                      & = \frac{1}{2} \int_0^1 x (1 - x)^2 \d x                 \\
+                                      & = \frac{1}{2} \int_0^1 (x - 2x^2 + x^3) \d x            \\
+                                      & = \frac{1}{24}.
+        \end{aligned}
+    \end{equation}
+    从而有
+    \begin{equation}
+        \label{eq:part2-4}
+        I = \boxed{\frac{1}{8}}.
+    \end{equation}
+
+    \ansitem{3}
+
+    记球体为 $V$。根据高斯公式，有
+    \begin{equation}
+        \label{eq:part3-1}
+        I = \iiint_V (2x + 2y + 2z) \d x \d y \d z.
+    \end{equation}
+    利用形心公式，由于球心位于 $(a, b, c)$，故有
+    \begin{equation}
+        \label{eq:part3-2}
+        \iiint_V x \d x \d y \d z = a \operatorname{Vol}(V), \quad \iiint_V y \d x \d y \d z = b \operatorname{Vol}(V), \quad \iiint_V z \d x \d y \d z = c \operatorname{Vol}(V).
+    \end{equation}
+    其中，球体体积为
+    \begin{equation}
+        \label{eq:part3-3}
+        \operatorname{Vol}(V) = \frac{4}{3} \uppi R^3.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \label{eq:part3-4}
+        I = \boxed{\frac{8}{3} \uppi (a + b + c) R^3}.
+    \end{equation}
+
+    \ansitem{4}
+
+    记球体为 $V$。根据高斯公式，有
+    \begin{equation}
+        \label{eq:part4-1}
+        I = \iiint_V (x^2 + y^2 + z^2) \d x \d y \d z.
+    \end{equation}
+    引入球面坐标系
+    \begin{equation}
+        \label{eq:part4-2}
+        x = r \sin \theta \cos \phi, \quad y = r \sin \theta \sin \phi, \quad z = r \cos \theta.
+    \end{equation}
+    此时，积分区域 $V$ 可表示为 $0 \le \phi \le 2\uppi$、$0 \le \theta \le \frac{\uppi}{2}$、$0 \le r \le \cos \theta$。从而有
+    \begin{equation}
+        \label{eq:part4-3}
+        \begin{aligned}
+            I & = \int_0^{2\uppi} \d \phi \int_0^{\uppi/2} \d \theta \int_0^{\cos \theta} r^4 \sin \theta \d r \\
+              & = 2 \uppi \int_0^{\uppi/2} \frac{\cos^5 \theta}{5} \sin \theta \d \theta                       \\
+              & = \frac{2 \uppi}{5} \left[ -\frac{\cos^6 \theta}{6} \right]_0^{\uppi/2}                        \\
+              & = \frac{\uppi}{15}.
+        \end{aligned}
+    \end{equation}
+    故有
+    \begin{equation}
+        \label{eq:part4-4}
+        I = \boxed{\frac{\uppi}{15}}.
+    \end{equation}
+
+    \ansitem{5}
+
+    曲面 $S$ 的投影区域为 $D = \{(x, y) \mid x^2 + y^2 \le 1\}$，且 $S$ 取下侧，故其法向量的 $z$ 分量为负。将曲面积分转化为投影区域 $D$ 上的二重积分：
+    \begin{equation}
+        \label{eq:part5-1}
+        I = \iint_D \left[ (x - z) \frac{\partial z}{\partial x} + (y - x) \frac{\partial z}{\partial y} - (z - y) \right] \d x \d y.
+    \end{equation}
+    将 $z = x^2 + y^2$、$\frac{\partial z}{\partial x} = 2x$ 和 $\frac{\partial z}{\partial y} = 2y$ 代入，化简被积函数可得
+    \begin{equation}
+        \label{eq:part5-2}
+        \begin{aligned}
+            I & = \iint_D \left[ (x - x^2 - y^2)(2x) + (y - x)(2y) - (x^2 + y^2 - y) \right] \d x \d y \\
+              & = \iint_D (x^2 + y^2 + y - 2x^3 - 2xy^2 - 2xy) \d x \d y.
+        \end{aligned}
+    \end{equation}
+    利用积分区域 $D$ 的对称性，奇函数项的积分为零，即
+    \begin{equation}
+        \label{eq:part5-3}
+        \iint_D y \d x \d y = 0, \quad \iint_D x^3 \d x \d y = 0, \quad \iint_D xy^2 \d x \d y = 0, \quad \iint_D xy \d x \d y = 0.
+    \end{equation}
+    因此，积分化为
+    \begin{equation}
+        \label{eq:part5-4}
+        I = \iint_D (x^2 + y^2) \d x \d y.
+    \end{equation}
+    引入极坐标系，可得
+    \begin{equation}
+        \label{eq:part5-5}
+        I = \int_0^{2\uppi} \d \theta \int_0^1 r^3 \d r = \frac{\uppi}{2}.
+    \end{equation}
+    故有
+    \begin{equation}
+        \label{eq:part5-6}
+        I = \boxed{\frac{\uppi}{2}}.
+    \end{equation}
+
+    \ansitem{6}
+
+    为了利用高斯公式，添加辅助面 $S_1 = \{(x, y, z) \mid x^2 + y^2 \le a^2, z = 0\}$，其方向取下侧。记 $S_1$ 与 $S$ 围成的上半球体为 $V$。根据高斯公式，有
+    \begin{equation}
+        \label{eq:part6-1}
+        \iint_S + \iint_{S_1} = \iiint_V \left[ \frac{\partial}{\partial x}(y^2+z^2) + \frac{\partial}{\partial y}(z^2+x^2) + \frac{\partial}{\partial z}(x^2+y^2) \right] \d x \d y \d z = 0.
+    \end{equation}
+    因此，所求积分为
+    \begin{equation}
+        \label{eq:part6-2}
+        I = -\iint_{S_1} (y^2+z^2) \d y \d z + (z^2+x^2) \d z \d x + (x^2+y^2) \d x \d y.
+    \end{equation}
+    在 $S_1$ 上，有 $z = 0$，且其法向量为 $\symbfit{n} = (0, 0, -1)$，故 $\d y \d z = 0$、$\d z \d x = 0$ 且 $\d x \d y = -\d x \d y$。代入上式得
+    \begin{equation}
+        \label{eq:part6-3}
+        I = \iint_{x^2+y^2 \le a^2} (x^2 + y^2) \d x \d y.
+    \end{equation}
+    引入极坐标系，可得
+    \begin{equation}
+        \label{eq:part6-4}
+        I = \int_0^{2\uppi} \d \theta \int_0^a r^3 \d r = \frac{\uppi a^4}{2}.
+    \end{equation}
+    故有
+    \begin{equation}
+        \label{eq:part6-5}
+        I = \boxed{\frac{\uppi a^4}{2}}.
+    \end{equation}
+\end{solution}
+
+\begin{problem}{引力场的通量}{Gravitational-Flux}
+    求引力场 $\symbfit{F} = -km\frac{\symbfit{r}}{r^3}$ 通过下列闭曲面外侧的通量：
+    \begin{enumerate}
+        \item 空间中任一包围质量 $m$（在原点）的闭曲面；
+        \item 空间中任一不包围质量 $m$ 的闭曲面；
+        \item 质量 $m$ 在光滑的闭曲面上。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 通量为 $-4\uppi km$。
+
+    引入直角坐标系，设原点位于质量 $m$ 处，即 $\symbfit{r} = (x, y, z)$，且 $r = \sqrt{x^2+y^2+z^2}$。在 $r \neq 0$ 时，计算引力场 $\symbfit{F}$ 的散度：
+    \begin{equation}
+        \label{eq:div-F-1}
+        \begin{aligned}
+            \operatorname{div} \symbfit{F} & = \nabla \cdot \left( -km \frac{\symbfit{r}}{r^3} \right)                                             \\
+                                           & = -km \left[ \frac{\nabla \cdot \symbfit{r}}{r^3} + \symbfit{r} \cdot \nabla (r^{-3}) \right]         \\
+                                           & = -km \left[ \frac{3}{r^3} + \symbfit{r} \cdot \left( -3 r^{-4} \frac{\symbfit{r}}{r} \right) \right] \\
+                                           & = -km \left( \frac{3}{r^3} - \frac{3 r^2}{r^5} \right)                                                \\
+                                           & = 0.
+        \end{aligned}
+    \end{equation}
+    设闭曲面 $S$ 包围原点，取以原点为球心、$\epsilon > 0$ 为半径的足够小球面 $S_\epsilon = \{ (x, y, z) \mid x^2 + y^2 + z^2 = \epsilon^2 \}$，使得 $S_\epsilon$ 被包围在 $S$ 内部。记由 $S$ 与 $S_\epsilon$ 围成的闭区域为 $V_\epsilon$。由于在 $V_\epsilon$ 上 $\operatorname{div} \symbfit{F} = 0$，根据高斯公式可得：
+    \begin{equation}
+        \label{eq:gauss-1-1}
+        \iint_{S} \symbfit{F} \cdot \d \symbfit{S} - \iint_{S_\epsilon} \symbfit{F} \cdot \d \symbfit{S} = \iiint_{V_\epsilon} \operatorname{div} \symbfit{F} \d V = 0.
+    \end{equation}
+    由此可知：
+    \begin{equation}
+        \label{eq:relation-1}
+        \iint_{S} \symbfit{F} \cdot \d \symbfit{S} = \iint_{S_\epsilon} \symbfit{F} \cdot \d \symbfit{S}.
+    \end{equation}
+    在 $S_\epsilon$ 上，外法线单位向量为 $\symbfit{n} = \frac{\symbfit{r}}{\epsilon}$，此时有：
+    \begin{equation}
+        \label{eq:integrand-1}
+        \symbfit{F} \cdot \symbfit{n} = -km \frac{\symbfit{r}}{\epsilon^3} \cdot \frac{\symbfit{r}}{\epsilon} = -\frac{km}{\epsilon^2}.
+    \end{equation}
+    因而通量计算为：
+    \begin{equation}
+        \label{eq:flux-calc-1}
+        \iint_{S_\epsilon} \symbfit{F} \cdot \d \symbfit{S} = \iint_{S_\epsilon} \left( -\frac{km}{\epsilon^2} \right) \d S = -\frac{km}{\epsilon^2} (4\uppi \epsilon^2) = -4\uppi km.
+    \end{equation}
+    最终结果为：
+    \begin{equation}
+        \label{eq:final-ans-1}
+        \Phi = \boxed{-4\uppi km}.
+    \end{equation}
+
+    \ansitem{2} 通量为 $0$。
+
+    由于闭曲面 $S$ 不包围原点（即不包围质量 $m$），且 $\symbfit{F}$ 在 $S$ 围成的闭区域 $V$ 上连续可微。根据 \zcref{eq:div-F-1}，有 $\operatorname{div} \symbfit{F} = 0$。由高斯公式，可得通量为：
+    \begin{equation}
+        \label{eq:gauss-2}
+        \Phi = \iint_S \symbfit{F} \cdot \d \symbfit{S} = \iiint_V \operatorname{div} \symbfit{F} \d V = 0.
+    \end{equation}
+    最终结果为：
+    \begin{equation}
+        \label{eq:final-ans-2}
+        \Phi = \boxed{0}.
+    \end{equation}
+
+    \ansitem{3} 通量为 $-2\uppi km$。
+
+    由于原点位于光滑的闭曲面 $S$ 上，取以原点为球心、$\epsilon > 0$ 为半径的小球 $B_\epsilon$，其边界为 $S_\epsilon$。记曲面 $S$ 在 $B_\epsilon$ 外部的部分为 $S \setminus B_\epsilon$，而 $S_\epsilon$ 落在 $S$ 内部的球面部分为 $S_{\epsilon, \text{in}}$。记 $S$ 与 $S_{\epsilon, \text{in}}$ 共同围成的区域为 $V_\epsilon$，此时原点在 $V_\epsilon$ 外部。根据高斯公式有：
+    \begin{equation}
+        \label{eq:gauss-3}
+        \iint_{S \setminus B_\epsilon} \symbfit{F} \cdot \d \symbfit{S} - \iint_{S_{\epsilon, \text{in}}} \symbfit{F} \cdot \symbfit{n} \d S = \iiint_{V_\epsilon} \operatorname{div} \symbfit{F} \d V = 0.
+    \end{equation}
+    其中 $\symbfit{n}$ 为 $S_\epsilon$ 的外法线向量。因此有：
+    \begin{equation}
+        \label{eq:relation-3}
+        \iint_{S \setminus B_\epsilon} \symbfit{F} \cdot \d \symbfit{S} = \iint_{S_{\epsilon, \text{in}}} \symbfit{F} \cdot \symbfit{n} \d S.
+    \end{equation}
+    由于 $S$ 在原点处是光滑的，当 $\epsilon \to 0^+$ 时，$S_{\epsilon, \text{in}}$ 趋近于一个半球面，其立体角趋近于 $2\uppi$。因此，该部分球面面积满足：
+    \begin{equation}
+        \label{eq:area-3}
+        \operatorname{Area}(S_{\epsilon, \text{in}}) \sim 2\uppi \epsilon^2,
+        \quad \epsilon \to 0^+.
+    \end{equation}
+    代入 $\symbfit{F} \cdot \symbfit{n} = -\frac{km}{\epsilon^2}$，取极限 $\epsilon \to 0^+$ 可得：
+    \begin{equation}
+        \label{eq:limit-3}
+        \begin{aligned}
+            \Phi & = \lim_{\epsilon \to 0^+} \iint_{S \setminus B_\epsilon} \symbfit{F} \cdot \d \symbfit{S}                          \\
+                 & = \lim_{\epsilon \to 0^+} \iint_{S_{\epsilon, \text{in}}} \left( -\frac{km}{\epsilon^2} \right) \d S               \\
+                 & = \lim_{\epsilon \to 0^+} \left[ -\frac{km}{\epsilon^2} \cdot \operatorname{Area}(S_{\epsilon, \text{in}}) \right] \\
+                 & = -2\uppi km.
+        \end{aligned}
+    \end{equation}
+    最终结果为：
+    \begin{equation}
+        \label{eq:final-ans-3}
+        \Phi = \boxed{-2\uppi km}.
+    \end{equation}
+\end{solution}
+
+\begin{problem}{高斯公式与立体角}{Gauss-Formula-Solid-Angle}
+    设区域 $V$ 是由曲面 $x^2+y^2-\frac{z^2}{2}=1$ 及平面 $z=1$、$z=-1$ 围成，$S$ 为 $V$ 的全表面外侧，又设 $\symbfit{V} = (x^2+y^2+z^2)^{-\frac{3}{2}}(x\symbfit{i}+y\symbfit{j}+z\symbfit{k})$。求积分
+    \begin{equation}
+        \label{eq:integral-def-1}
+        \iint_S \frac{x \d y \d z + y \d z \d x + z \d x \d y}{\sqrt{(x^2+y^2+z^2)^3}}.
+    \end{equation}
+\end{problem}
+
+\begin{solution}
+    记所求积分为 $I$。设位置向量为 $\symbfit{r} = x\symbfit{i} + y\symbfit{j} + z\symbfit{k}$，其模长为 $r = \sqrt{x^2+y^2+z^2}$。所求积分实际上是向量场 $\symbfit{V} = \frac{\symbfit{r}}{r^3}$ 穿过闭曲面 $S$ 外侧的通量。
+
+    首先判断原点 $O(0,0,0)$ 与区域 $V$ 的位置关系。将原点坐标代入，满足 $0^2 + 0^2 - \frac{0^2}{2} = 0 < 1$，且介于两平面 $z=-1$ 与 $z=1$ 之间。因此，原点 $O$ 严格位于闭区域 $V$ 的内部。
+
+    对于 $r \neq 0$，计算向量场 $\symbfit{V}$ 的散度：
+    \begin{equation}
+        \label{eq:div-V}
+        \begin{aligned}
+            \operatorname{div} \symbfit{V} & = \frac{\partial}{\partial x}\left(\frac{x}{r^3}\right) + \frac{\partial}{\partial y}\left(\frac{y}{r^3}\right) + \frac{\partial}{\partial z}\left(\frac{z}{r^3}\right) \\
+                                           & = \left(\frac{1}{r^3} - \frac{3x^2}{r^5}\right) + \left(\frac{1}{r^3} - \frac{3y^2}{r^5}\right) + \left(\frac{1}{r^3} - \frac{3z^2}{r^5}\right)                         \\
+                                           & = \frac{3}{r^3} - \frac{3(x^2+y^2+z^2)}{r^5}                                                                                                                            \\
+                                           & = 0.
+        \end{aligned}
+    \end{equation}
+
+    由于原点 $O$ 是该向量场的奇点，我们在区域 $V$ 内部取一个以原点为球心、半径为 $\epsilon > 0$ 且足够小的球面 $S_\epsilon \colon x^2+y^2+z^2 = \epsilon^2$，并取其外侧。记由 $S$ 与 $S_\epsilon$ 所围成的闭区域为 $V_\epsilon$。在 $V_\epsilon$ 上，向量场 $\symbfit{V}$ 连续可微且散度处处为零。
+
+    根据高斯公式，有
+    \begin{equation}
+        \label{eq:gauss-theorem}
+        \iint_S \symbfit{V} \cdot \d\symbfit{S} - \iint_{S_\epsilon} \symbfit{V} \cdot \d\symbfit{S} = \iiint_{V_\epsilon} \operatorname{div} \symbfit{V} \d V = 0.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \label{eq:equal-integrals}
+        I = \iint_{S} \symbfit{V} \cdot \d\symbfit{S} = \iint_{S_\epsilon} \symbfit{V} \cdot \d\symbfit{S}.
+    \end{equation}
+
+    在球面 $S_\epsilon$ 上，外法线单位向量为 $\symbfit{n} = \frac{\symbfit{r}}{\epsilon}$，且在曲面上 $r = \epsilon$。计算向量场与法线向量的点积：
+    \begin{equation}
+        \label{eq:integrand-eval}
+        \symbfit{V} \cdot \symbfit{n} = \frac{\symbfit{r}}{\epsilon^3} \cdot \frac{\symbfit{r}}{\epsilon} = \frac{r^2}{\epsilon^4} = \frac{\epsilon^2}{\epsilon^4} = \frac{1}{\epsilon^2}.
+    \end{equation}
+    将 \zcref{eq:integrand-eval} 代入 \zcref{eq:equal-integrals} 中进行积分，即可得到
+    \begin{equation}
+        \label{eq:final-eval}
+        I = \iint_{S_\epsilon} \frac{1}{\epsilon^2} \d S = \frac{1}{\epsilon^2} \operatorname{Area}(S_\epsilon) = \frac{1}{\epsilon^2} \left(4\uppi \epsilon^2\right) = 4\uppi.
+    \end{equation}
+
+    最终计算结果为
+    \begin{equation}
+        \label{eq:result}
+        \boxed{4\uppi}.
+    \end{equation}
+\end{solution}
+
+\begin{problem}{高斯公式与常微分方程}{Gauss-Formula-ODE}
+    设对于半空间 $x > 0$ 内任意的光滑有向封闭曲面 $S$，都有
+    \begin{equation}
+        \label{eq:surface-integral}
+        \oiint_S x f(x) \d y \d z - x y f(x) \d z \d x - \e^{2x} z \d x \d y = 0,
+    \end{equation}
+    其中函数 $f(x)$ 在 $(0, +\infty)$ 内具有连续的一阶导数，且 $\lim_{x \to 0^+} f(x) = 1$，求 $f(x)$。
+\end{problem}
+
+\begin{solution}
+    记被积向量场为 $\symbfit{F}(x, y, z) = P \symbfit{i} + Q \symbfit{j} + R \symbfit{k}$，其中
+    \begin{equation}
+        \label{eq:vector-field}
+        P = x f(x), \quad Q = -x y f(x), \quad R = -\e^{2x} z.
+    \end{equation}
+    因为对于半空间 $x > 0$ 内任意的光滑有向封闭曲面 $S$，积分为零，由高斯公式可知，向量场 $\symbfit{F}$ 的散度在 $x > 0$ 内恒为零，即
+    \begin{equation}
+        \label{eq:div-zero}
+        \operatorname{div} \symbfit{F} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} = 0.
+    \end{equation}
+    分别计算各偏导数可得
+    \begin{equation}
+        \label{eq:partials}
+        \begin{aligned}
+            \frac{\partial P}{\partial x} & = f(x) + x f'(x), \\
+            \frac{\partial Q}{\partial y} & = -x f(x),        \\
+            \frac{\partial R}{\partial z} & = -\e^{2x}.
+        \end{aligned}
+    \end{equation}
+    代入 \zcref{eq:div-zero} 中，得到关于 $f(x)$ 的一阶线性常微分方程
+    \begin{equation}
+        \label{eq:ode}
+        x f'(x) + (1 - x) f(x) - \e^{2x} = 0.
+    \end{equation}
+    将方程标准化为
+    \begin{equation}
+        \label{eq:ode-standard}
+        f'(x) + \left(\frac{1}{x} - 1\right) f(x) = \frac{\e^{2x}}{x}.
+    \end{equation}
+    一阶线性微分方程的积分因子为
+    \begin{equation}
+        \label{eq:integrating-factor}
+        \mu(x) = \exp \left( \int \left(\frac{1}{x} - 1\right) \d x \right) = \exp (\ln x - x) = x \e^{-x}.
+    \end{equation}
+    方程 \zcref{eq:ode-standard} 两边同乘积分因子 $\mu(x)$，得
+    \begin{equation}
+        \label{eq:ode-exact}
+        \frac{\d}{\d x} \left( x \e^{-x} f(x) \right) = \frac{\e^{2x}}{x} \cdot x \e^{-x} = \e^x.
+    \end{equation}
+    对方程两边积分，得
+    \begin{equation}
+        \label{eq:integral-sol}
+        x \e^{-x} f(x) = \e^x + C,
+    \end{equation}
+    其中 $C$ 为任意常数。从而解得通解为
+    \begin{equation}
+        \label{eq:general-sol}
+        f(x) = \frac{\e^{2x} + C \e^x}{x}.
+    \end{equation}
+    根据题意有极限条件 $\lim_{x \to 0^+} f(x) = 1$，即
+    \begin{equation}
+        \label{eq:limit-cond}
+        \lim_{x \to 0^+} \frac{\e^{2x} + C \e^x}{x} = 1.
+    \end{equation}
+    由于当 $x \to 0^+$ 时，分母趋于 $0$，要使极限存在且为常数，分子必须趋于 $0$，故要求
+    \begin{equation}
+        \label{eq:limit-numerator}
+        \lim_{x \to 0^+} \left( \e^{2x} + C \e^x \right) = 1 + C = 0,
+    \end{equation}
+    解得 $C = -1$。将其代回进行洛必达法则验证：
+    \begin{equation}
+        \label{eq:limit-verify}
+        \lim_{x \to 0^+} \frac{\e^{2x} - \e^x}{x} = \lim_{x \to 0^+} \frac{2\e^{2x} - \e^x}{1} = 1,
+    \end{equation}
+    符合题意。因此，所求函数为
+    \begin{equation}
+        \label{eq:final-ans}
+        \boxed{f(x) = \frac{\e^{2x} - \e^x}{x}}.
+    \end{equation}
+\end{solution}
+
+\begin{problem}{高斯公式与体积}{Gauss-Formula-Volume}
+    证明任意光滑闭曲面 $S$ 围成的立体体积可以表成
+    \begin{equation}
+        V = \frac{1}{3} \oiint_S x \d y \d z + y \d z \d x + z \d x \d y,
+    \end{equation}
+    其中积分沿 $S$ 的外侧进行。
+\end{problem}
+
+\begin{myproof}
+    设由光滑闭曲面 $S$ 所包围的立体区域为 $\Omega$。构造向量场
+    \begin{equation}
+        \label{eq:vec-field}
+        \symbfit{F}(x,y,z) = x \symbfit{i} + y \symbfit{j} + z \symbfit{k}.
+    \end{equation}
+    计算该向量场的散度，可得
+    \begin{equation}
+        \label{eq:div-calc}
+        \operatorname{div} \symbfit{F} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 1 + 1 + 1 = 3.
+    \end{equation}
+    由于 $S$ 为任意光滑闭曲面，且积分沿其外侧进行，根据高斯公式，有
+    \begin{equation}
+        \label{eq:gauss-app-1}
+        \oiint_S x \d y \d z + y \d z \d x + z \d x \d y = \iiint_\Omega \operatorname{div} \symbfit{F} \d V.
+    \end{equation}
+    将 \zcref{eq:div-calc} 代入 \zcref{eq:gauss-app-1} 中，得到
+    \begin{equation}
+        \label{eq:vol-rel}
+        \oiint_S x \d y \d z + y \d z \d x + z \d x \d y = \iiint_\Omega 3 \d V = 3 \iiint_\Omega \d V.
+    \end{equation}
+    又因为立体 $\Omega$ 的体积 $V$ 定义为
+    \begin{equation}
+        \label{eq:vol-def}
+        V = \iiint_\Omega \d V,
+    \end{equation}
+    所以 \zcref{eq:vol-rel} 可以写为
+    \begin{equation}
+        \label{eq:final-proof}
+        3V = \oiint_S x \d y \d z + y \d z \d x + z \d x \d y.
+    \end{equation}
+    等式两边同除以 $3$，即可得到所证等式
+    \begin{equation}
+        \label{eq:result-1}
+        \boxed{V = \frac{1}{3} \oiint_S x \d y \d z + y \d z \d x + z \d x \d y}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{阿基米德原理的证明}{Archimedes-Principle}
+    证明 Archimedes （阿基米德）原理：物体 $V$ 全部浸入液体中所受的浮力等于与物体同体积的液体的重量。（提示：设液体的密度为常数 $\rho$，给出物体表面每一小块 $\d S$ 所受到的压力，通过积分计算 $\partial V$ 的压力。）
+\end{problem}
+
+\begin{myproof}
+    建立空间直角坐标系，设 $z$ 轴竖直向上。设液体内表面的某参考高度为 $z_0$，则在液体内部任意一点 $(x, y, z)$ 处的流体静压强为
+    \begin{equation}
+        \label{eq:pressure}
+        p(z) = p_0 + \rho g (z_0 - z),
+    \end{equation}
+    其中 $\rho$ 为液体密度，$g$ 为重力加速度，$p_0$ 为参考高度处的压强。
+
+    设物体所占的闭区域为 $V$，其表面为光滑闭曲面 $\partial V$。对于曲面上任意一块面积微元 $\d S$，设其外法线单位向量为 $\symbfit{n} = (\cos \alpha, \cos \beta, \cos \gamma)$，则液体施加在该面积微元上的压力元大小为 $p \d S$，方向沿着内法线方向，即
+    \begin{equation}
+        \label{eq:force-element}
+        \d\symbfit{F} = -p \symbfit{n} \d S.
+    \end{equation}
+
+    物体所受的流体总压力 $\symbfit{F}$ 可通过对曲面 $\partial V$ 积分得到。将其分解为三个坐标轴方向的分量：
+    \begin{equation}
+        \label{eq:force-components}
+        \begin{aligned}
+            F_x & = \oiint_{\partial V} -p \cos \alpha \d S = -\oiint_{\partial V} p \d y \d z, \\
+            F_y & = \oiint_{\partial V} -p \cos \beta \d S = -\oiint_{\partial V} p \d z \d x,  \\
+            F_z & = \oiint_{\partial V} -p \cos \gamma \d S = -\oiint_{\partial V} p \d x \d y.
+        \end{aligned}
+    \end{equation}
+
+    根据高斯公式，将曲面积分转化为体积分，可得
+    \begin{equation}
+        \label{eq:gauss-app-2}
+        \begin{aligned}
+            F_x & = -\iiint_V \frac{\partial p}{\partial x} \d V, \\
+            F_y & = -\iiint_V \frac{\partial p}{\partial y} \d V, \\
+            F_z & = -\iiint_V \frac{\partial p}{\partial z} \d V.
+        \end{aligned}
+    \end{equation}
+
+    由 \zcref{eq:pressure} 可求得压强的偏导数为
+    \begin{equation}
+        \label{eq:pressure-derivatives}
+        \frac{\partial p}{\partial x} = 0, \quad \frac{\partial p}{\partial y} = 0, \quad \frac{\partial p}{\partial z} = -\rho g.
+    \end{equation}
+
+    将 \zcref{eq:pressure-derivatives} 代入 \zcref{eq:gauss-app-2} 中，得到总压力在三个方向的分量为
+    \begin{equation}
+        \label{eq:final-components}
+        F_x = 0, \quad F_y = 0, \quad F_z = -\iiint_V (-\rho g) \d V = \rho g \iiint_V \d V = \rho g V.
+    \end{equation}
+
+    因此，物体受到的总压力（即浮力）水平分力为零，方向沿 $z$ 轴正方向（竖直向上），大小等于 $\rho g V$。这就证明了物体全部浸没在液体中所受的浮力刚好等于与其同体积的液体的重量，即
+    \begin{equation}
+        \label{eq:result-2}
+        \boxed{F_z = \rho g V}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{常向量场的曲面积分}{Constant-Vector-Field}
+    设 $\symbfit{c}$ 是常向量，$S$ 是任意的光滑闭曲面，证明：
+    \begin{equation}
+        \iint_S \cos(\widehat{\symbfit{c}, \symbfit{n}}) \d S = 0.
+    \end{equation}
+    其中 $(\widehat{\symbfit{c}, \symbfit{n}})$ 表示向量 $\symbfit{c}$ 与曲面法向量 $\symbfit{n}$ 的夹角。
+\end{problem}
+
+\begin{myproof}
+    当 $\symbfit{c} = \symbfit{0}$ 时，被积函数为零，等式显然成立。
+
+    当 $\symbfit{c} \neq \symbfit{0}$ 时，设曲面 $S$ 的外法线单位向量为 $\symbfit{n}$，即 $|\symbfit{n}| = 1$。由向量点积的几何定义，常向量 $\symbfit{c}$ 与法向量 $\symbfit{n}$ 夹角的余弦值可表示为
+    \begin{equation}
+        \label{eq:cos-def}
+        \cos(\widehat{\symbfit{c}, \symbfit{n}}) = \frac{\symbfit{c} \cdot \symbfit{n}}{|\symbfit{c}| |\symbfit{n}|} = \frac{\symbfit{c} \cdot \symbfit{n}}{|\symbfit{c}|}.
+    \end{equation}
+
+    对 \zcref{eq:cos-def} 在闭曲面 $S$ 上进行积分，得到
+    \begin{equation}
+        \label{eq:integral-transform}
+        \iint_S \cos(\widehat{\symbfit{c}, \symbfit{n}}) \d S = \iint_S \frac{\symbfit{c} \cdot \symbfit{n}}{|\symbfit{c}|} \d S = \frac{1}{|\symbfit{c}|} \iint_S \symbfit{c} \cdot \symbfit{n} \d S.
+    \end{equation}
+
+    设常向量 $\symbfit{c} = (c_1, c_2, c_3)$，其中 $c_1, c_2, c_3$ 均为常数。设闭曲面 $S$ 所围成的三维空间区域为 $V$。根据高斯公式，常向量场 $\symbfit{c}$ 穿过闭曲面 $S$ 的通量可转化为在区域 $V$ 上的体积分：
+    \begin{equation}
+        \label{eq:gauss-formula}
+        \iint_S \symbfit{c} \cdot \symbfit{n} \d S = \iiint_V \operatorname{div} \symbfit{c} \d V.
+    \end{equation}
+
+    由于 $\symbfit{c}$ 为常向量场，其各个分量对空间坐标的偏导数均为零，故其散度为
+    \begin{equation}
+        \label{eq:divergence}
+        \operatorname{div} \symbfit{c} = \frac{\partial c_1}{\partial x} + \frac{\partial c_2}{\partial y} + \frac{\partial c_3}{\partial z} = 0.
+    \end{equation}
+
+    将 \zcref{eq:divergence} 代入 \zcref{eq:gauss-formula} 中，可得
+    \begin{equation}
+        \label{eq:flux-zero}
+        \iint_S \symbfit{c} \cdot \symbfit{n} \d S = \iiint_V 0 \d V = 0.
+    \end{equation}
+
+    进一步将 \zcref{eq:flux-zero} 代回 \zcref{eq:integral-transform}，即可得出所证等式
+    \begin{equation}
+        \label{eq:final-proof-1}
+        \boxed{\iint_S \cos(\widehat{\symbfit{c}, \symbfit{n}}) \d S = 0}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{Gauss 公式与 Green 公式}{Gauss-to-Green}
+    设 $L$ 是 $Oxy$ 平面上光滑的简单闭曲线，逆时针方向，立体 $V$ 是柱体，它以 $L$ 为准线，以 $L$ 在 $xy$ 平面内所围平面区域 $D$ 为底，侧面是母线平行于 $z$ 轴的柱面，高为 $1$，试写出向量场 $\symbfit{v} = P\symbfit{i} + Q\symbfit{j}$ 在 $V$ 上的 Gauss 公式，并由此来证明 Green 公式。
+\end{problem}
+
+\begin{myproof}
+    设向量场为 $\symbfit{v}(x,y,z) = P(x,y)\symbfit{i} + Q(x,y)\symbfit{j} + 0\symbfit{k}$。计算其散度可得
+    \begin{equation}
+        \label{eq:div-v}
+        \operatorname{div} \symbfit{v} = \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y}.
+    \end{equation}
+    对柱体区域 $V$ 应用高斯公式，有
+    \begin{equation}
+        \label{eq:gauss-app}
+        \iiint_V \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right) \d V = \oiint_{\partial V} (P \symbfit{i} + Q \symbfit{j}) \cdot \symbfit{n} \d S.
+    \end{equation}
+    其中 $\partial V$ 为柱体的全表面外侧，$\symbfit{n}$ 为外法线单位向量。
+
+    对于等式 \zcref{eq:gauss-app} 的左端，由于被积函数仅与 $x,y$ 有关，且柱体高为 $1$（即 $0 \le z \le 1$），化为累次积分可得
+    \begin{equation}
+        \label{eq:lhs-eval}
+        \begin{aligned}
+            \iiint_V \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right) \d V & = \iint_D \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right) \d x \d y \int_0^1 \d z \\
+                                                                                                       & = \iint_D \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right) \d x \d y.
+        \end{aligned}
+    \end{equation}
+
+    对于等式 \zcref{eq:gauss-app} 的右端，将全表面分为底面 $S_1$、顶面 $S_2$ 和侧面 $S_3$。
+    在底面 $S_1$ ($z=0$) 与顶面 $S_2$ ($z=1$) 上，法向量分别为 $-\symbfit{k}$ 与 $\symbfit{k}$，由于向量场 $\symbfit{v}$ 的 $z$ 分量为零，故有
+    \begin{equation}
+        \label{eq:top-bottom-flux}
+        \iint_{S_1} \symbfit{v} \cdot (-\symbfit{k}) \d S = 0, \quad \iint_{S_2} \symbfit{v} \cdot \symbfit{k} \d S = 0.
+    \end{equation}
+    对于侧面 $S_3$，其法向量平行于 $xy$ 平面。设曲线 $L$ 的弧长参数为 $s$，由于 $L$ 取逆时针方向，其单位切向量为 $\symbfit{\tau} = \left(\frac{\d x}{\d s}, \frac{\d y}{\d s}, 0\right)$。由此可得侧面外法线单位向量为 $\symbfit{n} = \left(\frac{\d y}{\d s}, -\frac{\d x}{\d s}, 0\right)$。侧面上面积微元为 $\d S = \d s \d z$。因此在 $S_3$ 上的积分为
+    \begin{equation}
+        \label{eq:side-flux}
+        \begin{aligned}
+            \iint_{S_3} \symbfit{v} \cdot \symbfit{n} \d S & = \iint_{S_3} \left( P \frac{\d y}{\d s} - Q \frac{\d x}{\d s} \right) \d s \d z      \\
+                                                           & = \int_0^1 \d z \oint_L \left( P \frac{\d y}{\d s} - Q \frac{\d x}{\d s} \right) \d s \\
+                                                           & = \oint_L -Q \d x + P \d y.
+        \end{aligned}
+    \end{equation}
+
+    综合 \zcref{eq:lhs-eval}、\zcref{eq:top-bottom-flux} 与 \zcref{eq:side-flux}，高斯公式化为
+    \begin{equation}
+        \label{eq:green-temp}
+        \iint_D \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} \right) \d x \d y = \oint_L -Q \d x + P \d y.
+    \end{equation}
+    上式即为 Green 公式的另一种形式。为了得到标准的 Green 公式，作符号替换：令 $P_1 = -Q$，$Q_1 = P$，代入 \zcref{eq:green-temp} 得
+    \begin{equation}
+        \label{eq:green-standard}
+        \iint_D \left( \frac{\partial Q_1}{\partial x} - \frac{\partial P_1}{\partial y} \right) \d x \d y = \oint_L P_1 \d x + Q_1 \d y.
+    \end{equation}
+    去掉下标即可得到标准的平面 Green 公式，证毕。
+    \begin{equation}
+        \label{eq:final-proof-2}
+        \boxed{\iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \d x \d y = \oint_L P \d x + Q \d y}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{曲线积分的计算（Stokes 公式）}{Curve-Integrals-Stokes}
+    计算下列曲线积分：
+    \begin{enumerate}
+        \item $\oint_L y \d x + z \d y + x \d z$，$L$ 是顶点为 $A(1,0,0), B(0,1,0), C(0,0,1)$ 的三角形边界，从原点看去，$L$ 沿顺时针方向；
+        \item $\oint_L (y-z) \d x + (z-x) \d y + (x-y) \d z$，$L$ 是圆柱面 $x^2+y^2=a^2$ 和平面 $\frac{x}{a}+\frac{z}{h}=1 \ (a>0, h>0)$ 的交线，从 $x$ 轴的正方向看来，$L$ 沿反时针方向；
+        \item $\oint_L (y^2-z^2) \d x + (z^2-x^2) \d y + (x^2-y^2) \d z$，$L$ 是平面 $x+y+z=\frac{3}{2}a$ 与立方体 $0 \leqslant x \leqslant a, 0 \leqslant y \leqslant a, 0 \leqslant z \leqslant a$ 表面的交线，从 $z$ 轴正向看来，$L$ 沿反时针方向；
+        \item $\oint_L y^2 \d x + xy \d y + xz \d z$，$L$ 是圆柱面 $x^2+y^2=2y$ 与平面 $y=z$ 的交线，从 $z$ 轴正向看来，$L$ 沿逆时针方向；
+        \item $\oint_L (y^2-y) \d x + (z^2-z) \d y + (x^2-x) \d z$，$L$ 是球面 $x^2+y^2+z^2=a^2$ 与平面 $x+y+z=0$ 的交线，$L$ 的方向与 $z$ 轴正向成右手系；
+        \item $\oint_L (y^2-z^2) \d x + (2z^2-x^2) \d y + (3x^2-y^2) \d z$，其中 $L$ 是平面 $x+y+z=2$ 与柱面 $|x|+|y|=1$ 的交线，从 $z$ 轴正向看去，$L$ 为逆时针方向。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    记 $S$ 为平面 $x+y+z=1$ 在第一象限内的三角形区域。由于从原点看去 $L$ 沿顺时针方向，故 $S$ 的法向量指向远离原点侧，其单位法向量为 $\symbfit{n} = \frac{1}{\sqrt{3}}(1, 1, 1)$。记向量场为 $\symbfit{F}$，计算其旋度为
+    \begin{equation}
+        \label{eq:curl-1}
+        \operatorname{curl} \symbfit{F} = \left| \begin{matrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ y & z & x \end{matrix} \right| = (-1, -1, -1).
+    \end{equation}
+    利用 Stokes 公式，有
+    \begin{equation}
+        \label{eq:stokes-1}
+        \begin{aligned}
+            \oint_L \symbfit{F} \cdot \d \symbfit{r} & = \iint_S \operatorname{curl} \symbfit{F} \cdot \symbfit{n} \d S             \\
+                                                     & = \iint_S (-1, -1, -1) \cdot \left( \frac{1}{\sqrt{3}}(1, 1, 1) \right) \d S \\
+                                                     & = -\sqrt{3} \iint_S \d S.
+        \end{aligned}
+    \end{equation}
+    三角形面积为 $\iint_S \d S = \frac{\sqrt{3}}{2}$，故
+    \begin{equation}
+        \label{eq:res-1}
+        \boxed{-\frac{3}{2}}.
+    \end{equation}
+
+    \ansitem{2}
+
+    记 $S$ 为交线 $L$ 在平面 $\frac{x}{a}+\frac{z}{h}=1$ 上围成的椭圆区域。从 $x$ 轴正向看去 $L$ 沿逆时针方向，故单位法向量 $\symbfit{n}$ 的 $x$ 分量应为正，即 $\symbfit{n} = \frac{(h, 0, a)}{\sqrt{h^2+a^2}}$，因此 $S$ 在 $xy$ 平面的投影 $D \colon x^2+y^2 \leqslant a^2$ 的方向为正。
+    计算旋度为
+    \begin{equation}
+        \label{eq:curl-2}
+        \operatorname{curl} \symbfit{F} = \left| \begin{matrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ y-z & z-x & x-y \end{matrix} \right| = (-2, -2, -2).
+    \end{equation}
+    利用 Stokes 公式化为关于 $xy$ 平面的二重积分（取 $z = h - \frac{h}{a}x$）：
+    \begin{equation}
+        \label{eq:stokes-2}
+        \begin{aligned}
+            I & = \iint_D \left[ -(-2)\frac{\partial z}{\partial x} - (-2)\frac{\partial z}{\partial y} + (-2) \right] \d x \d y \\
+              & = \iint_D \left[ 2 \left( -\frac{h}{a} \right) + 0 - 2 \right] \d x \d y                                         \\
+              & = -2 \left( 1 + \frac{h}{a} \right) \iint_D \d x \d y                                                            \\
+              & = -2 \left( \frac{a+h}{a} \right) \cdot \uppi a^2.
+        \end{aligned}
+    \end{equation}
+    故
+    \begin{equation}
+        \label{eq:res-2}
+        \boxed{-2\uppi a(a+h)}.
+    \end{equation}
+
+    \ansitem{3}
+
+    记 $S$ 为截口多边形（正六边形区域），其所在平面为 $x+y+z = \frac{3}{2}a$。从 $z$ 轴正向看去 $L$ 为逆时针，取上侧，单位法向量为 $\symbfit{n} = \frac{1}{\sqrt{3}}(1, 1, 1)$。
+    计算旋度为
+    \begin{equation}
+        \label{eq:curl-3}
+        \operatorname{curl} \symbfit{F} = (-2y-2z, -2z-2x, -2x-2y) = -2(y+z, x+z, x+y).
+    \end{equation}
+    由 Stokes 公式，且在平面上满足对称性：
+    \begin{equation}
+        \label{eq:stokes-3}
+        \begin{aligned}
+            I & = \iint_S -2(y+z+z+x+x+y) \frac{1}{\sqrt{3}} \d S      \\
+              & = -\frac{4}{\sqrt{3}} \iint_S (x+y+z) \d S             \\
+              & = -\frac{4}{\sqrt{3}} \cdot \frac{3}{2}a \iint_S \d S.
+        \end{aligned}
+    \end{equation}
+    六边形在 $xy$ 平面的投影 $D$ 的面积为 $\frac{3}{4}a^2$，故 $\iint_S \d S = \sqrt{3} \times \frac{3}{4}a^2$。代入得
+    \begin{equation}
+        \label{eq:res-3}
+        \boxed{-\frac{9}{2}a^3}.
+    \end{equation}
+
+    \ansitem{4}
+
+    记 $S$ 为交线在平面 $z=y$ 上的部分，其在 $xy$ 平面投影为 $D \colon x^2+(y-1)^2 \leqslant 1$。从 $z$ 轴正向看逆时针，法向量取上侧。
+    计算旋度为
+    \begin{equation}
+        \label{eq:curl-4}
+        \operatorname{curl} \symbfit{F} = (0, -z, -y).
+    \end{equation}
+    转化为二重积分：
+    \begin{equation}
+        \label{eq:stokes-4}
+        \begin{aligned}
+            I & = \iint_D \left[ -(0)\frac{\partial z}{\partial x} - (-z)\frac{\partial z}{\partial y} + (-y) \right] \d x \d y \\
+              & = \iint_D (z - y) \d x \d y.
+        \end{aligned}
+    \end{equation}
+    由于在曲面上 $z=y$，故积分为
+    \begin{equation}
+        \label{eq:res-4}
+        \boxed{0}.
+    \end{equation}
+
+    \ansitem{5}
+
+    记 $S$ 为交线在平面 $x+y+z=0$ 上所围成的圆盘，半径为 $a$。方向与 $z$ 轴成右手系，故单位法向量 $\symbfit{n} = \frac{1}{\sqrt{3}}(1, 1, 1)$。
+    计算旋度为
+    \begin{equation}
+        \label{eq:curl-5}
+        \operatorname{curl} \symbfit{F} = (1-2z, 1-2x, 1-2y).
+    \end{equation}
+    由 Stokes 公式：
+    \begin{equation}
+        \label{eq:stokes-5}
+        \begin{aligned}
+            I & = \iint_S (1-2z+1-2x+1-2y) \frac{1}{\sqrt{3}} \d S \\
+              & = \frac{1}{\sqrt{3}} \iint_S [3 - 2(x+y+z)] \d S.
+        \end{aligned}
+    \end{equation}
+    因为 $x+y+z=0$，且 $S$ 面积为 $\uppi a^2$，故
+    \begin{equation}
+        \label{eq:res-5}
+        \boxed{\sqrt{3}\uppi a^2}.
+    \end{equation}
+
+    \ansitem{6}
+
+    记 $S$ 为截面位于平面 $z = 2-x-y$ 上的部分，投影区域 $D \colon |x|+|y| \leqslant 1$。从 $z$ 轴看为逆时针，取上侧。
+    计算旋度为
+    \begin{equation}
+        \label{eq:curl-6}
+        \operatorname{curl} \symbfit{F} = (-2y-4z, -2z-6x, -2x-2y).
+    \end{equation}
+    转化为二重积分：
+    \begin{equation}
+        \label{eq:stokes-6}
+        \begin{aligned}
+            I & = \iint_D \left[ -(-2y-4z)(-1) - (-2z-6x)(-1) + (-2x-2y) \right] \d x \d y \\
+              & = \iint_D (-8x - 4y - 6z) \d x \d y.
+        \end{aligned}
+    \end{equation}
+    将 $z = 2-x-y$ 代入，得被积函数为 $-2x + 2y - 12$。由 $D$ 的对称性，奇函数 $x$ 和 $y$ 的积分为零：
+    \begin{equation}
+        \label{eq:stokes-6-eval}
+        I = \iint_D -12 \d x \d y = -12 \times \operatorname{Area}(D) = -12 \times 2.
+    \end{equation}
+    故
+    \begin{equation}
+        \label{eq:res-6}
+        \boxed{-24}.
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Stokes 公式与曲面选取}{Stokes-Surface-Choice}
+    在积分 $\oint_L x^2 y^3 \d x + \d y + z \d z$ 中，路径 $L$ 是 $Oxy$ 平面上正向的圆 $x^2+y^2=R^2, z=0$；利用 Stokes 公式化曲线积分为以 $L$ 为边界所围区域 $S$ 上的曲面积分。
+    \begin{enumerate}
+        \item $S$ 取 $Oxy$ 平面上的圆面 $x^2+y^2 \leqslant R^2$；
+        \item $S$ 取半球面 $z = \sqrt{R^2-x^2-y^2}$；
+    \end{enumerate}
+    结果相同吗？
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    记向量场为 $\symbfit{F}(x,y,z) = x^2 y^3 \symbfit{i} + 1 \symbfit{j} + z \symbfit{k}$。首先计算该向量场的旋度：
+    \begin{equation}
+        \label{eq:curl-F}
+        \operatorname{curl} \symbfit{F} = \left| \begin{matrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ x^2 y^3 & 1 & z \end{matrix} \right| = (0, 0, -3x^2 y^2).
+    \end{equation}
+    由于路径 $L$ 在 $Oxy$ 平面上取正向，根据右手法则，所取曲面 $S$ 的法向量应指向上方。对于 $Oxy$ 平面上的圆面 $S_1 \colon x^2+y^2 \leqslant R^2, z=0$，其单位法向量为 $\symbfit{n} = \symbfit{k} = (0,0,1)$。
+    利用 Stokes 公式，将曲线积分化为在 $S_1$ 上的曲面积分：
+    \begin{equation}
+        \label{eq:stokes-S1}
+        I = \iint_{S_1} \operatorname{curl} \symbfit{F} \cdot \symbfit{n} \d S = \iint_{S_1} (0, 0, -3x^2 y^2) \cdot (0, 0, 1) \d x \d y = \iint_{x^2+y^2 \leqslant R^2} -3x^2 y^2 \d x \d y.
+    \end{equation}
+    引入极坐标 $x = r \cos \theta, y = r \sin \theta$，计算该二重积分可得
+    \begin{equation}
+        \label{eq:eval-S1}
+        \begin{aligned}
+            I & = -3 \int_0^{2\uppi} \cos^2 \theta \sin^2 \theta \d \theta \int_0^R r^4 \cdot r \d r        \\
+              & = -3 \int_0^{2\uppi} \frac{1}{4} \sin^2(2\theta) \d \theta \left[ \frac{r^6}{6} \right]_0^R \\
+              & = -3 \left( \frac{\uppi}{4} \right) \left( \frac{R^6}{6} \right)                            \\
+              & = -\frac{\uppi R^6}{8}.
+        \end{aligned}
+    \end{equation}
+    最终结果为
+    \begin{equation}
+        \label{eq:res-1-1}
+        \boxed{I = -\frac{\uppi R^6}{8}}.
+    \end{equation}
+
+    \ansitem{2}
+
+    取半球面 $S_2 \colon z = \sqrt{R^2-x^2-y^2}$，为使其与边界 $L$ 的正向构成右手系，$S_2$ 需取上侧，故其法向量的方向余弦满足 $\cos \gamma > 0$。根据 Stokes 公式，积分为
+    \begin{equation}
+        \label{eq:stokes-S2}
+        I = \iint_{S_2} \operatorname{curl} \symbfit{F} \cdot \d \symbfit{S} = \iint_{S_2} 0 \d y \d z + 0 \d z \d x - 3x^2 y^2 \d x \d y.
+    \end{equation}
+    由于曲面 $S_2$ 在 $Oxy$ 平面上的投影区域恰好为圆面 $D \colon x^2+y^2 \leqslant R^2$，且 $S_2$ 取上侧（$\d x \d y$ 符号为正），上述第二型曲面积分可直接化为投影平面上的二重积分：
+    \begin{equation}
+        \label{eq:eval-S2}
+        I = \iint_{D} -3x^2 y^2 \d x \d y.
+    \end{equation}
+    对比 \zcref{eq:stokes-S1} 可见，该积分式与第 (1) 问完全一致。因此，计算结果同样为
+    \begin{equation}
+        \label{eq:res-2-1}
+        \boxed{I = -\frac{\uppi R^6}{8}}.
+    \end{equation}
+    这验证了在向量场满足条件的情况下，Stokes 公式的积分结果与所选取的跨越边界的曲面无关，只取决于边界曲线本身。
+\end{solution}
+
+\begin{problem}{常向量场的环量}{Constant-Vector-Field-Circulation}
+    证明：常向量场 $\symbfit{c}$ 沿任意光滑闭曲线的环量都等于 $0$。
+\end{problem}
+
+\begin{myproof}
+    设 $L$ 为空间中任意一条光滑闭曲线，其参数方程可表示为位置向量 $\symbfit{r} = \symbfit{r}(t)$，其中参数 $t \in [a, b]$。因为 $L$ 为闭曲线，其起点与终点重合，故有
+    \begin{equation}
+        \label{eq:closed-curve}
+        \symbfit{r}(a) = \symbfit{r}(b).
+    \end{equation}
+
+    常向量场 $\symbfit{c}$ 沿闭曲线 $L$ 的环量定义为第二类曲线积分：
+    \begin{equation}
+        \label{eq:circulation-def}
+        \Gamma = \oint_L \symbfit{c} \cdot \d\symbfit{r}.
+    \end{equation}
+
+    由于 $\symbfit{c}$ 为常向量，其各个分量不随空间坐标的变化而变化，因此可以根据积分的线性性质将其提取到积分号之外，即
+    \begin{equation}
+        \label{eq:circulation-extract}
+        \Gamma = \symbfit{c} \cdot \left( \oint_L \d\symbfit{r} \right).
+    \end{equation}
+
+    对于闭曲线 $L$ 上微元 $\d\symbfit{r}$ 的积分，根据微积分基本定理以及 \zcref{eq:closed-curve} 可得
+    \begin{equation}
+        \label{eq:integral-dr}
+        \oint_L \d\symbfit{r} = \int_a^b \frac{\d\symbfit{r}}{\d t} \d t = \symbfit{r}(b) - \symbfit{r}(a) = \symbfit{0}.
+    \end{equation}
+
+    将 \zcref{eq:integral-dr} 代入 \zcref{eq:circulation-extract} 中进行计算，可得出该环量的值为
+    \begin{equation}
+        \label{eq:circulation-calc}
+        \Gamma = \symbfit{c} \cdot \symbfit{0} = 0.
+    \end{equation}
+
+    综上所述，常向量场沿任意光滑闭曲线的环量恒为 $0$，即
+    \begin{equation}
+        \label{eq:final-proof-3}
+        \boxed{\oint_L \symbfit{c} \cdot \d\symbfit{r} = 0}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{Stokes 公式与环量}{Circulation-Stokes}
+    求向量场 $\symbfit{v} = (y^2+z^2)\symbfit{i} + (z^2+x^2)\symbfit{j} + (x^2+y^2)\symbfit{k}$ 沿曲线 $L$ 的环量。$L$ 为 $x^2+y^2+z^2=R^2 \ (z \geqslant 0)$ 与 $x^2+y^2=Rx$ 的交线，从 $x$ 轴正向看来，$L$ 沿反时针方向。
+\end{problem}
+
+\begin{solution}
+    记向量场为 $\symbfit{v} = P\symbfit{i} + Q\symbfit{j} + R\symbfit{k}$，其中分量分别为
+    \begin{equation}
+        \label{eq:vector-components}
+        P = y^2+z^2, \quad Q = z^2+x^2, \quad R = x^2+y^2.
+    \end{equation}
+    首先计算向量场 $\symbfit{v}$ 的旋度：
+    \begin{equation}
+        \label{eq:curl-v}
+        \begin{aligned}
+            \operatorname{curl} \symbfit{v} & = \left( \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} \right)\symbfit{i} + \left( \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} \right)\symbfit{j} + \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right)\symbfit{k} \\
+                                            & = (2y - 2z)\symbfit{i} + (2z - 2x)\symbfit{j} + (2x - 2y)\symbfit{k}.
+        \end{aligned}
+    \end{equation}
+
+    取积分曲面 $S$ 为上半球面 $x^2+y^2+z^2=R^2$ 在柱面 $x^2+y^2=Rx$ 内部的部分。根据题意，从 $x$ 轴正向看来（即视线迎着 $x$ 轴正方向），曲线 $L$ 的走向为逆时针方向。由右手定则可知，曲面 $S$ 上的单位法向量应具有正的 $x$ 分量。对于原点在球心的球面外侧，其单位法向量恰为
+    \begin{equation}
+        \label{eq:normal-vector}
+        \symbfit{n} = \frac{1}{R} (x\symbfit{i} + y\symbfit{j} + z\symbfit{k}).
+    \end{equation}
+    由于在曲面上 $x \geqslant 0$（由 $x^2+y^2=Rx$ 决定），取球面外侧的方向与曲线 $L$ 满足右手系定向要求。
+
+    根据 Stokes 公式，向量场沿曲线 $L$ 的环量可以转化为在曲面 $S$ 上的第一类曲面积分：
+    \begin{equation}
+        \label{eq:stokes-formula}
+        \oint_L \symbfit{v} \cdot \d\symbfit{r} = \iint_S \operatorname{curl} \symbfit{v} \cdot \symbfit{n} \d S.
+    \end{equation}
+    计算被积函数中的点积：
+    \begin{equation}
+        \label{eq:dot-product}
+        \begin{aligned}
+            \operatorname{curl} \symbfit{v} \cdot \symbfit{n} & = \frac{1}{R} \big[ (2y-2z)x + (2z-2x)y + (2x-2y)z \big] \\
+                                                              & = \frac{1}{R} (2xy - 2zx + 2zy - 2xy + 2xz - 2yz)        \\
+                                                              & = 0.
+        \end{aligned}
+    \end{equation}
+
+    由于在曲面 $S$ 上处处有 $\operatorname{curl} \symbfit{v} \cdot \symbfit{n} = 0$，将其代入曲面积分中可得
+    \begin{equation}
+        \label{eq:result-integral}
+        \oint_L \symbfit{v} \cdot \d\symbfit{r} = \iint_S 0 \d S = 0.
+    \end{equation}
+
+    因此，所求环量为
+    \begin{equation}
+        \label{eq:final-answer}
+        \boxed{0}.
+    \end{equation}
+\end{solution}
+
+\endinput

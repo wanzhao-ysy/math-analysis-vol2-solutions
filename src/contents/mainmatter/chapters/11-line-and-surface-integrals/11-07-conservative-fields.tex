@@ -1,0 +1,1210 @@
+\section{保守场}
+
+\begin{problem}{保守场与曲线积分}{Conservative-Fields-and-Line-Integrals}
+    设平面上有四条路径：
+    \begin{enumerate}
+        \item $L_1$：折线，从 $(0,0)$ 到 $(1,0)$ 再到 $(1,1)$；
+        \item $L_2$：从 $(0,0)$ 沿着抛物线 $y = x^2$ 到 $(1,1)$；
+        \item $L_3$：从 $(0,0)$ 到 $(1,1)$ 的直线段；
+        \item $L_4$：折线，从 $(0,0)$ 到 $(0,1)$ 再到 $(1,1)$。
+    \end{enumerate}
+    求下列力场 $\symbfit{F}$ 沿上述四条路径所作的功，并说明它们的值为什么会相等或不等：
+    \begin{enumerate}
+        \item $\symbfit{F} = -y \symbfit{i} + x \symbfit{j}$；
+        \item $\symbfit{F} = 2xy \symbfit{i} + x^2 \symbfit{j}$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 它们的值不相等。
+
+    首先计算力场沿四条路径所作的功：
+
+    对路径 $L_1$：
+    \begin{equation}
+        \begin{aligned}
+            W_1 & = \int_{L_1} -y \d x + x \d y       \\
+                & = \int_0^1 0 \d x + \int_0^1 1 \d y \\
+                & = 1.
+        \end{aligned}
+    \end{equation}
+    对路径 $L_2$：
+    \begin{equation}
+        \begin{aligned}
+            W_2 & = \int_{L_2} -y \d x + x \d y                    \\
+                & = \int_0^1 \left( -x^2 + x \cdot 2x \right) \d x \\
+                & = \int_0^1 x^2 \d x                              \\
+                & = \frac{1}{3}.
+        \end{aligned}
+    \end{equation}
+    对路径 $L_3$：
+    \begin{equation}
+        \begin{aligned}
+            W_3 & = \int_{L_3} -y \d x + x \d y \\
+                & = \int_0^1 (-x + x) \d x      \\
+                & = 0.
+        \end{aligned}
+    \end{equation}
+    对路径 $L_4$：
+    \begin{equation}
+        \begin{aligned}
+            W_4 & = \int_{L_4} -y \d x + x \d y        \\
+                & = \int_0^1 0 \d y + \int_0^1 -1 \d x \\
+                & = -1.
+        \end{aligned}
+    \end{equation}
+    设 $P = -y$，$Q = x$，计算偏导数：
+    \begin{equation}
+        \label{eq:curl-1}
+        \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 1 - (-1) = 2 \neq 0.
+    \end{equation}
+    由 \zcref{eq:curl-1} 可知，$\symbfit{F}$ 在整个平面上不是保守场。由于路径不同，曲线积分的值与路径有关，因而沿这四条路径所作的功不相等。
+    \begin{equation}
+        \boxed{W_1 = 1, \quad W_2 = \frac{1}{3}, \quad W_3 = 0, \quad W_4 = -1}
+    \end{equation}
+
+    \ansitem{2} 它们的值相等。
+
+    设 $P = 2xy$，$Q = x^2$，计算偏导数：
+    \begin{equation}
+        \label{eq:curl-2}
+        \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} = 2x - 2x = 0.
+    \end{equation}
+    由 \zcref{eq:curl-2} 可知，$\symbfit{F}$ 在整个单连通平面上是保守场。因此，曲线积分的值与路径无关，仅取决于起点 $(0,0)$ 与终点 $(1,1)$。
+    设势函数为 $u(x,y)$，满足 $\d u = 2xy \d x + x^2 \d y$，可得 $u(x,y) = x^2 y$。
+    因此，沿四条路径所作的功均相等：
+    \begin{equation}
+        \begin{aligned}
+            W_1 = W_2 = W_3 = W_4 & = u(1,1) - u(0,0) \\
+                                  & = 1^2 \cdot 1 - 0 \\
+                                  & = 1.
+        \end{aligned}
+    \end{equation}
+    因为积分与路径无关，故四条路径所作的功均相等。
+    \begin{equation}
+        \boxed{W_1 = W_2 = W_3 = W_4 = 1}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{第二类曲线积分}{Line-Integrals-of-Second-Kind}
+    求下列曲线积分：
+    \begin{enumerate}
+        \item $\int_{L} (2x+y) \d x + (x+4y+2z) \d y + (2y-6z) \d z$，其中 $L$ 由点 $P_1(a,0,0)$ 沿曲线
+              \begin{equation}
+                  \begin{cases}
+                      x^2 + y^2 = a^2, \\
+                      z = 0
+                  \end{cases}
+              \end{equation}
+              到 $P_2(0,a,0)$，再由 $P_2$ 沿直线
+              \begin{equation}
+                  \begin{cases}
+                      z + y = a, \\
+                      x = 0
+                  \end{cases}
+              \end{equation}
+              到点 $P_3(0,0,a)$；
+        \item $\int_{\overparen{AMB}} (x^2 - yz) \d x + (y^2 - zx) \d y + (z^2 - xy) \d z$，其中 $\overparen{AMB}$ 是柱面螺线 $x = a \cos \varphi$、$y = a \sin \varphi$、$z = \frac{h}{2\pi} \varphi$ 上点 $A(a,0,0)$ 到 $B(a,0,h)$ 这一段。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    记所求积分为 $I_1$。设被积向量场为 $\symbfit{F}_1 = P_1 \symbfit{i} + Q_1 \symbfit{j} + R_1 \symbfit{k}$，其中：
+    \begin{equation}
+        P_1 = 2x+y, \quad Q_1 = x+4y+2z, \quad R_1 = 2y-6z.
+    \end{equation}
+    计算其旋度分量：
+    \begin{equation}
+        \label{eq:curl-check-1}
+        \frac{\partial P_1}{\partial y} = 1 = \frac{\partial Q_1}{\partial x}, \quad
+        \frac{\partial P_1}{\partial z} = 0 = \frac{\partial R_1}{\partial x}, \quad
+        \frac{\partial Q_1}{\partial z} = 2 = \frac{\partial R_1}{\partial y}.
+    \end{equation}
+    由 \zcref{eq:curl-check-1} 可知，$\symbfit{F}_1$ 在整个空间 $\symbb{R}^3$ 内是保守场，其曲线积分与路径无关。
+
+    设其势函数为 $U_1(x, y, z)$，满足 $\d U_1 = P_1 \d x + Q_1 \d y + R_1 \d z$。采用折线积分法求势函数：
+    \begin{equation}
+        \label{eq:potential-1}
+        \begin{aligned}
+            U_1(x, y, z) & = \int_0^x 2t \d t + \int_0^y (x + 4t) \d t + \int_0^z (2y - 6t) \d t \\
+                         & = x^2 + xy + 2y^2 + 2yz - 3z^2.
+        \end{aligned}
+    \end{equation}
+    因此，积分仅取决于终点 $P_3(0,0,a)$ 与起点 $P_1(a,0,0)$：
+    \begin{equation}
+        \begin{aligned}
+            I_1 & = U_1(0, 0, a) - U_1(a, 0, 0) \\
+                & = -3a^2 - a^2                 \\
+                & = -4a^2.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        I_1 = \boxed{-4a^2}
+    \end{equation}
+
+    \ansitem{2}
+
+    记所求积分为 $I_2$。设被积向量场为 $\symbfit{F}_2 = P_2 \symbfit{i} + Q_2 \symbfit{j} + R_2 \symbfit{k}$，其中：
+    \begin{equation}
+        P_2 = x^2 - yz, \quad Q_2 = y^2 - zx, \quad R_2 = z^2 - xy.
+    \end{equation}
+    计算其旋度分量：
+    \begin{equation}
+        \label{eq:curl-check-2}
+        \frac{\partial P_2}{\partial y} = -z = \frac{\partial Q_2}{\partial x}, \quad
+        \frac{\partial P_2}{\partial z} = -y = \frac{\partial R_2}{\partial x}, \quad
+        \frac{\partial Q_2}{\partial z} = -x = \frac{\partial R_2}{\partial y}.
+    \end{equation}
+    由 \zcref{eq:curl-check-2} 可知，$\symbfit{F}_2$ 同样在整个空间 $\symbb{R}^3$ 内是保守场，其曲线积分与路径无关。
+
+    设其势函数为 $U_2(x, y, z)$，满足 $\d U_2 = P_2 \d x + Q_2 \d y + R_2 \d z$。采用折线积分法求势函数：
+    \begin{equation}
+        \label{eq:potential-2}
+        \begin{aligned}
+            U_2(x, y, z) & = \int_0^x t^2 \d t + \int_0^y (t^2 - 0) \d t + \int_0^z (t^2 - xy) \d t \\
+                         & = \frac{1}{3}(x^3 + y^3 + z^3) - xyz.
+        \end{aligned}
+    \end{equation}
+    积分仅取决于终点 $B(a,0,h)$ 与起点 $A(a,0,0)$：
+    \begin{equation}
+        \begin{aligned}
+            I_2 & = U_2(a, 0, h) - U_2(a, 0, 0)             \\
+                & = \frac{1}{3}(a^3 + h^3) - \frac{1}{3}a^3 \\
+                & = \frac{1}{3}h^3.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        I_2 = \boxed{\frac{1}{3}h^3}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{有势场与势函数}{Potential-Fields-and-Potential-Functions}
+    证明下列向量场是有势场，并求出它们的势函数。
+    \begin{enumerate}
+        \item $\symbfit{v} = (2x \cos y - y^2 \sin x)\symbfit{i} + (2y \cos x - x^2 \sin y)\symbfit{j}$；
+        \item $\symbfit{v} = yz(2x + y + z)\symbfit{i} + xz(2y + z + x)\symbfit{j} + xy(2z + x + y)\symbfit{k}$；
+        \item $\symbfit{v} = r^2\symbfit{r}$，（$\symbfit{r} = x\symbfit{i} + y\symbfit{j} + z\symbfit{k}$，$r = |\symbfit{r}|$）。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    设 $\symbfit{v} = P \symbfit{i} + Q \symbfit{j}$，其中：
+    \begin{equation}
+        P = 2x \cos y - y^2 \sin x, \quad Q = 2y \cos x - x^2 \sin y.
+    \end{equation}
+    计算偏导数：
+    \begin{equation}
+        \label{eq:part-deriv-1}
+        \frac{\partial Q}{\partial x} = -2y \sin x - 2x \sin y, \quad \frac{\partial P}{\partial y} = -2x \sin y - 2y \sin x.
+    \end{equation}
+    由于 \zcref{eq:part-deriv-1} 在整个平面 $\symbb{R}^2$ 上恒满足：
+    \begin{equation}
+        \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y},
+    \end{equation}
+    且 $\symbb{R}^2$ 是单连通区域，故向量场 $\symbfit{v}$ 是有势场。
+
+    设势函数为 $u(x, y)$，满足 $\d u = P \d x + Q \d y$。则有：
+    \begin{equation}
+        u(x, y) = \int (2x \cos y - y^2 \sin x) \d x = x^2 \cos y + y^2 \cos x + \psi(y).
+    \end{equation}
+    对 $y$ 求偏导并与 $Q$ 对比：
+    \begin{equation}
+        \frac{\partial u}{\partial y} = -x^2 \sin y + 2y \cos x + \psi'(y) = 2y \cos x - x^2 \sin y,
+    \end{equation}
+    从而解得 $\psi'(y) = 0$，即 $\psi(y) = C$（$C$ 为任意常数）。
+    因此，势函数为：
+    \begin{equation}
+        \boxed{u(x, y) = x^2 \cos y + y^2 \cos x + C}
+    \end{equation}
+
+    \ansitem{2}
+
+    设 $\symbfit{v} = P \symbfit{i} + Q \symbfit{j} + R \symbfit{k}$，其中：
+    \begin{equation}
+        P = 2xyz + y^2z + yz^2, \quad Q = 2xyz + xz^2 + x^2z, \quad R = 2xyz + x^2y + xy^2.
+    \end{equation}
+    计算其旋度 $\operatorname{rot} \symbfit{v}$ 的各个分量：
+    \begin{equation}
+        \label{eq:curl-comp-2}
+        \begin{aligned}
+            \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} & = (2xz + x^2 + 2xy) - (2xy + 2xz + x^2) = 0, \\
+            \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} & = (2xy + y^2 + 2yz) - (2yz + 2xy + y^2) = 0, \\
+            \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} & = (2yz + z^2 + 2xz) - (2xz + 2yz + z^2) = 0.
+        \end{aligned}
+    \end{equation}
+    由 \zcref{eq:curl-comp-2} 可知，在整个三维单连通区域 $\symbb{R}^3$ 上 $\operatorname{rot} \symbfit{v} = \symbfit{0}$，故向量场 $\symbfit{v}$ 是有势场。
+
+    设势函数为 $u(x, y, z)$，利用折线法进行曲线积分，从点 $(0, 0, 0)$ 到点 $(x, y, z)$ 积分：
+    \begin{equation}
+        \begin{aligned}
+            u(x, y, z) & = \int_0^x P(t, 0, 0) \d t + \int_0^y Q(x, t, 0) \d t + \int_0^z R(x, y, t) \d t + C \\
+                       & = 0 + 0 + \int_0^z (2xyt + x^2y + xy^2) \d t + C                                     \\
+                       & = xyz^2 + x^2yz + xy^2z + C                                                          \\
+                       & = xyz(x+y+z) + C.
+        \end{aligned}
+    \end{equation}
+    其中 $C$ 为任意常数。
+    因此，势函数为：
+    \begin{equation}
+        \boxed{u(x, y, z) = xyz(x+y+z) + C}
+    \end{equation}
+
+    \ansitem{3}
+
+    由于向量场为径向场 $\symbfit{v} = r^2 \symbfit{r}$，计算其旋度：
+    \begin{equation}
+        \label{eq:curl-identity-3}
+        \operatorname{rot} \symbfit{v} = \nabla \times (r^2 \symbfit{r}) = \nabla(r^2) \times \symbfit{r} + r^2 (\nabla \times \symbfit{r}).
+    \end{equation}
+    利用 $\nabla(r^2) = 2\symbfit{r}$ 以及 $\nabla \times \symbfit{r} = \symbfit{0}$，由 \zcref{eq:curl-identity-3} 得：
+    \begin{equation}
+        \operatorname{rot} \symbfit{v} = 2\symbfit{r} \times \symbfit{r} + \symbfit{0} = \symbfit{0}.
+    \end{equation}
+    由于在整个三维单连通区域 $\symbb{R}^3$ 上旋度恒为零，故向量场 $\symbfit{v}$ 是有势场。
+
+    设势函数为 $u(r)$，则满足 $\nabla u = r^2 \symbfit{r}$。又因 $\nabla u = \frac{\d u}{\d r} \frac{\symbfit{r}}{r}$，可得：
+    \begin{equation}
+        \frac{\d u}{\d r} = r^3.
+    \end{equation}
+    两端积分可得势函数（其中 $C$ 为任意常数）：
+    \begin{equation}
+        \boxed{u(x, y, z) = \frac{1}{4} r^4 + C}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{含参向量场的势场条件}{Parameter-Potential-Field}
+    当 $a$ 取何值时，向量场 $\symbfit{F} = (x^2 + 5ay + 3yz)\symbfit{i} + (5x + 3axz - 2)\symbfit{j} + [(a+2)xy - 4z]\symbfit{k}$ 是有势场，并求出这时的势函数。
+\end{problem}
+
+\begin{solution}
+    设 $\symbfit{F} = P \symbfit{i} + Q \symbfit{j} + R \symbfit{k}$，其中：
+    \begin{equation}
+        P = x^2 + 5ay + 3yz, \quad Q = 5x + 3axz - 2, \quad R = (a+2)xy - 4z.
+    \end{equation}
+    向量场 $\symbfit{F}$ 在单连通区域 $\symbb{R}^3$ 上为有势场的充要条件是其旋度恒为零，即 $\operatorname{rot} \symbfit{F} = \symbfit{0}$，也即：
+    \begin{equation}
+        \label{eq:curl-zero}
+        \frac{\partial R}{\partial y} = \frac{\partial Q}{\partial z}, \quad
+        \frac{\partial P}{\partial z} = \frac{\partial R}{\partial x}, \quad
+        \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}.
+    \end{equation}
+    计算各偏导数：
+    \begin{equation}
+        \begin{aligned}
+             & \frac{\partial R}{\partial y} = (a+2)x, \quad \frac{\partial Q}{\partial z} = 3ax,      \\
+             & \frac{\partial P}{\partial z} = 3y, \quad \frac{\partial R}{\partial x} = (a+2)y,       \\
+             & \frac{\partial Q}{\partial x} = 5 + 3az, \quad \frac{\partial P}{\partial y} = 5a + 3z.
+        \end{aligned}
+    \end{equation}
+    代入条件 \zcref{eq:curl-zero} 得到方程组：
+    \begin{equation}
+        \begin{cases}
+            (a+2)x = 3ax, \\
+            (a+2)y = 3y,  \\
+            5a + 3z = 5 + 3az.
+        \end{cases}
+    \end{equation}
+    要使上述方程组对任意 $x$、$y$、$z$ 均成立，必须有：
+    \begin{equation}
+        \begin{cases}
+            a + 2 = 3a, \\
+            a + 2 = 3,  \\
+            5a = 5,     \\
+            3a = 3.
+        \end{cases}
+    \end{equation}
+    解得：
+    \begin{equation}
+        a = 1.
+    \end{equation}
+
+    当 $a = 1$ 时，向量场 $\symbfit{F}$ 为：
+    \begin{equation}
+        \symbfit{F} = (x^2 + 5y + 3yz)\symbfit{i} + (5x + 3xz - 2)\symbfit{j} + (3xy - 4z)\symbfit{k}.
+    \end{equation}
+    设这时的势函数为 $u(x, y, z)$，其全微分为：
+    \begin{equation}
+        \d u = (x^2 + 5y + 3yz) \d x + (5x + 3xz - 2) \d y + (3xy - 4z) \d z.
+    \end{equation}
+    采用折线积分法，从点 $(0, 0, 0)$ 到 $(x, y, z)$ 进行积分：
+    \begin{equation}
+        \begin{aligned}
+            u(x, y, z) & = \int_0^x t^2 \d t + \int_0^y (5x + 3x \cdot 0 - 2) \d y' + \int_0^z (3xy - 4z') \d z' + C \\
+                       & = \frac{1}{3}x^3 + (5x - 2)y + (3xyz - 2z^2) + C                                            \\
+                       & = \frac{1}{3}x^3 + 5xy - 2y + 3xyz - 2z^2 + C.
+        \end{aligned}
+    \end{equation}
+    其中 $C$ 为任意常数。
+    因此，当 $a=1$ 时，向量场是有势场，势函数为：
+    \begin{equation}
+        \boxed{u(x, y, z) = \frac{1}{3}x^3 + 5xy + 3xyz - 2y - 2z^2 + C}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{全微分求原函数}{Total-Differential-Primitives}
+    求下列全微分的原函数 $u$：
+    \begin{enumerate}
+        \item $\d u = (3x^2 + 6xy^2) \d x + (6x^2y - 4y^3) \d y$；
+        \item $\d u = (x^2 - 2yz) \d x + (y^2 - 2xz) \d y + (z^2 - 2xy) \d z$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    设 $P(x,y) = 3x^2 + 6xy^2$，$Q(x,y) = 6x^2y - 4y^3$。计算其偏导数：
+    \begin{equation}
+        \label{eq:check-1}
+        \frac{\partial P}{\partial y} = 12xy, \quad \frac{\partial Q}{\partial x} = 12xy.
+    \end{equation}
+    由于 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$，该微分式在整个平面 $\symbb{R}^2$ 上是全微分。
+
+    由 $\frac{\partial u}{\partial x} = 3x^2 + 6xy^2$，积分可得：
+    \begin{equation}
+        \label{eq:integrate-x-1}
+        u(x,y) = x^3 + 3x^2y^2 + \varphi(y).
+    \end{equation}
+    对 \zcref{eq:integrate-x-1} 关于 $y$ 求偏导，并与 $Q(x,y)$ 对比：
+    \begin{equation}
+        \label{eq:derivative-y-1}
+        \frac{\partial u}{\partial y} = 6x^2y + \varphi'(y) = 6x^2y - 4y^3.
+    \end{equation}
+    从而解得 $\varphi'(y) = -4y^3$，即 $\varphi(y) = -y^4 + C$（$C$ 为任意常数）。
+    因此，原函数为：
+    \begin{equation}
+        \boxed{u(x,y) = x^3 + 3x^2y^2 - y^4 + C}
+    \end{equation}
+
+    \ansitem{2}
+
+    设 $P(x,y,z) = x^2 - 2yz$，$Q(x,y,z) = y^2 - 2xz$，$R(x,y,z) = z^2 - 2xy$。计算其偏导数：
+    \begin{equation}
+        \label{eq:check-2}
+        \frac{\partial P}{\partial y} = -2z = \frac{\partial Q}{\partial x}, \quad
+        \frac{\partial P}{\partial z} = -2y = \frac{\partial R}{\partial x}, \quad
+        \frac{\partial Q}{\partial z} = -2x = \frac{\partial R}{\partial y}.
+    \end{equation}
+    由于各偏导数均相等，该微分式在整个空间 $\symbb{R}^3$ 上是全微分。
+
+    采用折线积分法，从点 $(0,0,0)$ 到 $(x,y,z)$ 进行积分：
+    \begin{equation}
+        \label{eq:line-integral-2}
+        \begin{aligned}
+            u(x,y,z) & = \int_0^x P(t, 0, 0) \d t + \int_0^y Q(x, t, 0) \d t + \int_0^z R(x, y, t) \d t + C \\
+                     & = \int_0^x t^2 \d t + \int_0^y t^2 \d t + \int_0^z (t^2 - 2xy) \d t + C              \\
+                     & = \frac{1}{3}x^3 + \frac{1}{3}y^3 + \left( \frac{1}{3}z^3 - 2xyz \right) + C         \\
+                     & = \frac{1}{3}(x^3 + y^3 + z^3) - 2xyz + C.
+        \end{aligned}
+    \end{equation}
+    其中 $C$ 为任意常数。
+    因此，原函数为：
+    \begin{equation}
+        \boxed{u(x,y,z) = \frac{1}{3}(x^3 + y^3 + z^3) - 2xyz + C}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{积分与路径无关}{Integrals-Independent-of-Path}
+    验证下列积分与路径无关，并求出它们的值：
+    \begin{enumerate}
+        \item $\int_{(0,0)}^{(1,1)} (x-y)(\d x - \d y)$；
+        \item $\int_{(1,1)}^{(2,2)} \left( \frac{1}{y} \sin \frac{x}{y} - \frac{y}{x^2} \cos \frac{y}{x} + 1 \right) \d x + \left( \frac{1}{x} \cos \frac{y}{x} - \frac{x}{y^2} \sin \frac{x}{y} + \frac{1}{y^2} \right) \d y$；
+        \item $\int_{(1,0)}^{(6,3)} \frac{x \d x + y \d y}{\sqrt{x^2 + y^2}}$；
+        \item $\int_{(0,0,2)}^{(2,3,-4)} x \d x + y^2 \d y - z^3 \d z$；
+        \item $\int_{(1,1,1)}^{(2,2,2)} \left( 1 - \frac{1}{y} + \frac{y}{z} \right) \d x + \left( \frac{x}{z} + \frac{x}{y^2} \right) \d y - \frac{xy}{z^2} \d z$；
+        \item $\int_{(x_1,y_1,z_1)}^{(x_2,y_2,z_2)} \frac{x \d x + y \d y + z \d z}{\sqrt{x^2+y^2+z^2}}$，其中 $(x_1, y_1, z_1)$、$(x_2, y_2, z_2)$ 在球面 $x^2+y^2+z^2 = a^2$ 上。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 积分与路径无关。
+
+    设 $P = x - y$，$Q = -(x - y) = y - x$。计算偏导数：
+    \begin{equation}
+        \label{eq:deriv-check-1}
+        \frac{\partial P}{\partial y} = -1, \quad \frac{\partial Q}{\partial x} = -1.
+    \end{equation}
+    由于 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$ 且定义域为整个单连通平面 $\symbb{R}^2$，因此积分与路径无关。
+    设势函数为 $u(x, y)$，其满足 $\d u = (x - y) \d x + (y - x) \d y$，由此可得势函数为：
+    \begin{equation}
+        u(x, y) = \frac{1}{2} (x - y)^2 + C.
+    \end{equation}
+    代入起点 $(0,0)$ 与终点 $(1,1)$，求得积分值为：
+    \begin{equation}
+        I_1 = u(1,1) - u(0,0) = 0.
+    \end{equation}
+    \begin{equation}
+        I_1 = \boxed{0}
+    \end{equation}
+
+    \ansitem{2} 积分与路径无关。
+
+    设 $P = \frac{1}{y} \sin \frac{x}{y} - \frac{y}{x^2} \cos \frac{y}{x} + 1$，$Q = \frac{1}{x} \cos \frac{y}{x} - \frac{x}{y^2} \sin \frac{x}{y} + \frac{1}{y^2}$。
+    积分路径位于第一象限内，这是一个单连通区域 $D = \{(x,y) \mid x > 0, y > 0\}$。计算偏导数：
+    \begin{equation}
+        \label{eq:deriv-check-2a}
+        \frac{\partial P}{\partial y} = -\frac{1}{y^2} \sin \frac{x}{y} - \frac{x}{y^3} \cos \frac{x}{y} - \frac{1}{x^2} \cos \frac{y}{x} + \frac{y}{x^3} \sin \frac{y}{x},
+    \end{equation}
+    \begin{equation}
+        \label{eq:deriv-check-2b}
+        \frac{\partial Q}{\partial x} = -\frac{1}{x^2} \cos \frac{y}{x} + \frac{y}{x^3} \sin \frac{y}{x} - \frac{1}{y^2} \sin \frac{x}{y} - \frac{x}{y^3} \cos \frac{x}{y}.
+    \end{equation}
+    由于 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$，曲线积分与路径无关。
+    设势函数为 $u(x, y)$，则满足 $\d u = P \d x + Q \d y$，积分可得势函数为：
+    \begin{equation}
+        u(x, y) = x - \cos \frac{x}{y} + \sin \frac{y}{x} - \frac{1}{y} + C.
+    \end{equation}
+    代入起点 $(1,1)$ 与终点 $(2,2)$，求得积分值为：
+    \begin{equation}
+        \begin{aligned}
+            I_2 & = u(2,2) - u(1,1)                                                                           \\
+                & = \left( 2 - \cos 1 + \sin 1 - \frac{1}{2} \right) - \left( 1 - \cos 1 + \sin 1 - 1 \right) \\
+                & = \frac{3}{2}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        I_2 = \boxed{\frac{3}{2}}
+    \end{equation}
+
+    \ansitem{3} 积分与路径无关。
+
+    设 $P = \frac{x}{\sqrt{x^2 + y^2}}$，$Q = \frac{y}{\sqrt{x^2 + y^2}}$。
+    在不含原点的单连通区域（如包含路径的半平面 $x > 0$）内计算偏导数：
+    \begin{equation}
+        \label{eq:deriv-check-3}
+        \frac{\partial P}{\partial y} = -\frac{xy}{(x^2 + y^2)^{3/2}}, \quad \frac{\partial Q}{\partial x} = -\frac{xy}{(x^2 + y^2)^{3/2}}.
+    \end{equation}
+    由于 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$，积分与路径无关。
+    注意到被积表达式是全微分形式：
+    \begin{equation}
+        \frac{x \d x + y \d y}{\sqrt{x^2 + y^2}} = \d \left( \sqrt{x^2 + y^2} \right).
+    \end{equation}
+    因此势函数为 $u(x, y) = \sqrt{x^2 + y^2} + C$。
+    代入起点 $(1,0)$ 与终点 $(6,3)$：
+    \begin{equation}
+        I_3 = u(6,3) - u(1,0) = \sqrt{6^2 + 3^2} - \sqrt{1^2 + 0^2} = 3\sqrt{5} - 1.
+    \end{equation}
+    \begin{equation}
+        I_3 = \boxed{3\sqrt{5} - 1}
+    \end{equation}
+
+    \ansitem{4} 积分与路径无关。
+
+    设 $P = x$，$Q = y^2$，$R = -z^3$。计算偏导数：
+    \begin{equation}
+        \label{eq:deriv-check-4}
+        \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y} = 0, \quad
+        \frac{\partial R}{\partial x} = \frac{\partial P}{\partial z} = 0, \quad
+        \frac{\partial R}{\partial y} = \frac{\partial Q}{\partial z} = 0.
+    \end{equation}
+    由于被积向量场的旋度为零，且定义域为单连通区域 $\symbb{R}^3$，因此积分与路径无关。
+    势函数为：
+    \begin{equation}
+        u(x, y, z) = \frac{1}{2}x^2 + \frac{1}{3}y^3 - \frac{1}{4}z^4 + C.
+    \end{equation}
+    代入起点 $(0,0,2)$ 与终点 $(2,3,-4)$：
+    \begin{equation}
+        \begin{aligned}
+            I_4 & = u(2,3,-4) - u(0,0,2)                                                                                                                   \\
+                & = \left( \frac{1}{2} \cdot 2^2 + \frac{1}{3} \cdot 3^3 - \frac{1}{4} \cdot (-4)^4 \right) - \left( 0 + 0 - \frac{1}{4} \cdot 2^4 \right) \\
+                & = (2 + 9 - 64) - (-4)                                                                                                                    \\
+                & = -49.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        I_4 = \boxed{-49}
+    \end{equation}
+
+    \ansitem{5} 积分与路径无关。
+
+    设 $P = 1 - \frac{1}{y} + \frac{y}{z}$，$Q = \frac{x}{z} + \frac{x}{y^2}$，$R = -\frac{xy}{z^2}$。
+    积分路径位于单连通区域 $D = \{(x,y,z) \mid y > 0, z > 0\}$ 内。计算偏导数以确定旋度：
+    \begin{equation}
+        \label{eq:deriv-check-5}
+        \begin{aligned}
+            \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z} & = -\frac{x}{z^2} - \left(-\frac{x}{z^2}\right) = 0,                                        \\
+            \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x} & = -\frac{y}{z^2} - \left(-\frac{y}{z^2}\right) = 0,                                        \\
+            \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} & = \left(\frac{1}{z} + \frac{1}{y^2}\right) - \left(\frac{1}{y^2} + \frac{1}{z}\right) = 0.
+        \end{aligned}
+    \end{equation}
+    因为旋度在定义域内恒为零，积分与路径无关。
+    设势函数为 $u(x, y, z)$，满足 $\d u = P \d x + Q \d y + R \d z$，由此可得势函数为：
+    \begin{equation}
+        u(x, y, z) = x - \frac{x}{y} + \frac{xy}{z} + C.
+    \end{equation}
+    代入起点 $(1,1,1)$ 与终点 $(2,2,2)$，求得积分值为：
+    \begin{equation}
+        I_5 = u(2,2,2) - u(1,1,1) = (2 - 1 + 2) - (1 - 1 + 1) = 2.
+    \end{equation}
+    \begin{equation}
+        I_5 = \boxed{2}
+    \end{equation}
+
+    \ansitem{6} 积分与路径无关。
+
+    观察可知被积表达式是一全微分式：
+    \begin{equation}
+        \frac{x \d x + y \d y + z \d z}{\sqrt{x^2+y^2+z^2}} = \d \left( \sqrt{x^2+y^2+z^2} \right).
+    \end{equation}
+    因此积分在定义域 $\symbb{R}^3 \setminus \{(0,0,0)\}$ 内与路径无关，且势函数为 $u(x, y, z) = \sqrt{x^2+y^2+z^2} + C$。
+    起点 $(x_1, y_1, z_1)$ 与终点 $(x_2, y_2, z_2)$ 均在球面 $x^2+y^2+z^2 = a^2$ 上，因此我们有：
+    \begin{equation}
+        u(x_1, y_1, z_1) = \sqrt{a^2} = |a|, \quad u(x_2, y_2, z_2) = \sqrt{a^2} = |a|.
+    \end{equation}
+    故积分值为：
+    \begin{equation}
+        I_6 = u(x_2, y_2, z_2) - u(x_1, y_1, z_1) = |a| - |a| = 0.
+    \end{equation}
+    \begin{equation}
+        I_6 = \boxed{0}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{全微分与闭曲线积分}{Total-Differential-Closed-Curves}
+    设 $f(u)$ 是个连续的函数，但不一定可微，$L$ 是分段光滑的任意闭曲线，证明：
+    \begin{enumerate}
+        \item $\oint_L f(x^2 + y^2)(x \d x + y \d y) = 0$；
+        \item $\oint_L f(\sqrt{x^2 + y^2 + z^2})(x \d x + y \d y + z \d z) = 0$。
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    因为 $f(u)$ 是一个连续函数，由微积分基本定理，它必然存在原函数。
+    设 $F(u)$ 为 $f(u)$ 的一个原函数，满足：
+    \begin{equation}
+        \label{eq:primitive-1}
+        F'(u) = f(u).
+    \end{equation}
+    定义多元函数 $U(x, y) = \frac{1}{2} F(x^2 + y^2)$。根据多元函数微分法则，计算其全微分：
+    \begin{equation}
+        \label{eq:differential-1}
+        \begin{aligned}
+            \d U & = \frac{\partial U}{\partial x} \d x + \frac{\partial U}{\partial y} \d y           \\
+                 & = \frac{1}{2} F'(x^2 + y^2) \cdot 2x \d x + \frac{1}{2} F'(x^2 + y^2) \cdot 2y \d y \\
+                 & = f(x^2 + y^2)(x \d x + y \d y).
+        \end{aligned}
+    \end{equation}
+    由于 $f(u)$ 连续且 $x^2 + y^2$ 连续可微，因此 $U(x, y)$ 是一个单值且连续可微的函数，其全微分在整个平面 $\symbb{R}^2$ 上成立。
+    根据全微分与曲线积分的关系，沿任意分段光滑闭曲线 $L$ 的积分恒为零：
+    \begin{equation}
+        \oint_L f(x^2 + y^2)(x \d x + y \d y) = \oint_L \d U = 0.
+    \end{equation}
+
+    \ansitem{2}
+
+    同理，设 $r = \sqrt{x^2 + y^2 + z^2}$。由于 $f(u)$ 连续，则函数 $g(r) = r f(r)$ 在 $r \ge 0$ 时也是连续函数。
+    因此 $g(r)$ 必然存在一个原函数 $G(r)$，满足：
+    \begin{equation}
+        \label{eq:primitive-2}
+        G'(r) = r f(r).
+    \end{equation}
+    定义多元函数 $V(x, y, z) = G\left(\sqrt{x^2 + y^2 + z^2}\right)$。计算其全微分：
+    当 $(x, y, z) \neq (0,0,0)$ 时：
+    \begin{equation}
+        \label{eq:differential-2}
+        \begin{aligned}
+            \d V & = G'(r) \d r                                           \\
+                 & = r f(r) \cdot \frac{x \d x + y \d y + z \d z}{r}      \\
+                 & = f(\sqrt{x^2 + y^2 + z^2})(x \d x + y \d y + z \d z).
+        \end{aligned}
+    \end{equation}
+    当 $(x, y, z) = (0,0,0)$ 时，由 $\lim_{r \to 0^+} r f(r) = 0$ 可知 $V(x, y, z)$ 在原点处也是可微的，且其偏导数均为零，全微分式 \zcref{eq:differential-2} 在整个空间 $\symbb{R}^3$ 上依然成立。
+    因此 $V(x, y, z)$ 在整个三维空间上是单值且连续可微的函数。
+    根据全微分与曲线积分的关系，沿任意分段光滑闭曲线 $L$ 的积分恒为零：
+    \begin{equation}
+        \oint_L f(\sqrt{x^2 + y^2 + z^2})(x \d x + y \d y + z \d z) = \oint_L \d V = 0.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{磁场环量}{Circulation-of-Magnetic-Field}
+    稳恒电流 $I$ 通过无穷长的直导线（作 $Oz$ 轴）所产生的磁场为 $\symbfit{B} = \frac{2I}{x^2+y^2}(-y\symbfit{i} + x\symbfit{j})$ ($x^2+y^2 \neq 0$)，试讨论 $\symbfit{B}$ 沿 $Oxy$ 平面上任意光滑闭曲线的环量 $\Gamma$。
+\end{problem}
+
+\begin{solution}
+    设 $\symbfit{B} = P\symbfit{i} + Q\symbfit{j}$，其中：
+    \begin{equation}
+        P = -\frac{2Iy}{x^2+y^2}, \quad Q = \frac{2Ix}{x^2+y^2}.
+    \end{equation}
+    定义域为非单连通区域 $D = \symbb{R}^2 \setminus \{(0,0)\}$。计算偏导数：
+    \begin{equation}
+        \label{eq:deriv-check}
+        \begin{aligned}
+            \frac{\partial Q}{\partial x} & = 2I \frac{(x^2+y^2) - x(2x)}{(x^2+y^2)^2} = 2I \frac{y^2-x^2}{(x^2+y^2)^2},  \\
+            \frac{\partial P}{\partial y} & = -2I \frac{(x^2+y^2) - y(2y)}{(x^2+y^2)^2} = 2I \frac{y^2-x^2}{(x^2+y^2)^2}.
+        \end{aligned}
+    \end{equation}
+    由 \zcref{eq:deriv-check} 可知，对于 $D$ 内的任意点，均满足 $\frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}$。
+
+    讨论 $\symbfit{B}$ 沿 $Oxy$ 平面上任意光滑闭曲线 $L$ 的环量 $\Gamma$：
+    \begin{enumerate}
+        \item 若闭曲线 $L$ 不包围原点 $(0,0)$：
+              由于 $L$ 内部完全属于 $D$，由格林公式可知环量为：
+              \begin{equation}
+                  \Gamma = \oint_L P \d x + Q \d y = 0.
+              \end{equation}
+
+        \item 若闭曲线 $L$ 顺时针或逆时针包围原点 $(0,0)$ 一次：
+              作围绕原点且包含在 $L$ 内部的逆时针圆周 $C_R: x^2 + y^2 = R^2$，其参数方程为 $x = R\cos\theta$，$y = R\sin\theta$（$\theta \in [0, 2\uppi]$）。由格林公式的推广，逆时针方向的环量为：
+              \begin{equation}
+                  \begin{aligned}
+                      \Gamma & = \oint_{C_R} -\frac{2Iy}{x^2+y^2} \d x + \frac{2Ix}{x^2+y^2} \d y                                                            \\
+                             & = \int_0^{2\uppi} \left[ -\frac{2IR\sin\theta}{R^2} (-R\sin\theta) + \frac{2IR\cos\theta}{R^2} (R\cos\theta) \right] \d\theta \\
+                             & = \int_0^{2\uppi} 2I \d\theta                                                                                                 \\
+                             & = 4\uppi I.
+                  \end{aligned}
+              \end{equation}
+              若闭曲线 $L$ 沿顺时针方向，则 $\Gamma = -4\uppi I$。
+
+        \item 若闭曲线 $L$ 绕原点 $(0,0)$ 旋转 $n$ 圈（$n$ 为整数，正负分别表示逆时针和顺时针）：
+              其环量为：
+              \begin{equation}
+                  \Gamma = 4n\uppi I.
+              \end{equation}
+    \end{enumerate}
+
+    综上所述，环量 $\Gamma$ 的值取决于闭曲线是否包围原点及其绕行方向：
+    \begin{equation}
+        \boxed{\Gamma = \begin{cases} 0, & \text{当 } L \text{ 不包围原点}, \\ 4n\uppi I, & \text{当 } L \text{ 绕原点旋转 } n \text{ 圈}. \end{cases}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{积分与路径无关的函数求解}{Function-for-Path-Independent-Integral}
+    试求函数 $f(x)$，使曲线积分 $\int_{L} (f'(x) + 6f(x) + \e^{-2x})y \d x + f'(x) \d y$ 与积分的路径无关。
+\end{problem}
+
+\begin{solution}
+    设被积表达式中：
+    \begin{equation}
+        P(x,y) = (f'(x) + 6f(x) + \e^{-2x})y, \quad Q(x,y) = f'(x).
+    \end{equation}
+    因为积分区域为整个单连通平面 $\symbb{R}^2$，所以曲线积分与路径无关的充要条件为：
+    \begin{equation}
+        \label{eq:cond-independent}
+        \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y}.
+    \end{equation}
+    计算偏导数：
+    \begin{equation}
+        \frac{\partial Q}{\partial x} = f''(x), \quad \frac{\partial P}{\partial y} = f'(x) + 6f(x) + \e^{-2x}.
+    \end{equation}
+    代入条件 \zcref{eq:cond-independent}，可得关于 $f(x)$ 的二阶常系数非齐次线性微分方程：
+    \begin{equation}
+        \label{eq:ode}
+        f''(x) - f'(x) - 6f(x) = \e^{-2x}.
+    \end{equation}
+
+    首先求齐次方程 $f''(x) - f'(x) - 6f(x) = 0$ 的通解。其特征方程为：
+    \begin{equation}
+        r^2 - r - 6 = 0 \implies (r-3)(r+2) = 0.
+    \end{equation}
+    特征根为 $r_1 = 3$，$r_2 = -2$。
+    故齐次方程的通解为：
+    \begin{equation}
+        f_h(x) = C_1 \e^{3x} + C_2 \e^{-2x} \quad (C_1, C_2 \text{ 为任意常数}).
+    \end{equation}
+
+    由于非齐次项中的指数系数为 $-2$，且 $-2$ 是特征方程的单根，故设非齐次方程的特解为：
+    \begin{equation}
+        f_p(x) = A x \e^{-2x}.
+    \end{equation}
+    计算其导数：
+    \begin{equation}
+        \begin{aligned}
+            f_p'(x)  & = A(1 - 2x)\e^{-2x},  \\
+            f_p''(x) & = A(-4 + 4x)\e^{-2x}.
+        \end{aligned}
+    \end{equation}
+    将 $f_p(x)$ 及其导数代入微分方程 \zcref{eq:ode} 中：
+    \begin{equation}
+        A(-4 + 4x)\e^{-2x} - A(1 - 2x)\e^{-2x} - 6Ax\e^{-2x} = \e^{-2x},
+    \end{equation}
+    化简得：
+    \begin{equation}
+        -5A \e^{-2x} = \e^{-2x}.
+    \end{equation}
+    解得 $A = -\frac{1}{5}$。因此特解为 $f_p(x) = -\frac{1}{5} x \e^{-2x}$。
+
+    综上所述，微分方程的通解即为所求函数 $f(x)$：
+    \begin{equation}
+        \boxed{f(x) = C_1 \e^{3x} + C_2 \e^{-2x} - \frac{1}{5} x \e^{-2x}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{变系数二阶微分方程与路径无关积分}{ODE-Path-Independence}
+    已知 $\alpha(0) = 0$，$\alpha'(0) = 2$，$\beta(0) = 2$。
+    \begin{enumerate}
+        \item 求 $\alpha(x)$、$\beta(x)$ 使线积分 $\int_L P \d x + Q \d y$ 与路线无关，其中 $P(x,y) = (2x\alpha'(x) + \beta(x))y^2 - 2y\beta(x) \tan 2x$，$Q(x,y) = (\alpha'(x) + 4x\alpha(x))y + \beta(x)$；
+        \item 求 $\int_{(0,0)}^{(0,2)} P \d x + Q \d y$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    曲线积分与路径无关的充要条件为 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$。计算偏导数：
+    \begin{equation}
+        \label{eq:deriv-P-y}
+        \frac{\partial P}{\partial y} = 2(2x\alpha'(x) + \beta(x))y - 2\beta(x) \tan 2x,
+    \end{equation}
+    \begin{equation}
+        \label{eq:deriv-Q-x}
+        \frac{\partial Q}{\partial x} = (\alpha''(x) + 4\alpha(x) + 4x\alpha'(x))y + \beta'(x).
+    \end{equation}
+    对比 \zcref{eq:deriv-P-y} 与 \zcref{eq:deriv-Q-x} 中 $y$ 的系数及常数项，可得常微分方程组：
+    \begin{equation}
+        \label{eq:ode-system}
+        \begin{cases}
+            2(2x\alpha'(x) + \beta(x)) = \alpha''(x) + 4\alpha(x) + 4x\alpha'(x), \\
+            -2\beta(x) \tan 2x = \beta'(x).
+        \end{cases}
+    \end{equation}
+    由 \zcref{eq:ode-system} 的第二个方程：
+    \begin{equation}
+        \frac{\beta'(x)}{\beta(x)} = -2 \tan 2x.
+    \end{equation}
+    两边积分并结合初始条件 $\beta(0) = 2$，解得：
+    \begin{equation}
+        \beta(x) = 2 \cos 2x.
+    \end{equation}
+    代入第一个方程可得关于 $\alpha(x)$ 的二阶常系数非齐次线性微分方程：
+    \begin{equation}
+        \alpha''(x) + 4\alpha(x) = 4\cos 2x.
+    \end{equation}
+    其特征方程为 $r^2 + 4 = 0$，特征根为 $r = \pm 2\ii$。设其特解为 $\alpha_p(x) = x(A\cos 2x + B\sin 2x)$，代入求得 $A=0$，$B=1$。故其通解为：
+    \begin{equation}
+        \alpha(x) = C_1 \cos 2x + C_2 \sin 2x + x \sin 2x.
+    \end{equation}
+    代入初始条件 $\alpha(0) = 0$、$\alpha'(0) = 2$，可得 $C_1 = 0$，$C_2 = 1$。
+    因此，所求函数为：
+    \begin{equation}
+        \boxed{\alpha(x) = (1+x)\sin 2x, \quad \beta(x) = 2\cos 2x}
+    \end{equation}
+
+    \ansitem{2}
+
+    由于曲线积分与路径无关，可选择沿着 $y$ 轴的直线段作为积分路径，即取 $x = 0$（$\d x = 0$），自 $y = 0$ 到 $y = 2$：
+    \begin{equation}
+        \begin{aligned}
+            \int_{(0,0)}^{(0,2)} P \d x + Q \d y & = \int_0^2 Q(0, y) \d y                                                            \\
+                                                 & = \int_0^2 \left[ (\alpha'(0) + 4\cdot 0 \cdot \alpha(0))y + \beta(0) \right] \d y \\
+                                                 & = \int_0^2 (2y + 2) \d y                                                           \\
+                                                 & = \left[ y^2 + 2y \right]_0^2                                                      \\
+                                                 & = 8.
+        \end{aligned}
+    \end{equation}
+    因此，积分值为：
+    \begin{equation}
+        \boxed{\int_{(0,0)}^{(0,2)} P \d x + Q \d y = 8}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{偏导数与路径无关积分求解}{Partial-Derivative-Path-Independent-Integral}
+    设函数 $Q(x, y)$ 在 $Oxy$ 平面上具有一阶连续偏导数，曲线积分 $\int_L 2xy \d x+Q(x, y) \d y$ 与路径无关，并且对任意 $t$ 恒有
+    \begin{equation}
+        \int_{(0,0)}^{(t,1)} 2xy \d x + Q(x, y) \d y = \int_{(0,0)}^{(1,t)} 2xy \d x + Q(x, y) \d y,
+    \end{equation}
+    求 $Q(x, y)$。
+\end{problem}
+
+\begin{solution}
+    设被积表达式中 $P(x,y) = 2xy$。由于曲线积分在整个平面 $\symbb{R}^2$ 上与路径无关，故：
+    \begin{equation}
+        \label{eq:p11-exact}
+        \frac{\partial Q}{\partial x} = \frac{\partial P}{\partial y} = 2x.
+    \end{equation}
+    对 \zcref{eq:p11-exact} 关于 $x$ 积分，得：
+    \begin{equation}
+        Q(x,y) = x^2 + \phi(y),
+    \end{equation}
+    其中 $\phi(y)$ 是关于 $y$ 的一阶连续可导函数。
+    设其势函数为 $u(x,y)$，满足 $\d u = 2xy \d x + (x^2 + \phi(y)) \d y$。则有：
+    \begin{equation}
+        u(x,y) = x^2 y + \Phi(y) + C,
+    \end{equation}
+    其中 $\Phi'(y) = \phi(y)$。不妨设 $\Phi(0) = 0$ 且 $C = 0$，则有：
+    \begin{equation}
+        \label{eq:p11-potential}
+        \int_{(0,0)}^ {(x_0, y_0)} 2xy \d x + Q(x,y) \d y = u(x_0, y_0) - u(0,0) = x_0^2 y_0 + \Phi(y_0).
+    \end{equation}
+    由题意，对任意 $t$ 恒有：
+    \begin{equation}
+        \label{eq:p11-identity}
+        u(t, 1) - u(0,0) = u(1, t) - u(0,0).
+    \end{equation}
+    将 \zcref{eq:p11-potential} 式代入 \zcref{eq:p11-identity} 中，得：
+    \begin{equation}
+        t^2 + \Phi(1) = t + \Phi(t).
+    \end{equation}
+    整理得：
+    \begin{equation}
+        \Phi(t) = t^2 - t + \Phi(1).
+    \end{equation}
+    由设定的初始条件 $\Phi(0) = 0$，代入上式得 $\Phi(1) = 0$，从而有：
+    \begin{equation}
+        \Phi(y) = y^2 - y.
+    \end{equation}
+    对其求导得到：
+    \begin{equation}
+        \phi(y) = \Phi'(y) = 2y - 1.
+    \end{equation}
+    因此，所求函数为：
+    \begin{equation}
+        \boxed{Q(x,y) = x^2 + 2y - 1}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{全微分方程与积分因子}{Exact-ODEs-and-Integrating-Factors}
+    求解微分方程：
+    \begin{enumerate}
+        \item $(xy^2 + 2y - 2y \cos x - y \sin x) \d x + (x^2y + 2x + \cos x - 2 \sin x) \d y = 0$；
+        \item $2xy \d x + (y^2 - x^2) \d y = 0$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 通解为 $\frac{1}{2} x^2 y^2 + 2xy + y \cos x - 2y \sin x = C$。
+
+    设 $P(x,y) = xy^2 + 2y - 2y \cos x - y \sin x$，$Q(x,y) = x^2y + 2x + \cos x - 2 \sin x$。计算偏导数：
+    \begin{equation}
+        \label{eq:p12-1-exact}
+        \frac{\partial P}{\partial y} = 2xy + 2 - 2 \cos x - \sin x, \quad \frac{\partial Q}{\partial x} = 2xy + 2 - \sin x - 2 \cos x.
+    \end{equation}
+    由 \zcref{eq:p12-1-exact} 可知 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$ 恒成立，此方程为全微分方程。
+    设其势函数为 $u(x,y)$，满足 $\d u = P \d x + Q \d y$。对 $Q(x,y)$ 关于 $y$ 积分：
+    \begin{equation}
+        u(x,y) = \int (x^2y + 2x + \cos x - 2 \sin x) \d y = \frac{1}{2}x^2y^2 + 2xy + y \cos x - 2y \sin x + h(x).
+    \end{equation}
+    对 $x$ 求偏导并与 $P(x,y)$ 对比：
+    \begin{equation}
+        \frac{\partial u}{\partial x} = xy^2 + 2y - y \sin x - 2y \cos x + h'(x) = xy^2 + 2y - 2y \cos x - y \sin x.
+    \end{equation}
+    由此可得 $h'(x) = 0$，即 $h(x) = C_0$。
+    因此，微分方程的通解为：
+    \begin{equation}
+        \boxed{\frac{1}{2} x^2 y^2 + 2xy + y \cos x - 2y \sin x = C}
+    \end{equation}
+
+    \ansitem{2} 当 $y\neq 0$ 时，通解为 $x^2 + y^2 = Cy$，另有特解 $y=0$。
+
+    设 $P(x,y) = 2xy$，$Q(x,y) = y^2 - x^2$。计算偏导数：
+    \begin{equation}
+        \frac{\partial P}{\partial y} = 2x, \quad \frac{\partial Q}{\partial x} = -2x.
+    \end{equation}
+    由于二者不相等，方程不是全微分方程。计算：
+    \begin{equation}
+        \frac{1}{P} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) = \frac{-4x}{2xy} = -\frac{2}{y}.
+    \end{equation}
+    由此可得仅与 $y$ 有关的积分因子 $\mu(y)$：
+    \begin{equation}
+        \mu(y) = \e^{\int -\frac{2}{y} \d y} = \frac{1}{y^2}.
+    \end{equation}
+    原方程两边同乘以 $\frac{1}{y^2}$（其中 $y \neq 0$）化为全微分方程：
+    \begin{equation}
+        \frac{2x}{y} \d x + \left( 1 - \frac{x^2}{y^2} \right) \d y = 0.
+    \end{equation}
+    整理上式为：
+    \begin{equation}
+        \frac{2x y \d x - x^2 \d y}{y^2} + \d y = 0 \implies \d\left( \frac{x^2}{y} \right) + \d y = 0.
+    \end{equation}
+    两端积分可得 $\frac{x^2}{y} + y = C$，即（$y\neq0$）：
+    \begin{equation}
+        x^2 + y^2 = Cy.
+    \end{equation}
+    再补上被约去情形 $y=0$（亦满足原方程），故解为：
+    \begin{equation}
+        \boxed{x^2 + y^2 = Cy\ (y\neq0),\quad \text{或}\quad y=0.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{全微分方程与未知函数确定}{Exact-ODEs-and-Function-Determination}
+    设 $f(x)$ 具有二阶连续导数，$f(0) = 0$，$f'(0) = 2$，且
+    \begin{equation}
+        (\e^x \sin y + x^2y + f(x)y) \d x + (f'(x) + \e^x \cos y + 2x) \d y = 0
+    \end{equation}
+    为一个全微分方程。求 $f(x)$ 及此全微分方程的通解。
+\end{problem}
+
+\begin{solution}
+    设 $P(x,y) = \e^x \sin y + x^2y + f(x)y$，$Q(x,y) = f'(x) + \e^x \cos y + 2x$。
+    因为方程为全微分方程，恒有 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$。计算偏导数：
+    \begin{equation}
+        \frac{\partial P}{\partial y} = \e^x \cos y + x^2 + f(x),
+    \end{equation}
+    \begin{equation}
+        \frac{\partial Q}{\partial x} = f''(x) + \e^x \cos y + 2.
+    \end{equation}
+    两式相等可得关于 $f(x)$ 的二阶常系数线性非齐次微分方程：
+    \begin{equation}
+        \label{eq:p13-ode}
+        f''(x) - f(x) = x^2 - 2.
+    \end{equation}
+
+    首先求齐次方程 $f''(x) - f(x) = 0$ 的通解，特征方程为 $r^2 - 1 = 0$，特征根为 $r = \pm 1$。
+    齐次通解为 $f_h(x) = C_1 \e^x + C_2 \e^{-x}$。
+    对于非齐次项 $x^2 - 2$，设特解为 $f_p(x) = Ax^2 + Bx + D$。代入 \zcref{eq:p13-ode} 可得：
+    \begin{equation}
+        2A - (Ax^2 + Bx + D) = x^2 - 2 \implies -Ax^2 - Bx + (2A - D) = x^2 - 2.
+    \end{equation}
+    对比系数得 $A = -1$，$B = 0$，$D = 0$。因此特解为 $f_p(x) = -x^2$。
+    故 $f(x)$ 的通解为：
+    \begin{equation}
+        f(x) = C_1 \e^x + C_2 \e^{-x} - x^2.
+    \end{equation}
+    代入初始条件 $f(0) = 0$ 和 $f'(0) = 2$：
+    \begin{equation}
+        \begin{cases}
+            C_1 + C_2 = 0, \\
+            C_1 - C_2 = 2.
+        \end{cases}
+        \implies C_1 = 1, \quad C_2 = -1.
+    \end{equation}
+    从而解得：
+    \begin{equation}
+        f(x) = \e^x - \e^{-x} - x^2.
+    \end{equation}
+
+    将 $f(x)$ 代入原方程中，得到：
+    \begin{equation}
+        P(x,y) = \e^x \sin y + (\e^x - \e^{-x})y, \quad Q(x,y) = \e^x \cos y + \e^x + \e^{-x}.
+    \end{equation}
+    设势函数为 $u(x,y)$，由 $\frac{\partial u}{\partial y} = Q(x,y)$ 积分可得：
+    \begin{equation}
+        u(x,y) = \e^x \sin y + (\e^x + \e^{-x})y + g(x).
+    \end{equation}
+    对 $x$ 求偏导并与 $P(x,y)$ 对比：
+    \begin{equation}
+        \frac{\partial u}{\partial x} = \e^x \sin y + (\e^x - \e^{-x})y + g'(x) = \e^x \sin y + (\e^x - \e^{-x})y.
+    \end{equation}
+    由此得 $g'(x) = 0$，即 $g(x) = C_0$。
+    因此，全微分方程的通解为 $\e^x \sin y + (\e^x + \e^{-x})y = C$。
+    \begin{equation}
+        \boxed{f(x) = \e^x - \e^{-x} - x^2, \quad \e^x \sin y + (\e^x + \e^{-x})y = C}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{梯度场与势函数}{Gradient-Field-and-Potential-Function}
+    确定常数 $\lambda$，使在右半平面 $x > 0$ 上的向量场 $\symbfit{v} = 2xy(x^4 + y^2)^\lambda \symbfit{i} - x^2(x^4 + y^2)^\lambda \symbfit{j}$ 为某二元函数 $u(x,y)$ 的梯度，并求 $u(x,y)$。
+\end{problem}
+
+\begin{solution}
+    设 $\symbfit{v} = P \symbfit{i} + Q \symbfit{j}$，其中：
+    \begin{equation}
+        P(x,y) = 2xy(x^4 + y^2)^\lambda, \quad Q(x,y) = -x^2(x^4 + y^2)^\lambda.
+    \end{equation}
+    在右半平面 $x > 0$（单连通区域）上，$\symbfit{v}$ 为某二元函数 $u(x,y)$ 的梯度的充要条件是 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$。
+
+    分别计算偏导数：
+    \begin{equation}
+        \label{eq:deriv-P}
+        \begin{aligned}
+            \frac{\partial P}{\partial y} & = 2x(x^4 + y^2)^\lambda + 2xy \cdot \lambda(x^4 + y^2)^{\lambda - 1} \cdot 2y \\
+                                          & = 2x(x^4 + y^2)^{\lambda - 1} \left[ (x^4 + y^2) + 2\lambda y^2 \right]       \\
+                                          & = 2x(x^4 + y^2)^{\lambda - 1} \left[ x^4 + (2\lambda + 1) y^2 \right],
+        \end{aligned}
+    \end{equation}
+    以及
+    \begin{equation}
+        \label{eq:deriv-Q}
+        \begin{aligned}
+            \frac{\partial Q}{\partial x} & = -2x(x^4 + y^2)^\lambda - x^2 \cdot \lambda(x^4 + y^2)^{\lambda - 1} \cdot 4x^3 \\
+                                          & = -2x(x^4 + y^2)^{\lambda - 1} \left[ (x^4 + y^2) + 2\lambda x^4 \right]         \\
+                                          & = -2x(x^4 + y^2)^{\lambda - 1} \left[ (2\lambda + 1) x^4 + y^2 \right].
+        \end{aligned}
+    \end{equation}
+    由于 $x > 0$，有 $2x(x^4 + y^2)^{\lambda - 1} \neq 0$。令 \zcref{eq:deriv-P} 与 \zcref{eq:deriv-Q} 相等，可得：
+    \begin{equation}
+        x^4 + (2\lambda + 1) y^2 = -(2\lambda + 1) x^4 - y^2.
+    \end{equation}
+    对比 $x^4$ 与 $y^2$ 的系数，有：
+    \begin{equation}
+        -(2\lambda + 1) = 1 \implies \lambda = -1.
+    \end{equation}
+
+    当 $\lambda = -1$ 时，向量场为：
+    \begin{equation}
+        \symbfit{v} = \frac{2xy}{x^4 + y^2} \symbfit{i} - \frac{x^2}{x^4 + y^2} \symbfit{j}.
+    \end{equation}
+    此时，存在势函数 $u(x,y)$ 满足 $\d u = P \d x + Q \d y$。对 $Q(x,y)$ 关于 $y$ 积分：
+    \begin{equation}
+        \begin{aligned}
+            u(x,y) & = \int -\frac{x^2}{x^4 + y^2} \d y                                               \\
+                   & = -\int \frac{1}{1 + \left(\frac{y}{x^2}\right)^2} \d \left(\frac{y}{x^2}\right) \\
+                   & = -\arctan\left(\frac{y}{x^2}\right) + \psi(x).
+        \end{aligned}
+    \end{equation}
+    对上式关于 $x$ 求偏导数并与 $P(x,y)$ 对比：
+    \begin{equation}
+        \frac{\partial u}{\partial x} = -\frac{1}{1 + \left(\frac{y}{x^2}\right)^2} \cdot \left(-\frac{2y}{x^3}\right) + \psi'(x) = \frac{2xy}{x^4+y^2} + \psi'(x) = \frac{2xy}{x^4+y^2},
+    \end{equation}
+    从而解得 $\psi'(x) = 0$，即 $\psi(x) = C$（$C$ 为任意常数）。
+
+    因此，常数 $\lambda = -1$，所求的二元函数为：
+    \begin{equation}
+        \boxed{\lambda = -1, \quad u(x, y) = -\arctan\left(\frac{y}{x^2}\right) + C}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{极坐标下的算子表示}{Polar-Operators-Derivation}
+    给出二维情况下下列算子在极坐标系下的详细表示与推导过程：
+    \begin{enumerate}
+        \item 梯度算子 $\operatorname{grad} u$；
+        \item Laplace 算子 $\Delta u$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    在极坐标系 $(r, \theta)$ 中，直角坐标与极坐标的转换关系为：
+    \begin{equation}
+        \label{eq:polar-trans-1}
+        x = r \cos\theta, \quad y = r \sin\theta.
+    \end{equation}
+    直角坐标系下的单位基向量为 $\symbfit{i}$ 与 $\symbfit{j}$，而极坐标下的正交单位基向量定义为：
+    \begin{equation}
+        \label{eq:polar-unit-vectors-2}
+        \symbfit{e}_r = \cos\theta \symbfit{i} + \sin\theta \symbfit{j}, \quad
+        \symbfit{e}_\theta = -\sin\theta \symbfit{i} + \cos\theta \symbfit{j}.
+    \end{equation}
+    由 \zcref{eq:polar-unit-vectors-2} 可反解出直角坐标单位基向量：
+    \begin{equation}
+        \label{eq:cartesian-to-polar-unit-3}
+        \symbfit{i} = \cos\theta \symbfit{e}_r - \sin\theta \symbfit{e}_\theta, \quad
+        \symbfit{j} = \sin\theta \symbfit{e}_r + \cos\theta \symbfit{e}_\theta.
+    \end{equation}
+    设标量场为 $u(x, y)$，根据多元函数复合微分的链式法则，偏导数关系为：
+    \begin{equation}
+        \label{eq:chain-rule-4}
+        \begin{aligned}
+            \frac{\partial u}{\partial r}      & = \frac{\partial u}{\partial x} \frac{\partial x}{\partial r} + \frac{\partial u}{\partial y} \frac{\partial y}{\partial r}           \\
+                                               & = \frac{\partial u}{\partial x} \cos\theta + \frac{\partial u}{\partial y} \sin\theta,                                                \\
+            \frac{\partial u}{\partial \theta} & = \frac{\partial u}{\partial x} \frac{\partial x}{\partial \theta} + \frac{\partial u}{\partial y} \frac{\partial y}{\partial \theta} \\
+                                               & = -r \sin\theta \frac{\partial u}{\partial x} + r \cos\theta \frac{\partial u}{\partial y}.
+        \end{aligned}
+    \end{equation}
+    联立 \zcref{eq:chain-rule-4}，解出关于 $x$ 和 $y$ 的偏导数：
+    \begin{equation}
+        \label{eq:partial-xy-5}
+        \begin{aligned}
+            \frac{\partial u}{\partial x} & = \cos\theta \frac{\partial u}{\partial r} - \frac{\sin\theta}{r} \frac{\partial u}{\partial \theta}, \\
+            \frac{\partial u}{\partial y} & = \sin\theta \frac{\partial u}{\partial r} + \frac{\cos\theta}{r} \frac{\partial u}{\partial \theta}.
+        \end{aligned}
+    \end{equation}
+    将 \zcref{eq:cartesian-to-polar-unit-3} 及 \zcref{eq:partial-xy-5} 代入直角坐标系下的梯度表达式中：
+    \begin{equation}
+        \label{eq:grad-substitution}
+        \begin{aligned}
+            \operatorname{grad} u & = \frac{\partial u}{\partial x} \symbfit{i} + \frac{\partial u}{\partial y} \symbfit{j}                                                                                                                 \\
+                                  & = \left( \cos\theta \frac{\partial u}{\partial r} - \frac{\sin\theta}{r} \frac{\partial u}{\partial \theta} \right) \left( \cos\theta \symbfit{e}_r - \sin\theta \symbfit{e}_\theta \right)             \\
+                                  & \quad + \left( \sin\theta \frac{\partial u}{\partial r} + \frac{\cos\theta}{r} \frac{\partial u}{\partial \theta} \right) \left( \sin\theta \symbfit{e}_r + \cos\theta \symbfit{e}_\theta \right)       \\
+                                  & = \left( \cos^2\theta + \sin^2\theta \right) \frac{\partial u}{\partial r} \symbfit{e}_r + \frac{1}{r} \left( \sin^2\theta + \cos^2\theta \right) \frac{\partial u}{\partial \theta} \symbfit{e}_\theta \\
+                                  & = \frac{\partial u}{\partial r} \symbfit{e}_r + \frac{1}{r} \frac{\partial u}{\partial \theta} \symbfit{e}_\theta.
+        \end{aligned}
+    \end{equation}
+    因此，梯度的极坐标表示为：
+    \begin{equation}
+        \boxed{\operatorname{grad} u = \frac{\partial u}{\partial r} \symbfit{e}_r + \frac{1}{r} \frac{\partial u}{\partial \theta} \symbfit{e}_\theta}
+    \end{equation}
+
+    \ansitem{2}
+
+    Laplace 算子定义为梯度场的散度，即 $\Delta u = \operatorname{div}(\operatorname{grad} u) = \nabla \cdot \nabla u$。
+    极坐标系下的哈密顿算子为：
+    \begin{equation}
+        \nabla = \symbfit{e}_r \frac{\partial}{\partial r} + \symbfit{e}_\theta \frac{1}{r} \frac{\partial}{\partial \theta}.
+    \end{equation}
+    利用 \zcref{eq:polar-unit-vectors-2}，计算单位基向量 $\symbfit{e}_r$ 与 $\symbfit{e}_\theta$ 对自变量的偏导数：
+    \begin{equation}
+        \label{eq:unit-deriv-8}
+        \begin{aligned}
+            \frac{\partial \symbfit{e}_r}{\partial r}      & = \symbfit{0}, \quad \frac{\partial \symbfit{e}_r}{\partial \theta} = -\sin\theta \symbfit{i} + \cos\theta \symbfit{j} = \symbfit{e}_\theta,  \\
+            \frac{\partial \symbfit{e}_\theta}{\partial r} & = \symbfit{0}, \quad \frac{\partial \symbfit{e}_\theta}{\partial \theta} = -\cos\theta \symbfit{i} - \sin\theta \symbfit{j} = -\symbfit{e}_r.
+        \end{aligned}
+    \end{equation}
+    展开散度运算：
+    \begin{equation}
+        \label{eq:laplace-expansion}
+        \begin{aligned}
+            \Delta u & = \nabla \cdot (\nabla u)                                                                                                                                                                                                                                                                                                                                                                \\
+                     & = \left( \symbfit{e}_r \frac{\partial}{\partial r} + \symbfit{e}_\theta \frac{1}{r} \frac{\partial}{\partial \theta} \right) \cdot \left( \frac{\partial u}{\partial r} \symbfit{e}_r + \frac{1}{r} \frac{\partial u}{\partial \theta} \symbfit{e}_\theta \right)                                                                                                                        \\
+                     & = \symbfit{e}_r \cdot \frac{\partial}{\partial r} \left( \frac{\partial u}{\partial r} \symbfit{e}_r + \frac{1}{r} \frac{\partial u}{\partial \theta} \symbfit{e}_\theta \right) + \symbfit{e}_\theta \cdot \frac{1}{r} \frac{\partial}{\partial \theta} \left( \frac{\partial u}{\partial r} \symbfit{e}_r + \frac{1}{r} \frac{\partial u}{\partial \theta} \symbfit{e}_\theta \right).
+        \end{aligned}
+    \end{equation}
+    计算 \zcref{eq:laplace-expansion} 中的第一项，由于单位向量对 $r$ 的偏导数均为零：
+    \begin{equation}
+        \label{eq:first-term-9}
+        \begin{aligned}
+            \symbfit{e}_r \cdot \frac{\partial}{\partial r} \left( \frac{\partial u}{\partial r} \symbfit{e}_r + \frac{1}{r} \frac{\partial u}{\partial \theta} \symbfit{e}_\theta \right) & = \symbfit{e}_r \cdot \left[ \frac{\partial^2 u}{\partial r^2} \symbfit{e}_r + \left( -\frac{1}{r^2} \frac{\partial u}{\partial \theta} + \frac{1}{r} \frac{\partial^2 u}{\partial r \partial \theta} \right) \symbfit{e}_\theta \right] \\
+                                                                                                                                                                                           & = \frac{\partial^2 u}{\partial r^2}.
+        \end{aligned}
+    \end{equation}
+    计算 \zcref{eq:laplace-expansion} 中的第二项，利用 \zcref{eq:unit-deriv-8} 展开 $\theta$ 的偏导数：
+    \begin{equation}
+        \label{eq:second-term-10}
+        \begin{aligned}
+             & \symbfit{e}_\theta \cdot \frac{1}{r} \frac{\partial}{\partial \theta} \left( \frac{\partial u}{\partial r} \symbfit{e}_r + \frac{1}{r} \frac{\partial u}{\partial \theta} \symbfit{e}_\theta \right)                                                                                                                                                                            \\
+             & = \frac{1}{r} \symbfit{e}_\theta \cdot \left( \frac{\partial^2 u}{\partial \theta \partial r} \symbfit{e}_r + \frac{\partial u}{\partial r} \frac{\partial \symbfit{e}_r}{\partial \theta} + \frac{1}{r} \frac{\partial^2 u}{\partial \theta^2} \symbfit{e}_\theta + \frac{1}{r} \frac{\partial u}{\partial \theta} \frac{\partial \symbfit{e}_\theta}{\partial \theta} \right) \\
+             & = \frac{1}{r} \symbfit{e}_\theta \cdot \left[ \frac{\partial^2 u}{\partial \theta \partial r} \symbfit{e}_r + \frac{\partial u}{\partial r} \symbfit{e}_\theta + \frac{1}{r} \frac{\partial^2 u}{\partial \theta^2} \symbfit{e}_\theta - \frac{1}{r} \frac{\partial u}{\partial \theta} \symbfit{e}_r \right]                                                                   \\
+             & = \frac{1}{r} \left( \frac{\partial u}{\partial r} + \frac{1}{r} \frac{\partial^2 u}{\partial \theta^2} \right)                                                                                                                                                                                                                                                                 \\
+             & = \frac{1}{r} \frac{\partial u}{\partial r} + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}.
+        \end{aligned}
+    \end{equation}
+    将 \zcref{eq:first-term-9} 与 \zcref{eq:second-term-10} 相加，即得 Laplace 算子在极坐标系下的表示：
+    \begin{equation}
+        \boxed{\Delta u = \frac{\partial^2 u}{\partial r^2} + \frac{1}{r} \frac{\partial u}{\partial r} + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Laplace 方程的验证}{Laplace-Equation-Verification}
+    利用 Laplace 算子在极坐标和球坐标下的表示，分别验证 $u(x,y) = \ln \sqrt{x^2 + y^2}$ 和 $u(x,y,z) = \frac{1}{\sqrt{x^2+y^2+z^2}}$ 是 Laplace 方程 $\Delta u = 0$ 的解。
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 验证 $u(x,y) = \ln \sqrt{x^2 + y^2}$ 在 $r>0$ 时是 Laplace 方程的解。
+
+    在极坐标系 $(r, \theta)$ 中，自变量关系为 $r = \sqrt{x^2+y^2}$，则函数可表示为 $u(r, \theta) = \ln r$（$r>0$）。
+    利用 Laplace 算子在极坐标系下的表示：
+    \begin{equation}
+        \Delta u = \frac{1}{r} \frac{\partial}{\partial r} \left( r \frac{\partial u}{\partial r} \right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \theta^2}.
+    \end{equation}
+    由于 $u$ 仅与 $r$ 有关，上式可化简为：
+    \begin{equation}
+        \begin{aligned}
+            \Delta u & = \frac{1}{r} \frac{\d}{\d r} \left( r \frac{\d(\ln r)}{\d r} \right) \\
+                     & = \frac{1}{r} \frac{\d}{\d r} \left( r \cdot \frac{1}{r} \right)      \\
+                     & = \frac{1}{r} \frac{\d}{\d r} (1)                                     \\
+                     & = 0.
+        \end{aligned}
+    \end{equation}
+    因此，$u(x,y) = \ln \sqrt{x^2 + y^2}$ 在 $\symbb{R}^2\setminus\{(0,0)\}$ 上是 Laplace 方程 $\Delta u = 0$ 的解。
+    \begin{equation}
+        \boxed{\Delta u = 0 \quad (r>0)}
+    \end{equation}
+
+    \ansitem{2} 验证 $u(x,y,z) = \frac{1}{\sqrt{x^2+y^2+z^2}}$ 在 $r>0$ 时是 Laplace 方程的解。
+
+    在球坐标系 $(r, \theta, \phi)$ 中，自变量关系为 $r = \sqrt{x^2+y^2+z^2}$，则函数可表示为 $u(r, \theta, \phi) = \frac{1}{r}$（$r>0$）。
+    利用 Laplace 算子在球坐标系下的表示：
+    \begin{equation}
+        \Delta u = \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial u}{\partial r} \right) + \frac{1}{r^2 \sin\theta} \frac{\partial}{\partial \theta} \left( \sin\theta \frac{\partial u}{\partial \theta} \right) + \frac{1}{r^2 \sin^2\theta} \frac{\partial^2 u}{\partial \phi^2}.
+    \end{equation}
+    由于 $u$ 仅与 $r$ 有关，上式可化简为：
+    \begin{equation}
+        \begin{aligned}
+            \Delta u & = \frac{1}{r^2} \frac{\d}{\d r} \left( r^2 \frac{\d(1/r)}{\d r} \right)                \\
+                     & = \frac{1}{r^2} \frac{\d}{\d r} \left( r^2 \cdot \left( -\frac{1}{r^2} \right) \right) \\
+                     & = \frac{1}{r^2} \frac{\d}{\d r} (-1)                                                   \\
+                     & = 0.
+        \end{aligned}
+    \end{equation}
+    因此，$u(x,y,z) = \frac{1}{\sqrt{x^2+y^2+z^2}}$ 在 $\symbb{R}^3\setminus\{(0,0,0)\}$ 上是 Laplace 方程 $\Delta u = 0$ 的解。
+    \begin{equation}
+        \boxed{\Delta u = 0 \quad (r>0)}
+    \end{equation}
+\end{solution}
+
+\endinput

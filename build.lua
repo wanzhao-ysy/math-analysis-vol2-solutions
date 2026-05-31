@@ -1,5 +1,5 @@
 module           = "math-analysis-vol2-solutions"
-version          = "v1.13.0"
+version          = "v1.13.1"
 
 typesetfiles     = { "main.tex" }
 supportdir       = "./src"

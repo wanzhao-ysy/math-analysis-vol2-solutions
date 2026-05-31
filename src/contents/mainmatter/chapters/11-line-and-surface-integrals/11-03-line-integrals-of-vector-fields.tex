@@ -100,7 +100,7 @@
     \ansitem{6}
     直接积分法．
 
-    首先确定交线 $L$ 的方程。将球面方程变形为
+    首先确定交线 $L$ 的方程．将球面方程变形为
     \begin{equation}
         (x-1)^2 + (y-1)^2 + z^2 = 2.
     \end{equation}
@@ -108,7 +108,7 @@
     \begin{equation}
         (x-1)^2 + (2-x-1)^2 + z^2 = 2 \implies 2(x-1)^2 + z^2 = 2.
     \end{equation}
-    由此可得 $L$ 的参数方程。令 $x - 1 = \cos \theta$，则 $z = \sqrt{2} \sin \theta$。进而由 $y = 2 - x$ 得 $y = 1 - \cos \theta$。即
+    由此可得 $L$ 的参数方程．令 $x - 1 = \cos \theta$，则 $z = \sqrt{2} \sin \theta$．进而由 $y = 2 - x$ 得 $y = 1 - \cos \theta$．即
     \begin{equation}
         \begin{cases}
             x = 1 + \cos \theta, \\
@@ -120,7 +120,7 @@
     \begin{equation}
         \d x = -\sin \theta \d \theta, \quad \d y = \sin \theta \d \theta, \quad \d z = \sqrt{2} \cos \theta \d \theta.
     \end{equation}
-    判断方向：当 $\theta$ 从 $0$ 增加到 $\frac{\uppi}{2}$ 时，点从 $(2,0,0)$ 移动到 $(1,1,\sqrt{2})$。从原点 $(0,0,0)$ 观察，该运动方向为逆时针方向。题目要求顺时针方向，故积分范围应为 $\theta \in [2\uppi, 0]$。
+    判断方向：当 $\theta$ 从 $0$ 增加到 $\frac{\uppi}{2}$ 时，点从 $(2,0,0)$ 移动到 $(1,1,\sqrt{2})$．从原点 $(0,0,0)$ 观察，该运动方向为逆时针方向．题目要求顺时针方向，故积分范围应为 $\theta \in [2\uppi, 0]$．
 
     将参数方程代入被积表达式：
     \begin{equation}
@@ -211,7 +211,7 @@
 \begin{solution}
     \ansitem{1}
 
-    记原曲线积分为 $I$。设 $L$ 围成的内部区域为 $D$，由题意可知 $D$ 为由直线 $y=x$、$y=2x-1$ 与 $x=3$ 围成的闭区域。应用 Green 公式可得
+    记原曲线积分为 $I$．设 $L$ 围成的内部区域为 $D$，由题意可知 $D$ 为由直线 $y=x$、$y=2x-1$ 与 $x=3$ 围成的闭区域．应用 Green 公式可得
     \begin{equation}
         \begin{aligned}
             I & = \iint_D \left[ \frac{\partial}{\partial x}(x^2-y^2) - \frac{\partial}{\partial y}(x+y)^2 \right] \d x \d y \\
@@ -237,7 +237,7 @@
 
     \ansitem{2}
 
-    设原积分为 $I$，积分区域为 $D = \left\{ (x, y) \mathrel{\big|} \frac{x^2}{a^2} + \frac{y^2}{b^2} \le 1 \right\}$。因曲线 $L$ 沿顺时针方向，应用 Green 公式时需附加负号，
+    设原积分为 $I$，积分区域为 $D = \left\{ (x, y) \mathrel{\big|} \frac{x^2}{a^2} + \frac{y^2}{b^2} \le 1 \right\}$．因曲线 $L$ 沿顺时针方向，应用 Green 公式时需附加负号，
     \begin{equation}
         \begin{aligned}
             I & = -\iint_D \left[ \frac{\partial}{\partial x}(xy+x-y) - \frac{\partial}{\partial y}(xy+x+y) \right] \d x \d y \\
@@ -252,7 +252,7 @@
 
     \ansitem{3}
 
-    设原积分为 $I$，曲线 $L$ 围成的内部闭区域为 $D$。由 Green 公式可得
+    设原积分为 $I$，曲线 $L$ 围成的内部闭区域为 $D$．由 Green 公式可得
     \begin{equation}
         \begin{aligned}
             I & = \iint_D \left[ \frac{\partial}{\partial x}(xy^3+x\e^y-2y) - \frac{\partial}{\partial y}(yx^3+\e^y) \right] \d x \d y \\
@@ -260,14 +260,14 @@
               & = \iint_D (y^3-x^3) \d x \d y.
         \end{aligned}
     \end{equation}
-    根据题意，曲线 $L$ 关于两坐标轴对称，故其围成的区域 $D$ 亦关于两坐标轴对称。被积函数 $y^3-x^3$ 的各分项在对应方向上均为奇函数，积分值必为零，
+    根据题意，曲线 $L$ 关于两坐标轴对称，故其围成的区域 $D$ 亦关于两坐标轴对称．被积函数 $y^3-x^3$ 的各分项在对应方向上均为奇函数，积分值必为零，
     \begin{equation}
         I = \boxed{0}.
     \end{equation}
 
     \ansitem{4}
 
-    设原积分为 $I$，内部闭区域为 $D$。应用 Green 公式可得
+    设原积分为 $I$，内部闭区域为 $D$．应用 Green 公式可得
     \begin{equation}
         \begin{aligned}
             I & = \iint_D \left\{ \frac{\partial}{\partial x} \left[ y \left( xy + \ln(x+\sqrt{x^2+y^2}) \right) \right] - \frac{\partial}{\partial y}\sqrt{x^2+y^2} \right\} \d x \d y \\
@@ -276,7 +276,7 @@
               & = \iint_D y^2 \d x \d y.
         \end{aligned}
     \end{equation}
-    区域 $D$ 由 $y^2 = x-1$ 与 $x = 2$ 围成，化简得 $y^2 + 1 \le x \le 2$，从而 $y \in [-1, 1]$。化为二次积分，
+    区域 $D$ 由 $y^2 = x-1$ 与 $x = 2$ 围成，化简得 $y^2 + 1 \le x \le 2$，从而 $y \in [-1, 1]$．化为二次积分，
     \begin{equation}
         \begin{aligned}
             I & = \int_{-1}^1 \d y \int_{y^2+1}^2 y^2 \d x        \\
@@ -297,11 +297,11 @@
     \begin{equation}
         \frac{\partial Q}{\partial x} = 2x-2y, \quad \frac{\partial P}{\partial y} = 2x-2y.
     \end{equation}
-    为应用 Green 公式，补充有向直线段 $L_{BA}$，其起于 $B(0,1)$ 并沿 $y$ 轴直达 $A(0,-1)$。原路径 $L_{AMB}$ 与 $L_{BA}$ 拼接形成闭曲线 $C = L_{AMB} + L_{BA}$。设其所围成的内部区域为 $D$，由 Green 公式可得
+    为应用 Green 公式，补充有向直线段 $L_{BA}$，其起于 $B(0,1)$ 并沿 $y$ 轴直达 $A(0,-1)$．原路径 $L_{AMB}$ 与 $L_{BA}$ 拼接形成闭曲线 $C = L_{AMB} + L_{BA}$．设其所围成的内部区域为 $D$，由 Green 公式可得
     \begin{equation}
         \oint_C P \d x + Q \d y = \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \d x \d y = \iint_D 0 \d x \d y = 0.
     \end{equation}
-    故原积分可转化为沿线段 $L_{AB}$（由 $A(0,-1)$ 到 $B(0,1)$）的积分。在路径 $L_{AB}$ 上，参数方程为 $x=0$ 且 $y$ 从 $-1$ 到 $1$，从而 $\d x = 0$。代入计算得
+    故原积分可转化为沿线段 $L_{AB}$（由 $A(0,-1)$ 到 $B(0,1)$）的积分．在路径 $L_{AB}$ 上，参数方程为 $x=0$ 且 $y$ 从 $-1$ 到 $1$，从而 $\d x = 0$．代入计算得
     \begin{equation}
         \begin{aligned}
             \int_{AMB} P \d x + Q \d y & = \int_{L_{AB}} P \d x + Q \d y        \\
@@ -317,8 +317,8 @@
 
     \ansitem{6}
 
-    记 $P = \e^x \sin y - my$，$Q = \e^x \cos y - m$。
-    原曲线 $L_{AMO}$ 不是闭曲线。补充有向线段 $L_{OA}$（沿 $x$ 轴从 $O(0,0)$ 到 $A(a,0)$），与 $L_{AMO}$ 共同构成逆时针闭曲线 $C = L_{OA} + L_{AMO}$。设其围成的半圆区域为 $D$，应用 Green 公式可得
+    记 $P = \e^x \sin y - my$，$Q = \e^x \cos y - m$．
+    原曲线 $L_{AMO}$ 不是闭曲线．补充有向线段 $L_{OA}$（沿 $x$ 轴从 $O(0,0)$ 到 $A(a,0)$），与 $L_{AMO}$ 共同构成逆时针闭曲线 $C = L_{OA} + L_{AMO}$．设其围成的半圆区域为 $D$，应用 Green 公式可得
     \begin{equation}
         \begin{aligned}
             \oint_C P \d x + Q \d y & = \iint_D \left[ \frac{\partial}{\partial x}(\e^x \cos y - m) - \frac{\partial}{\partial y}(\e^x \sin y - my) \right] \d x \d y \\
@@ -326,12 +326,12 @@
                                     & = m \iint_D \d x \d y.
         \end{aligned}
     \end{equation}
-    区域 $D$ 是半径为 $\frac{a}{2}$ 的半圆，其面积为 $\frac{1}{2} \uppi \left(\frac{a}{2}\right)^2 = \frac{\uppi a^2}{8}$。因而
+    区域 $D$ 是半径为 $\frac{a}{2}$ 的半圆，其面积为 $\frac{1}{2} \uppi \left(\frac{a}{2}\right)^2 = \frac{\uppi a^2}{8}$．因而
     \begin{equation}
         \label{eq:green-6-1}
         \oint_C P \d x + Q \d y = \frac{\uppi a^2 m}{8}.
     \end{equation}
-    对于辅助线段 $L_{OA}$，路径方程为 $y=0$ 且 $x \in [0, a]$，故 $\d y = 0$。计算沿此路径的积分，
+    对于辅助线段 $L_{OA}$，路径方程为 $y=0$ 且 $x \in [0, a]$，故 $\d y = 0$．计算沿此路径的积分，
     \begin{equation}
         \label{eq:green-6-2}
         \int_{L_{OA}} P \d x + Q \d y = \int_0^a (\e^x \sin 0 - m \cdot 0) \d x = 0.

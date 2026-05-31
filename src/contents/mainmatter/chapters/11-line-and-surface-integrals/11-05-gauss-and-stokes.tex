@@ -105,8 +105,8 @@
         \label{eq:part4-3}
         \begin{aligned}
             I & = \int_0^{2\uppi} \d \varphi \int_0^{\uppi/2} \d \theta \int_0^{\cos \theta} r^4 \sin \theta \d r \\
-              & = 2 \uppi \int_0^{\uppi/2} \frac{\cos^5 \theta}{5} \sin \theta \d \theta                       \\
-              & = \frac{2 \uppi}{5} \left[ -\frac{\cos^6 \theta}{6} \right]_0^{\uppi/2}                        \\
+              & = 2 \uppi \int_0^{\uppi/2} \frac{\cos^5 \theta}{5} \sin \theta \d \theta                          \\
+              & = \frac{2 \uppi}{5} \left[ -\frac{\cos^6 \theta}{6} \right]_0^{\uppi/2}                           \\
               & = \frac{\uppi}{15}.
         \end{aligned}
     \end{equation}
@@ -265,10 +265,10 @@
     \begin{equation}
         \label{eq:limit-3}
         \begin{aligned}
-            \varphi & = \lim_{\varepsilon \to 0^+} \iint_{S \setminus B_\varepsilon} \symbfit{F} \cdot \d \symbfit{S}                          \\
-                 & = \lim_{\varepsilon \to 0^+} \iint_{S_{\varepsilon, \text{in}}} \left( -\frac{km}{\varepsilon^2} \right) \d S               \\
-                 & = \lim_{\varepsilon \to 0^+} \left[ -\frac{km}{\varepsilon^2} \cdot \operatorname{Area}(S_{\varepsilon, \text{in}}) \right] \\
-                 & = -2\uppi km.
+            \varphi & = \lim_{\varepsilon \to 0^+} \iint_{S \setminus B_\varepsilon} \symbfit{F} \cdot \d \symbfit{S}                             \\
+                    & = \lim_{\varepsilon \to 0^+} \iint_{S_{\varepsilon, \text{in}}} \left( -\frac{km}{\varepsilon^2} \right) \d S               \\
+                    & = \lim_{\varepsilon \to 0^+} \left[ -\frac{km}{\varepsilon^2} \cdot \operatorname{Area}(S_{\varepsilon, \text{in}}) \right] \\
+                    & = -2\uppi km.
         \end{aligned}
     \end{equation}
     最终结果为：
@@ -364,7 +364,6 @@
     \end{equation}
     代入 \zcref{eq:div-zero} 中，得到关于 $f(x)$ 的一阶线性常微分方程
     \begin{equation}
-        \label{eq:ode}
         x f'(x) + (1 - x) f(x) - \e^{2x} = 0.
     \end{equation}
     将方程标准化为
@@ -379,7 +378,6 @@
     \end{equation}
     方程 \zcref{eq:ode-standard} 两边同乘积分因子 $\mu(x)$，得
     \begin{equation}
-        \label{eq:ode-exact}
         \frac{\d}{\d x} \left( x \e^{-x} f(x) \right) = \frac{\e^{2x}}{x} \cdot x \e^{-x} = \e^x.
     \end{equation}
     对方程两边积分，得
@@ -641,7 +639,6 @@
 
     记 $S$ 为平面 $x+y+z=1$ 在第一象限内的三角形区域．由于从原点看去 $L$ 沿顺时针方向，故 $S$ 的法向量指向远离原点侧，其单位法向量为 $\symbfit{n} = \frac{1}{\sqrt{3}}(1, 1, 1)$．记向量场为 $\symbfit{F}$，计算其旋度为
     \begin{equation}
-        \label{eq:curl-1}
         \operatorname{curl} \symbfit{F} = \left| \begin{matrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ y & z & x \end{matrix} \right| = (-1, -1, -1).
     \end{equation}
     利用 Stokes 公式，有
@@ -664,7 +661,6 @@
     记 $S$ 为交线 $L$ 在平面 $\frac{x}{a}+\frac{z}{h}=1$ 上围成的椭圆区域．从 $x$ 轴正向看去 $L$ 沿逆时针方向，故单位法向量 $\symbfit{n}$ 的 $x$ 分量应为正，即 $\symbfit{n} = \frac{(h, 0, a)}{\sqrt{h^2+a^2}}$，因此 $S$ 在 $xy$ 平面的投影 $D \colon x^2+y^2 \leqslant a^2$ 的方向为正．
     计算旋度为
     \begin{equation}
-        \label{eq:curl-2}
         \operatorname{curl} \symbfit{F} = \left| \begin{matrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ y-z & z-x & x-y \end{matrix} \right| = (-2, -2, -2).
     \end{equation}
     利用 Stokes 公式化为关于 $xy$ 平面的二重积分（取 $z = h - \frac{h}{a}x$）：

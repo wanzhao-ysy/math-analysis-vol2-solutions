@@ -123,14 +123,14 @@
 
 \begin{myproof}
     根据方向导数与梯度的关系，函数 $u$ 沿曲面 $S$ 外侧单位法向量 $\symbfit{n}$ 的方向微商可以表示为：
-    \begin{equation} \label{eq:directional-derivative}
+    \begin{equation} \label{eq:directional-derivative-1}
         \frac{\partial u}{\partial \symbfit{n}} = \nabla u \cdot \symbfit{n}
     \end{equation}
 
     \ansitem{1}
     证明如下：
 
-    利用方程 \zcref{eq:directional-derivative} 以及高斯公式（散度定理），将面积分转化为体积分：
+    利用方程 \zcref{eq:directional-derivative-1} 以及高斯公式（散度定理），将面积分转化为体积分：
     \begin{equation}
         \begin{aligned}
             \oiint_S \frac{\partial u}{\partial \symbfit{n}} \, \d S & = \oiint_S (\nabla u) \cdot \symbfit{n} \, \d S \\
@@ -146,7 +146,7 @@
     \ansitem{2}
     证明如下：
 
-    将被积函数中的方向导数使用方程 \zcref{eq:directional-derivative} 展开，并将 $u \nabla u$ 视作一个整体的向量场，应用高斯公式：
+    将被积函数中的方向导数使用方程 \zcref{eq:directional-derivative-1} 展开，并将 $u \nabla u$ 视作一个整体的向量场，应用高斯公式：
     \begin{equation}
         \oiint_S u \frac{\partial u}{\partial \symbfit{n}} \, \d S = \oiint_S (u \nabla u) \cdot \symbfit{n} \, \d S = \iiint_V \operatorname{div}(u \nabla u) \, \d V
     \end{equation}

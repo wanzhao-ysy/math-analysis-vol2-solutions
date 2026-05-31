@@ -4,6 +4,10 @@
 % 彩色盒子
 \RequirePackage{tcolorbox}
 \tcbuselibrary{skins, breakable, theorems}
+\tcbset{
+    breakable,
+    compress page=all,     % 默认是 baselineskip，改为 all 可最大化利用页面空间
+}
 
 % 基础样式定义
 \tcbset{

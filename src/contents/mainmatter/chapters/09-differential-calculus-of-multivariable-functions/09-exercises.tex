@@ -1,7 +1,7 @@
 \section{第 9 章综合习题}
 
 \begin{problem}{多元函数微分学}{Partial-Derivative-Condition}
-    设 $a_1, a_2, \cdots, a_n$ 是非零常数．$f(x_1, x_2, \cdots, x_n)$ 在 $\mathbb{R}^n$ 上可微．求证：存在 $\mathbb{R}$ 上一元可微函数 $F(s)$ 使得 $f(x_1, x_2, \cdots, x_n) = F(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n)$ 的充分必要条件是 $a_j \frac{\partial f}{\partial x_i} = a_i \frac{\partial f}{\partial x_j}, i, j = 1, 2, \cdots, n$．
+    设 $a_1, a_2, \cdots, a_n$ 是非零常数．$f(x_1, x_2, \cdots, x_n)$ 在 $\symbb{R}^n$ 上可微．求证：存在 $\symbb{R}$ 上一元可微函数 $F(s)$ 使得 $f(x_1, x_2, \cdots, x_n) = F(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n)$ 的充分必要条件是 $a_j \frac{\partial f}{\partial x_i} = a_i \frac{\partial f}{\partial x_j}, i, j = 1, 2, \cdots, n$．
 \end{problem}
 
 \begin{solution}
@@ -38,7 +38,7 @@
     \end{equation}
     令 $s = \sum_{k=1}^n a_k x_k$．上式表明 $\d f = g \d s$．
     这意味着 $f$ 的全微分仅依赖于 $\d s$，即 $f$ 的变化完全由 $s$ 的变化决定．
-    在单连通区域 $\mathbb{R}^n$ 上，这意味着 $f$ 仅是 $s$ 的函数．
+    在单连通区域 $\symbb{R}^n$ 上，这意味着 $f$ 仅是 $s$ 的函数．
     即存在一元可微函数 $F$，使得
     \begin{equation}
         f(x_1, \dots, x_n) = F(s) = F(a_1 x_1 + a_2 x_2 + \cdots + a_n x_n).
@@ -181,7 +181,7 @@ v
 
 
 \begin{problem}{多元函数方程}{Multivariate-Functional-Equation}
-    设 $f(x,y)$ 在 $\mathbb{R}^2$ 上有连续二阶偏导数，且对任意实数 $x,y,z$ 满足 $f(x,y)=f(y,x)$ 和
+    设 $f(x,y)$ 在 $\symbb{R}^2$ 上有连续二阶偏导数，且对任意实数 $x,y,z$ 满足 $f(x,y)=f(y,x)$ 和
     \begin{equation}
         f(x,y) + f(y,z) + f(z,x) = 3f\left(\frac{x+y+z}{3}, \frac{x+y+z}{3}\right).
     \end{equation}
@@ -308,7 +308,7 @@ v
 
 
 \begin{problem}{常值函数判定}{Constant-Function-Convex-Domain}
-    设 $D \subset \mathbb{R}^2$ 是包含原点的凸区域，$f \in C^1(D)$．证明：若
+    设 $D \subset \symbb{R}^2$ 是包含原点的凸区域，$f \in C^1(D)$．证明：若
     \begin{equation}
         x \frac{\partial f(x,y)}{\partial x} + y \frac{\partial f(x,y)}{\partial y} = 0, \quad ((x,y) \in D), \label{eq:Euler-PDE}
     \end{equation}
@@ -336,7 +336,7 @@ v
 
 
 \begin{problem}{Hadamard 引理}{Hadamard-Lemma-R2}
-    设 $f \in C^1(\mathbb{R}^2)$，$f(0,0) = 0$．证明：存在 $\mathbb{R}^2$ 上的连续函数 $g_1, g_2$ 使得
+    设 $f \in C^1(\symbb{R}^2)$，$f(0,0) = 0$．证明：存在 $\symbb{R}^2$ 上的连续函数 $g_1, g_2$ 使得
     \begin{equation}
         f(x,y) = x g_1(x,y) + y g_2(x,y).
     \end{equation}
@@ -362,7 +362,7 @@ v
     \begin{equation}
         g_1(x, y) = \int_0^1 \frac{\partial f}{\partial x}(tx, ty) \d t, \quad g_2(x, y) = \int_0^1 \frac{\partial f}{\partial y}(tx, ty) \d t.
     \end{equation}
-    由于 $f \in C^1(\mathbb{R}^2)$，其偏导数 $\frac{\partial f}{\partial x}$ 与 $\frac{\partial f}{\partial y}$ 在 $\mathbb{R}^2$ 上连续．根据含参变量积分的连续性定理可知，$g_1(x, y)$ 与 $g_2(x, y)$ 在 $\mathbb{R}^2$ 上均为连续函数．由此得证
+    由于 $f \in C^1(\symbb{R}^2)$，其偏导数 $\frac{\partial f}{\partial x}$ 与 $\frac{\partial f}{\partial y}$ 在 $\symbb{R}^2$ 上连续．根据含参变量积分的连续性定理可知，$g_1(x, y)$ 与 $g_2(x, y)$ 在 $\symbb{R}^2$ 上均为连续函数．由此得证
     \begin{equation}
         \boxed{f(x, y) = x g_1(x, y) + y g_2(x, y)}
     \end{equation}
@@ -506,7 +506,7 @@ v
 
 
 \begin{problem}{偏导数方程}{Partial-Differential-Equation}
-    设 $f(x,y,z)$ 在 $\mathbb{R}^3$ 上有一阶连续偏导数，且满足 $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = \frac{\partial f}{\partial z}$． 如果 $f(x,0,0) > 0$ 对任意的 $x \in \mathbb{R}$ 成立，求证：对任意的 $(x,y,z) \in \mathbb{R}^3$，也有 $f(x,y,z) > 0$．
+    设 $f(x,y,z)$ 在 $\symbb{R}^3$ 上有一阶连续偏导数，且满足 $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = \frac{\partial f}{\partial z}$． 如果 $f(x,0,0) > 0$ 对任意的 $x \in \symbb{R}$ 成立，求证：对任意的 $(x,y,z) \in \symbb{R}^3$，也有 $f(x,y,z) > 0$．
 \end{problem}
 
 \begin{myproof}
@@ -514,7 +514,7 @@ v
     \begin{equation}
         \frac{\d g}{\d t} = \frac{\partial f}{\partial x} \cdot 1 + \frac{\partial f}{\partial y} \cdot (-1) = \frac{\partial f}{\partial x} - \frac{\partial f}{\partial y} = 0.
     \end{equation}
-    故 $g(t)$ 在 $\mathbb{R}$ 上为常值函数，则 $g(0) = g(y)$，即
+    故 $g(t)$ 在 $\symbb{R}$ 上为常值函数，则 $g(0) = g(y)$，即
     \begin{equation}
         \label{eq:step1}
         f(x,y,z) = f(x+y, 0, z).
@@ -528,11 +528,11 @@ v
         \label{eq:step2}
         f(x+y, 0, z) = f(x+y+z, 0, 0).
     \end{equation}
-    结合 \zcref{eq:step1} 与 \zcref{eq:step2} 可得，对任意 $(x,y,z) \in \mathbb{R}^3$，均有
+    结合 \zcref{eq:step1} 与 \zcref{eq:step2} 可得，对任意 $(x,y,z) \in \symbb{R}^3$，均有
     \begin{equation}
         f(x,y,z) = f(x+y+z, 0, 0).
     \end{equation}
-    令 $u = x+y+z \in \mathbb{R}$．根据题设条件，对任意 $u \in \mathbb{R}$，均有 $f(u,0,0) > 0$．因此
+    令 $u = x+y+z \in \symbb{R}$．根据题设条件，对任意 $u \in \symbb{R}$，均有 $f(u,0,0) > 0$．因此
     \begin{equation}
         f(x,y,z) = f(u, 0, 0) > 0.
     \end{equation}

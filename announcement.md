@@ -1,3 +1,3 @@
-Version 1.13.2 released on 2026-05-31.
+Version 1.14.0 released on 2026-06-23.
 
-- 新增并校对了 11.5
+- 更新至了第 11 章

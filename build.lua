@@ -9,7 +9,8 @@ typesetsuppfiles = {
     "bibliography/*.bib",
     "styles/*.sty",
     "assets/fonts/*.ttf",
-    "assets/fonts/*.otf"
+    "assets/fonts/*.otf",
+    "assets/images/*.jpg",
 }
 
 function typeset(file)

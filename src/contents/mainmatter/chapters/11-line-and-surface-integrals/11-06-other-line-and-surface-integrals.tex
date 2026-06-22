@@ -1,7 +1,7 @@
 \section{其他形式的曲线、曲面积分}
 
 \begin{problem}{散度的积分表示推导}{Divergence-Integral-Cylindrical}
-    利用散度的积分表示，推导出在柱坐标系下的散度。
+    利用散度的积分表示，推导出在柱坐标系下的散度．
 \end{problem}
 
 \begin{solution}
@@ -9,12 +9,12 @@
     \begin{equation}
         \operatorname{div} \symbfit{A} = \lim_{\Delta V \to 0} \frac{1}{\Delta V} \oiint_{S} \symbfit{A} \cdot \d \symbfit{S},
     \end{equation}
-    其中 $S$ 为包围体积元 $\Delta V$ 的闭合曲面。在柱坐标系 $(r, \theta, z)$ 中，设向量场表示为 $\symbfit{A} = A_r \symbfit{e}_r + A_\theta \symbfit{e}_\theta + A_z \symbfit{e}_z$。选取由坐标面构成的微小“六面体”体积元 $\Delta V$，其边界范围在径向为 $r$ 到 $r+\Delta r$、在角向为 $\theta$ 到 $\theta+\Delta \theta$ 以及在轴向为 $z$ 到 $z+\Delta z$。该体积元的大小可近似为：
+    其中 $S$ 为包围体积元 $\Delta V$ 的闭合曲面．在柱坐标系 $(r, \theta, z)$ 中，设向量场表示为 $\symbfit{A} = A_r \symbfit{e}_r + A_\theta \symbfit{e}_\theta + A_z \symbfit{e}_z$．选取由坐标面构成的微小“六面体”体积元 $\Delta V$，其边界范围在径向为 $r$ 到 $r+\Delta r$、在角向为 $\theta$ 到 $\theta+\Delta \theta$ 以及在轴向为 $z$ 到 $z+\Delta z$．该体积元的大小可近似为：
     \begin{equation}
         \Delta V \approx r \Delta r \Delta \theta \Delta z.
     \end{equation}
 
-    我们分别计算向量场 $\symbfit{A}$ 穿过该体积元六个面的向外总通量。在径向（$r$ 方向）的两个面上，法向面微元大小分别为 $r \Delta \theta \Delta z$ 和 $(r+\Delta r) \Delta \theta \Delta z$，向外的净通量为：
+    我们分别计算向量场 $\symbfit{A}$ 穿过该体积元六个面的向外总通量．在径向（$r$ 方向）的两个面上，法向面微元大小分别为 $r \Delta \theta \Delta z$ 和 $(r+\Delta r) \Delta \theta \Delta z$，向外的净通量为：
     \begin{equation}
         \begin{aligned}
             \Phi_r & \approx A_r(r+\Delta r, \theta, z) (r+\Delta r) \Delta \theta \Delta z - A_r(r, \theta, z) r \Delta \theta \Delta z \\
@@ -50,7 +50,7 @@
 \end{solution}
 
 \begin{problem}{梯度的积分表示推导}{Gradient-Integral-Spherical}
-    利用梯度的积分表示，推导出在球坐标系下的梯度。
+    利用梯度的积分表示，推导出在球坐标系下的梯度．
 \end{problem}
 
 \begin{solution}
@@ -58,54 +58,54 @@
     \begin{equation}
         \operatorname{grad} f = \lim_{\Delta V \to 0} \frac{1}{\Delta V} \oiint_{S} f \d \symbfit{S},
     \end{equation}
-    其中 $\d \symbfit{S} = \symbfit{n} \d S$ 为外法向面积微元。在球坐标系 $(r, \theta, \phi)$ 中，选取由坐标面构成的微小体积元，边界范围分别为 $r$ 到 $r+\Delta r$、$\theta$ 到 $\theta+\Delta \theta$、$\phi$ 到 $\phi+\Delta \phi$，其体积可近似表示为：
+    其中 $\d \symbfit{S} = \symbfit{n} \d S$ 为外法向面积微元．在球坐标系 $(r, \theta, \varphi)$ 中，选取由坐标面构成的微小体积元，边界范围分别为 $r$ 到 $r+\Delta r$、$\theta$ 到 $\theta+\Delta \theta$、$\varphi$ 到 $\varphi+\Delta \varphi$，其体积可近似表示为：
     \begin{equation}
-        \Delta V \approx r^2 \sin\theta \Delta r \Delta \theta \Delta \phi.
+        \Delta V \approx r^2 \sin\theta \Delta r \Delta \theta \Delta \varphi.
     \end{equation}
 
-    我们将闭合曲面积分拆解为径向（$r$）、极角（$\theta$）和方位角（$\phi$）三对相对面上的面积分近似之和。在径向的两个面上，面积微元大小约为 $r^2 \sin\theta \Delta \theta \Delta \phi$，外法向量为 $\pm \symbfit{e}_r$，其积分贡献为：
+    我们将闭合曲面积分拆解为径向（$r$）、极角（$\theta$）和方位角（$\varphi$）三对相对面上的面积分近似之和．在径向的两个面上，面积微元大小约为 $r^2 \sin\theta \Delta \theta \Delta \varphi$，外法向量为 $\pm \symbfit{e}_r$，其积分贡献为：
     \begin{equation}
         \begin{aligned}
-            I_r & \approx \left( f(r+\Delta r) \symbfit{e}_r(r+\Delta r)^2 - f(r) \symbfit{e}_r r^2 \right) \sin\theta \Delta \theta \Delta \phi \\
-                & \approx \frac{\partial}{\partial r} (f r^2 \symbfit{e}_r) \sin\theta \Delta r \Delta \theta \Delta \phi.
+            I_r & \approx \left( f(r+\Delta r) \symbfit{e}_r(r+\Delta r)^2 - f(r) \symbfit{e}_r r^2 \right) \sin\theta \Delta \theta \Delta \varphi \\
+                & \approx \frac{\partial}{\partial r} (f r^2 \symbfit{e}_r) \sin\theta \Delta r \Delta \theta \Delta \varphi.
         \end{aligned}
     \end{equation}
 
-    在极角的两个面上，面积微元大小约为 $r \sin\theta \Delta r \Delta \phi$，外法向量为 $\pm \symbfit{e}_\theta$，积分贡献为：
+    在极角的两个面上，面积微元大小约为 $r \sin\theta \Delta r \Delta \varphi$，外法向量为 $\pm \symbfit{e}_\theta$，积分贡献为：
     \begin{equation}
-        I_\theta \approx \frac{\partial}{\partial \theta} (f \sin\theta \symbfit{e}_\theta) r \Delta r \Delta \theta \Delta \phi.
+        I_\theta \approx \frac{\partial}{\partial \theta} (f \sin\theta \symbfit{e}_\theta) r \Delta r \Delta \theta \Delta \varphi.
     \end{equation}
 
-    在方位角的两个面上，面积微元大小约为 $r \Delta r \Delta \theta$，外法向量为 $\pm \symbfit{e}_\phi$，积分贡献为：
+    在方位角的两个面上，面积微元大小约为 $r \Delta r \Delta \theta$，外法向量为 $\pm \symbfit{e}_\varphi$，积分贡献为：
     \begin{equation}
-        I_\phi \approx \frac{\partial}{\partial \phi} (f \symbfit{e}_\phi) r \Delta r \Delta \theta \Delta \phi.
+        I_\varphi \approx \frac{\partial}{\partial \varphi} (f \symbfit{e}_\varphi) r \Delta r \Delta \theta \Delta \varphi.
     \end{equation}
 
     在球坐标系中，局部基向量对各坐标变量的偏导数满足如下几何关系：
     \begin{equation}
         \label{eq:base-vector-deriv}
-        \frac{\partial \symbfit{e}_r}{\partial r} = \symbfit{0}, \quad \frac{\partial \symbfit{e}_\theta}{\partial \theta} = -\symbfit{e}_r, \quad \frac{\partial \symbfit{e}_\phi}{\partial \phi} = -\sin\theta \symbfit{e}_r - \cos\theta \symbfit{e}_\theta.
+        \frac{\partial \symbfit{e}_r}{\partial r} = \symbfit{0}, \quad \frac{\partial \symbfit{e}_\theta}{\partial \theta} = -\symbfit{e}_r, \quad \frac{\partial \symbfit{e}_\varphi}{\partial \varphi} = -\sin\theta \symbfit{e}_r - \cos\theta \symbfit{e}_\theta.
     \end{equation}
 
-    利用\zcref{eq:base-vector-deriv}中基向量的导数公式，利用乘积法则分别展开 $I_r$、$I_\theta$、$I_\phi$ 中的偏导数：
+    利用\zcref{eq:base-vector-deriv}中基向量的导数公式，利用乘积法则分别展开 $I_r$、$I_\theta$、$I_\varphi$ 中的偏导数：
     \begin{equation}
         \begin{aligned}
-            I_r      & \approx \symbfit{e}_r \sin\theta \left( r^2 \frac{\partial f}{\partial r} + 2r f \right) \Delta r \Delta \theta \Delta \phi,                                                                                                      \\
-            I_\theta & \approx r \left( \frac{\partial f}{\partial \theta} \symbfit{e}_\theta \sin\theta + f \frac{\partial \symbfit{e}_\theta}{\partial \theta} \sin\theta + f \symbfit{e}_\theta \cos\theta \right) \Delta r \Delta \theta \Delta \phi \\
-                     & = r \left( \frac{\partial f}{\partial \theta} \symbfit{e}_\theta \sin\theta - f \symbfit{e}_r \sin\theta + f \symbfit{e}_\theta \cos\theta \right) \Delta r \Delta \theta \Delta \phi,                                            \\
-            I_\phi   & \approx r \left( \frac{\partial f}{\partial \phi} \symbfit{e}_\phi + f \frac{\partial \symbfit{e}_\phi}{\partial \phi} \right) \Delta r \Delta \theta \Delta \phi                                                                 \\
-                     & = r \left( \frac{\partial f}{\partial \phi} \symbfit{e}_\phi - f \sin\theta \symbfit{e}_r - f \cos\theta \symbfit{e}_\theta \right) \Delta r \Delta \theta \Delta \phi.
+            I_r       & \approx \symbfit{e}_r \sin\theta \left( r^2 \frac{\partial f}{\partial r} + 2r f \right) \Delta r \Delta \theta \Delta \varphi,                                                                                                      \\
+            I_\theta  & \approx r \left( \frac{\partial f}{\partial \theta} \symbfit{e}_\theta \sin\theta + f \frac{\partial \symbfit{e}_\theta}{\partial \theta} \sin\theta + f \symbfit{e}_\theta \cos\theta \right) \Delta r \Delta \theta \Delta \varphi \\
+                      & = r \left( \frac{\partial f}{\partial \theta} \symbfit{e}_\theta \sin\theta - f \symbfit{e}_r \sin\theta + f \symbfit{e}_\theta \cos\theta \right) \Delta r \Delta \theta \Delta \varphi,                                            \\
+            I_\varphi & \approx r \left( \frac{\partial f}{\partial \varphi} \symbfit{e}_\varphi + f \frac{\partial \symbfit{e}_\varphi}{\partial \varphi} \right) \Delta r \Delta \theta \Delta \varphi                                                     \\
+                      & = r \left( \frac{\partial f}{\partial \varphi} \symbfit{e}_\varphi - f \sin\theta \symbfit{e}_r - f \cos\theta \symbfit{e}_\theta \right) \Delta r \Delta \theta \Delta \varphi.
         \end{aligned}
     \end{equation}
 
     将上述三部分积分相加，所有包含纯代数 $f$ 本身的项恰好相互抵消：
     \begin{equation}
-        \oiint_{S} f \d \symbfit{S} = I_r + I_\theta + I_\phi \approx \left( r^2 \sin\theta \frac{\partial f}{\partial r} \symbfit{e}_r + r \sin\theta \frac{\partial f}{\partial \theta} \symbfit{e}_\theta + r \frac{\partial f}{\partial \phi} \symbfit{e}_\phi \right) \Delta r \Delta \theta \Delta \phi.
+        \oiint_{S} f \d \symbfit{S} = I_r + I_\theta + I_\varphi \approx \left( r^2 \sin\theta \frac{\partial f}{\partial r} \symbfit{e}_r + r \sin\theta \frac{\partial f}{\partial \theta} \symbfit{e}_\theta + r \frac{\partial f}{\partial \varphi} \symbfit{e}_\varphi \right) \Delta r \Delta \theta \Delta \varphi.
     \end{equation}
 
-    将其代入梯度的积分表示中，并除以体积微元 $\Delta V = r^2 \sin\theta \Delta r \Delta \theta \Delta \phi$，最终推导出球坐标系下的梯度公式：
+    将其代入梯度的积分表示中，并除以体积微元 $\Delta V = r^2 \sin\theta \Delta r \Delta \theta \Delta \varphi$，最终推导出球坐标系下的梯度公式：
     \begin{equation}
-        \boxed{\operatorname{grad} f = \frac{\partial f}{\partial r} \symbfit{e}_r + \frac{1}{r} \frac{\partial f}{\partial \theta} \symbfit{e}_\theta + \frac{1}{r \sin\theta} \frac{\partial f}{\partial \phi} \symbfit{e}_\phi}
+        \boxed{\operatorname{grad} f = \frac{\partial f}{\partial r} \symbfit{e}_r + \frac{1}{r} \frac{\partial f}{\partial \theta} \symbfit{e}_\theta + \frac{1}{r \sin\theta} \frac{\partial f}{\partial \varphi} \symbfit{e}_\varphi}
     \end{equation}
 \end{solution}
 
@@ -117,7 +117,7 @@
     试证明：
     \begin{enumerate}
         \item $\oiint_S \frac{\partial u}{\partial \symbfit{n}} \, \d S = 0$；
-        \item $\oiint_S u \frac{\partial u}{\partial \symbfit{n}} \, \d S = \iiint_V (\nabla u)^2 \, \d V$，其中 $\frac{\partial u}{\partial \symbfit{n}}$ 是 $u$ 沿 $S$ 外侧法向量 $\symbfit{n}$ 的方向微商。
+        \item $\oiint_S u \frac{\partial u}{\partial \symbfit{n}} \, \d S = \iiint_V (\nabla u)^2 \, \d V$，其中 $\frac{\partial u}{\partial \symbfit{n}}$ 是 $u$ 沿 $S$ 外侧法向量 $\symbfit{n}$ 的方向微商．
     \end{enumerate}
 \end{problem}
 
@@ -130,7 +130,7 @@
     \ansitem{1}
     证明如下：
 
-    利用方程 \zcref{eq:directional-derivative-1} 以及高斯公式（散度定理），将面积分转化为体积分：
+    利用 \zcref{eq:directional-derivative-1} 以及高斯公式（散度定理），将面积分转化为体积分：
     \begin{equation}
         \begin{aligned}
             \oiint_S \frac{\partial u}{\partial \symbfit{n}} \, \d S & = \oiint_S (\nabla u) \cdot \symbfit{n} \, \d S \\
@@ -138,7 +138,7 @@
                                                                      & = \iiint_V \Delta u \, \d V
         \end{aligned}
     \end{equation}
-    根据题意，在区域 $V$ 内函数 $u$ 满足拉普拉斯方程 $\Delta u = 0$。代入上式计算，即可得证：
+    根据题意，在区域 $V$ 内函数 $u$ 满足拉普拉斯方程 $\Delta u = 0$．代入上式计算，即可得证：
     \begin{equation}
         \boxed{\oiint_S \frac{\partial u}{\partial \symbfit{n}} \, \d S = 0}
     \end{equation}
@@ -146,7 +146,7 @@
     \ansitem{2}
     证明如下：
 
-    将被积函数中的方向导数使用方程 \zcref{eq:directional-derivative-1} 展开，并将 $u \nabla u$ 视作一个整体的向量场，应用高斯公式：
+    将被积函数中的方向导数使用 \zcref{eq:directional-derivative-1} 展开，并将 $u \nabla u$ 视作一个整体的向量场，应用高斯公式：
     \begin{equation}
         \oiint_S u \frac{\partial u}{\partial \symbfit{n}} \, \d S = \oiint_S (u \nabla u) \cdot \symbfit{n} \, \d S = \iiint_V \operatorname{div}(u \nabla u) \, \d V
     \end{equation}

@@ -5,16 +5,16 @@
     \begin{enumerate}
         \item $\iint_D \frac{1}{\sqrt{x^2 + y^2}} \d x \d y$，其中 $D$ 是单位圆内部；
         \item $\iint_D \frac{\d x \d y}{(1 + x + y)^\alpha}$，其中 $D$ 是第一象限，$\alpha > 2$ 为常数；
-        \item $\iint_D \max(x, y) \e^{-(x^2 + y^2)} \d x \d y$，其中 $D$ 是第一象限。
+        \item $\iint_D \max(x, y) \e^{-(x^2 + y^2)} \d x \d y$，其中 $D$ 是第一象限．
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
 
-    设 $I_1 = \iint_D \frac{1}{\sqrt{x^2 + y^2}} \d x \d y$。由于积分区域 $D$ 是单位圆内部，存在原点这一孤立奇点。
+    设 $I_1 = \iint_D \frac{1}{\sqrt{x^2 + y^2}} \d x \d y$．由于积分区域 $D$ 是单位圆内部，存在原点这一孤立奇点．
 
-    引入极坐标变换 $x = r \cos \theta$、$y = r \sin \theta$，其雅可比行列式为 $J = r$。此时积分区域可表示为
+    引入极坐标变换 $x = r \cos \theta$、$y = r \sin \theta$，其雅可比行列式为 $J = r$．此时积分区域可表示为
     \begin{equation}
         D = \{ (r, \theta) \mid 0 \leqslant r < 1,\, 0 \leqslant \theta \leqslant 2\uppi \}.
     \end{equation}
@@ -35,7 +35,7 @@
 
     \ansitem{2}
 
-    设 $I_2 = \iint_D \frac{\d x \d y}{(1 + x + y)^\alpha}$。由于积分区域 $D$ 为第一象限，即 $D = \{ (x, y) \mid x \geqslant 0,\, y \geqslant 0 \}$，此为无界区域上的反常二重积分。
+    设 $I_2 = \iint_D \frac{\d x \d y}{(1 + x + y)^\alpha}$．由于积分区域 $D$ 为第一象限，即 $D = \{ (x, y) \mid x \geqslant 0,\, y \geqslant 0 \}$，此为无界区域上的反常二重积分．
 
     由于被积函数非负，可利用累次积分进行计算：
     \begin{equation}
@@ -63,7 +63,7 @@
 
     \ansitem{3}
 
-    设 $I_3 = \iint_D \max(x, y) \e^{-(x^2 + y^2)} \d x \d y$，其中 $D = \{ (x, y) \mid x \geqslant 0,\, y \geqslant 0 \}$。
+    设 $I_3 = \iint_D \max(x, y) \e^{-(x^2 + y^2)} \d x \d y$，其中 $D = \{ (x, y) \mid x \geqslant 0,\, y \geqslant 0 \}$．
 
     利用对称性，将区域 $D$ 以直线 $y = x$ 为界划分为两个对称的子区域：
     \begin{equation}
@@ -78,7 +78,7 @@
         I_3 = 2 \iint_{D_1} x \e^{-(x^2 + y^2)} \d x \d y.
     \end{equation}
 
-    在 $D_1$ 上引入极坐标变换，有 $0 \leqslant \theta \leqslant \frac{\uppi}{4}$，$0 \leqslant r < +\infty$。代入可得
+    在 $D_1$ 上引入极坐标变换，有 $0 \leqslant \theta \leqslant \frac{\uppi}{4}$，$0 \leqslant r < +\infty$．代入可得
     \begin{equation}
         \begin{aligned}
             I_3 & = 2 \int_0^{\frac{\uppi}{4}} \d \theta \int_0^{+\infty} (r \cos \theta) \e^{-r^2} r \d r                              \\
@@ -86,7 +86,7 @@
         \end{aligned}
     \end{equation}
 
-    分别计算上述两个单变量积分。首先有
+    分别计算上述两个单变量积分．首先有
     \begin{equation}
         \int_0^{\frac{\uppi}{4}} \cos \theta \d \theta = \left[ \sin \theta \right]_0^{\frac{\uppi}{4}} = \frac{\sqrt{2}}{2}.
     \end{equation}
@@ -119,11 +119,11 @@
     \begin{equation}
         \int_{-\infty}^{+\infty} \d y \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d x = \int_{-\infty}^{+\infty} \d x \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d y = \uppi.
     \end{equation}
-    并证明函数 $\sin(x^2 + y^2)$ 在定义 13.14 意义下在 $\mathbb{R}^2$ 上的反常二重积分发散。（提示：分别考虑 $\mathbb{R}^2$ 的两个竭尽递增列 $D_n = \{ (x,y) \mid |x| \leqslant n, |y| \leqslant n \}$ 和 $B_n = \{ (x,y) \mid x^2 + y^2 \leqslant 2n\uppi \}$。）
+    并证明函数 $\sin(x^2 + y^2)$ 在定义 13.14 意义下在 $\symbb{R}^2$ 上的反常二重积分发散．（提示：分别考虑 $\symbb{R}^2$ 的两个竭尽递增列 $D_n = \{ (x,y) \mid |x| \leqslant n, |y| \leqslant n \}$ 和 $B_n = \{ (x,y) \mid x^2 + y^2 \leqslant 2n\uppi \}$．）
 \end{problem}
 
 \begin{myproof}
-    首先验证累次积分。利用三角恒等式 $\sin(x^2 + y^2) = \sin x^2 \cos y^2 + \cos x^2 \sin y^2$，计算关于 $x$ 的内层积分：
+    首先验证累次积分．利用三角恒等式 $\sin(x^2 + y^2) = \sin x^2 \cos y^2 + \cos x^2 \sin y^2$，计算关于 $x$ 的内层积分：
     \begin{equation}
         \begin{aligned}
             \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d x & = \int_{-\infty}^{+\infty} (\sin x^2 \cos y^2 + \cos x^2 \sin y^2) \d x                              \\
@@ -153,7 +153,7 @@
         \int_{-\infty}^{+\infty} \d x \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d y = \uppi.
     \end{equation}
 
-    下面证明该函数在 $\mathbb{R}^2$ 上的反常二重积分发散。
+    下面证明该函数在 $\symbb{R}^2$ 上的反常二重积分发散．
 
     考虑第一种竭尽递增列 $D_n = \{ (x,y) \mid |x| \leqslant n, |y| \leqslant n \}$，在 $D_n$ 上的二重积分为
     \begin{equation}
@@ -186,7 +186,7 @@
         \label{eq:limit-Bn}
     \end{equation}
 
-    比较 \zcref{eq:limit-Dn} 与 \zcref{eq:limit-Bn}，由于两个竭尽递增列的极限值不相等（$\uppi \neq 0$），根据定义 13.14，极限值依赖于竭尽递增列的选取。因此，函数 $\sin(x^2 + y^2)$ 在 $\mathbb{R}^2$ 上的反常二重积分发散。
+    比较 \zcref{eq:limit-Dn} 与 \zcref{eq:limit-Bn}，由于两个竭尽递增列的极限值不相等（$\uppi \neq 0$），根据定义 13.14，极限值依赖于竭尽递增列的选取．因此，函数 $\sin(x^2 + y^2)$ 在 $\symbb{R}^2$ 上的反常二重积分发散．
 \end{myproof}
 
 \endinput

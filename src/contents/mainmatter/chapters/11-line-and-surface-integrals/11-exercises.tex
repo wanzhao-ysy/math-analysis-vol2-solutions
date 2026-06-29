@@ -1,11 +1,11 @@
 \section{第 11 章综合习题}
 
 \begin{problem}{第一型曲线积分}{First-Type-Line-Integral}
-    求第一型曲线积分 $I = \int_{L} z \d s$，其中 $L$ 是曲面 $x^2 + y^2 = z^2$ 与 $y^2 = ax$ ($a > 0$) 交线上从点 $(0,0,0)$ 到 $(a, a, a\sqrt{2})$ 的弧段。
+    求第一型曲线积分 $I = \int_{L} z \d s$，其中 $L$ 是曲面 $x^2 + y^2 = z^2$ 与 $y^2 = ax$ ($a > 0$) 交线上从点 $(0,0,0)$ 到 $(a, a, a\sqrt{2})$ 的弧段．
 \end{problem}
 
 \begin{solution}
-    因为起点为 $(0,0,0)$，终点为 $(a, a, a\sqrt{2})$，所以在曲线弧段上 $x \in [0, a]$ 且 $y \ge 0$，$z \ge 0$。由曲面方程可得曲线 $L$ 的参数方程为
+    因为起点为 $(0,0,0)$，终点为 $(a, a, a\sqrt{2})$，所以在曲线弧段上 $x \in [0, a]$ 且 $y \ge 0$，$z \ge 0$．由曲面方程可得曲线 $L$ 的参数方程为
     \begin{equation}
         \label{eq:param-1}
         \begin{cases}
@@ -35,7 +35,7 @@
               & = \int_{0}^{a} \frac{1}{2} \sqrt{8x^2 + 9ax + 2a^2} \d x.
         \end{aligned}
     \end{equation}
-    作代换 $t = \frac{\sqrt{2}}{8} (16x + 9a)$，则有 $8x^2 + 9ax + 2a^2 = t^2 - \frac{17}{32} a^2$，且 $\d x = \frac{1}{2\sqrt{2}} \d t$。当 $x = 0$ 时，$t = \frac{9\sqrt{2}}{8} a$；当 $x = a$ 时，$t = \frac{25\sqrt{2}}{8} a$。代入 \zcref{eq:integral-1} 可得
+    作代换 $t = \frac{\sqrt{2}}{8} (16x + 9a)$，则有 $8x^2 + 9ax + 2a^2 = t^2 - \frac{17}{32} a^2$，且 $\d x = \frac{1}{2\sqrt{2}} \d t$．当 $x = 0$ 时，$t = \frac{9\sqrt{2}}{8} a$；当 $x = a$ 时，$t = \frac{25\sqrt{2}}{8} a$．代入 \zcref{eq:integral-1} 可得
     \begin{equation}
         \begin{aligned}
             I & = \frac{1}{4\sqrt{2}} \int_{\frac{9\sqrt{2}}{8} a}^{\frac{25\sqrt{2}}{8} a} \sqrt{t^2 - \frac{17}{32} a^2} \d t                                                                                           \\
@@ -50,16 +50,16 @@
 \end{solution}
 
 \begin{problem}{由曲线围成的区域面积}{Area-of-Curve-Enclosed-Region}
-    设 $a, b, c > 0$。求由曲线 $L : \left(\frac{x}{a}\right)^{2n+1} + \left(\frac{y}{b}\right)^{2n+1} = c\left(\frac{x}{a}\right)^n\left(\frac{y}{b}\right)^n$ 围成的区域 $D$ 的面积 $S$。
+    设 $a, b, c > 0$．求由曲线 $L : \left(\frac{x}{a}\right)^{2n+1} + \left(\frac{y}{b}\right)^{2n+1} = c\left(\frac{x}{a}\right)^n\left(\frac{y}{b}\right)^n$ 围成的区域 $D$ 的面积 $S$．
 \end{problem}
 
 \begin{solution}
-    引入变量代换 $u = \frac{x}{a}$，$v = \frac{y}{b}$。在此代换下，曲线 $L$ 的方程化为
+    引入变量代换 $u = \frac{x}{a}$，$v = \frac{y}{b}$．在此代换下，曲线 $L$ 的方程化为
     \begin{equation}
         \label{eq:curve-uv}
         u^{2n+1} + v^{2n+1} = c u^n v^n.
     \end{equation}
-    由于 $a, b, c > 0$，为使曲线围成有界闭区域，应有 $u \ge 0$ 且 $v \ge 0$。
+    由于 $a, b, c > 0$，为使曲线围成有界闭区域，应有 $u \ge 0$ 且 $v \ge 0$．
     设 $v = t u$（其中 $t \ge 0$），代入\zcref{eq:curve-uv}可得曲线的参数方程为
     \begin{equation}
         \label{eq:param-uv}
@@ -68,7 +68,7 @@
             v = \frac{c t^{n+1}}{1 + t^{2n+1}}.
         \end{cases}
     \end{equation}
-    由雅可比行列式可知，原区域 $D$ 的面积 $S$ 与 $u\text{-}v$ 平面上对应区域 $D'$ 的面积 $S'$ 满足关系 $S = ab S'$。
+    由雅可比行列式可知，原区域 $D$ 的面积 $S$ 与 $u\text{-}v$ 平面上对应区域 $D'$ 的面积 $S'$ 满足关系 $S = ab S'$．
     利用格林公式，区域 $D'$ 的面积可表示为曲线积分
     \begin{equation}
         \label{eq:green-area}
@@ -102,12 +102,12 @@
     \begin{equation*}
         \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1, \quad \frac{x^2}{b^2} + \frac{y^2}{a^2} = 1 \quad (a > b)
     \end{equation*}
-    内部公共区域的面积。
+    内部公共区域的面积．
 \end{problem}
 
 \begin{solution}
-    设两个椭圆分别为 $E_1: \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ 和 $E_2: \frac{x^2}{b^2} + \frac{y^2}{a^2} = 1$。
-    由对称性，两椭圆关于坐标轴以及直线 $y = \pm x$ 对称。因此，公共区域的面积 $S$ 等于其在第一象限中且位于直线 $y = x$ 下方部分面积 $S_1$ 的 $8$ 倍，即
+    设两个椭圆分别为 $E_1: \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ 和 $E_2: \frac{x^2}{b^2} + \frac{y^2}{a^2} = 1$．
+    由对称性，两椭圆关于坐标轴以及直线 $y = \pm x$ 对称．因此，公共区域的面积 $S$ 等于其在第一象限中且位于直线 $y = x$ 下方部分面积 $S_1$ 的 $8$ 倍，即
     \begin{equation}
         \label{eq:total-area}
         S = 8 S_1.
@@ -117,7 +117,7 @@
         \label{eq:intersection}
         \left( \frac{ab}{\sqrt{a^2 + b^2}}, \frac{ab}{\sqrt{a^2 + b^2}} \right).
     \end{equation}
-    在第一象限中且在 $y = x$ 下方的公共边界由直线 $y = x$（当 $0 \le x \le \frac{ab}{\sqrt{a^2+b^2}}$ 时）和椭圆 $E_2$ 的上支 $y = \frac{a}{b}\sqrt{b^2 - x^2}$（当 $\frac{ab}{\sqrt{a^2+b^2}} \le x \le b$ 时）构成。
+    在第一象限中且在 $y = x$ 下方的公共边界由直线 $y = x$（当 $0 \le x \le \frac{ab}{\sqrt{a^2+b^2}}$ 时）和椭圆 $E_2$ 的上支 $y = \frac{a}{b}\sqrt{b^2 - x^2}$（当 $\frac{ab}{\sqrt{a^2+b^2}} \le x \le b$ 时）构成．
     因此，部分面积 $S_1$ 可表示为
     \begin{equation}
         \label{eq:s1-integral}
@@ -128,7 +128,7 @@
         \label{eq:part1}
         \int_{0}^{\frac{ab}{\sqrt{a^2+b^2}}} x \d x = \frac{a^2 b^2}{2(a^2 + b^2)}.
     \end{equation}
-    对于第二个积分，作代换 $x = b \sin \theta$，对应的积分限变为从 $\theta_0 = \arcsin \frac{a}{\sqrt{a^2+b^2}} = \arctan \frac{a}{b}$ 到 $\frac{\uppi}{2}$。由此可得
+    对于第二个积分，作代换 $x = b \sin \theta$，对应的积分限变为从 $\theta_0 = \arcsin \frac{a}{\sqrt{a^2+b^2}} = \arctan \frac{a}{b}$ 到 $\frac{\uppi}{2}$．由此可得
     \begin{equation}
         \label{eq:part2}
         \begin{aligned}
@@ -154,11 +154,11 @@
     \begin{equation*}
         \iint_{S} f(ax + by + cz) \d S = 2 \uppi \int_{-1}^{1} f(kt) \d t,
     \end{equation*}
-    其中 $k = \sqrt{a^2 + b^2 + c^2}$。
+    其中 $k = \sqrt{a^2 + b^2 + c^2}$．
 \end{problem}
 
 \begin{myproof}
-    当 $k = 0$ 时，有 $a = b = c = 0$。此时等式左端为
+    当 $k = 0$ 时，有 $a = b = c = 0$．此时等式左端为
     \begin{equation}
         \label{eq:k0-left-1}
         \iint_{S} f(0) \d S = f(0) \cdot 4 \uppi,
@@ -168,20 +168,20 @@
         \label{eq:k0-right-1}
         2 \uppi \int_{-1}^{1} f(0) \d t = f(0) \cdot 4 \uppi.
     \end{equation}
-    两端相等，结论显然成立。
+    两端相等，结论显然成立．
 
-    当 $k > 0$ 时，作正交变换将坐标系旋转。令新坐标为 $(u, v, w)$，使得 $w$ 轴的正方向与向量 $(a, b, c)$ 的方向一致，即
+    当 $k > 0$ 时，作正交变换将坐标系旋转．令新坐标为 $(u, v, w)$，使得 $w$ 轴的正方向与向量 $(a, b, c)$ 的方向一致，即
     \begin{equation}
         \label{eq:w-def-1}
         w = \frac{ax + by + cz}{k}.
     \end{equation}
-    由于正交变换不改变球面的方程以及面积微元，在新的坐标系下，球面仍为 $u^2 + v^2 + w^2 = 1$，面积微元为 $\d S$。
+    由于正交变换不改变球面的方程以及面积微元，在新的坐标系下，球面仍为 $u^2 + v^2 + w^2 = 1$，面积微元为 $\d S$．
     因此，积分可化为
     \begin{equation}
         \label{eq:rot-integral-1}
         \iint_{S} f(ax + by + cz) \d S = \iint_{u^2 + v^2 + w^2 = 1} f(kw) \d S.
     \end{equation}
-    利用球坐标系表示单位球面，设 $w = \cos \theta$，其中 $\theta \in [0, \uppi]$，则面积微元为 $\d S = \sin \theta \d \theta \d \varphi$。将此代入 \zcref{eq:rot-integral-1}，得
+    利用球坐标系表示单位球面，设 $w = \cos \theta$，其中 $\theta \in [0, \uppi]$，则面积微元为 $\d S = \sin \theta \d \theta \d \varphi$．将此代入 \zcref{eq:rot-integral-1}，得
     \begin{equation}
         \label{eq:spherical-calc-1}
         \begin{aligned}
@@ -189,7 +189,7 @@
                                                    & = 2 \uppi \int_{0}^{\uppi} f(k \cos \theta) \sin \theta \d \theta.
         \end{aligned}
     \end{equation}
-    作代换 $t = \cos \theta$，则 $\d t = -\sin \theta \d \theta$。当 $\theta$ 从 $0$ 变到 $\uppi$ 时，$t$ 从 $1$ 变到 $-1$。代入 \zcref{eq:spherical-calc-1} 即得
+    作代换 $t = \cos \theta$，则 $\d t = -\sin \theta \d \theta$．当 $\theta$ 从 $0$ 变到 $\uppi$ 时，$t$ 从 $1$ 变到 $-1$．代入 \zcref{eq:spherical-calc-1} 即得
     \begin{equation}
         2 \uppi \int_{0}^{\uppi} f(k \cos \theta) \sin \theta \d \theta = 2 \uppi \int_{-1}^{1} f(kt) \d t.
     \end{equation}
@@ -212,12 +212,12 @@
         \label{eq:distance-2}
         d = \frac{|t|}{\sqrt{3}}.
     \end{equation}
-    当 $|t| \le \sqrt{3}$ 时，平面与球面相交，截面 $S(t)$ 是一个圆盘。其半径为
+    当 $|t| \le \sqrt{3}$ 时，平面与球面相交，截面 $S(t)$ 是一个圆盘．其半径为
     \begin{equation}
         \label{eq:radius-2}
         R = \sqrt{1 - d^2} = \sqrt{1 - \frac{t^2}{3}}.
     \end{equation}
-    在截面 $S(t)$ 上，设任意点到截面圆心的距离为 $\rho$（$0 \le \rho \le R$）。由勾股定理，该点到原点的距离的平方为
+    在截面 $S(t)$ 上，设任意点到截面圆心的距离为 $\rho$（$0 \le \rho \le R$）．由勾股定理，该点到原点的距离的平方为
     \begin{equation}
         \label{eq:dist-sq-2}
         x^2 + y^2 + z^2 = d^2 + \rho^2 = \frac{t^2}{3} + \rho^2.
@@ -227,7 +227,7 @@
         \label{eq:integrand-2}
         F(x, y, z) = 1 - \left( \frac{t^2}{3} + \rho^2 \right) = R^2 - \rho^2.
     \end{equation}
-    在平面圆盘 $S(t)$ 上采用极坐标进行积分，面积微元为 $\d S = \rho \d \rho \d \theta$。故积分值为
+    在平面圆盘 $S(t)$ 上采用极坐标进行积分，面积微元为 $\d S = \rho \d \rho \d \theta$．故积分值为
     \begin{equation}
         \label{eq:calc-integral-2}
         \begin{aligned}
@@ -243,16 +243,16 @@
 \end{myproof}
 
 \begin{problem}{三重积分}{Triple-Integral-Orthogonal-Transformation}
-    设 $f(t)$ 在 $|t| \leqslant \sqrt{a^2 + b^2 + c^2}$ 上连续。证明：
+    设 $f(t)$ 在 $|t| \leqslant \sqrt{a^2 + b^2 + c^2}$ 上连续．证明：
     \begin{equation}
         \iiint_{x^2+y^2+z^2 \leqslant 1} f\left( \frac{ax + by + cz}{\sqrt{x^2 + y^2 + z^2}} \right) \d x \d y \d z = \frac{2}{3} \uppi \int_{-1}^{1} f\left( \sqrt{a^2 + b^2 + c^2} t \right) \d t.
     \end{equation}
 \end{problem}
 
 \begin{myproof}
-    若 $a^2 + b^2 + c^2 = 0$，即 $a = b = c = 0$，等式显然成立。
+    若 $a^2 + b^2 + c^2 = 0$，即 $a = b = c = 0$，等式显然成立．
 
-    若 $a^2 + b^2 + c^2 > 0$，由于积分区域 $x^2+y^2+z^2 \leqslant 1$ 具有旋转对称性，我们可以作一个旋转（正交线性变换）自变量 $(x, y, z)$ 到新坐标 $(u, v, w)$，使得新坐标系的 $w$ 轴正方向沿着向量 $(a, b, c)$ 的方向。
+    若 $a^2 + b^2 + c^2 > 0$，由于积分区域 $x^2+y^2+z^2 \leqslant 1$ 具有旋转对称性，我们可以作一个旋转（正交线性变换）自变量 $(x, y, z)$ 到新坐标 $(u, v, w)$，使得新坐标系的 $w$ 轴正方向沿着向量 $(a, b, c)$ 的方向．
 
     在此正交变换下，对应关系为：
     \begin{equation}
@@ -262,7 +262,7 @@
     \begin{equation}
         x^2 + y^2 + z^2 = u^2 + v^2 + w^2.
     \end{equation}
-    此外，正交变换的雅可比行列式的绝对值为 $1$，积分区域保持不变。因此，原积分可化为：
+    此外，正交变换的雅可比行列式的绝对值为 $1$，积分区域保持不变．因此，原积分可化为：
     \begin{equation}\label{eq:integral-transformed-1}
         I = \iiint_{u^2+v^2+w^2 \leqslant 1} f\left( \frac{\sqrt{a^2+b^2+c^2} w}{\sqrt{u^2+v^2+w^2}} \right) \d u \d v \d w.
     \end{equation}
@@ -271,7 +271,7 @@
     \begin{equation}
         u = r \sin\theta \cos\varphi, \quad v = r \sin\theta \sin\varphi, \quad w = r \cos\theta,
     \end{equation}
-    其中 $r \in [0, 1]$，$\theta \in [0, \uppi]$，$\varphi \in [0, 2\uppi]$。代入可得：
+    其中 $r \in [0, 1]$，$\theta \in [0, \uppi]$，$\varphi \in [0, 2\uppi]$．代入可得：
     \begin{equation}
         \begin{aligned}
             I & = \int_{0}^{1} \d r \int_{0}^{2\uppi} \d\varphi \int_{0}^{\uppi} f\left( \frac{\sqrt{a^2+b^2+c^2} r \cos\theta}{r} \right) r^2 \sin\theta \d\theta \\
@@ -280,18 +280,18 @@
         \end{aligned}
     \end{equation}
 
-    令 $t = \cos\theta$，则 $\d t = -\sin\theta \d\theta$。代入上式即得：
+    令 $t = \cos\theta$，则 $\d t = -\sin\theta \d\theta$．代入上式即得：
     \begin{equation}
         I = \frac{2}{3} \uppi \int_{-1}^{1} f\left( \sqrt{a^2 + b^2 + c^2} t \right) \d t.
     \end{equation}
 \end{myproof}
 
 \begin{problem}{Laplace 方程}{Laplace-Equation-Uniqueness}
-    设 $D$ 是平面上光滑封闭曲线 $L$ 所围成的区域，$f(x,y)$ 在 $\overline{D}$ 上有二阶连续偏导数且满足 Laplace 方程 $\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = 0$。求证：当 $f(x,y)$ 在 $L$ 上恒为零时，它在 $D$ 上也恒为零。
+    设 $D$ 是平面上光滑封闭曲线 $L$ 所围成的区域，$f(x,y)$ 在 $\overline{D}$ 上有二阶连续偏导数且满足 Laplace 方程 $\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = 0$．求证：当 $f(x,y)$ 在 $L$ 上恒为零时，它在 $D$ 上也恒为零．
 \end{problem}
 
 \begin{myproof}
-    令 $P = -f \frac{\partial f}{\partial y}$，$Q = f \frac{\partial f}{\partial x}$。在区域 $D$ 上应用格林公式：
+    令 $P = -f \frac{\partial f}{\partial y}$，$Q = f \frac{\partial f}{\partial x}$．在区域 $D$ 上应用格林公式：
     \begin{equation}\label{eq:green-identity}
         \iint_D \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \d x \d y = \oint_L (P \d x + Q \d y).
     \end{equation}
@@ -313,7 +313,7 @@
         \iint_D \left[ \left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2 \right] \d x \d y = \oint_L f \left( -\frac{\partial f}{\partial y} \d x + \frac{\partial f}{\partial x} \d y \right).
     \end{equation}
 
-    由于 $f(x,y)$ 在边界曲线 $L$ 上恒为零，上述等式右侧的线积分为 $0$。从而有：
+    由于 $f(x,y)$ 在边界曲线 $L$ 上恒为零，上述等式右侧的线积分为 $0$．从而有：
     \begin{equation}
         \iint_D \left[ \left(\frac{\partial f}{\partial x}\right)^2 + \left(\frac{\partial f}{\partial y}\right)^2 \right] \d x \d y = 0.
     \end{equation}
@@ -322,17 +322,17 @@
     \begin{equation}
         \frac{\partial f}{\partial x} = 0, \quad \frac{\partial f}{\partial y} = 0.
     \end{equation}
-    这表明 $f(x,y)$ 在 $D$ 上为常数。又因为 $f(x,y)$ 在 $\overline{D}$ 上连续且在边界 $L$ 上恒为 $0$，因此该常数必为 $0$。
+    这表明 $f(x,y)$ 在 $D$ 上为常数．又因为 $f(x,y)$ 在 $\overline{D}$ 上连续且在边界 $L$ 上恒为 $0$，因此该常数必为 $0$．
 
-    综上所述， $f(x,y)$ 在 $D$ 上恒为零。
+    综上所述， $f(x,y)$ 在 $D$ 上恒为零．
 \end{myproof}
 
 \begin{problem}{调和函数的均值定理}{Mean-Value-Property-Harmonic}
-    设 $f(x,y)$ 在 $\overline{B}(P_0, R)$ 上有二阶连续偏导数且满足 Laplace 方程 $\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = 0$。求证：对 $0 \le r \le R$，有 $f(P_0) = \frac{1}{2\uppi r} \int_L f(x,y) \d s$，其中 $P_0 = (x_0,y_0)$，$L$ 是以 $P_0$ 为圆心 $r$ 为半径的圆。
+    设 $f(x,y)$ 在 $\overline{B}(P_0, R)$ 上有二阶连续偏导数且满足 Laplace 方程 $\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = 0$．求证：对 $0 \le r \le R$，有 $f(P_0) = \frac{1}{2\uppi r} \int_L f(x,y) \d s$，其中 $P_0 = (x_0,y_0)$，$L$ 是以 $P_0$ 为圆心 $r$ 为半径的圆．
 \end{problem}
 
 \begin{myproof}
-    当 $r = 0$ 时，等式显然成立。
+    当 $r = 0$ 时，等式显然成立．
     当 $0 < r \le R$ 时，引入极坐标，将圆 $L$ 参数化为
     \begin{equation}
         \label{eq:param-circle}
@@ -341,7 +341,7 @@
             y = y_0 + r \sin \theta,
         \end{cases} \quad \theta \in [0, 2\uppi].
     \end{equation}
-    此时，弧长微元为 $\d s = r \d \theta$。定义参数积分函数
+    此时，弧长微元为 $\d s = r \d \theta$．定义参数积分函数
     \begin{equation}
         \label{eq:def-I}
         I(r) = \frac{1}{2\uppi r} \int_{L} f(x,y) \d s = \frac{1}{2\uppi} \int_{0}^{2\uppi} f(x_0 + r \cos \theta, y_0 + r \sin \theta) \d \theta.
@@ -354,7 +354,7 @@
                   & = \frac{1}{2\uppi r} \int_{L} \frac{\partial f}{\partial \symbfit{n}} \d s,
         \end{aligned}
     \end{equation}
-    其中 $\symbfit{n} = (\cos \theta, \sin \theta)$ 是圆 $L$ 的外法线方向。
+    其中 $\symbfit{n} = (\cos \theta, \sin \theta)$ 是圆 $L$ 的外法线方向．
     利用格林公式（或散度定理），有
     \begin{equation}
         \int_{L} \frac{\partial f}{\partial \symbfit{n}} \d s = \iint_{B(P_0, r)} \left( \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} \right) \d x \d y.
@@ -364,22 +364,22 @@
         \label{eq:zero-deriv}
         I'(r) = 0.
     \end{equation}
-    因此，$I(r)$ 在区间 $(0, R]$ 上为常数。
+    因此，$I(r)$ 在区间 $(0, R]$ 上为常数．
     由 $f$ 的连续性，取极限可得
     \begin{equation}
         \lim_{r \to 0^+} I(r) = f(P_0).
     \end{equation}
-    故对任意 $0 \le r \le R$，均有 $I(r) = f(P_0)$。
+    故对任意 $0 \le r \le R$，均有 $I(r) = f(P_0)$．
 \end{myproof}
 
 \begin{problem}{极值原理}{Maximum-Principle-Harmonic}
-    设 $D$ 是平面上光滑封闭曲线 $L$ 所围成的区域，$f(x,y)$ 在 $\overline{D}$ 上有二阶连续偏导数且满足 Laplace 方程 $\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = 0$。求证：若 $f(x,y)$ 不是常数，则它在 $\overline{D}$ 上的最大值和最小值都只能在 $L$ 上取到。
+    设 $D$ 是平面上光滑封闭曲线 $L$ 所围成的区域，$f(x,y)$ 在 $\overline{D}$ 上有二阶连续偏导数且满足 Laplace 方程 $\frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = 0$．求证：若 $f(x,y)$ 不是常数，则它在 $\overline{D}$ 上的最大值和最小值都只能在 $L$ 上取到．
 \end{problem}
 
 \begin{myproof}
-    由于 $\overline{D}$ 是有界闭区域，且 $f(x,y)$ 在其上连续，根据有界闭区域上连续函数的性质，$f(x,y)$ 在 $\overline{D}$ 上必能取得最大值与最小值。
-    使用反证法。假设 $f(x,y)$ 在内部某点 $P_0 = (x_0, y_0) \in D$ 处取得最大值 $M$。
-    因为 $D$ 是开集，故存在 $R > 0$ 使得闭圆盘 $\overline{B}(P_0, R) \subset D$。
+    由于 $\overline{D}$ 是有界闭区域，且 $f(x,y)$ 在其上连续，根据有界闭区域上连续函数的性质，$f(x,y)$ 在 $\overline{D}$ 上必能取得最大值与最小值．
+    使用反证法．假设 $f(x,y)$ 在内部某点 $P_0 = (x_0, y_0) \in D$ 处取得最大值 $M$．
+    因为 $D$ 是开集，故存在 $R > 0$ 使得闭圆盘 $\overline{B}(P_0, R) \subset D$．
     根据调和函数的均值定理，对任意 $0 < r \le R$，有
     \begin{equation}
         \label{eq:mean-value-proof}
@@ -390,28 +390,28 @@
         \label{eq:integral-diff}
         \int_{0}^{2\uppi} \left[ M - f(x_0 + r \cos \theta, y_0 + r \sin \theta) \right] \d \theta = 0.
     \end{equation}
-    由于 $M$ 是最大值，对任意 $(x,y) \in \overline{D}$，恒有 $M - f(x,y) \ge 0$。
+    由于 $M$ 是最大值，对任意 $(x,y) \in \overline{D}$，恒有 $M - f(x,y) \ge 0$．
     被积函数连续且非负，其积分值为 $0$ 意味着被积函数在积分区间上恒为 $0$，即
     \begin{equation}
         f(x_0 + r \cos \theta, y_0 + r \sin \theta) = M, \quad \forall \theta \in [0, 2\uppi].
     \end{equation}
-    由 $r \in (0, R]$ 的任意性，可知在圆盘 $\overline{B}(P_0, R)$ 上，恒有 $f(x,y) = M$。
-    利用区域 $D$ 的连通性，可得在整个区域 $\overline{D}$ 上 $f(x,y) \equiv M$，这与 $f(x,y)$ 不是常数矛盾。
-    同理，最小值也不能在 $D$ 内部取得。
-    因此，$f(x,y)$ 在 $\overline{D}$ 上的最大值和最小值都只能在边界 $L$ 上取到。
+    由 $r \in (0, R]$ 的任意性，可知在圆盘 $\overline{B}(P_0, R)$ 上，恒有 $f(x,y) = M$．
+    利用区域 $D$ 的连通性，可得在整个区域 $\overline{D}$ 上 $f(x,y) \equiv M$，这与 $f(x,y)$ 不是常数矛盾．
+    同理，最小值也不能在 $D$ 内部取得．
+    因此，$f(x,y)$ 在 $\overline{D}$ 上的最大值和最小值都只能在边界 $L$ 上取到．
 \end{myproof}
 
 \begin{problem}{三维调和函数的均值定理}{Mean-Value-Property-3D-Harmonic}
-    设 $f(x, y, z)$ 在 $\overline{B}(P_0, R)$ 上有二阶连续偏导数且满足 $\Delta f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} = 0$。求证：对 $0 \le r \le R$，有
+    设 $f(x, y, z)$ 在 $\overline{B}(P_0, R)$ 上有二阶连续偏导数且满足 $\Delta f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2} = 0$．求证：对 $0 \le r \le R$，有
     \begin{equation*}
         f(P_0) = \frac{1}{4 \uppi r^2} \iint_{S} f(x, y, z) \d S,
     \end{equation*}
-    其中 $P_0 = (x_0, y_0, z_0)$，$S$ 是以 $P_0$ 为球心 $r$ 为半径的球面。
+    其中 $P_0 = (x_0, y_0, z_0)$，$S$ 是以 $P_0$ 为球心 $r$ 为半径的球面．
 \end{problem}
 
 \begin{myproof}
-    当 $r = 0$ 时，等式显然成立。
-    当 $0 < r \le R$ 时，设 $S_1$ 是以原点为中心的单位球面。作变量代换将 $S$ 上的积分转换到 $S_1$ 上：
+    当 $r = 0$ 时，等式显然成立．
+    当 $0 < r \le R$ 时，设 $S_1$ 是以原点为中心的单位球面．作变量代换将 $S$ 上的积分转换到 $S_1$ 上：
     \begin{equation}
         \label{eq:param-3d}
         \begin{cases}
@@ -420,7 +420,7 @@
             z = z_0 + r \xi_3,
         \end{cases}
     \end{equation}
-    其中 $\symbfit{\xi} = (\xi_1, \xi_2, \xi_3)$ 是 $S_1$ 上的点，对应的面积微元满足 $\d S = r^2 \d S_1$。
+    其中 $\symbfit{\xi} = (\xi_1, \xi_2, \xi_3)$ 是 $S_1$ 上的点，对应的面积微元满足 $\d S = r^2 \d S_1$．
     定义参数积分函数为
     \begin{equation}
         \label{eq:def-I-3d}
@@ -446,7 +446,7 @@
         \label{eq:zero-deriv-3d}
         I'(r) = 0.
     \end{equation}
-    因此，$I(r)$ 在区间 $(0, R]$ 上为常数。
+    因此，$I(r)$ 在区间 $(0, R]$ 上为常数．
     由于 $f$ 连续，取极限可得
     \begin{equation}
         \lim_{r \to 0^+} I(r) = f(P_0).

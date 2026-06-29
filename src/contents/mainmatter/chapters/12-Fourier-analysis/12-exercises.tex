@@ -1,31 +1,31 @@
 \section{第 12 章综合习题}
 
 \begin{problem}{三角级数的一致收敛性与 $L^2$ 性质}{Trigonometric-Series-Uniform-Convergence}
-    证明：级数 $\sum_{n=2}^{\infty} \frac{\sin nx}{\ln n}$ 在不包含 $2\uppi$ 整数倍的闭区间上一致收敛，但它不是任意在 $[-\uppi, \uppi]$ 上平方可积函数的 Fourier 级数。
+    证明：级数 $\sum_{n=2}^{\infty} \frac{\sin nx}{\ln n}$ 在不包含 $2\uppi$ 整数倍的闭区间上一致收敛，但它不是任意在 $[-\uppi, \uppi]$ 上平方可积函数的 Fourier 级数．
 \end{problem}
 
 \begin{myproof}
-    设 $[a, b]$ 是一个不包含 $2\uppi$ 整数倍的闭区间。此时，对任意 $x \in [a, b]$ 均有 $x \neq 2k\uppi$ ($k \in \mathbb{Z}$)，从而 $\sin\frac{x}{2} \neq 0$。由连续函数的性质，存在正常数 $M$ 使得对任意 $x \in [a, b]$，均有 $\left|\sin\frac{x}{2}\right| \geqslant M > 0$。
+    设 $[a, b]$ 是一个不包含 $2\uppi$ 整数倍的闭区间．此时，对任意 $x \in [a, b]$ 均有 $x \neq 2k\uppi$ ($k \in \symbb{Z}$)，从而 $\sin\frac{x}{2} \neq 0$．由连续函数的性质，存在正常数 $M$ 使得对任意 $x \in [a, b]$，均有 $\left|\sin\frac{x}{2}\right| \geqslant M > 0$．
 
     考虑三角部分的部和：
     \begin{equation}\label{eq:trig-bound}
         \left| \sum_{k=2}^{n} \sin kx \right| = \left| \frac{\cos\frac{3}{2}x - \cos\left(n+\frac{1}{2}\right)x}{2\sin\frac{x}{2}} \right| \leqslant \frac{1}{\left|\sin\frac{x}{2}\right|} \leqslant \frac{1}{M}.
     \end{equation}
-    这说明 $\sum_{n=2}^{\infty} \sin nx$ 的部分和在区间 $[a, b]$ 上一致有界。又因为数列 $a_n = \frac{1}{\ln n}$ 单调递减且趋于 $0$，根据 Dirichlet 一致收敛判别法，级数 $\sum_{n=2}^{\infty} \frac{\sin nx}{\ln n}$ 在 $[a, b]$ 上一致收敛。
+    这说明 $\sum_{n=2}^{\infty} \sin nx$ 的部分和在区间 $[a, b]$ 上一致有界．又因为数列 $a_n = \frac{1}{\ln n}$ 单调递减且趋于 $0$，根据 Dirichlet 一致收敛判别法，级数 $\sum_{n=2}^{\infty} \frac{\sin nx}{\ln n}$ 在 $[a, b]$ 上一致收敛．
 
-    接下来，假设该级数是某个在 $[-\uppi, \uppi]$ 上平方可积函数 $f(x) \in L^2([-\uppi, \uppi])$ 的 Fourier 级数，则其 Fourier 系数应为 $a_n = 0$ ($n \geqslant 0$)，$b_1 = 0$ 且 $b_n = \frac{1}{\ln n}$ ($n \geqslant 2$)。
+    接下来，假设该级数是某个在 $[-\uppi, \uppi]$ 上平方可积函数 $f(x) \in L^2([-\uppi, \uppi])$ 的 Fourier 级数，则其 Fourier 系数应为 $a_n = 0$ ($n \geqslant 0$)，$b_1 = 0$ 且 $b_n = \frac{1}{\ln n}$ ($n \geqslant 2$)．
 
     根据平方可积函数的 Bessel 不等式，其 Fourier 系数必须满足
     \begin{equation}\label{eq:bessel-ineq-proof}
         \sum_{n=2}^{\infty} b_n^2 = \sum_{n=2}^{\infty} \frac{1}{(\ln n)^2} \leqslant \frac{1}{\uppi} \int_{-\uppi}^{\uppi} |f(x)|^2 \d x < \infty.
     \end{equation}
-    然而，当 $n \geqslant 2$ 时，显然有 $\ln n < n$，从而 $(\ln n)^2 < n^2$。实际上，由极限性质
+    然而，当 $n \geqslant 2$ 时，显然有 $\ln n < n$，从而 $(\ln n)^2 < n^2$．实际上，由极限性质
     \begin{equation}\label{eq:limit-comp}
         \lim_{n \to \infty} \frac{\frac{1}{(\ln n)^2}}{\frac{1}{n}} = \lim_{n \to \infty} \frac{n}{(\ln n)^2} = \infty,
     \end{equation}
-    可知对足够大的 $n$，有 $\frac{1}{(\ln n)^2} > \frac{1}{n}$。因为调和级数 $\sum_{n=2}^{\infty} \frac{1}{n}$ 发散，所以正项级数 $\sum_{n=2}^{\infty} \frac{1}{(\ln n)^2}$ 亦发散，这与\zcref{eq:bessel-ineq-proof}矛盾。
+    可知对足够大的 $n$，有 $\frac{1}{(\ln n)^2} > \frac{1}{n}$．因为调和级数 $\sum_{n=2}^{\infty} \frac{1}{n}$ 发散，所以正项级数 $\sum_{n=2}^{\infty} \frac{1}{(\ln n)^2}$ 亦发散，这与\zcref{eq:bessel-ineq-proof}矛盾．
 
-    因此，该级数不是任何在 $[-\uppi, \uppi]$ 上平方可积函数的 Fourier 级数。
+    因此，该级数不是任何在 $[-\uppi, \uppi]$ 上平方可积函数的 Fourier 级数．
 \end{myproof}
 
 \begin{problem}{三角级数求和恒等式}{Trigonometric-Series-Summation-Identities}
@@ -39,8 +39,8 @@
 \begin{myproof}
     \ansitem{2}
 
-    设函数 $g(x) = -\ln \left( 2\sin \frac{x}{2} \right)$，其定义在区间 $(0, 2\uppi)$ 上。我们将其在 $[-\uppi, \uppi]$ 上开拓为偶函数，即令 $f(x) = -\ln \left( 2\left|\sin \frac{x}{2}\right| \right)$。
-    由于 $f(x)$ 是偶函数，其 Fourier 级数中正弦系数 $b_n = 0$。下面计算余弦系数。
+    设函数 $g(x) = -\ln \left( 2\sin \frac{x}{2} \right)$，其定义在区间 $(0, 2\uppi)$ 上．我们将其在 $[-\uppi, \uppi]$ 上开拓为偶函数，即令 $f(x) = -\ln \left( 2\left|\sin \frac{x}{2}\right| \right)$．
+    由于 $f(x)$ 是偶函数，其 Fourier 级数中正弦系数 $b_n = 0$．下面计算余弦系数．
     首先计算 $a_0$：
     \begin{equation}\label{eq:a0-calc}
         a_0 = \frac{2}{\uppi} \int_{0}^{\uppi} -\ln \left( 2\sin \frac{x}{2} \right) \d x.
@@ -53,18 +53,18 @@
     \begin{equation}\label{eq:a0-zero}
         \int_{0}^{\uppi} \ln \left( 2\sin \frac{x}{2} \right) \d x = \uppi \ln 2 + 2 \left( -\frac{\uppi}{2} \ln 2 \right) = 0,
     \end{equation}
-    因此 $a_0 = 0$。
+    因此 $a_0 = 0$．
 
     接下来对 $n \geqslant 1$，计算 $a_n$：
     \begin{equation}\label{eq:an-integral}
         a_n = \frac{2}{\uppi} \int_{0}^{\uppi} -\ln \left( 2\sin \frac{x}{2} \right) \cos(nx) \d x.
     \end{equation}
-    应用分部积分法，令 $u = \ln \left( 2\sin \frac{x}{2} \right)$，$\d v = \cos(nx) \d x$，则 $\d u = \frac{1}{2} \cot \frac{x}{2} \d x$，$v = \frac{\sin(nx)}{n}$。
+    应用分部积分法，令 $u = \ln \left( 2\sin \frac{x}{2} \right)$，$\d v = \cos(nx) \d x$，则 $\d u = \frac{1}{2} \cot \frac{x}{2} \d x$，$v = \frac{\sin(nx)}{n}$．
     由于在端点处有极限值 $\lim_{x \to 0^+} \ln \left( 2\sin \frac{x}{2} \right) \sin(nx) = 0$，故分部积分的第一项为零，从而有
     \begin{equation}\label{eq:an-parts}
         a_n = \frac{1}{n\uppi} \int_{0}^{\uppi} \sin(nx) \cot \frac{x}{2} \d x.
     \end{equation}
-    记 $I_n = \int_{0}^{\uppi} \sin(nx) \cot \frac{x}{2} \d x$。当 $n \geqslant 2$ 时，利用三角恒等式有
+    记 $I_n = \int_{0}^{\uppi} \sin(nx) \cot \frac{x}{2} \d x$．当 $n \geqslant 2$ 时，利用三角恒等式有
     \begin{equation}\label{eq:trig-identity}
         \sin(nx) - \sin((n-1)x) = 2 \cos\left( \left(n - \frac{1}{2}\right)x \right) \sin \frac{x}{2},
     \end{equation}
@@ -80,7 +80,7 @@
     \begin{equation}\label{eq:i1-calc}
         I_1 = \int_{0}^{\uppi} \sin x \cot \frac{x}{2} \d x = \int_{0}^{\uppi} 2 \cos^2 \frac{x}{2} \d x = \int_{0}^{\uppi} (1 + \cos x) \d x = \uppi.
     \end{equation}
-    因此对所有 $n \geqslant 1$，均有 $I_n = \uppi$。将其代入\zcref{eq:an-parts}，得
+    因此对所有 $n \geqslant 1$，均有 $I_n = \uppi$．将其代入\zcref{eq:an-parts}，得
     \begin{equation}\label{eq:an-final}
         a_n = \frac{1}{n\uppi} \cdot \uppi = \frac{1}{n}.
     \end{equation}
@@ -95,7 +95,7 @@
 
     \ansitem{1}
 
-    在已证的\zcref{eq:res-2-mid}中，对 $-\uppi < x < \uppi$，令 $y = \uppi - x$。此时显然有 $0 < y < 2\uppi$。
+    在已证的\zcref{eq:res-2-mid}中，对 $-\uppi < x < \uppi$，令 $y = \uppi - x$．此时显然有 $0 < y < 2\uppi$．
     将 $y$ 代入\zcref{eq:res-2-mid}，得
     \begin{equation}\label{eq:sub-step}
         -\ln \left( 2\sin \frac{\uppi - x}{2} \right) = \sum_{n=1}^{\infty} \frac{\cos(n(\uppi - x))}{n}.
@@ -111,10 +111,10 @@
 \end{myproof}
 
 \begin{problem}{Fourier系数的符号}{Fourier-Coefficient-Signs}
-    设 $f$ 是周期为 $2\uppi$ 的可积且绝对可积函数。证明：
+    设 $f$ 是周期为 $2\uppi$ 的可积且绝对可积函数．证明：
     \begin{enumerate}
         \item 如果 $f$ 在 $(0, 2\uppi)$ 上递减，那么 $b_n \geqslant 0$；
-        \item 如果 $f$ 在 $(0, 2\uppi)$ 上递增，那么 $b_n \leqslant 0$。
+        \item 如果 $f$ 在 $(0, 2\uppi)$ 上递增，那么 $b_n \leqslant 0$．
     \end{enumerate}
 \end{problem}
 
@@ -141,11 +141,11 @@
     \begin{equation}\label{eq:interval-check-3}
         0 < t + \frac{2j\uppi}{n} < t + \frac{(2j+1)\uppi}{n} < \frac{\uppi}{n} + \frac{(2n-1)\uppi}{n} = 2\uppi,
     \end{equation}
-    可知自变量均落在区间 $(0, 2\uppi)$ 内。因为 $f$ 在 $(0, 2\uppi)$ 上递减，所以有
+    可知自变量均落在区间 $(0, 2\uppi)$ 内．因为 $f$ 在 $(0, 2\uppi)$ 上递减，所以有
     \begin{equation}
         f\left( t + \frac{2j\uppi}{n} \right) \geqslant f\left( t + \frac{(2j+1)\uppi}{n} \right).
     \end{equation}
-    又在积分区间 $t \in \left(0, \frac{\uppi}{n}\right)$ 上有 $\sin(nt) > 0$，故被积函数非负。因此由 \zcref{eq:bn-paired-3} 可知 $b_n \geqslant 0$。
+    又在积分区间 $t \in \left(0, \frac{\uppi}{n}\right)$ 上有 $\sin(nt) > 0$，故被积函数非负．因此由 \zcref{eq:bn-paired-3} 可知 $b_n \geqslant 0$．
 
     \ansitem{2}
 
@@ -157,20 +157,20 @@
     \begin{equation}
         f\left( t + \frac{2j\uppi}{n} \right) - f\left( t + \frac{(2j+1)\uppi}{n} \right) \leqslant 0.
     \end{equation}
-    由于 $\sin(nt) > 0$，因此 \zcref{eq:bn-paired-3} 中被积函数非正，即得 $b_n \leqslant 0$。
+    由于 $\sin(nt) > 0$，因此 \zcref{eq:bn-paired-3} 中被积函数非正，即得 $b_n \leqslant 0$．
 \end{myproof}
 
 \begin{problem}{Fourier系数的渐近估计}{Fourier-Coefficient-Asymptotics}
-    设 $f$ 是周期为 $2\uppi$ 且在 $[-\uppi, \uppi]$ 上 Riemann 可积的函数。如果它在 $(-\uppi, \uppi)$ 上单调，证明：
+    设 $f$ 是周期为 $2\uppi$ 且在 $[-\uppi, \uppi]$ 上 Riemann 可积的函数．如果它在 $(-\uppi, \uppi)$ 上单调，证明：
     \begin{equation}
         a_n = O\left(\frac{1}{n}\right), \quad b_n = O\left(\frac{1}{n}\right) \quad (n \to \infty).
     \end{equation}
 \end{problem}
 
 \begin{myproof}
-    由于 $f$ 在 $[-\uppi, \uppi]$ 上 Riemann 可积，故 $f$ 在该区间上有界，从而其单侧极限 $f(-\uppi^+)$ 与 $f(\uppi^-)$ 均存在且有限。
+    由于 $f$ 在 $[-\uppi, \uppi]$ 上 Riemann 可积，故 $f$ 在该区间上有界，从而其单侧极限 $f(-\uppi^+)$ 与 $f(\uppi^-)$ 均存在且有限．
 
-    不妨设 $f$ 在 $(-\uppi, \uppi)$ 上单调递增。由积分第二中值定理，存在 $\xi_n \in [-\uppi, \uppi]$，使得
+    不妨设 $f$ 在 $(-\uppi, \uppi)$ 上单调递增．由积分第二中值定理，存在 $\xi_n \in [-\uppi, \uppi]$，使得
     \begin{equation}\label{eq:an-integral-4}
         \begin{aligned}
             \int_{-\uppi}^{\uppi} f(x) \cos(nx) \d x & = f(-\uppi^+) \int_{-\uppi}^{\xi_n} \cos(nx) \d x + f(\uppi^-) \int_{\xi_n}^{\uppi} \cos(nx) \d x                                     \\
@@ -203,18 +203,18 @@
     \begin{equation}
         b_n = O\left(\frac{1}{n}\right).
     \end{equation}
-    若 $f$ 在 $(-\uppi, \uppi)$ 上单调递减，同理可证。
+    若 $f$ 在 $(-\uppi, \uppi)$ 上单调递减，同理可证．
 \end{myproof}
 
 \begin{problem}{含参量积分的极限}{Limit-of-Parametric-Integral}
-    设 $f$ 在 $[-a, a]$ 上连续，且在 $x = 0$ 处可导。求证：
+    设 $f$ 在 $[-a, a]$ 上连续，且在 $x = 0$ 处可导．求证：
     \begin{equation}
         \lim_{n \to +\infty} \int_{-a}^{a} \frac{1 - \cos n x}{x} f(x) \d x = \int_{0}^{a} \frac{f(x) - f(-x)}{x} \d x.
     \end{equation}
 \end{problem}
 
 \begin{myproof}
-    令 $I(n) = \int_{-a}^{a} \frac{1 - \cos n x}{x} f(x) \d x$。对积分区间进行对称拆分，可得
+    令 $I(n) = \int_{-a}^{a} \frac{1 - \cos n x}{x} f(x) \d x$．对积分区间进行对称拆分，可得
     \begin{equation}\label{eq:split-5}
         \begin{aligned}
             I(n) & = \int_{-a}^{0} \frac{1 - \cos n x}{x} f(x) \d x + \int_{0}^{a} \frac{1 - \cos n x}{x} f(x) \d x      \\
@@ -234,7 +234,7 @@
     \begin{equation}
         \lim_{x \to 0^+} g(x) = \lim_{x \to 0^+} \frac{f(x) - f(0) - [f(-x) - f(0)]}{x} = f'(0) - [-f'(0)] = 2f'(0) = g(0).
     \end{equation}
-    因此 $g(x)$ 在 $[0, a]$ 上连续，从而 Riemann 可积。由 \zcref{eq:split-5}，我们有
+    因此 $g(x)$ 在 $[0, a]$ 上连续，从而 Riemann 可积．由 \zcref{eq:split-5}，我们有
     \begin{equation}
         I(n) = \int_{0}^{a} g(x) \d x - \int_{0}^{a} g(x) \cos n x \d x.
     \end{equation}
@@ -249,7 +249,7 @@
 \end{myproof}
 
 \begin{problem}{Fejer引理的推广}{Fejer-Lemma-Extension}
-    设 $f$ 在 $[a, b]$ 上 Riemann 可积。证明：
+    设 $f$ 在 $[a, b]$ 上 Riemann 可积．证明：
     \begin{equation}
         \lim_{\lambda \to +\infty} \int_{a}^{b} f(x)|\cos \lambda x| \d x = \frac{2}{\uppi} \int_{a}^{b} f(x) \d x,
     \end{equation}
@@ -263,7 +263,7 @@
     \begin{equation}\label{eq:avg-6}
         M = \frac{1}{\uppi} \int_{0}^{\uppi} |\cos t| \d t = \frac{1}{\uppi} \int_{0}^{\uppi} |\sin t| \d t = \frac{2}{\uppi}.
     \end{equation}
-    设 $g(t)$ 是以 $T$ 为周期的 Riemann 可积函数，且其平均值为 $M = \frac{1}{T} \int_{0}^{T} g(t) \d t$。我们先证明对任意 $[a, b]$ 上的 Riemann 可积函数 $f(x)$，有
+    设 $g(t)$ 是以 $T$ 为周期的 Riemann 可积函数，且其平均值为 $M = \frac{1}{T} \int_{0}^{T} g(t) \d t$．我们先证明对任意 $[a, b]$ 上的 Riemann 可积函数 $f(x)$，有
     \begin{equation}\label{eq:fejer-general-6}
         \lim_{\lambda \to +\infty} \int_{a}^{b} f(x)g(\lambda x) \d x = M \int_{a}^{b} f(x) \d x.
     \end{equation}
@@ -271,7 +271,7 @@
     \begin{equation}
         \int_{a}^{b} g(\lambda x) \d x = \frac{1}{\lambda} \int_{\lambda a}^{\lambda b} g(u) \d u.
     \end{equation}
-    设 $\lambda b - \lambda a = n T + \delta$，其中 $n = \lfloor \frac{\lambda(b-a)}{T} \rfloor \in \mathbb{Z}$， $0 \leqslant \delta < T$。利用 $g$ 的周期性，可得
+    设 $\lambda b - \lambda a = n T + \delta$，其中 $n = \lfloor \frac{\lambda(b-a)}{T} \rfloor \in \symbb{Z}$， $0 \leqslant \delta < T$．利用 $g$ 的周期性，可得
     \begin{equation}
         \begin{aligned}
             \int_{\lambda a}^{\lambda b} g(u) \d u & = n \int_{0}^{T} g(u) \d u + \int_{\lambda a}^{\lambda a + \delta} g(u) \d u \\
@@ -282,7 +282,7 @@
     \begin{equation}
         \lim_{\lambda \to +\infty} \int_{a}^{b} g(\lambda x) \d x = \lim_{\lambda \to +\infty} \left[ \frac{n T}{\lambda} M + O\left(\frac{1}{\lambda}\right) \right] = (b-a) M = M \int_{a}^{b} 1 \d x.
     \end{equation}
-    由线性性质，\zcref{eq:fejer-general-6} 对任意阶梯函数均成立。
+    由线性性质，\zcref{eq:fejer-general-6} 对任意阶梯函数均成立．
 
     对于一般的 Riemann 可积函数 $f(x)$，对任意 $\varepsilon > 0$，存在阶梯函数 $\varphi(x)$ 和 $\psi(x)$ 满足 $\varphi(x) \leqslant f(x) \leqslant \psi(x)$，且
     \begin{equation}
@@ -303,7 +303,7 @@
     \begin{equation}
         M \int_{a}^{b} \psi(x) \d x < M \int_{a}^{b} f(x) \d x + M \varepsilon,
     \end{equation}
-    由 $\varepsilon$ 的任意性，即得 \zcref{eq:fejer-general-6} 成立。
+    由 $\varepsilon$ 的任意性，即得 \zcref{eq:fejer-general-6} 成立．
 
     将 $g(t) = |\cos t|$ 和 $g(t) = |\sin t|$ 分别代入 \zcref{eq:fejer-general-6}，并结合 \zcref{eq:avg-6}，即证
     \begin{equation}
@@ -315,15 +315,15 @@
 \end{myproof}
 
 \begin{problem}{卷积与Parseval等式}{Convolution-and-Parseval}
-    设 $f$ 是周期为 $2\uppi$ 的连续函数。令
+    设 $f$ 是周期为 $2\uppi$ 的连续函数．令
     \begin{equation}
         F(x) = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f(t)f(x + t) \d t,
     \end{equation}
-    用 $a_n$、$b_n$ 和 $A_n$、$B_n$ 分别表示 $f$ 和 $F$ 的 Fourier 系数。证明：
+    用 $a_n$、$b_n$ 和 $A_n$、$B_n$ 分别表示 $f$ 和 $F$ 的 Fourier 系数．证明：
     \begin{equation}
         A_0 = a_0^2, \quad A_n = a_n^2 + b_n^2, \quad B_n = 0.
     \end{equation}
-    由此推出 $f$ 的 Parseval 等式。
+    由此推出 $f$ 的 Parseval 等式．
 \end{problem}
 
 \begin{myproof}
@@ -381,8 +381,8 @@
         \boxed{A_0 = a_0^2, \quad A_n = a_n^2 + b_n^2, \quad B_n = 0}.
     \end{equation}
 
-    下面推导 $f$ 的 Parseval 等式。
-    由于 $f$ 在 $[-\uppi, \uppi]$ 上连续且周期为 $2\uppi$，作为连续函数的自我卷积， $F(x)$ 也是周期为 $2\uppi$ 的连续函数。由于 $B_n = 0$ 且其 Fourier 系数满足 $A_n = a_n^2 + b_n^2 \geqslant 0$，且 $\sum_{n=1}^{\infty} (a_n^2 + b_n^2) < \infty$，可知 $F(x)$ 的 Fourier 级数绝对且一致收敛于自身，即对任意 $x \in \mathbb{R}$ 有
+    下面推导 $f$ 的 Parseval 等式．
+    由于 $f$ 在 $[-\uppi, \uppi]$ 上连续且周期为 $2\uppi$，作为连续函数的自我卷积， $F(x)$ 也是周期为 $2\uppi$ 的连续函数．由于 $B_n = 0$ 且其 Fourier 系数满足 $A_n = a_n^2 + b_n^2 \geqslant 0$，且 $\sum_{n=1}^{\infty} (a_n^2 + b_n^2) < \infty$，可知 $F(x)$ 的 Fourier 级数绝对且一致收敛于自身，即对任意 $x \in \symbb{R}$ 有
     \begin{equation}
         F(x) = \frac{A_0}{2} + \sum_{n=1}^{\infty} A_n \cos(nx).
     \end{equation}
@@ -397,7 +397,7 @@
 \end{myproof}
 
 \begin{problem}{Wirtinger不等式}{Wirtinger-Inequality}
-    设 $f$ 在 $[-\uppi, \uppi]$ 上连续，且在此区间上有可积且平方可积的导数 $f'$。如果 $f$ 满足
+    设 $f$ 在 $[-\uppi, \uppi]$ 上连续，且在此区间上有可积且平方可积的导数 $f'$．如果 $f$ 满足
     \begin{equation}
         f(-\uppi) = f(\uppi), \quad \int_{-\uppi}^{\uppi} f(x) \d x = 0,
     \end{equation}
@@ -405,15 +405,15 @@
     \begin{equation}
         \int_{-\uppi}^{\uppi} (f'(x))^2 \d x \geqslant \int_{-\uppi}^{\uppi} f^2(x) \d x,
     \end{equation}
-    等号当且仅当 $f(x) = \alpha \cos x + \beta \sin x$ 时成立。
+    等号当且仅当 $f(x) = \alpha \cos x + \beta \sin x$ 时成立．
 \end{problem}
 
 \begin{myproof}
-    由于 $f$ 在 $[-\uppi, \uppi]$ 上连续且 $f(-\uppi) = f(\uppi)$，可将其周期延拓为以 $2\uppi$ 为周期的连续函数。设其 Fourier 级数为
+    由于 $f$ 在 $[-\uppi, \uppi]$ 上连续且 $f(-\uppi) = f(\uppi)$，可将其周期延拓为以 $2\uppi$ 为周期的连续函数．设其 Fourier 级数为
     \begin{equation}\label{eq:f-fourier-8}
         f(x) \sim \frac{a_0}{2} + \sum_{n=1}^{\infty} (a_n \cos(nx) + b_n \sin(nx)).
     \end{equation}
-    根据已知条件 $\int_{-\uppi}^{\uppi} f(x) \d x = 0$，可知 $a_0 = 0$。因此，由 Parseval 等式有
+    根据已知条件 $\int_{-\uppi}^{\uppi} f(x) \d x = 0$，可知 $a_0 = 0$．因此，由 Parseval 等式有
     \begin{equation}\label{eq:f-parseval-8}
         \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f^2(x) \d x = \sum_{n=1}^{\infty} (a_n^2 + b_n^2).
     \end{equation}
@@ -443,12 +443,12 @@
     \begin{equation}
         n^2 (a_n^2 + b_n^2) = a_n^2 + b_n^2.
     \end{equation}
-    对于 $n \geqslant 2$，由于 $n^2 > 1$，上式成立当且仅当 $a_n = b_n = 0$。
+    对于 $n \geqslant 2$，由于 $n^2 > 1$，上式成立当且仅当 $a_n = b_n = 0$．
     因此，等号成立的充要条件是仅有 $n=1$ 处的系数可能不为零，此时 $f(x)$ 具有形式
     \begin{equation}
         f(x) = a_1 \cos x + b_1 \sin x.
     \end{equation}
-    令 $\alpha = a_1$， $\beta = b_1$，即等号当且仅当 $f(x) = \alpha \cos x + \beta \sin x$ 时成立。
+    令 $\alpha = a_1$， $\beta = b_1$，即等号当且仅当 $f(x) = \alpha \cos x + \beta \sin x$ 时成立．
 \end{myproof}
 
 \endinput

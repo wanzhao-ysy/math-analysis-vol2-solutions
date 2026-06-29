@@ -11,7 +11,7 @@
 \begin{solution}
     \ansitem{1}
 
-    方法一：直接积分。
+    方法一：直接积分．
     因为被积函数为偶函数，有
     \begin{equation}
         \begin{aligned}
@@ -25,8 +25,8 @@
         \boxed{\lim_{\alpha \to 0} \int_{-1}^{1} \sqrt{x^2 + \alpha^2} \d x = 1}
     \end{equation}
 
-    方法二：利用含参量积分的性质。
-    设 $f(x, \alpha) = \sqrt{x^2 + \alpha^2}$。在闭区域 $[-1, 1] \times [-1, 1]$ 上，$f(x, \alpha)$ 连续，因此可以将极限运算与积分运算交换顺序，即
+    方法二：利用含参量积分的性质．
+    设 $f(x, \alpha) = \sqrt{x^2 + \alpha^2}$．在闭区域 $[-1, 1] \times [-1, 1]$ 上，$f(x, \alpha)$ 连续，因此可以将极限运算与积分运算交换顺序，即
     \begin{equation}
         \begin{aligned}
             \lim_{\alpha \to 0} \int_{-1}^{1} \sqrt{x^2 + \alpha^2} \d x & = \int_{-1}^{1} \lim_{\alpha \to 0} \sqrt{x^2 + \alpha^2} \d x \\
@@ -41,8 +41,8 @@
 
     \ansitem{2}
 
-    方法一：交换极限与积分顺序。
-    设被积函数为 $f(x, \alpha) = \frac{1}{1 + x^2 + \alpha^2}$，其在全平面连续。积分限 $\phi(\alpha) = \alpha$ 与 $\psi(\alpha) = 1 + \alpha$ 在 $\alpha = 0$ 处也连续，由含参量积分的连续性，有
+    方法一：交换极限与积分顺序．
+    设被积函数为 $f(x, \alpha) = \frac{1}{1 + x^2 + \alpha^2}$，其在全平面连续．积分限 $\varphi(\alpha) = \alpha$ 与 $\psi(\alpha) = 1 + \alpha$ 在 $\alpha = 0$ 处也连续，由含参量积分的连续性，有
     \begin{equation}
         \begin{aligned}
             \lim_{\alpha \to 0} \int_{\alpha}^{1+\alpha} \frac{1}{1 + x^2 + \alpha^2} \d x & = \int_{0}^{1} \lim_{\alpha \to 0} \frac{1}{1 + x^2 + \alpha^2} \d x \\
@@ -55,7 +55,7 @@
         \boxed{\lim_{\alpha \to 0} \int_{\alpha}^{1+\alpha} \frac{1}{1 + x^2 + \alpha^2} \d x = \frac{\uppi}{4}}
     \end{equation}
 
-    方法二：直接积分。
+    方法二：直接积分．
     当 $\alpha \neq 0$ 时，直接积分可得
     \begin{equation}
         \begin{aligned}
@@ -82,14 +82,14 @@
         \item $F(\alpha) = \int_{\sin \alpha}^{\cos \alpha} \e^{\alpha \sqrt{1-x^2}} \d x$;
         \item $F(\alpha) = \int_{a+\alpha}^{b+\alpha} \frac{\sin \alpha x}{x} \d x$;
         \item $F(\alpha) = \int_{0}^{\alpha} \frac{\ln(1 + \alpha x)}{x} \d x$;
-        \item $F(\alpha) = \int_{0}^{\alpha} f(x+\alpha, x-\alpha) \d x$（$f(u,v)$ 有连续偏导数）。
+        \item $F(\alpha) = \int_{0}^{\alpha} f(x+\alpha, x-\alpha) \d x$（$f(u,v)$ 有连续偏导数）．
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
 
-    设 $\alpha \in \left(-\frac{\uppi}{2}, \frac{\uppi}{2}\right)$。利用含参量积分的求导公式，有
+    设 $\alpha \in \left(-\frac{\uppi}{2}, \frac{\uppi}{2}\right)$．利用含参量积分的求导公式，有
     \begin{equation}
         \begin{aligned}
             F'(\alpha) & = \e^{\alpha \sqrt{1 - \cos^2 \alpha}} \cdot (\cos \alpha)' - \e^{\alpha \sqrt{1 - \sin^2 \alpha}} \cdot (\sin \alpha)' + \int_{\sin \alpha}^{\cos \alpha} \frac{\partial}{\partial \alpha} \left( \e^{\alpha \sqrt{1 - x^2}} \right) \d x \\
@@ -157,7 +157,7 @@
     \begin{equation}
         y'' + k^2 y = f(x),
     \end{equation}
-    其中 $c$ 与 $k$ 为常数（$k \neq 0$）。
+    其中 $c$ 与 $k$ 为常数（$k \neq 0$）．
 \end{problem}
 
 \begin{myproof}
@@ -216,7 +216,7 @@
                                           & = \int_0^{\frac{\uppi}{2}} \frac{2a \tan^2 x}{a^2 \tan^2 x + b^2} \d x.
         \end{aligned}
     \end{equation}
-    令 $t = \tan x$，则 $\d x = \frac{\d t}{1 + t^2}$。代入 \zcref{eq:int1-deriv}，得：
+    令 $t = \tan x$，则 $\d x = \frac{\d t}{1 + t^2}$．代入 \zcref{eq:int1-deriv}，得：
     \begin{equation}
         \begin{aligned}
             \frac{\partial I}{\partial a} & = \int_0^{+\infty} \frac{2a t^2}{(a^2 t^2 + b^2)(1 + t^2)} \d t                                           \\
@@ -229,11 +229,11 @@
     \begin{equation}
         I(a, b) = \uppi \ln(a + b) + C(b).
     \end{equation}
-    由对称性，$I(b, b) = \uppi \ln(2b) + C(b)$。又因为直接积分可得：
+    由对称性，$I(b, b) = \uppi \ln(2b) + C(b)$．又因为直接积分可得：
     \begin{equation}
         I(b, b) = \int_0^{\frac{\uppi}{2}} \ln(b^2) \d x = \uppi \ln b.
     \end{equation}
-    因此 $C(b) = -\uppi \ln 2$。从而有：
+    因此 $C(b) = -\uppi \ln 2$．从而有：
     \begin{equation}
         \boxed{I(a, b) = \uppi \ln \frac{a + b}{2}}.
     \end{equation}
@@ -255,7 +255,7 @@
     \begin{equation}
         J = \int_0^{\uppi} \frac{\d x}{1 - 2a \cos x + a^2}.
     \end{equation}
-    令 $t = \tan \frac{x}{2}$，则 $\d x = \frac{2\d t}{1 + t^2}$，$\cos x = \frac{1 - t^2}{1 + t^2}$。代入可得：
+    令 $t = \tan \frac{x}{2}$，则 $\d x = \frac{2\d t}{1 + t^2}$，$\cos x = \frac{1 - t^2}{1 + t^2}$．代入可得：
     \begin{equation}
         \begin{aligned}
             J & = \int_0^{+\infty} \frac{2\d t}{(1 + a^2)(1 + t^2) - 2a(1 - t^2)}                          \\
@@ -268,7 +268,7 @@
     \begin{equation}
         I'(a) = \frac{\uppi}{a} + \frac{a^2 - 1}{a} \cdot \frac{\uppi}{1 - a^2} = 0.
     \end{equation}
-    从而 $I(a)$ 在 $(0, 1)$ 上为常数。由 $I(0) = 0$ 以及积分关于 $a$ 在 $[0, 1)$ 上的连续性，可得：
+    从而 $I(a)$ 在 $(0, 1)$ 上为常数．由 $I(0) = 0$ 以及积分关于 $a$ 在 $[0, 1)$ 上的连续性，可得：
     \begin{equation}
         \boxed{I(a) = 0}.
     \end{equation}
@@ -283,7 +283,7 @@
     \begin{equation}\label{eq:int3-deriv}
         I'(a) = \int_0^{\frac{\uppi}{2}} \frac{1}{1 + a^2 \tan^2 x} \d x.
     \end{equation}
-    令 $t = \tan x$，则 $\d x = \frac{\d t}{1 + t^2}$。代入 \zcref{eq:int3-deriv}，得：
+    令 $t = \tan x$，则 $\d x = \frac{\d t}{1 + t^2}$．代入 \zcref{eq:int3-deriv}，得：
     \begin{equation}
         \begin{aligned}
             I'(a) & = \int_0^{+\infty} \frac{\d t}{(1 + a^2 t^2)(1 + t^2)}                                               \\

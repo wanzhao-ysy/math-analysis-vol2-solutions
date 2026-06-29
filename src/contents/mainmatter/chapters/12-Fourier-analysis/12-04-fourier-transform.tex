@@ -90,7 +90,7 @@
         \end{tikzpicture}
     \end{center}
 
-    由于 $f(x)$ 为奇函数，则 $A(\omega) = 0$。正弦系数为
+    由于 $f(x)$ 为奇函数，则 $A(\omega) = 0$．正弦系数为
     \begin{equation}\label{eq:p1s2-B}
         \begin{aligned}
             B(\omega) & = \frac{2}{\uppi} \int_{0}^{\infty} f(t) \sin(\omega t) \d t \\
@@ -117,7 +117,7 @@
         \end{tikzpicture}
     \end{center}
 
-    由于 $f(x)$ 为偶函数，则 $B(\omega) = 0$。余弦系数为
+    由于 $f(x)$ 为偶函数，则 $B(\omega) = 0$．余弦系数为
     \begin{equation}\label{eq:p1s3-A}
         \begin{aligned}
             A(\omega) & = \frac{2}{\uppi} \int_0^{\infty} \frac{\cos(\omega t)}{a^2+t^2} \d t \\
@@ -163,13 +163,13 @@
 
     已知基本变换对：
     \begin{equation}\label{eq:p2s2-basic}
-        \mathcal{F}[\e^{-a|x|}] = \frac{2a}{a^2+\omega^2}.
+        \symcal{F}[\e^{-a|x|}] = \frac{2a}{a^2+\omega^2}.
     \end{equation}
     利用欧拉公式 $\cos bx = \frac{1}{2}\left( \e^{\ii bx} + \e^{-\ii bx} \right)$ 和频移性质，可得
     \begin{equation}\label{eq:p2s2-shift}
         \begin{aligned}
-            F(\omega) & = \frac{1}{2} \left[ \mathcal{F}[\e^{-a|x|}]_{\omega \to \omega - b} + \mathcal{F}[\e^{-a|x|}]_{\omega \to \omega + b} \right] \\
-                      & = \frac{a}{a^2+(\omega-b)^2} + \frac{a}{a^2+(\omega+b)^2}                                                                      \\
+            F(\omega) & = \frac{1}{2} \left[ \symcal{F}[\e^{-a|x|}]_{\omega \to \omega - b} + \symcal{F}[\e^{-a|x|}]_{\omega \to \omega + b} \right] \\
+                      & = \frac{a}{a^2+(\omega-b)^2} + \frac{a}{a^2+(\omega+b)^2}                                                                    \\
                       & = \frac{2a(a^2+\omega^2+b^2)}{(a^2+\omega^2+b^2)^2 - 4b^2\omega^2}.
         \end{aligned}
     \end{equation}
@@ -197,17 +197,17 @@
                       & = \frac{2\cos\left(\frac{\omega\uppi}{2}\right)}{1-\omega^2}.
         \end{aligned}
     \end{equation}
-    当 $\omega = \pm 1$ 时，由极限或直接积分可得 $F(\pm 1) = \frac{\uppi}{2}$，这与\zcref{eq:p2s3-int}的极限值一致。因此
+    当 $\omega = \pm 1$ 时，由极限或直接积分可得 $F(\pm 1) = \frac{\uppi}{2}$，这与\zcref{eq:p2s3-int}的极限值一致．因此
     \begin{equation}
         \boxed{F(\omega) = \frac{2\cos\left(\frac{\omega\uppi}{2}\right)}{1-\omega^2}}
     \end{equation}
 \end{solution}
 
 \begin{problem}{Fourier积分表示}{Fourier-Integral-Representation-Extension}
-    按指定的要求将函数 $f(x) = \e^{-x} \ (0 \leqslant x < +\infty)$ 表示成 Fourier 积分。
+    按指定的要求将函数 $f(x) = \e^{-x} \ (0 \leqslant x < +\infty)$ 表示成 Fourier 积分．
     \begin{enumerate}
         \item 用偶延拓；
-        \item 用奇延拓。
+        \item 用奇延拓．
     \end{enumerate}
 \end{problem}
 
@@ -227,7 +227,7 @@
         \end{tikzpicture}
     \end{center}
 
-    由于 $f_e(x)$ 为偶函数，其正弦系数 $B(\omega) = 0$。余弦系数为
+    由于 $f_e(x)$ 为偶函数，其正弦系数 $B(\omega) = 0$．余弦系数为
     \begin{equation}
         \begin{aligned}
             A(\omega) & = \frac{2}{\uppi} \int_{0}^{\infty} \e^{-t} \cos(\omega t) \d t \\
@@ -258,7 +258,7 @@
         \end{tikzpicture}
     \end{center}
 
-    由于 $f_o(x)$ 为奇函数，其余弦系数 $A(\omega) = 0$。正弦系数为
+    由于 $f_o(x)$ 为奇函数，其余弦系数 $A(\omega) = 0$．正弦系数为
     \begin{equation}
         \begin{aligned}
             B(\omega) & = \frac{2}{\uppi} \int_{0}^{\infty} \e^{-t} \sin(\omega t) \d t \\
@@ -272,7 +272,7 @@
 \end{solution}
 
 \begin{problem}{Fourier变换与狄利克雷积分}{Fourier-Transform-Dirichlet-Integral}
-    求函数 $f(x) = \begin{cases} 0, & |x| > 1, \\ 1, & |x| < 1 \end{cases}$ 的 Fourier 变换。由此证明
+    求函数 $f(x) = \begin{cases} 0, & |x| > 1, \\ 1, & |x| < 1 \end{cases}$ 的 Fourier 变换．由此证明
     \begin{equation}
         \int_{0}^{+\infty} \frac{\sin \alpha \cos \alpha x}{\alpha} \d\alpha = \begin{cases} \frac{\uppi}{2}, & |x| < 1, \\ \frac{\uppi}{4}, & |x| = 1, \\ 0, & |x| > 1. \end{cases}
     \end{equation}
@@ -320,7 +320,7 @@
     \begin{equation}\label{eq:sub-4}
         \frac{1}{2\uppi} \int_{-\infty}^{\infty} \frac{2\sin\omega}{\omega} (\cos(\omega x) + \ii\sin(\omega x)) \d\omega = \frac{f(x^+) + f(x^-)}{2}.
     \end{equation}
-    由于虚部被积函数 $\frac{\sin\omega \sin(\omega x)}{\omega}$ 关于 $\omega$ 是奇函数，在对称区间上的积分为 $0$。而实部被积函数为偶函数，故\zcref{eq:sub-4}可化简为
+    由于虚部被积函数 $\frac{\sin\omega \sin(\omega x)}{\omega}$ 关于 $\omega$ 是奇函数，在对称区间上的积分为 $0$．而实部被积函数为偶函数，故\zcref{eq:sub-4}可化简为
     \begin{equation}\label{eq:even-int-5}
         \frac{1}{\uppi} \int_{-\infty}^{\infty} \frac{\sin\omega \cos(\omega x)}{\omega} \d\omega = \frac{f(x^+) + f(x^-)}{2}.
     \end{equation}
@@ -332,7 +332,7 @@
     \begin{enumerate}
         \item 当 $|x| < 1$ 时， $f(x)$ 连续且 $f(x) = 1$， 故 $\frac{f(x^+) + f(x^-)}{2} = 1$；
         \item 当 $|x| = 1$ 时， $x = \pm 1$ 为跳跃间断点， 故 $\frac{f(x^+) + f(x^-)}{2} = \frac{1+0}{2} = \frac{1}{2}$；
-        \item 当 $|x| > 1$ 时， $f(x)$ 连续且 $f(x) = 0$， 故 $\frac{f(x^+) + f(x^-)}{2} = 0$。
+        \item 当 $|x| > 1$ 时， $f(x)$ 连续且 $f(x) = 0$， 故 $\frac{f(x^+) + f(x^-)}{2} = 0$．
     \end{enumerate}
     将上述讨论代入\zcref{eq:alpha-int-6}，即证
     \begin{equation}
@@ -341,7 +341,7 @@
 \end{solution}
 
 \begin{problem}{Fourier逆变换}{Fourier-Inverse-Transform}
-    求函数 $F(\lambda) = \lambda\e^{-\beta |\lambda|} \ (\beta > 0)$ 的 Fourier 逆变换。
+    求函数 $F(\lambda) = \lambda\e^{-\beta |\lambda|} \ (\beta > 0)$ 的 Fourier 逆变换．
 \end{problem}
 
 \begin{solution}

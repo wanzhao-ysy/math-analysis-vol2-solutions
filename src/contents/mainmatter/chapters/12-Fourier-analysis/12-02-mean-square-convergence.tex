@@ -1,0 +1,610 @@
+\section{平方平均收敛}
+
+\begin{problem}{Parseval等式与级数求和}{Parseval-Series-Sum}
+    将 $f(x) = \begin{cases} 1, & |x| < a, \\ 0, & a \leqslant |x| < \uppi \end{cases}$ 展开成 Fourier 级数，然后利用 Parseval 等式求下列级数的和：
+    \begin{enumerate}
+        \item $\sum_{n=1}^{\infty} \frac{\sin^2 na}{n^2}$;
+        \item $\sum_{n=1}^{\infty} \frac{\cos^2 na}{n^2}$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    图形如下：
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \draw[->] (-7,0) -- (7,0) node[right] {$x$};
+            \draw[->] (0,-0.5) -- (0,2) node[above] {$y$};
+
+            \node[below left] at (0,0) {$0$};
+            \node[below] at (1.5,0) {$a$};
+            \node[below] at (-1.5,0) {$-a$};
+            \node[below] at (3.1416,0) {$\uppi$};
+            \node[below] at (-3.1416,0) {$-\uppi$};
+            \node[below] at (6.2832,0) {$2\uppi$};
+            \node[below] at (-6.2832,0) {$-2\uppi$};
+
+            \draw[dashed] (-3.1416, 0) -- (-3.1416, 1.2);
+            \draw[dashed] (3.1416, 0) -- (3.1416, 1.2);
+
+            % Period 0: [-pi, pi]
+            \draw[thick, blue] (-3.1416, 0) -- (-1.5, 0);
+            \draw[thick, blue] (-1.5, 1) -- (1.5, 1);
+            \draw[thick, blue] (1.5, 0) -- (3.1416, 0);
+
+            \draw[fill=blue] (-1.5, 0) circle (2pt);
+            \draw[fill=blue] (1.5, 0) circle (2pt);
+            \draw[fill=white, draw=blue, thick] (-1.5, 1) circle (2pt);
+            \draw[fill=white, draw=blue, thick] (1.5, 1) circle (2pt);
+
+            % Period 1: [pi, 3pi]
+            \draw[thick, blue] (3.1416, 0) -- (4.7832, 0);
+            \draw[thick, blue] (4.7832, 1) -- (7, 1);
+
+            \draw[fill=blue] (4.7832, 0) circle (2pt);
+            \draw[fill=white, draw=blue, thick] (4.7832, 1) circle (2pt);
+
+            % Period -1: [-3pi, -pi]
+            \draw[thick, blue] (-7, 1) -- (-4.7832, 1);
+            \draw[thick, blue] (-4.7832, 0) -- (-3.1416, 0);
+
+            \draw[fill=blue] (-4.7832, 0) circle (2pt);
+            \draw[fill=white, draw=blue, thick] (-4.7832, 1) circle (2pt);
+
+            \node[left] at (0,1) {$1$};
+        \end{tikzpicture}
+    \end{center}
+
+    首先计算 $f(x)$ 的 Fourier 系数。由于 $f(x)$ 为偶函数，其正弦系数对所有 $n \geqslant 1$ 均有 $b_n = 0$。余弦系数为
+    \begin{equation}\label{eq:a0-1}
+        a_0 = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f(x) \d x = \frac{1}{\uppi} \int_{-a}^{a} 1 \d x = \frac{2a}{\uppi},
+    \end{equation}
+    以及对 $n \geqslant 1$：
+    \begin{equation}\label{eq:an-2}
+        a_n = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f(x) \cos(nx) \d x = \frac{1}{\uppi} \int_{-a}^{a} \cos(nx) \d x = \frac{2\sin(na)}{n\uppi}.
+    \end{equation}
+    因此，$f(x)$ 的 Fourier 展开式为
+    \begin{equation}\label{eq:fourier-3}
+        f(x) \sim \frac{a}{\uppi} + \sum_{n=1}^{\infty} \frac{2\sin(na)}{n\uppi} \cos(nx).
+    \end{equation}
+
+    根据 Parseval 等式：
+    \begin{equation}\label{eq:parseval-4}
+        \frac{a_0^2}{2} + \sum_{n=1}^{\infty} (a_n^2 + b_n^2) = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} |f(x)|^2 \d x.
+    \end{equation}
+    将系数代入\zcref{eq:parseval-4}式，得
+    \begin{equation}\label{eq:subs-5}
+        \frac{2a^2}{\uppi^2} + \sum_{n=1}^{\infty} \frac{4\sin^2(na)}{n^2\uppi^2} = \frac{1}{\uppi} \int_{-a}^{a} 1 \d x = \frac{2a}{\uppi}.
+    \end{equation}
+
+    \ansitem{1}
+
+    对\zcref{eq:subs-5}式两边同乘以 $\frac{\uppi^2}{4}$ 并移项，可得
+    \begin{equation}\label{eq:sinsum-6}
+        \sum_{n=1}^{\infty} \frac{\sin^2(na)}{n^2} = \frac{\uppi^2}{4} \left( \frac{2a}{\uppi} - \frac{2a^2}{\uppi^2} \right).
+    \end{equation}
+    整理即得
+    \begin{equation}
+        \boxed{\sum_{n=1}^{\infty} \frac{\sin^2 na}{n^2} = \frac{a(\uppi - a)}{2}}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用恒等式 $\cos^2(na) = 1 - \sin^2(na)$，有
+    \begin{equation}\label{eq:cossum-7}
+        \sum_{n=1}^{\infty} \frac{\cos^2(na)}{n^2} = \sum_{n=1}^{\infty} \frac{1}{n^2} - \sum_{n=1}^{\infty} \frac{\sin^2(na)}{n^2}.
+    \end{equation}
+    已知 $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\uppi^2}{6}$，代入\zcref{eq:cossum-7}与第一问结果，得
+    \begin{equation}
+        \boxed{\sum_{n=1}^{\infty} \frac{\cos^2 na}{n^2} = \frac{\uppi^2}{6} - \frac{a(\uppi - a)}{2}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Fourier系数的收敛性}{Fourier-Coefficients-Convergence}
+    设 $f(x)$ 是 $[-\uppi, \uppi]$ 上可积且平方可积的函数，$a_n, b_n$ 是 $f(x)$ 的 Fourier 系数。求证：$\sum_{n=1}^{\infty} \frac{a_n}{n}$ 和 $\sum_{n=1}^{\infty} \frac{b_n}{n}$ 收敛。
+\end{problem}
+
+\begin{myproof}
+    因为 $f(x)$ 在 $[-\uppi, \uppi]$ 上平方可积，由 Bessel 不等式可知，其 Fourier 系数满足
+    \begin{equation}
+        \frac{a_0^2}{2} + \sum_{n=1}^{\infty} (a_n^2 + b_n^2) \leqslant \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f^2(x) \d x < \infty.
+    \end{equation}
+    由此可知，正项级数 $\sum_{n=1}^{\infty} a_n^2$ 与 $\sum_{n=1}^{\infty} b_n^2$ 均收敛。
+
+    根据 Cauchy-Schwarz 不等式，有
+    \begin{equation}\label{eq:cauchy-2}
+        \sum_{n=1}^{\infty} \left| \frac{a_n}{n} \right| \leqslant \left( \sum_{n=1}^{\infty} a_n^2 \right)^{1/2} \left( \sum_{n=1}^{\infty} \frac{1}{n^2} \right)^{1/2}.
+    \end{equation}
+    由于 $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\uppi^2}{6} < \infty$，且 $\sum_{n=1}^{\infty} a_n^2 < \infty$，故\zcref{eq:cauchy-2}的右端项收敛。
+    因此，级数 $\sum_{n=1}^{\infty} \frac{a_n}{n}$ 绝对收敛，进而收敛。
+
+    同理，对于级数 $\sum_{n=1}^{\infty} \frac{b_n}{n}$，有
+    \begin{equation}
+        \sum_{n=1}^{\infty} \left| \frac{b_n}{n} \right| \leqslant \left( \sum_{n=1}^{\infty} b_n^2 \right)^{1/2} \left( \sum_{n=1}^{\infty} \frac{1}{n^2} \right)^{1/2} < \infty.
+    \end{equation}
+    所以级数 $\sum_{n=1}^{\infty} \frac{b_n}{n}$ 亦绝对收敛，进而收敛。
+\end{myproof}
+
+\begin{problem}{Fourier级数计算与求和}{Fourier-Series-Summation}
+    求周期为 $2\uppi$ 函数 $f(x) = \begin{cases} -1, & -\uppi < x < 0, \\ 1, & 0 \leqslant x \leqslant \uppi \end{cases}$ 的 Fourier 级数，并求 $\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2}$ 的和以及 $\sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2} \quad (0 \leqslant x \leqslant \uppi)$ 的和。
+\end{problem}
+
+\begin{solution}
+    图形如下：
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \draw[->] (-7,0) -- (7,0) node[right] {$x$};
+            \draw[->] (0,-2) -- (0,2) node[above] {$y$};
+
+            \node[below left] at (0,0) {$0$};
+            \node[below] at (3.1416,0) {$\uppi$};
+            \node[below] at (-3.1416,0) {$-\uppi$};
+            \node[below] at (6.2832,0) {$2\uppi$};
+            \node[below] at (-6.2832,0) {$-2\uppi$};
+
+            \draw[dashed] (-3.1416, -1.5) -- (-3.1416, 1.5);
+            \draw[dashed] (3.1416, -1.5) -- (3.1416, 1.5);
+
+            % Period 0: (-pi, 0) is -1, [0, pi] is 1
+            \draw[thick, blue] (-3.1416, -1) -- (0, -1);
+            \draw[thick, blue] (0, 1) -- (3.1416, 1);
+            \draw[fill=white, draw=blue, thick] (-3.1416, -1) circle (2pt);
+            \draw[fill=white, draw=blue, thick] (0, -1) circle (2pt);
+            \draw[fill=blue] (0, 1) circle (2pt);
+            \draw[fill=blue] (3.1416, 1) circle (2pt);
+
+            % Period 1: (pi, 2pi) is -1, [2pi, 3pi] is 1
+            \draw[thick, blue] (3.1416, -1) -- (6.2832, -1);
+            \draw[thick, blue] (6.2832, 1) -- (7, 1);
+            \draw[fill=white, draw=blue, thick] (3.1416, -1) circle (2pt);
+            \draw[fill=white, draw=blue, thick] (6.2832, -1) circle (2pt);
+            \draw[fill=blue] (6.2832, 1) circle (2pt);
+
+            % Period -1: (-3pi, -2pi) is -1, [-2pi, -pi] is 1
+            \draw[thick, blue] (-7, -1) -- (-6.2832, -1);
+            \draw[thick, blue] (-6.2832, 1) -- (-3.1416, 1);
+            \draw[fill=white, draw=blue, thick] (-6.2832, -1) circle (2pt);
+            \draw[fill=blue] (-6.2832, 1) circle (2pt);
+            \draw[fill=blue] (-3.1416, 1) circle (2pt);
+
+            \node[left] at (0, 1) {$1$};
+            \node[left] at (0, -1) {$-1$};
+        \end{tikzpicture}
+    \end{center}
+
+    首先计算 $f(x)$ 的 Fourier 系数。显然 $f(x)$ 为奇函数（除去个别间断点外），故其余弦系数均为零，即对所有 $n \geqslant 0$ 有 $a_n = 0$。正弦系数为
+    \begin{equation}\label{eq:fourier-coeff-3}
+        \begin{aligned}
+            b_n & = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f(x) \sin(nx) \d x \\
+                & = \frac{2}{\uppi} \int_{0}^{\uppi} \sin(nx) \d x           \\
+                & = \frac{2(1 - (-1)^n)}{n\uppi}.
+        \end{aligned}
+    \end{equation}
+    由此可得
+    \begin{equation}\label{eq:bn-cases-3}
+        b_n = \begin{cases} \frac{4}{n\uppi}, & n = 2k-1, \\ 0, & n = 2k. \end{cases}
+    \end{equation}
+    故 $f(x)$ 的 Fourier 级数展开式为
+    \begin{equation}
+        \boxed{f(x) \sim \sum_{n=1}^{\infty} \frac{4}{(2n-1)\uppi} \sin(2n-1)x}.
+    \end{equation}
+
+    其次，应用 Parseval 等式：
+    \begin{equation}\label{eq:parseval-3}
+        \sum_{n=1}^{\infty} b_n^2 = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} |f(x)|^2 \d x.
+    \end{equation}
+    代入系数得
+    \begin{equation}\label{eq:parseval-calc-3}
+        \sum_{n=1}^{\infty} \frac{16}{(2n-1)^2\uppi^2} = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} 1 \d x = 2.
+    \end{equation}
+    整理上式，可得第一个级数的和为
+    \begin{equation}
+        \boxed{\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} = \frac{\uppi^2}{8}}.
+    \end{equation}
+
+    最后，定义辅助函数 $F(x) = \int_{0}^{x} f(t) \d t = |x|$（当 $x \in [-\uppi, \uppi]$ 时）。由于 $F(x)$ 连续且分段光滑，其 Fourier 级数可以由 $f(x)$ 逐项积分得到：
+    \begin{equation}\label{eq:term-integration-3}
+        \begin{aligned}
+            |x| & = \sum_{n=1}^{\infty} \frac{4}{(2n-1)\uppi} \int_{0}^{x} \sin(2n-1)t \d t                                                    \\
+                & = \sum_{n=1}^{\infty} \frac{4}{(2n-1)^2\uppi} \left[ 1 - \cos(2n-1)x \right]                                                 \\
+                & = \frac{4}{\uppi} \sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} - \frac{4}{\uppi} \sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2}.
+        \end{aligned}
+    \end{equation}
+    将前面求得的 $\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} = \frac{\uppi^2}{8}$ 代入\zcref{eq:term-integration-3}式，得
+    \begin{equation}\label{eq:fx-subs-3}
+        |x| = \frac{\uppi}{2} - \frac{4}{\uppi} \sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2}.
+    \end{equation}
+    当 $0 \leqslant x \leqslant \uppi$ 时，有 $|x| = x$，将其代入\zcref{eq:fx-subs-3}式移项整理，即得第二个级数的和为
+    \begin{equation}
+        \boxed{\sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2} = \frac{\uppi(\uppi - 2x)}{8}}.
+    \end{equation}
+\end{solution}
+
+\begin{problem}{正交函数系证明}{Orthogonal-Function-Systems-Proof}
+    证明下列函数系是正交系，并求其对应的标准正交系。
+    \begin{enumerate}
+        \item $1, \cos x, \cos 2x, \cdots, \cos nx, \cdots$ 在 $[0, \uppi]$ 上；
+        \item $\sin \frac{\uppi}{l}x, \sin \frac{2\uppi}{l}x, \cdots, \sin \frac{n\uppi}{l}x, \cdots$ 在 $[0, l]$ 上；
+        \item $\sin x, \sin 3x, \cdots, \sin(2n+1)x, \cdots$ 在 $[0, \frac{\uppi}{2}]$ 上；
+        \item $\cos \frac{\uppi}{2l}x, \cos \frac{3\uppi}{2l}x, \cdots, \cos \frac{(2n+1)\uppi}{2l}x, \cdots$ 在 $[0, l]$ 上。
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+    该函数系在 $[0, \uppi]$ 上是正交系。
+
+    设 $\phi_0(x) = 1$，$\phi_n(x) = \cos(nx)$ ($n \geqslant 1$)。
+    对于 $p \neq q$ ($p, q \geqslant 0$)，当 $p=0$ 且 $q \geqslant 1$ 时：
+    \begin{equation}\label{eq:orth-1-1}
+        \int_{0}^{\uppi} 1 \cdot \cos(qx) \d x = \left. \frac{\sin(qx)}{q} \right|_{0}^{\uppi} = 0.
+    \end{equation}
+    当 $p \geqslant 1$ 且 $q \geqslant 1$ 时：
+    \begin{equation}\label{eq:orth-1-2}
+        \int_{0}^{\uppi} \cos(px) \cos(qx) \d x = \frac{1}{2} \int_{0}^{\uppi} [\cos(p+q)x + \cos(p-q)x] \d x = 0.
+    \end{equation}
+    故该函数系是正交系。其各元素的模方为
+    \begin{equation}\label{eq:norm-1-1}
+        \|\phi_0\|^2 = \int_{0}^{\uppi} 1 \d x = \uppi,
+    \end{equation}
+    \begin{equation}\label{eq:norm-1-2}
+        \|\phi_n\|^2 = \int_{0}^{\uppi} \cos^2(nx) \d x = \frac{\uppi}{2} \quad (n \geqslant 1).
+    \end{equation}
+    对应的标准正交系为
+    \begin{equation}
+        \boxed{\frac{1}{\sqrt{\uppi}}, \sqrt{\frac{2}{\uppi}}\cos x, \sqrt{\frac{2}{\uppi}}\cos 2x, \cdots, \sqrt{\frac{2}{\uppi}}\cos nx, \cdots}.
+    \end{equation}
+
+    \ansitem{2}
+    该函数系在 $[0, l]$ 上是正交系。
+
+    设 $\phi_n(x) = \sin \frac{n\uppi x}{l}$ ($n \geqslant 1$)。
+    对于 $p \neq q$ ($p, q \geqslant 1$)，有
+    \begin{equation}\label{eq:orth-2-1}
+        \begin{aligned}
+            \int_{0}^{l} \sin \frac{p\uppi x}{l} \sin \frac{q\uppi x}{l} \d x & = \frac{1}{2} \int_{0}^{l} \left[ \cos \frac{(p-q)\uppi x}{l} - \cos \frac{(p+q)\uppi x}{l} \right] \d x                                 \\
+                                                                              & = \frac{1}{2} \left[ \frac{l}{(p-q)\uppi} \sin \frac{(p-q)\uppi x}{l} - \frac{l}{(p+q)\uppi} \sin \frac{(p+q)\uppi x}{l} \right]_{0}^{l} \\
+                                                                              & = 0.
+        \end{aligned}
+    \end{equation}
+    故该函数系是正交系。其各元素的模方为
+    \begin{equation}\label{eq:norm-2}
+        \|\phi_n\|^2 = \int_{0}^{l} \sin^2 \frac{n\uppi x}{l} \d x = \frac{l}{2}.
+    \end{equation}
+    对应的标准正交系为
+    \begin{equation}
+        \boxed{\sqrt{\frac{2}{l}}\sin \frac{\uppi}{l}x, \sqrt{\frac{2}{l}}\sin \frac{2\uppi}{l}x, \cdots, \sqrt{\frac{2}{l}}\sin \frac{n\uppi}{l}x, \cdots}.
+    \end{equation}
+
+    \ansitem{3}
+    该函数系在 $[0, \frac{\uppi}{2}]$ 上是正交系。
+
+    设 $\phi_n(x) = \sin(2n+1)x$ ($n \geqslant 0$)。
+    对于 $p \neq q$ ($p, q \geqslant 0$)，有
+    \begin{equation}\label{eq:orth-3-1}
+        \begin{aligned}
+            \int_{0}^{\uppi/2} \sin(2p+1)x \sin(2q+1)x \d x & = \frac{1}{2} \int_{0}^{\uppi/2} [\cos 2(p-q)x - \cos 2(p+q+1)x] \d x                                    \\
+                                                            & = \frac{1}{2} \left[ \frac{\sin 2(p-q)x}{2(p-q)} - \frac{\sin 2(p+q+1)x}{2(p+q+1)} \right]_{0}^{\uppi/2} \\
+                                                            & = 0.
+        \end{aligned}
+    \end{equation}
+    故该函数系是正交系。其各元素的模方为
+    \begin{equation}\label{eq:norm-3}
+        \|\phi_n\|^2 = \int_{0}^{\uppi/2} \sin^2(2n+1)x \d x = \frac{1}{2} \int_{0}^{\uppi/2} [1 - \cos 2(2n+1)x] \d x = \frac{\uppi}{4}.
+    \end{equation}
+    对应的标准正交系为
+    \begin{equation}
+        \boxed{\frac{2}{\sqrt{\uppi}}\sin x, \frac{2}{\sqrt{\uppi}}\sin 3x, \cdots, \frac{2}{\sqrt{\uppi}}\sin(2n+1)x, \cdots}.
+    \end{equation}
+
+    \ansitem{4}
+    该函数系在 $[0, l]$ 上是正交系。
+
+    设 $\phi_n(x) = \cos \frac{(2n+1)\uppi x}{2l}$ ($n \geqslant 0$)。
+    对于 $p \neq q$ ($p, q \geqslant 0$)，有
+    \begin{equation}\label{eq:orth-4-1}
+        \begin{aligned}
+            \int_{0}^{l} \cos \frac{(2p+1)\uppi x}{2l} \cos \frac{(2q+1)\uppi x}{2l} \d x & = \frac{1}{2} \int_{0}^{l} \left[ \cos \frac{(p-q)\uppi x}{l} + \cos \frac{(p+q+1)\uppi x}{l} \right] \d x \\
+                                                                                          & = 0.
+        \end{aligned}
+    \end{equation}
+    故该函数系是正交系。其各元素的模方为
+    \begin{equation}\label{eq:norm-4}
+        \|\phi_n\|^2 = \int_{0}^{l} \cos^2 \frac{(2n+1)\uppi x}{2l} \d x = \frac{l}{2}.
+    \end{equation}
+    对应的标准正交系为
+    \begin{equation}
+        \boxed{\sqrt{\frac{2}{l}}\cos \frac{\uppi}{2l}x, \sqrt{\frac{2}{l}}\cos \frac{3\uppi}{2l}x, \cdots, \sqrt{\frac{2}{l}}\cos \frac{(2n+1)\uppi}{2l}x, \cdots}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{广义Fourier级数展开}{Generalized-Fourier-Series-1}
+    将 $f(x) = a \left(1 - \frac{x}{l}\right) \quad (0 \leqslant x \leqslant l)$ 按第 4 题中 (2) 的函数系展开成广义 Fourier 级数。
+\end{problem}
+
+\begin{solution}
+    第 4 题中 (2) 的函数系为 $\left\{ \sin \frac{n\uppi x}{l} \right\}_{n=1}^{\infty}$，其在 $[0, l]$ 上的模方为
+    \begin{equation}\label{eq:norm-5}
+        \|\phi_n\|^2 = \int_{0}^{l} \sin^2 \frac{n\uppi x}{l} \d x = \frac{l}{2}.
+    \end{equation}
+    设级数展开式为
+    \begin{equation}\label{eq:series-5}
+        f(x) \sim \sum_{n=1}^{\infty} c_n \sin \frac{n\uppi x}{l},
+    \end{equation}
+    其中系数 $c_n$ 计算如下：
+    \begin{equation}\label{eq:coeff-5}
+        \begin{aligned}
+            c_n & = \frac{2}{l} \int_{0}^{l} a \left(1 - \frac{x}{l}\right) \sin \frac{n\uppi x}{l} \d x                                                                                                                      \\
+                & = \frac{2a}{l} \left[ \left. -\left(1 - \frac{x}{l}\right) \frac{l}{n\uppi} \cos \frac{n\uppi x}{l} \right|_{0}^{l} - \int_{0}^{l} \frac{1}{l} \cdot \frac{l}{n\uppi} \cos \frac{n\uppi x}{l} \d x  \right] \\
+                & = \frac{2a}{l} \left[ \frac{l}{n\uppi} - \left. \frac{l}{n^2\uppi^2} \sin \frac{n\uppi x}{l} \right|_{0}^{l} \right]                                                                                        \\
+                & = \frac{2a}{n\uppi}.
+        \end{aligned}
+    \end{equation}
+    将\zcref{eq:coeff-5}代入\zcref{eq:series-5}，可得
+    \begin{equation}
+        \boxed{f(x) \sim \sum_{n=1}^{\infty} \frac{2a}{n\uppi} \sin \frac{n\uppi x}{l}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{广义Fourier级数展开}{Generalized-Fourier-Series-2}
+    将 $f(x) = x \quad (0 \leqslant x \leqslant l)$ 按第 4 题中 (4) 的函数系展开成广义 Fourier 级数。
+\end{problem}
+
+\begin{solution}
+    第 4 题中 (4) 的函数系为 $\left\{ \cos \frac{(2n+1)\uppi x}{2l} \right\}_{n=0}^{\infty}$，其在 $[0, l]$ 上的模方为
+    \begin{equation}\label{eq:norm-6}
+        \|\phi_n\|^2 = \int_{0}^{l} \cos^2 \frac{(2n+1)\uppi x}{2l} \d x = \frac{l}{2}.
+    \end{equation}
+    设级数展开式为
+    \begin{equation}\label{eq:series-6}
+        f(x) \sim \sum_{n=0}^{\infty} c_n \cos \frac{(2n+1)\uppi x}{2l},
+    \end{equation}
+    其中系数 $c_n$ 计算如下：
+    \begin{equation}\label{eq:coeff-6}
+        \begin{aligned}
+            c_n & = \frac{2}{l} \int_{0}^{l} x \cos \frac{(2n+1)\uppi x}{2l} \d x                                                                                                                     \\
+                & = \frac{2}{l} \left[ \left. x \frac{2l}{(2n+1)\uppi} \sin \frac{(2n+1)\uppi x}{2l} \right|_{0}^{l} - \int_{0}^{l} \frac{2l}{(2n+1)\uppi} \sin \frac{(2n+1)\uppi x}{2l} \d x \right] \\
+                & = \frac{2}{l} \left[ \frac{2l^2(-1)^n}{(2n+1)\uppi} + \left. \frac{4l^2}{(2n+1)^2\uppi^2} \cos \frac{(2n+1)\uppi x}{2l} \right|_{0}^{l} \right]                                     \\
+                & = \frac{2}{l} \left[ \frac{2l^2(-1)^n}{(2n+1)\uppi} - \frac{4l^2}{(2n+1)^2\uppi^2} \right]                                                                                          \\
+                & = \frac{4l(-1)^n}{(2n+1)\uppi} - \frac{8l}{(2n+1)^2\uppi^2}.
+        \end{aligned}
+    \end{equation}
+    将\zcref{eq:coeff-6}代入\zcref{eq:series-6}，可得
+    \begin{equation}
+        \boxed{f(x) \sim \sum_{n=0}^{\infty} \left[ \frac{4l(-1)^n}{(2n+1)\uppi} - \frac{8l}{(2n+1)^2\uppi^2} \right] \cos \frac{(2n+1)\uppi x}{2l}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Legendre多项式的正交性}{Legendre-Polynomials-Orthogonality}
+    证明：Legendre 多项式
+    \begin{equation}\label{eq:legendre-def-7}
+        P_n(x) = \frac{1}{2^n \cdot n!} \frac{\d^n}{\d x^n} (x^2 - 1)^n \quad (n = 0, 1, 2, \cdots)
+    \end{equation}
+    （是一个 $n$ 次多项式）在区间 $[-1, 1]$ 上构成一个正交系。
+
+    提示：不断使用分部积分并注意到当 $1 \leqslant k \leqslant n$ 时，$\left. \frac{\d^{n-k}}{\d x^{n-k}} (x^2 - 1)^n \right|_{x=\pm 1} = 0$。
+\end{problem}
+
+\begin{myproof}
+    设 $m, n \in \mathbb{N}$ 且 $m \neq n$。不妨设 $m < n$。我们需要证明
+    \begin{equation}\label{eq:orth-target-7}
+        \int_{-1}^{1} P_m(x) P_n(x) \d x = 0.
+    \end{equation}
+    令 $u(x) = (x^2 - 1)^n$。由于 $x = \pm 1$ 是 $u(x)$ 的 $n$ 重根，因此对于任意 $0 \leqslant k \leqslant n-1$，有
+    \begin{equation}\label{eq:boundary-zero-7}
+        \left. u^{(k)}(x) \right|_{x=\pm 1} = \left. \frac{\d^k}{\d x^k} (x^2 - 1)^n \right|_{x=\pm 1} = 0.
+    \end{equation}
+    将 $P_n(x)$ 的表达式代入积分，并记 $C_n = \frac{1}{2^n \cdot n!}$，有
+    \begin{equation}\label{eq:integral-step1-7}
+        \int_{-1}^{1} P_m(x) P_n(x) \d x = C_n \int_{-1}^{1} P_m(x) u^{(n)}(x) \d x.
+    \end{equation}
+    对\zcref{eq:integral-step1-7}式右端进行分部积分，得
+    \begin{equation}\label{eq:parts-step1-7}
+        \int_{-1}^{1} P_m(x) u^{(n)}(x) \d x = \left. P_m(x) u^{(n-1)}(x) \right|_{-1}^{1} - \int_{-1}^{1} P'_m(x) u^{(n-1)}(x) \d x.
+    \end{equation}
+    由\zcref{eq:boundary-zero-7}，第一项边界值 $\left. P_m(x) u^{(n-1)}(x) \right|_{-1}^{1} = 0$。连续使用 $n$ 次分部积分，每次的边界项均因\zcref{eq:boundary-zero-7}而为零，可得
+    \begin{equation}\label{eq:parts-n-7}
+        \int_{-1}^{1} P_m(x) u^{(n)}(x) \d x = (-1)^n \int_{-1}^{1} P_m^{(n)}(x) u(x) \d x.
+    \end{equation}
+    由于 $P_m(x)$ 是一个 $m$ 次多项式，且 $m < n$，其 $n$ 阶导数恒为零，即
+    \begin{equation}\label{eq:deriv-zero-7}
+        P_m^{(n)}(x) = 0.
+    \end{equation}
+    将其代入\zcref{eq:parts-n-7}，可得
+    \begin{equation}\label{eq:orth-result-7}
+        \int_{-1}^{1} P_m(x) P_n(x) \d x = 0.
+    \end{equation}
+    这说明 Legendre 多项式在 $[-1, 1]$ 上构成一个正交系。
+\end{myproof}
+
+\begin{problem}{Legendre多项式的性质}{Legendre-Polynomials-Properties}
+    Legendre 多项式有一些很好的性质和应用，请验证 Legendre 多项式满足：
+    \begin{enumerate}
+        \item $y = P_n(x)$ 是下列方程的解
+              \begin{equation}\label{eq:legendre-ode-8}
+                  (1 - x^2) \frac{\d^2 P(x)}{\d x^2} - 2x \frac{\d P(x)}{\d x} + n(n+1)P(x) = 0;
+              \end{equation}
+        \item 相邻的三个 Legendre 多项式满足
+              \begin{equation}\label{eq:recurrence-8a}
+                  (n+1)P_{n+1} = (2n+1)xP_n - nP_{n-1},
+              \end{equation}
+              \begin{equation}\label{eq:recurrence-8b}
+                  \frac{x^2 - 1}{n} \frac{\d P_n}{\d x} = xP_n - P_{n-1},
+              \end{equation}
+              \begin{equation}\label{eq:recurrence-8c}
+                  (2n+1)P_n = \frac{\d}{\d x}(P_{n+1} - P_{n-1}).
+              \end{equation}
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+    令 $u(x) = (x^2 - 1)^n$。对 $u(x)$ 求导得
+    \begin{equation}\label{eq:diff-u-8}
+        u'(x) = 2nx(x^2 - 1)^{n-1}.
+    \end{equation}
+    两边同乘以 $(x^2 - 1)$，得
+    \begin{equation}\label{eq:diff-eq-u-8}
+        (x^2 - 1) u'(x) = 2nx u(x).
+    \end{equation}
+    对\zcref{eq:diff-eq-u-8}式关于 $x$ 求 $n+1$ 阶导数。利用 Leibniz 导数法则，等式左端展开为
+    \begin{equation}\label{eq:leibniz-lhs-8}
+        \frac{\d^{n+1}}{\d x^{n+1}} \left[ (x^2 - 1) u' \right] = (x^2 - 1) u^{(n+2)} + 2(n+1)x u^{(n+1)} + n(n+1) u^{(n)},
+    \end{equation}
+    等式右端展开为
+    \begin{equation}\label{eq:leibniz-rhs-8}
+        \frac{\d^{n+1}}{\d x^{n+1}} [2nx u] = 2nx u^{(n+1)} + 2n(n+1) u^{(n)}.
+    \end{equation}
+    两端相等并移项整理，得
+    \begin{equation}\label{eq:ode-simplify-8}
+        (x^2 - 1) u^{(n+2)} + 2x u^{(n+1)} - n(n+1) u^{(n)} = 0.
+    \end{equation}
+    两边同乘以 $-1$，得
+    \begin{equation}\label{eq:ode-final-8}
+        (1 - x^2) \frac{\d^2 u^{(n)}}{\d x^2} - 2x \frac{\d u^{(n)}}{\d x} + n(n+1) u^{(n)} = 0.
+    \end{equation}
+    由于 $P_n(x) = \frac{1}{2^n \cdot n!} u^{(n)}(x)$，代入\zcref{eq:ode-final-8}中可得
+    \begin{equation}\label{eq:proof-final-8}
+        (1 - x^2) \frac{\d^2 P_n(x)}{\d x^2} - 2x \frac{\d P_n(x)}{\d x} + n(n+1)P_n(x) = 0.
+    \end{equation}
+    这说明 $y = P_n(x)$ 是 Legendre 微分方程的解。
+    \ansitem{2}
+    根据 Rodrigues 公式，Legendre 多项式定义为
+    \begin{equation}\label{eq:rodrigues-def-8}
+        P_n(x) = \frac{1}{2^n \cdot n!} \frac{\d^n}{\d x^n} (x^2 - 1)^n.
+    \end{equation}
+    记 $w_n(x) = (x^2 - 1)^n$，则有 $P_n(x) = \frac{1}{2^n n!} w_n^{(n)}(x)$。
+    我们先建立两个微分引理。
+
+    引理 1：$P'_{n+1}(x) - x P'_n(x) = (n+1) P_n(x)$。
+
+    证明：由定义，对 $P_{n+1}(x)$ 关于 $x$ 求导得
+    \begin{equation}\label{eq:lemma1-step1}
+        P'_{n+1}(x) = \frac{1}{2^{n+1}(n+1)!} \frac{\d^{n+2}}{\d x^{n+2}} (x^2 - 1)^{n+1}.
+    \end{equation}
+    由于 $\frac{\d}{\d x} (x^2 - 1)^{n+1} = 2(n+1)x (x^2 - 1)^n = 2(n+1) x w_n(x)$，故有
+    \begin{equation}\label{eq:lemma1-step2}
+        \frac{\d^{n+2}}{\d x^{n+2}} (x^2 - 1)^{n+1} = 2(n+1) \frac{\d^{n+1}}{\d x^{n+1}} [ x w_n(x) ].
+    \end{equation}
+    利用 Leibniz 法则对右端展开：
+    \begin{equation}\label{eq:lemma1-step3}
+        \frac{\d^{n+1}}{\d x^{n+1}} [ x w_n(x) ] = x w_n^{(n+1)}(x) + (n+1) w_n^{(n)}(x).
+    \end{equation}
+    将\zcref{eq:lemma1-step3}式代回\zcref{eq:lemma1-step1}式中，可得
+    \begin{equation}\label{eq:lemma1-step4}
+        \begin{aligned}
+            P'_{n+1}(x) & = \frac{2(n+1)}{2^{n+1}(n+1)!} \left[ x w_n^{(n+1)}(x) + (n+1) w_n^{(n)}(x) \right]                     \\
+                        & = x \left( \frac{1}{2^n n!} w_n^{(n+1)}(x) \right) + (n+1) \left( \frac{1}{2^n n!} w_n^{(n)}(x) \right) \\
+                        & = x P'_n(x) + (n+1) P_n(x).
+        \end{aligned}
+    \end{equation}
+    移项即得引理 1。
+
+    引理 2：$P'_{n+1}(x) - P'_{n-1}(x) = (2n+1) P_n(x)$。
+
+    证明：考察函数 $x w_n(x)$ 的一阶导数：
+    \begin{equation}\label{eq:lemma2-step1}
+        \begin{aligned}
+            \frac{\d}{\d x} [ x w_n(x) ] & = w_n(x) + x w_n'(x) = w_n(x) + 2n x^2 (x^2 - 1)^{n-1} \\
+                                         & = w_n(x) + 2n(x^2 - 1 + 1) w_{n-1}(x)                  \\
+                                         & = (2n+1) w_n(x) + 2n w_{n-1}(x).
+        \end{aligned}
+    \end{equation}
+    对上式两边关于 $x$ 求 $n$ 阶导数，得
+    \begin{equation}\label{eq:lemma2-step2}
+        \frac{\d^{n+1}}{\d x^{n+1}} [ x w_n(x) ] = (2n+1) w_n^{(n)}(x) + 2n w_{n-1}^{(n)}(x).
+    \end{equation}
+    根据引理 1 证明中的\zcref{eq:lemma1-step1}与\zcref{eq:lemma1-step2}两式，有
+    \begin{equation}\label{eq:lemma2-step3}
+        P'_{n+1}(x) = \frac{1}{2^n n!} \frac{\d^{n+1}}{\d x^{n+1}} [ x w_n(x) ].
+    \end{equation}
+    代入\zcref{eq:lemma2-step2}式，有
+    \begin{equation}\label{eq:lemma2-step4}
+        \begin{aligned}
+            P'_{n+1}(x) & = \frac{1}{2^n n!} \left[ (2n+1) w_n^{(n)}(x) + 2n w_{n-1}^{(n)}(x) \right]                                                 \\
+                        & = (2n+1) \left( \frac{1}{2^n n!} w_n^{(n)}(x) \right) + \frac{2n}{2^n n!} \frac{\d}{\d x} \left[ w_{n-1}^{(n-1)}(x) \right] \\
+                        & = (2n+1) P_n(x) + \frac{1}{2^{n-1} (n-1)!} \frac{\d}{\d x} \left[ w_{n-1}^{(n-1)}(x) \right]                                \\
+                        & = (2n+1) P_n(x) + P'_{n-1}(x).
+        \end{aligned}
+    \end{equation}
+    移项即得引理 2，且这正是公式\zcref{eq:recurrence-8c}。
+
+    下面基于引理 1 与引理 2 验证其余两式。
+
+    (a) 验证公式\zcref{eq:recurrence-8c}
+
+    由引理 2，公式\zcref{eq:recurrence-8c}直接成立。
+
+    (b) 验证公式\zcref{eq:recurrence-8b}
+
+    由引理 1，有
+    \begin{equation}\label{eq:proof-b-1}
+        P'_{n+1}(x) = x P'_n(x) + (n+1) P_n(x).
+    \end{equation}
+    由引理 2，有
+    \begin{equation}\label{eq:proof-b-2}
+        P'_{n+1}(x) = P'_{n-1}(x) + (2n+1) P_n(x).
+    \end{equation}
+    联立\zcref{eq:proof-b-1}与\zcref{eq:proof-b-2}式以消去 $P'_{n+1}(x)$，可得
+    \begin{equation}\label{eq:proof-b-3}
+        P'_{n-1}(x) = x P'_n(x) - n P_n(x).
+    \end{equation}
+    在引理 1 中，将指标 $n$ 替换为 $n-1$（其中 $n \geqslant 1$），得
+    \begin{equation}\label{eq:proof-b-4}
+        P'_n(x) - x P'_{n-1}(x) = n P_{n-1}(x).
+    \end{equation}
+    将\zcref{eq:proof-b-3}式代入\zcref{eq:proof-b-4}式以消去 $P'_{n-1}(x)$，得
+    \begin{equation}\label{eq:proof-b-5}
+        P'_n(x) - x \left[ x P'_n(x) - n P_n(x) \right] = n P_{n-1}(x),
+    \end{equation}
+    整理得
+    \begin{equation}\label{eq:proof-b-6}
+        (1 - x^2) P'_n(x) + n x P_n(x) = n P_{n-1}(x),
+    \end{equation}
+    即有
+    \begin{equation}\label{eq:proof-b-7}
+        (x^2 - 1) P'_n(x) = n \left[ x P_n(x) - P_{n-1}(x) \right].
+    \end{equation}
+    两边除以 $n$，即得
+    \begin{equation}\label{eq:proof-b-final}
+        \frac{x^2 - 1}{n} \frac{\d P_n(x)}{\d x} = x P_n(x) - P_{n-1}(x).
+    \end{equation}
+    这验证了公式\zcref{eq:recurrence-8b}。
+
+    (c) 验证公式\zcref{eq:recurrence-8a}
+
+    由已证的公式\zcref{eq:recurrence-8b}，对任意正整数 $k$ 均有
+    \begin{equation}\label{eq:proof-a-1}
+        (x^2 - 1) P'_k(x) = k \left[ x P_k(x) - P_{k-1}(x) \right].
+    \end{equation}
+    取 $k = n+1$，有
+    \begin{equation}\label{eq:proof-a-2}
+        (x^2 - 1) P'_{n+1}(x) = (n+1) \left[ x P_{n+1}(x) - P_n(x) \right].
+    \end{equation}
+    另一方面，将引理 1 的等式两边同乘以 $(x^2 - 1)$，得
+    \begin{equation}\label{eq:proof-a-3}
+        (x^2 - 1) P'_{n+1}(x) = x \left[ (x^2 - 1) P'_n(x) \right] + (n+1)(x^2 - 1) P_n(x).
+    \end{equation}
+    将 $k = n$ 时的\zcref{eq:proof-a-1}式代入\zcref{eq:proof-a-3}式右端，得
+    \begin{equation}\label{eq:proof-a-4}
+        \begin{aligned}
+            (x^2 - 1) P'_{n+1}(x) & = x \cdot n \left[ x P_n(x) - P_{n-1}(x) \right] + (n+1)(x^2 - 1) P_n(x) \\
+                                  & = n x^2 P_n(x) - n x P_{n-1}(x) + (n+1) x^2 P_n(x) - (n+1) P_n(x)        \\
+                                  & = (2n+1) x^2 P_n(x) - n x P_{n-1}(x) - (n+1) P_n(x).
+        \end{aligned}
+    \end{equation}
+    比较\zcref{eq:proof-a-2}与\zcref{eq:proof-a-4}式的右端，有
+    \begin{equation}\label{eq:proof-a-5}
+        (n+1) x P_{n+1}(x) - (n+1) P_n(x) = (2n+1) x^2 P_n(x) - n x P_{n-1}(x) - (n+1) P_n(x).
+    \end{equation}
+    两端消去项 $-(n+1) P_n(x)$，得
+    \begin{equation}\label{eq:proof-a-6}
+        (n+1) x P_{n+1}(x) = (2n+1) x^2 P_n(x) - n x P_{n-1}(x).
+    \end{equation}
+    由于上式中每一项都是多项式，两边消去因子 $x$，即可得对所有 $x$ 均成立的恒等式：
+    \begin{equation}\label{eq:proof-a-final}
+        (n+1) P_{n+1}(x) = (2n+1) x P_n(x) - n P_{n-1}(x).
+    \end{equation}
+    这验证了公式\zcref{eq:recurrence-8a}。
+\end{myproof}
+
+\endinput

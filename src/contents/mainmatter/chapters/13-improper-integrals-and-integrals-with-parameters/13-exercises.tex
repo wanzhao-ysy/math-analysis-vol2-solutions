@@ -1,27 +1,27 @@
 \section{第 13 章综合习题}
 
 \begin{problem}{非负函数反常积分收敛的序列判别法}{Improper-Integral-Convergence-Sequence-Criterion}
-    设函数 $f(x) \geqslant 0$ 并在 $[a,+\infty)$ 的任何有限区间上可积，数列 $\{a_n\}$ 单调增并 $a_n \to +\infty$ ($n \to \infty$)。证明：积分 $\int_a^{+\infty} f(x) \d x$ 收敛于 $l$ 当且仅当级数 $\sum_{n=1}^{+\infty} \int_{a_{n-1}}^{a_n} f(x) \d x$ 收敛于 $l$。
+    设函数 $f(x) \geqslant 0$ 并在 $[a,+\infty)$ 的任何有限区间上可积，数列 $\{a_n\}$ 单调增并 $a_n \to +\infty$ ($n \to \infty$)．证明：积分 $\int_a^{+\infty} f(x) \d x$ 收敛于 $l$ 当且仅当级数 $\sum_{n=1}^{+\infty} \int_{a_{n-1}}^{a_n} f(x) \d x$ 收敛于 $l$．
 \end{problem}
 
 \begin{myproof}
-    定义 $F(x) = \int_a^x f(t) \d t$。因为 $f(t) \geqslant 0$ 且在任何有限区间上可积，所以 $F(x)$ 是 $[a, +\infty)$ 上的单调递增函数。
+    定义 $F(x) = \int_a^x f(t) \d t$．因为 $f(t) \geqslant 0$ 且在任何有限区间上可积，所以 $F(x)$ 是 $[a, +\infty)$ 上的单调递增函数．
 
     反常积分 $\int_a^{+\infty} f(x) \d x$ 收敛于 $l$ 等价于极限
     \begin{equation}\label{eq:integral-limit-1}
         \lim_{x \to +\infty} F(x) = l
     \end{equation}
-    存在。
+    存在．
 
     对于级数 $\sum_{n=1}^{+\infty} \int_{a_{n-1}}^{a_n} f(x) \d x$，其前 $N$ 项和为
     \begin{equation}\label{eq:partial-sum-2}
         S_N = \sum_{n=1}^N \int_{a_{n-1}}^{a_n} f(x) \d x = \int_{a_0}^{a_N} f(x) \d x = F(a_N),
     \end{equation}
-    其中 $a_0 = a$。因此，级数收敛于 $l$ 等价于极限
+    其中 $a_0 = a$．因此，级数收敛于 $l$ 等价于极限
     \begin{equation}\label{eq:series-limit-3}
         \lim_{N \to \infty} F(a_N) = l
     \end{equation}
-    存在。
+    存在．
 
     下面证明两者的等价性：
 
@@ -30,7 +30,7 @@
         \lim_{N \to \infty} F(a_N) = l.
     \end{equation}
 
-    - 充分性：若 \zcref{eq:series-limit-3} 成立。对任意的 $x \in [a, +\infty)$，由于 $a_N \to +\infty$，必存在正整数 $N$ 使得
+    - 充分性：若 \zcref{eq:series-limit-3} 成立．对任意的 $x \in [a, +\infty)$，由于 $a_N \to +\infty$，必存在正整数 $N$ 使得
     \begin{equation}\label{eq:squeeze-5}
         a_N \leqslant x < a_{N+1}.
     \end{equation}
@@ -38,7 +38,7 @@
     \begin{equation}\label{eq:squeeze-6}
         F(a_N) \leqslant F(x) \leqslant F(a_{N+1}).
     \end{equation}
-    令 $x \to +\infty$，则 $N \to \infty$。根据夹逼定理，结合 \zcref{eq:series-limit-3}，有
+    令 $x \to +\infty$，则 $N \to \infty$．根据夹逼定理，结合 \zcref{eq:series-limit-3}，有
     \begin{equation}\label{eq:squeeze-7}
         \lim_{x \to +\infty} F(x) = l.
     \end{equation}
@@ -49,25 +49,25 @@
     \begin{equation}\label{eq:prob2-integral-1}
         \int_0^{+\infty} \frac{x \d x}{1 + x^6 \sin^2 x}
     \end{equation}
-    收敛。但被积函数 $f(x) = \frac{x}{1+x^6 \sin^2 x}$ 在 $[0,+\infty)$ 上非负、连续、无界（因此当 $x \to +\infty$ 时，$f(x)$ 的极限不为零）。提示：利用上题结果。
+    收敛．但被积函数 $f(x) = \frac{x}{1+x^6 \sin^2 x}$ 在 $[0,+\infty)$ 上非负、连续、无界（因此当 $x \to +\infty$ 时，$f(x)$ 的极限不为零）．提示：利用上题结果．
 \end{problem}
 
 \begin{myproof}
     首先验证被积函数的性质：
-    - 非负性与连续性：对于任意的 $x \in [0, +\infty)$，由于 $x \geqslant 0$ 且 $1 + x^6 \sin^2 x \geqslant 1 > 0$，因此 $f(x) \geqslant 0$ 且在其定义域内连续。
-    - 无界性：取序列 $x_k = k\uppi$ ($k = 1, 2, \dots$)，此时 $\sin x_k = 0$。代入可得
+    - 非负性与连续性：对于任意的 $x \in [0, +\infty)$，由于 $x \geqslant 0$ 且 $1 + x^6 \sin^2 x \geqslant 1 > 0$，因此 $f(x) \geqslant 0$ 且在其定义域内连续．
+    - 无界性：取序列 $x_k = k\uppi$ ($k = 1, 2, \dots$)，此时 $\sin x_k = 0$．代入可得
     \begin{equation}\label{eq:unbounded-2}
         f(x_k) = \frac{k\uppi}{1 + 0} = k\uppi \to +\infty \quad (k \to \infty).
     \end{equation}
-    这说明 $f(x)$ 在 $[0, +\infty)$ 上无界，且当 $x \to +\infty$ 时其极限不为零。
+    这说明 $f(x)$ 在 $[0, +\infty)$ 上无界，且当 $x \to +\infty$ 时其极限不为零．
 
-    接下来证明积分的收敛性。
-    取单调递增数列 $a_n = n\uppi$ ($n = 0, 1, 2, \dots$)，满足 $a_0 = 0$ 且 $\lim_{n \to \infty} a_n = +\infty$。
+    接下来证明积分的收敛性．
+    取单调递增数列 $a_n = n\uppi$ ($n = 0, 1, 2, \dots$)，满足 $a_0 = 0$ 且 $\lim_{n \to \infty} a_n = +\infty$．
     考虑级数 $\sum_{n=1}^{\infty} I_n$，其中
     \begin{equation}\label{eq:series-def-3}
         I_n = \int_{(n-1)\uppi}^{n\uppi} \frac{x \d x}{1 + x^6 \sin^2 x}.
     \end{equation}
-    当 $n \geqslant 2$ 时，做变量代换 $x = y + (n-1)\uppi$，其中 $y \in [0, \uppi]$，此时 $\sin^2 x = \sin^2 y$。对 $I_n$ 进行估计：
+    当 $n \geqslant 2$ 时，做变量代换 $x = y + (n-1)\uppi$，其中 $y \in [0, \uppi]$，此时 $\sin^2 x = \sin^2 y$．对 $I_n$ 进行估计：
     \begin{equation}\label{eq:estimation-4}
         \begin{aligned}
             I_n & = \int_0^{\uppi} \frac{y + (n-1)\uppi}{1 + (y + (n-1)\uppi)^6 \sin^2 y} \d y \\
@@ -75,7 +75,7 @@
                 & = 2n\uppi \int_0^{\uppi/2} \frac{\d y}{1 + ((n-1)\uppi)^6 \sin^2 y}.
         \end{aligned}
     \end{equation}
-    在上述积分中，令 $t = \tan y$，则 $\sin^2 y = \frac{t^2}{1 + t^2}$，$\d y = \frac{\d t}{1 + t^2}$。代入可得
+    在上述积分中，令 $t = \tan y$，则 $\sin^2 y = \frac{t^2}{1 + t^2}$，$\d y = \frac{\d t}{1 + t^2}$．代入可得
     \begin{equation}\label{eq:integral-calc-5}
         \begin{aligned}
             \int_0^{\uppi/2} \frac{\d y}{1 + ((n-1)\uppi)^6 \sin^2 y} & = \int_0^{+\infty} \frac{\d t}{1 + t^2 + ((n-1)\uppi)^6 t^2}                                                       \\
@@ -92,12 +92,12 @@
     \begin{equation}\label{eq:limit-comp-7}
         \lim_{n \to \infty} \frac{n / [\uppi (n-1)^3]}{1 / n^2} = \frac{1}{\uppi},
     \end{equation}
-    且级数 $\sum_{n=2}^{\infty} \frac{1}{n^2}$ 收敛，根据比较判别法的极限形式，级数 $\sum_{n=2}^{\infty} \frac{n}{\uppi (n-1)^3}$ 收敛。
-    因此，正项级数 $\sum_{n=1}^{\infty} I_n$ 收敛。根据前一题结论，反常积分 $\int_0^{+\infty} \frac{x \d x}{1 + x^6 \sin^2 x}$ 收敛。
+    且级数 $\sum_{n=2}^{\infty} \frac{1}{n^2}$ 收敛，根据比较判别法的极限形式，级数 $\sum_{n=2}^{\infty} \frac{n}{\uppi (n-1)^3}$ 收敛．
+    因此，正项级数 $\sum_{n=1}^{\infty} I_n$ 收敛．根据前一题结论，反常积分 $\int_0^{+\infty} \frac{x \d x}{1 + x^6 \sin^2 x}$ 收敛．
 \end{myproof}
 
 \begin{problem}{波动方程达朗贝尔公式的验证}{Wave-Equation-DAlembert-Verification}
-    设 $\varphi$ 有二阶导数，$\psi$ 有一阶导数。证明：
+    设 $\varphi$ 有二阶导数，$\psi$ 有一阶导数．证明：
     \begin{equation}\label{eq:wave-sol}
         u(x,t) = \frac{1}{2}(\varphi(x-at) + \varphi(x+at)) + \frac{1}{2a} \int_{x-at}^{x+at} \psi(s) \d s
     \end{equation}
@@ -180,7 +180,7 @@
              & = -\frac{1}{\uppi} \left[ (n - x) \sin(n\uppi) - (n + x) \sin 0 \right].
         \end{aligned}
     \end{equation}
-    对于整数 $n$，由于 $\sin(n\uppi) = 0$ 且 $\sin 0 = 0$，上式右端为 $0$。
+    对于整数 $n$，由于 $\sin(n\uppi) = 0$ 且 $\sin 0 = 0$，上式右端为 $0$．
 \end{myproof}
 
 \begin{problem}{三角函数的指数积分}{Trigonometric-Exponential-Integral}
@@ -222,7 +222,7 @@
 \end{myproof}
 
 \begin{problem}{含参变量反常积分的一致收敛性}{Parameter-Improper-Integral-Uniform-Convergence}
-    证明：积分 $\int_0^{+\infty} \frac{\sin 3x}{x+u} \e^{-ux} \d x$ 关于 $u$ 在 $[0,+\infty)$ 上一致收敛。
+    证明：积分 $\int_0^{+\infty} \frac{\sin 3x}{x+u} \e^{-ux} \d x$ 关于 $u$ 在 $[0,+\infty)$ 上一致收敛．
 \end{problem}
 
 \begin{myproof}
@@ -234,25 +234,25 @@
     \begin{equation}\label{eq:bound-part1-2}
         \left| \frac{\sin 3x}{x+u} \e^{-ux} \right| \leqslant \frac{3x}{x+u} \cdot 1 \leqslant 3.
     \end{equation}
-    被积函数在 $[0, 1] \times [0, +\infty)$ 上一致有界，因此第一部分的积分在 $[0, +\infty)$ 上一致收敛。
+    被积函数在 $[0, 1] \times [0, +\infty)$ 上一致有界，因此第一部分的积分在 $[0, +\infty)$ 上一致收敛．
 
-    对于第二部分，先考虑积分 $\int_1^{+\infty} \frac{\sin 3x}{x+u} \d x$ 的一致收敛性。使用 Dirichlet 判别法：
+    对于第二部分，先考虑积分 $\int_1^{+\infty} \frac{\sin 3x}{x+u} \d x$ 的一致收敛性．使用 Dirichlet 判别法：
     \begin{enumerate}
         \item $\left| \int_1^A \sin 3x \d x \right| = \left| \frac{\cos 3 - \cos 3A}{3} \right| \leqslant \frac{2}{3}$ 关于 $A \geqslant 1$ 一致有界；
         \item 对于每个 $u \in [0, +\infty)$，$\frac{1}{x+u}$ 关于 $x$ 单调递减；
-        \item 当 $x \to +\infty$ 时，因为 $0 < \frac{1}{x+u} \leqslant \frac{1}{x}$，所以 $\frac{1}{x+u} \to 0$ 关于 $u \in [0, +\infty)$ 一致。
+        \item 当 $x \to +\infty$ 时，因为 $0 < \frac{1}{x+u} \leqslant \frac{1}{x}$，所以 $\frac{1}{x+u} \to 0$ 关于 $u \in [0, +\infty)$ 一致．
     \end{enumerate}
-    由此，$\int_1^{+\infty} \frac{\sin 3x}{x+u} \d x$ 关于 $u$ 在 $[0, +\infty)$ 上一致收敛。
+    由此，$\int_1^{+\infty} \frac{\sin 3x}{x+u} \d x$ 关于 $u$ 在 $[0, +\infty)$ 上一致收敛．
 
     接下来在第二部分中应用 Abel 判别法，其中：
     \begin{enumerate}
         \item $\int_1^{+\infty} \frac{\sin 3x}{x+u} \d x$ 关于 $u$ 在 $[0, +\infty)$ 上一致收敛；
         \item $\e^{-ux}$ 关于 $x$ 单调递减；
-        \item $0 < \e^{-ux} \leqslant 1$，即 $\e^{-ux}$ 关于 $x$ 和 $u$ 一致有界。
+        \item $0 < \e^{-ux} \leqslant 1$，即 $\e^{-ux}$ 关于 $x$ 和 $u$ 一致有界．
     \end{enumerate}
-    由 Abel 判别法，$\int_1^{+\infty} \frac{\sin 3x}{x+u} \e^{-ux} \d x$ 关于 $u$ 在 $[0, +\infty)$ 上一致收敛。
+    由 Abel 判别法，$\int_1^{+\infty} \frac{\sin 3x}{x+u} \e^{-ux} \d x$ 关于 $u$ 在 $[0, +\infty)$ 上一致收敛．
 
-    结合两部分，原积分关于 $u$ 在 $[0, +\infty)$ 上一致收敛。
+    结合两部分，原积分关于 $u$ 在 $[0, +\infty)$ 上一致收敛．
 \end{myproof}
 
 \begin{problem}{含参变量反常积分的一致与非一致收敛}{Parameter-Improper-Integral-Uniform-Nonuniform-7}
@@ -260,30 +260,30 @@
     \begin{equation}\label{eq:q7-integral-1}
         \int_0^{+\infty} \frac{x \cos ux}{x^2 + a^2} \d x \quad (a > 0)
     \end{equation}
-    关于 $u$ 在 $[\delta, +\infty)$ ($\delta > 0$) 上一致收敛，但在 $(0, +\infty)$ 上不一致收敛。
+    关于 $u$ 在 $[\delta, +\infty)$ ($\delta > 0$) 上一致收敛，但在 $(0, +\infty)$ 上不一致收敛．
 \end{problem}
 
 \begin{myproof}
-    首先证明在 $[\delta, +\infty)$ ($\delta > 0$) 上的一致收敛性。
+    首先证明在 $[\delta, +\infty)$ ($\delta > 0$) 上的一致收敛性．
     对 $x \geqslant a$，有
     \begin{equation}\label{eq:q7-mono-2}
         \frac{\d}{\d x} \left( \frac{x}{x^2 + a^2} \right) = \frac{a^2 - x^2}{(x^2 + a^2)^2} \leqslant 0,
     \end{equation}
-    故 $\frac{x}{x^2 + a^2}$ 在 $[a, +\infty)$ 上单调递减趋于 $0$。
+    故 $\frac{x}{x^2 + a^2}$ 在 $[a, +\infty)$ 上单调递减趋于 $0$．
     同时，当 $u \geqslant \delta > 0$ 时，对于任意 $A \geqslant a$，有
     \begin{equation}\label{eq:q7-dirichlet-3}
         \left| \int_a^A \cos ux \d x \right| = \left| \frac{\sin uA - \sin ua}{u} \right| \leqslant \frac{2}{u} \leqslant \frac{2}{\delta}.
     \end{equation}
-    由 Dirichlet 判别法，$\int_a^{+\infty} \frac{x \cos ux}{x^2 + a^2} \d x$ 一致收敛。由于 $[0, a]$ 上的积分为 proper 积分，原积分在 $[\delta, +\infty)$ 上一致收敛。
+    由 Dirichlet 判别法，$\int_a^{+\infty} \frac{x \cos ux}{x^2 + a^2} \d x$ 一致收敛．由于 $[0, a]$ 上的积分为 proper 积分，原积分在 $[\delta, +\infty)$ 上一致收敛．
 
-    下面证明在 $(0, +\infty)$ 上不一致收敛。
-    使用 Cauchy 收敛原理的否定形式。只需证明存在 $\varepsilon_0 > 0$，对任意的 $M > 0$，存在 $B_2 > B_1 > M$ 以及 $u \in (0, +\infty)$，使得
+    下面证明在 $(0, +\infty)$ 上不一致收敛．
+    使用 Cauchy 收敛原理的否定形式．只需证明存在 $\varepsilon_0 > 0$，对任意的 $M > 0$，存在 $B_2 > B_1 > M$ 以及 $u \in (0, +\infty)$，使得
     \begin{equation}\label{eq:q7-cauchy-neg-4}
         \left| \int_{B_1}^{B_2} \frac{x \cos ux}{x^2 + a^2} \d x \right| \geqslant \varepsilon_0.
     \end{equation}
-    取 $B_1 = \max(M, a)$， $B_2 = 2 B_1$，并取 $u = \frac{\uppi}{6 B_1} \in (0, +\infty)$。
-    当 $x \in [B_1, 2 B_1]$ 时，有 $ux \in [\frac{\uppi}{6}, \frac{\uppi}{3}]$，此时 $\cos ux \geqslant \cos \frac{\uppi}{3} = \frac{1}{2} > 0$。
-    由于 $B_1 \geqslant a$，当 $x \geqslant B_1$ 时，有 $x^2 + a^2 \leqslant 2 x^2$，从而 $\frac{x}{x^2 + a^2} \geqslant \frac{1}{2x}$。
+    取 $B_1 = \max(M, a)$， $B_2 = 2 B_1$，并取 $u = \frac{\uppi}{6 B_1} \in (0, +\infty)$．
+    当 $x \in [B_1, 2 B_1]$ 时，有 $ux \in [\frac{\uppi}{6}, \frac{\uppi}{3}]$，此时 $\cos ux \geqslant \cos \frac{\uppi}{3} = \frac{1}{2} > 0$．
+    由于 $B_1 \geqslant a$，当 $x \geqslant B_1$ 时，有 $x^2 + a^2 \leqslant 2 x^2$，从而 $\frac{x}{x^2 + a^2} \geqslant \frac{1}{2x}$．
     因此，可以得到如下估计：
     \begin{equation}\label{eq:q7-estimate-5}
         \int_{B_1}^{B_2} \frac{x \cos ux}{x^2 + a^2} \d x \geqslant \int_{B_1}^{2 B_1} \frac{1}{2x} \cdot \frac{1}{2} \d x = \frac{1}{4} \ln 2.
@@ -292,7 +292,7 @@
     \begin{equation}\label{eq:q7-conclusion-6}
         \left| \int_{B_1}^{B_2} \frac{x \cos ux}{x^2 + a^2} \d x \right| \geqslant \frac{1}{4} \ln 2 > \varepsilon_0.
     \end{equation}
-    这说明该积分在 $(0, +\infty)$ 上不一致收敛。
+    这说明该积分在 $(0, +\infty)$ 上不一致收敛．
 \end{myproof}
 
 \begin{problem}{含参变量反常积分的非一致收敛性}{Parameter-Improper-Integral-Nonuniform-8}
@@ -300,17 +300,17 @@
     \begin{equation}\label{eq:q8-integral-1}
         \int_0^{+\infty} \frac{x \sin ux}{x^2 + a^2} \d x \quad (a > 0)
     \end{equation}
-    关于 $u$ 在 $(0, +\infty)$ 上不一致收敛。
+    关于 $u$ 在 $(0, +\infty)$ 上不一致收敛．
 \end{problem}
 
 \begin{myproof}
-    使用 Cauchy 收敛原理的否定形式。只需证明存在 $\varepsilon_0 > 0$，对任意的 $M > 0$，存在 $B_2 > B_1 > M$ 以及 $u \in (0, +\infty)$，使得
+    使用 Cauchy 收敛原理的否定形式．只需证明存在 $\varepsilon_0 > 0$，对任意的 $M > 0$，存在 $B_2 > B_1 > M$ 以及 $u \in (0, +\infty)$，使得
     \begin{equation}\label{eq:q8-cauchy-neg-2}
         \left| \int_{B_1}^{B_2} \frac{x \sin ux}{x^2 + a^2} \d x \right| \geqslant \varepsilon_0.
     \end{equation}
-    取 $B_1 = \max(M, a)$， $B_2 = 5 B_1$，并取 $u = \frac{\uppi}{6 B_1} \in (0, +\infty)$。
-    当 $x \in [B_1, 5 B_1]$ 时，有 $ux \in [\frac{\uppi}{6}, \frac{5\uppi}{6}]$，此时 $\sin ux \geqslant \sin \frac{\uppi}{6} = \frac{1}{2} > 0$。
-    由于 $B_1 \geqslant a$，当 $x \geqslant B_1$ 时，有 $x^2 + a^2 \leqslant 2x^2$，从而 $\frac{x}{x^2 + a^2} \geqslant \frac{1}{2x}$。
+    取 $B_1 = \max(M, a)$， $B_2 = 5 B_1$，并取 $u = \frac{\uppi}{6 B_1} \in (0, +\infty)$．
+    当 $x \in [B_1, 5 B_1]$ 时，有 $ux \in [\frac{\uppi}{6}, \frac{5\uppi}{6}]$，此时 $\sin ux \geqslant \sin \frac{\uppi}{6} = \frac{1}{2} > 0$．
+    由于 $B_1 \geqslant a$，当 $x \geqslant B_1$ 时，有 $x^2 + a^2 \leqslant 2x^2$，从而 $\frac{x}{x^2 + a^2} \geqslant \frac{1}{2x}$．
     因此，可以得到如下估计：
     \begin{equation}\label{eq:q8-estimate-3}
         \int_{B_1}^{B_2} \frac{x \sin ux}{x^2 + a^2} \d x \geqslant \int_{B_1}^{5 B_1} \frac{1}{2x} \cdot \frac{1}{2} \d x = \frac{1}{4} \ln 5.
@@ -319,15 +319,15 @@
     \begin{equation}\label{eq:q8-conclusion-4}
         \left| \int_{B_1}^{B_2} \frac{x \sin ux}{x^2 + a^2} \d x \right| \geqslant \frac{1}{4} \ln 5 > \varepsilon_0.
     \end{equation}
-    这说明该积分在 $(0, +\infty)$ 上不一致收敛。
+    这说明该积分在 $(0, +\infty)$ 上不一致收敛．
 \end{myproof}
 
 \begin{problem}{Fourier变换的一致连续性}{Fourier-Transform-Uniform-Continuity}
-    设 $\int_{-\infty}^{+\infty} |f(x)| \d x$ 收敛。证明：函数
+    设 $\int_{-\infty}^{+\infty} |f(x)| \d x$ 收敛．证明：函数
     \begin{equation}\label{eq:q9-def-1}
         \varphi(u) = \int_{-\infty}^{+\infty} f(x) \cos ux \d x
     \end{equation}
-    在 $(-\infty, +\infty)$ 上一致连续。
+    在 $(-\infty, +\infty)$ 上一致连续．
 \end{problem}
 
 \begin{myproof}
@@ -356,7 +356,7 @@
              & < A |u_1 - u_2| \int_{-\infty}^{+\infty} |f(x)| \d x + \frac{\varepsilon}{2}.
         \end{aligned}
     \end{equation}
-    记 $I = \int_{-\infty}^{+\infty} |f(x)| \d x$。若 $I = 0$，则对任意 $u \in (-\infty, +\infty)$ 均有 $\varphi(u) = 0$，此时结论显然成立。若 $I > 0$，取
+    记 $I = \int_{-\infty}^{+\infty} |f(x)| \d x$．若 $I = 0$，则对任意 $u \in (-\infty, +\infty)$ 均有 $\varphi(u) = 0$，此时结论显然成立．若 $I > 0$，取
     \begin{equation}\label{eq:q9-delta-6}
         \delta = \frac{\varepsilon}{2 A I}.
     \end{equation}
@@ -364,7 +364,7 @@
     \begin{equation}\label{eq:q9-final-7}
         |\varphi(u_1) - \varphi(u_2)| < A \cdot \frac{\varepsilon}{2 A I} \cdot I + \frac{\varepsilon}{2} = \varepsilon.
     \end{equation}
-    这说明 $\varphi(u)$ 在 $(-\infty, +\infty)$ 上一致连续。
+    这说明 $\varphi(u)$ 在 $(-\infty, +\infty)$ 上一致连续．
 \end{myproof}
 
 \begin{problem}{含参变量反常积分的连续性}{Parameter-Improper-Integral-Continuity}
@@ -372,7 +372,7 @@
     \begin{equation}\label{eq:q10-def-1}
         f(x) = \int_0^{+\infty} \frac{\e^{-t}}{|\sin t|^x} \d t
     \end{equation}
-    在 $[0, 1)$ 上连续。
+    在 $[0, 1)$ 上连续．
 \end{problem}
 
 \begin{myproof}
@@ -380,7 +380,7 @@
     \begin{equation}\label{eq:q10-split-2}
         f(x) = \sum_{k=0}^{\infty} \int_{k\uppi}^{(k+1)\uppi} \frac{\e^{-t}}{|\sin t|^x} \d t.
     \end{equation}
-    对于每一项积分，作变量代换 $t = k\uppi + u$（其中 $u \in [0, \uppi]$），则有 $\d t = \d u$ 且 $|\sin t| = \sin u$。代入得
+    对于每一项积分，作变量代换 $t = k\uppi + u$（其中 $u \in [0, \uppi]$），则有 $\d t = \d u$ 且 $|\sin t| = \sin u$．代入得
     \begin{equation}\label{eq:q10-term-3}
         \int_{k\uppi}^{(k+1)\uppi} \frac{\e^{-t}}{|\sin t|^x} \d t = \e^{-k\uppi} \int_0^{\uppi} \frac{\e^{-u}}{\sin^x u} \d u.
     \end{equation}
@@ -392,33 +392,33 @@
     \begin{equation}\label{eq:q10-J-5}
         J(x) = \int_0^{\uppi} \frac{\e^{-u}}{\sin^x u} \d u
     \end{equation}
-    在 $[0, 1)$ 上连续。
+    在 $[0, 1)$ 上连续．
 
-    对任意的 $x_0 \in [0, 1)$，选取常数 $\eta$ 满足 $x_0 < \eta < 1$。
+    对任意的 $x_0 \in [0, 1)$，选取常数 $\eta$ 满足 $x_0 < \eta < 1$．
     对于任意的 $x \in [0, \eta]$ 以及 $u \in (0, \uppi)$，由于 $0 < \sin u \leqslant 1$，有 $\sin^x u \geqslant \sin^{\eta} u$，从而可得
     \begin{equation}\label{eq:q10-bound-6}
         0 < \frac{\e^{-u}}{\sin^x u} \leqslant \frac{\e^{-u}}{\sin^{\eta} u}.
     \end{equation}
-    下面验证控制函数 $\Phi(u) = \frac{\e^{-u}}{\sin^{\eta} u}$ 在 $(0, \uppi)$ 上的可积性。
+    下面验证控制函数 $\Phi(u) = \frac{\e^{-u}}{\sin^{\eta} u}$ 在 $(0, \uppi)$ 上的可积性．
     当 $u \to 0^+$ 时，有
     \begin{equation}\label{eq:q10-limit-left-7}
         \frac{\e^{-u}}{\sin^{\eta} u} \sim \frac{1}{u^{\eta}}.
     \end{equation}
-    因为 $\eta < 1$，所以积分 $\int_0^{\uppi/2} \frac{\d u}{u^{\eta}}$ 收敛。
+    因为 $\eta < 1$，所以积分 $\int_0^{\uppi/2} \frac{\d u}{u^{\eta}}$ 收敛．
     当 $u \to \uppi^-$ 时，设 $v = \uppi - u \to 0^+$，有
     \begin{equation}\label{eq:q10-limit-right-8}
         \frac{\e^{-u}}{\sin^{\eta} u} = \frac{\e^{-(\uppi-v)}}{\sin^{\eta} v} \sim \frac{\e^{-\uppi}}{v^{\eta}}.
     \end{equation}
-    因为 $\eta < 1$，所以积分 $\int_{\uppi/2}^{\uppi} \frac{\d u}{(\uppi - u)^{\eta}}$ 收敛。
+    因为 $\eta < 1$，所以积分 $\int_{\uppi/2}^{\uppi} \frac{\d u}{(\uppi - u)^{\eta}}$ 收敛．
     因此，控制函数 $\Phi(u)$ 在 $(0, \uppi)$ 上的反常积分
     \begin{equation}\label{eq:q10-majorant-9}
         \int_0^{\uppi} \frac{\e^{-u}}{\sin^{\eta} u} \d u
     \end{equation}
-    收敛。
-    根据 Weierstrass M-判别法，积分 $J(x)$ 在 $[0, \eta]$ 上一致收敛。
-    由于被积函数 $\frac{\e^{-u}}{\sin^x u}$ 在 $[0, \eta] \times (0, \uppi)$ 上连续，结合一致收敛性可知，函数 $J(x)$ 在 $[0, \eta]$ 上连续。
-    由于 $x_0 \in [0, 1)$ 的任意性且满足 $x_0 < \eta < 1$，故 $J(x)$ 在 $[0, 1)$ 上连续。
-    进而，由 \zcref{eq:q10-factor-4}，函数 $f(x)$ 在 $[0, 1)$ 上连续。
+    收敛．
+    根据 Weierstrass M-判别法，积分 $J(x)$ 在 $[0, \eta]$ 上一致收敛．
+    由于被积函数 $\frac{\e^{-u}}{\sin^x u}$ 在 $[0, \eta] \times (0, \uppi)$ 上连续，结合一致收敛性可知，函数 $J(x)$ 在 $[0, \eta]$ 上连续．
+    由于 $x_0 \in [0, 1)$ 的任意性且满足 $x_0 < \eta < 1$，故 $J(x)$ 在 $[0, 1)$ 上连续．
+    进而，由 \zcref{eq:q10-factor-4}，函数 $f(x)$ 在 $[0, 1)$ 上连续．
 \end{myproof}
 
 \begin{problem}{Gamma函数的对数积分}{Log-Gamma-Integral}
@@ -429,7 +429,7 @@
 \end{problem}
 
 \begin{myproof}
-    设 $I = \int_0^1 \ln \Gamma(x) \d x$。作变量代换 $x = 1 - y$，则有 $\d x = -\d y$，积分可写为
+    设 $I = \int_0^1 \ln \Gamma(x) \d x$．作变量代换 $x = 1 - y$，则有 $\d x = -\d y$，积分可写为
     \begin{equation}\label{eq:q11-sub}
         I = \int_0^1 \ln \Gamma(1 - x) \d x.
     \end{equation}
@@ -453,7 +453,7 @@
     \begin{equation}\label{eq:q11-double-I}
         2I = \ln \uppi - (-\ln 2) = \ln(2\uppi).
     \end{equation}
-    由此解得 $I = \frac{1}{2} \ln(2\uppi) = \ln \sqrt{2\uppi}$。即有
+    由此解得 $I = \frac{1}{2} \ln(2\uppi) = \ln \sqrt{2\uppi}$．即有
     \begin{equation}\label{eq:q11-final}
         \boxed{\int_0^1 \ln \Gamma(x) \d x = \ln \sqrt{2 \uppi}}.
     \end{equation}
@@ -467,7 +467,7 @@
 \end{problem}
 
 \begin{myproof}
-    设 $J = \int_0^1 \sin(\uppi x) \ln \Gamma(x) \d x$。作变量代换 $x = 1 - y$，则有 $\sin(\uppi(1 - y)) = \sin(\uppi y)$ 以及 $\d x = -\d y$，积分可写为
+    设 $J = \int_0^1 \sin(\uppi x) \ln \Gamma(x) \d x$．作变量代换 $x = 1 - y$，则有 $\sin(\uppi(1 - y)) = \sin(\uppi y)$ 以及 $\d x = -\d y$，积分可写为
     \begin{equation}\label{eq:q12-sub}
         J = \int_0^1 \sin(\uppi x) \ln \Gamma(1 - x) \d x.
     \end{equation}
@@ -503,7 +503,7 @@
     \begin{equation}\label{eq:q12-double-J}
         2J = \frac{2}{\uppi} \ln \uppi - \frac{2}{\uppi} (\ln 2 - 1) = \frac{2}{\uppi} \left( \ln \frac{\uppi}{2} + 1 \right).
     \end{equation}
-    因此可解得 $J = \frac{1}{\uppi} \left( \ln \frac{\uppi}{2} + 1 \right)$。即有
+    因此可解得 $J = \frac{1}{\uppi} \left( \ln \frac{\uppi}{2} + 1 \right)$．即有
     \begin{equation}\label{eq:q12-final}
         \boxed{\int_0^1 \sin(\uppi x) \ln \Gamma(x) \d x = \frac{1}{\uppi} \left( \ln \frac{\uppi}{2} + 1 \right)}.
     \end{equation}
@@ -556,22 +556,22 @@
 \end{myproof}
 
 \begin{problem}{反函数与定积分恒等式}{Inverse-Function-Integral-Identity}
-    设 $\varphi(t)$ 是 $(0,+\infty)$ 上正严格递减的连续函数，且 $\lim_{t\to0^+} \varphi(t) = +\infty$，$\int_0^{+\infty} \varphi(t) \d t = 1$。设 $\psi(t)$ 是 $\varphi(t)$ 的反函数。求证：存在 $p \in (0, 1)$ 使得
+    设 $\varphi(t)$ 是 $(0,+\infty)$ 上正严格递减的连续函数，且 $\lim_{t\to0^+} \varphi(t) = +\infty$，$\int_0^{+\infty} \varphi(t) \d t = 1$．设 $\psi(t)$ 是 $\varphi(t)$ 的反函数．求证：存在 $p \in (0, 1)$ 使得
     \begin{equation}\label{eq:q14-target-1}
         \int_0^p \varphi(t) \d t + \int_0^p \psi(t) \d t = 1 + p^2.
     \end{equation}
 \end{problem}
 
 \begin{myproof}
-    首先考虑方程 $\varphi(x) - x = 0$ 的根。
-    由于 $\varphi(t)$ 是 $(0, +\infty)$ 上的正严格递减连续函数，且 $\lim_{t\to0^+} \varphi(t) = +\infty$，由 $\int_0^{+\infty} \varphi(t) \d t = 1$ 收敛可知，必有 $\lim_{t\to+\infty} \varphi(t) = 0$。
+    首先考虑方程 $\varphi(x) - x = 0$ 的根．
+    由于 $\varphi(t)$ 是 $(0, +\infty)$ 上的正严格递减连续函数，且 $\lim_{t\to0^+} \varphi(t) = +\infty$，由 $\int_0^{+\infty} \varphi(t) \d t = 1$ 收敛可知，必有 $\lim_{t\to+\infty} \varphi(t) = 0$．
     定义辅助函数 $h(x) = \varphi(x) - x$，则 $h(x)$ 在 $(0, +\infty)$ 上严格单调递减，且满足
     \begin{equation}\label{eq:q14-limit-2}
         \lim_{x\to0^+} h(x) = +\infty, \quad \lim_{x\to+\infty} h(x) = -\infty.
     \end{equation}
-    由零点存在定理及单调性，存在唯一的 $x_0 \in (0, +\infty)$ 使得 $\varphi(x_0) = x_0$。
+    由零点存在定理及单调性，存在唯一的 $x_0 \in (0, +\infty)$ 使得 $\varphi(x_0) = x_0$．
 
-    下面证明 $x_0 \in (0, 1)$。
+    下面证明 $x_0 \in (0, 1)$．
     若 $x_0 \geqslant 1$，由于 $\varphi(t)$ 在 $(0, +\infty)$ 上严格单调递减，对于任意 $t \in (0, x_0)$，有
     \begin{equation}\label{eq:q14-ineq-3}
         \varphi(t) > \varphi(x_0) = x_0 \geqslant 1.
@@ -584,21 +584,21 @@
     \begin{equation}\label{eq:q14-integral-upper-5}
         \int_0^{x_0} \varphi(t) \d t < \int_0^{+\infty} \varphi(t) \d t = 1,
     \end{equation}
-    这与 \zcref{eq:q14-integral-lower-4} 矛盾。因此，必有 $x_0 \in (0, 1)$。
+    这与 \zcref{eq:q14-integral-lower-4} 矛盾．因此，必有 $x_0 \in (0, 1)$．
 
-    接下来，建立关于反函数的积分恒等式。
-    对于任意 $x > 0$，因为 $\varphi(t)$ 递减且积分收敛，有 $\lim_{\epsilon\to0^+} \epsilon\varphi(\epsilon) = 0$。
+    接下来，建立关于反函数的积分恒等式．
+    对于任意 $x > 0$，因为 $\varphi(t)$ 递减且积分收敛，有 $\lim_{\varepsilon\to0^+} \varepsilon\varphi(\varepsilon) = 0$．
     作变量代换 $u = \varphi(t)$，即 $t = \psi(u)$，对定积分使用分部积分法可得
     \begin{equation}\label{eq:q14-by-parts-6}
         \begin{aligned}
             \int_0^x \varphi(t) \d t
-             & = \lim_{\epsilon\to0^+} \int_{\epsilon}^x \varphi(t) \d t                                                          \\
-             & = \lim_{\epsilon\to0^+} \left[ \left. t \varphi(t) \right|_{\epsilon}^x - \int_{\epsilon}^x t \d\varphi(t) \right] \\
-             & = x \varphi(x) - \lim_{\epsilon\to0^+} \epsilon\varphi(\epsilon) - \int_{\varphi(0^+)}^{\varphi(x)} \psi(u) \d u   \\
+             & = \lim_{\varepsilon\to0^+} \int_{\varepsilon}^x \varphi(t) \d t                                                             \\
+             & = \lim_{\varepsilon\to0^+} \left[ \left. t \varphi(t) \right|_{\varepsilon}^x - \int_{\varepsilon}^x t \d\varphi(t) \right] \\
+             & = x \varphi(x) - \lim_{\varepsilon\to0^+} \varepsilon\varphi(\varepsilon) - \int_{\varphi(0^+)}^{\varphi(x)} \psi(u) \d u   \\
              & = x \varphi(x) + \int_{\varphi(x)}^{+\infty} \psi(u) \d u.
         \end{aligned}
     \end{equation}
-    由于 $\psi(u)$ 与 $\varphi(t)$ 关于直线 $y=x$ 对称，其积分值同样为 $\int_0^{+\infty} \psi(u) \d u = 1$。因此
+    由于 $\psi(u)$ 与 $\varphi(t)$ 关于直线 $y=x$ 对称，其积分值同样为 $\int_0^{+\infty} \psi(u) \d u = 1$．因此
     \begin{equation}\label{eq:q14-psi-tail-7}
         \int_{\varphi(x)}^{+\infty} \psi(u) \d u = 1 - \int_0^{\varphi(x)} \psi(u) \d u.
     \end{equation}
@@ -607,15 +607,15 @@
         \int_0^x \varphi(t) \d t + \int_0^{\varphi(x)} \psi(t) \d t = 1 + x \varphi(x).
     \end{equation}
 
-    令 $p = x_0 \in (0, 1)$。由于 $\varphi(p) = p$，代入 \zcref{eq:q14-identity-8} 即得
+    令 $p = x_0 \in (0, 1)$．由于 $\varphi(p) = p$，代入 \zcref{eq:q14-identity-8} 即得
     \begin{equation}\label{eq:q14-final-9}
         \int_0^p \varphi(t) \d t + \int_0^p \psi(t) \d t = 1 + p^2.
     \end{equation}
-    这说明存在 $p \in (0, 1)$ 满足 \zcref{eq:q14-target-1}。
+    这说明存在 $p \in (0, 1)$ 满足 \zcref{eq:q14-target-1}．
 \end{myproof}
 
 \begin{problem}{平方可积函数的积分恒等式}{Square-Integrable-Function-Integral-Identity}
-    设 $f(x)$ 是 $[0,+\infty)$ 上连续函数，且 $\int_0^{+\infty} f^2(x) \d x$ 收敛。证明：函数
+    设 $f(x)$ 是 $[0,+\infty)$ 上连续函数，且 $\int_0^{+\infty} f^2(x) \d x$ 收敛．证明：函数
     \begin{equation}\label{eq:q15-g-def-1}
         g(x) = f(x) - 2\e^{-x} \int_0^x \e^t f(t) \d t
     \end{equation}
@@ -626,7 +626,7 @@
 \end{problem}
 
 \begin{myproof}
-    记辅助函数 $h(x) = \int_0^x \e^t f(t) \d t$，则有 $h'(x) = \e^x f(x)$，且 $h(0) = 0$。
+    记辅助函数 $h(x) = \int_0^x \e^t f(t) \d t$，则有 $h'(x) = \e^x f(x)$，且 $h(0) = 0$．
     此时，可以将 $g(x)$ 改写为
     \begin{equation}\label{eq:q15-g-h-relation-3}
         g(x) = f(x) - 2\e^{-x} h(x).
@@ -661,7 +661,7 @@
         \end{aligned}
     \end{equation}
 
-    下面证明 $\lim_{A\to+\infty} \e^{-2A} h^2(A) = 0$。
+    下面证明 $\lim_{A\to+\infty} \e^{-2A} h^2(A) = 0$．
     对于任意 $0 < M < A$，将 $h(A)$ 的积分拆分为两部分，并应用 Cauchy-Schwarz 不等式：
     \begin{equation}\label{eq:q15-cs-split-8}
         \begin{aligned}

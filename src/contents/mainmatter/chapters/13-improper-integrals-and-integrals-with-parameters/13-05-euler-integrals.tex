@@ -4,7 +4,7 @@
     证明：
     \begin{enumerate}
         \item $\Gamma(s) = 2 \int_{0}^{+\infty} x^{2s-1} \e^{-x^2} \d x \quad (s > 0)$；
-        \item $\Gamma(s) = a^s \int_{0}^{+\infty} x^{s-1} \e^{-ax} \d x \quad (s > 0, a > 0)$。
+        \item $\Gamma(s) = a^s \int_{0}^{+\infty} x^{s-1} \e^{-ax} \d x \quad (s > 0, a > 0)$．
     \end{enumerate}
 \end{problem}
 
@@ -15,8 +15,8 @@
     \begin{equation}\label{eq:gamma-def}
         \Gamma(s) = \int_{0}^{+\infty} t^{s-1} \e^{-t} \d t.
     \end{equation}
-    在\zcref{eq:gamma-def}中作变量代换，令 $t = x^2$（其中 $x > 0$），则有 $\d t = 2x \d x$。
-    当 $t \to 0^+$ 时有 $x \to 0^+$，当 $t \to +\infty$ 时有 $x \to +\infty$。代入积分式中，可得
+    在\zcref{eq:gamma-def}中作变量代换，令 $t = x^2$（其中 $x > 0$），则有 $\d t = 2x \d x$．
+    当 $t \to 0^+$ 时有 $x \to 0^+$，当 $t \to +\infty$ 时有 $x \to +\infty$．代入积分式中，可得
     \begin{equation}\label{eq:gamma-proof-1}
         \begin{aligned}
             \Gamma(s) & = \int_{0}^{+\infty} (x^2)^{s-1} \e^{-x^2} \cdot 2x \d x \\
@@ -27,8 +27,8 @@
 
     \ansitem{2}
 
-    根据 Gamma 函数的定义\zcref{eq:gamma-def}，作变量代换，令 $t = ax$（其中 $a > 0$），则有 $\d t = a \d x$。
-    代入积分中，积分限保持不变。可得
+    根据 Gamma 函数的定义\zcref{eq:gamma-def}，作变量代换，令 $t = ax$（其中 $a > 0$），则有 $\d t = a \d x$．
+    代入积分中，积分限保持不变．可得
     \begin{equation}\label{eq:gamma-proof-2}
         \begin{aligned}
             \Gamma(s) & = \int_{0}^{+\infty} (ax)^{s-1} \e^{-ax} \cdot a \d x      \\
@@ -54,7 +54,7 @@
     \begin{equation}\label{eq:beta-sub}
         x = \sin^2 t,
     \end{equation}
-    则有 $\d x = 2 \sin t \cos t \d t$。当 $x \to 0^+$ 时 $t \to 0^+$，当 $x \to 1^-$ 时 $t \to \left(\frac{\uppi}{2}\right)^-$。将 \zcref{eq:beta-sub} 代入 \zcref{eq:beta-def}，可得
+    则有 $\d x = 2 \sin t \cos t \d t$．当 $x \to 0^+$ 时 $t \to 0^+$，当 $x \to 1^-$ 时 $t \to \left(\frac{\uppi}{2}\right)^-$．将 \zcref{eq:beta-sub} 代入 \zcref{eq:beta-def}，可得
     \begin{equation}\label{eq:beta-derivation}
         \begin{aligned}
             B(p, q) & = \int_{0}^{\frac{\uppi}{2}} (\sin^2 t)^{p-1} (1 - \sin^2 t)^{q-1} \cdot 2 \sin t \cos t \d t \\
@@ -76,7 +76,7 @@
         \item $\int_{0}^{1} \sqrt{\frac{1}{x} \ln \frac{1}{x}} \d x$；
         \item $\int_{a}^{b} \left(\frac{b-x}{x-a}\right)^p \d x \quad (0 < p < 1, a < b)$；
         \item $\lim_{n \to \infty} \int_{1}^{2} (x-1)^2 \cdot \sqrt[n]{\frac{2-x}{x-1}} \d x$；
-        \item $\lim_{n \to \infty} \int_{0}^{+\infty} \frac{1}{1+x^n} \d x$。
+        \item $\lim_{n \to \infty} \int_{0}^{+\infty} \frac{1}{1+x^n} \d x$．
     \end{enumerate}
 \end{problem}
 
@@ -98,11 +98,11 @@
 
     \ansitem{2}
 
-    设 $x = at$，则有 $\d x = a \d t$。代入可得
+    设 $x = at$，则有 $\d x = a \d t$．代入可得
     \begin{equation}\label{eq:sol2-1}
         I_2 = \int_{0}^{1} a^2 t^2 \sqrt{a^2 - a^2 t^2} \cdot a \d t = a^4 \int_{0}^{1} t^2 (1-t^2)^{\frac{1}{2}} \d t.
     \end{equation}
-    再设 $u = t^2$，则有 $t = u^{\frac{1}{2}}$，$\d t = \frac{1}{2} u^{-\frac{1}{2}} \d u$。代入可得
+    再设 $u = t^2$，则有 $t = u^{\frac{1}{2}}$，$\d t = \frac{1}{2} u^{-\frac{1}{2}} \d u$．代入可得
     \begin{equation}\label{eq:sol2-2}
         I_2 = a^4 \int_{0}^{1} u (1-u)^{\frac{1}{2}} \cdot \frac{1}{2} u^{-\frac{1}{2}} \d u = \frac{a^4}{2} \int_{0}^{1} u^{\frac{1}{2}} (1-u)^{\frac{1}{2}} \d u.
     \end{equation}
@@ -121,7 +121,7 @@
     \begin{equation}\label{eq:sol3-1}
         B(p, q) = 2 \int_{0}^{\frac{\uppi}{2}} \sin^{2p-1} x \cos^{2q-1} x \d x,
     \end{equation}
-    令 $2p-1 = 6 \implies p = \frac{7}{2}$，$2q-1 = 4 \implies q = \frac{5}{2}$。可得
+    令 $2p-1 = 6 \implies p = \frac{7}{2}$，$2q-1 = 4 \implies q = \frac{5}{2}$．可得
     \begin{equation}\label{eq:sol3-2}
         I_3 = \frac{1}{2} B\left(\frac{7}{2}, \frac{5}{2}\right) = \frac{1}{2} \frac{\Gamma\left(\frac{7}{2}\right) \Gamma\left(\frac{5}{2}\right)}{\Gamma(6)}.
     \end{equation}
@@ -140,7 +140,7 @@
 
     \ansitem{4}
 
-    设 $t = x^m$，则有 $x = t^{\frac{1}{m}}$，$\d x = \frac{1}{m} t^{\frac{1}{m}-1} \d t$。代入可得
+    设 $t = x^m$，则有 $x = t^{\frac{1}{m}}$，$\d x = \frac{1}{m} t^{\frac{1}{m}-1} \d t$．代入可得
     \begin{equation}\label{eq:sol4-1}
         \begin{aligned}
             I_4 & = \int_{0}^{1} t^{\frac{n-1}{m}} (1-t)^{q-1} \cdot \frac{1}{m} t^{\frac{1}{m}-1} \d t \\
@@ -155,7 +155,7 @@
 
     \ansitem{5}
 
-    设 $u = at$，则有 $t = \frac{u}{a}$，$\d t = \frac{1}{a} \d u$。代入可得
+    设 $u = at$，则有 $t = \frac{u}{a}$，$\d t = \frac{1}{a} \d u$．代入可得
     \begin{equation}\label{eq:sol5-1}
         I_5 = \int_{0}^{+\infty} \e^{-u} \frac{1}{\sqrt{\uppi \frac{u}{a}}} \cdot \frac{1}{a} \d u = \frac{1}{\sqrt{a\uppi}} \int_{0}^{+\infty} u^{-\frac{1}{2}} \e^{-u} \d u.
     \end{equation}
@@ -178,7 +178,7 @@
     \begin{equation}\label{eq:sol6-1}
         I_6 = \int_{0}^{\frac{\uppi}{2}} \sin^{\alpha} x \cos^{-\alpha} x \d x.
     \end{equation}
-    利用 Beta 函数的三角函数表示，令 $2p-1 = \alpha \implies p = \frac{1+\alpha}{2}$，$2q-1 = -\alpha \implies q = \frac{1-\alpha}{2}$。可得
+    利用 Beta 函数的三角函数表示，令 $2p-1 = \alpha \implies p = \frac{1+\alpha}{2}$，$2q-1 = -\alpha \implies q = \frac{1-\alpha}{2}$．可得
     \begin{equation}\label{eq:sol6-2}
         I_6 = \frac{1}{2} B\left(\frac{1+\alpha}{2}, \frac{1-\alpha}{2}\right) = \frac{1}{2} \Gamma\left(\frac{1+\alpha}{2}\right) \Gamma\left(\frac{1-\alpha}{2}\right).
     \end{equation}
@@ -193,11 +193,11 @@
 
     \ansitem{7}
 
-    设 $t = \ln \frac{1}{x}$，则有 $x = \e^{-t}$，$\d x = -\e^{-t} \d t$。代入可得
+    设 $t = \ln \frac{1}{x}$，则有 $x = \e^{-t}$，$\d x = -\e^{-t} \d t$．代入可得
     \begin{equation}\label{eq:sol7-1}
         I_7 = \int_{+\infty}^{0} \sqrt{\e^t t} \left(-\e^{-t}\right) \d t = \int_{0}^{+\infty} t^{\frac{1}{2}} \e^{-\frac{1}{2}t} \d t.
     \end{equation}
-    再设 $u = \frac{1}{2}t$，则有 $t = 2u$，$\d t = 2 \d u$。代入可得
+    再设 $u = \frac{1}{2}t$，则有 $t = 2u$，$\d t = 2 \d u$．代入可得
     \begin{equation}\label{eq:sol7-2}
         I_7 = \int_{0}^{+\infty} (2u)^{\frac{1}{2}} \e^{-u} \cdot 2 \d u = 2\sqrt{2} \int_{0}^{+\infty} u^{\frac{1}{2}} \e^{-u} \d u.
     \end{equation}
@@ -212,7 +212,7 @@
 
     \ansitem{8}
 
-    设 $x = a + (b-a)t$，则有 $\d x = (b-a)\d t$。此时有
+    设 $x = a + (b-a)t$，则有 $\d x = (b-a)\d t$．此时有
     \begin{equation}\label{eq:sol8-1}
         b-x = (b-a)(1-t), \quad x-a = (b-a)t.
     \end{equation}
@@ -235,7 +235,7 @@
 
     \ansitem{9}
 
-    记 $I_n = \int_{1}^{2} (x-1)^2 \cdot \sqrt[n]{\frac{2-x}{x-1}} \d x$。设 $t = x-1$，则有 $\d x = \d t$。代入可得
+    记 $I_n = \int_{1}^{2} (x-1)^2 \cdot \sqrt[n]{\frac{2-x}{x-1}} \d x$．设 $t = x-1$，则有 $\d x = \d t$．代入可得
     \begin{equation}\label{eq:sol9-1}
         I_n = \int_{0}^{1} t^2 \left(\frac{1-t}{t}\right)^{\frac{1}{n}} \d t = \int_{0}^{1} t^{2-\frac{1}{n}} (1-t)^{\frac{1}{n}} \d t.
     \end{equation}
@@ -254,7 +254,7 @@
 
     \ansitem{10}
 
-    记 $J_n = \int_{0}^{+\infty} \frac{1}{1+x^n} \d x$。设 $t = \frac{1}{1+x^n}$，则有 $x = \left(\frac{1-t}{t}\right)^{\frac{1}{n}}$，且
+    记 $J_n = \int_{0}^{+\infty} \frac{1}{1+x^n} \d x$．设 $t = \frac{1}{1+x^n}$，则有 $x = \left(\frac{1-t}{t}\right)^{\frac{1}{n}}$，且
     \begin{equation}\label{eq:sol10-1}
         \d x = -\frac{1}{n} t^{-\frac{1}{n}-1} (1-t)^{\frac{1}{n}-1} \d t.
     \end{equation}
@@ -284,7 +284,7 @@
 \end{problem}
 
 \begin{solution}
-    记 $I(\alpha) = \int_0^1 x^{3/2} (1-x^5)^\alpha \d x$。令 $t = x^5$，则有 $x = t^{\frac{1}{5}}$，且 $\d x = \frac{1}{5} t^{-\frac{4}{5}} \d t$。代入积分中，有
+    记 $I(\alpha) = \int_0^1 x^{3/2} (1-x^5)^\alpha \d x$．令 $t = x^5$，则有 $x = t^{\frac{1}{5}}$，且 $\d x = \frac{1}{5} t^{-\frac{4}{5}} \d t$．代入积分中，有
     \begin{equation}\label{eq:limit-sub}
         I(\alpha) = \int_0^1 t^{\frac{3}{10}} (1-t)^\alpha \cdot \frac{1}{5} t^{-\frac{4}{5}} \d t = \frac{1}{5} \int_0^1 t^{-\frac{1}{2}} (1-t)^\alpha \d t.
     \end{equation}
@@ -292,7 +292,7 @@
     \begin{equation}\label{eq:limit-beta}
         I(\alpha) = \frac{1}{5} B\left(\frac{1}{2}, \alpha+1\right) = \frac{1}{5} \frac{\Gamma\left(\frac{1}{2}\right) \Gamma(\alpha+1)}{\Gamma\left(\alpha+\frac{3}{2}\right)} = \frac{\sqrt{\uppi}}{5} \frac{\Gamma(\alpha+1)}{\Gamma\left(\alpha+\frac{3}{2}\right)}.
     \end{equation}
-    由于当 $x \to +\infty$ 时，对于任意实数 $k$，有渐近性质 $\lim_{x\to+\infty} \frac{\Gamma(x+k)}{\Gamma(x)} x^{-k} = 1$。令 $x = \alpha+1$ 且 $k = \frac{1}{2}$，可得
+    由于当 $x \to +\infty$ 时，对于任意实数 $k$，有渐近性质 $\lim_{x\to+\infty} \frac{\Gamma(x+k)}{\Gamma(x)} x^{-k} = 1$．令 $x = \alpha+1$ 且 $k = \frac{1}{2}$，可得
     \begin{equation}\label{eq:limit-gamma-ratio}
         \lim_{\alpha\to+\infty} \frac{\Gamma\left(\alpha+\frac{3}{2}\right)}{\Gamma(\alpha+1)} (\alpha+1)^{-\frac{1}{2}} = 1,
     \end{equation}
@@ -307,15 +307,15 @@
 \end{solution}
 
 \begin{problem}{曲线围成的面积}{Area-of-Curve-in-First-Quadrant}
-    设 $a > 0$，试求由曲线 $x^n + y^n = a^n$ 和两坐标轴所围成平面图形在第一象限的面积。
+    设 $a > 0$，试求由曲线 $x^n + y^n = a^n$ 和两坐标轴所围成平面图形在第一象限的面积．
 \end{problem}
 
 \begin{solution}
-    在第一象限，图形由曲线 $y = (a^n - x^n)^{\frac{1}{n}}$ 以及坐标轴 $x = 0$ 和 $y = 0$ 围成。其面积可表示为
+    在第一象限，图形由曲线 $y = (a^n - x^n)^{\frac{1}{n}}$ 以及坐标轴 $x = 0$ 和 $y = 0$ 围成．其面积可表示为
     \begin{equation}\label{eq:area-integral}
         S = \int_{0}^{a} y \d x = \int_{0}^{a} (a^n - x^n)^{\frac{1}{n}} \d x.
     \end{equation}
-    在 \zcref{eq:area-integral} 中作变量代换，令 $x = a t^{\frac{1}{n}}$，则有 $\d x = \frac{a}{n} t^{\frac{1}{n}-1} \d t$。代入可得
+    在 \zcref{eq:area-integral} 中作变量代换，令 $x = a t^{\frac{1}{n}}$，则有 $\d x = \frac{a}{n} t^{\frac{1}{n}-1} \d t$．代入可得
     \begin{equation}\label{eq:area-sub}
         \begin{aligned}
             S & = \int_{0}^{1} (a^n - a^n t)^{\frac{1}{n}} \cdot \frac{a}{n} t^{\frac{1}{n}-1} \d t \\
@@ -343,7 +343,7 @@
 \begin{problem}{Hölder 不等式与 Gamma 函数的凸性}{Holder-Inequality-Gamma-Convexity}
     设 $0 < \alpha < 1$，证明：
     \begin{enumerate}
-        \item 对于 $x > 0$ 有 $x^{\alpha} - \alpha x + \alpha - 1 \leqslant 0$。并由此推出下列不等式
+        \item 对于 $x > 0$ 有 $x^{\alpha} - \alpha x + \alpha - 1 \leqslant 0$．并由此推出下列不等式
               \begin{equation}\label{eq:prob-ineq1}
                   a^{\alpha}b^{1-\alpha} \leqslant \alpha a + (1-\alpha)b,
               \end{equation}
@@ -361,24 +361,24 @@
                   \int_a^{+\infty} f(x)g(x) \d x \leqslant \left( \int_a^{+\infty} f^{\frac{1}{\alpha}}(x) \d x \right)^{\alpha} \left( \int_a^{+\infty} g^{\frac{1}{1-\alpha}}(x) \d x \right)^{1-\alpha},
               \end{equation}
               这里均假设所涉及的反常积分是收敛的；
-        \item 证明 $\ln \Gamma(x)$ 是凸函数。
+        \item 证明 $\ln \Gamma(x)$ 是凸函数．
     \end{enumerate}
 \end{problem}
 
 \begin{myproof}
     \ansitem{1}
 
-    设辅助函数 $h(x) = x^{\alpha} - \alpha x + \alpha - 1$。对 $h(x)$ 求导得
+    设辅助函数 $h(x) = x^{\alpha} - \alpha x + \alpha - 1$．对 $h(x)$ 求导得
     \begin{equation}\label{eq:sol1-deriv}
         h'(x) = \alpha x^{\alpha-1} - \alpha = \alpha \left( x^{\alpha-1} - 1 \right).
     \end{equation}
-    由于 $0 < \alpha < 1$，当 $0 < x < 1$ 时有 $h'(x) > 0$；当 $x > 1$ 时有 $h'(x) < 0$。因此 $h(x)$ 在 $x = 1$ 处取得全局最大值。故对任意 $x > 0$，有
+    由于 $0 < \alpha < 1$，当 $0 < x < 1$ 时有 $h'(x) > 0$；当 $x > 1$ 时有 $h'(x) < 0$．因此 $h(x)$ 在 $x = 1$ 处取得全局最大值．故对任意 $x > 0$，有
     \begin{equation}\label{eq:sol1-max}
         h(x) \leqslant h(1) = 0.
     \end{equation}
-    即 $x^{\alpha} - \alpha x + \alpha - 1 \leqslant 0$ 成立。
+    即 $x^{\alpha} - \alpha x + \alpha - 1 \leqslant 0$ 成立．
 
-    当 $a > 0$、$b > 0$ 时，令 $x = \frac{a}{b} > 0$。代入上述不等式得
+    当 $a > 0$、$b > 0$ 时，令 $x = \frac{a}{b} > 0$．代入上述不等式得
     \begin{equation}\label{eq:sol1-sub}
         \left( \frac{a}{b} \right)^{\alpha} - \alpha \left( \frac{a}{b} \right) + \alpha - 1 \leqslant 0.
     \end{equation}
@@ -389,12 +389,12 @@
 
     \ansitem{2}
 
-    若 $\sum_{i=1}^n x_i^{\frac{1}{\alpha}} = 0$ 或 $\sum_{i=1}^n y_i^{\frac{1}{1-\alpha}} = 0$，不等式显然成立。
+    若 $\sum_{i=1}^n x_i^{\frac{1}{\alpha}} = 0$ 或 $\sum_{i=1}^n y_i^{\frac{1}{1-\alpha}} = 0$，不等式显然成立．
     现假设两者均大于零，并记
     \begin{equation}\label{eq:sol2-norms}
         A = \sum_{i=1}^n x_i^{\frac{1}{\alpha}}, \quad B = \sum_{i=1}^n y_i^{\frac{1}{1-\alpha}}.
     \end{equation}
-    令 $a_i = \frac{x_i^{\frac{1}{\alpha}}}{A}$，$b_i = \frac{y_i^{\frac{1}{1-\alpha}}}{B}$。由 \zcref{eq:sol1-final} 可得
+    令 $a_i = \frac{x_i^{\frac{1}{\alpha}}}{A}$，$b_i = \frac{y_i^{\frac{1}{1-\alpha}}}{B}$．由 \zcref{eq:sol1-final} 可得
     \begin{equation}\label{eq:sol2-sub}
         a_i^{\alpha} b_i^{1-\alpha} \leqslant \alpha a_i + (1-\alpha) b_i.
     \end{equation}
@@ -413,28 +413,28 @@
 
     \ansitem{3}
 
-    首先证明区间 $[a, b]$ 上的情形。将 $[a, b]$ 进行 $n$ 等分，设分点为 $x_i = a + i \Delta x$，其中 $\Delta x = \frac{b-a}{n}$（$i = 0, 1, \dots, n$）。
+    首先证明区间 $[a, b]$ 上的情形．将 $[a, b]$ 进行 $n$ 等分，设分点为 $x_i = a + i \Delta x$，其中 $\Delta x = \frac{b-a}{n}$（$i = 0, 1, \dots, n$）．
     在离散的 Hölder 不等式中，令 $x_i$ 替换为 $f(x_i) \Delta x^{\alpha}$，将 $y_i$ 替换为 $g(x_i) \Delta x^{1-\alpha}$，则有
     \begin{equation}\label{eq:sol3-riemann}
         \sum_{i=1}^n f(x_i) g(x_i) \Delta x \leqslant \left( \sum_{i=1}^n f^{\frac{1}{\alpha}}(x_i) \Delta x \right)^{\alpha} \left( \sum_{i=1}^n g^{\frac{1}{1-\alpha}}(x_i) \Delta x \right)^{1-\alpha}.
     \end{equation}
-    因为 $f(x)$ 与 $g(x)$ 连续，上式两端各项在 $n \to \infty$ 时均趋于相应的 Riemann 积分。两边取极限可得
+    因为 $f(x)$ 与 $g(x)$ 连续，上式两端各项在 $n \to \infty$ 时均趋于相应的 Riemann 积分．两边取极限可得
     \begin{equation}\label{eq:sol3-lim}
         \int_a^b f(x)g(x) \d x \leqslant \left( \int_a^b f^{\frac{1}{\alpha}}(x) \d x \right)^{\alpha} \left( \int_a^b g^{\frac{1}{1-\alpha}}(x) \d x \right)^{1-\alpha}.
     \end{equation}
 
-    接下来证明区间 $[a, +\infty)$ 上的反常积分情形。对任意有限的 $M > a$，应用已证的有限区间不等式有
+    接下来证明区间 $[a, +\infty)$ 上的反常积分情形．对任意有限的 $M > a$，应用已证的有限区间不等式有
     \begin{equation}\label{eq:sol3-improper-finite}
         \int_a^M f(x)g(x) \d x \leqslant \left( \int_a^M f^{\frac{1}{\alpha}}(x) \d x \right)^{\alpha} \left( \int_a^M g^{\frac{1}{1-\alpha}}(x) \d x \right)^{1-\alpha}.
     \end{equation}
-    因为 $f \geqslant 0$、$g \geqslant 0$，当 $M \to +\infty$ 时，上式右端单调递增趋向于其反常积分值。两边取极限，即得
+    因为 $f \geqslant 0$、$g \geqslant 0$，当 $M \to +\infty$ 时，上式右端单调递增趋向于其反常积分值．两边取极限，即得
     \begin{equation}\label{eq:sol3-improper-lim}
         \int_a^{+\infty} f(x)g(x) \d x \leqslant \left( \int_a^{+\infty} f^{\frac{1}{\alpha}}(x) \d x \right)^{\alpha} \left( \int_a^{+\infty} g^{\frac{1}{1-\alpha}}(x) \d x \right)^{1-\alpha}.
     \end{equation}
 
     \ansitem{4}
 
-    对任意 $x > 0$、$y > 0$ 及 $\lambda \in (0, 1)$。由 Gamma 函数的定义有
+    对任意 $x > 0$、$y > 0$ 及 $\lambda \in (0, 1)$．由 Gamma 函数的定义有
     \begin{equation}\label{eq:sol4-gamma-val}
         \Gamma(\lambda x + (1-\lambda)y) = \int_0^{+\infty} t^{\lambda x + (1-\lambda)y - 1} \e^{-t} \d t.
     \end{equation}
@@ -442,7 +442,7 @@
     \begin{equation}\label{eq:sol4-gamma-split}
         t^{\lambda x + (1-\lambda)y - 1} \e^{-t} = \left( t^{x-1} \e^{-t} \right)^{\lambda} \left( t^{y-1} \e^{-t} \right)^{1-\lambda}.
     \end{equation}
-    令 $\alpha = \lambda$，并且令 $F(t) = \left( t^{x-1} \e^{-t} \right)^{\lambda}$，$G(t) = \left( t^{y-1} \e^{-t} \right)^{1-\lambda}$。利用已证的积分形式 Hölder 不等式，有
+    令 $\alpha = \lambda$，并且令 $F(t) = \left( t^{x-1} \e^{-t} \right)^{\lambda}$，$G(t) = \left( t^{y-1} \e^{-t} \right)^{1-\lambda}$．利用已证的积分形式 Hölder 不等式，有
     \begin{equation}\label{eq:sol4-holder-app}
         \begin{aligned}
             \Gamma(\lambda x + (1-\lambda)y) & = \int_0^{+\infty} F(t) G(t) \d t                                                                                                                             \\
@@ -455,7 +455,7 @@
     \begin{equation}\label{eq:sol4-log-convex}
         \ln \Gamma(\lambda x + (1-\lambda)y) \leqslant \lambda \ln \Gamma(x) + (1-\lambda) \ln \Gamma(y).
     \end{equation}
-    由此证得 $\ln \Gamma(x)$ 为凸函数。
+    由此证得 $\ln \Gamma(x)$ 为凸函数．
 \end{myproof}
 
 \endinput

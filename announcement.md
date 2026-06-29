@@ -1,3 +1,3 @@
-Version 1.14.0 released on 2026-06-23.
+Version v2.0.0 Beta released on 2026-06-29.
 
-- 更新至了第 11 章
+- 完成全部正文的更新

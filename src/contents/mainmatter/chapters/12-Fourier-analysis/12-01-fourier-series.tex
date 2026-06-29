@@ -1,7 +1,7 @@
 \section{函数的 Fourier 级数}
 
 \begin{problem}{Fourier级数展开}{Fourier-Series-Expansion}
-    作出下列周期 $2\uppi$ 的函数的图形，并把它们展开成 Fourier 级数（说明收敛情况）．
+    作出下列周期 $2\uppi$ 的函数的图形，并把它们展开成 Fourier 级数（说明收敛情况）。
     \begin{enumerate}
         \item 在 $[-\uppi, \uppi)$ 中， $f(x) = \begin{cases} -\uppi, & -\uppi \leqslant x \leqslant 0, \\ x, & 0 < x < \uppi; \end{cases}$
         \item 在 $[-\uppi, \uppi)$ 中， $f(x) = \cos \frac{x}{2}$;
@@ -86,7 +86,7 @@
         \boxed{f(x) \sim -\frac{\uppi}{4} + \sum_{n=1}^{\infty} \left[ \frac{(-1)^n - 1}{\uppi n^2} \cos(nx) + \frac{1 - 2(-1)^n}{n} \sin(nx) \right]}.
     \end{equation}
 
-    收敛情况：由于 $f(x)$ 周期延拓后在 $[-\uppi, \uppi)$ 上分段光滑，由 Dirichlet 收敛定理，当 $x \neq k\uppi$ ($k \in \mathbb{Z}$) 时，级数收敛于 $f(x)$；当 $x = 2k\uppi$ 时，级数收敛于 $-\frac{\uppi}{2}$；当 $x = (2k+1)\uppi$ 时，级数收敛于 $0$．
+    收敛情况：由于 $f(x)$ 周期延拓后在 $[-\uppi, \uppi)$ 上分段光滑，由 Dirichlet 收敛定理，当 $x \neq k\uppi$ ($k \in \mathbb{Z}$) 时，级数收敛于 $f(x)$；当 $x = 2k\uppi$ 时，级数收敛于 $-\frac{\uppi}{2}$；当 $x = (2k+1)\uppi$ 时，级数收敛于 $0$。
 
     \ansitem{2}
 
@@ -120,7 +120,7 @@
         \end{tikzpicture}
     \end{center}
 
-    计算 Fourier 系数．因为 $f(x)$ 在整个实数轴上为偶函数，所以 $b_n = 0$．
+    计算 Fourier 系数。因为 $f(x)$ 在整个实数轴上为偶函数，所以 $b_n = 0$。
     \begin{equation}
         a_0 = \frac{2}{\uppi} \int_{0}^{\uppi} \cos \frac{x}{2} \d x = \frac{2}{\uppi} \left[ 2 \sin \frac{x}{2} \right]_{0}^{\uppi} = \frac{4}{\uppi},
     \end{equation}
@@ -140,7 +140,7 @@
         \boxed{f(x) \sim \frac{2}{\uppi} + \sum_{n=1}^{\infty} \frac{4(-1)^{n-1}}{\uppi (4n^2 - 1)} \cos(nx)}.
     \end{equation}
 
-    收敛情况：由于 $f(x)$ 周期延拓后在整个实数轴上连续且分段光滑，由 Dirichlet 收敛定理，该 Fourier 级数在整个实数轴上都收敛于 $f(x)$．
+    收敛情况：由于 $f(x)$ 周期延拓后在整个实数轴上连续且分段光滑，由 Dirichlet 收敛定理，该 Fourier 级数在整个实数轴上都收敛于 $f(x)$。
 
     \ansitem{3}
 
@@ -218,11 +218,11 @@
         \boxed{f(x) \sim \frac{1}{2} \left( 1 + \frac{1 - \e^{-\uppi}}{\uppi} \right) + \sum_{n=1}^{\infty} \left[ \frac{1 - (-1)^n \e^{-\uppi}}{\uppi (n^2 + 1)} \cos(nx) + \left( \frac{1 - (-1)^n}{n \uppi} - \frac{n(1 - (-1)^n \e^{-\uppi})}{\uppi (n^2 + 1)} \right) \sin(nx) \right]}.
     \end{equation}
 
-    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，由 Dirichlet 收敛定理，当 $x \neq (2k+1)\uppi$ ($k \in \mathbb{Z}$) 时，级数收敛于 $f(x)$；当 $x = (2k+1)\uppi$ 时，级数收敛于 $\frac{1 + \e^{-\uppi}}{2}$．
+    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，由 Dirichlet 收敛定理，当 $x \neq (2k+1)\uppi$ ($k \in \mathbb{Z}$) 时，级数收敛于 $f(x)$；当 $x = (2k+1)\uppi$ 时，级数收敛于 $\frac{1 + \e^{-\uppi}}{2}$。
 \end{solution}
 
 \begin{problem}{Fourier级数展开}{Fourier-Series-Expansion-Interval}
-    将下列函数展开成以指定区间长度为周期的 Fourier 级数，并说明收敛情况．
+    将下列函数展开成以指定区间长度为周期的 Fourier 级数，并说明收敛情况。
     \begin{enumerate}
         \item $f(x) = 1 - \sin \frac{x}{2} \quad (0 \leqslant x \leqslant \uppi)$;
         \item $f(x) = \frac{x}{3} \quad (0 \leqslant x \leqslant T)$;
@@ -269,7 +269,7 @@
         \end{tikzpicture}
     \end{center}
 
-    周期为 $\uppi$，即 $2L = \uppi \implies L = \frac{\uppi}{2}$．计算 Fourier 系数：
+    周期为 $\uppi$，即 $2L = \uppi \implies L = \frac{\uppi}{2}$。计算 Fourier 系数：
     \begin{equation}
         a_0 = \frac{2}{\uppi} \int_{0}^{\uppi} \left( 1 - \sin \frac{x}{2} \right) \d x = \frac{2}{\uppi} \left[ x + 2 \cos \frac{x}{2} \right]_{0}^{\uppi} = 2 - \frac{4}{\uppi},
     \end{equation}
@@ -301,7 +301,7 @@
         \boxed{f(x) \sim 1 - \frac{2}{\uppi} + \sum_{n=1}^{\infty} \left[ \frac{4}{\uppi(16n^2 - 1)} \cos(2nx) + \frac{16n}{\uppi(16n^2 - 1)} \sin(2nx) \right]}.
     \end{equation}
 
-    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，当 $x \neq k\uppi$ ($k \in \mathbb{Z}$) 时，级数收敛于 $1 - \sin \frac{x}{2}$；当 $x = k\uppi$ 时，级数收敛于 $\frac{1}{2}$．
+    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，当 $x \neq k\uppi$ ($k \in \mathbb{Z}$) 时，级数收敛于 $1 - \sin \frac{x}{2}$；当 $x = k\uppi$ 时，级数收敛于 $\frac{1}{2}$。
 
     \ansitem{2}
 
@@ -335,7 +335,7 @@
         \end{tikzpicture}
     \end{center}
 
-    周期为 $T$，即 $2L = T \implies L = \frac{T}{2}$．计算 Fourier 系数：
+    周期为 $T$，即 $2L = T \implies L = \frac{T}{2}$。计算 Fourier 系数：
     \begin{equation}
         a_0 = \frac{2}{T} \int_{0}^{T} \frac{x}{3} \d x = \frac{T}{3},
     \end{equation}
@@ -357,7 +357,7 @@
         \boxed{f(x) \sim \frac{T}{6} - \sum_{n=1}^{\infty} \frac{T}{3n\uppi} \sin \frac{2n\uppi x}{T}}.
     \end{equation}
 
-    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，当 $x \neq kT$ ($k \in \mathbb{Z}$) 时，级数收敛于 $\frac{x}{3}$；当 $x = kT$ 时，级数收敛于 $\frac{T}{6}$．
+    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，当 $x \neq kT$ ($k \in \mathbb{Z}$) 时，级数收敛于 $\frac{x}{3}$；当 $x = kT$ 时，级数收敛于 $\frac{T}{6}$。
 
     \ansitem{3}
 
@@ -391,7 +391,7 @@
         \end{tikzpicture}
     \end{center}
 
-    周期为 $2l$，即 $L = l$．计算 Fourier 系数：
+    周期为 $2l$，即 $L = l$。计算 Fourier 系数：
     \begin{equation}
         a_0 = \frac{1}{l} \int_{-l}^{l} \e^{ax} \d x = \frac{2\sinh(al)}{al},
     \end{equation}
@@ -417,7 +417,7 @@
         \boxed{f(x) \sim \frac{\sinh(al)}{al} + \sum_{n=1}^{\infty} \frac{2\sinh(al)}{a^2l^2 + n^2\uppi^2} \left[ al(-1)^n \cos \frac{n\uppi x}{l} + n\uppi(-1)^{n-1} \sin \frac{n\uppi x}{l} \right]}.
     \end{equation}
 
-    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，当 $x \neq (2k+1)l$ ($k \in \mathbb{Z}$) 时，级数收敛于 $\e^{ax}$；当 $x = (2k+1)l$ 时，级数收敛于 $\cosh(al)$．
+    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，当 $x \neq (2k+1)l$ ($k \in \mathbb{Z}$) 时，级数收敛于 $\e^{ax}$；当 $x = (2k+1)l$ 时，级数收敛于 $\cosh(al)$。
 
     \ansitem{4}
 
@@ -452,7 +452,7 @@
         \end{tikzpicture}
     \end{center}
 
-    周期为 $4$，即 $2L = 4 \implies L = 2$．因为 $f(x)$ 是偶函数，所以 $b_n = 0$．
+    周期为 $4$，即 $2L = 4 \implies L = 2$。因为 $f(x)$ 是偶函数，所以 $b_n = 0$。
     \begin{equation}
         a_0 = \frac{2}{2} \int_{0}^{2} f(x) \d x = \int_{0}^{1} 1 \d x + \int_{1}^{2} (-1) \d x = 0,
     \end{equation}
@@ -465,14 +465,14 @@
         \end{aligned}
     \end{equation}
 
-    当 $n = 2k$ ($k \in \mathbb{N}^*$) 时，$a_{2k} = 0$；当 $n = 2k-1$ ($k \in \mathbb{N}^*$) 时，$a_{2k-1} = \frac{4(-1)^{k-1}}{(2k-1)\uppi}$．
+    当 $n = 2k$ ($k \in \mathbb{N}^*$) 时，$a_{2k} = 0$；当 $n = 2k-1$ ($k \in \mathbb{N}^*$) 时，$a_{2k-1} = \frac{4(-1)^{k-1}}{(2k-1)\uppi}$。
 
     因此，函数的 Fourier 展开式为
     \begin{equation}
         \boxed{f(x) \sim \sum_{k=1}^{\infty} \frac{4(-1)^{k-1}}{(2k-1)\uppi} \cos \frac{(2k-1)\uppi x}{2}}.
     \end{equation}
 
-    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，当 $x \neq 2k+1$ ($k \in \mathbb{Z}$) 时，级数收敛于 $f(x)$；当 $x = 2k+1$ 时，级数收敛于 $0$．
+    收敛情况：由于 $f(x)$ 周期延拓后分段光滑，当 $x \neq 2k+1$ ($k \in \mathbb{Z}$) 时，级数收敛于 $f(x)$；当 $x = 2k+1$ 时，级数收敛于 $0$。
 \end{solution}
 
 \begin{problem}{正弦与余弦级数展开}{Sine-Cosine-Fourier-Expansion}
@@ -486,7 +486,7 @@
 
 \begin{solution}
     \ansitem{1}
-    对于函数 $f(x) = 2x^2$ ($0 \leqslant x \leqslant \uppi$)，其奇延拓与偶延拓的图形如下．
+    对于函数 $f(x) = 2x^2$ ($0 \leqslant x \leqslant \uppi$)，其奇延拓与偶延拓的图形如下。
 
     \begin{center}
         \begin{tikzpicture}[scale=0.55]
@@ -569,10 +569,10 @@
         \boxed{f(x) \sim \frac{2\uppi^2}{3} + \sum_{n=1}^{\infty} \frac{8(-1)^n}{n^2} \cos(nx)}.
     \end{equation}
 
-    收敛情况：对于正弦级数，当 $x \in (2k\uppi, (2k+1)\uppi)$ 时收敛于 $2(x-2k\uppi)^2$，当 $x \in ((2k-1)\uppi, 2k\uppi)$ 时收敛于 $-2(x-2k\uppi)^2$，当 $x = k\uppi$ 时收敛于 $0$；对于余弦级数，在整个实数轴上均收敛于其连续的偶周期延拓函数．
+    收敛情况：对于正弦级数，当 $x \in (2k\uppi, (2k+1)\uppi)$ 时收敛于 $2(x-2k\uppi)^2$，当 $x \in ((2k-1)\uppi, 2k\uppi)$ 时收敛于 $-2(x-2k\uppi)^2$，当 $x = k\uppi$ 时收敛于 $0$；对于余弦级数，在整个实数轴上均收敛于其连续的偶周期延拓函数。
 
     \ansitem{2}
-    对于函数 $f(x)$，其奇延拓与偶延拓图形如下．
+    对于函数 $f(x)$，其奇延拓与偶延拓图形如下。
 
     \begin{center}
         \begin{tikzpicture}[scale=0.75]
@@ -680,10 +680,10 @@
         \boxed{f(x) \sim \frac{A}{2} + \sum_{n=1}^{\infty} \frac{2A}{n\uppi} \sin \frac{n\uppi}{2} \cos \frac{n\uppi x}{l}}.
     \end{equation}
 
-    收敛情况：当 $x \neq kl \pm \frac{l}{2}$ 且 $x \neq kl$ 时，两级数均收敛于对应延拓函数值．在间断点处，正弦级数在 $x = kl \pm \frac{l}{2}$ 时收敛于 $\pm \frac{A}{2}$，在 $x = kl$ 时收敛于 $0$；余弦级数在 $x = kl \pm \frac{l}{2}$ 时收敛于 $\frac{A}{2}$．
+    收敛情况：当 $x \neq kl \pm \frac{l}{2}$ 且 $x \neq kl$ 时，两级数均收敛于对应延拓函数值。在间断点处，正弦级数在 $x = kl \pm \frac{l}{2}$ 时收敛于 $\pm \frac{A}{2}$，在 $x = kl$ 时收敛于 $0$；余弦级数在 $x = kl \pm \frac{l}{2}$ 时收敛于 $\frac{A}{2}$。
 
     \ansitem{3}
-    对于函数 $f(x)$，其奇延拓与偶延拓图形如下．
+    对于函数 $f(x)$，其奇延拓与偶延拓图形如下。
 
     \begin{center}
         \begin{tikzpicture}[scale=0.55]
@@ -787,19 +787,19 @@
         \boxed{f(x) \sim \frac{h}{\uppi} + \sum_{n=1}^{\infty} \frac{2\sin^2(nh)}{hn^2\uppi} \cos(nx)}.
     \end{equation}
 
-    收敛情况：由于 $f(x)$ 连续，其偶延拓在整个实数轴上均连续，故余弦级数在整个实数轴上都收敛于该偶周期延拓函数；而正弦级数在其奇延拓的间断点 $x = 2k\uppi$ ($k \in \mathbb{Z}$) 处收敛于 $0$，在其他点处均收敛于对应奇周期延拓函数值．
+    收敛情况：由于 $f(x)$ 连续，其偶延拓在整个实数轴上均连续，故余弦级数在整个实数轴上都收敛于该偶周期延拓函数；而正弦级数在其奇延拓的间断点 $x = 2k\uppi$ ($k \in \mathbb{Z}$) 处收敛于 $0$，在其他点处均收敛于对应奇周期延拓函数值。
 \end{solution}
 
 \begin{problem}{确定Fourier系数中的常数}{Fourier-Coefficient-Constant}
-    已知函数的 Fourier 级数展开式，求常数 $a$ 的值．
+    已知函数的 Fourier 级数展开式，求常数 $a$ 的值。
     \begin{enumerate}
         \item $\sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2} = a(2a - |x|)$，其中 $-\uppi \leqslant x \leqslant \uppi$;
-        \item $\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n} \sin nx = ax$，其中 $-\uppi < x < \uppi$．
+        \item $\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n} \sin nx = ax$，其中 $-\uppi < x < \uppi$。
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
-    \ansitem{1} $a = \frac{\uppi}{4}$．
+    \ansitem{1} $a = \frac{\uppi}{4}$。
 
     图形如下：
     \begin{center}
@@ -832,7 +832,7 @@
         \end{tikzpicture}
     \end{center}
 
-    令 $f(x) = a(2a - |x|)$．由于给定的 Fourier 级数不含常数项（即 $a_0 = 0$），因此必须有
+    令 $f(x) = a(2a - |x|)$。由于给定的 Fourier 级数不含常数项（即 $a_0 = 0$），因此必须有
     \begin{equation}
         a_0 = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} a(2a - |x|) \d x = 0.
     \end{equation}
@@ -844,7 +844,7 @@
     \begin{equation}
         a = \frac{\uppi}{4}.
     \end{equation}
-    此时 $f(x) = \frac{\uppi}{4} \left( \frac{\uppi}{2} - |x| \right)$．验证其 Fourier 余弦系数：
+    此时 $f(x) = \frac{\uppi}{4} \left( \frac{\uppi}{2} - |x| \right)$。验证其 Fourier 余弦系数：
     \begin{equation}
         \begin{aligned}
             a_n & = \frac{2}{\uppi} \int_{0}^{\uppi} \frac{\uppi}{4} \left( \frac{\uppi}{2} - x \right) \cos(nx) \d x                                                      \\
@@ -852,13 +852,13 @@
                 & = \frac{1 - (-1)^n}{2n^2}.
         \end{aligned}
     \end{equation}
-    当 $n = 2k$ 时，$a_{2k} = 0$；当 $n = 2k-1$ 时，$a_{2k-1} = \frac{1}{(2k-1)^2}$．系数与原级数完全相符．
+    当 $n = 2k$ 时，$a_{2k} = 0$；当 $n = 2k-1$ 时，$a_{2k-1} = \frac{1}{(2k-1)^2}$。系数与原级数完全相符。
     因此，常数 $a$ 的值为
     \begin{equation}
         \boxed{a = \frac{\uppi}{4}}.
     \end{equation}
 
-    \ansitem{2} $a = \frac{1}{2}$．
+    \ansitem{2} $a = \frac{1}{2}$。
 
     图形如下：
     \begin{center}
@@ -897,7 +897,7 @@
         \end{tikzpicture}
     \end{center}
 
-    令 $f(x) = ax$．由于 $f(x)$ 是在 $(-\uppi, \uppi)$ 上的奇函数，其 Fourier 展开式只包含正弦项，系数 $b_n$ 为
+    令 $f(x) = ax$。由于 $f(x)$ 是在 $(-\uppi, \uppi)$ 上的奇函数，其 Fourier 展开式只包含正弦项，系数 $b_n$ 为
     \begin{equation}
         \begin{aligned}
             b_n & = \frac{2}{\uppi} \int_{0}^{\uppi} ax \sin(nx) \d x                                                                           \\
@@ -925,19 +925,19 @@
               \begin{equation}
                   S(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos n \uppi x, \quad -\infty < x < +\infty
               \end{equation}
-              其中 $a_n = 2 \int_{0}^{1} f(x) \cos n \uppi x \d x \ (n = 0, 1, 2, \cdots)$．求 $S\left(\frac{9}{4}\right)$、$S\left(-\frac{5}{2}\right)$；
+              其中 $a_n = 2 \int_{0}^{1} f(x) \cos n \uppi x \d x \ (n = 0, 1, 2, \cdots)$。求 $S\left(\frac{9}{4}\right)$、$S\left(-\frac{5}{2}\right)$；
         \item 设
               \begin{equation}
                   f(x) = \begin{cases} -1, & -\uppi < x \leqslant 0, \\ 1 + x^2, & 0 < x \leqslant \uppi, \end{cases}
               \end{equation}
-              则其以 $2\uppi$ 为周期的 Fourier 级数的和函数为 $S(x), -\infty < x < +\infty$．求 $S(3\uppi)$、$S(-4\uppi)$．
+              则其以 $2\uppi$ 为周期的 Fourier 级数的和函数为 $S(x), -\infty < x < +\infty$。求 $S(3\uppi)$、$S(-4\uppi)$。
     \end{enumerate}
 \end{problem}
 
 \begin{solution}
     \ansitem{1}
 
-    对小问 (1)，$S(x)$ 为 $f(x)$ 的偶周期延拓（周期 $T = 2$）的 Fourier 级数和函数．其图形如下：
+    对小问 (1)，$S(x)$ 为 $f(x)$ 的偶周期延拓（周期 $T = 2$）的 Fourier 级数和函数。其图形如下：
     \begin{center}
         \begin{tikzpicture}[scale=1.5]
             \draw[->] (-3,0) -- (3,0) node[right] {$x$};
@@ -977,7 +977,7 @@
         \end{tikzpicture}
     \end{center}
 
-    由 Dirichlet 收敛定理，在连续点处 $S(x) = f(x)$，在跳跃间断点 $x_0$ 处 $S(x_0) = \frac{f(x_0^-) + f(x_0^+)}{2}$．
+    由 Dirichlet 收敛定理，在连续点处 $S(x) = f(x)$，在跳跃间断点 $x_0$ 处 $S(x_0) = \frac{f(x_0^-) + f(x_0^+)}{2}$。
     因为 $T = 2$，有：
     \begin{equation}
         S\left(\frac{9}{4}\right) = S\left(\frac{9}{4} - 2\right) = S\left(\frac{1}{4}\right).
@@ -1006,7 +1006,7 @@
 
     \ansitem{2}
 
-    对小问 (2)，$S(x)$ 是 $f(x)$ 周期延拓（周期 $T = 2\uppi$）的 Fourier 级数和函数．其图形如下：
+    对小问 (2)，$S(x)$ 是 $f(x)$ 周期延拓（周期 $T = 2\uppi$）的 Fourier 级数和函数。其图形如下：
     \begin{center}
         \begin{tikzpicture}[scale=0.8]
             \draw[->] (-8,0) -- (8,0) node[right] {$x$};
@@ -1193,15 +1193,15 @@
 \end{problem}
 
 \begin{myproof}
-    设 $g(x) = f(x+h)$，由于 $f(x)$ 是以 $2\uppi$ 为周期的函数，故 $g(x)$ 也是以 $2\uppi$ 为周期的函数．根据 Fourier 系数的定义，有：
+    设 $g(x) = f(x+h)$，由于 $f(x)$ 是以 $2\uppi$ 为周期的函数，故 $g(x)$ 也是以 $2\uppi$ 为周期的函数。根据 Fourier 系数的定义，有：
     \begin{equation}\label{eq:shift-a}
         \bar{a}_n = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f(x+h) \cos(nx) \d x.
     \end{equation}
-    令 $u = x+h$，则 $x = u-h$，$\d x = \d u$．代入 \zcref{eq:shift-a} 得：
+    令 $u = x+h$，则 $x = u-h$，$\d x = \d u$。代入 \zcref{eq:shift-a} 得：
     \begin{equation}
         \bar{a}_n = \frac{1}{\uppi} \int_{-\uppi+h}^{\uppi+h} f(u) \cos(n(u-h)) \d u.
     \end{equation}
-    利用被积函数的周期性，可将积分区间 $[-\uppi+h, \uppi+h]$ 换为 $[-\uppi, \uppi]$．展开余弦项得：
+    利用被积函数的周期性，可将积分区间 $[-\uppi+h, \uppi+h]$ 换为 $[-\uppi, \uppi]$。展开余弦项得：
     \begin{equation}
         \begin{aligned}
             \bar{a}_n & = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f(u) [\cos(nu) \cos(nh) + \sin(nu) \sin(nh)] \d u                                                                             \\
@@ -1279,7 +1279,7 @@
         \end{tikzpicture}
     \end{center}
 
-    由于 $f(x) = 1 - x^2$ 为偶函数，所以 $b_n = 0$．计算余弦系数：
+    由于 $f(x) = 1 - x^2$ 为偶函数，所以 $b_n = 0$。计算余弦系数：
     \begin{equation}
         a_0 = \frac{2}{\uppi} \int_{0}^{\uppi} (1 - x^2) \d x = \frac{2}{\uppi} \left[ x - \frac{x^3}{3} \right]_{0}^{\uppi} = 2 - \frac{2\uppi^2}{3}.
     \end{equation}
@@ -1297,7 +1297,7 @@
         1 - x^2 = 1 - \frac{\uppi^2}{3} + \sum_{n=1}^{\infty} \frac{4(-1)^{n-1}}{n^2} \cos(nx), \quad x \in [-\uppi, \uppi].
     \end{equation}
 
-    \ansitem{1} $\frac{\uppi^2}{12}$．
+    \ansitem{1} $\frac{\uppi^2}{12}$。
 
     在 \zcref{eq:fourier-series-x2} 中代入 $x = 0$，得：
     \begin{equation}
@@ -1308,7 +1308,7 @@
         \boxed{\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^2} = \frac{\uppi^2}{12}}.
     \end{equation}
 
-    \ansitem{2} $\frac{\uppi^4}{90}$．
+    \ansitem{2} $\frac{\uppi^4}{90}$。
 
     应用 Parseval 等式：
     \begin{equation}\label{eq:parseval}
@@ -1391,13 +1391,13 @@
         \end{aligned}
     \end{equation}
 
-    当 $n = 2k$ 时，$a_{2k} = 0$；当 $n = 2k-1$ 时，$a_{2k-1} = -\frac{4}{\uppi (2k-1)^2}$．
+    当 $n = 2k$ 时，$a_{2k} = 0$；当 $n = 2k-1$ 时，$a_{2k-1} = -\frac{4}{\uppi (2k-1)^2}$。
     因此，余弦级数的展开式为
     \begin{equation}
         \boxed{f(x) \sim 1 + \frac{\uppi}{2} - \frac{4}{\uppi} \sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2}}.
     \end{equation}
 
-    由于 $F(x)$ 在整个实轴上连续且分段光滑，由 Dirichlet 收敛定理，该级数处处收敛于 $F(x)$．即在 $[0, \uppi]$ 上有：
+    由于 $F(x)$ 在整个实轴上连续且分段光滑，由 Dirichlet 收敛定理，该级数处处收敛于 $F(x)$。即在 $[0, \uppi]$ 上有：
     \begin{equation}
         1 + x = 1 + \frac{\uppi}{2} - \frac{4}{\uppi} \sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2},
     \end{equation}
@@ -1409,18 +1409,18 @@
 
     \ansitem{1}
 
-    令 $x=1$．由于 $1 \in [0, \uppi]$，有 $F(1) = 2$．代入\zcref{eq:sum-formula}得：
+    令 $x=1$。由于 $1 \in [0, \uppi]$，有 $F(1) = 2$。代入\zcref{eq:sum-formula}得：
     \begin{equation}
         \boxed{\sum_{n=1}^{\infty} \frac{\cos(2n - 1)}{(2n - 1)^2} = \frac{\uppi^2}{8} - \frac{\uppi}{4}}.
     \end{equation}
 
     \ansitem{2}
 
-    令 $x=4$．利用 $F(x)$ 的周期性与偶对称性，有：
+    令 $x=4$。利用 $F(x)$ 的周期性与偶对称性，有：
     \begin{equation}
         F(4) = F(4 - 2\uppi) = F(2\uppi - 4).
     \end{equation}
-    由于 $2\uppi - 4 \in [0, \uppi]$，有 $F(2\uppi - 4) = 1 + (2\uppi - 4) = 2\uppi - 3$．代入\zcref{eq:sum-formula}得：
+    由于 $2\uppi - 4 \in [0, \uppi]$，有 $F(2\uppi - 4) = 1 + (2\uppi - 4) = 2\uppi - 3$。代入\zcref{eq:sum-formula}得：
     \begin{equation}
         \sum_{n=1}^{\infty} \frac{\cos 4(2n - 1)}{(2n - 1)^2} = \frac{\uppi}{4} \left( 1 + \frac{\uppi}{2} - (2\uppi - 3) \right) = \frac{\uppi}{4} \left( 4 - \frac{3\uppi}{2} \right).
     \end{equation}
@@ -1435,11 +1435,11 @@
     \begin{equation}
         f(x) = \begin{cases} 0, & -\frac{T}{2} \leqslant x < -\frac{\tau}{2}, \\ H, & -\frac{\tau}{2} \leqslant x < \frac{\tau}{2}, \\ 0, & \frac{\tau}{2} \leqslant x \leqslant \frac{T}{2}. \end{cases}
     \end{equation}
-    试把它展开成 Fourier 级数的复数形式．
+    试把它展开成 Fourier 级数的复数形式。
 \end{problem}
 
 \begin{solution}
-    周期为 $T$，基频为 $\omega_0 = \frac{2\uppi}{T}$．函数的图形如下：
+    周期为 $T$，基频为 $\omega_0 = \frac{2\uppi}{T}$。函数的图形如下：
     \begin{center}
         \begin{tikzpicture}[scale=0.8]
             % Axes

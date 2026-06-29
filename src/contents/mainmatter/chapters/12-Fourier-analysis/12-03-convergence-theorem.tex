@@ -1,7 +1,7 @@
 \section{收敛性定理的证明}
 
 \begin{problem}{符号函数的Fourier级数}{Sgn-Fourier-Series}
-    把函数 $f(x) = \operatorname{sgn} x \ (-\uppi < x < \uppi)$ 展开为 Fourier 级数；并证明：当 $0 < x < \uppi$ 时，有 $\sum_{k=1}^{\infty} \frac{\sin(2k-1)x}{2k-1} = \frac{\uppi}{4}$，并求级数 $\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{2n-1}$．
+    把函数 $f(x) = \operatorname{sgn} x \ (-\uppi < x < \uppi)$ 展开为 Fourier 级数；并证明：当 $0 < x < \uppi$ 时，有 $\sum_{k=1}^{\infty} \frac{\sin(2k-1)x}{2k-1} = \frac{\uppi}{4}$，并求级数 $\sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{2n-1}$。
 \end{problem}
 
 \begin{solution}
@@ -122,7 +122,7 @@
         \end{tikzpicture}
     \end{center}
 
-    由于 $f(x) = |x|$ 在 $(-\uppi, \uppi)$ 内是偶函数，故 $b_n = 0 \ (n \geqslant 1)$．
+    由于 $f(x) = |x|$ 在 $(-\uppi, \uppi)$ 内是偶函数，故 $b_n = 0 \ (n \geqslant 1)$。
     \begin{equation}\label{eq:abs-a0}
         a_0 = \frac{2}{\uppi} \int_{0}^{\uppi} x \d x = \uppi,
     \end{equation}
@@ -142,7 +142,7 @@
     \begin{equation}
         \boxed{f(x) \sim \frac{\uppi}{2} - \sum_{k=1}^{\infty} \frac{4}{\uppi(2k-1)^2} \cos(2k-1)x}.
     \end{equation}
-    收敛情况：由于周期延拓后的函数在整个实数轴上连续且分段光滑，故该级数在整个实数轴上收敛于 $f(x)$．
+    收敛情况：由于周期延拓后的函数在整个实数轴上连续且分段光滑，故该级数在整个实数轴上收敛于 $f(x)$。
 
     \ansitem{2}
 
@@ -170,7 +170,7 @@
         \end{tikzpicture}
     \end{center}
 
-    由于 $f(x) = \sin ax$ 是奇函数，故 $a_n = 0 \ (n \geqslant 0)$．
+    由于 $f(x) = \sin ax$ 是奇函数，故 $a_n = 0 \ (n \geqslant 0)$。
     \begin{equation}\label{eq:sinax-bn}
         \begin{aligned}
             b_n & = \frac{2}{\uppi} \int_{0}^{\uppi} \sin(ax) \sin(nx) \d x                                \\
@@ -184,7 +184,7 @@
     \begin{equation}
         \boxed{f(x) \sim \sum_{n=1}^{\infty} \frac{2n (-1)^{n-1} \sin(a\uppi)}{\uppi (n^2 - a^2)} \sin(nx)}.
     \end{equation}
-    收敛情况：由 Dirichlet 收敛定理，当 $x \in (-\uppi, \uppi)$ 时，级数收敛于 $\sin ax$；当 $x = (2k+1)\uppi \ (k \in \mathbb{Z})$ 时，级数收敛于 $0$．
+    收敛情况：由 Dirichlet 收敛定理，当 $x \in (-\uppi, \uppi)$ 时，级数收敛于 $\sin ax$；当 $x = (2k+1)\uppi \ (k \in \mathbb{Z})$ 时，级数收敛于 $0$。
 
     \ansitem{3}
 
@@ -204,7 +204,7 @@
         \end{tikzpicture}
     \end{center}
 
-    由于 $f(x) = x \sin x$ 是偶函数，故 $b_n = 0 \ (n \geqslant 1)$．
+    由于 $f(x) = x \sin x$ 是偶函数，故 $b_n = 0 \ (n \geqslant 1)$。
     \begin{equation}\label{eq:xsinx-a0}
         a_0 = \frac{2}{\uppi} \int_{0}^{\uppi} x \sin x \d x = \frac{2}{\uppi} \left[ \left. -x \cos x \right|_{0}^{\uppi} + \int_{0}^{\uppi} \cos x \d x \right] = 2.
     \end{equation}
@@ -231,11 +231,11 @@
     \begin{equation}
         \boxed{f(x) \sim 1 - \frac{1}{2} \cos x + \sum_{n=2}^{\infty} \frac{2(-1)^{n-1}}{n^2 - 1} \cos(nx)}.
     \end{equation}
-    收敛情况：由于周期延拓后的函数在整个实数轴上连续且分段光滑，该级数在整个实数轴上收敛于 $f(x)$．
+    收敛情况：由于周期延拓后的函数在整个实数轴上连续且分段光滑，该级数在整个实数轴上收敛于 $f(x)$。
 \end{solution}
 
 \begin{problem}{分数部分函数的Fourier级数}{Fourier-Fractional-Part}
-    把 $f(x) = x - [x]$（$[x]$ 是不超过 $x$ 的整数）在 $[0, 1]$ 上展开为 Fourier 级数．
+    把 $f(x) = x - [x]$（$[x]$ 是不超过 $x$ 的整数）在 $[0, 1]$ 上展开为 Fourier 级数。
 \end{problem}
 
 \begin{solution}
@@ -264,8 +264,8 @@
         \end{tikzpicture}
     \end{center}
 
-    函数 $f(x) = x - [x]$ 是以 $T = 1$ 为周期的周期函数．在区间 $[0, 1)$ 上，$f(x) = x$．
-    设其 Fourier 展开周期为 $2L = 1 \implies L = \frac{1}{2}$．计算其 Fourier 系数：
+    函数 $f(x) = x - [x]$ 是以 $T = 1$ 为周期的周期函数。在区间 $[0, 1)$ 上，$f(x) = x$。
+    设其 Fourier 展开周期为 $2L = 1 \implies L = \frac{1}{2}$。计算其 Fourier 系数：
     \begin{equation}\label{eq:frac-a0}
         a_0 = \frac{1}{L} \int_{0}^{2L} f(x) \d x = 2 \int_{0}^{1} x \d x = 1,
     \end{equation}
@@ -281,7 +281,7 @@
         \end{aligned}
     \end{equation}
 
-    根据 Dirichlet 收敛定理，当 $x \notin \mathbb{Z}$ 时，级数收敛于 $x - [x]$；当 $x \in \mathbb{Z}$ 时，级数收敛于 $\frac{1}{2}$．
+    根据 Dirichlet 收敛定理，当 $x \notin \mathbb{Z}$ 时，级数收敛于 $x - [x]$；当 $x \in \mathbb{Z}$ 时，级数收敛于 $\frac{1}{2}$。
     因此，其 Fourier 展开式为
     \begin{equation}
         \boxed{f(x) \sim \frac{1}{2} - \sum_{n=1}^{\infty} \frac{\sin(2n\uppi x)}{n\uppi}}
@@ -297,9 +297,9 @@
 \end{problem}
 
 \begin{myproof}
-    首先，我们计算 $f(y) = \cos(ay)$（$a \notin \mathbb{Z}$）在 $[-\uppi, \uppi]$ 上的 Fourier 展开式．
+    首先，我们计算 $f(y) = \cos(ay)$（$a \notin \mathbb{Z}$）在 $[-\uppi, \uppi]$ 上的 Fourier 展开式。
 
-    由于 $f(y)$ 为偶函数，所以其 Fourier 正弦系数 $b_n = 0$（$n \geqslant 1$）．
+    由于 $f(y)$ 为偶函数，所以其 Fourier 正弦系数 $b_n = 0$（$n \geqslant 1$）。
     计算余弦系数：
     \begin{equation}\label{eq:cos-a0}
         a_0 = \frac{2}{\uppi} \int_{0}^{\uppi} \cos(ay) \d y = \frac{2\sin(a\uppi)}{a\uppi},
@@ -383,8 +383,8 @@
         \end{tikzpicture}
     \end{center}
 
-    函数 $f(x) = |\cos x|$ 是以 $\uppi$ 为周期的偶函数．在区间 $\left[-\frac{\uppi}{2}, \frac{\uppi}{2}\right]$ 上，$f(x) = \cos x$．
-    设周期 $2L = \uppi \implies L = \frac{\uppi}{2}$．计算其 Fourier 系数：
+    函数 $f(x) = |\cos x|$ 是以 $\uppi$ 为周期的偶函数。在区间 $\left[-\frac{\uppi}{2}, \frac{\uppi}{2}\right]$ 上，$f(x) = \cos x$。
+    设周期 $2L = \uppi \implies L = \frac{\uppi}{2}$。计算其 Fourier 系数：
     \begin{equation}\label{eq:abs-cos-a0}
         a_0 = \frac{1}{\uppi/2} \int_{-\uppi/2}^{\uppi/2} \cos x \d x = \frac{4}{\uppi},
     \end{equation}
@@ -500,7 +500,7 @@
         \end{tikzpicture}
     \end{center}
 
-    设函数 $f(x) = \e^{ax}$ 在 $(0, 2\uppi)$ 上的周期延拓周期为 $2L = 2\uppi \implies L = \uppi$．计算其 Fourier 系数：
+    设函数 $f(x) = \e^{ax}$ 在 $(0, 2\uppi)$ 上的周期延拓周期为 $2L = 2\uppi \implies L = \uppi$。计算其 Fourier 系数：
     \begin{equation}\label{eq:exp-a0-val}
         a_0 = \frac{1}{\uppi} \int_{0}^{2\uppi} \e^{ax} \d x = \frac{\e^{2a\uppi} - 1}{a\uppi},
     \end{equation}
@@ -647,7 +647,7 @@
 
     \ansitem{4}
 
-    利用 Parseval 等式进行级数求和．
+    利用 Parseval 等式进行级数求和。
 
     首先，对 $x^3$ 的 Fourier 展开式应用 Parseval 等式：
     \begin{equation}\label{eq:parseval-x3}
@@ -726,7 +726,7 @@
         \end{tikzpicture}
     \end{center}
 
-    为了将 $f(x)$ 展开为正弦级数，将其作奇延拓到 $[-\uppi, \uppi]$ 上．其 Fourier 系数满足 $a_n = 0 \ (n \geqslant 0)$，正弦系数为
+    为了将 $f(x)$ 展开为正弦级数，将其作奇延拓到 $[-\uppi, \uppi]$ 上。其 Fourier 系数满足 $a_n = 0 \ (n \geqslant 0)$，正弦系数为
     \begin{equation}\label{eq:sine-bn-integral}
         b_n = \frac{2}{\uppi} \int_{0}^{\uppi} f(x) \sin nx \d x.
     \end{equation}
@@ -734,7 +734,7 @@
     \begin{equation}\label{eq:sine-bn-calc}
         b_n = \frac{2}{\uppi} \left[ \int_{0}^{1} \frac{\uppi-1}{2} x \sin nx \d x + \int_{1}^{\uppi} \frac{\uppi-x}{2} \sin nx \d x \right].
     \end{equation}
-    分别计算两个积分项．第一项为
+    分别计算两个积分项。第一项为
     \begin{equation}\label{eq:sine-part1}
         \int_{0}^{1} x \sin nx \d x = \left. -x \frac{\cos nx}{n} \right|_{0}^{1} + \int_{0}^{1} \frac{\cos nx}{n} \d x = -\frac{\cos n}{n} + \frac{\sin n}{n^2},
     \end{equation}
@@ -765,7 +765,7 @@
 
 \begin{myproof}
     \ansitem{1}
-    通过在特定点求值与求导分析来证明．
+    通过在特定点求值与求导分析来证明。
 
     首先，由于 $f(x)$ 在 $x=1$ 处连续，将 $x=1$ 代入其 Fourier 展开式中可得
     \begin{equation}\label{eq:f1-value}
@@ -780,7 +780,7 @@
     \begin{equation}\label{eq:g-def}
         g(x) = \begin{cases} \frac{\uppi-1}{2}, & 0 < x < 1, \\ -\frac{1}{2}, & 1 < x < \uppi. \end{cases}
     \end{equation}
-    将其作偶延拓到 $[-\uppi, \uppi]$ 上，则其 Fourier 展开式只含有余弦项．计算其 Fourier 系数：
+    将其作偶延拓到 $[-\uppi, \uppi]$ 上，则其 Fourier 展开式只含有余弦项。计算其 Fourier 系数：
     \begin{equation}\label{eq:g-a0}
         a_0 = \frac{2}{\uppi} \int_{0}^{\uppi} g(x) \d x = \frac{2}{\uppi} [f(\uppi) - f(0)] = 0,
     \end{equation}
@@ -805,7 +805,7 @@
     \end{equation}
 
     \ansitem{2}
-    使用 Parseval 等式来计算级数和．
+    使用 Parseval 等式来计算级数和。
 
     对正弦级数应用 Parseval 等式，有
     \begin{equation}\label{eq:parseval-sine}

@@ -446,7 +446,7 @@
     \begin{equation}\label{eq:abs-sin-term}
         (-1)^{n-1} \cos\left[ 2n\left( x - \frac{\uppi}{2} \right) \right] = (-1)^{n-1}(-1)^n \cos 2nx = -\cos 2nx.
     \end{equation}
-    代入\zcref{eq:abs-sin-sub}式后，即证得
+    代入\zcref{eq:abs-sin-sub}后，即证得
     \begin{equation}
         \boxed{|\sin x| = \frac{2}{\uppi} - \frac{4}{\uppi} \sum_{n=1}^{\infty} \frac{1}{4n^2 - 1} \cos 2nx}
     \end{equation}
@@ -590,7 +590,7 @@
 
     \ansitem{1}
 
-    对\zcref{eq:base-fourier}式在区间 $[0, x]$ 上逐项积分，其中 $-\uppi < x < \uppi$：
+    对\zcref{eq:base-fourier}在区间 $[0, x]$ 上逐项积分，其中 $-\uppi < x < \uppi$：
     \begin{equation}\label{eq:int-x2}
         \frac{x^2}{2} = 2 \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n} \int_{0}^{x} \sin nt \d t = 2 \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^2} (1 - \cos nx).
     \end{equation}
@@ -598,7 +598,7 @@
     \begin{equation}\label{eq:eta2}
         \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^2} = \frac{\uppi^2}{12},
     \end{equation}
-    代入\zcref{eq:int-x2}式可得
+    代入\zcref{eq:int-x2}可得
     \begin{equation}\label{eq:x2-half}
         \frac{x^2}{2} = \frac{\uppi^2}{6} + 2 \sum_{n=1}^{\infty} \frac{(-1)^n}{n^2} \cos nx.
     \end{equation}
@@ -609,11 +609,11 @@
 
     \ansitem{2}
 
-    对\zcref{eq:x2-half}式再次在 $[0, x]$ 上逐项积分，得
+    对\zcref{eq:x2-half}再次在 $[0, x]$ 上逐项积分，得
     \begin{equation}\label{eq:int-x3}
         \frac{x^3}{6} = \frac{\uppi^2 x}{6} + 2 \sum_{n=1}^{\infty} \frac{(-1)^n}{n^3} \sin nx.
     \end{equation}
-    将\zcref{eq:base-fourier}式代入\zcref{eq:int-x3}式中的第一项，有
+    将\zcref{eq:base-fourier}代入\zcref{eq:int-x3}中的第一项，有
     \begin{equation}\label{eq:sub-x3}
         \frac{x^3}{6} = \frac{\uppi^2}{3} \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n} \sin nx - 2 \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{n^3} \sin nx.
     \end{equation}
@@ -624,7 +624,7 @@
 
     \ansitem{3}
 
-    对\zcref{eq:sub-x3}式继续在 $[0, x]$ 上逐项积分，得
+    对\zcref{eq:sub-x3}继续在 $[0, x]$ 上逐项积分，得
     \begin{equation}\label{eq:int-x4}
         \frac{x^4}{24} = \sum_{n=1}^{\infty} (-1)^{n-1} \left( \frac{\uppi^2}{3n^2} - \frac{2}{n^4} \right) (1 - \cos nx).
     \end{equation}
@@ -636,7 +636,7 @@
     \begin{equation}\label{eq:const-x4}
         C = \sum_{n=1}^{\infty} (-1)^{n-1} \left( \frac{\uppi^2}{3n^2} - \frac{2}{n^4} \right) = \frac{\uppi^2}{3} \left( \frac{\uppi^2}{12} \right) - 2 \left( \frac{7\uppi^4}{720} \right) = \frac{\uppi^4}{120}.
     \end{equation}
-    将其代入\zcref{eq:int-x4}式中，可得
+    将其代入\zcref{eq:int-x4}中，可得
     \begin{equation}\label{eq:x4-fraction}
         \frac{x^4}{24} = \frac{\uppi^4}{120} + \sum_{n=1}^{\infty} (-1)^n \left( \frac{\uppi^2}{3n^2} - \frac{2}{n^4} \right) \cos nx.
     \end{equation}
@@ -730,7 +730,7 @@
     \begin{equation}\label{eq:sine-bn-integral}
         b_n = \frac{2}{\uppi} \int_{0}^{\uppi} f(x) \sin nx \d x.
     \end{equation}
-    将 $f(x)$ 的分段表达式代入\zcref{eq:sine-bn-integral}式中，可得
+    将 $f(x)$ 的分段表达式代入\zcref{eq:sine-bn-integral}中，可得
     \begin{equation}\label{eq:sine-bn-calc}
         b_n = \frac{2}{\uppi} \left[ \int_{0}^{1} \frac{\uppi-1}{2} x \sin nx \d x + \int_{1}^{\uppi} \frac{\uppi-x}{2} \sin nx \d x \right].
     \end{equation}
@@ -742,7 +742,7 @@
     \begin{equation}\label{eq:sine-part2}
         \int_{1}^{\uppi} (\uppi-x) \sin nx \d x = \left. -(\uppi-x) \frac{\cos nx}{n} \right|_{1}^{\uppi} - \int_{1}^{\uppi} \frac{\cos nx}{n} \d x = \frac{(\uppi-1)\cos n}{n} + \frac{\sin n}{n^2}.
     \end{equation}
-    将\zcref{eq:sine-part1}与\zcref{eq:sine-part2}代入\zcref{eq:sine-bn-calc}式，合并同类项整理得
+    将\zcref{eq:sine-part1}与\zcref{eq:sine-part2}代入\zcref{eq:sine-bn-calc}，合并同类项整理得
     \begin{equation}\label{eq:sine-bn-final}
         \begin{aligned}
             b_n & = \frac{1}{\uppi} \left[ (\uppi-1) \left( -\frac{\cos n}{n} + \frac{\sin n}{n^2} \right) + \left( \frac{(\uppi-1)\cos n}{n} + \frac{\sin n}{n^2} \right) \right] \\
@@ -799,7 +799,7 @@
     \begin{equation}\label{eq:g0-value}
         \sum_{n=1}^{\infty} \frac{\sin n}{n} = \frac{\uppi-1}{2}.
     \end{equation}
-    结合\zcref{eq:part1-1}与\zcref{eq:g0-value}式，即证得
+    结合\zcref{eq:part1-1}与\zcref{eq:g0-value}，即证得
     \begin{equation}
         \sum_{n=1}^{\infty} \frac{\sin n}{n} = \sum_{n=1}^{\infty} \left(\frac{\sin n}{n}\right)^2 = \frac{\uppi-1}{2}.
     \end{equation}
@@ -819,7 +819,7 @@
                                            & = \frac{(\uppi-1)^2}{12} + \frac{(\uppi-1)^3}{12} = \frac{\uppi(\uppi-1)^2}{12}.
         \end{aligned}
     \end{equation}
-    将\zcref{eq:parseval-int}及 $b_n = \frac{\sin n}{n^2}$ 代入\zcref{eq:parseval-sine}式，可得
+    将\zcref{eq:parseval-int}及 $b_n = \frac{\sin n}{n^2}$ 代入\zcref{eq:parseval-sine}，可得
     \begin{equation}\label{eq:parseval-final}
         \sum_{n=1}^{\infty} \frac{\sin^2 n}{n^4} = \frac{2}{\uppi} \cdot \frac{\uppi(\uppi-1)^2}{12} = \frac{(\uppi-1)^2}{6}.
     \end{equation}

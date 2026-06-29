@@ -71,14 +71,14 @@
     \begin{equation}\label{eq:parseval-4}
         \frac{a_0^2}{2} + \sum_{n=1}^{\infty} (a_n^2 + b_n^2) = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} |f(x)|^2 \d x.
     \end{equation}
-    将系数代入\zcref{eq:parseval-4}式，得
+    将系数代入\zcref{eq:parseval-4}，得
     \begin{equation}\label{eq:subs-5}
         \frac{2a^2}{\uppi^2} + \sum_{n=1}^{\infty} \frac{4\sin^2(na)}{n^2\uppi^2} = \frac{1}{\uppi} \int_{-a}^{a} 1 \d x = \frac{2a}{\uppi}.
     \end{equation}
 
     \ansitem{1}
 
-    对\zcref{eq:subs-5}式两边同乘以 $\frac{\uppi^2}{4}$ 并移项，可得
+    对\zcref{eq:subs-5}两边同乘以 $\frac{\uppi^2}{4}$ 并移项，可得
     \begin{equation}\label{eq:sinsum-6}
         \sum_{n=1}^{\infty} \frac{\sin^2(na)}{n^2} = \frac{\uppi^2}{4} \left( \frac{2a}{\uppi} - \frac{2a^2}{\uppi^2} \right).
     \end{equation}
@@ -209,11 +209,11 @@
                 & = \frac{4}{\uppi} \sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} - \frac{4}{\uppi} \sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2}.
         \end{aligned}
     \end{equation}
-    将前面求得的 $\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} = \frac{\uppi^2}{8}$ 代入\zcref{eq:term-integration-3}式，得
+    将前面求得的 $\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} = \frac{\uppi^2}{8}$ 代入\zcref{eq:term-integration-3}，得
     \begin{equation}\label{eq:fx-subs-3}
         |x| = \frac{\uppi}{2} - \frac{4}{\uppi} \sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2}.
     \end{equation}
-    当 $0 \leqslant x \leqslant \uppi$ 时，有 $|x| = x$，将其代入\zcref{eq:fx-subs-3}式移项整理，即得第二个级数的和为
+    当 $0 \leqslant x \leqslant \uppi$ 时，有 $|x| = x$，将其代入\zcref{eq:fx-subs-3}移项整理，即得第二个级数的和为
     \begin{equation}
         \boxed{\sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2} = \frac{\uppi(\uppi - 2x)}{8}}.
     \end{equation}
@@ -397,7 +397,7 @@
     \begin{equation}\label{eq:integral-step1-7}
         \int_{-1}^{1} P_m(x) P_n(x) \d x = C_n \int_{-1}^{1} P_m(x) u^{(n)}(x) \d x.
     \end{equation}
-    对\zcref{eq:integral-step1-7}式右端进行分部积分，得
+    对\zcref{eq:integral-step1-7}右端进行分部积分，得
     \begin{equation}\label{eq:parts-step1-7}
         \int_{-1}^{1} P_m(x) u^{(n)}(x) \d x = \left. P_m(x) u^{(n-1)}(x) \right|_{-1}^{1} - \int_{-1}^{1} P'_m(x) u^{(n-1)}(x) \d x.
     \end{equation}
@@ -446,7 +446,7 @@
     \begin{equation}\label{eq:diff-eq-u-8}
         (x^2 - 1) u'(x) = 2nx u(x).
     \end{equation}
-    对\zcref{eq:diff-eq-u-8}式关于 $x$ 求 $n+1$ 阶导数。利用 Leibniz 导数法则，等式左端展开为
+    对\zcref{eq:diff-eq-u-8}关于 $x$ 求 $n+1$ 阶导数。利用 Leibniz 导数法则，等式左端展开为
     \begin{equation}\label{eq:leibniz-lhs-8}
         \frac{\d^{n+1}}{\d x^{n+1}} \left[ (x^2 - 1) u' \right] = (x^2 - 1) u^{(n+2)} + 2(n+1)x u^{(n+1)} + n(n+1) u^{(n)},
     \end{equation}
@@ -489,7 +489,7 @@
     \begin{equation}\label{eq:lemma1-step3}
         \frac{\d^{n+1}}{\d x^{n+1}} [ x w_n(x) ] = x w_n^{(n+1)}(x) + (n+1) w_n^{(n)}(x).
     \end{equation}
-    将\zcref{eq:lemma1-step3}式代回\zcref{eq:lemma1-step1}式中，可得
+    将\zcref{eq:lemma1-step3}代回\zcref{eq:lemma1-step1}中，可得
     \begin{equation}\label{eq:lemma1-step4}
         \begin{aligned}
             P'_{n+1}(x) & = \frac{2(n+1)}{2^{n+1}(n+1)!} \left[ x w_n^{(n+1)}(x) + (n+1) w_n^{(n)}(x) \right]                     \\
@@ -517,7 +517,7 @@
     \begin{equation}\label{eq:lemma2-step3}
         P'_{n+1}(x) = \frac{1}{2^n n!} \frac{\d^{n+1}}{\d x^{n+1}} [ x w_n(x) ].
     \end{equation}
-    代入\zcref{eq:lemma2-step2}式，有
+    代入\zcref{eq:lemma2-step2}，有
     \begin{equation}\label{eq:lemma2-step4}
         \begin{aligned}
             P'_{n+1}(x) & = \frac{1}{2^n n!} \left[ (2n+1) w_n^{(n)}(x) + 2n w_{n-1}^{(n)}(x) \right]                                                 \\
@@ -526,15 +526,15 @@
                         & = (2n+1) P_n(x) + P'_{n-1}(x).
         \end{aligned}
     \end{equation}
-    移项即得引理 2，且这正是公式\zcref{eq:recurrence-8c}。
+    移项即得引理 2，且这正是\zcref{eq:recurrence-8c}。
 
     下面基于引理 1 与引理 2 验证其余两式。
 
-    (a) 验证公式\zcref{eq:recurrence-8c}
+    (a) 验证\zcref{eq:recurrence-8c}
 
-    由引理 2，公式\zcref{eq:recurrence-8c}直接成立。
+    由引理 2，\zcref{eq:recurrence-8c}直接成立。
 
-    (b) 验证公式\zcref{eq:recurrence-8b}
+    (b) 验证\zcref{eq:recurrence-8b}
 
     由引理 1，有
     \begin{equation}\label{eq:proof-b-1}
@@ -544,7 +544,7 @@
     \begin{equation}\label{eq:proof-b-2}
         P'_{n+1}(x) = P'_{n-1}(x) + (2n+1) P_n(x).
     \end{equation}
-    联立\zcref{eq:proof-b-1}与\zcref{eq:proof-b-2}式以消去 $P'_{n+1}(x)$，可得
+    联立\zcref{eq:proof-b-1}与\zcref{eq:proof-b-2}以消去 $P'_{n+1}(x)$，可得
     \begin{equation}\label{eq:proof-b-3}
         P'_{n-1}(x) = x P'_n(x) - n P_n(x).
     \end{equation}
@@ -552,7 +552,7 @@
     \begin{equation}\label{eq:proof-b-4}
         P'_n(x) - x P'_{n-1}(x) = n P_{n-1}(x).
     \end{equation}
-    将\zcref{eq:proof-b-3}式代入\zcref{eq:proof-b-4}式以消去 $P'_{n-1}(x)$，得
+    将\zcref{eq:proof-b-3}代入\zcref{eq:proof-b-4}以消去 $P'_{n-1}(x)$，得
     \begin{equation}\label{eq:proof-b-5}
         P'_n(x) - x \left[ x P'_n(x) - n P_n(x) \right] = n P_{n-1}(x),
     \end{equation}
@@ -568,11 +568,11 @@
     \begin{equation}\label{eq:proof-b-final}
         \frac{x^2 - 1}{n} \frac{\d P_n(x)}{\d x} = x P_n(x) - P_{n-1}(x).
     \end{equation}
-    这验证了公式\zcref{eq:recurrence-8b}。
+    这验证了\zcref{eq:recurrence-8b}。
 
-    (c) 验证公式\zcref{eq:recurrence-8a}
+    (c) 验证\zcref{eq:recurrence-8a}
 
-    由已证的公式\zcref{eq:recurrence-8b}，对任意正整数 $k$ 均有
+    由已证的\zcref{eq:recurrence-8b}，对任意正整数 $k$ 均有
     \begin{equation}\label{eq:proof-a-1}
         (x^2 - 1) P'_k(x) = k \left[ x P_k(x) - P_{k-1}(x) \right].
     \end{equation}
@@ -584,7 +584,7 @@
     \begin{equation}\label{eq:proof-a-3}
         (x^2 - 1) P'_{n+1}(x) = x \left[ (x^2 - 1) P'_n(x) \right] + (n+1)(x^2 - 1) P_n(x).
     \end{equation}
-    将 $k = n$ 时的\zcref{eq:proof-a-1}式代入\zcref{eq:proof-a-3}式右端，得
+    将 $k = n$ 时的\zcref{eq:proof-a-1}代入\zcref{eq:proof-a-3}右端，得
     \begin{equation}\label{eq:proof-a-4}
         \begin{aligned}
             (x^2 - 1) P'_{n+1}(x) & = x \cdot n \left[ x P_n(x) - P_{n-1}(x) \right] + (n+1)(x^2 - 1) P_n(x) \\
@@ -592,7 +592,7 @@
                                   & = (2n+1) x^2 P_n(x) - n x P_{n-1}(x) - (n+1) P_n(x).
         \end{aligned}
     \end{equation}
-    比较\zcref{eq:proof-a-2}与\zcref{eq:proof-a-4}式的右端，有
+    比较\zcref{eq:proof-a-2}与\zcref{eq:proof-a-4}的右端，有
     \begin{equation}\label{eq:proof-a-5}
         (n+1) x P_{n+1}(x) - (n+1) P_n(x) = (2n+1) x^2 P_n(x) - n x P_{n-1}(x) - (n+1) P_n(x).
     \end{equation}
@@ -604,7 +604,7 @@
     \begin{equation}\label{eq:proof-a-final}
         (n+1) P_{n+1}(x) = (2n+1) x P_n(x) - n P_{n-1}(x).
     \end{equation}
-    这验证了公式\zcref{eq:recurrence-8a}。
+    这验证了\zcref{eq:recurrence-8a}。
 \end{myproof}
 
 \endinput

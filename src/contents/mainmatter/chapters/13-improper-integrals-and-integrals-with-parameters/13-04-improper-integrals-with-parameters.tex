@@ -1,3 +1,728 @@
 \section{含参变量的反常积分}
 
+\begin{problem}{含参变量反常积分的收敛域}{Improper-Integral-Convergence}
+    确定下列参变量反常积分的收敛域：
+    \begin{enumerate}
+        \item $\int_0^{+\infty} x^u \d x$;
+        \item $\int_1^{+\infty} x^u \frac{x + \sin x}{x - \sin x} \d x$;
+        \item $\int_2^{+\infty} \frac{\d x}{x^u \ln x}$;
+        \item $\int_0^{\uppi} \frac{\d x}{\sin^u x}$;
+        \item $\int_0^{+\infty} \frac{\sin^2 x}{x^\alpha(1+x)} \d x$;
+        \item $\int_0^{+\infty} \frac{\ln(1 + x^2)}{x^\alpha} \d x$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    将积分拆分为两部分：
+    \begin{equation}
+        \int_0^{+\infty} x^u \d x = \int_0^1 x^u \d x + \int_1^{+\infty} x^u \d x.
+    \end{equation}
+    对于第一部分，当 $x \to 0^+$ 时：
+    \begin{equation}
+        \int_0^1 x^u \d x < +\infty \iff u > -1.
+    \end{equation}
+    对于第二部分，当 $x \to +\infty$ 时：
+    \begin{equation}
+        \int_1^{+\infty} x^u \d x < +\infty \iff u < -1.
+    \end{equation}
+    由于没有 $u$ 同时满足上述两个条件，因此收敛域为空集。
+    \begin{equation}
+        \boxed{u \in \varnothing}
+    \end{equation}
+
+    \ansitem{2}
+
+    因为对任意 $x \geqslant 1$，有 $x - \sin x > 0$，所以被积函数在 $[1, +\infty)$ 上无瑕点。
+    当 $x \to +\infty$ 时，有：
+    \begin{equation}
+        \lim_{x \to +\infty} \frac{x + \sin x}{x - \sin x} = 1.
+    \end{equation}
+    从而得到渐近关系：
+    \begin{equation}
+        x^u \frac{x + \sin x}{x - \sin x} \sim x^u \quad (x \to +\infty).
+    \end{equation}
+    由比较收敛判定法，原积分收敛当且仅当 $u < -1$。
+    \begin{equation}
+        \boxed{u \in (-\infty, -1)}
+    \end{equation}
+
+    \ansitem{3}
+
+    被积函数在 $[2, +\infty)$ 上连续。当 $x \to +\infty$ 时：
+    若 $u > 1$，取 $\epsilon = \frac{u-1}{2} > 0$，则：
+    \begin{equation}
+        \lim_{x \to +\infty} \frac{1 / (x^u \ln x)}{1 / x^{1+\epsilon}} = \lim_{x \to +\infty} \frac{1}{x^\epsilon \ln x} = 0.
+    \end{equation}
+    因为 $\int_2^{+\infty} \frac{\d x}{x^{1+\epsilon}}$ 收敛，所以原积分收敛。
+    若 $u < 1$，取 $\epsilon = \frac{1-u}{2} > 0$，则：
+    \begin{equation}
+        \lim_{x \to +\infty} \frac{1 / (x^u \ln x)}{1 / x^{1-\epsilon}} = \lim_{x \to +\infty} \frac{x^\epsilon}{\ln x} = +\infty.
+    \end{equation}
+    因为 $\int_2^{+\infty} \frac{\d x}{x^{1-\epsilon}}$ 发散，所以原积分发散。
+    若 $u = 1$，则直接计算得：
+    \begin{equation}
+        \int_2^{+\infty} \frac{\d x}{x \ln x} = \left. \ln(\ln x) \right|_2^{+\infty} = +\infty.
+    \end{equation}
+    综上所述，收敛的充要条件为 $u > 1$。
+    \begin{equation}
+        \boxed{u \in (1, +\infty)}
+    \end{equation}
+
+    \ansitem{4}
+
+    瑕点为 $x = 0$ 与 $x = \uppi$。将积分拆分为两部分：
+    \begin{equation}
+        \int_0^{\uppi} \frac{\d x}{\sin^u x} = \int_0^{\frac{\uppi}{2}} \frac{\d x}{\sin^u x} + \int_{\frac{\uppi}{2}}^{\uppi} \frac{\d x}{\sin^u x}.
+    \end{equation}
+    当 $x \to 0^+$ 时，由 $\sin x \sim x$ 可得：
+    \begin{equation}
+        \frac{1}{\sin^u x} \sim \frac{1}{x^u},
+    \end{equation}
+    此部分收敛当且仅当 $u < 1$。
+    当 $x \to \uppi^-$ 时，令 $t = \uppi - x \to 0^+$，由 $\sin x = \sin t \sim t$ 可得：
+    \begin{equation}
+        \frac{1}{\sin^u x} \sim \frac{1}{t^u},
+    \end{equation}
+    此部分收敛当且仅当 $u < 1$。
+    综上所述，收敛域为 $u < 1$。
+    \begin{equation}
+        \boxed{u \in (-\infty, 1)}
+    \end{equation}
+
+    \ansitem{5}
+
+    将积分拆分为两部分：
+    \begin{equation}
+        \int_0^{+\infty} \frac{\sin^2 x}{x^\alpha(1+x)} \d x = \int_0^1 \frac{\sin^2 x}{x^\alpha(1+x)} \d x + \int_1^{+\infty} \frac{\sin^2 x}{x^\alpha(1+x)} \d x.
+    \end{equation}
+    对于第一部分，当 $x \to 0^+$ 时：
+    \begin{equation}
+        \frac{\sin^2 x}{x^\alpha(1+x)} \sim \frac{x^2}{x^\alpha} = \frac{1}{x^{\alpha-2}},
+    \end{equation}
+    收敛当且仅当 $\alpha - 2 < 1$，即 $\alpha < 3$。
+    对于第二部分，在 $[1, +\infty)$ 上使用恒等式 $\sin^2 x = \frac{1 - \cos(2x)}{2}$：
+    \begin{equation}
+        \int_1^{+\infty} \frac{\sin^2 x}{x^\alpha(1+x)} \d x = \int_1^{+\infty} \frac{\d x}{2 x^\alpha (1+x)} - \int_1^{+\infty} \frac{\cos(2x)}{2 x^\alpha(1+x)} \d x.
+    \end{equation}
+    由于 $\left| \int_1^A \cos(2x) \d x \right| \leqslant 1$，且当 $\alpha > -1$ 时，$\frac{1}{2x^\alpha(1+x)}$ 单调递减趋于 0。由 Dirichlet 判别法，第二项在 $\alpha > -1$ 时收敛。
+    第一项收敛当且仅当 $\alpha + 1 > 1$，即 $\alpha > 0$。
+    因此，第二部分收敛当且仅当 $\alpha > 0$。
+    综上所述，收敛域为 $0 < \alpha < 3$。
+    \begin{equation}
+        \boxed{\alpha \in (0, 3)}
+    \end{equation}
+
+    \ansitem{6}
+
+    将积分拆分为两部分：
+    \begin{equation}
+        \int_0^{+\infty} \frac{\ln(1+x^2)}{x^\alpha} \d x = \int_0^1 \frac{\ln(1+x^2)}{x^\alpha} \d x + \int_1^{+\infty} \frac{\ln(1+x^2)}{x^\alpha} \d x.
+    \end{equation}
+    对于第一部分，当 $x \to 0^+$ 时：
+    \begin{equation}
+        \frac{\ln(1+x^2)}{x^\alpha} \sim \frac{x^2}{x^\alpha} = \frac{1}{x^{\alpha-2}},
+    \end{equation}
+    收敛当且仅当 $\alpha - 2 < 1$，即 $\alpha < 3$。
+    对于第二部分，当 $x \to +\infty$ 时：
+    若 $\alpha > 1$，取 $\epsilon \in (0, \alpha-1)$，当 $x \to +\infty$ 时有 $\ln(1+x^2) < x^\epsilon$，从而：
+    \begin{equation}
+        \frac{\ln(1+x^2)}{x^\alpha} < \frac{1}{x^{\alpha-\epsilon}},
+    \end{equation}
+    因为 $\alpha - \epsilon > 1$，所以积分收敛。
+    若 $\alpha \leqslant 1$，当 $x$ 充分大时 $\ln(1+x^2) > 1$，有：
+    \begin{equation}
+        \frac{\ln(1+x^2)}{x^\alpha} > \frac{1}{x^\alpha},
+    \end{equation}
+    因为 $\int_1^{+\infty} \frac{\d x}{x^\alpha}$ 发散，所以积分发散。
+    综上所述，收敛域为 $1 < \alpha < 3$。
+    \begin{equation}
+        \boxed{\alpha \in (1, 3)}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{含参变量反常积分的一致收敛性}{Uniform-Convergence-of-Improper-Integrals}
+    研究下列积分在指定区间上的一致收敛性：
+    \begin{enumerate}
+        \item $\int_{-\infty}^{+\infty} \frac{\cos ux}{1 + x^2} \d x \quad (-\infty < u < +\infty)$；
+        \item $\int_0^{+\infty} \e^{-\alpha x} \sin \beta x \d x \quad (\beta \neq 0)$，分别在：a) $0 < \alpha_0 \leqslant \alpha < +\infty$；b) $0 < \alpha < +\infty$；
+        \item $\int_0^{+\infty} \sqrt{\alpha}\e^{-\alpha x^2} \d x \quad (0 \leqslant \alpha < +\infty)$；
+        \item $\int_1^{+\infty} \frac{\ln(1 + x^2)}{x^\alpha} \d x \quad (1 < \alpha < +\infty)$；
+        \item $\int_1^{+\infty} \e^{-\alpha x} \frac{\cos x}{x^p} \d x \quad (0 \leqslant \alpha < +\infty)$，其中 $p > 0$ 为常数；
+        \item $\int_0^{+\infty} \frac{\sin(x^2)}{1 + x^p} \d x \quad (0 \leqslant p < +\infty)$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 一致收敛。
+
+    对所有 $u \in (-\infty, +\infty)$ 以及 $x \in \mathbb{R}$，均有：
+    \begin{equation}
+        \left| \frac{\cos ux}{1 + x^2} \right| \leqslant \frac{1}{1 + x^2}.
+    \end{equation}
+    因为 $\int_{-\infty}^{+\infty} \frac{\d x}{1 + x^2} = \uppi < +\infty$，由 Weierstrass M-判别法，原积分在 $(-\infty, +\infty)$ 上一致收敛。
+    \begin{equation}
+        \boxed{\text{一致收敛}}
+    \end{equation}
+
+    \ansitem{2} a) 一致收敛；b) 非一致收敛。
+
+    a) 当 $0 < \alpha_0 \leqslant \alpha < +\infty$ 时，有：
+    \begin{equation}
+        \left| \e^{-\alpha x} \sin \beta x \right| \leqslant \e^{-\alpha_0 x}.
+    \end{equation}
+    由于 $\int_0^{+\infty} \e^{-\alpha_0 x} \d x = \frac{1}{\alpha_0} < +\infty$，由 Weierstrass M-判别法，积分在 $[\alpha_0, +\infty)$ 上一致收敛。
+    \begin{equation}
+        \boxed{\text{一致收敛}}
+    \end{equation}
+
+    b) 当 $0 < \alpha < +\infty$ 时，考虑其余项：
+    \begin{equation}\label{eq:part2-tail}
+        R_A(\alpha) = \int_A^{+\infty} \e^{-\alpha x} \sin \beta x \d x.
+    \end{equation}
+    通过分部积分法计算 \zcref{eq:part2-tail}，可得：
+    \begin{equation}
+        R_A(\alpha) = \e^{-\alpha A} \frac{\alpha \sin \beta A + \beta \cos \beta A}{\alpha^2 + \beta^2}.
+    \end{equation}
+    选择序列 $A_n \to +\infty$ 满足 $\cos \beta A_n = 1$（此时 $\sin \beta A_n = 0$），并取 $\alpha_n = \frac{1}{A_n}$，则有：
+    \begin{equation}
+        \lim_{n \to \infty} R_{A_n}(\alpha_n) = \lim_{n \to \infty} \e^{-1} \frac{\beta}{\frac{1}{A_n^2} + \beta^2} = \frac{1}{\e \beta} \neq 0.
+    \end{equation}
+    因此余项不能一致趋于 $0$，积分在 $(0, +\infty)$ 上非一致收敛。
+    \begin{equation}
+        \boxed{\text{非一致收敛}}
+    \end{equation}
+
+    \ansitem{3} 非一致收敛。
+
+    设 $I_A(\alpha) = \int_0^A \sqrt{\alpha} \e^{-\alpha x^2} \d x$。
+    当 $\alpha > 0$ 时，令 $t = \sqrt{\alpha} x$，可得极限函数为：
+    \begin{equation}
+        I(\alpha) = \lim_{A \to +\infty} I_A(\alpha) = \int_0^{+\infty} \e^{-t^2} \d t = \frac{\sqrt{\uppi}}{2}.
+    \end{equation}
+    当 $\alpha = 0$ 时，有：
+    \begin{equation}
+        I(0) = \int_0^{+\infty} 0 \d x = 0.
+    \end{equation}
+    极限函数 $I(\alpha)$ 在 $\alpha = 0$ 处不连续。
+    由于对任意固定的 $A > 0$：
+    \begin{equation}
+        I_A(\alpha) = \int_0^{A\sqrt{\alpha}} \e^{-t^2} \d t
+    \end{equation}
+    在 $[0, +\infty)$ 上关于 $\alpha$ 连续，若积分一致收敛，则极限函数必连续。故原积分在 $[0, +\infty)$ 上非一致收敛。
+    \begin{equation}
+        \boxed{\text{非一致收敛}}
+    \end{equation}
+
+    \ansitem{4} 非一致收敛。
+
+    考虑其余项：
+    \begin{equation}
+        R_A(\alpha) = \int_A^{+\infty} \frac{\ln(1+x^2)}{x^\alpha} \d x.
+    \end{equation}
+    对于充分大的 $A > \e$，当 $x \geqslant A$ 时，由于 $\ln(1+x^2) > 2\ln x \geqslant 2$，故：
+    \begin{equation}
+        R_A(\alpha) \geqslant \int_A^{+\infty} \frac{2}{x^\alpha} \d x = \frac{2}{(\alpha-1)A^{\alpha-1}}.
+    \end{equation}
+    对任意固定的 $A > \e$，当 $\alpha \to 1^+$ 时有：
+    \begin{equation}
+        \lim_{\alpha \to 1^+} R_A(\alpha) = +\infty.
+    \end{equation}
+    所以 $\sup_{\alpha \in (1, +\infty)} |R_A(\alpha)| = +\infty$，积分在 $(1, +\infty)$ 上非一致收敛。
+    \begin{equation}
+        \boxed{\text{非一致收敛}}
+    \end{equation}
+
+    \ansitem{5} 一致收敛。
+
+    记 $g(x) = \cos x$，$h(x, \alpha) = \frac{\e^{-\alpha x}}{x^p}$。
+    对任意 $A > 1$，有：
+    \begin{equation}
+        \left| \int_1^A \cos x \d x \right| = \left| \sin A - \sin 1 \right| \leqslant 2.
+    \end{equation}
+    当 $\alpha \geqslant 0$ 时，其关于 $x$ 的导数为：
+    \begin{equation}
+        \frac{\partial}{\partial x} h(x, \alpha) = -\e^{-\alpha x} \left( \frac{\alpha}{x^p} + \frac{p}{x^{p+1}} \right) < 0.
+    \end{equation}
+    所以 $h(x, \alpha)$ 关于 $x$ 单调递减。
+    此外，有：
+    \begin{equation}
+        \left| h(x, \alpha) \right| \leqslant \frac{1}{x^p}.
+    \end{equation}
+    由于 $p > 0$，所以当 $x \to +\infty$ 时，$\frac{1}{x^p} \to 0$。因此 $h(x, \alpha) \to 0$ 对 $\alpha \in [0, +\infty)$ 一致成立。
+    由 Dirichlet 判别法，原积分在 $[0, +\infty)$ 上一致收敛。
+    \begin{equation}
+        \boxed{\text{一致收敛}}
+    \end{equation}
+
+    \ansitem{6} 一致收敛。
+
+    令 $t = x^2$，原积分变换为：
+    \begin{equation}
+        \int_0^{+\infty} \frac{\sin(x^2)}{1 + x^p} \d x = \int_0^{+\infty} \frac{\sin t}{2\sqrt{t}(1 + t^{p/2})} \d t.
+    \end{equation}
+    将其拆分为两部分：
+    \begin{equation}\label{eq:part6-split}
+        \int_0^{+\infty} \frac{\sin t}{2\sqrt{t}(1 + t^{p/2})} \d t = \int_0^1 \frac{\sin t}{2\sqrt{t}(1 + t^{p/2})} \d t + \int_1^{+\infty} \frac{\sin t}{2\sqrt{t}(1 + t^{p/2})} \d t.
+    \end{equation}
+    对于 \zcref{eq:part6-split} 中的第一部分，由于：
+    \begin{equation}
+        \left| \frac{\sin t}{2\sqrt{t}(1 + t^{p/2})} \right| \leqslant \frac{t}{2\sqrt{t}} = \frac{\sqrt{t}}{2}.
+    \end{equation}
+    因为 $\int_0^1 \frac{\sqrt{t}}{2} \d t = \frac{1}{3} < +\infty$，由 Weierstrass M-判别法，第一部分在 $[0, +\infty)$ 上一致收敛。
+    对于第二部分，令 $g(t) = \sin t$，$h(t, p) = \frac{1}{2\sqrt{t}(1 + t^{p/2})}$。
+    积分 $\int_1^A \sin t \d t$ 一致有界。
+    当 $t \geqslant 1$ 时，$h(t, p)$ 关于 $t$ 单调递减，且满足：
+    \begin{equation}
+        \left| h(t, p) \right| \leqslant \frac{1}{2\sqrt{t}}.
+    \end{equation}
+    因为当 $t \to +\infty$ 时 $\frac{1}{2\sqrt{t}} \to 0$，故 $h(t, p) \to 0$ 对 $p \in [0, +\infty)$ 一致成立。
+    由 Dirichlet 判别法，第二部分在 $[0, +\infty)$ 上一致收敛。
+    综上所述，原积分在 $[0, +\infty)$ 上一致收敛。
+    \begin{equation}
+        \boxed{\text{一致收敛}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{含参变量反常积分一致收敛性}{Improper-Integral-Uniform-Convergence}
+    设 $f(x,u)$ 在 $a \leqslant x < +\infty, \alpha \leqslant u \leqslant \beta$ 上连续，又对于 $[\alpha,\beta)$ 上每一 $u$，积分 $\int_a^{+\infty} f(x,u) \d x$ 收敛，而当 $u=\beta$ 时 $\int_a^{+\infty} f(x,\beta) \d x$ 发散，试证明积分 $\int_a^{+\infty} f(x,u) \d x$ 在 $[\alpha,\beta)$ 上必不一致收敛。
+\end{problem}
+
+\begin{myproof}
+    假设反常积分 $\int_a^{+\infty} f(x,u) \d x$ 在 $[\alpha,\beta)$ 上一致收敛。
+
+    根据含参变量反常积分一致收敛的 Cauchy 收敛准则，对于任意的 $\varepsilon > 0$，存在 $M > a$，使得对于任意的 $A_2 > A_1 > M$ 以及所有的 $u \in [\alpha, \beta)$，均有
+    \begin{equation}\label{eq:cauchy-1}
+        \left| \int_{A_1}^{A_2} f(x,u) \d x \right| < \varepsilon.
+    \end{equation}
+
+    对于任意固定的 $A_1, A_2$ 且满足 $A_2 > A_1 > M$，由于 $f(x,u)$ 在闭区域 $[A_1, A_2] \times [\alpha, \beta]$ 上连续，由含参变量常义积分的连续性定理，函数
+    \begin{equation}\label{eq:continuity-2}
+        G(u) = \int_{A_1}^{A_2} f(x,u) \d x
+    \end{equation}
+    在 $[\alpha, \beta]$ 上连续。
+
+    因此，函数 $G(u)$ 在 $u = \beta$ 处左连续，即有
+    \begin{equation}\label{eq:limit-3}
+        \lim_{u \to \beta^-} G(u) = G(\beta) = \int_{A_1}^{A_2} f(x,\beta) \d x.
+    \end{equation}
+
+    在 \zcref{eq:cauchy-1} 中令 $u \to \beta^-$，取极限可得
+    \begin{equation}\label{eq:inequality-4}
+        \left| \int_{A_1}^{A_2} f(x,\beta) \d x \right| = \lim_{u \to \beta^-} \left| \int_{A_1}^{A_2} f(x,u) \d x \right| \leqslant \varepsilon.
+    \end{equation}
+
+    由于 \zcref{eq:inequality-4} 对任意的 $A_2 > A_1 > M$ 均成立，根据反常积分的 Cauchy 收敛准则，可知反常积分
+    \begin{equation}\label{eq:convergence-5}
+        \int_a^{+\infty} f(x,\beta) \d x
+    \end{equation}
+    收敛。
+
+    这与已知条件“当 $u=\beta$ 时 $\int_a^{+\infty} f(x,\beta) \d x$ 发散”相矛盾。
+
+    因此，积分 $\int_a^{+\infty} f(x,u) \d x$ 在 $[\alpha,\beta)$ 上必不一致收敛。
+\end{myproof}
+
+\begin{problem}{含参变量反常积分的连续性（分析法）}{Integral-Continuity-Analytic}
+    证明：$\varphi(u) = \int_a^{+\infty} u\e^{-ux} \d x$ 是 $u > 0$ 上的连续函数，虽然该积分在 $u \geqslant 0$ 上不一致收敛。
+\end{problem}
+
+\begin{myproof}
+    设被积函数为 $f(x, u) = u\e^{-ux}$。显然， $f(x, u)$ 在区域 $[a, +\infty) \times (0, +\infty)$ 上连续。
+
+    为了证明 $\varphi(u)$ 在 $(0, +\infty)$ 上连续，只需证明对任意满足 $0 < u_1 < u_2$ 的闭区间 $[u_1, u_2]$，$\varphi(u)$ 在 $[u_1, u_2]$ 上连续即可。
+
+    对于任意的 $u \in [u_1, u_2]$ 和 $x \geqslant \max(a, 0)$，有
+    \begin{equation}\label{eq:bound-f}
+        \left| u\e^{-ux} \right| \leqslant u_2 \e^{-u_1 x}.
+    \end{equation}
+
+    由于 $u_1 > 0$，控制函数 $M(x) = u_2 \e^{-u_1 x}$ 在 $[\max(a, 0), +\infty)$ 上的反常积分收敛，即
+    \begin{equation}\label{eq:control-int}
+        \int_{\max(a, 0)}^{+\infty} u_2 \e^{-u_1 x} \d x = \frac{u_2}{u_1} \e^{-u_1 \max(a, 0)} < +\infty.
+    \end{equation}
+
+    根据 \zcref{eq:bound-f} 以及 Weierstrass 判别法，积分 $\int_a^{+\infty} u\e^{-ux} \d x$ 在 $[u_1, u_2]$ 上一致收敛。
+
+    又因为 $f(x,u)$ 在 $[a, +\infty) \times [u_1, u_2]$ 上连续，由含参变量反常积分的连续性定理，$\varphi(u)$ 在 $[u_1, u_2]$ 上连续。
+
+    由于 $[u_1, u_2] \subset (0, +\infty)$ 的任意性，$\varphi(u)$ 是 $u > 0$ 上的连续函数。
+\end{myproof}
+
+\begin{problem}{积分顺序交换与一致收敛性}{Integral-Order-Exchange}
+    验证
+    \begin{equation}\label{eq:verify-eq}
+        \int_0^1 \d u \int_0^{+\infty} (2-xu)xu\e^{-xu} \d x \neq \int_0^{+\infty} \d x \int_0^1 (2-xu)xu\e^{-xu} \d u
+    \end{equation}
+    并说明理由。
+\end{problem}
+
+\begin{solution}
+    对于左端积分，当 $u > 0$ 时，令 $t = xu$，则 $\d x = \frac{\d t}{u}$，从而有
+    \begin{equation}\label{eq:inner-left}
+        \int_0^{+\infty} (2-xu)xu\e^{-xu} \d x = \int_0^{+\infty} (2-t)t\e^{-t} \frac{\d t}{u} = \frac{1}{u} \left( 2\int_0^{+\infty} t\e^{-t}\d t - \int_0^{+\infty} t^2\e^{-t}\d t \right).
+    \end{equation}
+    利用 Gamma 函数性质，$\int_0^{+\infty} t\e^{-t}\d t = 1$ 且 $\int_0^{+\infty} t^2\e^{-t}\d t = 2$，代入 \zcref{eq:inner-left} 可得其值为 $0$。而当 $u=0$ 时，积分值显然为 $0$。因此
+    \begin{equation}\label{eq:left-val}
+        \int_0^1 \d u \int_0^{+\infty} (2-xu)xu\e^{-xu} \d x = 0.
+    \end{equation}
+
+    对于右端积分，注意到
+    \begin{equation}\label{eq:derivative-relation}
+        \frac{\partial}{\partial u} \left( xu^2\e^{-xu} \right) = (2-xu)xu\e^{-xu}.
+    \end{equation}
+    因此，内层积分为
+    \begin{equation}\label{eq:inner-right}
+        \int_0^1 (2-xu)xu\e^{-xu} \d u = \left[ xu^2\e^{-xu} \right]_0^1 = x\e^{-x}.
+    \end{equation}
+    进而可得
+    \begin{equation}\label{eq:right-val}
+        \int_0^{+\infty} \d x \int_0^1 (2-xu)xu\e^{-xu} \d u = \int_0^{+\infty} x\e^{-x} \d x = 1.
+    \end{equation}
+    由于 $0 \neq 1$，可得
+    \begin{equation}
+        \boxed{\int_0^1 \d u \int_0^{+\infty} (2-xu)xu\e^{-xu} \d x \neq \int_0^{+\infty} \d x \int_0^1 (2-xu)xu\e^{-xu} \d u}.
+    \end{equation}
+
+    其原因为：积分 $\int_0^{+\infty} (2-xu)xu\e^{-xu} \d x$ 在 $u \in [0, 1]$ 上不一致收敛。
+    事实上，其积分余项为
+    \begin{equation}\label{eq:remainder}
+        R_A(u) = \int_A^{+\infty} (2-xu)xu\e^{-xu} \d x.
+    \end{equation}
+    当 $u > 0$ 时，令 $t = xu$，可得
+    \begin{equation}\label{eq:remainder-calc}
+        R_A(u) = \frac{1}{u} \int_{Au}^{+\infty} (2-t)t\e^{-t} \d t = \frac{1}{u} \left[ t^2\e^{-t} \right]_{Au}^{+\infty} = -A^2 u \e^{-Au}.
+    \end{equation}
+    取 $u_n = \frac{1}{A_n}$，当 $A_n \to +\infty$ 时，$u_n \in (0, 1]$，且有
+    \begin{equation}\label{eq:remainder-limit}
+        \left| R_{A_n}(u_n) \right| = A_n \e^{-1} \to +\infty.
+    \end{equation}
+    这说明余项 $R_A(u)$ 在 $[0, 1]$ 上不一致趋于 $0$，故该反常积分在 $[0, 1]$ 上非一致收敛，从而无法保证积分顺序的可交换性。
+\end{solution}
+
+\begin{problem}{含参变量反常积分的连续性与可微性}{Integral-Continuity-Differentiability}
+    证明 $F(\alpha) = \int_0^{+\infty} \frac{\cos x}{1+(x+\alpha)^2} \d x$ 在 $0 \leqslant \alpha < +\infty$ 是连续且可微的函数。
+\end{problem}
+
+\begin{myproof}
+    设 $f(x, \alpha) = \frac{\cos x}{1+(x+\alpha)^2}$。对于任意的 $x \geqslant 0$ 及 $\alpha \geqslant 0$，有
+    \begin{equation}\label{eq:continuity-bound}
+        \left| f(x, \alpha) \right| = \left| \frac{\cos x}{1+(x+\alpha)^2} \right| \leqslant \frac{1}{1+x^2}.
+    \end{equation}
+    因为反常积分 $\int_0^{+\infty} \frac{1}{1+x^2} \d x = \frac{\uppi}{2}$ 收敛，根据 Weierstrass 判别法，积分 $\int_0^{+\infty} \frac{\cos x}{1+(x+\alpha)^2} \d x$ 在 $[0, +\infty)$ 上一致收敛。又由于 $f(x, \alpha)$ 在 $[0, +\infty) \times [0, +\infty)$ 上连续，因此极限函数 $F(\alpha)$ 在 $[0, +\infty)$ 上连续。
+
+    进一步，被积函数对 $\alpha$ 的偏导数为
+    \begin{equation}\label{eq:partial-deriv}
+        \frac{\partial f}{\partial \alpha}(x, \alpha) = -\frac{2(x+\alpha)\cos x}{\left(1+(x+\alpha)^2\right)^2}.
+    \end{equation}
+    对于任意的 $x \geqslant 0$ 及 $\alpha \geqslant 0$，有
+    \begin{equation}\label{eq:deriv-bound}
+        \left| \frac{\partial f}{\partial \alpha}(x, \alpha) \right| \leqslant \frac{2(x+\alpha)}{\left(1+(x+\alpha)^2\right)^2}.
+    \end{equation}
+    定义控制函数
+    \begin{equation}\label{eq:control-function}
+        M(x) = \begin{cases} 1, & 0 \leqslant x < 1, \\ \frac{2x}{(1+x^2)^2}, & x \geqslant 1. \end{cases}
+    \end{equation}
+    当 $0 \leqslant x < 1$ 时，由 $\frac{2(x+\alpha)}{(1+(x+\alpha)^2)^2} \leqslant \frac{9}{8\sqrt{3}} < 1$ 可知 \zcref{eq:deriv-bound} 被 $M(x)$ 控制；
+    当 $x \geqslant 1$ 时，由于函数 $h(u) = \frac{2u}{(1+u^2)^2}$ 在 $u \geqslant 1$ 时单调递减，且 $x+\alpha \geqslant x \geqslant 1$，故有
+    \begin{equation}\label{eq:bound-large-x}
+        \frac{2(x+\alpha)}{\left(1+(x+\alpha)^2\right)^2} \leqslant \frac{2x}{(1+x^2)^2} = M(x).
+    \end{equation}
+    因为
+    \begin{equation}\label{eq:control-integral}
+        \int_0^{+\infty} M(x) \d x = \int_0^1 1 \d x + \int_1^{+\infty} \frac{2x}{(1+x^2)^2} \d x = 1 + \left[ -\frac{1}{1+x^2} \right]_1^{+\infty} = \frac{3}{2} < +\infty,
+    \end{equation}
+    由 Weierstrass 判别法，导数积分 $\int_0^{+\infty} \frac{\partial f}{\partial \alpha} \d x$ 在 $[0, +\infty)$ 上一致收敛。
+    由含参变量反常积分的可微性定理， $F(\alpha)$ 在 $[0, +\infty)$ 上可微。
+\end{myproof}
+
+\begin{problem}{含参变量反常积分的计算}{Improper-Integral-Calculation}
+    计算下列积分：
+    \begin{enumerate}
+        \item $\int_0^1 \frac{x^\beta - x^\alpha}{\ln x} \d x \quad (\alpha, \beta > -1)$;
+        \item $\int_0^{+\infty} \frac{1 - \e^{-ax}}{x\e^x} \d x \quad (a > -1)$;
+        \item $\int_0^{+\infty} \frac{1 - \e^{-ax^2}}{x^2} \d x \quad (a > 0)$;
+        \item $\int_0^{+\infty} \frac{\e^{-\alpha x^2} - \e^{-\beta x^2}}{x} \d x \quad (\alpha, \beta > 0)$;
+        \item $\int_0^{+\infty} \frac{\arctan ax}{x(1 + x^2)} \d x$;
+        \item $\int_0^{+\infty} \left[ \e^{-\left(\frac{a}{x}\right)^2} - \e^{-\left(\frac{b}{x}\right)^2} \right] \d x \quad (0 < a < b)$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    无妨设 $\alpha \leqslant \beta$。此时被积函数可写为：
+    \begin{equation}
+        \frac{x^\beta - x^\alpha}{\ln x} = \int_{\alpha}^{\beta} x^y \d y.
+    \end{equation}
+    代入原积分，由于当 $y \geqslant \alpha > -1$ 时， $\int_0^1 x^y \d x$ 一致收敛，交换积分顺序可得：
+    \begin{equation}
+        \begin{aligned}
+            I & = \int_{\alpha}^{\beta} \left( \int_0^1 x^y \d x \right) \d y \\
+              & = \int_{\alpha}^{\beta} \frac{1}{y+1} \d y                    \\
+              & = \ln \frac{\beta+1}{\alpha+1}.
+        \end{aligned}
+    \end{equation}
+    当 $\alpha > \beta$ 时同理。因此，最终结果为
+    \begin{equation}
+        \int_0^1 \frac{x^\beta - x^\alpha}{\ln x} \d x = \boxed{\ln \frac{\beta+1}{\alpha+1}}.
+    \end{equation}
+
+    \ansitem{2}
+
+    被积函数可以变形并表示为双重积分：
+    \begin{equation}
+        \frac{\e^{-x} - \e^{-(a+1)x}}{x} = \int_{1}^{a+1} \e^{-yx} \d y.
+    \end{equation}
+    由于被积函数在积分区间上非负，交换积分顺序可得：
+    \begin{equation}
+        \begin{aligned}
+            I & = \int_{1}^{a+1} \left( \int_0^{+\infty} \e^{-yx} \d x \right) \d y \\
+              & = \int_{1}^{a+1} \frac{1}{y} \d y                                   \\
+              & = \ln(a+1).
+        \end{aligned}
+    \end{equation}
+    因此，最终结果为
+    \begin{equation}
+        \int_0^{+\infty} \frac{1 - \e^{-ax}}{x\e^x} \d x = \boxed{\ln(a+1)}.
+    \end{equation}
+
+    \ansitem{3}
+
+    使用分部积分法，有
+    \begin{equation}\label{eq:item3-calc}
+        \begin{aligned}
+            I & = \left[ -\frac{1 - \e^{-ax^2}}{x} \right]_0^{+\infty} + \int_0^{+\infty} \frac{2ax\e^{-ax^2}}{x} \d x \\
+              & = 2a \int_0^{+\infty} \e^{-ax^2} \d x.
+        \end{aligned}
+    \end{equation}
+    利用 Gauss 积分公式，将 $\int_0^{+\infty} \e^{-ax^2} \d x = \frac{\sqrt{\uppi}}{2\sqrt{a}}$ 代入 \zcref{eq:item3-calc}，最终结果为
+    \begin{equation}
+        \int_0^{+\infty} \frac{1 - \e^{-ax^2}}{x^2} \d x = \boxed{\sqrt{\uppi a}}.
+    \end{equation}
+
+    \ansitem{4}
+
+    被积函数可表示为双重积分：
+    \begin{equation}
+        \frac{\e^{-\alpha x^2} - \e^{-\beta x^2}}{x} = x \int_{\alpha}^{\beta} \e^{-y x^2} \d y.
+    \end{equation}
+    利用 Fubini 定理交换积分顺序：
+    \begin{equation}
+        \begin{aligned}
+            I & = \int_{\alpha}^{\beta} \left( \int_0^{+\infty} x \e^{-y x^2} \d x \right) \d y \\
+              & = \int_{\alpha}^{\beta} \left[ -\frac{\e^{-yx^2}}{2y} \right]_0^{+\infty} \d y  \\
+              & = \int_{\alpha}^{\beta} \frac{1}{2y} \d y                                       \\
+              & = \frac{1}{2} \ln \frac{\beta}{\alpha}.
+        \end{aligned}
+    \end{equation}
+    因此，最终结果为
+    \begin{equation}
+        \int_0^{+\infty} \frac{\e^{-\alpha x^2} - \e^{-\beta x^2}}{x} \d x = \boxed{\frac{1}{2} \ln \frac{\beta}{\alpha}}.
+    \end{equation}
+
+    \ansitem{5}
+
+    设 $I(a) = \int_0^{+\infty} \frac{\arctan ax}{x(1+x^2)} \d x$。
+    因为被积函数 $f(x, a) = \frac{\arctan ax}{x(1+x^2)}$ 及其偏导数
+    \begin{equation}\label{eq:q5-partial}
+        \frac{\partial f}{\partial a} = \frac{1}{(1+x^2)(1+a^2 x^2)}
+    \end{equation}
+    在 $[0, +\infty) \times \mathbb{R}$ 上连续，且对任意 $a \in \mathbb{R}$，偏导数均被收敛的积分 $\int_0^{+\infty} \frac{1}{1+x^2} \d x$ 控制。根据 Weierstrass 判别法，导数积分在整个实数轴上一致收敛。
+    由含参变量反常积分的可微性定理，可得
+    \begin{equation}\label{eq:q5-deriv}
+        I'(a) = \int_0^{+\infty} \frac{1}{(1+x^2)(1+a^2 x^2)} \d x.
+    \end{equation}
+    当 $a \geqslant 0$ 且 $a \neq 1$ 时，对被积函数进行部分分式分解：
+    \begin{equation}\label{eq:q5-decomp}
+        \frac{1}{(1+x^2)(1+a^2 x^2)} = \frac{1}{1-a^2} \left[ \frac{1}{1+x^2} - \frac{a^2}{1+a^2 x^2} \right].
+    \end{equation}
+    将 \zcref{eq:q5-decomp} 代入 \zcref{eq:q5-deriv} 中，积分可得
+    \begin{equation}\label{eq:q5-deriv-calc}
+        \begin{aligned}
+            I'(a) & = \frac{1}{1-a^2} \left[ \int_0^{+\infty} \frac{1}{1+x^2} \d x - a \int_0^{+\infty} \frac{a}{1+(ax)^2} \d x \right] \\
+                  & = \frac{1}{1-a^2} \left( \frac{\uppi}{2} - a \cdot \frac{\uppi}{2} \right)                                          \\
+                  & = \frac{\uppi}{2(1+a)}.
+        \end{aligned}
+    \end{equation}
+    根据 $I'(a)$ 的连续性，上式对 $a = 1$ 亦成立。
+    因为 $I(0) = 0$，将 \zcref{eq:q5-deriv-calc} 从 $0$ 到 $a$ 积分可得
+    \begin{equation}\label{eq:q5-res-pos}
+        I(a) = \int_0^a \frac{\uppi}{2(1+t)} \d t = \frac{\uppi}{2} \ln(1+a) \quad (a \geqslant 0).
+    \end{equation}
+    由于 $\arctan ax$ 是关于 $a$ 的奇函数，故 $I(a)$ 也是奇函数。当 $a < 0$ 时，有
+    \begin{equation}\label{eq:q5-res-neg}
+        I(a) = -I(|a|) = -\frac{\uppi}{2} \ln(1-a).
+    \end{equation}
+    综合以上，对于任意 $a \in \mathbb{R}$，积分结果为
+    \begin{equation}
+        \int_0^{+\infty} \frac{\arctan ax}{x(1+x^2)} \d x = \boxed{\operatorname{sgn}(a) \frac{\uppi}{2} \ln(1 + |a|)}.
+    \end{equation}
+
+    \ansitem{6}
+
+    令 $t = \frac{1}{x}$，则 $\d x = -\frac{1}{t^2} \d t$，原积分变形为
+    \begin{equation}\label{eq:q6-sub-transformed}
+        I = \int_0^{+\infty} \frac{\e^{-a^2 t^2} - \e^{-b^2 t^2}}{t^2} \d t.
+    \end{equation}
+    引入辅助函数
+    \begin{equation}\label{eq:q6-sub-def}
+        J(y) = \int_0^{+\infty} \frac{\e^{-y^2 t^2} - \e^{-b^2 t^2}}{t^2} \d t \quad (y > 0).
+    \end{equation}
+    对参数 $y$ 求导：
+    \begin{equation}\label{eq:q6-sub-deriv}
+        J'(y) = \int_0^{+\infty} -2y \e^{-y^2 t^2} \d t.
+    \end{equation}
+    令 $u = yt$，则 $\d t = \frac{\d u}{y}$，代入 \zcref{eq:q6-sub-deriv} 可得
+    \begin{equation}\label{eq:q6-sub-deriv-calc}
+        J'(y) = -2 \int_0^{+\infty} \e^{-u^2} \d u = -\sqrt{\uppi}.
+    \end{equation}
+    将 $J'(y)$ 从 $a$ 到 $b$ 进行积分：
+    \begin{equation}\label{eq:q6-sub-integrate}
+        J(b) - J(a) = \int_a^b J'(y) \d y = -\sqrt{\uppi}(b-a).
+    \end{equation}
+    注意到 $J(b) = 0$ 且 $J(a) = I$，代入 \zcref{eq:q6-sub-integrate} 可得积分结果为
+    \begin{equation}
+        \int_0^{+\infty} \left[ \e^{-\left(\frac{a}{x}\right)^2} - \e^{-\left(\frac{b}{x}\right)^2} \right] \d x = \boxed{\sqrt{\uppi}(b-a)}.
+    \end{equation}
+\end{solution}
+
+\begin{problem}{广义积分的计算}{Improper-Integrals}
+    利用 $\int_{0}^{+\infty} \e^{-x^2} \d x = \frac{\sqrt{\uppi}}{2}$ 及 $\int_{0}^{+\infty} \frac{\sin x}{x} \d x = \frac{\uppi}{2}$ 计算：
+    \begin{enumerate}
+        \item $\int_{-\infty}^{+\infty} \frac{x}{\sigma \sqrt{2\uppi}} \e^{-\frac{1}{2}\left(\frac{x-a}{\sigma}\right)^2} \d x \quad (\sigma > 0)$；
+        \item $\int_{-\infty}^{+\infty} \frac{(x-a)^2}{\sigma \sqrt{2\uppi}} \e^{-\frac{1}{2}\left(\frac{x-a}{\sigma}\right)^2} \d x \quad (\sigma > 0)$；
+        \item $\int_{0}^{+\infty} \frac{\sin ax \cos bx}{x} \d x \quad (a > 0, b > 0)$；
+        \item $\int_{0}^{+\infty} \frac{\sin^2 x}{x^2} \d x$；
+        \item $\int_{0}^{+\infty} x^{2n} \e^{-x^2} \d x \quad (n \text{ 是正整数})$；
+        \item $\int_{0}^{+\infty} \frac{\sin^4 x}{x^2} \d x$。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 积分结果为 $a$。
+
+    设 $t = \frac{x-a}{\sigma}$，则 $x = \sigma t + a$ 且 $\d x = \sigma \d t$。代入原积分中，可得
+    \begin{equation}\label{eq:int1-1}
+        \begin{aligned}
+            I_1 & = \int_{-\infty}^{+\infty} \frac{\sigma t + a}{\sigma \sqrt{2\uppi}} \e^{-\frac{1}{2}t^2} \sigma \d t                                                             \\
+                & = \frac{\sigma}{\sqrt{2\uppi}} \int_{-\infty}^{+\infty} t \e^{-\frac{1}{2}t^2} \d t + \frac{a}{\sqrt{2\uppi}} \int_{-\infty}^{+\infty} \e^{-\frac{1}{2}t^2} \d t.
+        \end{aligned}
+    \end{equation}
+    由于被积函数 $t \e^{-\frac{1}{2}t^2}$ 为奇函数，其在对称区间上的积分为零。利用已知条件，令 $u = \frac{t}{\sqrt{2}}$ 可得
+    \begin{equation}\label{eq:int1-2}
+        \int_{-\infty}^{+\infty} \e^{-\frac{1}{2}t^2} \d t = \sqrt{2} \int_{-\infty}^{+\infty} \e^{-u^2} \d u = 2\sqrt{2} \int_{0}^{+\infty} \e^{-u^2} \d u = 2\sqrt{2} \cdot \frac{\sqrt{\uppi}}{2} = \sqrt{2\uppi}.
+    \end{equation}
+    将上述结果代入 \zcref{eq:int1-1}，最终得到
+    \begin{equation}
+        I_1 = \boxed{a}.
+    \end{equation}
+
+    \ansitem{2} 积分结果为 $\sigma^2$。
+
+    设 $t = \frac{x-a}{\sigma}$，则 $x-a = \sigma t$ 且 $\d x = \sigma \d t$。代入原积分中，可得
+    \begin{equation}\label{eq:int2-1}
+        I_2 = \int_{-\infty}^{+\infty} \frac{\sigma^2 t^2}{\sigma \sqrt{2\uppi}} \e^{-\frac{1}{2}t^2} \sigma \d t = \frac{\sigma^2}{\sqrt{2\uppi}} \int_{-\infty}^{+\infty} t^2 \e^{-\frac{1}{2}t^2} \d t.
+    \end{equation}
+    对 \zcref{eq:int2-1} 右侧积分应用分部积分法，有
+    \begin{equation}\label{eq:int2-2}
+        \begin{aligned}
+            \int_{-\infty}^{+\infty} t^2 \e^{-\frac{1}{2}t^2} \d t & = \int_{-\infty}^{+\infty} t \d \left( -\e^{-\frac{1}{2}t^2} \right)                                               \\
+                                                                   & = \left[ -t \e^{-\frac{1}{2}t^2} \right]_{-\infty}^{+\infty} + \int_{-\infty}^{+\infty} \e^{-\frac{1}{2}t^2} \d t.
+        \end{aligned}
+    \end{equation}
+    根据 \zcref{eq:int1-2} 可知 $\int_{-\infty}^{+\infty} \e^{-\frac{1}{2}t^2} \d t = \sqrt{2\uppi}$，且首项极限为零。代入 \zcref{eq:int2-2} 可得
+    \begin{equation}
+        I_2 = \boxed{\sigma^2}.
+    \end{equation}
+
+    \ansitem{3} 积分结果需根据 $a$ 与 $b$ 的大小关系分类讨论。
+
+    利用积化和差公式，将被积函数展开：
+    \begin{equation}\label{eq:int3-1}
+        \sin ax \cos bx = \frac{1}{2} \left[ \sin(a+b)x + \sin(a-b)x \right].
+    \end{equation}
+    从而原积分可写为
+    \begin{equation}\label{eq:int3-2}
+        I_3 = \frac{1}{2} \int_{0}^{+\infty} \frac{\sin(a+b)x}{x} \d x + \frac{1}{2} \int_{0}^{+\infty} \frac{\sin(a-b)x}{x} \d x.
+    \end{equation}
+    由于 $a > 0$ 且 $b > 0$，故 $a+b > 0$。根据已知条件，通过换元容易得到当 $k > 0$ 时，$\int_{0}^{+\infty} \frac{\sin kx}{x} \d x = \frac{\uppi}{2}$；当 $k < 0$ 时，该积分为 $-\frac{\uppi}{2}$；当 $k = 0$ 时，积分为 $0$。分情况讨论如下：
+    \begin{enumerate}
+        \item 当 $a > b$ 时，有 $a-b > 0$，此时
+              \begin{equation}\label{eq:int3-case1}
+                  I_3 = \frac{1}{2} \left( \frac{\uppi}{2} + \frac{\uppi}{2} \right) = \frac{\uppi}{2};
+              \end{equation}
+        \item 当 $a = b$ 时，有 $a-b = 0$，此时
+              \begin{equation}\label{eq:int3-case2}
+                  I_3 = \frac{1}{2} \left( \frac{\uppi}{2} + 0 \right) = \frac{\uppi}{4};
+              \end{equation}
+        \item 当 $a < b$ 时，有 $a-b < 0$，此时
+              \begin{equation}\label{eq:int3-case3}
+                  I_3 = \frac{1}{2} \left( \frac{\uppi}{2} - \frac{\uppi}{2} \right) = 0.
+              \end{equation}
+    \end{enumerate}
+    综合上述讨论，最终答案为
+    \begin{equation}
+        I_3 = \boxed{\begin{cases} \dfrac{\uppi}{2}, & a > b, \\ \dfrac{\uppi}{4}, & a = b, \\ 0, & a < b. \end{cases}}
+    \end{equation}
+
+    \ansitem{4} 积分结果为 $\frac{\uppi}{2}$。
+
+    对原积分应用分部积分法，令 $u = \sin^2 x$，$\d v = \frac{1}{x^2} \d x$，则有 $\d u = 2 \sin x \cos x \d x = \sin 2x \d x$，$v = -\frac{1}{x}$。代入可得
+    \begin{equation}\label{eq:int4-1}
+        I_4 = \left[ -\frac{\sin^2 x}{x} \right]_{0}^{+\infty} + \int_{0}^{+\infty} \frac{\sin 2x}{x} \d x.
+    \end{equation}
+    因为 $\lim_{x \to 0^+} \frac{\sin^2 x}{x} = 0$ 且 $\lim_{x \to +\infty} \frac{\sin^2 x}{x} = 0$，故第一项为零。对于第二项，令 $y = 2x$，可得
+    \begin{equation}\label{eq:int4-2}
+        \int_{0}^{+\infty} \frac{\sin 2x}{x} \d x = \int_{0}^{+\infty} \frac{\sin y}{y} \d y = \frac{\uppi}{2}.
+    \end{equation}
+    因此，最终结果为
+    \begin{equation}
+        I_4 = \boxed{\frac{\uppi}{2}}.
+    \end{equation}
+
+    \ansitem{5} 积分结果为 $\frac{(2n-1)!!}{2^{n+1}} \sqrt{\uppi}$。
+
+    记 $I_k = \int_{0}^{+\infty} x^{2k} \e^{-x^2} \d x$。应用分部积分法，将被积函数写为 $x^{2k-1} \cdot \left( x \e^{-x^2} \right)$，有
+    \begin{equation}\label{eq:int5-1}
+        \begin{aligned}
+            I_k & = \int_{0}^{+\infty} x^{2k-1} \d \left( -\frac{1}{2} \e^{-x^2} \right)                                                     \\
+                & = \left[ -\frac{1}{2} x^{2k-1} \e^{-x^2} \right]_{0}^{+\infty} + \frac{2k-1}{2} \int_{0}^{+\infty} x^{2k-2} \e^{-x^2} \d x \\
+                & = \frac{2k-1}{2} I_{k-1}.
+        \end{aligned}
+    \end{equation}
+    递推应用上述关系式，并利用已知条件 $I_0 = \int_{0}^{+\infty} \e^{-x^2} \d x = \frac{\sqrt{\uppi}}{2}$，可得
+    \begin{equation}\label{eq:int5-2}
+        I_n = \frac{2n-1}{2} \cdot \frac{2n-3}{2} \cdots \frac{1}{2} I_0 = \frac{(2n-1)!!}{2^n} \cdot \frac{\sqrt{\uppi}}{2}.
+    \end{equation}
+    因此，最终结果为
+    \begin{equation}
+        I_5 = \boxed{\frac{(2n-1)!!}{2^{n+1}} \sqrt{\uppi}}.
+    \end{equation}
+
+    \ansitem{6} 积分结果为 $\frac{\uppi}{4}$。
+
+    对积分应用分部积分法，令 $u = \sin^4 x$，$\d v = \frac{1}{x^2} \d x$，则有 $\d u = 4\sin^3 x \cos x \d x$，$v = -\frac{1}{x}$。代入得
+    \begin{equation}\label{eq:int6-1}
+        I_6 = \left[ -\frac{\sin^4 x}{x} \right]_{0}^{+\infty} + \int_{0}^{+\infty} \frac{4\sin^3 x \cos x}{x} \d x.
+    \end{equation}
+    由极限可知第一项为零。利用三角恒等式，将分子化简为
+    \begin{equation}\label{eq:int6-2}
+        4\sin^3 x \cos x = 2\sin^2 x \sin 2x = (1 - \cos 2x) \sin 2x = \sin 2x - \frac{1}{2} \sin 4x.
+    \end{equation}
+    代入 \zcref{eq:int6-1}，得
+    \begin{equation}\label{eq:int6-3}
+        I_6 = \int_{0}^{+\infty} \frac{\sin 2x}{x} \d x - \frac{1}{2} \int_{0}^{+\infty} \frac{\sin 4x}{x} \d x.
+    \end{equation}
+    利用换元法，对于任意常数 $k > 0$，均有 $\int_{0}^{+\infty} \frac{\sin kx}{x} \d x = \frac{\uppi}{2}$。从而有
+    \begin{equation}\label{eq:int6-4}
+        I_6 = \frac{\uppi}{2} - \frac{1}{2} \cdot \frac{\uppi}{2} = \frac{\uppi}{4}.
+    \end{equation}
+    因此，最终结果为
+    \begin{equation}
+        I_6 = \boxed{\frac{\uppi}{4}}.
+    \end{equation}
+\end{solution}
+
 \endinput

@@ -1,3 +1,538 @@
 \section{反常积分}
 
+\begin{problem}{反常积分收敛性}{Improper-Integrals-Convergence}
+    判断下列反常积分的收敛性：
+    \begin{enumerate}
+        \item $\int_0^{+\infty} \frac{\ln(x^2 + 1)}{x} \d x$;
+        \item $\int_0^{+\infty} \sqrt{x} \e^{-x} \d x$;
+        \item $\int_0^{+\infty} \frac{x \arctan x}{\sqrt[3]{1 + x^4}} \d x$;
+        \item $\int_{\e^2}^{+\infty} \frac{\d x}{x \ln \ln x}$;
+        \item $\int_0^1 \frac{\ln x}{\sqrt{1 - x^2}} \d x$;
+        \item $\int_0^1 \frac{x^2}{\sqrt[3]{(1 - x^2)^5}} \d x$;
+        \item $\int_0^1 \frac{\d x}{\e^{\sqrt{x}} - 1}$;
+        \item $\int_0^1 \frac{\sqrt{x}}{\e^{\sin x} - 1} \d x$;
+        \item $\int_0^1 \frac{\d x}{\e^x - \cos x}$;
+        \item $\int_0^{\frac{\uppi}{2}} \frac{\ln \sin x}{\sqrt{x}} \d x$;
+        \item $\int_0^{\frac{\uppi}{2}} \frac{\d x}{\sqrt{\sin x} \cos x}$;
+        \item $\int_0^{+\infty} \frac{\arctan x}{x^{\mu}} \d x$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 发散。
+
+    对于被积函数 $f(x) = \frac{\ln(x^2 + 1)}{x}$，其可能的瑕点为 $x = 0$。由于
+    \begin{equation}
+        \lim_{x \to 0^+} \frac{\ln(x^2 + 1)}{x} = \lim_{x \to 0^+} \frac{x^2}{x} = 0,
+    \end{equation}
+    故 $x = 0$ 不是瑕点。在无穷远处，当 $x \to +\infty$ 时，有
+    \begin{equation}
+        \lim_{x \to +\infty} \frac{\frac{\ln(x^2 + 1)}{x}}{\frac{1}{x}} = +\infty.
+    \end{equation}
+    因为反常积分 $\int_1^{+\infty} \frac{1}{x} \d x$ 发散，所以原反常积分发散。
+    \begin{equation}
+        \boxed{\text{发散}}
+    \end{equation}
+
+    \ansitem{2} 收敛。
+
+    被积函数在 $[0, +\infty)$ 上连续，无有限瑕点。当 $x \to +\infty$ 时，有
+    \begin{equation}
+        \lim_{x \to +\infty} x^2 \left( \sqrt{x} \e^{-x} \right) = \lim_{x \to +\infty} x^{5/2} \e^{-x} = 0.
+    \end{equation}
+    由比较判别法知，原反常积分收敛。
+    \begin{equation}
+        \boxed{\text{收敛}}
+    \end{equation}
+
+    \ansitem{3} 发散。
+
+    被积函数在 $[0, +\infty)$ 上连续，无有限瑕点。当 $x \to +\infty$ 时，有
+    \begin{equation}
+        \frac{x \arctan x}{\sqrt[3]{1 + x^4}} \sim \frac{\uppi}{2} \cdot \frac{x}{x^{4/3}} = \frac{\uppi}{2 x^{1/3}}.
+    \end{equation}
+    因为 $\int_1^{+\infty} \frac{\d x}{x^{1/3}}$ 发散，所以原反常积分发散。
+    \begin{equation}
+        \boxed{\text{发散}}
+    \end{equation}
+
+    \ansitem{4} 发散。
+
+    作变量替换 $u = \ln x$，则 $\d u = \frac{\d x}{x}$。原积分化为
+    \begin{equation}
+        \int_{\e^2}^{+\infty} \frac{\d x}{x \ln \ln x} = \int_2^{+\infty} \frac{\d u}{\ln u}.
+    \end{equation}
+    当 $u \geqslant 2$ 时，有 $\ln u < u$，从而
+    \begin{equation}
+        \frac{1}{\ln u} > \frac{1}{u}.
+    \end{equation}
+    因为 $\int_2^{+\infty} \frac{\d u}{u}$ 发散，所以原反常积分发散。
+    \begin{equation}
+        \boxed{\text{发散}}
+    \end{equation}
+
+    \ansitem{5} 收敛。
+
+    被积函数的瑕点为 $x = 0$ 与 $x = 1$。将其拆分为两部分讨论：
+    \begin{equation}
+        \int_0^1 \frac{\ln x}{\sqrt{1 - x^2}} \d x = \int_0^{1/2} \frac{\ln x}{\sqrt{1 - x^2}} \d x + \int_{1/2}^1 \frac{\ln x}{\sqrt{1 - x^2}} \d x.
+    \end{equation}
+    对于第一部分，当 $x \to 0^+$ 时，有
+    \begin{equation}
+        \frac{|\ln x|}{\sqrt{1 - x^2}} \sim |\ln x|.
+    \end{equation}
+    因为 $\int_0^{1/2} |\ln x| \d x$ 收敛，故第一部分收敛。
+    对于第二部分，当 $x \to 1^-$ 时，令 $t = 1 - x \to 0^+$，则有
+    \begin{equation}
+        \frac{|\ln x|}{\sqrt{1 - x^2}} = \frac{|\ln(1 - t)|}{\sqrt{t(2 - t)}} \sim \frac{t}{\sqrt{2t}} = \frac{\sqrt{t}}{\sqrt{2}} \to 0,
+    \end{equation}
+    故该函数在 $x = 1$ 附近有界，第二部分收敛。综上所述，原反常积分收敛。
+    \begin{equation}
+        \boxed{\text{收敛}}
+    \end{equation}
+
+    \ansitem{6} 发散。
+
+    被积函数的瑕点为 $x = 1$。当 $x \to 1^-$ 时，有
+    \begin{equation}
+        \frac{x^2}{\sqrt[3]{(1 - x^2)^5}} = \frac{x^2}{(1 - x)^{5/3} (1 + x)^{5/3}} \sim \frac{1}{2^{5/3} (1 - x)^{5/3}}.
+    \end{equation}
+    由于 $p = \frac{5}{3} > 1$，由比较判别法知，原反常积分发散。
+    \begin{equation}
+        \boxed{\text{发散}}
+    \end{equation}
+
+    \ansitem{7} 收敛。
+
+    被积函数的瑕点为 $x = 0$。当 $x \to 0^+$ 时，使用等价无穷小有
+    \begin{equation}
+        \e^{\sqrt{x}} - 1 \sim \sqrt{x},
+    \end{equation}
+    从而
+    \begin{equation}
+        \frac{1}{\e^{\sqrt{x}} - 1} \sim \frac{1}{\sqrt{x}}.
+    \end{equation}
+    由于 $p = \frac{1}{2} < 1$，由比较判别法知，原反常积分收敛。
+    \begin{equation}
+        \boxed{\text{收敛}}
+    \end{equation}
+
+    \ansitem{8} 收敛。
+
+    被积函数的瑕点为 $x = 0$。当 $x \to 0^+$ 时，有
+    \begin{equation}
+        \e^{\sin x} - 1 \sim \sin x \sim x,
+    \end{equation}
+    从而
+    \begin{equation}
+        \frac{\sqrt{x}}{\e^{\sin x} - 1} \sim \frac{\sqrt{x}}{x} = \frac{1}{\sqrt{x}}.
+    \end{equation}
+    由于 $p = \frac{1}{2} < 1$，由比较判别法知，原反常积分收敛。
+    \begin{equation}
+        \boxed{\text{收敛}}
+    \end{equation}
+
+    \ansitem{9} 发散。
+
+    被积函数的瑕点为 $x = 0$。当 $x \to 0^+$ 时，利用 Taylor 展开式有
+    \begin{equation}
+        \e^x - \cos x = (1 + x + o(x)) - \left( 1 - \frac{x^2}{2} + o(x^2) \right) = x + o(x) \sim x.
+    \end{equation}
+    从而
+    \begin{equation}
+        \frac{1}{\e^x - \cos x} \sim \frac{1}{x}.
+    \end{equation}
+    由于 $p = 1 \geqslant 1$，由比较判别法知，原反常积分发散。
+    \begin{equation}
+        \boxed{\text{发散}}
+    \end{equation}
+
+    \ansitem{10} 收敛。
+
+    被积函数的瑕点为 $x = 0$。当 $x \to 0^+$ 时，有
+    \begin{equation}
+        \frac{|\ln \sin x|}{\sqrt{x}} \sim \frac{|\ln x|}{\sqrt{x}}.
+    \end{equation}
+    对于任意满足 $\frac{1}{2} < q < 1$ 的常数 $q$，有
+    \begin{equation}
+        \lim_{x \to 0^+} x^q \cdot \frac{|\ln x|}{\sqrt{x}} = \lim_{x \to 0^+} x^{q - 1/2} |\ln x| = 0.
+    \end{equation}
+    由于 $q < 1$，由比较判别法知，原反常积分收敛。
+    \begin{equation}
+        \boxed{\text{收敛}}
+    \end{equation}
+
+    \ansitem{11} 发散。
+
+    被积函数的瑕点为 $x = 0$ 与 $x = \frac{\uppi}{2}$。将其拆分为两部分讨论：
+    \begin{equation}
+        \int_0^{\frac{\uppi}{2}} \frac{\d x}{\sqrt{\sin x} \cos x} = \int_0^{\frac{\uppi}{4}} \frac{\d x}{\sqrt{\sin x} \cos x} + \int_{\frac{\uppi}{4}}^{\frac{\uppi}{2}} \frac{\d x}{\sqrt{\sin x} \cos x}.
+    \end{equation}
+    对于第一部分，当 $x \to 0^+$ 时，有
+    \begin{equation}
+        \frac{1}{\sqrt{\sin x} \cos x} \sim \frac{1}{\sqrt{x}}.
+    \end{equation}
+    由于 $p = \frac{1}{2} < 1$，该部分收敛。
+    对于第二部分，当 $x \to \frac{\uppi}{2}^-$ 时，令 $t = \frac{\uppi}{2} - x \to 0^+$，有
+    \begin{equation}
+        \frac{1}{\sqrt{\sin x} \cos x} = \frac{1}{\sqrt{\cos t} \sin t} \sim \frac{1}{t}.
+    \end{equation}
+    由于 $p = 1 \geqslant 1$，该部分发散。因此，原反常积分发散。
+    \begin{equation}
+        \boxed{\text{发散}}
+    \end{equation}
+
+    \ansitem{12} 当且仅当 $1 < \mu < 2$ 时收敛。
+
+    被积函数的瑕点为 $x = 0$。分区间讨论如下：
+    \begin{equation}
+        \int_0^{+\infty} \frac{\arctan x}{x^{\mu}} \d x = \int_0^1 \frac{\arctan x}{x^{\mu}} \d x + \int_1^{+\infty} \frac{\arctan x}{x^{\mu}} \d x.
+    \end{equation}
+    对于第一部分，当 $x \to 0^+$ 时，有
+    \begin{equation}
+        \frac{\arctan x}{x^{\mu}} \sim \frac{x}{x^{\mu}} = \frac{1}{x^{\mu - 1}}.
+    \end{equation}
+    该积分收敛的充要条件为 $\mu - 1 < 1$，即 $\mu < 2$。
+    对于第二部分，当 $x \to +\infty$ 时，有
+    \begin{equation}
+        \frac{\arctan x}{x^{\mu}} \sim \frac{\uppi}{2 x^{\mu}}.
+    \end{equation}
+    该积分收敛的充要条件为 $\mu > 1$。
+    综上所述，原反常积分收敛的充要条件为 $1 < \mu < 2$。
+    \begin{equation}
+        \boxed{1 < \mu < 2}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{反常积分的收敛性}{Improper-Integrals-Convergence}
+    研究下列积分的条件收敛性与绝对收敛性：
+    \begin{enumerate}
+        \item $\int_1^{+\infty} \frac{\cos(1 - 2x)}{\sqrt[3]{x} \sqrt[3]{x^2 + 1}} \d x$;
+        \item $\int_0^{+\infty} \frac{\sin x}{\sqrt[3]{x^2 + x + 1}} \d x$;
+        \item $\int_2^{+\infty} \frac{\sin x}{x \ln x} \d x$;
+        \item $\int_0^{+\infty} \frac{\ln(1 + x)}{x^2(1 + x^p)} \d x \ (p > 0)$;
+        \item $\int_0^{+\infty} \frac{\sin x}{x(1 + \sqrt{x})} \d x$;
+        \item $\int_0^1 \frac{\sin \frac{1}{x}}{x^p} \d x$.
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 条件收敛。
+
+    令 $g(x) = \frac{1}{\sqrt[3]{x} \sqrt[3]{x^2 + 1}}$。因为 $x^3+x$ 在 $[1, +\infty)$ 上为正且单调递增，所以 $g(x)$ 在 $[1, +\infty)$ 上正值、单调递减且满足：
+    \begin{equation}
+        \lim_{x \to +\infty} g(x) = 0.
+    \end{equation}
+    对于任意 $A > 1$，有：
+    \begin{equation}
+        \left| \int_1^A \cos(1 - 2x) \d x \right| = \left| \left[ -\frac{1}{2} \sin(1 - 2x) \right]_1^A \right| \leqslant 1.
+    \end{equation}
+    由 Dirichlet 判别法可知，原反常积分收敛。
+
+    对于绝对收敛性，由于：
+    \begin{equation}
+        \begin{aligned}
+            \frac{|\cos(1 - 2x)|}{\sqrt[3]{x} \sqrt[3]{x^2 + 1}} & \geqslant \frac{\cos^2(1 - 2x)}{(x^3 + x)^{1/3}}                      \\
+                                                                 & = \frac{1}{2(x^3 + x)^{1/3}} + \frac{\cos(2 - 4x)}{2(x^3 + x)^{1/3}}.
+        \end{aligned}
+    \end{equation}
+    因为：
+    \begin{equation}
+        \lim_{x \to +\infty} \frac{\frac{1}{2(x^3+x)^{1/3}}}{\frac{1}{2x}} = 1,
+    \end{equation}
+    且反常积分 $\int_1^{+\infty} \frac{1}{2x} \d x$ 发散，故积分 $\int_1^{+\infty} \frac{1}{2(x^3 + x)^{1/3}} \d x$ 发散。
+    此外，由 Dirichlet 判别法，积分 $\int_1^{+\infty} \frac{\cos(2 - 4x)}{2(x^3 + x)^{1/3}} \d x$ 收敛。
+    因此，绝对值积分发散，原积分仅条件收敛。
+    \begin{equation}
+        \boxed{\text{条件收敛}}
+    \end{equation}
+
+    \ansitem{2} 条件收敛。
+
+    令 $g(x) = \frac{1}{\sqrt[3]{x^2 + x + 1}}$。在 $[0, +\infty)$ 上，由于 $x^2 + x + 1$ 单调递增，$g(x)$ 正值且单调递减，满足：
+    \begin{equation}
+        \lim_{x \to +\infty} g(x) = 0.
+    \end{equation}
+    对于任意 $A > 0$，有：
+    \begin{equation}
+        \left| \int_0^A \sin x \d x \right| = |1 - \cos A| \leqslant 2.
+    \end{equation}
+    由 Dirichlet 判别法可知，原反常积分收敛。
+
+    对于绝对收敛性，有：
+    \begin{equation}
+        \begin{aligned}
+            \frac{|\sin x|}{\sqrt[3]{x^2 + x + 1}} & \geqslant \frac{\sin^2 x}{(x^2 + x + 1)^{1/3}}                           \\
+                                                   & = \frac{1}{2(x^2 + x + 1)^{1/3}} - \frac{\cos 2x}{2(x^2 + x + 1)^{1/3}}.
+        \end{aligned}
+    \end{equation}
+    因为：
+    \begin{equation}
+        \lim_{x \to +\infty} \frac{\frac{1}{2(x^2 + x + 1)^{1/3}}}{\frac{1}{2x^{2/3}}} = 1,
+    \end{equation}
+    且反常积分 $\int_1^{+\infty} \frac{1}{2x^{2/3}} \d x$ 发散，故积分 $\int_0^{+\infty} \frac{1}{2(x^2 + x + 1)^{1/3}} \d x$ 发散。
+    同时，由 Dirichlet 判别法，积分 $\int_0^{+\infty} \frac{\cos 2x}{2(x^2 + x + 1)^{1/3}} \d x$ 收敛。
+    因此，绝对值积分发散，原积分仅条件收敛。
+    \begin{equation}
+        \boxed{\text{条件收敛}}
+    \end{equation}
+
+    \ansitem{3} 条件收敛。
+
+    令 $g(x) = \frac{1}{x \ln x}$。当 $x \geqslant 2$ 时，$g(x) > 0$ 且单调递减，满足：
+    \begin{equation}
+        \lim_{x \to +\infty} g(x) = 0.
+    \end{equation}
+    对于任意 $A > 2$，有：
+    \begin{equation}
+        \left| \int_2^A \sin x \d x \right| \leqslant 2.
+    \end{equation}
+    由 Dirichlet 判别法可知，原反常积分收敛。
+
+    对于绝对收敛性，有：
+    \begin{equation}
+        \begin{aligned}
+            \frac{|\sin x|}{x \ln x} & \geqslant \frac{\sin^2 x}{x \ln x}               \\
+                                     & = \frac{1}{2x \ln x} - \frac{\cos 2x}{2x \ln x}.
+        \end{aligned}
+    \end{equation}
+    因为：
+    \begin{equation}
+        \int_2^{+\infty} \frac{1}{2x \ln x} \d x = \left. \frac{1}{2} \ln(\ln x) \right|_2^{+\infty} = +\infty,
+    \end{equation}
+    所以该部分发散。而由 Dirichlet 判别法，积分 $\int_2^{+\infty} \frac{\cos 2x}{2x \ln x} \d x$ 收敛。
+    因此，绝对值积分发散，原积分仅条件收敛。
+    \begin{equation}
+        \boxed{\text{条件收敛}}
+    \end{equation}
+
+    \ansitem{4} 发散。
+
+    被积函数 $f(x) = \frac{\ln(1 + x)}{x^2(1 + x^p)} > 0$（当 $x > 0$ 时）。我们考察其在 $x \to 0^+$ 时的行为：
+    \begin{equation}
+        \lim_{x \to 0^+} \frac{f(x)}{1/x} = \lim_{x \to 0^+} \frac{x \ln(1 + x)}{x^2(1 + x^p)} = 1.
+    \end{equation}
+    由于反常积分 $\int_0^1 \frac{1}{x} \d x$ 发散，由比较审敛法可知，$\int_0^1 f(x) \d x$ 发散。
+    故原反常积分发散。
+    \begin{equation}
+        \boxed{\text{发散}}
+    \end{equation}
+
+    \ansitem{5} 绝对收敛。
+
+    被积函数为 $f(x) = \frac{\sin x}{x(1 + \sqrt{x})}$。
+    在 $x \to 0^+$ 时，有：
+    \begin{equation}
+        \lim_{x \to 0^+} \frac{\sin x}{x(1 + \sqrt{x})} = 1,
+    \end{equation}
+    因此 $x = 0$ 不是奇异点，积分 $\int_0^1 |f(x)| \d x$ 收敛。
+    在 $x \to +\infty$ 时，有：
+    \begin{equation}
+        |f(x)| \leqslant \frac{1}{x(1 + \sqrt{x})} \leqslant \frac{1}{x^{3/2}}.
+    \end{equation}
+    因为反常积分 $\int_1^{+\infty} \frac{1}{x^{3/2}} \d x$ 收敛，由比较审敛法可知，$\int_1^{+\infty} |f(x)| \d x$ 收敛。
+    综上所述，积分在整个区间 $[0, +\infty)$ 上绝对收敛。
+    \begin{equation}
+        \boxed{\text{绝对收敛}}
+    \end{equation}
+
+    \ansitem{6} 当 $p < 1$ 时绝对收敛；当 $1 \leqslant p < 2$ 时条件收敛；当 $p \geqslant 2$ 时发散。
+
+    作变量替换 $t = \frac{1}{x}$，则有 $\d x = -\frac{1}{t^2} \d t$。当 $x \to 0^+$ 时，有 $t \to +\infty$，原积分可化为：
+    \begin{equation}
+        \label{eq:substitution-1}
+        \int_0^1 \frac{\sin \frac{1}{x}}{x^p} \d x = \int_1^{+\infty} t^p \sin t \cdot \frac{1}{t^2} \d t = \int_1^{+\infty} \frac{\sin t}{t^{2-p}} \d t.
+    \end{equation}
+    为了分析 \zcref{eq:substitution-1} 的收敛性，令 $\alpha = 2-p$。根据 $\alpha$ 的取值讨论如下：
+    第一，当 $\alpha > 1$ 即 $p < 1$ 时。因为对任意 $t \geqslant 1$，有：
+    \begin{equation}
+        \left| \frac{\sin t}{t^\alpha} \right| \leqslant \frac{1}{t^\alpha},
+    \end{equation}
+    且反常积分 $\int_1^{+\infty} \frac{1}{t^\alpha} \d t$ 收敛，由比较审敛法可知，此时积分绝对收敛。
+    第二，当 $0 < \alpha \leqslant 1$ 即 $1 \leqslant p < 2$ 时。对于积分 $\int_1^{+\infty} \frac{\sin t}{t^\alpha} \d t$，由于：
+    \begin{equation}
+        \left| \int_1^A \sin t \d t \right| = |\cos 1 - \cos A| \leqslant 2,
+    \end{equation}
+    且 $\frac{1}{t^\alpha}$ 在 $[1, +\infty)$ 上单调递减趋于 $0$，由 Dirichlet 判别法可知，此时积分收敛。
+    然而对于其绝对收敛性，有：
+    \begin{equation}
+        \int_1^{+\infty} \frac{\left| \sin t \right|}{t^\alpha} \d t \geqslant \int_1^{+\infty} \frac{\sin^2 t}{t^\alpha} \d t = \frac{1}{2} \int_1^{+\infty} \frac{1}{t^\alpha} \d t - \frac{1}{2} \int_1^{+\infty} \frac{\cos 2t}{t^\alpha} \d t.
+    \end{equation}
+    因为 $\int_1^{+\infty} \frac{1}{t^\alpha} \d t$ 发散，而由 Dirichlet 判别法可知 $\int_1^{+\infty} \frac{\cos 2t}{t^\alpha} \d t$ 收敛，所以绝对值积分发散。因此，此时积分条件收敛。
+    第三，当 $\alpha \leqslant 0$ 即 $p \geqslant 2$ 时。由于被积函数 $t^{-\alpha} \sin t$ 在 $t \to +\infty$ 时不趋于 $0$，对于任意 $n \in \mathbb{N}^*$，考虑区间 $[2n\uppi + \frac{\uppi}{4}, 2n\uppi + \frac{3\uppi}{4}]$，有：
+    \begin{equation}
+        \int_{2n\uppi + \frac{\uppi}{4}}^{2n\uppi + \frac{3\uppi}{4}} t^{-\alpha} \sin t \d t \geqslant \int_{2n\uppi + \frac{\uppi}{4}}^{2n\uppi + \frac{3\uppi}{4}} \frac{\sqrt{2}}{2} \d t = \frac{\sqrt{2}\uppi}{4} > 0.
+    \end{equation}
+    这说明积分不满足 Cauchy 收敛准则，故积分发散。
+    综上所述，积分的收敛性结论为：
+    \begin{equation}
+        \boxed{\begin{cases}
+                \text{绝对收敛}, & p < 1,             \\
+                \text{条件收敛}, & 1 \leqslant p < 2, \\
+                \text{发散},   & p \geqslant 2.
+            \end{cases}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{单调函数无穷限积分的极限}{Monotone-Integral-Limit}
+    设 $f(x)$ 在 $[a,+\infty)$ 单调、连续，$\int_a^{+\infty} f(x) \d x$ 收敛，求证：$\lim_{x\to+\infty} f(x) = 0$。
+\end{problem}
+
+\begin{myproof}
+    由于 $f(x)$ 在 $[a, +\infty)$ 上单调，因此极限 $\lim_{x\to +\infty} f(x) = L$ 必存在（可能为 $\pm\infty$）。
+
+    假设 $L \neq 0$。若 $L > 0$（包括 $L = +\infty$），根据极限的定义与保号性，存在 $X \geqslant a$ 及常数 $C > 0$，使得当 $x \geqslant X$ 时，有 $f(x) \geqslant C$。
+
+    对于任意的 $y > X$，有
+    \begin{equation}
+        \int_{X}^{y} f(x) \d x \geqslant \int_{X}^{y} C \d x = C(y - X).
+    \end{equation}
+
+    令 $y \to +\infty$，由上式可得
+    \begin{equation}
+        \int_{X}^{+\infty} f(x) \d x = +\infty,
+    \end{equation}
+    这与 $\int_a^{+\infty} f(x) \d x$ 收敛矛盾。
+
+    同理，若 $L < 0$（包括 $L = -\infty$），亦可推导得出矛盾。
+
+    因此，必有 $\lim_{x\to +\infty} f(x) = 0$。
+\end{myproof}
+
+\begin{problem}{积分不等式与极限存在性}{Integral-Inequality-Limit}
+    设 $f(x)$ 和 $g(x)$ 在 $[0,+\infty)$ 上非负，$\int_0^{+\infty} g(x) \d x$ 收敛，且当 $0 < x < y$ 时，有
+    \begin{equation}
+        f(y) \leqslant f(x) + \int_x^y g(t) \d t.
+    \end{equation}
+    求证：$\lim_{x\to+\infty} f(x)$ 存在。
+\end{problem}
+
+\begin{myproof}
+    定义辅助函数 $G(x) = \int_0^x g(t) \d t$。由于 $g(x) \geqslant 0$ 且 $\int_0^{+\infty} g(x) \d x$ 收敛，可知 $G(x)$ 在 $[0, +\infty)$ 上单调递增且有上界，因此极限 $\lim_{x\to +\infty} G(x) = I$ 存在。
+
+    已知当 $0 < x < y$ 时，有
+    \begin{equation}
+        f(y) \leqslant f(x) + G(y) - G(x),
+    \end{equation}
+    移项可得
+    \begin{equation}
+        f(y) - G(y) \leqslant f(x) - G(x).
+    \end{equation}
+
+    定义函数 $H(x) = f(x) - G(x)$，则对于任意 $0 < x < y$，均有 $H(y) \leqslant H(x)$，表明 $H(x)$ 在 $(0, +\infty)$ 上单调递减。
+
+    由于 $f(x) \geqslant 0$ 且 $G(x) \leqslant I$，可得
+    \begin{equation}
+        H(x) = f(x) - G(x) \geqslant -I.
+    \end{equation}
+    这说明单调递减函数 $H(x)$ 有下界，故极限 $\lim_{x\to +\infty} H(x)$ 存在。
+
+    由此可得
+    \begin{equation}
+        \lim_{x\to +\infty} f(x) = \lim_{x\to +\infty} [H(x) + G(x)]
+    \end{equation}
+    存在。
+\end{myproof}
+
+\begin{problem}{乘积积分收敛与极限性质}{Product-Integral-Limit}
+    设 $f(x)$ 和 $g(x)$ 在 $[0,+\infty)$ 上非负，$g(x)$ 单调递减趋于 0，且 $\int_0^{+\infty} f(x)g(x) \d x$ 收敛。求证：$\lim_{x\to+\infty} g(x)\int_0^x f(t) \d t = 0$。
+\end{problem}
+
+\begin{myproof}
+    由于对任意 $x \geqslant 0$，均有 $f(x) \geqslant 0$ 且 $g(x) \geqslant 0$，故有
+    \begin{equation}
+        g(x) \int_0^x f(t) \d t \geqslant 0.
+    \end{equation}
+
+    对于任意给定的 $0 < x_0 < x$，可将积分拆分为
+    \begin{equation}
+        g(x) \int_0^x f(t) \d t = g(x) \int_0^{x_0} f(t) \d t + g(x) \int_{x_0}^x f(t) \d t.
+    \end{equation}
+
+    由于 $g(t)$ 在 $[0, +\infty)$ 上单调递减，故当 $t \in [x_0, x]$ 时，有 $g(x) \leqslant g(t)$。由此可得
+    \begin{equation}
+        g(x) \int_{x_0}^x f(t) \d t = \int_{x_0}^x f(t) g(x) \d t \leqslant \int_{x_0}^x f(t) g(t) \d t.
+    \end{equation}
+
+    结合上述两式，得到不等式
+    \begin{equation}
+        0 \leqslant g(x) \int_0^x f(t) \d t \leqslant g(x) \int_0^{x_0} f(t) \d t + \int_{x_0}^x f(t) g(t) \d t.
+    \end{equation}
+
+    因为 $\int_0^{+\infty} f(t)g(t) \d t$ 收敛，对于任意 $\epsilon > 0$，存在充分大的 $x_0 > 0$，使得
+    \begin{equation}
+        \int_{x_0}^{+\infty} f(t) g(t) \d t < \frac{\epsilon}{2}.
+    \end{equation}
+
+    对于此固定的 $x_0$，由于 $\lim_{x\to +\infty} g(x) = 0$，存在 $X > x_0$，使得当 $x > X$ 时，有
+    \begin{equation}
+        g(x) \int_0^{x_0} f(t) \d t < \frac{\epsilon}{2}.
+    \end{equation}
+
+    综上所述，当 $x > X$ 时，有
+    \begin{equation}
+        0 \leqslant g(x) \int_0^x f(t) \d t < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+    \end{equation}
+
+    由夹逼定理可得，$\lim_{x\to +\infty} g(x) \int_0^x f(t) \d t = 0$。
+\end{myproof}
+
+\begin{problem}{绝对收敛与卷积极限}{Absolute-Convergence-Convolution}
+    设 $\int_0^{+\infty} f(x) \d x$ 绝对收敛，$g(x)$ 在有限区间上可积且 $\lim_{x\to+\infty} g(x) = 0$。求证：
+    \begin{equation}
+        \lim_{x\to+\infty} \int_0^x f(t)g(x-t) \d t = 0.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    记
+    \begin{equation}
+        I_f = \int_0^{+\infty} |f(x)| \d x < +\infty.
+    \end{equation}
+
+    由于 $\lim_{x\to+\infty} g(x)=0$，存在 $R>0$，使得当 $x>R$ 时，有
+    \begin{equation}
+        |g(x)| \leqslant 1.
+    \end{equation}
+    又因为 $g(x)$ 在有限区间上可积，所以 $g(x)$ 在 $[0,R]$ 上有界。因此存在常数 $M_g>0$，使得对任意 $x\geqslant 0$，均有
+    \begin{equation}
+        |g(x)| \leqslant M_g.
+    \end{equation}
+
+    对任意给定的 $\varepsilon>0$，由于 $\int_0^{+\infty}|f(x)|\d x$ 收敛，存在 $A>0$，使得
+    \begin{equation}
+        \int_A^{+\infty}|f(t)|\d t < \frac{\varepsilon}{2(M_g+1)}.
+    \end{equation}
+
+    对于该固定的 $A$，由 $\lim_{u\to+\infty}g(u)=0$，存在 $X_0>0$，使得当 $u>X_0$ 时，恒有
+    \begin{equation}
+        |g(u)| < \frac{\varepsilon}{2(I_f+1)}.
+    \end{equation}
+
+    当 $x>A+X_0$ 时，对任意 $t\in[0,A]$，有 $x-t>X_0$。于是
+    \begin{equation}
+        \begin{aligned}
+            \left| \int_0^x f(t)g(x-t)\d t \right|
+             & \leqslant \int_0^A |f(t)||g(x-t)|\d t
+            + \int_A^x |f(t)||g(x-t)|\d t                                \\
+             & \leqslant \frac{\varepsilon}{2(I_f+1)}\int_0^A |f(t)|\d t
+            + M_g\int_A^{+\infty}|f(t)|\d t                              \\
+             & < \frac{\varepsilon}{2(I_f+1)}\cdot I_f
+            + M_g\cdot \frac{\varepsilon}{2(M_g+1)}                      \\
+             & < \frac{\varepsilon}{2}+\frac{\varepsilon}{2}
+            = \varepsilon.
+        \end{aligned}
+        \label{eq:convolution-estimate}
+    \end{equation}
+
+    由 \zcref{eq:convolution-estimate} 可知，当 $x\to+\infty$ 时，
+    \begin{equation}
+        \int_0^x f(t)g(x-t)\d t \to 0.
+    \end{equation}
+    即
+    \begin{equation}
+        \lim_{x\to+\infty}\int_0^x f(t)g(x-t)\d t=0.
+    \end{equation}
+\end{myproof}
+
 \endinput

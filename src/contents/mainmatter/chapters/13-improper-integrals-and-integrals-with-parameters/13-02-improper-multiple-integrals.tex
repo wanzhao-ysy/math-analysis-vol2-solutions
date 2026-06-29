@@ -1,3 +1,192 @@
 \section{反常多重积分}
 
+\begin{problem}{反常二重积分}{Improper-Double-Integrals}
+    计算下列反常二重积分：
+    \begin{enumerate}
+        \item $\iint_D \frac{1}{\sqrt{x^2 + y^2}} \d x \d y$，其中 $D$ 是单位圆内部；
+        \item $\iint_D \frac{\d x \d y}{(1 + x + y)^\alpha}$，其中 $D$ 是第一象限，$\alpha > 2$ 为常数；
+        \item $\iint_D \max(x, y) \e^{-(x^2 + y^2)} \d x \d y$，其中 $D$ 是第一象限。
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    设 $I_1 = \iint_D \frac{1}{\sqrt{x^2 + y^2}} \d x \d y$。由于积分区域 $D$ 是单位圆内部，存在原点这一孤立奇点。
+
+    引入极坐标变换 $x = r \cos \theta$、$y = r \sin \theta$，其雅可比行列式为 $J = r$。此时积分区域可表示为
+    \begin{equation}
+        D = \{ (r, \theta) \mid 0 \leqslant r < 1,\, 0 \leqslant \theta \leqslant 2\uppi \}.
+    \end{equation}
+
+    根据反常二重积分的计算方法，有
+    \begin{equation}
+        \begin{aligned}
+            I_1 & = \lim_{\varepsilon \to 0^+} \int_0^{2\uppi} \d \theta \int_{\varepsilon}^1 \frac{1}{r} \cdot r \d r \\
+                & = \int_0^{2\uppi} \d \theta \int_0^1 \d r                                                            \\
+                & = 2\uppi.
+        \end{aligned}
+    \end{equation}
+
+    因此，积分结果为
+    \begin{equation}
+        I_1 = \boxed{2\uppi}.
+    \end{equation}
+
+    \ansitem{2}
+
+    设 $I_2 = \iint_D \frac{\d x \d y}{(1 + x + y)^\alpha}$。由于积分区域 $D$ 为第一象限，即 $D = \{ (x, y) \mid x \geqslant 0,\, y \geqslant 0 \}$，此为无界区域上的反常二重积分。
+
+    由于被积函数非负，可利用累次积分进行计算：
+    \begin{equation}
+        I_2 = \int_0^{+\infty} \left( \int_0^{+\infty} (1 + x + y)^{-\alpha} \d y \right) \d x.
+    \end{equation}
+
+    对于内层关于 $y$ 的积分，由于 $\alpha > 2$，有 $1 - \alpha < -1 < 0$，可得
+    \begin{equation}
+        \int_0^{+\infty} (1 + x + y)^{-\alpha} \d y = \left[ \frac{(1 + x + y)^{1-\alpha}}{1 - \alpha} \right]_{y=0}^{y\to+\infty} = \frac{1}{\alpha - 1} (1 + x)^{1-\alpha}.
+    \end{equation}
+
+    将此结果代入外层关于 $x$ 的积分中，可得
+    \begin{equation}
+        \begin{aligned}
+            I_2 & = \frac{1}{\alpha - 1} \int_0^{+\infty} (1 + x)^{1-\alpha} \d x                         \\
+                & = \frac{1}{\alpha - 1} \left[ \frac{(1 + x)^{2-\alpha}}{2 - \alpha} \right]_0^{+\infty} \\
+                & = \frac{1}{(\alpha - 1)(\alpha - 2)}.
+        \end{aligned}
+    \end{equation}
+
+    因此，积分结果为
+    \begin{equation}
+        I_2 = \boxed{\frac{1}{(\alpha - 1)(\alpha - 2)}}.
+    \end{equation}
+
+    \ansitem{3}
+
+    设 $I_3 = \iint_D \max(x, y) \e^{-(x^2 + y^2)} \d x \d y$，其中 $D = \{ (x, y) \mid x \geqslant 0,\, y \geqslant 0 \}$。
+
+    利用对称性，将区域 $D$ 以直线 $y = x$ 为界划分为两个对称的子区域：
+    \begin{equation}
+        D_1 = \{ (x, y) \mid x \geqslant 0,\, 0 \leqslant y \leqslant x \},
+    \end{equation}
+    \begin{equation}
+        D_2 = \{ (x, y) \mid y \geqslant 0,\, 0 \leqslant x \leqslant y \}.
+    \end{equation}
+
+    由于被积函数及区域关于直线 $y = x$ 对称，有
+    \begin{equation}
+        I_3 = 2 \iint_{D_1} x \e^{-(x^2 + y^2)} \d x \d y.
+    \end{equation}
+
+    在 $D_1$ 上引入极坐标变换，有 $0 \leqslant \theta \leqslant \frac{\uppi}{4}$，$0 \leqslant r < +\infty$。代入可得
+    \begin{equation}
+        \begin{aligned}
+            I_3 & = 2 \int_0^{\frac{\uppi}{4}} \d \theta \int_0^{+\infty} (r \cos \theta) \e^{-r^2} r \d r                              \\
+                & = 2 \left( \int_0^{\frac{\uppi}{4}} \cos \theta \d \theta \right) \left( \int_0^{+\infty} r^2 \e^{-r^2} \d r \right).
+        \end{aligned}
+    \end{equation}
+
+    分别计算上述两个单变量积分。首先有
+    \begin{equation}
+        \int_0^{\frac{\uppi}{4}} \cos \theta \d \theta = \left[ \sin \theta \right]_0^{\frac{\uppi}{4}} = \frac{\sqrt{2}}{2}.
+    \end{equation}
+
+    利用分部积分法计算第二个积分：
+    \begin{equation}
+        \begin{aligned}
+            \int_0^{+\infty} r^2 \e^{-r^2} \d r & = \int_0^{+\infty} r \d \left( -\frac{1}{2} \e^{-r^2} \right)                                       \\
+                                                & = \left[ -\frac{1}{2} r \e^{-r^2} \right]_0^{+\infty} + \frac{1}{2} \int_0^{+\infty} \e^{-r^2} \d r \\
+                                                & = 0 + \frac{1}{2} \cdot \frac{\sqrt{\uppi}}{2} = \frac{\sqrt{\uppi}}{4}.
+        \end{aligned}
+    \end{equation}
+
+    将上述两个积分结果代入，可得
+    \begin{equation}
+        \begin{aligned}
+            I_3 & = 2 \cdot \frac{\sqrt{2}}{2} \cdot \frac{\sqrt{\uppi}}{4} \\
+                & = \frac{\sqrt{2\uppi}}{4}.
+        \end{aligned}
+    \end{equation}
+
+    因此，积分结果为
+    \begin{equation}
+        I_3 = \boxed{\frac{\sqrt{2\uppi}}{4}}.
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Fresnel 积分与反常二重积分}{Fresnel-Integral-Improper-Double-Integral}
+    借用 Fresnel 积分 $\int_{-\infty}^{+\infty} \sin x^2 \d x = \int_{-\infty}^{+\infty} \cos x^2 \d x = \sqrt{\frac{\uppi}{2}}$ 验证下列累次积分
+    \begin{equation}
+        \int_{-\infty}^{+\infty} \d y \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d x = \int_{-\infty}^{+\infty} \d x \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d y = \uppi.
+    \end{equation}
+    并证明函数 $\sin(x^2 + y^2)$ 在定义 13.14 意义下在 $\mathbb{R}^2$ 上的反常二重积分发散。（提示：分别考虑 $\mathbb{R}^2$ 的两个竭尽递增列 $D_n = \{ (x,y) \mid |x| \leqslant n, |y| \leqslant n \}$ 和 $B_n = \{ (x,y) \mid x^2 + y^2 \leqslant 2n\uppi \}$。）
+\end{problem}
+
+\begin{myproof}
+    首先验证累次积分。利用三角恒等式 $\sin(x^2 + y^2) = \sin x^2 \cos y^2 + \cos x^2 \sin y^2$，计算关于 $x$ 的内层积分：
+    \begin{equation}
+        \begin{aligned}
+            \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d x & = \int_{-\infty}^{+\infty} (\sin x^2 \cos y^2 + \cos x^2 \sin y^2) \d x                              \\
+                                                          & = \cos y^2 \int_{-\infty}^{+\infty} \sin x^2 \d x + \sin y^2 \int_{-\infty}^{+\infty} \cos x^2 \d x.
+        \end{aligned}
+        \label{eq:inner-integral}
+    \end{equation}
+
+    将 Fresnel 积分值代入 \zcref{eq:inner-integral} 中，得
+    \begin{equation}
+        \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d x = \sqrt{\frac{\uppi}{2}} (\cos y^2 + \sin y^2).
+    \end{equation}
+
+    再关于 $y$ 进行外层积分，得
+    \begin{equation}
+        \begin{aligned}
+            \int_{-\infty}^{+\infty} \d y \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d x & = \sqrt{\frac{\uppi}{2}} \int_{-\infty}^{+\infty} (\cos y^2 + \sin y^2) \d y                                            \\
+                                                                                        & = \sqrt{\frac{\uppi}{2}} \left( \int_{-\infty}^{+\infty} \cos y^2 \d y + \int_{-\infty}^{+\infty} \sin y^2 \d y \right) \\
+                                                                                        & = \sqrt{\frac{\uppi}{2}} \left( \sqrt{\frac{\uppi}{2}} + \sqrt{\frac{\uppi}{2}} \right)                                 \\
+                                                                                        & = \uppi.
+        \end{aligned}
+        \label{eq:iterated-1}
+    \end{equation}
+
+    同理，由对称性可得
+    \begin{equation}
+        \int_{-\infty}^{+\infty} \d x \int_{-\infty}^{+\infty} \sin(x^2 + y^2) \d y = \uppi.
+    \end{equation}
+
+    下面证明该函数在 $\mathbb{R}^2$ 上的反常二重积分发散。
+
+    考虑第一种竭尽递增列 $D_n = \{ (x,y) \mid |x| \leqslant n, |y| \leqslant n \}$，在 $D_n$ 上的二重积分为
+    \begin{equation}
+        \begin{aligned}
+            \iint_{D_n} \sin(x^2 + y^2) \d x \d y & = \int_{-n}^{n} \d y \int_{-n}^{n} (\sin x^2 \cos y^2 + \cos x^2 \sin y^2) \d x                \\
+                                                  & = \left( \int_{-n}^{n} \cos y^2 \d y \right) \left( \int_{-n}^{n} \sin x^2 \d x \right)        \\
+                                                  & \quad + \left( \int_{-n}^{n} \sin y^2 \d y \right) \left( \int_{-n}^{n} \cos x^2 \d x \right).
+        \end{aligned}
+    \end{equation}
+
+    令 $n \to \infty$，利用 Fresnel 积分可得
+    \begin{equation}
+        \lim_{n\to\infty} \iint_{D_n} \sin(x^2 + y^2) \d x \d y = \sqrt{\frac{\uppi}{2}} \cdot \sqrt{\frac{\uppi}{2}} + \sqrt{\frac{\uppi}{2}} \cdot \sqrt{\frac{\uppi}{2}} = \uppi.
+        \label{eq:limit-Dn}
+    \end{equation}
+
+    考虑第二种竭尽递增列 $B_n = \{ (x,y) \mid x^2 + y^2 \leqslant 2n\uppi \}$，引入极坐标 $x = r \cos \theta$、$y = r \sin \theta$，在 $B_n$ 上的二重积分为
+    \begin{equation}
+        \begin{aligned}
+            \iint_{B_n} \sin(x^2 + y^2) \d x \d y & = \int_0^{2\uppi} \d \theta \int_0^{\sqrt{2n\uppi}} \sin(r^2) r \d r \\
+                                                  & = 2\uppi \left[ -\frac{1}{2} \cos(r^2) \right]_0^{\sqrt{2n\uppi}}    \\
+                                                  & = \uppi (1 - \cos(2n\uppi))                                          \\
+                                                  & = 0.
+        \end{aligned}
+    \end{equation}
+
+    因此有
+    \begin{equation}
+        \lim_{n\to\infty} \iint_{B_n} \sin(x^2 + y^2) \d x \d y = 0.
+        \label{eq:limit-Bn}
+    \end{equation}
+
+    比较 \zcref{eq:limit-Dn} 与 \zcref{eq:limit-Bn}，由于两个竭尽递增列的极限值不相等（$\uppi \neq 0$），根据定义 13.14，极限值依赖于竭尽递增列的选取。因此，函数 $\sin(x^2 + y^2)$ 在 $\mathbb{R}^2$ 上的反常二重积分发散。
+\end{myproof}
+
 \endinput

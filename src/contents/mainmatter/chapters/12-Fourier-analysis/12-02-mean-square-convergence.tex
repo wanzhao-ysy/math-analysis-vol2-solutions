@@ -54,7 +54,7 @@
         \end{tikzpicture}
     \end{center}
 
-    首先计算 $f(x)$ 的 Fourier 系数。由于 $f(x)$ 为偶函数，其正弦系数对所有 $n \geqslant 1$ 均有 $b_n = 0$。余弦系数为
+    首先计算 $f(x)$ 的 Fourier 系数．由于 $f(x)$ 为偶函数，其正弦系数对所有 $n \geqslant 1$ 均有 $b_n = 0$．余弦系数为
     \begin{equation}\label{eq:a0-1}
         a_0 = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f(x) \d x = \frac{1}{\uppi} \int_{-a}^{a} 1 \d x = \frac{2a}{\uppi},
     \end{equation}
@@ -100,7 +100,7 @@
 \end{solution}
 
 \begin{problem}{Fourier系数的收敛性}{Fourier-Coefficients-Convergence}
-    设 $f(x)$ 是 $[-\uppi, \uppi]$ 上可积且平方可积的函数，$a_n, b_n$ 是 $f(x)$ 的 Fourier 系数。求证：$\sum_{n=1}^{\infty} \frac{a_n}{n}$ 和 $\sum_{n=1}^{\infty} \frac{b_n}{n}$ 收敛。
+    设 $f(x)$ 是 $[-\uppi, \uppi]$ 上可积且平方可积的函数，$a_n, b_n$ 是 $f(x)$ 的 Fourier 系数．求证：$\sum_{n=1}^{\infty} \frac{a_n}{n}$ 和 $\sum_{n=1}^{\infty} \frac{b_n}{n}$ 收敛．
 \end{problem}
 
 \begin{myproof}
@@ -108,24 +108,24 @@
     \begin{equation}
         \frac{a_0^2}{2} + \sum_{n=1}^{\infty} (a_n^2 + b_n^2) \leqslant \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f^2(x) \d x < \infty.
     \end{equation}
-    由此可知，正项级数 $\sum_{n=1}^{\infty} a_n^2$ 与 $\sum_{n=1}^{\infty} b_n^2$ 均收敛。
+    由此可知，正项级数 $\sum_{n=1}^{\infty} a_n^2$ 与 $\sum_{n=1}^{\infty} b_n^2$ 均收敛．
 
     根据 Cauchy-Schwarz 不等式，有
     \begin{equation}\label{eq:cauchy-2}
         \sum_{n=1}^{\infty} \left| \frac{a_n}{n} \right| \leqslant \left( \sum_{n=1}^{\infty} a_n^2 \right)^{1/2} \left( \sum_{n=1}^{\infty} \frac{1}{n^2} \right)^{1/2}.
     \end{equation}
-    由于 $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\uppi^2}{6} < \infty$，且 $\sum_{n=1}^{\infty} a_n^2 < \infty$，故\zcref{eq:cauchy-2}的右端项收敛。
-    因此，级数 $\sum_{n=1}^{\infty} \frac{a_n}{n}$ 绝对收敛，进而收敛。
+    由于 $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\uppi^2}{6} < \infty$，且 $\sum_{n=1}^{\infty} a_n^2 < \infty$，故\zcref{eq:cauchy-2}的右端项收敛．
+    因此，级数 $\sum_{n=1}^{\infty} \frac{a_n}{n}$ 绝对收敛，进而收敛．
 
     同理，对于级数 $\sum_{n=1}^{\infty} \frac{b_n}{n}$，有
     \begin{equation}
         \sum_{n=1}^{\infty} \left| \frac{b_n}{n} \right| \leqslant \left( \sum_{n=1}^{\infty} b_n^2 \right)^{1/2} \left( \sum_{n=1}^{\infty} \frac{1}{n^2} \right)^{1/2} < \infty.
     \end{equation}
-    所以级数 $\sum_{n=1}^{\infty} \frac{b_n}{n}$ 亦绝对收敛，进而收敛。
+    所以级数 $\sum_{n=1}^{\infty} \frac{b_n}{n}$ 亦绝对收敛，进而收敛．
 \end{myproof}
 
 \begin{problem}{Fourier级数计算与求和}{Fourier-Series-Summation}
-    求周期为 $2\uppi$ 函数 $f(x) = \begin{cases} -1, & -\uppi < x < 0, \\ 1, & 0 \leqslant x \leqslant \uppi \end{cases}$ 的 Fourier 级数，并求 $\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2}$ 的和以及 $\sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2} \quad (0 \leqslant x \leqslant \uppi)$ 的和。
+    求周期为 $2\uppi$ 函数 $f(x) = \begin{cases} -1, & -\uppi < x < 0, \\ 1, & 0 \leqslant x \leqslant \uppi \end{cases}$ 的 Fourier 级数，并求 $\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2}$ 的和以及 $\sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2} \quad (0 \leqslant x \leqslant \uppi)$ 的和．
 \end{problem}
 
 \begin{solution}
@@ -171,7 +171,7 @@
         \end{tikzpicture}
     \end{center}
 
-    首先计算 $f(x)$ 的 Fourier 系数。显然 $f(x)$ 为奇函数（除去个别间断点外），故其余弦系数均为零，即对所有 $n \geqslant 0$ 有 $a_n = 0$。正弦系数为
+    首先计算 $f(x)$ 的 Fourier 系数．显然 $f(x)$ 为奇函数（除去个别间断点外），故其余弦系数均为零，即对所有 $n \geqslant 0$ 有 $a_n = 0$．正弦系数为
     \begin{equation}\label{eq:fourier-coeff-3}
         \begin{aligned}
             b_n & = \frac{1}{\uppi} \int_{-\uppi}^{\uppi} f(x) \sin(nx) \d x \\
@@ -201,7 +201,7 @@
         \boxed{\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2} = \frac{\uppi^2}{8}}.
     \end{equation}
 
-    最后，定义辅助函数 $F(x) = \int_{0}^{x} f(t) \d t = |x|$（当 $x \in [-\uppi, \uppi]$ 时）。由于 $F(x)$ 连续且分段光滑，其 Fourier 级数可以由 $f(x)$ 逐项积分得到：
+    最后，定义辅助函数 $F(x) = \int_{0}^{x} f(t) \d t = |x|$（当 $x \in [-\uppi, \uppi]$ 时）．由于 $F(x)$ 连续且分段光滑，其 Fourier 级数可以由 $f(x)$ 逐项积分得到：
     \begin{equation}\label{eq:term-integration-3}
         \begin{aligned}
             |x| & = \sum_{n=1}^{\infty} \frac{4}{(2n-1)\uppi} \int_{0}^{x} \sin(2n-1)t \d t                                                    \\
@@ -220,20 +220,20 @@
 \end{solution}
 
 \begin{problem}{正交函数系证明}{Orthogonal-Function-Systems-Proof}
-    证明下列函数系是正交系，并求其对应的标准正交系。
+    证明下列函数系是正交系，并求其对应的标准正交系．
     \begin{enumerate}
         \item $1, \cos x, \cos 2x, \cdots, \cos nx, \cdots$ 在 $[0, \uppi]$ 上；
         \item $\sin \frac{\uppi}{l}x, \sin \frac{2\uppi}{l}x, \cdots, \sin \frac{n\uppi}{l}x, \cdots$ 在 $[0, l]$ 上；
         \item $\sin x, \sin 3x, \cdots, \sin(2n+1)x, \cdots$ 在 $[0, \frac{\uppi}{2}]$ 上；
-        \item $\cos \frac{\uppi}{2l}x, \cos \frac{3\uppi}{2l}x, \cdots, \cos \frac{(2n+1)\uppi}{2l}x, \cdots$ 在 $[0, l]$ 上。
+        \item $\cos \frac{\uppi}{2l}x, \cos \frac{3\uppi}{2l}x, \cdots, \cos \frac{(2n+1)\uppi}{2l}x, \cdots$ 在 $[0, l]$ 上．
     \end{enumerate}
 \end{problem}
 
 \begin{myproof}
     \ansitem{1}
-    该函数系在 $[0, \uppi]$ 上是正交系。
+    该函数系在 $[0, \uppi]$ 上是正交系．
 
-    设 $\phi_0(x) = 1$，$\phi_n(x) = \cos(nx)$ ($n \geqslant 1$)。
+    设 $\phi_0(x) = 1$，$\phi_n(x) = \cos(nx)$ ($n \geqslant 1$)．
     对于 $p \neq q$ ($p, q \geqslant 0$)，当 $p=0$ 且 $q \geqslant 1$ 时：
     \begin{equation}\label{eq:orth-1-1}
         \int_{0}^{\uppi} 1 \cdot \cos(qx) \d x = \left. \frac{\sin(qx)}{q} \right|_{0}^{\uppi} = 0.
@@ -242,7 +242,7 @@
     \begin{equation}\label{eq:orth-1-2}
         \int_{0}^{\uppi} \cos(px) \cos(qx) \d x = \frac{1}{2} \int_{0}^{\uppi} [\cos(p+q)x + \cos(p-q)x] \d x = 0.
     \end{equation}
-    故该函数系是正交系。其各元素的模方为
+    故该函数系是正交系．其各元素的模方为
     \begin{equation}\label{eq:norm-1-1}
         \|\phi_0\|^2 = \int_{0}^{\uppi} 1 \d x = \uppi,
     \end{equation}
@@ -255,9 +255,9 @@
     \end{equation}
 
     \ansitem{2}
-    该函数系在 $[0, l]$ 上是正交系。
+    该函数系在 $[0, l]$ 上是正交系．
 
-    设 $\phi_n(x) = \sin \frac{n\uppi x}{l}$ ($n \geqslant 1$)。
+    设 $\phi_n(x) = \sin \frac{n\uppi x}{l}$ ($n \geqslant 1$)．
     对于 $p \neq q$ ($p, q \geqslant 1$)，有
     \begin{equation}\label{eq:orth-2-1}
         \begin{aligned}
@@ -266,7 +266,7 @@
                                                                               & = 0.
         \end{aligned}
     \end{equation}
-    故该函数系是正交系。其各元素的模方为
+    故该函数系是正交系．其各元素的模方为
     \begin{equation}\label{eq:norm-2}
         \|\phi_n\|^2 = \int_{0}^{l} \sin^2 \frac{n\uppi x}{l} \d x = \frac{l}{2}.
     \end{equation}
@@ -276,9 +276,9 @@
     \end{equation}
 
     \ansitem{3}
-    该函数系在 $[0, \frac{\uppi}{2}]$ 上是正交系。
+    该函数系在 $[0, \frac{\uppi}{2}]$ 上是正交系．
 
-    设 $\phi_n(x) = \sin(2n+1)x$ ($n \geqslant 0$)。
+    设 $\phi_n(x) = \sin(2n+1)x$ ($n \geqslant 0$)．
     对于 $p \neq q$ ($p, q \geqslant 0$)，有
     \begin{equation}\label{eq:orth-3-1}
         \begin{aligned}
@@ -287,7 +287,7 @@
                                                             & = 0.
         \end{aligned}
     \end{equation}
-    故该函数系是正交系。其各元素的模方为
+    故该函数系是正交系．其各元素的模方为
     \begin{equation}\label{eq:norm-3}
         \|\phi_n\|^2 = \int_{0}^{\uppi/2} \sin^2(2n+1)x \d x = \frac{1}{2} \int_{0}^{\uppi/2} [1 - \cos 2(2n+1)x] \d x = \frac{\uppi}{4}.
     \end{equation}
@@ -297,9 +297,9 @@
     \end{equation}
 
     \ansitem{4}
-    该函数系在 $[0, l]$ 上是正交系。
+    该函数系在 $[0, l]$ 上是正交系．
 
-    设 $\phi_n(x) = \cos \frac{(2n+1)\uppi x}{2l}$ ($n \geqslant 0$)。
+    设 $\phi_n(x) = \cos \frac{(2n+1)\uppi x}{2l}$ ($n \geqslant 0$)．
     对于 $p \neq q$ ($p, q \geqslant 0$)，有
     \begin{equation}\label{eq:orth-4-1}
         \begin{aligned}
@@ -307,7 +307,7 @@
                                                                                           & = 0.
         \end{aligned}
     \end{equation}
-    故该函数系是正交系。其各元素的模方为
+    故该函数系是正交系．其各元素的模方为
     \begin{equation}\label{eq:norm-4}
         \|\phi_n\|^2 = \int_{0}^{l} \cos^2 \frac{(2n+1)\uppi x}{2l} \d x = \frac{l}{2}.
     \end{equation}
@@ -318,7 +318,7 @@
 \end{myproof}
 
 \begin{problem}{广义Fourier级数展开}{Generalized-Fourier-Series-1}
-    将 $f(x) = a \left(1 - \frac{x}{l}\right) \quad (0 \leqslant x \leqslant l)$ 按第 4 题中 (2) 的函数系展开成广义 Fourier 级数。
+    将 $f(x) = a \left(1 - \frac{x}{l}\right) \quad (0 \leqslant x \leqslant l)$ 按第 4 题中 (2) 的函数系展开成广义 Fourier 级数．
 \end{problem}
 
 \begin{solution}
@@ -346,7 +346,7 @@
 \end{solution}
 
 \begin{problem}{广义Fourier级数展开}{Generalized-Fourier-Series-2}
-    将 $f(x) = x \quad (0 \leqslant x \leqslant l)$ 按第 4 题中 (4) 的函数系展开成广义 Fourier 级数。
+    将 $f(x) = x \quad (0 \leqslant x \leqslant l)$ 按第 4 题中 (4) 的函数系展开成广义 Fourier 级数．
 \end{problem}
 
 \begin{solution}
@@ -379,17 +379,17 @@
     \begin{equation}\label{eq:legendre-def-7}
         P_n(x) = \frac{1}{2^n \cdot n!} \frac{\d^n}{\d x^n} (x^2 - 1)^n \quad (n = 0, 1, 2, \cdots)
     \end{equation}
-    （是一个 $n$ 次多项式）在区间 $[-1, 1]$ 上构成一个正交系。
+    （是一个 $n$ 次多项式）在区间 $[-1, 1]$ 上构成一个正交系．
 
-    提示：不断使用分部积分并注意到当 $1 \leqslant k \leqslant n$ 时，$\left. \frac{\d^{n-k}}{\d x^{n-k}} (x^2 - 1)^n \right|_{x=\pm 1} = 0$。
+    提示：不断使用分部积分并注意到当 $1 \leqslant k \leqslant n$ 时，$\left. \frac{\d^{n-k}}{\d x^{n-k}} (x^2 - 1)^n \right|_{x=\pm 1} = 0$．
 \end{problem}
 
 \begin{myproof}
-    设 $m, n \in \mathbb{N}$ 且 $m \neq n$。不妨设 $m < n$。我们需要证明
+    设 $m, n \in \mathbb{N}$ 且 $m \neq n$．不妨设 $m < n$．我们需要证明
     \begin{equation}\label{eq:orth-target-7}
         \int_{-1}^{1} P_m(x) P_n(x) \d x = 0.
     \end{equation}
-    令 $u(x) = (x^2 - 1)^n$。由于 $x = \pm 1$ 是 $u(x)$ 的 $n$ 重根，因此对于任意 $0 \leqslant k \leqslant n-1$，有
+    令 $u(x) = (x^2 - 1)^n$．由于 $x = \pm 1$ 是 $u(x)$ 的 $n$ 重根，因此对于任意 $0 \leqslant k \leqslant n-1$，有
     \begin{equation}\label{eq:boundary-zero-7}
         \left. u^{(k)}(x) \right|_{x=\pm 1} = \left. \frac{\d^k}{\d x^k} (x^2 - 1)^n \right|_{x=\pm 1} = 0.
     \end{equation}
@@ -401,7 +401,7 @@
     \begin{equation}\label{eq:parts-step1-7}
         \int_{-1}^{1} P_m(x) u^{(n)}(x) \d x = \left. P_m(x) u^{(n-1)}(x) \right|_{-1}^{1} - \int_{-1}^{1} P'_m(x) u^{(n-1)}(x) \d x.
     \end{equation}
-    由\zcref{eq:boundary-zero-7}，第一项边界值 $\left. P_m(x) u^{(n-1)}(x) \right|_{-1}^{1} = 0$。连续使用 $n$ 次分部积分，每次的边界项均因\zcref{eq:boundary-zero-7}而为零，可得
+    由\zcref{eq:boundary-zero-7}，第一项边界值 $\left. P_m(x) u^{(n-1)}(x) \right|_{-1}^{1} = 0$．连续使用 $n$ 次分部积分，每次的边界项均因\zcref{eq:boundary-zero-7}而为零，可得
     \begin{equation}\label{eq:parts-n-7}
         \int_{-1}^{1} P_m(x) u^{(n)}(x) \d x = (-1)^n \int_{-1}^{1} P_m^{(n)}(x) u(x) \d x.
     \end{equation}
@@ -413,7 +413,7 @@
     \begin{equation}\label{eq:orth-result-7}
         \int_{-1}^{1} P_m(x) P_n(x) \d x = 0.
     \end{equation}
-    这说明 Legendre 多项式在 $[-1, 1]$ 上构成一个正交系。
+    这说明 Legendre 多项式在 $[-1, 1]$ 上构成一个正交系．
 \end{myproof}
 
 \begin{problem}{Legendre多项式的性质}{Legendre-Polynomials-Properties}
@@ -438,7 +438,7 @@
 
 \begin{myproof}
     \ansitem{1}
-    令 $u(x) = (x^2 - 1)^n$。对 $u(x)$ 求导得
+    令 $u(x) = (x^2 - 1)^n$．对 $u(x)$ 求导得
     \begin{equation}\label{eq:diff-u-8}
         u'(x) = 2nx(x^2 - 1)^{n-1}.
     \end{equation}
@@ -446,7 +446,7 @@
     \begin{equation}\label{eq:diff-eq-u-8}
         (x^2 - 1) u'(x) = 2nx u(x).
     \end{equation}
-    对\zcref{eq:diff-eq-u-8}关于 $x$ 求 $n+1$ 阶导数。利用 Leibniz 导数法则，等式左端展开为
+    对\zcref{eq:diff-eq-u-8}关于 $x$ 求 $n+1$ 阶导数．利用 Leibniz 导数法则，等式左端展开为
     \begin{equation}\label{eq:leibniz-lhs-8}
         \frac{\d^{n+1}}{\d x^{n+1}} \left[ (x^2 - 1) u' \right] = (x^2 - 1) u^{(n+2)} + 2(n+1)x u^{(n+1)} + n(n+1) u^{(n)},
     \end{equation}
@@ -466,16 +466,16 @@
     \begin{equation}\label{eq:proof-final-8}
         (1 - x^2) \frac{\d^2 P_n(x)}{\d x^2} - 2x \frac{\d P_n(x)}{\d x} + n(n+1)P_n(x) = 0.
     \end{equation}
-    这说明 $y = P_n(x)$ 是 Legendre 微分方程的解。
+    这说明 $y = P_n(x)$ 是 Legendre 微分方程的解．
     \ansitem{2}
     根据 Rodrigues 公式，Legendre 多项式定义为
     \begin{equation}\label{eq:rodrigues-def-8}
         P_n(x) = \frac{1}{2^n \cdot n!} \frac{\d^n}{\d x^n} (x^2 - 1)^n.
     \end{equation}
-    记 $w_n(x) = (x^2 - 1)^n$，则有 $P_n(x) = \frac{1}{2^n n!} w_n^{(n)}(x)$。
-    我们先建立两个微分引理。
+    记 $w_n(x) = (x^2 - 1)^n$，则有 $P_n(x) = \frac{1}{2^n n!} w_n^{(n)}(x)$．
+    我们先建立两个微分引理．
 
-    引理 1：$P'_{n+1}(x) - x P'_n(x) = (n+1) P_n(x)$。
+    引理 1：$P'_{n+1}(x) - x P'_n(x) = (n+1) P_n(x)$．
 
     证明：由定义，对 $P_{n+1}(x)$ 关于 $x$ 求导得
     \begin{equation}\label{eq:lemma1-step1}
@@ -497,9 +497,9 @@
                         & = x P'_n(x) + (n+1) P_n(x).
         \end{aligned}
     \end{equation}
-    移项即得引理 1。
+    移项即得引理 1．
 
-    引理 2：$P'_{n+1}(x) - P'_{n-1}(x) = (2n+1) P_n(x)$。
+    引理 2：$P'_{n+1}(x) - P'_{n-1}(x) = (2n+1) P_n(x)$．
 
     证明：考察函数 $x w_n(x)$ 的一阶导数：
     \begin{equation}\label{eq:lemma2-step1}
@@ -526,13 +526,13 @@
                         & = (2n+1) P_n(x) + P'_{n-1}(x).
         \end{aligned}
     \end{equation}
-    移项即得引理 2，且这正是\zcref{eq:recurrence-8c}。
+    移项即得引理 2，且这正是\zcref{eq:recurrence-8c}．
 
-    下面基于引理 1 与引理 2 验证其余两式。
+    下面基于引理 1 与引理 2 验证其余两式．
 
     (a) 验证\zcref{eq:recurrence-8c}
 
-    由引理 2，\zcref{eq:recurrence-8c}直接成立。
+    由引理 2，\zcref{eq:recurrence-8c}直接成立．
 
     (b) 验证\zcref{eq:recurrence-8b}
 
@@ -568,7 +568,7 @@
     \begin{equation}\label{eq:proof-b-final}
         \frac{x^2 - 1}{n} \frac{\d P_n(x)}{\d x} = x P_n(x) - P_{n-1}(x).
     \end{equation}
-    这验证了\zcref{eq:recurrence-8b}。
+    这验证了\zcref{eq:recurrence-8b}．
 
     (c) 验证\zcref{eq:recurrence-8a}
 
@@ -604,7 +604,7 @@
     \begin{equation}\label{eq:proof-a-final}
         (n+1) P_{n+1}(x) = (2n+1) x P_n(x) - n P_{n-1}(x).
     \end{equation}
-    这验证了\zcref{eq:recurrence-8a}。
+    这验证了\zcref{eq:recurrence-8a}．
 \end{myproof}
 
 \endinput

@@ -1,14 +1,14 @@
 # Repository Guidelines
 
-本项目为中科大《数学分析讲义》（程艺、陈卿、李平 编著）全套习题解析的高质量 LaTeX 文档排版仓库，基于 **LuaLaTeX + l3build** 构建系统，采用模块化宏包架构与自动化 CI/CD 发布流水线。
+本项目为中科大《数学分析讲义》（程艺、陈卿、李平 编著）全套习题解析的高质量 LaTeX 文档排版仓库，基于 **LuaLaTeX + l3build** 构建系统，采用模块化宏包架构与自动化 CI/CD 发布流水线．
 
 ---
 
 ## 1. Project Overview
 
-* **项目目标**：编写并整理《数学分析讲义》（第一、二册，涵盖第 1 ~ 13 章）的完整习题解答与推导过程，提供排版优美、推导严谨、支持矢量图形放大的开源数学参考书。
-* **文档类型**：基于 `ctexbook` 文档类，原生支持中文排版与 OpenType 数学字体渲染。
-* **分发形式**：通过 GitHub Actions 自动编译生成全彩高质量矢量 PDF（含每夜构建 Nightly 与正式版本 Release）。
+* **项目目标**：编写并整理《数学分析讲义》（第一、二册，涵盖第 1 ~ 13 章）的完整习题解答与推导过程，提供排版优美、推导严谨、支持矢量图形放大的开源数学参考书．
+* **文档类型**：基于 `ctexbook` 文档类，原生支持中文排版与 OpenType 数学字体渲染．
+* **分发形式**：通过 GitHub Actions 自动编译生成全彩高质量矢量 PDF（含每夜构建 Nightly 与正式版本 Release）．
 
 ---
 
@@ -64,12 +64,12 @@ flowchart TD
 
 ### 2.3 章节组织与包含机制 (`src/contents/`)
 
-* **`frontmatter/`**：书籍前言与封面（`titlepage.tex`, `preface-overview.tex`, `preface-contrib.tex`）。
-* **`mainmatter/chapters/`**：按 `XX-chapter-name/` 规范命名的各章内容。
-  * 章节主入口：`XX-main.tex`（负责声明 `\chapter{...}` 并 `\input` 小节与习题文件）。
-  * 分节题解：`XX-YY-section-name.tex`（按小节拆分题解内容）。
-  * 章末习题：`XX-exercises.tex`（汇总整章补充习题）。
-* **`backmatter/`**：附录与开源协议（`fdl.tex`）以及参考文献。
+* **`frontmatter/`**：书籍前言与封面（`titlepage.tex`, `preface-overview.tex`, `preface-contrib.tex`）．
+* **`mainmatter/chapters/`**：按 `XX-chapter-name/` 规范命名的各章内容．
+  * 章节主入口：`XX-main.tex`（负责声明 `\chapter{...}` 并 `\input` 小节与习题文件）．
+  * 分节题解：`XX-YY-section-name.tex`（按小节拆分题解内容）．
+  * 章末习题：`XX-exercises.tex`（汇总整章补充习题）．
+* **`backmatter/`**：附录与开源协议（`fdl.tex`）以及参考文献．
 
 ---
 
@@ -146,55 +146,55 @@ latexmk -C
 \end{solution}
 ```
 
-* **证明题**：使用 `\begin{myproof} ... \end{myproof}`，末尾会自动附加空心方块（$\mdwhtsquare$）。
-* **计算/题解**：使用 `\begin{solution} ... \end{solution}`，末尾会自动附加实心方块（$\mdblksquare$）。
-* **注解/补充说明**：使用 `\begin{note} ... \end{note}` 盒子包裹。
+* **证明题**：使用 `\begin{myproof} ... \end{myproof}`，末尾会自动附加空心方块（$\mdwhtsquare$）．
+* **计算/题解**：使用 `\begin{solution} ... \end{solution}`，末尾会自动附加实心方块（$\mdblksquare$）．
+* **注解/补充说明**：使用 `\begin{note} ... \end{note}` 盒子包裹．
 
 ### 5.2 数学排版与符号习惯
 
-* **微分符号**：必须使用 `fixdif` 提供的正体微分算子 `\d x`、`\d t`，严禁直接手写斜体 $d x$。
-* **数学常数**：自然对数底使用 `\e`，圆周率使用 `\uppi`，虚数单位使用 `\ii`。
-* **行内公式展示**：全局已开启 `\everymath{\displaystyle}`，行内大算子（如求和、积分、分式）默认以全尺寸展示，无需手动加 `\displaystyle`。
-* **向量与矩阵**：矢量符号统一使用粗斜体 `\symbfit{v}`，微分形式外微分算子使用 `\dif` 或 `\d`。
+* **微分符号**：必须使用 `fixdif` 提供的正体微分算子 `\d x`、`\d t`，严禁直接手写斜体 $d x$．
+* **数学常数**：自然对数底使用 `\e`，圆周率使用 `\uppi`，虚数单位使用 `\ii`．
+* **行内公式展示**：全局已开启 `\everymath{\displaystyle}`，行内大算子（如求和、积分、分式）默认以全尺寸展示，无需手动加 `\displaystyle`．
+* **向量与矩阵**：矢量符号统一使用粗斜体 `\symbfit{v}`，微分形式外微分算子使用 `\dif` 或 `\d`．
 
 ### 5.3 交叉引用与公式标记
 
-* **引用引擎**：使用 `zref-clever` 进行智能感知引用。
+* **引用引擎**：使用 `zref-clever` 进行智能感知引用．
 * **公式标记与引用**：
-  * 公式使用 `\begin{equation} \label{eq:name} ... \end{equation}`。
-  * 引用时必须使用 `\zcref{eq:name}`（会自动输出中文“式 (X.Y)”），避免手动书写 `式 \eqref{...}`。
+  * 公式使用 `\begin{equation} \label{eq:name} ... \end{equation}`．
+  * 引用时必须使用 `\zcref{eq:name}`（会自动输出中文“式 (X.Y)”），避免手动书写 `式 \eqref{...}`．
 * **习题与注释引用**：
-  * 题干盒子：`\begin{problem}[...]\label{prob:name} ... \end{problem}`。
-  * 引用：`\zcref{prob:name}`。
+  * 题干盒子：`\begin{problem}[...]\label{prob:name} ... \end{problem}`．
+  * 引用：`\zcref{prob:name}`．
 
 ### 5.4 矢量绘图约定
 
-* 所有几何示意图、曲面积分区域图均推荐使用 `TikZ` / `pgfplots` 绘制。
-* 配色尽量对齐 `src/styles/math-solutions-colors.sty` 中的预设调色板（`ThemeDarkBlue`, `ThemeRose`, `ThemeWine`, `ThemePaper`）。
+* 所有几何示意图、曲面积分区域图均推荐使用 `TikZ` / `pgfplots` 绘制．
+* 配色尽量对齐 `src/styles/math-solutions-colors.sty` 中的预设调色板（`ThemeDarkBlue`, `ThemeRose`, `ThemeWine`, `ThemePaper`）．
 
 ---
 
 ## 6. Important Files
 
-* **`main.tex`**：主控文件，包含全局元数据（PDF 标题、作者）、文档结构划分（`\frontmatter`, `\mainmatter`, `\backmatter`）以及各章主入口的 `\include` 调度。
-* **`build.lua`**：构建中枢，定义模块名称、当前发布版本号（`version = "vX.Y.Z"`）、源文件沙盒暂存规则（`typesetsuppfiles`）以及 `latexmk` 调用命令。
-* **`.github/tl_packages`**：TeX Live 依赖宏包声明文件，CI 容器环境依赖项的唯一事实来源（包含 66 个精简核心包）。
-* **`announcement.md`**：版本发布说明，修改此文件推送到远端将直接触发 `release.yaml` 正式发布工作流。
-* **`src/styles/math-solutions.sty`**：宏包总入口，统筹 7 个子样式模块。
+* **`main.tex`**：主控文件，包含全局元数据（PDF 标题、作者）、文档结构划分（`\frontmatter`, `\mainmatter`, `\backmatter`）以及各章主入口的 `\include` 调度．
+* **`build.lua`**：构建中枢，定义模块名称、当前发布版本号（`version = "vX.Y.Z"`）、源文件沙盒暂存规则（`typesetsuppfiles`）以及 `latexmk` 调用命令．
+* **`.github/tl_packages`**：TeX Live 依赖宏包声明文件，CI 容器环境依赖项的唯一事实来源（包含 66 个精简核心包）．
+* **`announcement.md`**：版本发布说明，修改此文件推送到远端将直接触发 `release.yaml` 正式发布工作流．
+* **`src/styles/math-solutions.sty`**：宏包总入口，统筹 7 个子样式模块．
 
 ---
 
 ## 7. Runtime & Tooling Preferences
 
-* **LaTeX 引擎**：**必须使用 LuaLaTeX**（基于 OpenType 字体加载与 HarfBuzz 字形整形）。严禁切换至 pdfLaTeX 或 XeLaTeX。
-* **TeX 发行版要求**：推荐 **TeX Live 2025 及以上版本**（CI 中使用 `zauguin/install-texlive@v4` 同步最新 CTAN 源）。
+* **LaTeX 引擎**：**必须使用 LuaLaTeX**（基于 OpenType 字体加载与 HarfBuzz 字形整形）．严禁切换至 pdfLaTeX 或 XeLaTeX．
+* **TeX 发行版要求**：推荐 **TeX Live 2025 及以上版本**（CI 中使用 `zauguin/install-texlive@v4` 同步最新 CTAN 源）．
 * **字体要求**：
-  * 正文字体：`LXGW-WenKai`（霞鹜文楷，来自 TeX Live `lxgw-fonts` 宏包）。
-  * 数学字体：`NewCMMath-Book.otf`（内置于 `src/assets/fonts/`）。
-  * Emoji 字体：`NotoColorEmoji.ttf`（内置于 `src/assets/fonts/`，经 HarfBuzz 渲染）。
+  * 正文字体：`LXGW-WenKai`（霞鹜文楷，来自 TeX Live `lxgw-fonts` 宏包）．
+  * 数学字体：`NewCMMath-Book.otf`（内置于 `src/assets/fonts/`）．
+  * Emoji 字体：`NotoColorEmoji.ttf`（内置于 `src/assets/fonts/`，经 HarfBuzz 渲染）．
 * **代码风格检查**：
-  * LaTeX 检查：`.chktexrc`（已过滤宏包内部合规性规则）。
-  * Markdown 检查：`.markdownlint.json`（已禁用内联 HTML、无序列表格式等非适用规则）。
+  * LaTeX 检查：`.chktexrc`（已过滤宏包内部合规性规则）．
+  * Markdown 检查：`.markdownlint.json`（已禁用内联 HTML、无序列表格式等非适用规则）．
 
 ---
 
@@ -210,7 +210,7 @@ latexmk -C
 
 ### 8.2 质量保证检查清单（提交前自检）
 
-1. **编译测试**：在修改任意 `.tex` / `.sty` 后，运行 `l3build doc` 确保无编译报错（exit code 0）。
-2. **公式与符号合规**：检查微分算子是否全部为 `\d`，常数是否为 `\e` / `\uppi` / `\ii`。
-3. **引用完整性**：公式、定理、习题引用是否均使用 `\zcref` 且未产生未解析的问号 `??`。
-4. **版本发布闭环**：发布新版本时需原子化递增 `build.lua` 的 `version` 字段，并同步更新 `announcement.md`。
+1. **编译测试**：在修改任意 `.tex` / `.sty` 后，运行 `l3build doc` 确保无编译报错（exit code 0）．
+2. **公式与符号合规**：检查微分算子是否全部为 `\d`，常数是否为 `\e` / `\uppi` / `\ii`．
+3. **引用完整性**：公式、定理、习题引用是否均使用 `\zcref` 且未产生未解析的问号 `??`．
+4. **版本发布闭环**：发布新版本时需原子化递增 `build.lua` 的 `version` 字段，并同步更新 `announcement.md`．

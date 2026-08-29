@@ -1,4 +1,4 @@
-module           = "math-analysis-vol2-solutions"
+module           = "ustc-math-analysis-solutions"
 version          = "v2.0.2"
 
 typesetfiles     = { "main.tex" }

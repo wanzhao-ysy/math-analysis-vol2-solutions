@@ -1,4 +1,5 @@
-Version v2.0.2 released on 2026-07-02.
+Version v2.1.0 released on 2026-08-29.
 
-- 完成全部正文的更新，包括前言
-- 忘记解除 Euler 积分那一节的注释了，修复一下
+- 仓库重命名为 `ustc-math-analysis-solutions`
+- 扩充《数学分析讲义》全书习题解析架构（涵盖第一、二册）
+- 修复 TeX Live CI 自动化构建与宏包配置

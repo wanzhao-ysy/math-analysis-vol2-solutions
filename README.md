@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  中文 | <a href="https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/blob/main/README.en.md">English</a>
+  中文 | <a href="https://github.com/wanzhao-ysy/ustc-math-analysis-solutions/blob/main/README.en.md">English</a>
 </p>
 
 本项目整理并撰写 **《数学分析讲义（第二册）》**（程艺、陈卿、李平 编著，第一版）习题详解，力求提供一份 **推导完整、排版清晰、适合自学与复习** 的数学参考资料．
@@ -69,15 +69,15 @@
 
 ### 获取 PDF
 
-直接前往 [最新 Release](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/releases/latest) 下载．
+直接前往 [最新 Release](https://github.com/wanzhao-ysy/ustc-math-analysis-solutions/releases/latest) 下载．
 
 ### 本地编译
 
 1. **克隆项目**:
 
    ```bash
-   git clone https://github.com/wanzhao-ysy/math-analysis-vol2-solutions.git
-   cd math-analysis-vol2-solutions
+   git clone https://github.com/wanzhao-ysy/ustc-math-analysis-solutions.git
+   cd ustc-math-analysis-solutions
    ```
 
 2. **执行构建**:
@@ -90,4 +90,4 @@
 
 ## 🤝 贡献与许可证
 
-欢迎通过 [Issue](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/issues)  提交更正建议．本项目采用 [GNU Free Documentation License 1.3](LICENSE) 协议．
+欢迎通过 [Issue](https://github.com/wanzhao-ysy/ustc-math-analysis-solutions/issues)  提交更正建议．本项目采用 [GNU Free Documentation License 1.3](LICENSE) 协议．

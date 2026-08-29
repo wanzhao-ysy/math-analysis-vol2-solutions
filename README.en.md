@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/wanzhao-ysy/math-analysis-vol2-solutions">中文</a> | English
+  <a href="https://github.com/wanzhao-ysy/ustc-math-analysis-solutions">中文</a> | English
 </p>
 
 This project compiles and writes detailed solutions to the exercises in **"Mathematical Analysis Notes (Volume II)"** (Cheng Yi, Chen Qing, Li Ping, First Edition), aiming to provide a **complete derivation, clear layout, and a mathematical reference suitable for self-study and review**.
@@ -69,15 +69,15 @@ The project is built on the `ctexbook` document class, using the **LuaLaTeX + l3
 
 ### Get the PDF
 
-Go directly to the [latest Release](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/releases/latest) to download.
+Go directly to the [latest Release](https://github.com/wanzhao-ysy/ustc-math-analysis-solutions/releases/latest) to download.
 
 ### Compile Locally
 
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/wanzhao-ysy/math-analysis-vol2-solutions.git
-   cd math-analysis-vol2-solutions
+   git clone https://github.com/wanzhao-ysy/ustc-math-analysis-solutions.git
+   cd ustc-math-analysis-solutions
    ```
 
 2. **Run the build**:
@@ -90,4 +90,4 @@ Go directly to the [latest Release](https://github.com/wanzhao-ysy/math-analysis
 
 ## 🤝 Contributions & License
 
-Contributions and corrections are welcome via [Issues](https://github.com/wanzhao-ysy/math-analysis-vol2-solutions/issues). This project is licensed under the [GNU Free Documentation License 1.3](LICENSE).
+Contributions and corrections are welcome via [Issues](https://github.com/wanzhao-ysy/ustc-math-analysis-solutions/issues). This project is licensed under the [GNU Free Documentation License 1.3](LICENSE).

@@ -1,4 +1,4 @@
-# Solutions to Exercises in *Mathematical Analysis Notes (Volumes I & II)*
+# Solutions to Exercises in *Lecture Notes on Mathematical Analysis (Volumes I & II)*
 
 <p align="left">
   <img src="https://img.shields.io/badge/License-GFDL--1.3-blue.svg?style=flat-square" alt="License">
@@ -8,27 +8,28 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/wanzhao-ysy/ustc-math-analysis-solutions">中文</a> | English
+  <a href="./README.md">中文</a> | English
 </p>
 
-This project compiles and writes detailed solutions to the exercises in **"Mathematical Analysis Notes (Volumes I & II)"** (Cheng Yi, Chen Qing, Li Ping, First Edition), aiming to provide a **complete derivation, clear layout, and a mathematical reference suitable for self-study and review**.
+This project provides comprehensive and detailed exercise solutions for **"Lecture Notes on Mathematical Analysis (Volumes I & II)"** (authored by Cheng Yi, Chen Qing, and Li Ping, 1st Edition), aiming to deliver **rigorous derivations, elegant typography, and a high-quality mathematical reference for self-study and review**.
 
-The project is built on the `ctexbook` document class, using the **LuaLaTeX + l3build** workflow, combined with `TikZ` / `pgfplots` for graphics and OpenType font schemes, to produce high-quality PDF documents.
+The document is built with the `ctexbook` class and powered by a **LuaLaTeX + l3build** automated workflow, combining `TikZ` / `pgfplots` for scalable vector illustrations with modern OpenType math fonts to produce publication-quality PDFs.
 
 > [!TIP]
-> It is recommended to use **TeX Live 2025 or later** for compilation to ensure more stable fonts and layout effects.
+> **TeX Live 2025 or later** is recommended for compilation to ensure optimal font rendering and layout stability.
 
 ---
+
 ## 📸 Preview
 
 ---
 
 ## 🌟 Key Features
 
-- 🎨 **Soft Color Scheme**: Customized color scheme (Inspired by Ayaka in Genshin Impact), comfortable for long reading.
-- 📐 **Vector Graphics**: Full use of `TikZ` / `pgfplots` for illustrations, supporting lossless scaling.
-- 🖋️ **Elegant Fonts**: Built-in `LXGW-fonts` (LuoXiaGuWu) paired with `New Computer Modern` math fonts.
-- 🛠️ **Automated Pipeline**: Integrated `l3build` build system for one-click PDF generation.
+- 🎨 **Soft Color Palette**: Custom color scheme (Inspired by Ayaka in Genshin Impact) designed to minimize eye fatigue during extended reading sessions.
+- 📐 **Vector Graphics**: Illustrated entirely using `TikZ` / `pgfplots` for crisp, lossless scaling.
+- 🖋️ **Elegant Typography**: Built-in `LXGW WenKai` (霞鹜文楷) paired with `New Computer Modern` math fonts.
+- 🛠️ **Automated Pipeline**: Integrated `l3build` build system for one-command PDF generation.
 
 ---
 
@@ -36,19 +37,19 @@ The project is built on the `ctexbook` document class, using the **LuaLaTeX + l3
 
 | Chapter | Title | Status | Notes |
 | --- | --- | --- | --- |
-| Chapter 1 | Limits | 📝 | In progress |
-| Chapter 2 | Continuity of Single-Variable Functions | 📝 | In progress |
-| Chapter 3 | Differential Calculus of Single-Variable Functions | 📝 | In progress |
-| Chapter 4 | Indefinite Integrals | 📝 | In progress |
-| Chapter 5 | Integral Calculus of Single-Variable Functions | 📝 | In progress |
-| Chapter 6 | Introduction to Ordinary Differential Equations | 📝 | In progress |
-| Chapter 7 | Infinite Series | 📝 | In progress |
-| Chapter 8 | Spatial Analytic Geometry | ✅ | Proofreading completed |
-| Chapter 9 | Differential Calculus of Multivariable Functions | ✅ | Proofreading completed |
-| Chapter 10 | Multiple Integrals of Multivariable Functions | ✅ | Proofreading completed |
-| Chapter 11 | Line Integrals and Surface Integrals | ✅ | Proofreading completed |
-| Chapter 12 | Fourier Analysis | ✅ | Proofreading completed |
-| Chapter 13 | Improper Integrals and Integrals with Parameters | ✅ | Proofreading completed |
+| Chapter 1 | Limits | 📝 | In Progress |
+| Chapter 2 | Continuity of Single-Variable Functions | 📝 | In Progress |
+| Chapter 3 | Differential Calculus of Single-Variable Functions | 📝 | In Progress |
+| Chapter 4 | Indefinite Integrals | 📝 | In Progress |
+| Chapter 5 | Integral Calculus of Single-Variable Functions | 📝 | In Progress |
+| Chapter 6 | Introduction to Ordinary Differential Equations | 📝 | In Progress |
+| Chapter 7 | Infinite Series | 📝 | In Progress |
+| Chapter 8 | Spatial Analytic Geometry | ✅ | Completed |
+| Chapter 9 | Differential Calculus of Multivariable Functions | ✅ | Completed |
+| Chapter 10 | Multiple Integrals of Multivariable Functions | ✅ | Completed |
+| Chapter 11 | Line and Surface Integrals | ✅ | Completed |
+| Chapter 12 | Fourier Analysis | ✅ | Completed |
+| Chapter 13 | Improper Integrals and Integrals with Parameters | ✅ | Completed |
 
 ---
 
@@ -56,7 +57,7 @@ The project is built on the `ctexbook` document class, using the **LuaLaTeX + l3
 
 ### Get the PDF
 
-Go directly to the [latest Release](https://github.com/wanzhao-ysy/ustc-math-analysis-solutions/releases/latest) to download.
+Download the precompiled PDF directly from the [latest Release](https://github.com/wanzhao-ysy/ustc-math-analysis-solutions/releases/latest).
 
 ### Compile Locally
 

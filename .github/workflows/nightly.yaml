@@ -30,7 +30,7 @@ jobs:
 
             - name: Prepare release PDF
               run: |
-                  PDF_NAME="math-analysis-vol2-solutions_nightly_${DATE}.pdf"
+                  PDF_NAME="ustc-math-analysis-solutions_nightly_${DATE}.pdf"
                   cp main.pdf "$PDF_NAME"
                   echo "PDF_NAME=$PDF_NAME" >> $GITHUB_ENV
                   test -f "$PDF_NAME"

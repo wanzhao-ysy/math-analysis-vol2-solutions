@@ -26,7 +26,7 @@ jobs:
                   echo "VERSION=$VERSION" >> $GITHUB_ENV
             - name: Prepare release PDF
               run: |
-                  PDF_NAME="math-analysis-vol2-solutions_${{ env.VERSION }}_release.pdf"
+                  PDF_NAME="ustc-math-analysis-solutions_${{ env.VERSION }}_release.pdf"
                   cp main.pdf "$PDF_NAME"
                   echo "PDF_NAME=$PDF_NAME" >> $GITHUB_ENV
                   test -f "$PDF_NAME"

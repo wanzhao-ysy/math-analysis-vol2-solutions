@@ -1,0 +1,307 @@
+\section{第 2 章综合习题}
+
+\begin{problem}{狄利克雷型函数的连续点}{Dirichlet-Type-Function-Continuity}
+    证明：函数
+    \begin{equation}
+        f(x) = \begin{cases} 0, & x \text{ 为有理数}, \\ x, & x \text{ 为无理数} \end{cases}
+    \end{equation}
+    仅在点 $x = 0$ 处连续．
+\end{problem}
+
+\begin{myproof}
+    先证 $f(x)$ 在 $x = 0$ 处连续：
+
+    由于对任意 $x \in \symbb{R}$，恒有 $|f(x)| \leqslant |x|$，故
+    \begin{equation}
+        |f(x) - f(0)| = |f(x)| \leqslant |x|.
+    \end{equation}
+    对任给 $\varepsilon > 0$，取 $\delta = \varepsilon > 0$．当 $|x - 0| < \delta$ 时，有 $|f(x) - f(0)| < \varepsilon$．故 $\lim_{x\to 0} f(x) = f(0) = 0$，$f(x)$ 在 $x = 0$ 处连续．
+
+    再证 $f(x)$ 在任意非零点 $x_0 \neq 0$ 处不连续：
+    \begin{enumerate}
+        \item 若 $x_0 \in \symbb{Q} \setminus \{0\}$，则 $f(x_0) = 0$．由无理数的稠密性，存在无理数列 $\{v_n\} \subset \symbb{R} \setminus \symbb{Q}$ 满足 $\lim_{n\to\infty} v_n = x_0$．此时
+              \begin{equation}
+                  \lim_{n\to\infty} f(v_n) = \lim_{n\to\infty} v_n = x_0 \neq 0 = f(x_0),
+              \end{equation}
+              故 $f(x)$ 在 $x_0$ 处不连续；
+        \item 若 $x_0 \in \symbb{R} \setminus \symbb{Q}$，则 $f(x_0) = x_0 \neq 0$．由有理数的稠密性，存在有理数列 $\{u_n\} \subset \symbb{Q}$ 满足 $\lim_{n\to\infty} u_n = x_0$．此时
+              \begin{equation}
+                  \lim_{n\to\infty} f(u_n) = \lim_{n\to\infty} 0 = 0 \neq x_0 = f(x_0),
+              \end{equation}
+              故 $f(x)$ 在 $x_0$ 处不连续．
+    \end{enumerate}
+    综上，函数 $f(x)$ 仅在点 $x = 0$ 处连续．
+\end{myproof}
+
+\begin{problem}{绝对值平均函数的介值性}{Absolute-Mean-Function-Intermediate-Value}
+    设 $x_1, x_2, \cdots, x_n \in [0, 1]$，记 $f(x) = \frac{|x-x_1| + \cdots + |x-x_n|}{n}$，证明：存在 $x_0 \in [0, 1]$，使得 $f(x_0) = \frac{1}{2}$．
+\end{problem}
+
+\begin{myproof}
+    由于绝对值函数连续，有限个连续函数的和依然连续，故 $f(x)$ 在闭区间 $[0, 1]$ 上连续．
+
+    分别计算端点 $x = 0$ 与 $x = 1$ 处的函数值：因为 $x_k \in [0, 1]$（$k = 1, 2, \cdots, n$），所以
+    \begin{equation}
+        f(0) = \frac{1}{n} \sum_{k=1}^n |0 - x_k| = \frac{1}{n} \sum_{k=1}^n x_k,
+    \end{equation}
+    \begin{equation}
+        f(1) = \frac{1}{n} \sum_{k=1}^n |1 - x_k| = \frac{1}{n} \sum_{k=1}^n (1 - x_k) = 1 - \frac{1}{n} \sum_{k=1}^n x_k = 1 - f(0).
+    \end{equation}
+    从而有
+    \begin{equation}
+        f(0) + f(1) = 1.
+    \end{equation}
+    分情况讨论：
+    \begin{enumerate}
+        \item 若 $f(0) = \frac{1}{2}$，取 $x_0 = 0 \in [0, 1]$ 即有 $f(x_0) = \frac{1}{2}$；
+        \item 若 $f(0) \neq \frac{1}{2}$，则必有 $f(0) < \frac{1}{2} < f(1)$ 或 $f(1) < \frac{1}{2} < f(0)$，即 $\frac{1}{2}$ 介于 $f(0)$ 与 $f(1)$ 之间．
+    \end{enumerate}
+    由闭区间上连续函数的介值定理，必存在 $x_0 \in (0, 1) \subset [0, 1]$，使得 $f(x_0) = \frac{1}{2}$．
+\end{myproof}
+
+\begin{problem}{有理分式函数的零点分布}{Rational-Function-Zeros-Distribution}
+    证明：函数 $\frac{a_1}{x-\lambda_1} + \frac{a_2}{x-\lambda_2} + \frac{a_3}{x-\lambda_3}$（其中 $a_1, a_2, a_3 > 0$，且 $\lambda_1 < \lambda_2 < \lambda_3$）在 $(\lambda_1, \lambda_2)$ 与 $(\lambda_2, \lambda_3)$ 内各有一个零点．
+\end{problem}
+
+\begin{myproof}
+    记函数
+    \begin{equation}
+        f(x) = \frac{a_1}{x-\lambda_1} + \frac{a_2}{x-\lambda_2} + \frac{a_3}{x-\lambda_3}.
+    \end{equation}
+    显然 $f(x)$ 在开区间 $(\lambda_1, \lambda_2)$ 及 $(\lambda_2, \lambda_3)$ 内连续．
+
+    在区间 $(\lambda_1, \lambda_2)$ 上考察单侧极限：
+    \begin{equation}
+        \lim_{x\to \lambda_1^+} f(x) = +\infty, \qquad \lim_{x\to \lambda_2^-} f(x) = -\infty.
+    \end{equation}
+    由极限定义，存在点 $x_1', x_2' \in (\lambda_1, \lambda_2)$（满足 $x_1' < x_2'$），使得
+    \begin{equation}
+        f(x_1') > 0, \qquad f(x_2') < 0.
+    \end{equation}
+    由零点存在定理，存在 $\xi_1 \in (x_1', x_2') \subset (\lambda_1, \lambda_2)$，使得 $f(\xi_1) = 0$．
+
+    同理，在区间 $(\lambda_2, \lambda_3)$ 上，有
+    \begin{equation}
+        \lim_{x\to \lambda_2^+} f(x) = +\infty, \qquad \lim_{x\to \lambda_3^-} f(x) = -\infty.
+    \end{equation}
+    由零点存在定理，存在 $\xi_2 \in (\lambda_2, \lambda_3)$，使得 $f(\xi_2) = 0$．
+
+    故 $f(x)$ 在 $(\lambda_1, \lambda_2)$ 与 $(\lambda_2, \lambda_3)$ 内各至少有一个零点．
+\end{myproof}
+
+\begin{problem}{多项式绝对值的最小值存在性}{Polynomial-Absolute-Value-Minimum}
+    设 $f(x)$ 是一个多项式，证明：必存在一点 $x_0$，使得 $|f(x_0)| \leqslant |f(x)|$ 对任意实数 $x$ 成立．
+\end{problem}
+
+\begin{myproof}
+    记连续函数 $g(x) = |f(x)|$．
+
+    若 $f(x)$ 为常数多项式，则 $|f(x)|$ 恒为常数，任取 $x_0 \in \symbb{R}$ 结论显然成立．
+
+    若 $f(x)$ 的次数 $n \geqslant 1$，则
+    \begin{equation}
+        \lim_{x\to\infty} |f(x)| = +\infty.
+    \end{equation}
+    取常数 $M = |f(0)| \geqslant 0$．由无穷大极限定义，存在实数 $R > 0$，使得当 $|x| > R$ 时，恒有
+    \begin{equation}
+        |f(x)| > M.
+    \end{equation}
+    在闭区间 $[-R, R]$ 上，连续函数 $|f(x)|$ 必能取得最小值，即存在 $x_0 \in [-R, R]$，使得对任意 $x \in [-R, R]$ 均有
+    \begin{equation}
+        |f(x_0)| \leqslant |f(x)|.
+    \end{equation}
+    特别地，因为 $0 \in [-R, R]$，所以
+    \begin{equation}
+        |f(x_0)| \leqslant |f(0)| = M.
+    \end{equation}
+    对于任意 $|x| > R$，均有
+    \begin{equation}
+        |f(x)| > M \geqslant |f(x_0)|.
+    \end{equation}
+    故对任意实数 $x \in \symbb{R}$，恒有 $|f(x_0)| \leqslant |f(x)|$．
+\end{myproof}
+
+\begin{problem}{通用弦长定理}{Universal-Chord-Theorem}
+    设 $f(x)$ 在区间 $[0, 1]$ 上连续，且 $f(0) = f(1)$．证明：对任意正整数 $n$，在区间 $\left[0, 1 - \frac{1}{n}\right]$ 中有一点 $\xi$，使得 $f(\xi) = f\left(\xi + \frac{1}{n}\right)$．
+\end{problem}
+
+\begin{myproof}
+    定义辅助函数
+    \begin{equation}
+        g(x) = f\left( x + \frac{1}{n} \right) - f(x), \quad x \in \left[ 0, 1 - \frac{1}{n} \right].
+    \end{equation}
+    由于 $f(x)$ 连续，函数 $g(x)$ 在闭区间 $\left[ 0, 1 - \frac{1}{n} \right]$ 上连续．
+
+    考察等距点列上的函数值之和：
+    \begin{equation}
+        \sum_{k=0}^{n-1} g\left( \frac{k}{n} \right) = \sum_{k=0}^{n-1} \left[ f\left( \frac{k+1}{n} \right) - f\left( \frac{k}{n} \right) \right] = f(1) - f(0) = 0.
+    \end{equation}
+    若存在某个 $k \in \{0, 1, \cdots, n-1\}$ 使得 $g\left(\frac{k}{n}\right) = 0$，取 $\xi = \frac{k}{n}$ 即可．
+
+    若所有 $g\left(\frac{k}{n}\right) \neq 0$，由于 $n$ 个数之和为 $0$，其中必至少存在一项严格为正、一项严格为负，即存在 $k_1, k_2 \in \{0, 1, \cdots, n-1\}$ 使得
+    \begin{equation}
+        g\left( \frac{k_1}{n} \right) > 0, \qquad g\left( \frac{k_2}{n} \right) < 0.
+    \end{equation}
+    由零点存在定理，在 $\frac{k_1}{n}$ 与 $\frac{k_2}{n}$ 之间必存在一点 $\xi \in \left(0, 1 - \frac{1}{n}\right)$，使得
+    \begin{equation}
+        g(\xi) = 0 \implies f(\xi) = f\left( \xi + \frac{1}{n} \right).
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{连续函数的实根存在性}{Real-Root-Existence}
+    证明：存在一个实数 $x$，满足 $x^5 + \frac{\cos x}{1 + x^2 + \sin^2 x} = 72$．
+\end{problem}
+
+\begin{myproof}
+    构造连续函数
+    \begin{equation}
+        F(x) = x^5 + \frac{\cos x}{1 + x^2 + \sin^2 x} - 72.
+    \end{equation}
+    计算在点 $x = 0$ 处的函数值：
+    \begin{equation}
+        F(0) = 0 + \frac{1}{1} - 72 = -71 < 0.
+    \end{equation}
+    计算在点 $x = 3$ 处的函数值：
+    \begin{equation}
+        F(3) = 3^5 + \frac{\cos 3}{1 + 9 + \sin^2 3} - 72 = 171 + \frac{\cos 3}{10 + \sin^2 3}.
+    \end{equation}
+    因为 $\left| \frac{\cos 3}{10 + \sin^2 3} \right| \leqslant \frac{1}{10}$，所以
+    \begin{equation}
+        F(3) \geqslant 171 - \frac{1}{10} = 170.9 > 0.
+    \end{equation}
+    由零点存在定理，在区间 $(0, 3)$ 内必存在实数 $x$，满足 $F(x) = 0$，即
+    \begin{equation}
+        x^5 + \frac{\cos x}{1 + x^2 + \sin^2 x} = 72.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{半无穷区间连续函数的最值存在性}{Extremum-Existence-On-Semi-Infinite-Interval}
+    若 $f(x)$ 在 $[a, +\infty)$ 上连续，且 $\lim_{x\to +\infty} f(x)$ 存在，证明：$f(x)$ 在 $[a, +\infty)$ 上或者有最大值，或者有最小值．
+\end{problem}
+
+\begin{myproof}
+    设 $\lim_{x\to +\infty} f(x) = L$．
+
+    若对一切 $x \in [a, +\infty)$ 均有 $f(x) = L$，则 $f(x)$ 为常数函数，最大值与最小值均存在．
+
+    若存在 $x_1 \in [a, +\infty)$ 使得 $f(x_1) > L$：取 $\varepsilon = \frac{f(x_1) - L}{2} > 0$．由极限定义，存在 $X > x_1$，使得当 $x > X$ 时，恒有
+    \begin{equation}
+        f(x) < L + \varepsilon = \frac{f(x_1) + L}{2} < f(x_1).
+    \end{equation}
+    在闭区间 $[a, X]$ 上，连续函数 $f(x)$ 能取得最大值 $M = f(x_0)$（$x_0 \in [a, X]$）．因为 $x_1 \in [a, X]$，所以
+    \begin{equation}
+        M \geqslant f(x_1) > L + \varepsilon.
+    \end{equation}
+    而当 $x > X$ 时，$f(x) < L + \varepsilon < M$．故 $M = f(x_0)$ 为 $f(x)$ 在 $[a, +\infty)$ 上的最大值．
+
+    若存在 $x_2 \in [a, +\infty)$ 使得 $f(x_2) < L$：同理可证 $f(x)$ 在 $[a, +\infty)$ 上必能取得最小值．
+
+    综上，$f(x)$ 在 $[a, +\infty)$ 上或者有最大值，或者有最小值．
+\end{myproof}
+
+\begin{problem}{压缩映射不动点定理与反例}{Contraction-Mapping-Fixed-Point-And-Counterexample}
+    设函数 $f(x)$ 定义在区间 $[a, b]$ 上，满足条件：$a \leqslant f(x) \leqslant b$（对任意 $x \in [a, b]$），且对 $[a, b]$ 中任意的 $x, y$ 有 $|f(x) - f(y)| \leqslant k|x - y|$，这里 $k$ 是常数，$0 < k < 1$．证明：
+    \begin{enumerate}
+        \item 存在唯一的 $x_0 \in [a, b]$，使得 $f(x_0) = x_0$；
+        \item 任取 $x_1 \in [a, b]$，并定义数列 $\{x_n\}$：$x_{n+1} = f(x_n)$，$n = 1, 2, \cdots$，则 $\lim_{n\to\infty} x_n = x_0$；
+        \item 给出一个在实轴上的连续函数，使得对任意 $x \neq y$ 有 $|f(x) - f(y)| < |x - y|$，但方程 $f(x) - x = 0$ 无解．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    由 Lipschitz 条件知 $f(x)$ 在 $[a, b]$ 上连续，且 $f([a, b]) \subseteq [a, b]$．由闭区间连续函数的不动点定理，存在 $x_0 \in [a, b]$ 使得 $f(x_0) = x_0$．
+
+    若另有 $x_0' \in [a, b]$ 满足 $f(x_0') = x_0'$，则
+    \begin{equation}
+        |x_0 - x_0'| = |f(x_0) - f(x_0')| \leqslant k |x_0 - x_0'| \implies (1 - k)|x_0 - x_0'| \leqslant 0.
+    \end{equation}
+    因为 $1 - k > 0$，所以 $|x_0 - x_0'| = 0 \implies x_0 = x_0'$，不动点唯一．
+
+    \ansitem{2}
+
+    由递推关系与压缩性，对任意 $n \geqslant 1$，有
+    \begin{equation}
+        |x_{n+1} - x_0| = |f(x_n) - f(x_0)| \leqslant k |x_n - x_0| \leqslant \cdots \leqslant k^n |x_1 - x_0|.
+    \end{equation}
+    因为 $0 < k < 1$，所以 $\lim_{n\to\infty} k^n = 0$，由夹逼准则得
+    \begin{equation}
+        \lim_{n\to\infty} |x_n - x_0| = 0 \implies \lim_{n\to\infty} x_n = x_0.
+    \end{equation}
+
+    \ansitem{3}
+
+    构造函数
+    \begin{equation}
+        f(x) = \sqrt{x^2 + 1}, \quad x \in \symbb{R}.
+    \end{equation}
+    对任意 $x \neq y$，由拉格朗日中值定理，存在 $\xi$ 介于 $x, y$ 之间，使得
+    \begin{equation}
+        |f(x) - f(y)| = |f'(\xi)| |x - y| = \frac{|\xi|}{\sqrt{\xi^2 + 1}} |x - y| < |x - y|.
+    \end{equation}
+    但对任意 $x \in \symbb{R}$，恒有
+    \begin{equation}
+        f(x) - x = \sqrt{x^2 + 1} - x > \sqrt{x^2} - x = |x| - x \geqslant 0.
+    \end{equation}
+    故方程 $f(x) - x = 0$ 在 $\symbb{R}$ 上无解．
+    \begin{equation}
+        \boxed{f(x) = \sqrt{x^2 + 1}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{多项式正根数列的收敛性与极限}{Polynomial-Positive-Roots-Sequence-Limit}
+    证明：对任意正整数 $n$，方程 $x^n + x^{n-1} + \cdots + x = 1$ 恰有一个正根 $x_n$；进一步证明数列 $\{x_n\}$（$n \geqslant 1$）收敛，并求其极限．
+\end{problem}
+
+\begin{solution}
+    令 $P_n(x) = x^n + x^{n-1} + \cdots + x - 1$．当 $x > 0$ 时，$P_n'(x) > 0$，$P_n(x)$ 严格单调递增．
+
+    因为 $P_n(0) = -1 < 0$ 且 $P_n(1) = n - 1 \geqslant 0$，由零点存在定理及严格单调性，方程 $P_n(x) = 0$ 在 $(0, +\infty)$ 内恰有唯一正根 $x_n \in (0, 1]$．
+
+    考察相邻方程在 $x_n$ 处的取值：
+    \begin{equation}
+        P_{n+1}(x_n) = x_n^{n+1} + P_n(x_n) = x_n^{n+1} > 0 = P_{n+1}(x_{n+1}).
+    \end{equation}
+    由于 $P_{n+1}(x)$ 严格递增，必有 $x_n > x_{n+1}$．故数列 $\{x_n\}$ 严格单调递减且有下界 $0$．
+
+    由单调有界定理，极限 $\lim_{n\to\infty} x_n = L$ 存在，且 $0 \leqslant L < 1$．
+
+    当 $n \geqslant 2$ 时，$x_n \in (0, 1)$，由等比数列求和公式：
+    \begin{equation}
+        \frac{x_n(1 - x_n^n)}{1 - x_n} = 1 \implies 2x_n - 1 = x_n^{n+1}.
+    \end{equation}
+    由于 $x_n \leqslant x_2 = \frac{\sqrt{5}-1}{2} < 1$，故 $0 < x_n^{n+1} \leqslant x_2^{n+1} \to 0$（$n \to \infty$）．两边取极限得
+    \begin{equation}
+        2L - 1 = 0 \implies L = \frac{1}{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} x_n = \frac{1}{2}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{连续函数端点值的不等式证明}{Continuous-Function-Boundary-Inequality}
+    设 $a < b$．$f(x)$ 在 $[a, b]$ 上连续，且对任意 $x \in [a, b)$ 存在 $y \in (x, b]$ 使得 $f(y) > f(x)$．求证：$f(b) > f(a)$．
+\end{problem}
+
+\begin{myproof}
+    因为 $f(x)$ 在闭区间 $[a, b]$ 上连续，由最大值最小值定理，$f(x)$ 在 $[a, b]$ 上必能取得最大值，即存在 $x_0 \in [a, b]$ 使得
+    \begin{equation}
+        f(x_0) = \max_{x\in [a, b]} f(x).
+    \end{equation}
+    若 $x_0 \in [a, b)$，由题设条件，存在 $y \in (x_0, b] \subseteq [a, b]$ 使得
+    \begin{equation}
+        f(y) > f(x_0),
+    \end{equation}
+    这与 $f(x_0)$ 是 $[a, b]$ 上的最大值矛盾．因此必有 $x_0 = b$，即最大值在右端点 $b$ 处取得：
+    \begin{equation}
+        f(b) = \max_{x\in [a, b]} f(x).
+    \end{equation}
+    又对左端点 $a \in [a, b)$，存在 $y_1 \in (a, b]$ 使得 $f(y_1) > f(a)$．从而
+    \begin{equation}
+        f(b) = \max_{x\in [a, b]} f(x) \geqslant f(y_1) > f(a).
+    \end{equation}
+    即证 $f(b) > f(a)$．
+\end{myproof}
+
+\endinput

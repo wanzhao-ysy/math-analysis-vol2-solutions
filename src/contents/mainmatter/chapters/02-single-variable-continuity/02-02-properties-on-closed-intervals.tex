@@ -1,0 +1,420 @@
+\section{闭区间上连续函数的性质}
+
+\begin{problem}{零点存在性定理}{Zero-Point-Theorem}
+    证明：函数 $x \cdot 2^x - 1$ 在 $[0, 1]$ 内有零点．
+\end{problem}
+
+\begin{myproof}
+    令 $f(x) = x \cdot 2^x - 1$．显然 $f(x)$ 作为初等函数在闭区间 $[0, 1]$ 上连续．
+
+    计算两端点处的函数值：
+    \begin{equation}
+        f(0) = 0 \cdot 2^0 - 1 = -1 < 0,
+    \end{equation}
+    \begin{equation}
+        f(1) = 1 \cdot 2^1 - 1 = 1 > 0.
+    \end{equation}
+    由零点存在定理，存在 $\xi \in (0, 1) \subset [0, 1]$，使得 $f(\xi) = 0$．
+
+    即函数 $x \cdot 2^x - 1$ 在 $[0, 1]$ 内有零点．
+\end{myproof}
+
+\begin{problem}{三角函数的零点估计}{Zero-Point-Estimation-Of-Trigonometric-Function}
+    证明：函数 $x - a\sin x - b$（其中 $a, b$ 为正数）在 $(0, +\infty)$ 上有零点，且零点不超过 $a+b$．
+\end{problem}
+
+\begin{myproof}
+    令 $f(x) = x - a\sin x - b$．因为 $a, b > 0$，所以 $a + b > 0$，$f(x)$ 在闭区间 $[0, a+b]$ 上连续．
+
+    考察两端点的函数值：
+    \begin{equation}
+        f(0) = 0 - a\sin 0 - b = -b < 0,
+    \end{equation}
+    \begin{equation}
+        f(a+b) = a + b - a\sin(a+b) - b = a\bigl( 1 - \sin(a+b) \bigr) \geqslant 0.
+    \end{equation}
+    分情况讨论：
+    \begin{enumerate}
+        \item 若 $f(a+b) = 0$，则 $x_0 = a + b$ 即为函数在 $(0, +\infty)$ 上的零点，且满足 $x_0 \leqslant a+b$；
+        \item 若 $f(a+b) > 0$，由零点存在定理，存在 $x_0 \in (0, a+b)$，使得 $f(x_0) = 0$，此时零点同样满足 $x_0 \leqslant a+b$．
+    \end{enumerate}
+    综上，函数在 $(0, +\infty)$ 上存在零点，且零点不超过 $a+b$．
+\end{myproof}
+
+\begin{problem}{连续函数的实零点存在性}{Existence-Of-Real-Roots}
+    证明：函数 $x - \sin(x+1)$ 有实零点．
+\end{problem}
+
+\begin{myproof}
+    令 $f(x) = x - \sin(x+1)$，则 $f(x)$ 在 $\symbb{R}$ 上处处连续．
+
+    取特定点计算函数值：
+    \begin{equation}
+        f(-2) = -2 - \sin(-1) = -2 + \sin 1 \leqslant -2 + 1 = -1 < 0,
+    \end{equation}
+    \begin{equation}
+        f(2) = 2 - \sin 3 \geqslant 2 - 1 = 1 > 0.
+    \end{equation}
+    由零点存在定理，在开区间 $(-2, 2)$ 内至少存在一点 $\xi$，使得
+    \begin{equation}
+        f(\xi) = \xi - \sin(\xi + 1) = 0.
+    \end{equation}
+    故函数 $x - \sin(x+1)$ 有实零点．
+\end{myproof}
+
+\begin{problem}{闭区间连续函数的不动点定理}{Fixed-Point-Theorem}
+    设函数 $f(x)$ 在 $[a, b]$ 上连续，且值域就是 $[a, b]$．证明：$f(x)$ 在 $[a, b]$ 上必有不动点，即有 $x_0 \in [a, b]$，使得 $f(x_0) = x_0$．
+\end{problem}
+
+\begin{myproof}
+    构造辅助函数 $F(x) = f(x) - x$．因 $f(x)$ 在 $[a, b]$ 上连续，故 $F(x)$ 在 $[a, b]$ 上连续．
+
+    因为 $f(x)$ 的值域为 $[a, b]$，所以对任意 $x \in [a, b]$ 均有 $a \leqslant f(x) \leqslant b$．
+
+    特别地，在区间端点处有
+    \begin{equation}
+        F(a) = f(a) - a \geqslant a - a = 0,
+    \end{equation}
+    \begin{equation}
+        F(b) = f(b) - b \leqslant b - b = 0.
+    \end{equation}
+    分情况讨论：
+    \begin{enumerate}
+        \item 若 $F(a) = 0$，取 $x_0 = a \in [a, b]$ 即有 $f(x_0) = x_0$；
+        \item 若 $F(b) = 0$，取 $x_0 = b \in [a, b]$ 即有 $f(x_0) = x_0$；
+        \item 若 $F(a) > 0$ 且 $F(b) < 0$，由零点存在定理，存在 $x_0 \in (a, b)$ 使得 $F(x_0) = 0$，即 $f(x_0) = x_0$．
+    \end{enumerate}
+    综上，必存在 $x_0 \in [a, b]$ 使得 $f(x_0) = x_0$．
+\end{myproof}
+
+\begin{problem}{连续函数交点的存在性}{Intersection-Of-Continuous-Functions}
+    设函数 $f(x), g(x)$ 在区间 $[a, b]$ 上连续，且 $f(a) > g(a)$，$f(b) < g(b)$．试证：存在 $x_0 \in (a, b)$，使得 $f(x_0) = g(x_0)$．
+\end{problem}
+
+\begin{myproof}
+    令辅助函数 $h(x) = f(x) - g(x)$．由 $f(x)$ 与 $g(x)$ 在 $[a, b]$ 上的连续性，可知 $h(x)$ 在 $[a, b]$ 上连续．
+
+    计算端点处的函数值：
+    \begin{equation}
+        h(a) = f(a) - g(a) > 0,
+    \end{equation}
+    \begin{equation}
+        h(b) = f(b) - g(b) < 0.
+    \end{equation}
+    因为 $h(a)h(b) < 0$，由零点存在定理，存在 $x_0 \in (a, b)$，使得
+    \begin{equation}
+        h(x_0) = 0 \implies f(x_0) = g(x_0).
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{弦长定理与零点存在性}{Chord-Theorem-Zero-Point}
+    设函数 $f(x)$ 在 $[0, 2a]$ 上连续，且 $f(0) = f(2a)$．证明：在区间 $[0, a]$ 上存在某个 $x_0$，使得 $f(x_0) = f(x_0+a)$．
+\end{problem}
+
+\begin{myproof}
+    构造辅助函数
+    \begin{equation}
+        F(x) = f(x+a) - f(x), \quad x \in [0, a].
+    \end{equation}
+    因 $f(x)$ 在 $[0, 2a]$ 上连续，故 $F(x)$ 在 $[0, a]$ 上连续．
+
+    计算端点处的函数值：
+    \begin{equation}
+        F(0) = f(a) - f(0),
+    \end{equation}
+    \begin{equation}
+        F(a) = f(2a) - f(a) = f(0) - f(a) = -F(0).
+    \end{equation}
+    从而
+    \begin{equation}
+        F(0) \cdot F(a) = -\bigl[ F(0) \bigr]^2 \leqslant 0.
+    \end{equation}
+    若 $F(0) = 0$，取 $x_0 = 0 \in [0, a]$ 即有 $f(x_0) = f(x_0 + a)$；若 $F(0) \neq 0$，则 $F(0) \cdot F(a) < 0$，由零点存在定理，存在 $x_0 \in (0, a)$ 使得
+    \begin{equation}
+        F(x_0) = 0 \implies f(x_0) = f(x_0 + a).
+    \end{equation}
+    故在区间 $[0, a]$ 上必存在 $x_0$，使得 $f(x_0) = f(x_0+a)$．
+\end{myproof}
+
+\begin{problem}{凸组合与介值定理}{Convex-Combination-And-Intermediate-Value-Theorem}
+    试证：若函数 $f(x)$ 在 $[a, b]$ 上连续，$x_1, x_2, \cdots, x_n$ 为此区间中的任意点，则在 $[a, b]$ 中有一点 $\xi$，使得
+    \begin{equation}
+        f(\xi) = \frac{1}{n}\bigl( f(x_1) + f(x_2) + \cdots + f(x_n) \bigr).
+    \end{equation}
+    更一般地，若 $q_1 > 0, q_2 > 0, \cdots, q_n > 0$，且 $q_1 + q_2 + \cdots + q_n = 1$，则在 $[a, b]$ 中有一点 $\xi$，使得
+    \begin{equation}
+        f(\xi) = q_1 f(x_1) + q_2 f(x_2) + \cdots + q_n f(x_n).
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    先证一般情形：
+
+    因为 $f(x)$ 在闭区间 $[a, b]$ 上连续，由最大值最小值定理，存在 $m, M$ 使得
+    \begin{equation}
+        m = \min_{x\in [a, b]} f(x), \quad M = \max_{x\in [a, b]} f(x).
+    \end{equation}
+    对任意点 $x_k \in [a, b]$（$k = 1, 2, \cdots, n$），恒有
+    \begin{equation}
+        m \leqslant f(x_k) \leqslant M.
+    \end{equation}
+    各边同乘以正数 $q_k > 0$ 并对 $k = 1, 2, \cdots, n$ 求和，由 $\sum_{k=1}^n q_k = 1$，得
+    \begin{equation}
+        m = m \sum_{k=1}^n q_k \leqslant \sum_{k=1}^n q_k f(x_k) \leqslant M \sum_{k=1}^n q_k = M.
+    \end{equation}
+    由闭区间上连续函数的介值定理，在 $[a, b]$ 中必存在一点 $\xi$，使得
+    \begin{equation}
+        f(\xi) = q_1 f(x_1) + q_2 f(x_2) + \cdots + q_n f(x_n).
+    \end{equation}
+    特别地，取 $q_1 = q_2 = \cdots = q_n = \frac{1}{n} > 0$，满足 $\sum_{k=1}^n q_k = 1$，直接代入一般性结论即得
+    \begin{equation}
+        f(\xi) = \frac{1}{n}\bigl( f(x_1) + f(x_2) + \cdots + f(x_n) \bigr).
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{半无穷区间上连续函数的有界性}{Boundedness-On-Infinite-Interval}
+    设函数 $f(x)$ 在区间 $[a, +\infty)$ 上连续，且 $\lim_{x\to +\infty} f(x)$ 存在．证明：$f(x)$ 在 $[a, +\infty)$ 上有界．
+\end{problem}
+
+\begin{myproof}
+    设 $\lim_{x\to +\infty} f(x) = L$．
+
+    取 $\varepsilon = 1 > 0$，由无穷远处的极限定义，存在实数 $X > a$，使得当 $x > X$ 时，恒有
+    \begin{equation}
+        |f(x) - L| < 1 \implies |f(x)| < |L| + 1.
+    \end{equation}
+    故 $f(x)$ 在开区间 $(X, +\infty)$ 上有界．
+
+    另一方面，函数 $f(x)$ 在闭区间 $[a, X]$ 上连续，由闭区间上连续函数的有界性定理，存在正数 $M_1 > 0$，使得对任意 $x \in [a, X]$，恒有
+    \begin{equation}
+        |f(x)| \leqslant M_1.
+    \end{equation}
+    令常数 $M = \max\{ M_1, |L| + 1 \}$，则对一切 $x \in [a, +\infty)$，均满足
+    \begin{equation}
+        |f(x)| \leqslant M.
+    \end{equation}
+    故 $f(x)$ 在 $[a, +\infty)$ 上有界．
+\end{myproof}
+
+\begin{problem}{有理分式函数的全轴有界性}{Boundedness-Of-Rational-Function}
+    证明：函数 $f(x) = \frac{1+x^2}{1-x^2+x^4}$ 在 $(-\infty, +\infty)$ 上有界．
+\end{problem}
+
+\begin{myproof}
+    对分母进行配方：
+    \begin{equation}
+        1 - x^2 + x^4 = \left( x^2 - \frac{1}{2} \right)^2 + \frac{3}{4} \geqslant \frac{3}{4} > 0.
+    \end{equation}
+    分母在 $\symbb{R}$ 上恒正无零点，故 $f(x)$ 在 $(-\infty, +\infty)$ 上处处连续．
+
+    考察自变量趋于无穷时的极限：
+    \begin{equation}
+        \lim_{x\to\infty} f(x) = \lim_{x\to\infty} \frac{1+x^2}{1-x^2+x^4} = \lim_{x\to\infty} \frac{\frac{1}{x^4} + \frac{1}{x^2}}{\frac{1}{x^4} - \frac{1}{x^2} + 1} = 0.
+    \end{equation}
+    由极限定义，取 $\varepsilon = 1$，存在正数 $X > 0$，使得当 $|x| > X$ 时，恒有
+    \begin{equation}
+        |f(x)| < 1.
+    \end{equation}
+    又因为 $f(x)$ 在闭区间 $[-X, X]$ 上连续，由闭区间上连续函数的有界性定理，存在常数 $M_0 > 0$，使得对任意 $x \in [-X, X]$，恒有
+    \begin{equation}
+        |f(x)| \leqslant M_0.
+    \end{equation}
+    取常数 $M = \max\{M_0, 1\}$，则对任意 $x \in (-\infty, +\infty)$，均有
+    \begin{equation}
+        |f(x)| \leqslant M.
+    \end{equation}
+    故函数 $f(x)$ 在 $(-\infty, +\infty)$ 上有界．
+\end{myproof}
+
+\begin{problem}{连续函数的值域与拓扑性质}{Continuous-Function-Range-And-Topology}
+    是否有满足下面条件的连续函数？说明理由．
+    \begin{enumerate}
+        \item 定义域为 $[0, 1]$，值域为 $(0, +\infty)$；
+        \item 定义域为 $[0, 1]$，值域为 $(0, 1)$；
+        \item 定义域为 $[0, 1]$，值域为 $[0, 1] \cup [2, 4]$；
+        \item 定义域为 $(0, 1)$，值域为 $(2, +\infty)$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 不存在．
+
+    闭区间上的连续函数必有界，而 $(0, +\infty)$ 是无界集，与有界性定理矛盾．
+
+    \ansitem{2} 不存在．
+
+    由最大值最小值定理，闭区间 $[0, 1]$ 上的连续函数必能取得最大值 $M$ 与最小值 $m$．结合介值定理，其值域必为闭区间 $[m, M]$，不能为开区间 $(0, 1)$．
+
+    \ansitem{3} 不存在．
+
+    闭区间 $[0, 1]$ 是连通集，连续函数的象集必须是连通集（即单一区间）．而 $[0, 1] \cup [2, 4]$ 是两个互不相交的非空闭集的并，非连通，与介值定理矛盾．
+
+    \ansitem{4} 存在．
+
+    构造函数
+    \begin{equation}
+        f(x) = \frac{1}{x} + 1, \quad x \in (0, 1).
+    \end{equation}
+    显然 $f(x)$ 在 $(0, 1)$ 上连续且严格单调递减．当 $x \to 0^+$ 时，$f(x) \to +\infty$；当 $x \to 1^-$ 时，$f(x) \to 2$．由介值定理，其值域为 $(2, +\infty)$．
+    \begin{equation}
+        \boxed{\text{(1) 不存在；(2) 不存在；(3) 不存在；(4) 存在．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{局部有界与开区间有界的反例}{Counterexample-Of-Interval-Boundedness}
+    举例说明，对任意正数 $\varepsilon < \frac{b-a}{2}$，函数 $f(x)$ 在闭区间 $[a + \varepsilon, b - \varepsilon]$ 上有界，不能保证 $f(x)$ 在开区间 $(a, b)$ 上有界．（比较习题 2.1 第 2 题．）
+\end{problem}
+
+\begin{solution}
+    取开区间 $(a, b) = (0, 1)$，构造函数
+    \begin{equation}
+        f(x) = \frac{1}{x}, \quad x \in (0, 1).
+    \end{equation}
+    对任意正数 $\varepsilon \in \left(0, \frac{1}{2}\right)$，函数 $f(x)$ 在闭区间 $[\varepsilon, 1 - \varepsilon]$ 上连续，且
+    \begin{equation}
+        \max_{x\in [\varepsilon, 1-\varepsilon]} |f(x)| = \frac{1}{\varepsilon} < +\infty,
+    \end{equation}
+    故 $f(x)$ 在每一个内闭区间 $[\varepsilon, 1 - \varepsilon]$ 上均有界．
+
+    但在开区间 $(0, 1)$ 上，由于
+    \begin{equation}
+        \lim_{x\to 0^+} f(x) = \lim_{x\to 0^+} \frac{1}{x} = +\infty,
+    \end{equation}
+    函数 $f(x)$ 在 $(0, 1)$ 上无界．
+    \begin{equation}
+        \boxed{f(x) = \frac{1}{x} \quad (x \in (0, 1)).}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{严格单调连续函数的值域}{Range-Of-Strictly-Monotone-Continuous-Functions}
+    设 $y = f(x)$ 在开区间 $I = (a, b)$ 上连续并严格单调，证明：$y = f(x)$ 的值域 $f(I)$ 也是一个开区间．
+\end{problem}
+
+\begin{myproof}
+    不妨设 $f(x)$ 在 $(a, b)$ 上严格单调递增（递减情形同理）．
+
+    由连续函数的介值定理，连通开区间的连续象 $f(I)$ 必为一个区间．记
+    \begin{equation}
+        A = \inf_{x\in (a, b)} f(x) = \lim_{x\to a^+} f(x), \qquad B = \sup_{x\in (a, b)} f(x) = \lim_{x\to b^-} f(x),
+    \end{equation}
+    其中 $A \in [-\infty, +\infty)$，$B \in (-\infty, +\infty]$．
+
+    任取 $y_0 \in f(I)$，则存在 $x_0 \in (a, b)$ 使得 $f(x_0) = y_0$．
+
+    因为 $a < x_0 < b$，可选取两点 $x_1, x_2 \in (a, b)$ 满足 $a < x_1 < x_0 < x_2 < b$．由严格单调递增性，有
+    \begin{equation}
+        f(x_1) < f(x_0) = y_0 < f(x_2).
+    \end{equation}
+    因为 $f(x_1), f(x_2) \in f(I)$，所以 $y_0$ 既不是 $f(I)$ 的最小值，也不是 $f(I)$ 的最大值，即
+    \begin{equation}
+        A < y_0 < B.
+    \end{equation}
+    因此 $A \notin f(I)$ 且 $B \notin f(I)$，值域为 $f(I) = (A, B)$，必为开区间．
+\end{myproof}
+
+\begin{problem}{一致连续函数的端点极限}{Boundary-Limits-Of-Uniformly-Continuous-Functions}
+    设函数 $f(x)$ 在有限区间 $(a, b)$ 上一致连续．求证：$f(x)$ 在 $a$ 点的右极限和在 $b$ 点的左极限都存在．
+\end{problem}
+
+\begin{myproof}
+    先证右极限 $\lim_{x\to a^+} f(x)$ 存在：
+
+    由 $f(x)$ 在 $(a, b)$ 上一致连续，对任给 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $x', x'' \in (a, b)$ 且 $|x' - x''| < \delta$ 时，恒有
+    \begin{equation}
+        |f(x') - f(x'')| < \varepsilon.
+    \end{equation}
+    取 $\delta_0 = \min\{\delta, b - a\} > 0$．对任意 $x', x'' \in (a, a + \delta_0)$，恒有
+    \begin{equation}
+        |x' - x''| < \delta_0 \leqslant \delta,
+    \end{equation}
+    从而满足
+    \begin{equation}
+        |f(x') - f(x'')| < \varepsilon.
+    \end{equation}
+    由函数极限的柯西收敛准则，右极限 $\lim_{x\to a^+} f(x)$ 存在（且为有限实数）．
+
+    同理，取 $x', x'' \in (b - \delta_0, b)$，亦有 $|x' - x''| < \delta$，从而 $|f(x') - f(x'')| < \varepsilon$，由柯西准则知左极限 $\lim_{x\to b^-} f(x)$ 亦存在．
+\end{myproof}
+
+\begin{problem}{一致连续性与收敛数列的象}{Uniform-Continuity-And-Convergent-Sequences}
+    设函数 $f(x)$ 在 $(0, +\infty)$ 上一致连续，$\{a_n\}$ 是正收敛数列．求证：$\{f(a_n)\}$ 也收敛．又问仅假设 $f(x)$ 连续时，结论是否还成立，为什么？
+\end{problem}
+
+\begin{solution}
+    先证充分性：设正数列 $\{a_n\}$ 收敛，由收敛数列必为柯西列，对任意 $\delta > 0$，存在正整数 $N_0$，使得当 $n, m > N_0$ 时，恒有
+    \begin{equation}
+        |a_n - a_m| < \delta.
+    \end{equation}
+    因为 $f(x)$ 在 $(0, +\infty)$ 上一致连续，对任给 $\varepsilon > 0$，存在 $\delta > 0$，使得只要 $x, y \in (0, +\infty)$ 且 $|x - y| < \delta$，就有
+    \begin{equation}
+        |f(x) - f(y)| < \varepsilon.
+    \end{equation}
+    对于上述 $\delta > 0$，当 $n, m > N_0$ 时，恒有 $|a_n - a_m| < \delta$，从而
+    \begin{equation}
+        |f(a_n) - f(a_m)| < \varepsilon.
+    \end{equation}
+    由实数系柯西收敛准则，数列 $\{f(a_n)\}$ 必收敛．
+
+    若仅假设 $f(x)$ 在 $(0, +\infty)$ 上连续，结论不一定成立．
+
+    反例：取连续函数 $f(x) = \frac{1}{x}$（$x \in (0, +\infty)$）与正收敛数列 $a_n = \frac{1}{n}$（$\lim_{n\to\infty} a_n = 0$）．此时
+    \begin{equation}
+        f(a_n) = n \to +\infty \quad (n \to \infty),
+    \end{equation}
+    数列 $\{f(a_n)\}$ 发散．
+    \begin{equation}
+        \boxed{\text{仅假设 } f(x) \text{ 连续时结论不成立．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{连续函数对收敛数列的保收敛性}{Continuous-Function-Preserves-Sequence-Convergence}
+    设函数 $f(x)$ 在 $(-\infty, +\infty)$ 上连续，$\{a_n\}$ 是收敛数列．求证：$\{f(a_n)\}$ 也收敛．
+\end{problem}
+
+\begin{myproof}
+    设收敛数列 $\{a_n\}$ 的极限为 $a$，即
+    \begin{equation}
+        \lim_{n\to\infty} a_n = a \in (-\infty, +\infty).
+    \end{equation}
+    因为函数 $f(x)$ 在全实数轴 $(-\infty, +\infty)$ 上处处连续，所以在点 $x = a$ 处连续．
+
+    由函数连续性的海涅定义（归结原则），对任意收敛于 $a$ 的数列 $\{a_n\}$，其函数值数列必收敛于 $f(a)$，即
+    \begin{equation}
+        \lim_{n\to\infty} f(a_n) = f\left( \lim_{n\to\infty} a_n \right) = f(a).
+    \end{equation}
+    因为 $f(a)$ 是确定的有限实数，所以数列 $\{f(a_n)\}$ 必收敛．
+\end{myproof}
+
+\begin{problem}{有界连续但不一致连续的函数}{Bounded-Continuous-Not-Uniformly-Continuous-Function}
+    给出一个在 $(-\infty, +\infty)$ 上连续且有界但不一致连续的函数．
+\end{problem}
+
+\begin{solution}
+    构造函数
+    \begin{equation}
+        f(x) = \sin(x^2), \quad x \in (-\infty, +\infty).
+    \end{equation}
+    验证性质：
+    \begin{enumerate}
+        \item 连续性：$f(x)$ 为初等函数，在 $(-\infty, +\infty)$ 上处处连续；
+        \item 有界性：对任意 $x \in \symbb{R}$，恒有 $|f(x)| = |\sin(x^2)| \leqslant 1$，故有界；
+        \item 非一致连续性：构造两组趋于无穷的点列（$n \in \symbb{N}^+$）：
+              \begin{equation}
+                  x_n = \sqrt{2n\uppi + \frac{\uppi}{2}}, \qquad y_n = \sqrt{2n\uppi}.
+              \end{equation}
+              其两点间距为
+              \begin{equation}
+                  |x_n - y_n| = \frac{\frac{\uppi}{2}}{\sqrt{2n\uppi + \frac{\uppi}{2}} + \sqrt{2n\uppi}} \to 0 \quad (n \to \infty).
+              \end{equation}
+              而函数值差的绝对值为
+              \begin{equation}
+                  |f(x_n) - f(y_n)| = \left| \sin\left( 2n\uppi + \frac{\uppi}{2} \right) - \sin(2n\uppi) \right| = |1 - 0| = 1.
+              \end{equation}
+              取 $\varepsilon_0 = \frac{1}{2}$，对任意 $\delta > 0$，总存在充分大的 $n$ 使得 $|x_n - y_n| < \delta$，但 $|f(x_n) - f(y_n)| = 1 > \varepsilon_0$．故 $f(x)$ 在 $\symbb{R}$ 上不一致连续．
+    \end{enumerate}
+    \begin{equation}
+        \boxed{f(x) = \sin(x^2) \quad \left(\text{或 } f(x) = \cos(x^2)\right).}
+    \end{equation}
+\end{solution}
+
+\endinput

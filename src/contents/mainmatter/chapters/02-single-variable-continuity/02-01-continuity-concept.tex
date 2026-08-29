@@ -1,0 +1,631 @@
+\section{连续函数的基本概念}
+
+\begin{problem}{对称差分与连续性判定}{Symmetric-Difference-And-Continuity}
+    设函数 $f(x)$ 在点 $x_0$ 附近有定义，且 $\lim_{h\to 0}[f(x_0+h)-f(x_0-h)]=0$．问 $f(x)$ 是否必在 $x = x_0$ 处连续？
+\end{problem}
+
+\begin{solution}
+    不一定在 $x = x_0$ 处连续．
+
+    例如构造函数
+    \begin{equation}
+        f(x) = \begin{cases} 0, & x \neq x_0, \\ 1, & x = x_0. \end{cases}
+    \end{equation}
+    当 $h \neq 0$ 时，$x_0 + h \neq x_0$ 且 $x_0 - h \neq x_0$，恒有
+    \begin{equation}
+        f(x_0 + h) - f(x_0 - h) = 0 - 0 = 0.
+    \end{equation}
+    从而
+    \begin{equation}
+        \lim_{h\to 0} [f(x_0 + h) - f(x_0 - h)] = 0.
+    \end{equation}
+    但极限
+    \begin{equation}
+        \lim_{x\to x_0} f(x) = 0 \neq f(x_0) = 1,
+    \end{equation}
+    故 $f(x)$ 在 $x = x_0$ 处不连续．
+    \begin{equation}
+        \boxed{\text{不一定在 } x = x_0 \text{ 处连续．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{开区间连续性的判定}{Continuity-On-Open-Interval}
+    设对任意正数 $\varepsilon < \frac{b-a}{2}$，函数 $f(x)$ 在 $[a+\varepsilon, b-\varepsilon]$ 上连续．证明：$f(x)$ 在 $(a, b)$ 内连续．
+\end{problem}
+
+\begin{myproof}
+    任取 $x_0 \in (a, b)$．
+
+    令
+    \begin{equation}
+        \varepsilon_0 = \frac{1}{2} \min\{ x_0 - a, b - x_0 \} > 0.
+    \end{equation}
+    显然有
+    \begin{equation}
+        \varepsilon_0 \leqslant \frac{1}{2} \cdot \frac{(x_0 - a) + (b - x_0)}{2} = \frac{b-a}{4} < \frac{b-a}{2}.
+    \end{equation}
+    从而 $x_0 \in (a + \varepsilon_0, b - \varepsilon_0) \subset [a + \varepsilon_0, b - \varepsilon_0]$．
+
+    由已知条件，$f(x)$ 在闭区间 $[a + \varepsilon_0, b - \varepsilon_0]$ 上连续，因此 $f(x)$ 在内点 $x_0$ 处连续．
+
+    由 $x_0 \in (a, b)$ 的任意性，可知 $f(x)$ 在 $(a, b)$ 内连续．
+\end{myproof}
+
+\begin{problem}{函数运算的连续性判定}{Continuity-Of-Function-Operations}
+    设在点 $x = x_0$ 处，函数 $f(x)$ 连续，而 $g(x)$ 不连续，问函数 $f(x)\pm g(x)$ 与 $f(x)g(x)$ 在点 $x_0$ 的连续性如何？若 $f(x), g(x)$ 在 $x_0$ 处都不连续，回答同样的问题．
+\end{problem}
+
+\begin{solution}
+    若 $f(x)$ 连续，$g(x)$ 不连续：
+    \begin{enumerate}
+        \item $f(x) \pm g(x)$ 在 $x_0$ 处必不连续．反证：若 $f(x) \pm g(x)$ 在 $x_0$ 处连续，则
+              \begin{equation}
+                  g(x) = \pm\bigl( (f(x) \pm g(x)) - f(x) \bigr)
+              \end{equation}
+              为两连续函数的线性组合，在 $x_0$ 处连续，产生矛盾．
+        \item $f(x)g(x)$ 在 $x_0$ 处不一定连续：
+              \begin{equation}
+                  f(x) = 0 \ (\text{连续}), \quad g(x) = \operatorname{sgn} x \ (\text{在 } x = 0 \text{ 不连续}) \implies f(x)g(x) = 0 \ (\text{连续});
+              \end{equation}
+              \begin{equation}
+                  f(x) = 1 \ (\text{连续}), \quad g(x) = \operatorname{sgn} x \ (\text{在 } x = 0 \text{ 不连续}) \implies f(x)g(x) = \operatorname{sgn} x \ (\text{不连续}).
+              \end{equation}
+    \end{enumerate}
+
+    若 $f(x)$ 与 $g(x)$ 在 $x_0$ 处均不连续：
+    \begin{enumerate}
+        \item $f(x) \pm g(x)$ 不一定连续：
+              \begin{equation}
+                  f(x) = \operatorname{sgn} x, \quad g(x) = -\operatorname{sgn} x \implies f(x) + g(x) = 0 \ (\text{连续});
+              \end{equation}
+              \begin{equation}
+                  f(x) = \operatorname{sgn} x, \quad g(x) = \operatorname{sgn} x \implies f(x) + g(x) = 2\operatorname{sgn} x \ (\text{不连续}).
+              \end{equation}
+        \item $f(x)g(x)$ 不一定连续：
+              \begin{equation}
+                  f(x) = g(x) = \begin{cases} 1, & x \geqslant 0, \\ -1, & x < 0 \end{cases} \implies f(x)g(x) \equiv 1 \ (\text{连续});
+              \end{equation}
+              \begin{equation}
+                  f(x) = g(x) = \begin{cases} 1, & x > 0, \\ 0, & x \leqslant 0 \end{cases} \implies f(x)g(x) = f(x) \ (\text{不连续}).
+              \end{equation}
+    \end{enumerate}
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & f\text{ 连续}, g\text{ 不连续} \implies f \pm g\text{ 必不连续}, fg\text{ 不确定}; \\
+                 & f, g\text{ 均不连续} \implies f \pm g\text{ 不确定}, fg\text{ 不确定}.
+            \end{aligned}
+        }
+    \end{equation}
+\end{solution}
+
+\begin{problem}{绝对值与最值函数的连续性}{Continuity-Of-Absolute-And-Extremum-Functions}
+    \begin{enumerate}
+        \item 设函数 $f(x)$ 在点 $x = x_0$ 处连续，则函数 $|f(x)|$ 在点 $x = x_0$ 处也连续．
+        \item 设函数 $f(x)$ 和 $g(x)$ 在一个区间 $I$ 上连续．证明：函数 $M(x) = \max(f(x), g(x))$ 及 $m(x) = \min(f(x), g(x))$ 在区间 $I$ 上均连续．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    由绝对值三角不等式，对任意 $x$，有
+    \begin{equation}
+        \bigl| |f(x)| - |f(x_0)| \bigr| \leqslant |f(x) - f(x_0)|.
+    \end{equation}
+    因 $f(x)$ 在 $x = x_0$ 处连续，对任给 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $|x - x_0| < \delta$ 时，有 $|f(x) - f(x_0)| < \varepsilon$．从而
+    \begin{equation}
+        \bigl| |f(x)| - |f(x_0)| \bigr| < \varepsilon.
+    \end{equation}
+    故 $|f(x)|$ 在点 $x = x_0$ 处连续．
+
+    \ansitem{2}
+
+    对任意 $x \in I$，有恒等式
+    \begin{equation}
+        M(x) = \frac{f(x) + g(x) + |f(x) - g(x)|}{2}, \quad m(x) = \frac{f(x) + g(x) - |f(x) - g(x)|}{2}.
+    \end{equation}
+    因为 $f(x)$ 与 $g(x)$ 在区间 $I$ 上连续，所以 $f(x) + g(x)$ 与 $f(x) - g(x)$ 在 $I$ 上连续．
+
+    由 (1) 的结论可知 $|f(x) - g(x)|$ 在 $I$ 上连续．
+
+    由连续函数的线性组合性质，即得 $M(x)$ 与 $m(x)$ 在区间 $I$ 上均连续．
+\end{myproof}
+
+\begin{problem}{处处不连续但绝对值连续的函数}{Everywhere-Discontinuous-Function-With-Continuous-Absolute-Value}
+    证明：存在这样的函数 $f(x)$，处处不连续，但函数 $|f(x)|$ 处处连续．（提示：适当修改 Dirichlet 函数可得出一个例子．）
+\end{problem}
+
+\begin{myproof}
+    构造修改的 Dirichlet 函数：
+    \begin{equation}
+        f(x) = \begin{cases} 1, & x \in \symbb{Q}, \\ -1, & x \in \symbb{R} \setminus \symbb{Q}. \end{cases}
+    \end{equation}
+    任取 $x_0 \in \symbb{R}$．由有理数与无理数在实数集上的稠密性，存在有理数列 $\{u_n\} \subset \symbb{Q}$ 与无理数列 $\{v_n\} \subset \symbb{R} \setminus \symbb{Q}$，满足
+    \begin{equation}
+        \lim_{n\to\infty} u_n = x_0, \qquad \lim_{n\to\infty} v_n = x_0.
+    \end{equation}
+    此时对应的函数值极限分别为
+    \begin{equation}
+        \lim_{n\to\infty} f(u_n) = 1, \qquad \lim_{n\to\infty} f(v_n) = -1.
+    \end{equation}
+    由于两极限不相等，故 $\lim_{x\to x_0} f(x)$ 不存在，函数 $f(x)$ 在点 $x_0$ 处不连续．由 $x_0$ 的任意性，$f(x)$ 处处不连续．
+
+    又对任意 $x \in \symbb{R}$，恒有
+    \begin{equation}
+        |f(x)| \equiv 1.
+    \end{equation}
+    常数函数 $|f(x)| = 1$ 在 $\symbb{R}$ 上处处连续．
+
+    故该函数满足题设要求．
+\end{myproof}
+
+\begin{problem}{函数间断点及其类型判定}{Classification-Of-Discontinuities}
+    指出下列函数的间断点，并说明其类型：
+    \begin{enumerate}
+        \item $f(x) = \frac{x+1}{x-2}$；
+        \item $f(x) = \begin{cases} \frac{\sin x}{|x|}, & x \neq 0, \\ 1, & x = 0; \end{cases}$
+        \item $f(x) = [|\cos x|]$；
+        \item $f(x) = \frac{1}{1 + \e^{1/x}}$；
+        \item $f(x) = \begin{cases} \frac{1}{x+7}, & -\infty < x < -7, \\ x, & -7 \leqslant x \leqslant 1, \\ (x-1)\sin\frac{1}{x-1}, & 1 < x < +\infty; \end{cases}$
+        \item $f(x) = \begin{cases} \frac{x^2-4}{x-2}, & x \neq 2, \\ 4, & x = 2. \end{cases}$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    函数定义域为 $x \neq 2$．考察极限：
+    \begin{equation}
+        \lim_{x\to 2^+} \frac{x+1}{x-2} = +\infty, \qquad \lim_{x\to 2^-} \frac{x+1}{x-2} = -\infty.
+    \end{equation}
+    \begin{equation}
+        \boxed{x = 2 \text{ 为第二类无穷间断点．}}
+    \end{equation}
+
+    \ansitem{2}
+
+    计算左右极限：
+    \begin{equation}
+        \lim_{x\to 0^+} f(x) = \lim_{x\to 0^+} \frac{\sin x}{x} = 1, \qquad \lim_{x\to 0^-} f(x) = \lim_{x\to 0^-} \frac{\sin x}{-x} = -1.
+    \end{equation}
+    左右极限存在但不相等（$1 \neq -1$）．
+    \begin{equation}
+        \boxed{x = 0 \text{ 为第一类跳跃间断点．}}
+    \end{equation}
+
+    \ansitem{3}
+
+    当 $x = k\uppi$（$k \in \symbb{Z}$）时，$|\cos x| = 1 \implies f(x) = [1] = 1$；当 $x \neq k\uppi$ 时，$0 \leqslant |\cos x| < 1 \implies f(x) = 0$．从而
+    \begin{equation}
+        \lim_{x\to k\uppi} f(x) = 0 \neq f(k\uppi) = 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{x = k\uppi \ (k \in \symbb{Z}) \text{ 均为第一类可去间断点．}}
+    \end{equation}
+
+    \ansitem{4}
+
+    函数在 $x = 0$ 处无定义．计算单侧极限：
+    \begin{equation}
+        \lim_{x\to 0^+} \frac{1}{1 + \e^{1/x}} = 0, \qquad \lim_{x\to 0^-} \frac{1}{1 + \e^{1/x}} = 1.
+    \end{equation}
+    左右极限存在但不相等（$0 \neq 1$）．
+    \begin{equation}
+        \boxed{x = 0 \text{ 为第一类跳跃间断点．}}
+    \end{equation}
+
+    \ansitem{5}
+
+    在分段点 $x = -7$ 处：
+    \begin{equation}
+        \lim_{x\to -7^-} f(x) = \lim_{x\to -7^-} \frac{1}{x+7} = -\infty, \qquad \lim_{x\to -7^+} f(x) = -7 = f(-7),
+    \end{equation}
+    故 $x = -7$ 为第二类无穷间断点．
+
+    在分段点 $x = 1$ 处：
+    \begin{equation}
+        \lim_{x\to 1^-} f(x) = 1 = f(1), \qquad \lim_{x\to 1^+} f(x) = \lim_{x\to 1^+} (x-1)\sin\frac{1}{x-1} = 0,
+    \end{equation}
+    左右极限存在但不相等（$1 \neq 0$），故 $x = 1$ 为第一类跳跃间断点．
+    \begin{equation}
+        \boxed{x = -7 \text{ 为第二类无穷间断点，} x = 1 \text{ 为第一类跳跃间断点．}}
+    \end{equation}
+
+    \ansitem{6}
+
+    在 $x = 2$ 处：
+    \begin{equation}
+        \lim_{x\to 2} f(x) = \lim_{x\to 2} \frac{x^2 - 4}{x - 2} = \lim_{x\to 2} (x + 2) = 4 = f(2).
+    \end{equation}
+    故函数在 $x = 2$ 处连续，在全实数轴上无间断点．
+    \begin{equation}
+        \boxed{\text{无间断点（在 } \symbb{R} \text{ 上处处连续）．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{分段函数在某点的连续性条件}{Continuity-Condition-For-Piecewise-Function}
+    试确定 $a$，使得函数
+    \begin{equation}
+        f(x) = \begin{cases} \e^x, & x < 0, \\ a + x, & x \geqslant 0 \end{cases}
+    \end{equation}
+    在 $x = 0$ 处连续．
+\end{problem}
+
+\begin{solution}
+    计算在 $x = 0$ 处的函数值与单侧极限：
+    \begin{equation}
+        f(0) = a + 0 = a,
+    \end{equation}
+    \begin{equation}
+        \lim_{x\to 0^+} f(x) = \lim_{x\to 0^+} (a + x) = a,
+    \end{equation}
+    \begin{equation}
+        \lim_{x\to 0^-} f(x) = \lim_{x\to 0^-} \e^x = \e^0 = 1.
+    \end{equation}
+    函数 $f(x)$ 在 $x = 0$ 处连续的充要条件为
+    \begin{equation}
+        \lim_{x\to 0^+} f(x) = \lim_{x\to 0^-} f(x) = f(0) \implies a = 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{a = 1.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{单侧连续性的证明}{One-Sided-Continuity-Proof}
+    证明：函数
+    \begin{equation}
+        f(x) = \begin{cases} \frac{\e^{1/x} - \e^{-1/x}}{\e^{1/x} + \e^{-1/x}}, & x \neq 0, \\ 1, & x = 0 \end{cases}
+    \end{equation}
+    在点 $0$ 处右连续，但不左连续．
+\end{problem}
+
+\begin{myproof}
+    在 $x = 0$ 处，函数值为 $f(0) = 1$．
+
+    考察右极限：当 $x \to 0^+$ 时，$\frac{1}{x} \to +\infty$，从而 $\e^{-2/x} \to 0$，有
+    \begin{equation}
+        \lim_{x\to 0^+} f(x) = \lim_{x\to 0^+} \frac{1 - \e^{-2/x}}{1 + \e^{-2/x}} = \frac{1 - 0}{1 + 0} = 1 = f(0).
+    \end{equation}
+    故函数 $f(x)$ 在点 $0$ 处右连续．
+
+    考察左极限：当 $x \to 0^-$ 时，$\frac{1}{x} \to -\infty$，从而 $\e^{2/x} \to 0$，有
+    \begin{equation}
+        \lim_{x\to 0^-} f(x) = \lim_{x\to 0^-} \frac{\e^{2/x} - 1}{\e^{2/x} + 1} = \frac{0 - 1}{0 + 1} = -1 \neq f(0).
+    \end{equation}
+    故函数 $f(x)$ 在点 $0$ 处不左连续．
+\end{myproof}
+
+\begin{problem}{极限函数及其连续性讨论}{Limit-Function-And-Continuity}
+    证明：对每个实数 $x$，$\lim_{n\to\infty} \frac{1+x}{1+x^{2n}}$ 存在．将这极限值记为 $f(x)$，试讨论函数 $f(x)$ 的连续性．
+\end{problem}
+
+\begin{solution}
+    对实数 $x$ 分情况求极限：
+    \begin{enumerate}
+        \item 当 $|x| < 1$ 时，$\lim_{n\to\infty} x^{2n} = 0$，故
+              \begin{equation}
+                  f(x) = \lim_{n\to\infty} \frac{1+x}{1+x^{2n}} = 1 + x;
+              \end{equation}
+        \item 当 $|x| > 1$ 时，$\lim_{n\to\infty} x^{2n} = +\infty$，故
+              \begin{equation}
+                  f(x) = \lim_{n\to\infty} \frac{1+x}{1+x^{2n}} = 0;
+              \end{equation}
+        \item 当 $x = 1$ 时，$x^{2n} = 1$，故
+              \begin{equation}
+                  f(1) = \frac{1+1}{1+1} = 1;
+              \end{equation}
+        \item 当 $x = -1$ 时，$x^{2n} = 1$，故
+              \begin{equation}
+                  f(-1) = \frac{1-1}{1+1} = 0.
+              \end{equation}
+    \end{enumerate}
+    极限对任意实数 $x$ 均存在，极限函数的表达式为
+    \begin{equation}
+        f(x) = \begin{cases} 0, & x \leqslant -1, \\ 1+x, & -1 < x < 1, \\ 1, & x = 1, \\ 0, & x > 1. \end{cases}
+    \end{equation}
+    讨论其连续性：
+    \begin{enumerate}
+        \item 在区间 $(-\infty, -1)$、 $(-1, 1)$ 以及 $(1, +\infty)$ 内，$f(x)$ 均为初等函数，因而连续；
+        \item 在 $x = -1$ 处：
+              \begin{equation}
+                  \lim_{x\to -1^-} f(x) = 0, \qquad \lim_{x\to -1^+} f(x) = \lim_{x\to -1^+} (1+x) = 0, \qquad f(-1) = 0,
+              \end{equation}
+              左右极限存在且等于函数值，故 $f(x)$ 在 $x = -1$ 处连续；
+        \item 在 $x = 1$ 处：
+              \begin{equation}
+                  \lim_{x\to 1^-} f(x) = \lim_{x\to 1^-} (1+x) = 2, \qquad \lim_{x\to 1^+} f(x) = 0,
+              \end{equation}
+              左右极限存在但不相等，故 $x = 1$ 为第一类跳跃间断点．
+    \end{enumerate}
+    \begin{equation}
+        \boxed{f(x) \text{ 在 } (-\infty, 1) \cup (1, +\infty) \text{ 上连续，} x = 1 \text{ 为第一类跳跃间断点．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{连续函数的局部有界性}{Local-Boundedness-Of-Continuous-Functions}
+    证明：若函数 $f(x)$ 在点 $x_0$ 连续，则存在一个正数 $\delta$，使得函数 $f(x)$ 在区间 $(x_0 - \delta, x_0 + \delta)$ 上有界．（这一结果称为连续函数的局部有界性．）
+\end{problem}
+
+\begin{myproof}
+    因 $f(x)$ 在点 $x_0$ 处连续，由连续性的定义，取 $\varepsilon = 1 > 0$，存在正数 $\delta > 0$，使得当 $|x - x_0| < \delta$ 即 $x \in (x_0 - \delta, x_0 + \delta)$ 时，恒有
+    \begin{equation}
+        |f(x) - f(x_0)| < 1.
+    \end{equation}
+    由绝对值三角不等式，对任意 $x \in (x_0 - \delta, x_0 + \delta)$，有
+    \begin{equation}
+        |f(x)| = |(f(x) - f(x_0)) + f(x_0)| \leqslant |f(x) - f(x_0)| + |f(x_0)| < |f(x_0)| + 1.
+    \end{equation}
+    令常数 $M = |f(x_0)| + 1 > 0$，则对任意 $x \in (x_0 - \delta, x_0 + \delta)$ 均有
+    \begin{equation}
+        |f(x)| < M.
+    \end{equation}
+    故函数 $f(x)$ 在区间 $(x_0 - \delta, x_0 + \delta)$ 上有界．
+\end{myproof}
+
+\begin{problem}{连续函数的局部保号性}{Local-Sign-Preserving-Property}
+    证明：若函数 $f(x)$ 在点 $x_0$ 连续，且 $f(x_0) \neq 0$，则存在一个正数 $\delta$，使得函数 $f(x)$ 在区间 $(x_0 - \delta, x_0 + \delta)$ 上与 $f(x_0)$ 同号．（这一结果称为连续函数的局部保号性）进一步，存在某个正数 $\gamma$，使得 $f(x)$ 在这一区间中满足 $|f(x)| \geqslant \gamma$．
+\end{problem}
+
+\begin{myproof}
+    因为 $f(x_0) \neq 0$，取正数
+    \begin{equation}
+        \varepsilon = \frac{|f(x_0)|}{2} > 0.
+    \end{equation}
+    由 $f(x)$ 在 $x_0$ 处的连续性，存在正数 $\delta > 0$，使得当 $x \in (x_0 - \delta, x_0 + \delta)$ 时，恒有
+    \begin{equation}
+        |f(x) - f(x_0)| < \frac{|f(x_0)|}{2}.
+    \end{equation}
+    由绝对值不等式，对任意 $x \in (x_0 - \delta, x_0 + \delta)$，有
+    \begin{equation}
+        |f(x)| \geqslant |f(x_0)| - |f(x) - f(x_0)| > |f(x_0)| - \frac{|f(x_0)|}{2} = \frac{|f(x_0)|}{2}.
+    \end{equation}
+    取正数 $\gamma = \frac{|f(x_0)|}{2} > 0$，即满足 $|f(x)| \geqslant \gamma$．
+
+    同时，结合展开的不等式：
+    \begin{equation}
+        f(x_0) - \frac{|f(x_0)|}{2} < f(x) < f(x_0) + \frac{|f(x_0)|}{2}.
+    \end{equation}
+    \begin{enumerate}
+        \item 若 $f(x_0) > 0$，则 $f(x) > \frac{f(x_0)}{2} > 0$；
+        \item 若 $f(x_0) < 0$，则 $f(x) < \frac{f(x_0)}{2} < 0$．
+    \end{enumerate}
+    故在区间 $(x_0 - \delta, x_0 + \delta)$ 上 $f(x)$ 与 $f(x_0)$ 严格同号．
+\end{myproof}
+
+\begin{problem}{复合函数的极限运算法则}{Limit-Of-Composite-Functions}
+    证明：若 $\lim_{x\to x_0} g(x) = a \neq g(x_0)$（从而 $x_0$ 为 $g(x)$ 的可去间断点），$f(u)$ 在 $u = a$ 处连续，则
+    \begin{equation}
+        \lim_{x\to x_0} f(g(x)) = f\left( \lim_{x\to x_0} g(x) \right) = f(a).
+    \end{equation}
+    （这一结论对其他五种极限过程也成立．）
+\end{problem}
+
+\begin{myproof}
+    因 $f(u)$ 在 $u = a$ 处连续，对任给 $\varepsilon > 0$，存在正数 $\eta > 0$，使得当 $|u - a| < \eta$ 时，恒有
+    \begin{equation}
+        |f(u) - f(a)| < \varepsilon.
+    \end{equation}
+    针对上述 $\eta > 0$，由 $\lim_{x\to x_0} g(x) = a$，存在正数 $\delta > 0$，使得当 $0 < |x - x_0| < \delta$ 时，恒有
+    \begin{equation}
+        |g(x) - a| < \eta.
+    \end{equation}
+    令 $u = g(x)$，则当 $0 < |x - x_0| < \delta$ 时，均满足 $|u - a| < \eta$，从而必有
+    \begin{equation}
+        |f(g(x)) - f(a)| < \varepsilon.
+    \end{equation}
+    由函数极限定义，即得
+    \begin{equation}
+        \lim_{x\to x_0} f(g(x)) = f(a) = f\left( \lim_{x\to x_0} g(x) \right).
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{幂指函数的连续性}{Power-Exponential-Function-Continuity}
+    证明：若函数 $u(x), v(x)$ 在 $x_0$ 处连续，且 $u(x_0) > 0$，则函数 $u(x)^{v(x)}$ 也在点 $x_0$ 处连续．
+\end{problem}
+
+\begin{myproof}
+    因为 $u(x)$ 在 $x_0$ 处连续且 $u(x_0) > 0$，由连续函数的局部保号性，存在正数 $\delta_0 > 0$，使得当 $x \in (x_0 - \delta_0, x_0 + \delta_0)$ 时，恒有 $u(x) > 0$．
+
+    在区间 $(x_0 - \delta_0, x_0 + \delta_0)$ 上，幂指函数可表示为
+    \begin{equation}
+        u(x)^{v(x)} = \exp\bigl( v(x) \ln u(x) \bigr).
+    \end{equation}
+    由于对数函数 $y = \ln t$ 在 $t = u(x_0) > 0$ 处连续，由复合函数的连续性，复合函数 $\ln u(x)$ 在 $x_0$ 处连续．
+
+    由连续函数的乘积性质，函数 $w(x) = v(x) \ln u(x)$ 在 $x_0$ 处连续．
+
+    又因为指数函数 $y = \e^t$ 在 $\symbb{R}$ 上处处连续，由复合函数的连续性，复合函数
+    \begin{equation}
+        u(x)^{v(x)} = \e^{w(x)}
+    \end{equation}
+    在 $x_0$ 处连续．
+\end{myproof}
+
+\begin{problem}{倍角不变连续函数的常数性}{Scale-Invariant-Continuous-Function}
+    设 $f(x)$ 在 $\symbb{R}$ 上连续，且对于任意 $x$ 有 $f(2x) = f(x)$．求证 $f(x)$ 是常数．
+\end{problem}
+
+\begin{myproof}
+    由已知条件 $f(x) = f(2x)$，可得 $f(x) = f\left(\frac{x}{2}\right)$．反复递推，对任意正整数 $n$ 及任意实数 $x \in \symbb{R}$，恒有
+    \begin{equation}
+        f(x) = f\left( \frac{x}{2^n} \right).
+    \end{equation}
+    令 $n \to \infty$，显然 $\lim_{n\to\infty} \frac{x}{2^n} = 0$．由于函数 $f(x)$ 在 $x = 0$ 处连续，由海涅定理，有
+    \begin{equation}
+        f(x) = \lim_{n\to\infty} f\left( \frac{x}{2^n} \right) = f\left( \lim_{n\to\infty} \frac{x}{2^n} \right) = f(0).
+    \end{equation}
+    因此，对任意实数 $x \in \symbb{R}$，恒有 $f(x) = f(0)$，即 $f(x)$ 为常数函数．
+\end{myproof}
+
+\begin{problem}{柯西函数方程的连续解}{Cauchy-Functional-Equation-Continuous-Solution}
+    设 $f(x)$ 在 $\symbb{R}$ 上连续，且对于任意 $x, y$ 有 $f(x+y) = f(x) + f(y)$．求证 $f(x) = cx$，其中 $c$ 是常数．
+\end{problem}
+
+\begin{myproof}
+    记常数 $c = f(1)$．
+
+    令 $x = y = 0$，得 $f(0) = f(0) + f(0) \implies f(0) = 0$．
+
+    令 $y = -x$，得 $f(0) = f(x) + f(-x) \implies f(-x) = -f(x)$，故 $f(x)$ 为奇函数．
+
+    利用数学归纳法易得，对任意正整数 $n$ 及任意 $x \in \symbb{R}$，有
+    \begin{equation}
+        f(nx) = n f(x).
+    \end{equation}
+    特别地，$f(n) = n f(1) = cn$．再结合 $f(-n) = -f(n)$ 及 $f(0) = 0$，可知对一切整数 $m \in \symbb{Z}$，均有 $f(m) = cm$．
+
+    对于任意有理数 $r = \frac{p}{q}$（$p \in \symbb{Z}$，$q \in \symbb{Z}^+$），由
+    \begin{equation}
+        q f\left( \frac{p}{q} \right) = f\left( q \cdot \frac{p}{q} \right) = f(p) = cp,
+    \end{equation}
+    两端同除以 $q$，得
+    \begin{equation}
+        f(r) = f\left( \frac{p}{q} \right) = c \cdot \frac{p}{q} = cr.
+    \end{equation}
+    对任意实数 $x \in \symbb{R}$，由有理数集的稠密性，存在有理数列 $\{r_n\}$ 使得 $\lim_{n\to\infty} r_n = x$．由于 $f(x)$ 在 $\symbb{R}$ 上连续，利用海涅定理可得
+    \begin{equation}
+        f(x) = \lim_{n\to\infty} f(r_n) = \lim_{n\to\infty} (c r_n) = cx.
+    \end{equation}
+    故 $f(x) = cx$（$c$ 为常数）．
+\end{myproof}
+
+\begin{problem}{反函数与反指数等价无穷小的证明}{Derivation-Of-Common-Equivalent-Infinitesimals}
+    当 $x \to 0$ 时，用 $\sin x \sim x$，$\tan x \sim x$ 证明 $\arcsin x \sim x$，$\arctan x \sim x$；用 $\ln(1+x) \sim x$ 证明 $(\e^x - 1) \sim x$．
+    （上述的等价无穷小，是微积分中非常基本的事实．）
+\end{problem}
+
+\begin{myproof}
+    令 $t = \arcsin x$，当 $x \to 0$ 时 $t \to 0$，且 $x = \sin t$．由 $\sin t \sim t$（$t \to 0$），有
+    \begin{equation}
+        \lim_{x\to 0} \frac{\arcsin x}{x} = \lim_{t\to 0} \frac{t}{\sin t} = \frac{1}{\lim_{t\to 0} \frac{\sin t}{t}} = \frac{1}{1} = 1,
+    \end{equation}
+    故 $\arcsin x \sim x$（$x \to 0$）．
+
+    令 $t = \arctan x$，当 $x \to 0$ 时 $t \to 0$，且 $x = \tan t$．由 $\tan t \sim t$（$t \to 0$），有
+    \begin{equation}
+        \lim_{x\to 0} \frac{\arctan x}{x} = \lim_{t\to 0} \frac{t}{\tan t} = \frac{1}{\lim_{t\to 0} \frac{\tan t}{t}} = \frac{1}{1} = 1,
+    \end{equation}
+    故 $\arctan x \sim x$（$x \to 0$）．
+
+    令 $t = \e^x - 1$，当 $x \to 0$ 时 $t \to 0$，且 $x = \ln(1+t)$．由 $\ln(1+t) \sim t$（$t \to 0$），有
+    \begin{equation}
+        \lim_{x\to 0} \frac{\e^x - 1}{x} = \lim_{t\to 0} \frac{t}{\ln(1+t)} = \frac{1}{\lim_{t\to 0} \frac{\ln(1+t)}{t}} = \frac{1}{1} = 1,
+    \end{equation}
+    故 $(\e^x - 1) \sim x$（$x \to 0$）．
+\end{myproof}
+
+\begin{problem}{综合极限的计算}{Comprehensive-Limits-Evaluation}
+    求极限：
+    \begin{enumerate}
+        \item $\lim_{x\to 0} \frac{\sqrt{1+x+x^2}-1}{\sin 2x}$；
+        \item $\lim_{x\to 0} \frac{\sqrt{1+x^2}-1}{1-\cos x}$；
+        \item $\lim_{x\to 0} \frac{(\sqrt[10]{1+\tan x}-1)(\sqrt{1+x}-1)}{2x\sin x}$；
+        \item $\lim_{x\to 0} \frac{x\cdot \arcsin(\sin x)}{1-\cos x}$；
+        \item $\lim_{x\to 0} \frac{1-\cos(1-\cos x)}{x^4}$；
+        \item $\lim_{x\to -\infty} x(\sqrt{x^2+100}+x)$；
+        \item $\lim_{x\to +\infty} (\sin\sqrt{x+1}-\sin\sqrt{x})$；
+        \item $\lim_{x\to\infty} \sqrt{2-\frac{\sin x}{x}}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    当 $x \to 0$ 时，$\sqrt{1+x+x^2}-1 \sim \frac{1}{2}(x+x^2) \sim \frac{1}{2}x$，$\sin 2x \sim 2x$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{\sqrt{1+x+x^2}-1}{\sin 2x} = \lim_{x\to 0} \frac{\frac{1}{2}x}{2x} = \frac{1}{4}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\sqrt{1+x+x^2}-1}{\sin 2x} = \frac{1}{4}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    当 $x \to 0$ 时，$\sqrt{1+x^2}-1 \sim \frac{1}{2}x^2$，$1-\cos x \sim \frac{1}{2}x^2$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{\sqrt{1+x^2}-1}{1-\cos x} = \lim_{x\to 0} \frac{\frac{1}{2}x^2}{\frac{1}{2}x^2} = 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\sqrt{1+x^2}-1}{1-\cos x} = 1.}
+    \end{equation}
+
+    \ansitem{3}
+
+    当 $x \to 0$ 时，$\sqrt[10]{1+\tan x}-1 \sim \frac{1}{10}\tan x \sim \frac{1}{10}x$，$\sqrt{1+x}-1 \sim \frac{1}{2}x$，$\sin x \sim x$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{(\sqrt[10]{1+\tan x}-1)(\sqrt{1+x}-1)}{2x\sin x} = \lim_{x\to 0} \frac{\left(\frac{1}{10}x\right)\left(\frac{1}{2}x\right)}{2x \cdot x} = \frac{1}{40}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{(\sqrt[10]{1+\tan x}-1)(\sqrt{1+x}-1)}{2x\sin x} = \frac{1}{40}.}
+    \end{equation}
+
+    \ansitem{4}
+
+    当 $x \in \left(-\frac{\uppi}{2}, \frac{\uppi}{2}\right)$ 时，$\arcsin(\sin x) = x$，且 $1 - \cos x \sim \frac{1}{2}x^2$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{x\cdot \arcsin(\sin x)}{1-\cos x} = \lim_{x\to 0} \frac{x \cdot x}{\frac{1}{2}x^2} = 2.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{x\cdot \arcsin(\sin x)}{1-\cos x} = 2.}
+    \end{equation}
+
+    \ansitem{5}
+
+    当 $x \to 0$ 时，$u = 1 - \cos x \sim \frac{1}{2}x^2 \to 0$，从而 $1 - \cos u \sim \frac{1}{2}u^2$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{1-\cos(1-\cos x)}{x^4} = \lim_{x\to 0} \frac{\frac{1}{2}(1 - \cos x)^2}{x^4} = \lim_{x\to 0} \frac{\frac{1}{2}\left(\frac{1}{2}x^2\right)^2}{x^4} = \frac{1}{8}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{1-\cos(1-\cos x)}{x^4} = \frac{1}{8}.}
+    \end{equation}
+
+    \ansitem{6}
+
+    令 $t = -x$，当 $x \to -\infty$ 时 $t \to +\infty$，有理化分子得
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to -\infty} x(\sqrt{x^2+100}+x) & = \lim_{t\to +\infty} (-t)(\sqrt{t^2+100}-t)                  \\
+                                                    & = \lim_{t\to +\infty} \frac{-100t}{\sqrt{t^2+100}+t}          \\
+                                                    & = \lim_{t\to +\infty} \frac{-100}{\sqrt{1+\frac{100}{t^2}}+1} \\
+                                                    & = -50.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to -\infty} x(\sqrt{x^2+100}+x) = -50.}
+    \end{equation}
+
+    \ansitem{7}
+
+    应用和差化积公式：
+    \begin{equation}
+        \sin\sqrt{x+1}-\sin\sqrt{x} = 2 \sin\left( \frac{\sqrt{x+1}-\sqrt{x}}{2} \right) \cos\left( \frac{\sqrt{x+1}+\sqrt{x}}{2} \right).
+    \end{equation}
+    由于
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{\sqrt{x+1}-\sqrt{x}}{2} = \lim_{x\to +\infty} \frac{1}{2(\sqrt{x+1}+\sqrt{x})} = 0,
+    \end{equation}
+    且 $\left| \cos\left( \frac{\sqrt{x+1}+\sqrt{x}}{2} \right) \right| \leqslant 1$，由无穷小量与有界量的乘积性质，得
+    \begin{equation}
+        \lim_{x\to +\infty} (\sin\sqrt{x+1}-\sin\sqrt{x}) = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to +\infty} (\sin\sqrt{x+1}-\sin\sqrt{x}) = 0.}
+    \end{equation}
+
+    \ansitem{8}
+
+    因为 $|\sin x| \leqslant 1$，所以
+    \begin{equation}
+        \lim_{x\to\infty} \frac{\sin x}{x} = 0.
+    \end{equation}
+    由根式函数的连续性，得
+    \begin{equation}
+        \lim_{x\to\infty} \sqrt{2-\frac{\sin x}{x}} = \sqrt{2 - 0} = \sqrt{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to\infty} \sqrt{2-\frac{\sin x}{x}} = \sqrt{2}.}
+    \end{equation}
+\end{solution}
+
+\endinput

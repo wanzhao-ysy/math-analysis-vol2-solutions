@@ -1,0 +1,573 @@
+\section{第 1 章综合习题}
+
+\begin{problem}{递推与连乘数列的极限}{Recurrence-And-Product-Sequence-Limits}
+    求下列数列的极限：
+    \begin{enumerate}
+        \item $a_n = \frac{1}{2} \cdot \frac{3}{4} \cdots \frac{2n-1}{2n}$（提示：$\frac{1}{2} \cdot \frac{3}{4} \cdots \frac{2n-1}{2n} \leqslant \frac{1}{\sqrt{2n+1}}$）；
+        \item $a_n = \frac{10}{1} \cdot \frac{11}{3} \cdot \frac{12}{5} \cdots \frac{n+9}{2n-1}$；
+        \item 设 $a_1 > 1$，$a_{n+1} = 2 - \frac{1}{a_n}$，$n = 1, 2, \cdots$；
+        \item 设 $a_1 = 3$，$a_{n+1} = \frac{1}{1+a_n}$，$n = 1, 2, \cdots$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对任意正整数 $n$，显然 $a_n > 0$．结合提示中的不等式，有
+    \begin{equation}
+        0 < a_n \leqslant \frac{1}{\sqrt{2n+1}}.
+    \end{equation}
+    因为 $\lim_{n\to\infty} \frac{1}{\sqrt{2n+1}} = 0$，由夹逼准则可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = 0.}
+    \end{equation}
+
+    \ansitem{2}
+
+    因为 $a_n > 0$，考察相邻两项之比：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{n + 10}{2n + 1} = \frac{1}{2} < 1.
+    \end{equation}
+    故由达朗贝尔比值判别法，可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = 0.}
+    \end{equation}
+
+    \ansitem{3}
+
+    由 $a_1 > 1$ 及递推关系，用数学归纳法易证对一切 $n \in \symbb{N}^+$ 均有 $a_n > 1$．
+
+    考察相邻两项之差：
+    \begin{equation}
+        a_{n+1} - a_n = 2 - \frac{1}{a_n} - a_n = -\frac{(a_n - 1)^2}{a_n} \leqslant 0.
+    \end{equation}
+    故数列 $\{a_n\}$ 单调递减且有下界 $1$．
+
+    由单调有界定理，极限 $\lim_{n\to\infty} a_n = L \geqslant 1$ 存在．在递推式两边取极限得
+    \begin{equation}
+        L = 2 - \frac{1}{L} \implies (L - 1)^2 = 0 \implies L = 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = 1.}
+    \end{equation}
+
+    \ansitem{4}
+
+    由 $a_1 = 3 > 0$ 及 $a_{n+1} = \frac{1}{1 + a_n}$，可知对一切 $n \in \symbb{N}^+$ 均有 $a_n > 0$．
+
+    从而当 $n \geqslant 2$ 时，$a_n = \frac{1}{1 + a_{n-1}} < 1$，进而当 $n \geqslant 3$ 时，
+    \begin{equation}
+        a_n = \frac{1}{1 + a_{n-1}} > \frac{1}{1 + 1} = \frac{1}{2}.
+    \end{equation}
+    由此可知当 $n \geqslant 3$ 时，$a_n \in \left[ \frac{1}{2}, 1 \right]$．
+
+    考察相邻项差的绝对值：
+    \begin{equation}
+        |a_{n+1} - a_n| = \left| \frac{1}{1 + a_n} - \frac{1}{1 + a_{n-1}} \right| = \frac{|a_n - a_{n-1}|}{(1 + a_n)(1 + a_{n-1})} \leqslant \frac{4}{9} |a_n - a_{n-1}|.
+    \end{equation}
+    因为压缩系数 $\frac{4}{9} < 1$，由柯西收敛准则，数列 $\{a_n\}$ 收敛．
+
+    设 $\lim_{n\to\infty} a_n = L \geqslant 0$，在递推式两边取极限得
+    \begin{equation}
+        L = \frac{1}{1 + L} \implies L^2 + L - 1 = 0 \implies L = \frac{\sqrt{5} - 1}{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \frac{\sqrt{5} - 1}{2}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{单调数列的上界性定理}{Monotone-Sequence-Boundedness-Theorem}
+    设 $\{a_n\}$ 为单调递增的数列，并且收敛于 $a$，证明：对一切 $n$ 有 $a_n \leqslant a$．（对单调递减且有极限的数列，类似结论成立．）
+\end{problem}
+
+\begin{myproof}
+    采用反证法．若结论不成立，则存在某个正整数 $n_0$，使得
+    \begin{equation}
+        a_{n_0} > a.
+    \end{equation}
+    因为数列 $\{a_n\}$ 单调递增，所以对任意正整数 $n \geqslant n_0$，恒有
+    \begin{equation}
+        a_n \geqslant a_{n_0}.
+    \end{equation}
+    由数列极限的保序性定理，在不等式两端取 $n \to \infty$ 的极限，得
+    \begin{equation}
+        a = \lim_{n\to\infty} a_n \geqslant a_{n_0} > a,
+    \end{equation}
+    即导出了矛盾的式子 $a > a$．
+
+    故假设不成立，对一切 $n \in \symbb{N}^+$ 均有 $a_n \leqslant a$．
+\end{myproof}
+
+\begin{problem}{级数部分和与连乘积的收敛性}{Convergence-Of-Series-And-Infinite-Products}
+    证明下面的数列收敛：
+    \begin{enumerate}
+        \item $a_n = 1 + \frac{1}{2^2} + \cdots + \frac{1}{n^2}$；
+        \item $a_n = \left( 1 + \frac{1}{2} \right) \left( 1 + \frac{1}{2^2} \right) \cdots \left( 1 + \frac{1}{2^n} \right)$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    因为
+    \begin{equation}
+        a_{n+1} - a_n = \frac{1}{(n+1)^2} > 0,
+    \end{equation}
+    所以数列 $\{a_n\}$ 单调递增．同时，当 $n \geqslant 2$ 时进行放缩：
+    \begin{equation}
+        \begin{aligned}
+            a_n & = 1 + \sum_{k=2}^n \frac{1}{k^2} < 1 + \sum_{k=2}^n \frac{1}{k(k-1)} \\
+                & = 1 + \sum_{k=2}^n \left( \frac{1}{k-1} - \frac{1}{k} \right)        \\
+                & = 1 + \left( 1 - \frac{1}{n} \right) = 2 - \frac{1}{n} < 2.
+        \end{aligned}
+    \end{equation}
+    故数列 $\{a_n\}$ 有上界 $2$．由单调有界定理，数列 $\{a_n\}$ 收敛．
+
+    \ansitem{2}
+
+    因为
+    \begin{equation}
+        \frac{a_{n+1}}{a_n} = 1 + \frac{1}{2^{n+1}} > 1 \implies a_{n+1} > a_n,
+    \end{equation}
+    所以数列 $\{a_n\}$ 单调递增．
+
+    利用不等式 $1 + x < \e^x$（$x > 0$），有
+    \begin{equation}
+        a_n = \prod_{k=1}^n \left( 1 + \frac{1}{2^k} \right) < \prod_{k=1}^n \e^{\frac{1}{2^k}} = \e^{\sum_{k=1}^n \frac{1}{2^k}} = \e^{1 - \frac{1}{2^n}} < \e.
+    \end{equation}
+    故数列 $\{a_n\}$ 有上界 $\e$．由单调有界定理，数列 $\{a_n\}$ 收敛．
+\end{myproof}
+
+\begin{problem}{相邻项差趋于零的发散数列构造}{Construction-Of-Divergent-Sequence}
+    试构造一个发散的数列 $\{a_n\}$，满足条件：对任意正数 $\varepsilon$，存在正整数 $N$，使当 $n > N$ 时，有 $|a_{n+1} - a_n| < \varepsilon$．
+\end{problem}
+
+\begin{solution}
+    构造数列 $a_n = \sqrt{n}$（$n \in \symbb{N}^+$）．
+
+    考察相邻两项之差：
+    \begin{equation}
+        |a_{n+1} - a_n| = \sqrt{n+1} - \sqrt{n} = \frac{1}{\sqrt{n+1} + \sqrt{n}} < \frac{1}{2\sqrt{n}}.
+    \end{equation}
+    对任意正数 $\varepsilon > 0$，取正整数 $N = \left\lfloor \frac{1}{4\varepsilon^2} \right\rfloor$，则当 $n > N$ 时，恒有
+    \begin{equation}
+        |a_{n+1} - a_n| < \frac{1}{2\sqrt{n}} < \varepsilon.
+    \end{equation}
+    但由于
+    \begin{equation}
+        \lim_{n\to\infty} a_n = \lim_{n\to\infty} \sqrt{n} = +\infty,
+    \end{equation}
+    数列 $\{a_n\}$ 发散．
+    \begin{equation}
+        \boxed{a_n = \sqrt{n} \quad \left(\text{或 } a_n = \sum_{k=1}^n \frac{1}{k}\right).}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{有界变差数列的收敛性}{Bounded-Variation-Sequence-Convergence}
+    若数列 $\{a_n\}$ 满足：存在常数 $M$，使得对一切 $n$ 有
+    \begin{equation}
+        A_n = |a_2 - a_1| + |a_3 - a_2| + \cdots + |a_{n+1} - a_n| \leqslant M.
+    \end{equation}
+    证明：
+    \begin{enumerate}
+        \item 数列 $\{A_n\}$ 收敛；
+        \item 数列 $\{a_n\}$ 也收敛．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    因为
+    \begin{equation}
+        A_{n+1} - A_n = |a_{n+2} - a_{n+1}| \geqslant 0,
+    \end{equation}
+    所以数列 $\{A_n\}$ 单调递增．又已知对一切 $n \in \symbb{N}^+$ 恒有 $A_n \leqslant M$，即数列 $\{A_n\}$ 有上界 $M$．
+
+    由单调有界定理，数列 $\{A_n\}$ 收敛．
+
+    \ansitem{2}
+
+    由 (1) 知数列 $\{A_n\}$ 收敛，由柯西收敛准则，对任给 $\varepsilon > 0$，存在正整数 $N$，使得当 $n > N$ 时，对任意正整数 $p$ 均有
+    \begin{equation}
+        |A_{n+p-1} - A_{n-1}| = \sum_{k=n}^{n+p-1} |a_{k+1} - a_k| < \varepsilon.
+    \end{equation}
+    应用绝对值三角不等式，对相同的 $n$ 与 $p$，有
+    \begin{equation}
+        \begin{aligned}
+            |a_{n+p} - a_n| & = \left| \sum_{k=n}^{n+p-1} (a_{k+1} - a_k) \right| \\
+                            & \leqslant \sum_{k=n}^{n+p-1} |a_{k+1} - a_k|        \\
+                            & < \varepsilon.
+        \end{aligned}
+    \end{equation}
+    由柯西收敛准则，数列 $\{a_n\}$ 收敛．
+\end{myproof}
+
+\begin{problem}{严格递增数列幂差的极限}{Strictly-Increasing-Sequence-Power-Difference}
+    设 $\{a_n\}$ 是正严格递增数列．求证：若 $a_{n+1} - a_n$ 有界，则对任意 $\alpha \in (0, 1)$ 有 $\lim_{n\to\infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$．并说明此结论的逆不对，即，存在正严格递增数列 $\{a_n\}$ 使得对任意 $\alpha \in (0, 1)$ 有 $\lim_{n\to\infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$，但是 $a_{n+1} - a_n$ 无界．（提示：考虑 $a_n = n \ln n$．）
+\end{problem}
+
+\begin{myproof}
+    设存在常数 $M > 0$，使得对一切 $n \in \symbb{N}^+$ 恒有 $a_{n+1} - a_n \leqslant M$．由拉格朗日中值定理，存在 $\xi_n \in (a_n, a_{n+1})$，使得
+    \begin{equation}
+        a_{n+1}^\alpha - a_n^\alpha = \alpha \xi_n^{\alpha - 1}(a_{n+1} - a_n).
+    \end{equation}
+    由于数列 $\{a_n\}$ 是正严格递增数列，分两种情况讨论：
+
+    若数列 $\{a_n\}$ 有界，由单调有界定理，$\lim_{n\to\infty} a_n = A > 0$ 存在，从而
+    \begin{equation}
+        \lim_{n\to\infty} (a_{n+1}^\alpha - a_n^\alpha) = A^\alpha - A^\alpha = 0.
+    \end{equation}
+
+    若数列 $\{a_n\}$ 无界，则 $\lim_{n\to\infty} a_n = +\infty$．因为 $\xi_n > a_n$，所以 $\lim_{n\to\infty} \xi_n = +\infty$．由于 $\alpha \in (0, 1)$，指数 $\alpha - 1 < 0$，故
+    \begin{equation}
+        0 < a_{n+1}^\alpha - a_n^\alpha = \alpha \xi_n^{\alpha - 1}(a_{n+1} - a_n) \leqslant \alpha M a_n^{\alpha - 1}.
+    \end{equation}
+    因为 $\lim_{n\to\infty} a_n^{\alpha - 1} = 0$，由夹逼准则可得
+    \begin{equation}
+        \lim_{n\to\infty} (a_{n+1}^\alpha - a_n^\alpha) = 0.
+    \end{equation}
+    逆命题不成立：考虑数列 $a_n = n \ln n$（$n \geqslant 2$），数列 $\{a_n\}$ 正且严格单调递增．差式为
+    \begin{equation}
+        \begin{aligned}
+            a_{n+1} - a_n & = (n+1)\ln(n+1) - n\ln n                       \\
+                          & = \ln(n+1) + n\ln\left(1 + \frac{1}{n}\right).
+        \end{aligned}
+    \end{equation}
+    由于 $\lim_{n\to\infty} n\ln\left(1 + \frac{1}{n}\right) = 1$ 且 $\lim_{n\to\infty} \ln(n+1) = +\infty$，故 $a_{n+1} - a_n \to +\infty$，数列 $a_{n+1} - a_n$ 无界．
+
+    但对任意 $\alpha \in (0, 1)$，由拉格朗日中值定理，存在 $\xi_n \in (n\ln n, (n+1)\ln(n+1))$，有
+    \begin{equation}
+        a_{n+1}^\alpha - a_n^\alpha = \alpha \xi_n^{\alpha - 1}(a_{n+1} - a_n) < \alpha (n\ln n)^{\alpha - 1}\left[ \ln(n+1) + 1 \right].
+    \end{equation}
+    当 $n \to \infty$ 时，
+    \begin{equation}
+        \lim_{n\to\infty} \frac{\ln(n+1) + 1}{(n\ln n)^{1 - \alpha}} = \lim_{n\to\infty} \frac{\ln n}{n^{1 - \alpha} (\ln n)^{1 - \alpha}} = \lim_{n\to\infty} \frac{(\ln n)^\alpha}{n^{1 - \alpha}} = 0.
+    \end{equation}
+    由夹逼准则知 $\lim_{n\to\infty} (a_{n+1}^\alpha - a_n^\alpha) = 0$．
+\end{myproof}
+
+\begin{problem}{差分极限推导平均极限}{Difference-Limit-Implies-Average-Limit}
+    设数列 $\{a_n\}$ 满足 $\lim_{n\to\infty} (a_{n+1} - a_n) = a$．证明：$\lim_{n\to\infty} \frac{a_n}{n} = a$．
+\end{problem}
+
+\begin{myproof}
+    应用 Stolz 定理（$\frac{*}{\infty}$ 型）：
+
+    令 $x_n = a_n$，$y_n = n$．显然数列 $\{y_n\}$ 严格单调递增且 $\lim_{n\to\infty} y_n = +\infty$．
+
+    考察差分之比的极限：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{x_n - x_{n-1}}{y_n - y_{n-1}} = \lim_{n\to\infty} \frac{a_n - a_{n-1}}{n - (n-1)} = \lim_{n\to\infty} (a_n - a_{n-1}) = a.
+    \end{equation}
+    由 Stolz 定理，即得
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_n}{n} = a.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{几何平均值的极限}{Geometric-Mean-Limit}
+    证明：若 $\lim_{n\to\infty} a_n = a$，且 $a_n > 0$，则 $\lim_{n\to\infty} \sqrt[n]{a_1 a_2 \cdots a_n} = a$．
+\end{problem}
+
+\begin{myproof}
+    若 $a > 0$：对通项取自然对数，得
+    \begin{equation}
+        \ln \left( \sqrt[n]{a_1 a_2 \cdots a_n} \right) = \frac{\ln a_1 + \ln a_2 + \cdots + \ln a_n}{n}.
+    \end{equation}
+    由对数函数连续性可知 $\lim_{n\to\infty} \ln a_n = \ln a$．由 Stolz 定理，
+    \begin{equation}
+        \lim_{n\to\infty} \frac{\sum_{k=1}^n \ln a_k}{n} = \lim_{n\to\infty} \frac{\ln a_n}{1} = \ln a.
+    \end{equation}
+    再由指数函数的连续性，得
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{a_1 a_2 \cdots a_n} = \e^{\ln a} = a.
+    \end{equation}
+
+    若 $a = 0$：对任给 $\varepsilon > 0$，存在正整数 $N$，使得当 $k > N$ 时恒有 $0 < a_k < \varepsilon$．
+
+    从而当 $n > N$ 时，
+    \begin{equation}
+        0 < \sqrt[n]{a_1 a_2 \cdots a_n} = (a_1 \cdots a_N)^{1/n} (a_{N+1} \cdots a_n)^{1/n} < (a_1 \cdots a_N)^{1/n} \varepsilon^{\frac{n-N}{n}}.
+    \end{equation}
+    因为 $N$ 为定数，所以 $\lim_{n\to\infty} (a_1 \cdots a_N)^{1/n} \varepsilon^{\frac{n-N}{n}} = 1 \cdot \varepsilon = \varepsilon$，故
+    \begin{equation}
+        0 \leqslant \limsup_{n\to\infty} \sqrt[n]{a_1 a_2 \cdots a_n} \leqslant \varepsilon.
+    \end{equation}
+    由 $\varepsilon > 0$ 的任意性，即得 $\lim_{n\to\infty} \sqrt[n]{a_1 a_2 \cdots a_n} = 0 = a$．
+\end{myproof}
+
+\begin{problem}{比值极限与开方极限}{Ratio-Limit-And-Root-Limit}
+    证明：若 $a_n > 0$，且 $\lim_{n\to\infty} \frac{a_{n+1}}{a_n}$ 存在，则 $\lim_{n\to\infty} \sqrt[n]{a_n}$ 也存在，并且
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{a_n} = \lim_{n\to\infty} \frac{a_{n+1}}{a_n}.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    令 $b_1 = a_1$，$b_k = \frac{a_k}{a_{k-1}}$（$k = 2, 3, \cdots$）．则对任意正整数 $n$，均有
+    \begin{equation}
+        a_n = b_1 \cdot b_2 \cdots b_n \implies \sqrt[n]{a_n} = \sqrt[n]{b_1 b_2 \cdots b_n}.
+    \end{equation}
+    已知
+    \begin{equation}
+        \lim_{k\to\infty} b_k = \lim_{k\to\infty} \frac{a_k}{a_{k-1}} = \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = l.
+    \end{equation}
+    由几何平均值极限法则，有
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{a_n} = \lim_{n\to\infty} \sqrt[n]{b_1 b_2 \cdots b_n} = l = \lim_{n\to\infty} \frac{a_{n+1}}{a_n}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{数列极限的应用求解}{Sequence-Limits-Calculation}
+    求下列极限：
+    \begin{enumerate}
+        \item $\lim_{n\to\infty} \frac{1 + \sqrt{2} + \sqrt[3]{3} + \cdots + \sqrt[n]{n}}{n}$；
+        \item $\lim_{n\to\infty} \frac{n}{\sqrt[n]{n!}}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $x_n = \sum_{k=1}^n \sqrt[k]{k}$，$y_n = n$．因为 $\{y_n\}$ 严格单调递增且趋于 $+\infty$，由 Stolz 定理及 $\lim_{n\to\infty} \sqrt[n]{n} = 1$：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{x_n - x_{n-1}}{y_n - y_{n-1}} = \lim_{n\to\infty} \frac{\sqrt[n]{n}}{1} = 1.
+    \end{equation}
+    故由 Stolz 定理得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \frac{1 + \sqrt{2} + \sqrt[3]{3} + \cdots + \sqrt[n]{n}}{n} = 1.}
+    \end{equation}
+
+    \ansitem{2}
+
+    令 $a_n = \frac{n^n}{n!}$，则 $\frac{n}{\sqrt[n]{n!}} = \sqrt[n]{a_n}$．计算比值极限：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{\frac{(n+1)^{n+1}}{(n+1)!}}{\frac{n^n}{n!}} = \lim_{n\to\infty} \left( \frac{n+1}{n} \right)^n = \lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n = \e.
+    \end{equation}
+    由开方极限与比值极限的关系，得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \frac{n}{\sqrt[n]{n!}} = \e.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{加权平均数列的极限}{Weighted-Average-Sequence-Limit}
+    已知 $\lim_{n\to\infty} a_n = a$，求证 $\lim_{n\to\infty} \frac{a_1 + 2a_2 + \cdots + n a_n}{n^2} = \frac{a}{2}$．
+\end{problem}
+
+\begin{myproof}
+    令 $x_n = \sum_{k=1}^n k a_k$，$y_n = n^2$．
+
+    显然数列 $\{y_n\}$ 严格单调递增且 $\lim_{n\to\infty} y_n = +\infty$．考察差分之比的极限：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{n\to\infty} \frac{x_n - x_{n-1}}{y_n - y_{n-1}} & = \lim_{n\to\infty} \frac{n a_n}{n^2 - (n-1)^2}                                       \\
+                                                                  & = \lim_{n\to\infty} \frac{n a_n}{2n - 1}                                              \\
+                                                                  & = \lim_{n\to\infty} \left( \frac{1}{2 - \frac{1}{n}} \cdot a_n \right) = \frac{a}{2}.
+        \end{aligned}
+    \end{equation}
+    由 Stolz 定理，即得
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_1 + 2a_2 + \cdots + n a_n}{n^2} = \frac{a}{2}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{一般加权平均的收敛性}{General-Weighted-Average-Convergence}
+    设 $\{a_n\}$ 且 $a_n \to a \in \symbb{R}$，又设 $\{b_n\}$ 是正数列，$c_n = \frac{a_1 b_1 + a_2 b_2 + \cdots + a_n b_n}{b_1 + b_2 + \cdots + b_n}$．求证：
+    \begin{enumerate}
+        \item $\{c_n\}$ 收敛；
+        \item 若 $(b_1 + b_2 + \cdots + b_n) \to +\infty$，则 $\lim_{n\to\infty} c_n = a$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    记 $B_n = \sum_{k=1}^n b_k$，$A_n = \sum_{k=1}^n a_k b_k$．因为 $b_k > 0$，所以数列 $\{B_n\}$ 严格单调递增．
+
+    若级数 $\sum_{k=1}^\infty b_k$ 收敛，即 $\lim_{n\to\infty} B_n = B > 0$．因 $a_n \to a$，数列 $\{a_n\}$ 有界，存在 $M > 0$ 使得 $|a_n| \leqslant M$，故
+    \begin{equation}
+        |a_n b_n| \leqslant M b_n.
+    \end{equation}
+    由比较判别法，级数 $\sum_{k=1}^\infty a_k b_k$ 绝对收敛，设 $\lim_{n\to\infty} A_n = A$．从而
+    \begin{equation}
+        \lim_{n\to\infty} c_n = \lim_{n\to\infty} \frac{A_n}{B_n} = \frac{A}{B},
+    \end{equation}
+    数列 $\{c_n\}$ 收敛．
+
+    若级数 $\sum_{k=1}^\infty b_k$ 发散，即 $\lim_{n\to\infty} B_n = +\infty$，由 (2) 可知 $\lim_{n\to\infty} c_n = a$，数列 $\{c_n\}$ 亦收敛．
+
+    综上，数列 $\{c_n\}$ 必收敛．
+
+    \ansitem{2}
+
+    当 $B_n = \sum_{k=1}^n b_k \to +\infty$ 时，应用 Stolz 定理（$\frac{*}{\infty}$ 型）：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{A_n - A_{n-1}}{B_n - B_{n-1}} = \lim_{n\to\infty} \frac{a_n b_n}{b_n} = \lim_{n\to\infty} a_n = a.
+    \end{equation}
+    由 Stolz 定理，即得
+    \begin{equation}
+        \lim_{n\to\infty} c_n = \lim_{n\to\infty} \frac{A_n}{B_n} = a.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{含参幂指函数的极限}{Parametric-Power-Exponential-Limit}
+    证明：
+    \begin{equation}
+        \lim_{x\to +\infty} \left( 1 + \frac{1}{x^p} \right)^x = \begin{cases} 1, & p > 1, \\ \e, & p = 1, \\ + \infty, & p < 1. \end{cases}
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    令 $f(x) = \left( 1 + \frac{1}{x^p} \right)^x = \exp\left[ x \ln\left( 1 + \frac{1}{x^p} \right) \right]$．
+
+    当 $p > 0$ 时，当 $x \to +\infty$ 时 $\frac{1}{x^p} \to 0$．利用等价无穷小 $\ln(1 + u) \sim u$（$u \to 0$），有
+    \begin{equation}
+        \lim_{x\to +\infty} x \ln\left( 1 + \frac{1}{x^p} \right) = \lim_{x\to +\infty} x \cdot \frac{1}{x^p} = \lim_{x\to +\infty} x^{1 - p}.
+    \end{equation}
+    分三种情况讨论：
+    \begin{enumerate}
+        \item 当 $p > 1$ 时，$1 - p < 0$，故 $\lim_{x\to +\infty} x^{1 - p} = 0$，由指数函数连续性，得
+              \begin{equation}
+                  \lim_{x\to +\infty} f(x) = \e^0 = 1;
+              \end{equation}
+        \item 当 $p = 1$ 时，$1 - p = 0$，故 $\lim_{x\to +\infty} x \ln\left( 1 + \frac{1}{x} \right) = 1$，得
+              \begin{equation}
+                  \lim_{x\to +\infty} f(x) = \e^1 = \e;
+              \end{equation}
+        \item 当 $0 < p < 1$ 时，$1 - p > 0$，故 $\lim_{x\to +\infty} x^{1 - p} = +\infty$，得
+              \begin{equation}
+                  \lim_{x\to +\infty} f(x) = +\infty.
+              \end{equation}
+    \end{enumerate}
+
+    当 $p \leqslant 0$ 时：若 $p = 0$，则 $\lim_{x\to +\infty} 2^x = +\infty$；若 $p < 0$，令 $q = -p > 0$，底数 $1 + x^q > 2$（$x > 1$），则 $(1 + x^q)^x > 2^x \to +\infty$．
+
+    综上所述，当 $p < 1$ 时极限恒为 $+\infty$．
+
+    命题得证．
+\end{myproof}
+
+\begin{problem}{周期函数的极限性质}{Periodic-Function-Limit-Property}
+    设 $f(x)$ 为周期函数，且 $\lim_{x\to\infty} f(x) = 0$，证明 $f(x)$ 恒为零．
+\end{problem}
+
+\begin{myproof}
+    设 $T > 0$ 为函数 $f(x)$ 的一个正周期．
+
+    任取实数 $x_0 \in \symbb{R}$，构造数列 $x_n = x_0 + nT$（$n \in \symbb{N}^+$）．显然 $\lim_{n\to\infty} x_n = +\infty$．
+
+    由已知 $\lim_{x\to\infty} f(x) = 0$ 及海涅定理，有
+    \begin{equation}
+        \lim_{n\to\infty} f(x_n) = 0.
+    \end{equation}
+    又由于 $f(x)$ 以 $T$ 为周期，对任意正整数 $n$，恒有
+    \begin{equation}
+        f(x_n) = f(x_0 + nT) = f(x_0).
+    \end{equation}
+    由此可得
+    \begin{equation}
+        f(x_0) = \lim_{n\to\infty} f(x_n) = 0.
+    \end{equation}
+    由 $x_0 \in \symbb{R}$ 的任意性，可知 $f(x)$ 恒为零．
+\end{myproof}
+
+\begin{problem}{单侧极限的单调数列判别准则}{Monotone-Sequence-Criterion-For-One-Sided-Limits}
+    证明：
+    \begin{enumerate}
+        \item 函数 $f(x)$ 在 $x \to x_0^-$ 时有极限 $l$ 的充分必要条件是：对于任意一个以 $x_0$ 为极限的单调递增数列 $\{a_n\}$（$a_n \neq x_0$），都有 $\lim_{n\to\infty} f(a_n) = l$；
+        \item 函数 $f(x)$ 在 $x \to x_0^+$ 时有极限 $l$ 的充分必要条件是：对于任意一个以 $x_0$ 为极限的单调递减数列 $\{a_n\}$（$a_n \neq x_0$），都有 $\lim_{n\to\infty} f(a_n) = l$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    必要性：设 $\lim_{x\to x_0^-} f(x) = l$．对任给 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $x_0 - \delta < x < x_0$ 时，有
+    \begin{equation}
+        |f(x) - l| < \varepsilon.
+    \end{equation}
+    设数列 $\{a_n\}$ 单调递增且 $\lim_{n\to\infty} a_n = x_0$（$a_n \neq x_0$），则必有 $a_n < x_0$．针对上述 $\delta > 0$，存在正整数 $N$，使得当 $n > N$ 时，有 $x_0 - \delta < a_n < x_0$，从而
+    \begin{equation}
+        |f(a_n) - l| < \varepsilon.
+    \end{equation}
+    故 $\lim_{n\to\infty} f(a_n) = l$．
+
+    充分性：采用反证法．假设当 $x \to x_0^-$ 时 $f(x)$ 不以 $l$ 为极限，则存在 $\varepsilon_0 > 0$，使得对任意 $\delta > 0$，均存在 $x \in (x_0 - \delta, x_0)$ 满足 $|f(x) - l| \geqslant \varepsilon_0$．
+
+    取 $\delta_1 = 1$，存在 $a_1 \in (x_0 - 1, x_0)$，使得 $|f(a_1) - l| \geqslant \varepsilon_0$．
+
+    假设已选出 $a_1 < a_2 < \cdots < a_k < x_0$，令
+    \begin{equation}
+        \delta_{k+1} = \min\left\{ \frac{1}{k+1}, x_0 - a_k \right\} > 0.
+    \end{equation}
+    存在 $a_{k+1} \in (x_0 - \delta_{k+1}, x_0)$，使得 $|f(a_{k+1}) - l| \geqslant \varepsilon_0$．此时显然有
+    \begin{equation}
+        a_k < x_0 - \delta_{k+1} < a_{k+1} < x_0, \quad 0 < x_0 - a_{k+1} < \frac{1}{k+1}.
+    \end{equation}
+    如此归纳构造得到一个单调递增数列 $\{a_n\}$，满足 $a_n < x_0$ 且 $\lim_{n\to\infty} a_n = x_0$．但对一切 $n \in \symbb{N}^+$ 均有 $|f(a_n) - l| \geqslant \varepsilon_0$，这与已知条件 $\lim_{n\to\infty} f(a_n) = l$ 矛盾．
+
+    故充分性成立．
+
+    \ansitem{2}
+
+    必要性：设 $\lim_{x\to x_0^+} f(x) = l$．对任给 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $x_0 < x < x_0 + \delta$ 时，有 $|f(x) - l| < \varepsilon$．对于任意单调递减且收敛于 $x_0$ 的数列 $\{a_n\}$（$a_n > x_0$），存在正整数 $N$，使得当 $n > N$ 时，$x_0 < a_n < x_0 + \delta$，从而 $|f(a_n) - l| < \varepsilon$，即 $\lim_{n\to\infty} f(a_n) = l$．
+
+    充分性：反证法同理，若 $\lim_{x\to x_0^+} f(x) \neq l$，则存在 $\varepsilon_0 > 0$，通过递推选取
+    \begin{equation}
+        \delta_{k+1} = \min\left\{ \frac{1}{k+1}, a_k - x_0 \right\} > 0,
+    \end{equation}
+    可构造出单调递减数列 $\{a_n\}$（$a_n > x_0$），满足 $\lim_{n\to\infty} a_n = x_0$，但对一切 $n$ 恒有 $|f(a_n) - l| \geqslant \varepsilon_0$，产生矛盾．
+
+    故命题得证．
+\end{myproof}
+
+\begin{problem}{无理数生成加法群的稠密性}{Kronecker-Density-Theorem}
+    设 $\xi$ 是一个无理数．$a, b$ 是实数，且 $a < b$．求证：存在整数 $m, n$ 使得 $m + n\xi \in (a, b)$，即，集合
+    \begin{equation}
+        S = \{m + n\xi \mid m, n \in \symbb{Z}\}
+    \end{equation}
+    在 $\symbb{R}$ 稠密．
+\end{problem}
+
+\begin{myproof}
+    设区间长度为 $\ell = b - a > 0$．取正整数 $N > \frac{1}{\ell}$．
+
+    对任意实数 $x$，记其小数部分为 $\{x\} = x - \lfloor x \rfloor \in [0, 1)$．考虑 $N + 1$ 个数：
+    \begin{equation}
+        \{\xi\}, \{2\xi\}, \cdots, \{(N+1)\xi\}.
+    \end{equation}
+    将区间 $[0, 1)$ 等分为 $N$ 个半开半闭子区间：
+    \begin{equation}
+        \left[ \frac{j-1}{N}, \frac{j}{N} \right), \quad j = 1, 2, \cdots, N.
+    \end{equation}
+    由抽屉原理，必存在两个不同的正整数 $1 \leqslant k_1 < k_2 \leqslant N + 1$，使得 $\{k_1 \xi\}$ 与 $\{k_2 \xi\}$ 落在同一个子区间内．
+
+    令 $n_0 = k_2 - k_1 \in \symbb{Z}^+$，$m_0 = \lfloor k_1 \xi \rfloor - \lfloor k_2 \xi \rfloor \in \symbb{Z}$，并记
+    \begin{equation}
+        d = m_0 + n_0 \xi = \{k_2 \xi\} - \{k_1 \xi\}.
+    \end{equation}
+    因 $\xi$ 是无理数，故 $d \neq 0$．由同在一个长度为 $\frac{1}{N}$ 的子区间内，可知
+    \begin{equation}
+        0 < |d| < \frac{1}{N} < b - a.
+    \end{equation}
+    考察等差点集 $\{k |d| \mid k \in \symbb{Z}\}$，相邻两点间距为 $|d| < b - a$．因此在长度为 $b - a$ 的开区间 $(a, b)$ 内必存在该点集的点．
+
+    具体地，取整数 $k_0 = \left\lfloor \frac{a}{|d|} \right\rfloor + 1$，则
+    \begin{equation}
+        a < k_0 |d| \leqslant a + |d| < a + (b - a) = b.
+    \end{equation}
+    若 $d > 0$，取 $n = k_0 n_0$，$m = k_0 m_0$；若 $d < 0$，取 $n = -k_0 n_0$，$m = -k_0 m_0$．此时 $m, n \in \symbb{Z}$，且
+    \begin{equation}
+        m + n\xi = k_0 |d| \in (a, b).
+    \end{equation}
+    由开区间 $(a, b)$ 的任意性，即证集合 $S$ 在 $\symbb{R}$ 上稠密．
+\end{myproof}
+
+\begin{note}{关于「稠密」的定义}{Density-Definition}
+    设 $S \subset \symbb{R}$，若对任意实数 $x$ 和任意 $\varepsilon > 0$，都存在 $s \in S$，使得 $|s - x| < \varepsilon$，则称集合 $S$ 在 $\symbb{R}$ 上稠密．
+
+    简单来说，集合 $S$ 在 $\symbb{R}$ 上稠密意味着：在实数轴上任意一个开区间内，都至少存在一个集合 $S$ 中的元素．
+\end{note}
+
+\endinput

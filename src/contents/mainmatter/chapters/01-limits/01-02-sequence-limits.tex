@@ -1,0 +1,1075 @@
+\section{数列极限}
+
+\begin{problem}{数列极限的定义证明}{Sequence-Limit-Definition-Proof}
+    用定义证明下面的结论：
+    \begin{enumerate}
+        \item $\lim_{n\to\infty} \frac{n}{5 + 3n} = \frac{1}{3}$；
+        \item $\lim_{n\to\infty} \frac{\sin n}{n} = 0$；
+        \item $\lim_{n\to\infty} (-1)^n \frac{1}{\sqrt{n + 1}} = 0$；
+        \item $\lim_{n\to\infty} \frac{n!}{n^n} = 0$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    对任意 $\varepsilon > 0$，考察不等式
+    \begin{equation}
+        \left| \frac{n}{5 + 3n} - \frac{1}{3} \right| = \left| \frac{3n - (5 + 3n)}{3(5 + 3n)} \right| = \frac{5}{3(5 + 3n)} < \frac{5}{9n}.
+    \end{equation}
+    令 $\frac{5}{9n} < \varepsilon$，解得 $n > \frac{5}{9\varepsilon}$．取正整数 $N = \left\lfloor \frac{5}{9\varepsilon} \right\rfloor$，则当 $n > N$ 时，均有
+    \begin{equation}
+        \left| \frac{n}{5 + 3n} - \frac{1}{3} \right| < \varepsilon.
+    \end{equation}
+    故 $\lim_{n\to\infty} \frac{n}{5 + 3n} = \frac{1}{3}$．
+
+    \ansitem{2}
+
+    对任意 $\varepsilon > 0$，考察不等式
+    \begin{equation}
+        \left| \frac{\sin n}{n} - 0 \right| = \frac{|\sin n|}{n} \leqslant \frac{1}{n}.
+    \end{equation}
+    取正整数 $N = \left\lfloor \frac{1}{\varepsilon} \right\rfloor$，则当 $n > N$ 时，均有
+    \begin{equation}
+        \left| \frac{\sin n}{n} - 0 \right| < \varepsilon.
+    \end{equation}
+    故 $\lim_{n\to\infty} \frac{\sin n}{n} = 0$．
+
+    \ansitem{3}
+
+    对任意 $\varepsilon > 0$，考察不等式
+    \begin{equation}
+        \left| (-1)^n \frac{1}{\sqrt{n + 1}} - 0 \right| = \frac{1}{\sqrt{n + 1}} < \frac{1}{\sqrt{n}}.
+    \end{equation}
+    令 $\frac{1}{\sqrt{n}} < \varepsilon$，解得 $n > \frac{1}{\varepsilon^2}$．取正整数 $N = \left\lfloor \frac{1}{\varepsilon^2} \right\rfloor$，则当 $n > N$ 时，均有
+    \begin{equation}
+        \left| (-1)^n \frac{1}{\sqrt{n + 1}} - 0 \right| < \varepsilon.
+    \end{equation}
+    故 $\lim_{n\to\infty} (-1)^n \frac{1}{\sqrt{n + 1}} = 0$．
+
+    \ansitem{4}
+
+    对任意 $\varepsilon > 0$，当 $n \geqslant 1$ 时，有
+    \begin{equation}
+        \left| \frac{n!}{n^n} - 0 \right| = \frac{1}{n} \cdot \frac{2}{n} \cdots \frac{n}{n} \leqslant \frac{1}{n}.
+    \end{equation}
+    取正整数 $N = \left\lfloor \frac{1}{\varepsilon} \right\rfloor$，则当 $n > N$ 时，均有
+    \begin{equation}
+        \left| \frac{n!}{n^n} - 0 \right| < \varepsilon.
+    \end{equation}
+    故 $\lim_{n\to\infty} \frac{n!}{n^n} = 0$．
+\end{myproof}
+
+\begin{problem}{常数倍极限判定准则}{Constant-Multiple-Limit-Criterion}
+    若数列 $\{a_n\}$（$n \geqslant 1$）满足条件：任给正数 $\varepsilon$，存在正整数 $N$，使得当 $n > N$ 时，有 $|a_n - a| < M\varepsilon$（其中 $M$ 为常数），则 $\{a_n\}$ 必以 $a$ 为极限．
+\end{problem}
+
+\begin{myproof}
+    由 $|a_n - a| \geqslant 0$ 可知，必有 $M > 0$．
+
+    任给 $\varepsilon' > 0$，令 $\varepsilon = \frac{\varepsilon'}{M} > 0$．
+
+    由已知条件，存在正整数 $N$，使得当 $n > N$ 时，有
+    \begin{equation}
+        |a_n - a| < M\varepsilon = M \cdot \frac{\varepsilon'}{M} = \varepsilon'.
+    \end{equation}
+    由数列极限定义，即得
+    \begin{equation}
+        \lim_{n\to\infty} a_n = a.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{数列极限与无穷小的等价性}{Sequence-Limit-And-Infinitesimal}
+    证明：当且仅当 $\lim_{n\to\infty} (a_n - a) = 0$ 时，有 $\lim_{n\to\infty} a_n = a$．（数列极限的许多证明问题，都可用同样的方法处理．）
+\end{problem}
+
+\begin{myproof}
+    必要性：若 $\lim_{n\to\infty} a_n = a$，则对任意 $\varepsilon > 0$，存在正整数 $N$，使得当 $n > N$ 时，有
+    \begin{equation}
+        |(a_n - a) - 0| = |a_n - a| < \varepsilon,
+    \end{equation}
+    故 $\lim_{n\to\infty} (a_n - a) = 0$．
+
+    充分性：若 $\lim_{n\to\infty} (a_n - a) = 0$，则对任意 $\varepsilon > 0$，存在正整数 $N$，使得当 $n > N$ 时，有
+    \begin{equation}
+        |a_n - a| = |(a_n - a) - 0| < \varepsilon,
+    \end{equation}
+    故 $\lim_{n\to\infty} a_n = a$．
+\end{myproof}
+
+\begin{problem}{绝对值数列的收敛性质}{Limit-Of-Absolute-Value-Sequence}
+    证明：若 $\lim_{n\to\infty} a_n = a$，则 $\lim_{n\to\infty} |a_n| = |a|$；反之不一定成立（试举例说明）．但若 $\lim_{n\to\infty} |a_n| = 0$，则有 $\lim_{n\to\infty} a_n = 0$．
+\end{problem}
+
+\begin{myproof}
+    若 $\lim_{n\to\infty} a_n = a$，则对任意 $\varepsilon > 0$，存在正整数 $N$，使得当 $n > N$ 时，有 $|a_n - a| < \varepsilon$．由绝对值三角不等式，有
+    \begin{equation}
+        \bigl| |a_n| - |a| \bigr| \leqslant |a_n - a| < \varepsilon,
+    \end{equation}
+    故 $\lim_{n\to\infty} |a_n| = |a|$．
+
+    反之不一定成立．例如取数列 $a_n = (-1)^n$，则 $|a_n| = 1$，有
+    \begin{equation}
+        \lim_{n\to\infty} |a_n| = 1,
+    \end{equation}
+    但数列 $\{a_n\}$ 发散，极限 $\lim_{n\to\infty} a_n$ 不存在．
+
+    若 $\lim_{n\to\infty} |a_n| = 0$，则对任意 $\varepsilon > 0$，存在正整数 $N$，使得当 $n > N$ 时，有
+    \begin{equation}
+        |a_n - 0| = |a_n| = \bigl| |a_n| - 0 \bigr| < \varepsilon,
+    \end{equation}
+    故 $\lim_{n\to\infty} a_n = 0$．
+\end{myproof}
+
+\begin{problem}{无穷小量与有界量的乘积}{Infinitesimal-Bounded-Product}
+    证明：若 $\lim_{n\to\infty} a_n = 0$，又 $|b_n| \leqslant M$（$n = 1, 2, \cdots$），则 $\lim_{n\to\infty} a_n b_n = 0$．
+\end{problem}
+
+\begin{myproof}
+    若 $M = 0$，则对一切 $n \in \symbb{N}^+$ 均有 $b_n = 0$，从而 $a_n b_n = 0$，结论显然成立．
+
+    若 $M > 0$，对任意 $\varepsilon > 0$，因 $\lim_{n\to\infty} a_n = 0$，存在正整数 $N$，使得当 $n > N$ 时，有
+    \begin{equation}
+        |a_n| < \frac{\varepsilon}{M}.
+    \end{equation}
+    从而当 $n > N$ 时，均有
+    \begin{equation}
+        |a_n b_n - 0| = |a_n| \cdot |b_n| \leqslant |a_n| M < \frac{\varepsilon}{M} \cdot M = \varepsilon.
+    \end{equation}
+    故 $\lim_{n\to\infty} a_n b_n = 0$．
+\end{myproof}
+
+\begin{problem}{奇偶子列的收敛性}{Odd-Even-Subsequences-Convergence}
+    证明：若数列 $\{a_n\}$ 满足 $\lim_{k\to\infty} a_{2k+1} = a$，及 $\lim_{k\to\infty} a_{2k} = a$，则 $\lim_{n\to\infty} a_n = a$．
+\end{problem}
+
+\begin{myproof}
+    对任意 $\varepsilon > 0$：
+
+    由 $\lim_{k\to\infty} a_{2k} = a$，存在正整数 $K_1$，使得当 $k > K_1$ 时，有
+    \begin{equation}
+        |a_{2k} - a| < \varepsilon.
+    \end{equation}
+    由 $\lim_{k\to\infty} a_{2k+1} = a$，存在正整数 $K_2$，使得当 $k > K_2$ 时，有
+    \begin{equation}
+        |a_{2k+1} - a| < \varepsilon.
+    \end{equation}
+    取正整数 $N = \max\{2K_1, 2K_2 + 1\}$．当 $n > N$ 时：
+    \begin{enumerate}
+        \item 若 $n$ 为偶数，设 $n = 2k$，则 $2k > N \geqslant 2K_1 \implies k > K_1$，有 $|a_n - a| = |a_{2k} - a| < \varepsilon$；
+        \item 若 $n$ 为奇数，设 $n = 2k + 1$，则 $2k + 1 > N \geqslant 2K_2 + 1 \implies k > K_2$，有 $|a_n - a| = |a_{2k+1} - a| < \varepsilon$．
+    \end{enumerate}
+    综上，当 $n > N$ 时，总有
+    \begin{equation}
+        |a_n - a| < \varepsilon,
+    \end{equation}
+    故 $\lim_{n\to\infty} a_n = a$．
+\end{myproof}
+
+\begin{problem}{数列发散性判定}{Divergence-Of-Sequences}
+    证明下列数列不收敛：
+    \begin{enumerate}
+        \item $a_n = (-1)^n \frac{n}{n + 1}$；
+        \item $a_n = 5\left( 1 - \frac{2}{n} \right) + (-1)^n$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    考察子列 $\{a_{2k}\}$ 与 $\{a_{2k-1}\}$（$k \in \symbb{N}^+$）：
+    \begin{equation}
+        \lim_{k\to\infty} a_{2k} = \lim_{k\to\infty} (-1)^{2k} \frac{2k}{2k + 1} = \lim_{k\to\infty} \frac{2k}{2k + 1} = 1,
+    \end{equation}
+    \begin{equation}
+        \lim_{k\to\infty} a_{2k-1} = \lim_{k\to\infty} (-1)^{2k-1} \frac{2k - 1}{2k} = -\lim_{k\to\infty} \frac{2k - 1}{2k} = -1.
+    \end{equation}
+    因为两子列极限均存在但不相等（$1 \neq -1$），所以数列 $\{a_n\}$ 不收敛．
+
+    \ansitem{2}
+
+    考察子列 $\{a_{2k}\}$ 与 $\{a_{2k-1}\}$（$k \in \symbb{N}^+$）：
+    \begin{equation}
+        \lim_{k\to\infty} a_{2k} = \lim_{k\to\infty} \left[ 5\left( 1 - \frac{2}{2k} \right) + (-1)^{2k} \right] = 5(1 - 0) + 1 = 6,
+    \end{equation}
+    \begin{equation}
+        \lim_{k\to\infty} a_{2k-1} = \lim_{k\to\infty} \left[ 5\left( 1 - \frac{2}{2k - 1} \right) + (-1)^{2k-1} \right] = 5(1 - 0) - 1 = 4.
+    \end{equation}
+    因为两子列极限均存在但不相等（$6 \neq 4$），所以数列 $\{a_n\}$ 不收敛．
+\end{myproof}
+
+\begin{problem}{数列极限的计算}{Calculation-Of-Sequence-Limits}
+    求下列极限：
+    \begin{enumerate}
+        \item $a_n = \frac{4n^2 + 5n + 2}{3n^2 + 2n + 1}$；
+        \item $a_n = \frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} + \cdots + \frac{1}{(n-1)\cdot n}$；
+        \item $a_n = \left( 1 - \frac{1}{3} \right) \left( 1 - \frac{1}{6} \right) \cdots \left( 1 - \frac{1}{n(n+1)/2} \right)$（$n = 2, 3, \cdots$）；
+        \item $a_n = \left( 1 - \frac{1}{2^2} \right) \left( 1 - \frac{1}{3^2} \right) \cdots \left( 1 - \frac{1}{n^2} \right)$；
+        \item $a_n = (1 + q)(1 + q^2)(1 + q^4)\cdots(1 + q^{2^n})$（$|q| < 1$）．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    分子分母同除以 $n^2$，得
+    \begin{equation}
+        \lim_{n\to\infty} a_n = \lim_{n\to\infty} \frac{4 + \frac{5}{n} + \frac{2}{n^2}}{3 + \frac{2}{n} + \frac{1}{n^2}} = \frac{4}{3}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \frac{4}{3}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    对各项裂项相消，得
+    \begin{equation}
+        \begin{aligned}
+            a_n & = \left( 1 - \frac{1}{2} \right) + \left( \frac{1}{2} - \frac{1}{3} \right) + \cdots + \left( \frac{1}{n-1} - \frac{1}{n} \right) \\
+                & = 1 - \frac{1}{n}.
+        \end{aligned}
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = 1.}
+    \end{equation}
+
+    \ansitem{3}
+
+    因通项可因式分解为
+    \begin{equation}
+        1 - \frac{1}{k(k+1)/2} = \frac{k^2 + k - 2}{k(k+1)} = \frac{(k-1)(k+2)}{k(k+1)},
+    \end{equation}
+    故乘积裂项展开为
+    \begin{equation}
+        \begin{aligned}
+            a_n & = \prod_{k=2}^n \frac{(k-1)(k+2)}{k(k+1)}                                                 \\
+                & = \left( \prod_{k=2}^n \frac{k-1}{k} \right) \left( \prod_{k=2}^n \frac{k+2}{k+1} \right) \\
+                & = \frac{1}{n} \cdot \frac{n+2}{3}                                                         \\
+                & = \frac{n+2}{3n}.
+        \end{aligned}
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \frac{1}{3}.}
+    \end{equation}
+
+    \ansitem{4}
+
+    利用平方差公式展开，得
+    \begin{equation}
+        \begin{aligned}
+            a_n & = \prod_{k=2}^n \left( 1 - \frac{1}{k^2} \right)                                        \\
+                & = \prod_{k=2}^n \frac{(k-1)(k+1)}{k^2}                                                  \\
+                & = \left( \prod_{k=2}^n \frac{k-1}{k} \right) \left( \prod_{k=2}^n \frac{k+1}{k} \right) \\
+                & = \frac{1}{n} \cdot \frac{n+1}{2}                                                       \\
+                & = \frac{n+1}{2n}.
+        \end{aligned}
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \frac{1}{2}.}
+    \end{equation}
+
+    \ansitem{5}
+
+    当 $q = 0$ 时，显然 $a_n = 1 \to 1$．
+
+    当 $q \neq 0$ 时，两边同乘 $1 - q$，得
+    \begin{equation}
+        \begin{aligned}
+            (1 - q) a_n & = (1 - q)(1 + q)(1 + q^2)(1 + q^4)\cdots(1 + q^{2^n}) \\
+                        & = (1 - q^2)(1 + q^2)(1 + q^4)\cdots(1 + q^{2^n})      \\
+                        & = 1 - q^{2^{n+1}}.
+        \end{aligned}
+    \end{equation}
+    因为 $|q| < 1$，所以 $\lim_{n\to\infty} q^{2^{n+1}} = 0$，从而
+    \begin{equation}
+        \lim_{n\to\infty} a_n = \lim_{n\to\infty} \frac{1 - q^{2^{n+1}}}{1 - q} = \frac{1}{1 - q}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \frac{1}{1 - q}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{数列商的极限性质}{Limit-Of-Sequence-Quotients}
+    若 $a_n \neq 0$（$n = 1, 2, \cdots$）且 $\lim_{n\to\infty} a_n = a$，能否断定 $\lim_{n\to\infty} \frac{a_n}{a_{n+1}} = 1$？
+\end{problem}
+
+\begin{solution}
+    不能断定．
+
+    当 $a \neq 0$ 时，由极限商的运算法则，有
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_n}{a_{n+1}} = \frac{\lim_{n\to\infty} a_n}{\lim_{n\to\infty} a_{n+1}} = \frac{a}{a} = 1.
+    \end{equation}
+    但当 $a = 0$ 时，结论不一定成立．例如取
+    \begin{equation}
+        a_n = \frac{1}{2^n} \neq 0 \quad (n = 1, 2, \cdots),
+    \end{equation}
+    显然 $\lim_{n\to\infty} a_n = 0$，但
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_n}{a_{n+1}} = \lim_{n\to\infty} \frac{1/2^n}{1/2^{n+1}} = 2 \neq 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{\text{不能断定 }\lim_{n\to\infty} \frac{a_n}{a_{n+1}} = 1.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{数列乘积为零的极限性质}{Product-Limit-Zero-Property}
+    若数列 $\{a_n\}$、$\{b_n\}$ 满足 $\lim_{n\to\infty} a_n b_n = 0$，是否必有 $\lim_{n\to\infty} a_n = 0$ 或 $\lim_{n\to\infty} b_n = 0$？若还假设 $\lim_{n\to\infty} a_n = a$，回答同样的问题．
+\end{problem}
+
+\begin{solution}
+    第一问：不一定．
+
+    例如构造数列
+    \begin{equation}
+        a_n = \begin{cases} 1, & n \text{ 为偶数}, \\ 0, & n \text{ 为奇数}, \end{cases} \qquad b_n = \begin{cases} 0, & n \text{ 为偶数}, \\ 1, & n \text{ 为奇数}. \end{cases}
+    \end{equation}
+    对任意 $n \in \symbb{N}^+$ 恒有 $a_n b_n = 0$，故 $\lim_{n\to\infty} a_n b_n = 0$．但 $\{a_n\}$ 与 $\{b_n\}$ 均发散，故两极限均不存在．
+
+    第二问：必有 $\lim_{n\to\infty} a_n = 0$ 或 $\lim_{n\to\infty} b_n = 0$ 成立．
+
+    若 $a = 0$，则 $\lim_{n\to\infty} a_n = 0$ 成立．
+
+    若 $a \neq 0$，由极限商的运算法则，有
+    \begin{equation}
+        \lim_{n\to\infty} b_n = \lim_{n\to\infty} \frac{a_n b_n}{a_n} = \frac{\lim_{n\to\infty} a_n b_n}{\lim_{n\to\infty} a_n} = \frac{0}{a} = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\text{第一问：不一定；第二问：必成立．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{数列运算的收敛性判定}{Convergence-Of-Sequence-Operations}
+    若数列 $\{a_n\}$ 收敛，数列 $\{b_n\}$ 发散，则数列 $\{a_n \pm b_n\}$、$\{a_n b_n\}$ 的收敛性如何？举例说明．若数列 $\{a_n\}$ 与 $\{b_n\}$ 皆发散，回答同样的问题．
+\end{problem}
+
+\begin{solution}
+    若 $\{a_n\}$ 收敛，$\{b_n\}$ 发散：
+    \begin{enumerate}
+        \item $\{a_n \pm b_n\}$ 必发散．反证：若 $\{a_n \pm b_n\}$ 收敛，则
+              \begin{equation}
+                  b_n = \pm \bigl( (a_n \pm b_n) - a_n \bigr)
+              \end{equation}
+              为两收敛数列的线性组合，必收敛，矛盾．
+        \item $\{a_n b_n\}$ 不一定收敛：
+              \begin{equation}
+                  a_n = 0 \text{（收敛）}, \quad b_n = (-1)^n \text{（发散）} \implies a_n b_n = 0 \to 0 \text{（收敛）};
+              \end{equation}
+              \begin{equation}
+                  a_n = 1 \text{（收敛）}, \quad b_n = (-1)^n \text{（发散）} \implies a_n b_n = (-1)^n \text{（发散）}.
+              \end{equation}
+    \end{enumerate}
+
+    若 $\{a_n\}$ 与 $\{b_n\}$ 皆发散：
+    \begin{enumerate}
+        \item $\{a_n \pm b_n\}$ 不一定发散：
+              \begin{equation}
+                  a_n = (-1)^n, \quad b_n = (-1)^{n+1} \implies a_n + b_n = 0 \to 0 \text{（收敛）};
+              \end{equation}
+              \begin{equation}
+                  a_n = n, \quad b_n = n \implies a_n + b_n = 2n \to \infty \text{（发散）}.
+              \end{equation}
+        \item $\{a_n b_n\}$ 不一定发散：
+              \begin{equation}
+                  a_n = (-1)^n, \quad b_n = (-1)^n \implies a_n b_n = 1 \to 1 \text{（收敛）};
+              \end{equation}
+              \begin{equation}
+                  a_n = n, \quad b_n = n \implies a_n b_n = n^2 \to \infty \text{（发散）}.
+              \end{equation}
+    \end{enumerate}
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & \{a_n\}\text{收敛}, \{b_n\}\text{发散} \implies \{a_n \pm b_n\}\text{必发散}, \{a_n b_n\}\text{不确定}; \\
+                 & \{a_n\}, \{b_n\}\text{皆发散} \implies \{a_n \pm b_n\}\text{不确定}, \{a_n b_n\}\text{不确定}.
+            \end{aligned}
+        }
+    \end{equation}
+\end{solution}
+
+\begin{problem}{极限概念与运算法则辨析}{Sequence-Limit-Fallacies-Analysis}
+    下面的推理是否正确？
+    \begin{enumerate}
+        \item 设数列 $\{a_n\}$：$a_1 = 1$，$a_{n+1} = 2a_n - 1$（$n = 1, 2, 3, \cdots$），求 $\lim_{n\to\infty} a_n$．
+              解：设 $\lim_{n\to\infty} a_n = a$，在 $a_{n+1} = 2a_n - 1$ 两边取极限，得 $a = 2a - 1$，即 $a = 1$．
+        \item
+              \begin{equation}
+                  \begin{aligned}
+                       & \lim_{n\to\infty} \left( \frac{1}{\sqrt{n^2 + 1}} + \frac{1}{\sqrt{n^2 + 2}} + \cdots + \frac{1}{\sqrt{n^2 + n}} \right)                        \\
+                       & = \lim_{n\to\infty} \frac{1}{\sqrt{n^2 + 1}} + \lim_{n\to\infty} \frac{1}{\sqrt{n^2 + 2}} + \cdots + \lim_{n\to\infty} \frac{1}{\sqrt{n^2 + n}} \\
+                       & = \underbrace{0 + 0 + \cdots + 0}_{n\text{ 个}} = 0.
+                  \end{aligned}
+              \end{equation}
+        \item $\lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n = \left[ \lim_{n\to\infty} \left( 1 + \frac{1}{n} \right) \right]^n = 1^n = 1$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 不正确．
+
+    推理过程中预先假定了极限 $\lim_{n\to\infty} a_n = a$ 存在，这一前提未经证明，存在逻辑漏洞．例如，当初值取 $a_1 = 2$ 时，通项为 $a_n = 2^{n-1} + 1 \to \infty$（发散），但若形式上在递推式两边取极限仍会导出 $a = 1$ 的错误结论．
+
+    本题中由 $a_1 = 1$ 及 $a_{n+1} - 1 = 2(a_n - 1)$ 可知 $a_n \equiv 1$，极限确实为 $1$，但原推理方法不成立．
+    \begin{equation}
+        \boxed{\text{不正确．}}
+    \end{equation}
+
+    \ansitem{2} 不正确．
+
+    极限的加法运算法则仅适用于有限项相加的情形，不能推广到项数随 $n \to \infty$ 而无限增加的情形．
+
+    正确做法应利用夹逼准则：
+    \begin{equation}
+        \frac{n}{\sqrt{n^2 + n}} < \frac{1}{\sqrt{n^2 + 1}} + \frac{1}{\sqrt{n^2 + 2}} + \cdots + \frac{1}{\sqrt{n^2 + n}} < \frac{n}{\sqrt{n^2 + 1}}.
+    \end{equation}
+    由于
+    \begin{equation}
+        \lim_{n\to\infty} \frac{n}{\sqrt{n^2 + n}} = \lim_{n\to\infty} \frac{n}{\sqrt{n^2 + 1}} = 1,
+    \end{equation}
+    由夹逼准则可知原极限值为 $1$，而非 $0$．
+    \begin{equation}
+        \boxed{\text{不正确．}}
+    \end{equation}
+
+    \ansitem{3} 不正确．
+
+    极限运算法则 $\lim_{n\to\infty} [u_n]^{v_n} = \left[ \lim_{n\to\infty} u_n \right]^{\lim_{n\to\infty} v_n}$ 仅适用于非不定型．本式为 $1^\infty$ 型未定式，指数中的 $n$ 也参与了极限变化过程，不能先对底数取极限而将外层指数保留为常数 $n$．
+
+    正确极限为重要极限：
+    \begin{equation}
+        \lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n = \e \neq 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{\text{不正确．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{数列极限的保号性与保序性}{Sign-Preserving-And-Order-Properties}
+    设数列 $\{a_n\}$ 与 $\{b_n\}$ 分别收敛于 $a, b$．若 $a > b$，则从某一项开始，有 $a_n > b_n$；反过来，若从某一项开始恒有 $a_n \geqslant b_n$，则 $a \geqslant b$．
+\end{problem}
+
+\begin{myproof}
+    先证前半部分：
+
+    由 $a > b$，取正数
+    \begin{equation}
+        \varepsilon = \frac{a - b}{2} > 0.
+    \end{equation}
+    因 $\lim_{n\to\infty} a_n = a$ 且 $\lim_{n\to\infty} b_n = b$，故存在正整数 $N_1, N_2$，使得当 $n > N_1$ 时，有
+    \begin{equation}
+        a_n > a - \varepsilon = a - \frac{a - b}{2} = \frac{a + b}{2},
+    \end{equation}
+    当 $n > N_2$ 时，有
+    \begin{equation}
+        b_n < b + \varepsilon = b + \frac{a - b}{2} = \frac{a + b}{2}.
+    \end{equation}
+    取正整数 $N = \max\{N_1, N_2\}$，则当 $n > N$ 时，恒有
+    \begin{equation}
+        a_n > \frac{a + b}{2} > b_n.
+    \end{equation}
+    即从某一项开始，恒有 $a_n > b_n$．
+
+    再证后半部分：
+
+    已知存在正整数 $N_0$，使得当 $n > N_0$ 时恒有 $a_n \geqslant b_n$．
+
+    采用反证法．若 $a < b$，则由前半部分已证结论，存在正整数 $N'$，使得当 $n > N'$ 时恒有 $b_n > a_n$．
+
+    取正整数 $N = \max\{N_0, N'\}$，则当 $n > N$ 时，既有 $a_n \geqslant b_n$ 又有 $b_n > a_n$，产生矛盾．
+
+    故必有 $a \geqslant b$．
+\end{myproof}
+
+\begin{problem}{最值数列的极限}{Limits-Of-Max-And-Min-Sequences}
+    设数列 $\{a_n\}$、$\{b_n\}$ 分别收敛于 $a$ 及 $b$．记 $c_n = \max(a_n, b_n)$，$d_n = \min(a_n, b_n)$（$n = 1, 2, \cdots$）．证明：
+    \begin{equation}
+        \lim_{n\to\infty} c_n = \max(a, b), \quad \lim_{n\to\infty} d_n = \min(a, b).
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    对任意实数 $x, y$，均有恒等式
+    \begin{equation}
+        \max(x, y) = \frac{x + y + |x - y|}{2}, \quad \min(x, y) = \frac{x + y - |x - y|}{2}.
+    \end{equation}
+    因此数列 $\{c_n\}$ 与 $\{d_n\}$ 的通项可表示为
+    \begin{equation}
+        c_n = \frac{a_n + b_n + |a_n - b_n|}{2}, \quad d_n = \frac{a_n + b_n - |a_n - b_n|}{2}.
+    \end{equation}
+    由极限的四则运算法则及绝对值极限性质：
+    \begin{equation}
+        \lim_{n\to\infty} (a_n + b_n) = a + b,
+    \end{equation}
+    \begin{equation}
+        \lim_{n\to\infty} |a_n - b_n| = |a - b|.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \lim_{n\to\infty} c_n = \frac{\lim_{n\to\infty}(a_n + b_n) + \lim_{n\to\infty}|a_n - b_n|}{2} = \frac{a + b + |a - b|}{2} = \max(a, b),
+    \end{equation}
+    \begin{equation}
+        \lim_{n\to\infty} d_n = \frac{\lim_{n\to\infty}(a_n + b_n) - \lim_{n\to\infty}|a_n - b_n|}{2} = \frac{a + b - |a - b|}{2} = \min(a, b).
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{数列极限的计算}{Sequence-Limits-Evaluation}
+    求下列极限：
+    \begin{enumerate}
+        \item $\lim_{n\to\infty} \left[ \frac{1}{(n+1)^2} + \frac{1}{(n+2)^2} + \cdots + \frac{1}{(2n)^2} \right]$；
+        \item $\lim_{n\to\infty} \left[ (n+1)^k - n^k \right]$，其中 $0 < k < 1$；
+        \item $\lim_{n\to\infty} \left( \sqrt{2} \cdot \sqrt[4]{2} \cdot \sqrt[8]{2} \cdots \sqrt[2^n]{2} \right)$；
+        \item $\lim_{n\to\infty} \sqrt[n]{n^2 - n + 2}$；
+        \item $\lim_{n\to\infty} \sqrt[n]{\cos^2 1 + \cos^2 2 + \cdots + \cos^2 n}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对求和式进行放缩：
+    \begin{equation}
+        0 < \frac{1}{(n+1)^2} + \frac{1}{(n+2)^2} + \cdots + \frac{1}{(2n)^2} < n \cdot \frac{1}{(n+1)^2} < \frac{n}{n^2} = \frac{1}{n}.
+    \end{equation}
+    因为 $\lim_{n\to\infty} \frac{1}{n} = 0$，由夹逼准则可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \left[ \frac{1}{(n+1)^2} + \frac{1}{(n+2)^2} + \cdots + \frac{1}{(2n)^2} \right] = 0.}
+    \end{equation}
+
+    \ansitem{2}
+
+    由拉格朗日中值定理，存在 $\xi_n \in (n, n+1)$，使得
+    \begin{equation}
+        (n+1)^k - n^k = k \xi_n^{k-1}.
+    \end{equation}
+    由于 $0 < k < 1$，指数 $k - 1 < 0$，故
+    \begin{equation}
+        0 < (n+1)^k - n^k < k n^{k-1} = \frac{k}{n^{1-k}}.
+    \end{equation}
+    因为 $1 - k > 0$，所以 $\lim_{n\to\infty} \frac{k}{n^{1-k}} = 0$．由夹逼准则可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \left[ (n+1)^k - n^k \right] = 0.}
+    \end{equation}
+
+    \ansitem{3}
+
+    将通项化为指数形式：
+    \begin{equation}
+        \sqrt{2} \cdot \sqrt[4]{2} \cdot \sqrt[8]{2} \cdots \sqrt[2^n]{2} = 2^{\frac{1}{2} + \frac{1}{4} + \cdots + \frac{1}{2^n}} = 2^{1 - \frac{1}{2^n}}.
+    \end{equation}
+    因为 $\lim_{n\to\infty} \left( 1 - \frac{1}{2^n} \right) = 1$，由指数函数的连续性可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \left( \sqrt{2} \cdot \sqrt[4]{2} \cdot \sqrt[8]{2} \cdots \sqrt[2^n]{2} \right) = 2.}
+    \end{equation}
+
+    \ansitem{4}
+
+    当 $n \geqslant 2$ 时，有
+    \begin{equation}
+        \frac{1}{2} n^2 < n^2 - n + 2 < 2n^2.
+    \end{equation}
+    两边开 $n$ 次方得
+    \begin{equation}
+        \left( \frac{1}{2} \right)^{\frac{1}{n}} (\sqrt[n]{n})^2 < \sqrt[n]{n^2 - n + 2} < 2^{\frac{1}{n}} (\sqrt[n]{n})^2.
+    \end{equation}
+    因为 $\lim_{n\to\infty} \sqrt[n]{n} = 1$ 且 $\lim_{n\to\infty} c^{\frac{1}{n}} = 1$（$c > 0$），所以两端极限均为 $1$．由夹逼准则可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \sqrt[n]{n^2 - n + 2} = 1.}
+    \end{equation}
+
+    \ansitem{5}
+
+    利用三角恒等式求和：
+    \begin{equation}
+        \sum_{k=1}^n \cos^2 k = \sum_{k=1}^n \frac{1 + \cos(2k)}{2} = \frac{n}{2} + \frac{\sin n \cos(n+1)}{2\sin 1}.
+    \end{equation}
+    由于 $|\sin n \cos(n+1)| \leqslant 1$，故当 $n$ 充分大时，有
+    \begin{equation}
+        \frac{n}{4} < \sum_{k=1}^n \cos^2 k \leqslant n.
+    \end{equation}
+    两端开 $n$ 次方得
+    \begin{equation}
+        \sqrt[n]{\frac{n}{4}} < \sqrt[n]{\sum_{k=1}^n \cos^2 k} \leqslant \sqrt[n]{n}.
+    \end{equation}
+    因为 $\lim_{n\to\infty} \sqrt[n]{\frac{n}{4}} = 1$ 且 $\lim_{n\to\infty} \sqrt[n]{n} = 1$，由夹逼准则可得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \sqrt[n]{\cos^2 1 + \cos^2 2 + \cdots + \cos^2 n} = 1.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{幂和开方的极限}{Limit-Of-Power-Sums}
+    设 $a_1, \cdots, a_m$ 为 $m$ 个正数，证明：$\lim_{n\to\infty} \sqrt[n]{a_1^n + a_2^n + \cdots + a_m^n} = \max(a_1, a_2, \cdots, a_m)$．
+\end{problem}
+
+\begin{myproof}
+    记 $M = \max(a_1, a_2, \cdots, a_m) > 0$．由于 $a_k > 0$（$k = 1, 2, \cdots, m$），显然有
+    \begin{equation}
+        M^n \leqslant a_1^n + a_2^n + \cdots + a_m^n \leqslant m M^n.
+    \end{equation}
+    两端开 $n$ 次方得
+    \begin{equation}
+        M \leqslant \sqrt[n]{a_1^n + a_2^n + \cdots + a_m^n} \leqslant M \sqrt[n]{m}.
+    \end{equation}
+    因为 $m$ 为固定正整数，所以 $\lim_{n\to\infty} \sqrt[n]{m} = 1$，进而
+    \begin{equation}
+        \lim_{n\to\infty} M \sqrt[n]{m} = M.
+    \end{equation}
+    由夹逼准则即得
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{a_1^n + a_2^n + \cdots + a_m^n} = M = \max(a_1, a_2, \cdots, a_m).
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{数列收敛性的判定}{Convergence-Of-Sequences-Proof}
+    证明下列数列收敛：
+    \begin{enumerate}
+        \item $a_n = \left( 1 - \frac{1}{2} \right) \left( 1 - \frac{1}{2^2} \right) \cdots \left( 1 - \frac{1}{2^n} \right)$；
+        \item $a_n = \frac{1}{3+1} + \frac{1}{3^2+1} + \cdots + \frac{1}{3^n+1}$；
+        \item $a_n = \alpha_0 + \alpha_1 q + \cdots + \alpha_n q^n$，其中 $|\alpha_k| \leqslant M$（$k = 1, 2, \cdots$），而 $|q| < 1$；
+        \item $a_n = \frac{\cos 1}{1\cdot 2} + \frac{\cos 2}{2\cdot 3} + \frac{\cos 3}{3\cdot 4} + \cdots + \frac{\cos n}{n(n+1)}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    对任意 $n \in \symbb{N}^+$，显然 $a_n > 0$，且
+    \begin{equation}
+        \frac{a_{n+1}}{a_n} = 1 - \frac{1}{2^{n+1}} < 1 \implies a_{n+1} < a_n.
+    \end{equation}
+    故数列 $\{a_n\}$ 单调递减且有下界 $0$．由单调有界定理，数列 $\{a_n\}$ 收敛．
+
+    \ansitem{2}
+
+    因为
+    \begin{equation}
+        a_{n+1} - a_n = \frac{1}{3^{n+1} + 1} > 0,
+    \end{equation}
+    所以数列 $\{a_n\}$ 单调递增．同时，
+    \begin{equation}
+        a_n = \sum_{k=1}^n \frac{1}{3^k + 1} < \sum_{k=1}^n \frac{1}{3^k} = \frac{1}{3} \cdot \frac{1 - \left(\frac{1}{3}\right)^n}{1 - \frac{1}{3}} < \frac{1}{2}.
+    \end{equation}
+    故数列 $\{a_n\}$ 有上界 $\frac{1}{2}$．由单调有界定理，数列 $\{a_n\}$ 收敛．
+
+    \ansitem{3}
+
+    对任意正整数 $p$，应用绝对值三角不等式：
+    \begin{equation}
+        \begin{aligned}
+            |a_{n+p} - a_n| & = \left| \sum_{k=n+1}^{n+p} \alpha_k q^k \right| \leqslant \sum_{k=n+1}^{n+p} |\alpha_k| |q|^k               \\
+                            & \leqslant M \sum_{k=n+1}^{n+p} |q|^k = M \frac{|q|^{n+1}(1 - |q|^p)}{1 - |q|} < \frac{M |q|^{n+1}}{1 - |q|}.
+        \end{aligned}
+    \end{equation}
+    因为 $|q| < 1$，所以 $\lim_{n\to\infty} \frac{M |q|^{n+1}}{1 - |q|} = 0$．
+
+    对任给 $\varepsilon > 0$，存在正整数 $N$，使得当 $n > N$ 时，对任意正整数 $p$ 均有
+    \begin{equation}
+        |a_{n+p} - a_n| < \varepsilon.
+    \end{equation}
+    由柯西收敛准则，数列 $\{a_n\}$ 收敛．
+
+    \ansitem{4}
+
+    对任意正整数 $p$，有
+    \begin{equation}
+        \begin{aligned}
+            |a_{n+p} - a_n| & = \left| \sum_{k=n+1}^{n+p} \frac{\cos k}{k(k+1)} \right| \leqslant \sum_{k=n+1}^{n+p} \frac{|\cos k|}{k(k+1)} \leqslant \sum_{k=n+1}^{n+p} \frac{1}{k(k+1)} \\
+                            & = \sum_{k=n+1}^{n+p} \left( \frac{1}{k} - \frac{1}{k+1} \right) = \frac{1}{n+1} - \frac{1}{n+p+1} < \frac{1}{n+1}.
+        \end{aligned}
+    \end{equation}
+    对任给 $\varepsilon > 0$，取正整数 $N = \left\lfloor \frac{1}{\varepsilon} \right\rfloor$，则当 $n > N$ 时，对任意正整数 $p$ 均有
+    \begin{equation}
+        |a_{n+p} - a_n| < \frac{1}{n+1} < \varepsilon.
+    \end{equation}
+    由柯西收敛准则，数列 $\{a_n\}$ 收敛．
+\end{myproof}
+
+\begin{problem}{数列收敛性判定与极限求解}{Sequence-Convergence-And-Limits}
+    证明下列数列收敛，并求出其极限：
+    \begin{enumerate}
+        \item $a_n = \frac{n}{c^n}$（$c > 1$）；
+        \item $a_1 = \frac{c}{2}$，$a_{n+1} = \frac{c}{2} + \frac{a_n^2}{2}$（$0 \leqslant c \leqslant 1$）；
+        \item $a > 0$，$a_0 > 0$，$a_{n+1} = \frac{1}{2}\left( a_n + \frac{a}{a_n} \right)$（提示：先证明 $a_n^2 \geqslant a$）；
+        \item $a_0 = 1$，$a_n = 1 + \frac{a_{n-1}}{a_{n-1} + 1}$；
+        \item $a_n = \sin \sin \cdots \sin 1$（$n$ 个 $\sin$）．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对任意 $n \in \symbb{N}^+$，显然 $a_n > 0$．考察相邻两项之比：
+    \begin{equation}
+        \frac{a_{n+1}}{a_n} = \frac{n+1}{n c} = \left( 1 + \frac{1}{n} \right) \frac{1}{c}.
+    \end{equation}
+    因为 $c > 1$，所以 $\lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \frac{1}{c} < 1$．取正数 $\varepsilon_0 = \frac{c - 1}{2c} > 0$，存在正整数 $N$，使得当 $n \geqslant N$ 时，恒有
+    \begin{equation}
+        \frac{a_{n+1}}{a_n} \leqslant 1 - \varepsilon_0 < 1 \implies a_{n+1} < a_n.
+    \end{equation}
+    故数列从第 $N$ 项起单调递减且有下界 $0$，由单调有界定理知 $\lim_{n\to\infty} a_n = L$ 存在．在等式 $a_{n+1} = \frac{n+1}{n c} a_n$ 两边取极限得
+    \begin{equation}
+        L = \frac{1}{c} L \implies \left( 1 - \frac{1}{c} \right) L = 0 \implies L = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = 0.}
+    \end{equation}
+
+    \ansitem{2}
+
+    当 $c = 0$ 时，易知 $a_n \equiv 0$，极限为 $0$．
+
+    当 $0 < c \leqslant 1$ 时，先用数学归纳法证明 $0 < a_n < 1$：
+    \begin{equation}
+        a_1 = \frac{c}{2} \in \left( 0, \frac{1}{2} \right].
+    \end{equation}
+    若 $0 < a_n < 1$，则
+    \begin{equation}
+        a_{n+1} = \frac{c}{2} + \frac{a_n^2}{2} < \frac{1}{2} + \frac{1}{2} = 1, \quad a_{n+1} > \frac{c}{2} > 0.
+    \end{equation}
+    故对一切 $n \in \symbb{N}^+$，均有 $0 < a_n < 1$．
+
+    再证单调性：
+    \begin{equation}
+        a_2 - a_1 = \frac{a_1^2}{2} > 0.
+    \end{equation}
+    由递推关系，有
+    \begin{equation}
+        a_{n+1} - a_n = \frac{a_n^2 - a_{n-1}^2}{2} = \frac{a_n + a_{n-1}}{2} (a_n - a_{n-1}).
+    \end{equation}
+    由数学归纳法知 $a_{n+1} > a_n$，数列 $\{a_n\}$ 单调递增且有上界 $1$．
+
+    由单调有界定理，设 $\lim_{n\to\infty} a_n = L$（$0 < L \leqslant 1$），在递推式两边取极限得
+    \begin{equation}
+        L = \frac{c}{2} + \frac{L^2}{2} \implies L^2 - 2L + c = 0 \implies L = 1 - \sqrt{1 - c}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = 1 - \sqrt{1 - c}.}
+    \end{equation}
+
+    \ansitem{3}
+
+    由 $a > 0$、$a_0 > 0$，可知对一切 $n \geqslant 0$ 均有 $a_n > 0$．
+
+    由基本不等式，当 $n \geqslant 1$ 时：
+    \begin{equation}
+        a_n = \frac{1}{2} \left( a_{n-1} + \frac{a}{a_{n-1}} \right) \geqslant \sqrt{a_{n-1} \cdot \frac{a}{a_{n-1}}} = \sqrt{a} \implies a_n^2 \geqslant a.
+    \end{equation}
+    从而当 $n \geqslant 1$ 时，
+    \begin{equation}
+        a_{n+1} - a_n = \frac{1}{2} \left( \frac{a - a_n^2}{a_n} \right) \leqslant 0 \implies a_{n+1} \leqslant a_n.
+    \end{equation}
+    故数列 $\{a_n\}_{n\geqslant 1}$ 单调递减且有下界 $\sqrt{a}$．由单调有界定理，设 $\lim_{n\to\infty} a_n = L \geqslant \sqrt{a}$，两边取极限得
+    \begin{equation}
+        L = \frac{1}{2} \left( L + \frac{a}{L} \right) \implies L^2 = a \implies L = \sqrt{a}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \sqrt{a}.}
+    \end{equation}
+
+    \ansitem{4}
+
+    由 $a_0 = 1$ 及递推关系 $a_n = 2 - \frac{1}{a_{n-1} + 1}$，易知对一切 $n \geqslant 0$ 均有 $a_n \geqslant 1$．
+
+    考察相邻两项差的绝对值：
+    \begin{equation}
+        |a_n - a_{n-1}| = \left| \frac{1}{a_{n-2} + 1} - \frac{1}{a_{n-1} + 1} \right| = \frac{|a_{n-1} - a_{n-2}|}{(a_{n-1} + 1)(a_{n-2} + 1)} \leqslant \frac{1}{4} |a_{n-1} - a_{n-2}|.
+    \end{equation}
+    从而对任意正整数 $p$，有
+    \begin{equation}
+        |a_{n+p} - a_n| \leqslant \sum_{k=n}^{n+p-1} |a_{k+1} - a_k| \leqslant |a_1 - a_0| \sum_{k=n}^{n+p-1} \left( \frac{1}{4} \right)^k < \frac{|a_1 - a_0|}{1 - \frac{1}{4}} \left( \frac{1}{4} \right)^n.
+    \end{equation}
+    由柯西收敛准则，数列 $\{a_n\}$ 收敛．设 $\lim_{n\to\infty} a_n = L \geqslant 1$，两端取极限得
+    \begin{equation}
+        L = 1 + \frac{L}{L + 1} \implies L^2 - L - 1 = 0 \implies L = \frac{1 + \sqrt{5}}{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \frac{1 + \sqrt{5}}{2}.}
+    \end{equation}
+
+    \ansitem{5}
+
+    因为 $a_1 = \sin 1 \in (0, 1)$，且对任意 $x \in (0, 1)$ 恒有 $0 < \sin x < x$，所以
+    \begin{equation}
+        0 < a_{n+1} = \sin a_n < a_n < 1.
+    \end{equation}
+    故数列 $\{a_n\}$ 单调递减且有下界 $0$．由单调有界定理，设 $\lim_{n\to\infty} a_n = L \in [0, 1)$，两边取极限得
+    \begin{equation}
+        L = \sin L.
+    \end{equation}
+    在区间 $[0, 1)$ 上方程 $x = \sin x$ 仅有唯一解 $x = 0$，故 $L = 0$．
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = 0.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{夹逼准则与数列极限}{Squeeze-Theorem-Sequence-Limits}
+    设 $a_n \leqslant a \leqslant b_n$（$n = 1, 2, \cdots$），且 $\lim_{n\to\infty} (a_n - b_n) = 0$．求证：$\lim_{n\to\infty} a_n = a$，$\lim_{n\to\infty} b_n = a$．
+\end{problem}
+
+\begin{myproof}
+    由 $a_n \leqslant a \leqslant b_n$ 可得
+    \begin{equation}
+        0 \leqslant a - a_n \leqslant b_n - a_n = -(a_n - b_n),
+    \end{equation}
+    \begin{equation}
+        0 \leqslant b_n - a \leqslant b_n - a_n = -(a_n - b_n).
+    \end{equation}
+    因为 $\lim_{n\to\infty} (a_n - b_n) = 0$，所以
+    \begin{equation}
+        \lim_{n\to\infty} [-(a_n - b_n)] = 0.
+    \end{equation}
+    由夹逼准则，有
+    \begin{equation}
+        \lim_{n\to\infty} (a - a_n) = 0 \implies \lim_{n\to\infty} a_n = a,
+    \end{equation}
+    \begin{equation}
+        \lim_{n\to\infty} (b_n - a) = 0 \implies \lim_{n\to\infty} b_n = a.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{达朗贝尔比值判别法}{DAlembert-Ratio-Limit}
+    证明：若 $a_n > 0$，且 $\lim_{n\to\infty} \frac{a_n}{a_{n+1}} = l > 1$．则 $\lim_{n\to\infty} a_n = 0$．
+\end{problem}
+
+\begin{myproof}
+    由极限的商运算法则，有
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \frac{1}{l} < 1.
+    \end{equation}
+    选取实数 $q$ 使得 $\frac{1}{l} < q < 1$，取正数 $\varepsilon = q - \frac{1}{l} > 0$．
+
+    存在正整数 $N$，使得当 $n > N$ 时，恒有
+    \begin{equation}
+        \frac{a_{n+1}}{a_n} < \frac{1}{l} + \varepsilon = q.
+    \end{equation}
+    从而当 $n > N$ 时，累乘可得
+    \begin{equation}
+        0 < a_n = a_{N+1} \cdot \frac{a_{N+2}}{a_{N+1}} \cdots \frac{a_n}{a_{n-1}} < a_{N+1} q^{n - (N+1)} = \left( \frac{a_{N+1}}{q^{N+1}} \right) q^n.
+    \end{equation}
+    因为 $0 < q < 1$，所以 $\lim_{n\to\infty} q^n = 0$，进而
+    \begin{equation}
+        \lim_{n\to\infty} \left( \frac{a_{N+1}}{q^{N+1}} \right) q^n = 0.
+    \end{equation}
+    由夹逼准则，即得
+    \begin{equation}
+        \lim_{n\to\infty} a_n = 0.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{正数列比值不等式的收敛性}{Ratio-Comparison-Convergence}
+    设 $\{a_n\}$、$\{b_n\}$ 是正数列，满足 $\frac{a_{n+1}}{a_n} \leqslant \frac{b_{n+1}}{b_n}$，$n = 1, 2, \cdots$．求证：若 $\{b_n\}$ 收敛，则 $\{a_n\}$ 收敛．
+\end{problem}
+
+\begin{myproof}
+    将条件变形为
+    \begin{equation}
+        \frac{a_{n+1}}{b_{n+1}} \leqslant \frac{a_n}{b_n} \quad (n = 1, 2, \cdots).
+    \end{equation}
+    令辅助数列 $c_n = \frac{a_n}{b_n}$．由上式可知数列 $\{c_n\}$ 单调递减，且因 $a_n > 0$、$b_n > 0$，故有下界 $0$．
+
+    由单调有界定理，数列 $\{c_n\}$ 收敛，设 $\lim_{n\to\infty} c_n = c \geqslant 0$．
+
+    已知数列 $\{b_n\}$ 收敛，设 $\lim_{n\to\infty} b_n = b$．由两收敛数列乘积的极限性质，有
+    \begin{equation}
+        \lim_{n\to\infty} a_n = \lim_{n\to\infty} (c_n \cdot b_n) = \left( \lim_{n\to\infty} c_n \right) \left( \lim_{n\to\infty} b_n \right) = c \cdot b.
+    \end{equation}
+    故数列 $\{a_n\}$ 必收敛．
+\end{myproof}
+
+\begin{problem}{重要极限的应用}{Application-Of-Important-Limit}
+    利用极限 $\lim_{n\to\infty} \left(1 + \frac{1}{n}\right)^n = \e$，求下列数列的极限：
+    \begin{enumerate}
+        \item $a_n = \left( 1 + \frac{1}{2n+1} \right)^{2n+1}$；
+        \item $a_n = \left( 1 - \frac{1}{n-2} \right)^{n+1}$；
+        \item $a_n = \left( \frac{1+n}{2+n} \right)^n$；
+        \item $a_n = \left( 1 + \frac{1}{n^3} \right)^{2n^3}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $m = 2n + 1$，当 $n \to \infty$ 时 $m \to \infty$，故
+    \begin{equation}
+        \lim_{n\to\infty} a_n = \lim_{m\to\infty} \left( 1 + \frac{1}{m} \right)^m = \e.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \e.}
+    \end{equation}
+
+    \ansitem{2}
+
+    对通项进行恒等变形：
+    \begin{equation}
+        \begin{aligned}
+            a_n & = \left( 1 - \frac{1}{n-2} \right)^{(n-2) + 3}                                                         \\
+                & = \left[ \left( 1 + \frac{1}{-(n-2)} \right)^{-(n-2)} \right]^{-1} \left( 1 - \frac{1}{n-2} \right)^3.
+        \end{aligned}
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \lim_{n\to\infty} a_n = \e^{-1} \cdot 1^3 = \frac{1}{\e}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \frac{1}{\e}.}
+    \end{equation}
+
+    \ansitem{3}
+
+    对通项变形为商的形式：
+    \begin{equation}
+        \begin{aligned}
+            a_n & = \left( \frac{1 + \frac{1}{n}}{1 + \frac{2}{n}} \right)^n                                                \\
+                & = \frac{\left( 1 + \frac{1}{n} \right)^n}{\left[ \left( 1 + \frac{2}{n} \right)^{\frac{n}{2}} \right]^2}.
+        \end{aligned}
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \lim_{n\to\infty} a_n = \frac{\e}{\e^2} = \frac{1}{\e}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \frac{1}{\e}.}
+    \end{equation}
+
+    \ansitem{4}
+
+    利用指数运算法则：
+    \begin{equation}
+        a_n = \left[ \left( 1 + \frac{1}{n^3} \right)^{n^3} \right]^2.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \lim_{n\to\infty} a_n = \e^2.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} a_n = \e^2.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{无穷大量与有界数列的乘积}{Product-Of-Infinite-And-Bounded-Away-From-Zero}
+    设 $\lim_{n\to\infty} a_n = \infty$，且 $|b_n| \geqslant b > 0$（$n = 1, 2, \cdots$）．证明：$\lim_{n\to\infty} a_n b_n = \infty$．
+\end{problem}
+
+\begin{myproof}
+    任给正数 $M > 0$．因为 $b > 0$，所以 $\frac{M}{b} > 0$．
+
+    由 $\lim_{n\to\infty} a_n = \infty$，存在正整数 $N$，使得当 $n > N$ 时，恒有
+    \begin{equation}
+        |a_n| > \frac{M}{b}.
+    \end{equation}
+    从而当 $n > N$ 时，有
+    \begin{equation}
+        |a_n b_n| = |a_n| \cdot |b_n| \geqslant |a_n| b > \frac{M}{b} \cdot b = M.
+    \end{equation}
+    由无穷大数列的定义，即得
+    \begin{equation}
+        \lim_{n\to\infty} a_n b_n = \infty.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{数列有界性与无穷大判定}{Boundedness-And-Infinity-Of-Sequences}
+    确定 $n \to \infty$ 时，$\sqrt[n]{n!}$ 与 $n \sin \frac{n\uppi}{2}$（$n \geqslant 1$）是否有界，是否趋于无穷大．
+\end{problem}
+
+\begin{solution}
+    对于数列 $a_n = \sqrt[n]{n!}$：
+
+    由不等式 $k(n + 1 - k) \geqslant n$（$1 \leqslant k \leqslant n$），累乘可得
+    \begin{equation}
+        (n!)^2 = \prod_{k=1}^n k(n + 1 - k) \geqslant n^n \implies n! \geqslant n^{\frac{n}{2}}.
+    \end{equation}
+    两边开 $n$ 次方得
+    \begin{equation}
+        a_n = \sqrt[n]{n!} \geqslant \sqrt{n}.
+    \end{equation}
+    因为 $\lim_{n\to\infty} \sqrt{n} = +\infty$，所以数列 $\{a_n\}$ 无界，且当 $n \to \infty$ 时趋于无穷大．
+    \begin{equation}
+        \boxed{\sqrt[n]{n!} \text{ 无界，且趋于无穷大．}}
+    \end{equation}
+
+    对于数列 $b_n = n \sin \frac{n\uppi}{2}$：
+
+    考察子列 $\{b_{4k+1}\}$（$k \in \symbb{N}$）：
+    \begin{equation}
+        b_{4k+1} = (4k+1) \sin \left( 2k\uppi + \frac{\uppi}{2} \right) = 4k + 1 \to +\infty \quad (k \to \infty),
+    \end{equation}
+    故数列 $\{b_n\}$ 无界．
+
+    但考察偶数子列 $\{b_{2k}\}$（$k \in \symbb{N}^+$）：
+    \begin{equation}
+        b_{2k} = 2k \sin(k\uppi) = 0.
+    \end{equation}
+    对任意 $M > 0$，不存在 $N$ 使得当 $n > N$ 时恒有 $|b_n| > M$，因此数列 $\{b_n\}$ 当 $n \to \infty$ 时不趋于无穷大．
+    \begin{equation}
+        \boxed{n \sin \frac{n\uppi}{2} \text{ 无界，但不趋于无穷大．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{递推数列的发散性证明}{Divergence-Of-Recursive-Sequence}
+    设数列 $\{a_n\}$ 由 $a_1 = 1$，$a_{n+1} = a_n + \frac{1}{a_n}$（$n \geqslant 1$）定义．证明：$a_n \to +\infty$（$n \to \infty$）．
+\end{problem}
+
+\begin{myproof}
+    由 $a_1 = 1 > 0$ 及递推关系 $a_{n+1} = a_n + \frac{1}{a_n}$，利用数学归纳法可知对一切 $n \in \symbb{N}^+$ 均有 $a_n > 0$．
+
+    对递推关系两边平方得
+    \begin{equation}
+        a_{k+1}^2 = a_k^2 + 2 + \frac{1}{a_k^2} > a_k^2 + 2.
+    \end{equation}
+    即
+    \begin{equation}
+        a_{k+1}^2 - a_k^2 > 2.
+    \end{equation}
+    将上式对 $k = 1, 2, \cdots, n-1$ 累加，得
+    \begin{equation}
+        a_n^2 - a_1^2 > 2(n - 1) \implies a_n^2 > 2n - 1.
+    \end{equation}
+    由于 $a_n > 0$，两边开平方得
+    \begin{equation}
+        a_n > \sqrt{2n - 1}.
+    \end{equation}
+    因为 $\lim_{n\to\infty} \sqrt{2n - 1} = +\infty$，所以
+    \begin{equation}
+        \lim_{n\to\infty} a_n = +\infty.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{$\frac{0}{0}$ 型 Stolz 定理的证明}{Proof-Of-Stolz-Cesaro-Theorem-Zero-Over-Zero}
+    给出 $\frac{0}{0}$ 型 Stolz 定理的证明．
+\end{problem}
+
+\begin{myproof}
+    定理陈述：设数列 $\{a_n\}$ 与 $\{b_n\}$ 满足 $\lim_{n\to\infty} a_n = 0$，$\lim_{n\to\infty} b_n = 0$，数列 $\{b_n\}$ 严格单调递减（即 $b_n > b_{n+1} > 0$），且
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_n - a_{n+1}}{b_n - b_{n+1}} = l,
+    \end{equation}
+    则 $\lim_{n\to\infty} \frac{a_n}{b_n} = l$．
+
+    先设 $l$ 为有限数．对任给 $\varepsilon > 0$，存在正整数 $N$，使得当 $k \geqslant N$ 时，有
+    \begin{equation}
+        l - \varepsilon < \frac{a_k - a_{k+1}}{b_k - b_{k+1}} < l + \varepsilon.
+    \end{equation}
+    因为 $\{b_n\}$ 严格单调递减，所以 $b_k - b_{k+1} > 0$，同乘 $b_k - b_{k+1}$ 得
+    \begin{equation}
+        (l - \varepsilon)(b_k - b_{k+1}) < a_k - a_{k+1} < (l + \varepsilon)(b_k - b_{k+1}).
+    \end{equation}
+    对 $k = n, n+1, \cdots, n+p-1$（其中 $n \geqslant N$，$p \in \symbb{N}^+$）求和，得
+    \begin{equation}
+        (l - \varepsilon)(b_n - b_{n+p}) < a_n - a_{n+p} < (l + \varepsilon)(b_n - b_{n+p}).
+    \end{equation}
+    在上述不等式中令 $p \to \infty$，由 $\lim_{p\to\infty} a_{n+p} = 0$ 与 $\lim_{p\to\infty} b_{n+p} = 0$，得
+    \begin{equation}
+        (l - \varepsilon) b_n \leqslant a_n \leqslant (l + \varepsilon) b_n.
+    \end{equation}
+    由于 $b_n > 0$，各边同除以 $b_n$，得
+    \begin{equation}
+        l - \varepsilon \leqslant \frac{a_n}{b_n} \leqslant l + \varepsilon \implies \left| \frac{a_n}{b_n} - l \right| \leqslant \varepsilon.
+    \end{equation}
+    故由极限定义知 $\lim_{n\to\infty} \frac{a_n}{b_n} = l$．
+
+    若 $l = +\infty$，对任给 $G > 0$，存在正整数 $N$，使得当 $k \geqslant N$ 时恒有 $\frac{a_k - a_{k+1}}{b_k - b_{k+1}} > G$．同理累加并取 $p \to \infty$ 可得 $a_n \geqslant G b_n \implies \frac{a_n}{b_n} \geqslant G$，即 $\lim_{n\to\infty} \frac{a_n}{b_n} = +\infty$．$l = -\infty$ 的情形完全对称．
+\end{myproof}
+
+\endinput

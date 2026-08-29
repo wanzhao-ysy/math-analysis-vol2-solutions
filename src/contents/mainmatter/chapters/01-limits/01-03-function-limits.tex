@@ -1,0 +1,874 @@
+\section{函数极限}
+
+\begin{problem}{函数极限的定义证明}{Function-Limit-Definition-Proof}
+    按定义证明：
+    \begin{enumerate}
+        \item $\lim_{x\to -\infty} a^x = 0$（$a > 1$）；
+        \item $\lim_{x\to\infty} \frac{x-1}{x+1} = 1$；
+        \item $\lim_{x\to -1} \frac{x^2-1}{x^2+x} = 2$；
+        \item $\lim_{x\to 0^+} x^{1/q} = 0$（$q$ 为正整数）．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    对任给 $\varepsilon > 0$，取 $X = \max\{0, -\log_a \varepsilon\}$．当 $x < -X \leqslant \log_a \varepsilon$ 时，因底数 $a > 1$，有
+    \begin{equation}
+        |a^x - 0| = a^x < a^{\log_a \varepsilon} = \varepsilon.
+    \end{equation}
+    故 $\lim_{x\to -\infty} a^x = 0$．
+
+    \ansitem{2}
+
+    对任给 $\varepsilon > 0$，考察差式
+    \begin{equation}
+        \left| \frac{x-1}{x+1} - 1 \right| = \frac{2}{|x+1|}.
+    \end{equation}
+    当 $|x| > 2$ 时，$|x+1| \geqslant |x| - 1 > \frac{|x|}{2}$，从而
+    \begin{equation}
+        \frac{2}{|x+1|} < \frac{4}{|x|}.
+    \end{equation}
+    取正数 $X = \max\left\{ 2, \frac{4}{\varepsilon} \right\}$，当 $|x| > X$ 时，恒有
+    \begin{equation}
+        \left| \frac{x-1}{x+1} - 1 \right| < \frac{4}{|x|} < \varepsilon.
+    \end{equation}
+    故 $\lim_{x\to\infty} \frac{x-1}{x+1} = 1$．
+
+    \ansitem{3}
+
+    当 $x \neq -1$ 且 $x \neq 0$ 时，
+    \begin{equation}
+        \left| \frac{x^2-1}{x^2+x} - 2 \right| = \left| \frac{x-1}{x} - 2 \right| = \left| \frac{-(x+1)}{x} \right| = \frac{|x+1|}{|x|}.
+    \end{equation}
+    限制 $0 < |x+1| < \frac{1}{2}$，则 $-\frac{3}{2} < x < -\frac{1}{2}$，进而 $|x| > \frac{1}{2}$，即 $\frac{1}{|x|} < 2$．
+
+    对任给 $\varepsilon > 0$，取 $\delta = \min\left\{ \frac{1}{2}, \frac{\varepsilon}{2} \right\}$，则当 $0 < |x - (-1)| < \delta$ 时，有
+    \begin{equation}
+        \left| \frac{x^2-1}{x^2+x} - 2 \right| < 2|x+1| < 2 \cdot \frac{\varepsilon}{2} = \varepsilon.
+    \end{equation}
+    故 $\lim_{x\to -1} \frac{x^2-1}{x^2+x} = 2$．
+
+    \ansitem{4}
+
+    对任给 $\varepsilon > 0$，取 $\delta = \varepsilon^q > 0$．当 $0 < x < \delta$ 时，有
+    \begin{equation}
+        \left| x^{1/q} - 0 \right| = x^{1/q} < \delta^{1/q} = \varepsilon.
+    \end{equation}
+    故 $\lim_{x\to 0^+} x^{1/q} = 0$．
+\end{myproof}
+
+\begin{problem}{函数极限的计算}{Function-Limits-Evaluation}
+    求下列极限：
+    \begin{enumerate}
+        \item $\lim_{x\to 1} \left( x^5 - 5x + 2 + \frac{1}{x} \right)$；
+        \item $\lim_{x\to 1} \frac{x^n - 1}{x - 1}$（$n$ 为正整数）；
+        \item $\lim_{x\to 1} \frac{x^2 - 1}{2x^2 - x - 1}$；
+        \item $\lim_{x\to\infty} \frac{(3x+6)^{70}(8x-5)^{20}}{(5x-1)^{90}}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    利用极限四则运算法则直接代入：
+    \begin{equation}
+        \lim_{x\to 1} \left( x^5 - 5x + 2 + \frac{1}{x} \right) = 1^5 - 5(1) + 2 + \frac{1}{1} = -1.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 1} \left( x^5 - 5x + 2 + \frac{1}{x} \right) = -1.}
+    \end{equation}
+
+    \ansitem{2}
+
+    对分子进行因式分解：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to 1} \frac{x^n - 1}{x - 1} & = \lim_{x\to 1} \frac{(x-1)(x^{n-1} + x^{n-2} + \cdots + x + 1)}{x - 1} \\
+                                                & = \lim_{x\to 1} \sum_{k=0}^{n-1} x^k                                    \\
+                                                & = n.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 1} \frac{x^n - 1}{x - 1} = n.}
+    \end{equation}
+
+    \ansitem{3}
+
+    消去零因子：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to 1} \frac{x^2 - 1}{2x^2 - x - 1} & = \lim_{x\to 1} \frac{(x-1)(x+1)}{(x-1)(2x+1)} \\
+                                                       & = \lim_{x\to 1} \frac{x+1}{2x+1}               \\
+                                                       & = \frac{2}{3}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 1} \frac{x^2 - 1}{2x^2 - x - 1} = \frac{2}{3}.}
+    \end{equation}
+
+    \ansitem{4}
+
+    分子分母同除以 $x^{90}$：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to\infty} \frac{(3x+6)^{70}(8x-5)^{20}}{(5x-1)^{90}} & = \lim_{x\to\infty} \frac{\left(3 + \frac{6}{x}\right)^{70} \left(8 - \frac{5}{x}\right)^{20}}{\left(5 - \frac{1}{x}\right)^{90}} \\
+                                                                         & = \frac{3^{70} \cdot 8^{20}}{5^{90}}                                                                                              \\
+                                                                         & = \frac{3^{70} \cdot 2^{60}}{5^{90}}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to\infty} \frac{(3x+6)^{70}(8x-5)^{20}}{(5x-1)^{90}} = \frac{3^{70} \cdot 2^{60}}{5^{90}}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{函数极限不存在的判定}{Non-Existence-Of-Function-Limits}
+    证明下列极限不存在：
+    \begin{enumerate}
+        \item $\lim_{x\to +\infty} \sin x$；
+        \item $\lim_{x\to 0} \frac{|x|}{x}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    构造两个趋于 $+\infty$ 的数列：
+    \begin{equation}
+        x_n = 2n\uppi \to +\infty \quad (n \to \infty), \qquad y_n = 2n\uppi + \frac{\uppi}{2} \to +\infty \quad (n \to \infty).
+    \end{equation}
+    其对应的函数值极限分别为
+    \begin{equation}
+        \lim_{n\to\infty} \sin x_n = \lim_{n\to\infty} \sin(2n\uppi) = 0,
+    \end{equation}
+    \begin{equation}
+        \lim_{n\to\infty} \sin y_n = \lim_{n\to\infty} \sin\left(2n\uppi + \frac{\uppi}{2}\right) = 1.
+    \end{equation}
+    因 $0 \neq 1$，由海涅定理可知 $\lim_{x\to +\infty} \sin x$ 不存在．
+
+    \ansitem{2}
+
+    分别计算左右极限：
+    \begin{equation}
+        \lim_{x\to 0^+} \frac{|x|}{x} = \lim_{x\to 0^+} \frac{x}{x} = 1,
+    \end{equation}
+    \begin{equation}
+        \lim_{x\to 0^-} \frac{|x|}{x} = \lim_{x\to 0^-} \frac{-x}{x} = -1.
+    \end{equation}
+    因左右极限存在但不相等（$1 \neq -1$），故 $\lim_{x\to 0} \frac{|x|}{x}$ 不存在．
+\end{myproof}
+
+\begin{problem}{海涅归结原则}{Heine-Transfer-Principle}
+    设函数 $f(x)$ 在正无穷大处的极限为 $l$，则对于任意趋于正无穷大的数列 $\{a_n\}$，有 $\lim_{n\to\infty} f(a_n) = l$．特别地 $\lim_{n\to\infty} f(n) = l$．
+\end{problem}
+
+\begin{myproof}
+    由 $\lim_{x\to +\infty} f(x) = l$，对任给 $\varepsilon > 0$，存在实数 $X > 0$，使得当 $x > X$ 时，恒有
+    \begin{equation}
+        |f(x) - l| < \varepsilon.
+    \end{equation}
+    对于任意满足 $\lim_{n\to\infty} a_n = +\infty$ 的数列 $\{a_n\}$，针对上述 $X > 0$，存在正整数 $N$，使得当 $n > N$ 时，恒有
+    \begin{equation}
+        a_n > X.
+    \end{equation}
+    从而当 $n > N$ 时，必有
+    \begin{equation}
+        |f(a_n) - l| < \varepsilon.
+    \end{equation}
+    由数列极限定义，即得 $\lim_{n\to\infty} f(a_n) = l$．
+
+    特别地，取数列 $a_n = n$，显然 $\lim_{n\to\infty} n = +\infty$，故 $\lim_{n\to\infty} f(n) = l$．
+\end{myproof}
+
+\begin{problem}{分段函数在原点处的极限}{Limits-Of-Piecewise-Functions-At-Zero}
+    讨论下列函数在 $x = 0$ 处的极限：
+    \begin{enumerate}
+        \item $f(x) = [x]$；
+        \item $f(x) = \operatorname{sgn} x$；
+        \item $f(x) = \begin{cases} 2^x, & x > 0, \\ 0, & x = 0, \\ 1 + x^2, & x < 0; \end{cases}$
+        \item $f(x) = \begin{cases} \cos \frac{1}{x}, & x > 0, \\ x, & x \leqslant 0. \end{cases}$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    考察左右极限：
+    \begin{equation}
+        \lim_{x\to 0^+} [x] = 0, \qquad \lim_{x\to 0^-} [x] = -1.
+    \end{equation}
+    因左右极限不相等，故极限不存在．
+    \begin{equation}
+        \boxed{\lim_{x\to 0} [x] \text{ 不存在．}}
+    \end{equation}
+
+    \ansitem{2}
+
+    考察左右极限：
+    \begin{equation}
+        \lim_{x\to 0^+} \operatorname{sgn} x = 1, \qquad \lim_{x\to 0^-} \operatorname{sgn} x = -1.
+    \end{equation}
+    因左右极限不相等，故极限不存在．
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \operatorname{sgn} x \text{ 不存在．}}
+    \end{equation}
+
+    \ansitem{3}
+
+    分别计算左右极限：
+    \begin{equation}
+        \lim_{x\to 0^+} f(x) = \lim_{x\to 0^+} 2^x = 2^0 = 1,
+    \end{equation}
+    \begin{equation}
+        \lim_{x\to 0^-} f(x) = \lim_{x\to 0^-} (1 + x^2) = 1.
+    \end{equation}
+    因左右极限存在且相等，故极限存在且为 $1$．
+    \begin{equation}
+        \boxed{\lim_{x\to 0} f(x) = 1.}
+    \end{equation}
+
+    \ansitem{4}
+
+    考察右极限：取数列 $x_n = \frac{1}{2n\uppi} \to 0^+$ 与 $x'_n = \frac{1}{(2n+1)\uppi} \to 0^+$（$n \in \symbb{N}^+$），有
+    \begin{equation}
+        \lim_{n\to\infty} f(x_n) = \lim_{n\to\infty} \cos(2n\uppi) = 1,
+    \end{equation}
+    \begin{equation}
+        \lim_{n\to\infty} f(x'_n) = \lim_{n\to\infty} \cos\bigl( (2n+1)\uppi \bigr) = -1.
+    \end{equation}
+    故右极限 $\lim_{x\to 0^+} f(x)$ 不存在，进而 $x \to 0$ 时的极限不存在．
+    \begin{equation}
+        \boxed{\lim_{x\to 0} f(x) \text{ 不存在．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{余弦连乘积的极限}{Cosine-Product-Limit}
+    求 $\lim_{n\to\infty} \cos \frac{x}{2} \cos \frac{x}{2^2} \cdots \cos \frac{x}{2^n}$．
+\end{problem}
+
+\begin{solution}
+    当 $x = 0$ 时，
+    \begin{equation}
+        \lim_{n\to\infty} \cos 0 \cos 0 \cdots \cos 0 = 1.
+    \end{equation}
+    当 $x \neq 0$ 时，当 $n$ 充分大时 $\sin \frac{x}{2^n} \neq 0$，利用二倍角公式累乘可得
+    \begin{equation}
+        \begin{aligned}
+            \cos \frac{x}{2} \cos \frac{x}{2^2} \cdots \cos \frac{x}{2^n} & = \frac{\cos \frac{x}{2} \cos \frac{x}{2^2} \cdots \cos \frac{x}{2^n} \sin \frac{x}{2^n}}{\sin \frac{x}{2^n}}                                    \\
+                                                                          & = \frac{\cos \frac{x}{2} \cos \frac{x}{2^2} \cdots \cos \frac{x}{2^{n-1}} \left( \frac{1}{2} \sin \frac{x}{2^{n-1}} \right)}{\sin \frac{x}{2^n}} \\
+                                                                          & = \frac{\sin x}{2^n \sin \frac{x}{2^n}}                                                                                                          \\
+                                                                          & = \frac{\sin x}{x} \cdot \frac{\frac{x}{2^n}}{\sin \frac{x}{2^n}}.
+        \end{aligned}
+    \end{equation}
+    因为 $\lim_{n\to\infty} \frac{x}{2^n} = 0$，由重要极限 $\lim_{t\to 0} \frac{t}{\sin t} = 1$，有
+    \begin{equation}
+        \lim_{n\to\infty} \cos \frac{x}{2} \cos \frac{x}{2^2} \cdots \cos \frac{x}{2^n} = \frac{\sin x}{x}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \cos \frac{x}{2} \cos \frac{x}{2^2} \cdots \cos \frac{x}{2^n} = \begin{cases} \frac{\sin x}{x}, & x \neq 0, \\ 1, & x = 0. \end{cases}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{正弦和式的极限}{Sine-Sum-Limit}
+    求证：$\lim_{n\to\infty} \left( \sin \frac{\alpha}{n^2} + \sin \frac{2\alpha}{n^2} + \cdots + \sin \frac{n\alpha}{n^2} \right) = \frac{\alpha}{2}$．
+\end{problem}
+
+\begin{myproof}
+    利用不等式 $|\sin x - x| \leqslant \frac{|x|^3}{6}$（$x \in \symbb{R}$），有
+    \begin{equation}
+        \begin{aligned}
+            \left| \sum_{k=1}^n \sin \frac{k\alpha}{n^2} - \sum_{k=1}^n \frac{k\alpha}{n^2} \right| & \leqslant \sum_{k=1}^n \left| \sin \frac{k\alpha}{n^2} - \frac{k\alpha}{n^2} \right| \\
+                                                                                                    & \leqslant \sum_{k=1}^n \frac{|k\alpha|^3}{6n^6}                                      \\
+                                                                                                    & = \frac{|\alpha|^3}{6n^6} \sum_{k=1}^n k^3                                           \\
+                                                                                                    & = \frac{|\alpha|^3}{6n^6} \cdot \frac{n^2(n+1)^2}{4}                                 \\
+                                                                                                    & \leqslant \frac{|\alpha|^3}{6n^2}.
+        \end{aligned}
+    \end{equation}
+    对于一次项求和，有
+    \begin{equation}
+        \sum_{k=1}^n \frac{k\alpha}{n^2} = \frac{\alpha}{n^2} \sum_{k=1}^n k = \frac{\alpha}{n^2} \cdot \frac{n(n+1)}{2} = \frac{\alpha(n+1)}{2n}.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \lim_{n\to\infty} \sum_{k=1}^n \frac{k\alpha}{n^2} = \frac{\alpha}{2}.
+    \end{equation}
+    因 $\lim_{n\to\infty} \frac{|\alpha|^3}{6n^2} = 0$，由夹逼准则即得
+    \begin{equation}
+        \lim_{n\to\infty} \left( \sin \frac{\alpha}{n^2} + \sin \frac{2\alpha}{n^2} + \cdots + \sin \frac{n\alpha}{n^2} \right) = \frac{\alpha}{2}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{倒数变换与函数极限的等价性}{Reciprocal-Substitution-Limit}
+    证明：若 $\lim_{x\to\infty} f(x) = l$，则 $\lim_{x\to 0} f\left(\frac{1}{x}\right) = l$，反之亦正确．叙述并证明，当 $x \to +\infty$ 及 $x \to -\infty$ 时类似结论．（应用本题结论，可将极限过程为 $x \to \infty$ 的问题化为 $x \to 0$ 处理，或者反过来．例如，我们有 $\lim_{x\to 0}(1+x)^{1/x} = \e$．）
+\end{problem}
+
+\begin{myproof}
+    先证 $\lim_{x\to\infty} f(x) = l \iff \lim_{x\to 0} f\left(\frac{1}{x}\right) = l$：
+
+    必要性：设 $\lim_{x\to\infty} f(x) = l$．对任给 $\varepsilon > 0$，存在 $X > 0$，使得当 $|x| > X$ 时，有 $|f(x) - l| < \varepsilon$．取 $\delta = \frac{1}{X} > 0$，当 $0 < |t| < \delta$ 时，令 $x = \frac{1}{t}$，则 $|x| = \frac{1}{|t|} > \frac{1}{\delta} = X$，从而
+    \begin{equation}
+        \left| f\left(\frac{1}{t}\right) - l \right| = |f(x) - l| < \varepsilon.
+    \end{equation}
+    由函数极限定义，$\lim_{t\to 0} f\left(\frac{1}{t}\right) = l$．
+
+    充分性：设 $\lim_{t\to 0} f\left(\frac{1}{t}\right) = l$．对任给 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $0 < |t| < \delta$ 时，有 $\left| f\left(\frac{1}{t}\right) - l \right| < \varepsilon$．取 $X = \frac{1}{\delta} > 0$，当 $|x| > X$ 时，令 $t = \frac{1}{x}$，则 $0 < |t| = \frac{1}{|x|} < \frac{1}{X} = \delta$，从而
+    \begin{equation}
+        |f(x) - l| = \left| f\left(\frac{1}{t}\right) - l \right| < \varepsilon.
+    \end{equation}
+    故 $\lim_{x\to\infty} f(x) = l$．
+
+    单侧极限结论叙述如下：
+    \begin{enumerate}
+        \item $\lim_{x\to +\infty} f(x) = l \iff \lim_{x\to 0^+} f\left(\frac{1}{x}\right) = l$；
+        \item $\lim_{x\to -\infty} f(x) = l \iff \lim_{x\to 0^-} f\left(\frac{1}{x}\right) = l$．
+    \end{enumerate}
+
+    以第一式为例证明：
+
+    设 $\lim_{x\to +\infty} f(x) = l$．对任给 $\varepsilon > 0$，存在 $X > 0$，使得当 $x > X$ 时有 $|f(x) - l| < \varepsilon$．取 $\delta = \frac{1}{X} > 0$，当 $0 < t < \delta$ 时，$x = \frac{1}{t} > \frac{1}{\delta} = X$，从而 $\left| f\left(\frac{1}{t}\right) - l \right| < \varepsilon$，即 $\lim_{t\to 0^+} f\left(\frac{1}{t}\right) = l$．
+
+    反之，设 $\lim_{t\to 0^+} f\left(\frac{1}{t}\right) = l$．对任给 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $0 < t < \delta$ 时有 $\left| f\left(\frac{1}{t}\right) - l \right| < \varepsilon$．取 $X = \frac{1}{\delta} > 0$，当 $x > X$ 时，$0 < t = \frac{1}{x} < \delta$，从而 $|f(x) - l| < \varepsilon$，即 $\lim_{x\to +\infty} f(x) = l$．
+
+    第二式的证明完全同理．
+\end{myproof}
+
+\begin{problem}{函数极限的计算}{Function-Limits-Evaluation-2}
+    求下列极限：
+    \begin{enumerate}
+        \item $\lim_{x\to 0} \frac{\tan 2x}{\sin 5x}$；
+        \item $\lim_{x\to 0} \frac{\cos x - \cos 3x}{x^2}$；
+        \item $\lim_{x\to +\infty} \left( \frac{x+1}{2x-1} \right)^x$；
+        \item $\lim_{x\to\infty} \left( \frac{x^2+1}{x^2-1} \right)^{x^2}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    利用等价无穷小代换 $\tan 2x \sim 2x$ 与 $\sin 5x \sim 5x$（$x \to 0$）：
+    \begin{equation}
+        \lim_{x\to 0} \frac{\tan 2x}{\sin 5x} = \lim_{x\to 0} \frac{2x}{5x} = \frac{2}{5}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\tan 2x}{\sin 5x} = \frac{2}{5}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    应用和差化积公式：
+    \begin{equation}
+        \cos x - \cos 3x = 2 \sin 2x \sin x.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \lim_{x\to 0} \frac{\cos x - \cos 3x}{x^2} = \lim_{x\to 0} \frac{2 \sin 2x \sin x}{x^2} = 2 \lim_{x\to 0} \left( \frac{\sin 2x}{2x} \cdot 2 \cdot \frac{\sin x}{x} \right) = 4.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\cos x - \cos 3x}{x^2} = 4.}
+    \end{equation}
+
+    \ansitem{3}
+
+    底数的极限为
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{x+1}{2x-1} = \frac{1}{2}.
+    \end{equation}
+    当 $x > 2$ 时，有
+    \begin{equation}
+        0 < \frac{x+1}{2x-1} \leqslant \frac{3}{4}.
+    \end{equation}
+    从而
+    \begin{equation}
+        0 < \left( \frac{x+1}{2x-1} \right)^x \leqslant \left( \frac{3}{4} \right)^x.
+    \end{equation}
+    因为 $\lim_{x\to +\infty} \left(\frac{3}{4}\right)^x = 0$，由夹逼准则可得
+    \begin{equation}
+        \boxed{\lim_{x\to +\infty} \left( \frac{x+1}{2x-1} \right)^x = 0.}
+    \end{equation}
+
+    \ansitem{4}
+
+    利用重要极限化简：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to\infty} \left( \frac{x^2+1}{x^2-1} \right)^{x^2} & = \lim_{x\to\infty} \left( 1 + \frac{2}{x^2-1} \right)^{x^2}                                                 \\
+                                                                       & = \lim_{x\to\infty} \left[ \left( 1 + \frac{2}{x^2-1} \right)^{\frac{x^2-1}{2}} \right]^{\frac{2x^2}{x^2-1}} \\
+                                                                       & = \e^{\lim_{x\to\infty} \frac{2x^2}{x^2-1}}                                                                  \\
+                                                                       & = \e^2.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to\infty} \left( \frac{x^2+1}{x^2-1} \right)^{x^2} = \e^2.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{基础函数极限求解}{Basic-Function-Limits}
+    求下列极限：
+    \begin{enumerate}
+        \item $\lim_{x\to +\infty} \frac{\arctan x}{x}$；
+        \item $\lim_{x\to 0} x^2 \sin \frac{1}{x}$；
+        \item $\lim_{x\to 2} \frac{x^3 - 2x^2}{x - 2}$；
+        \item $\lim_{x\to\infty} (2x^2 - x + 1)$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    因为当 $x \to +\infty$ 时 $\lim_{x\to +\infty} \arctan x = \frac{\uppi}{2}$，所以
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{\arctan x}{x} = \frac{\uppi}{2} \cdot \lim_{x\to +\infty} \frac{1}{x} = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to +\infty} \frac{\arctan x}{x} = 0.}
+    \end{equation}
+
+    \ansitem{2}
+
+    因为 $\left| \sin \frac{1}{x} \right| \leqslant 1$，所以
+    \begin{equation}
+        0 \leqslant \left| x^2 \sin \frac{1}{x} \right| \leqslant x^2.
+    \end{equation}
+    由于 $\lim_{x\to 0} x^2 = 0$，由夹逼准则得
+    \begin{equation}
+        \lim_{x\to 0} x^2 \sin \frac{1}{x} = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} x^2 \sin \frac{1}{x} = 0.}
+    \end{equation}
+
+    \ansitem{3}
+
+    消去非零公因式：
+    \begin{equation}
+        \lim_{x\to 2} \frac{x^3 - 2x^2}{x - 2} = \lim_{x\to 2} \frac{x^2(x - 2)}{x - 2} = \lim_{x\to 2} x^2 = 4.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 2} \frac{x^3 - 2x^2}{x - 2} = 4.}
+    \end{equation}
+
+    \ansitem{4}
+
+    提取主部：
+    \begin{equation}
+        \lim_{x\to\infty} (2x^2 - x + 1) = \lim_{x\to\infty} x^2 \left( 2 - \frac{1}{x} + \frac{1}{x^2} \right) = +\infty.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to\infty} (2x^2 - x + 1) = +\infty.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{无穷大极限的定义证明}{Infinite-Limits-Definition-Proof}
+    按定义证明：
+    \begin{enumerate}
+        \item $\lim_{x\to +\infty} \log_a x = +\infty$（$a > 1$）；
+        \item $\lim_{x\to 0^+} \log_a x = -\infty$（$a > 1$）；
+        \item $\lim_{x\to \uppi/2-0} \tan x = +\infty$；
+        \item $\lim_{x\to 0^+} \e^{1/x} = +\infty$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    任给正数 $M > 0$，取 $X = a^M > 0$．当 $x > X$ 时，由于底数 $a > 1$，对数函数严格单调递增，恒有
+    \begin{equation}
+        \log_a x > \log_a (a^M) = M.
+    \end{equation}
+    故 $\lim_{x\to +\infty} \log_a x = +\infty$．
+
+    \ansitem{2}
+
+    任给正数 $M > 0$，取 $\delta = a^{-M} > 0$．当 $0 < x < \delta$ 时，由对数函数的严格单调性，恒有
+    \begin{equation}
+        \log_a x < \log_a (a^{-M}) = -M.
+    \end{equation}
+    故 $\lim_{x\to 0^+} \log_a x = -\infty$．
+
+    \ansitem{3}
+
+    任给正数 $M > 0$，取 $\delta = \frac{\uppi}{2} - \arctan M > 0$．当 $\frac{\uppi}{2} - \delta < x < \frac{\uppi}{2}$（即 $\arctan M < x < \frac{\uppi}{2}$）时，由于正切函数在 $\left(0, \frac{\uppi}{2}\right)$ 内严格单调递增，恒有
+    \begin{equation}
+        \tan x > \tan(\arctan M) = M.
+    \end{equation}
+    故 $\lim_{x\to \uppi/2-0} \tan x = +\infty$．
+
+    \ansitem{4}
+
+    任给正数 $M > 0$．若 $M \leqslant 1$，由于当 $x > 0$ 时 $\e^{1/x} > 1 \geqslant M$，取任意 $\delta > 0$ 均成立；若 $M > 1$，取 $\delta = \frac{1}{\ln M} > 0$．当 $0 < x < \delta$ 时，有
+    \begin{equation}
+        \frac{1}{x} > \ln M \implies \e^{1/x} > M.
+    \end{equation}
+    故 $\lim_{x\to 0^+} \e^{1/x} = +\infty$．
+\end{myproof}
+
+\begin{problem}{无界函数与无穷大量的关系}{Unbounded-Functions-And-Infinite-Limits}
+    证明：函数 $y = x\sin x$ 在 $(0, +\infty)$ 内无界；但当 $x \to +\infty$ 时，这个函数并不是无穷大量．
+\end{problem}
+
+\begin{myproof}
+    取点列 $x_n = 2n\uppi + \frac{\uppi}{2} \in (0, +\infty)$（$n \in \symbb{N}^+$），其函数值为
+    \begin{equation}
+        y(x_n) = \left( 2n\uppi + \frac{\uppi}{2} \right) \sin\left( 2n\uppi + \frac{\uppi}{2} \right) = 2n\uppi + \frac{\uppi}{2}.
+    \end{equation}
+    对任意 $M > 0$，只要取正整数 $n > \frac{M}{2\uppi}$，就有 $|y(x_n)| > M$，故函数 $y = x\sin x$ 在 $(0, +\infty)$ 内无界．
+
+    另一方面，取点列 $x'_n = n\uppi \in (0, +\infty)$（$n \in \symbb{N}^+$），显然 $\lim_{n\to\infty} x'_n = +\infty$，其对应的函数值为
+    \begin{equation}
+        y(x'_n) = n\uppi \sin(n\uppi) = 0.
+    \end{equation}
+    对任意正数 $M > 0$，不存在 $X > 0$ 使得当 $x > X$ 时恒有 $|y(x)| > M$（因对任意大的 $X$，总存在 $x'_n > X$ 使得 $|y(x'_n)| = 0 < M$）．
+
+    故当 $x \to +\infty$ 时，函数 $y = x\sin x$ 并不是无穷大量．
+\end{myproof}
+
+\begin{problem}{函数有界性与无穷大量判定}{Boundedness-And-Infinity-Determination}
+    函数 $y = \frac{1}{x}\cos \frac{1}{x}$ 在区间 $(0, 1)$ 内是否有界？又当 $x \to 0^+$ 时，这个函数是否为无穷大量？
+\end{problem}
+
+\begin{solution}
+    在区间 $(0, 1)$ 内无界；当 $x \to 0^+$ 时不是无穷大量．
+
+    取点列 $x_n = \frac{1}{2n\uppi} \in (0, 1)$（$n \in \symbb{N}^+$），此时
+    \begin{equation}
+        y(x_n) = 2n\uppi \cos(2n\uppi) = 2n\uppi.
+    \end{equation}
+    因为 $\lim_{n\to\infty} |y(x_n)| = +\infty$，所以函数 $y$ 在区间 $(0, 1)$ 内无界．
+
+    又取点列 $x'_n = \frac{1}{n\uppi + \frac{\uppi}{2}} \in (0, 1)$（$n \in \symbb{N}^+$），当 $n \to \infty$ 时 $x'_n \to 0^+$，此时函数值为
+    \begin{equation}
+        y(x'_n) = \left( n\uppi + \frac{\uppi}{2} \right) \cos\left( n\uppi + \frac{\uppi}{2} \right) = 0.
+    \end{equation}
+    因此，对任意正数 $M > 0$，不存在 $\delta > 0$ 使得当 $x \in (0, \delta)$ 时恒有 $|y(x)| > M$．故当 $x \to 0^+$ 时，该函数不是无穷大量．
+    \begin{equation}
+        \boxed{\text{在区间 }(0, 1)\text{ 内无界；当 } x \to 0^+ \text{ 时不是无穷大量．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{曲线渐近线的判定与计算}{Curve-Asymptotes-Proof-And-Calculation}
+    本题所涉及的函数极限有着鲜明的几何意义．
+    记函数 $y = f(x)$ 所表示的曲线为 $C$．若动点沿曲线无限远离原点时，此动点与某一固定直线的距离趋于零，则称该直线为曲线 $C$ 的一条渐近线．
+    \begin{enumerate}
+        \item 垂直渐近线 易知（垂直于 $x$ 轴的）直线 $x = x_0$ 为曲线 $C$ 的渐近线的充分必要条件是
+              \begin{equation}
+                  \lim_{x\to x_0^-} f(x) = \infty \quad \text{或} \quad \lim_{x\to x_0^+} f(x) = \infty.
+              \end{equation}
+        \item 水平渐近线 易知（平行于 $x$ 轴的）直线 $y = b$ 为曲线 $C$ 的渐近线的充分必要条件是
+              \begin{equation}
+                  \lim_{x\to +\infty} f(x) = b \quad \text{或} \quad \lim_{x\to -\infty} f(x) = b.
+              \end{equation}
+        \item 斜渐近线 请读者证明，方程为 $y = ax + b$（$a \neq 0$）的直线 $L$ 为曲线 $C$ 的渐近线的充分必要条件是
+              \begin{equation}
+                  a = \lim_{x\to +\infty} \frac{f(x)}{x}, \quad b = \lim_{x\to +\infty} (f(x) - ax);
+              \end{equation}
+              或者
+              \begin{equation}
+                  a = \lim_{x\to -\infty} \frac{f(x)}{x}, \quad b = \lim_{x\to -\infty} (f(x) - ax).
+              \end{equation}
+              这里自然要假定所说的极限都存在．（提示：以 $x \to +\infty$ 为例，设曲线 $C$ 及直线 $L$ 上的横坐标为 $x$ 的点分别为 $M, N$．则 $M$ 至 $L$ 的距离，是 $|MN|$ 的一个常数倍．因此，直线 $L$ 为曲线 $C$ 的渐近线，等价于 $\lim_{x\to +\infty} (f(x) - (ax + b)) = 0$，由此易得所说的结果．）
+    \end{enumerate}
+    求下列曲线的渐近线方程：
+    \begin{enumerate}
+        \item $y = x\ln\left( \e + \frac{1}{x} \right)$；
+        \item $y = \frac{3x^2 - 2x + 3}{x - 1}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    先证斜渐近线的充要条件（以 $x \to +\infty$ 为例）：
+
+    设曲线 $C$ 上动点 $M(x, f(x))$ 与直线 $L: ax - y + b = 0$ 上对应点 $N(x, ax+b)$，则 $M$ 到 $L$ 的距离为
+    \begin{equation}
+        d(M, L) = \frac{|f(x) - (ax + b)|}{\sqrt{1 + a^2}}.
+    \end{equation}
+    故直线 $L$ 为曲线 $C$ 的渐近线等价于
+    \begin{equation}
+        \lim_{x\to +\infty} \bigl[ f(x) - (ax + b) \bigr] = 0.
+    \end{equation}
+    必要性：若上式成立，则
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{f(x) - (ax + b)}{x} = 0 \implies \lim_{x\to +\infty} \left( \frac{f(x)}{x} - a - \frac{b}{x} \right) = 0 \implies a = \lim_{x\to +\infty} \frac{f(x)}{x}.
+    \end{equation}
+    进一步有
+    \begin{equation}
+        b = \lim_{x\to +\infty} \bigl[ (f(x) - ax) - (f(x) - ax - b) \bigr] = \lim_{x\to +\infty} (f(x) - ax).
+    \end{equation}
+    充分性：若 $a = \lim_{x\to +\infty} \frac{f(x)}{x}$ 且 $b = \lim_{x\to +\infty} (f(x) - ax)$，则
+    \begin{equation}
+        \lim_{x\to +\infty} \bigl[ f(x) - (ax + b) \bigr] = \lim_{x\to +\infty} (f(x) - ax) - b = b - b = 0,
+    \end{equation}
+    即 $d(M, L) \to 0$（$x \to +\infty$）．$x \to -\infty$ 的情形完全同理．
+
+    \ansitem{1}
+
+    函数的定义域为 $\left( -\infty, -\frac{1}{\e} \right) \cup (0, +\infty)$．
+
+    考察垂直渐近线：
+    \begin{equation}
+        \lim_{x\to -\left(\frac{1}{\e}\right)-0} x\ln\left( \e + \frac{1}{x} \right) = \left( -\frac{1}{\e} \right) \cdot (-\infty) = +\infty,
+    \end{equation}
+    故 $x = -\frac{1}{\e}$ 为垂直渐近线；而在 $x \to 0^+$ 处，$\lim_{x\to 0^+} x\ln\left(\e + \frac{1}{x}\right) = 0$，无渐近线．
+
+    考察斜渐近线：
+    \begin{equation}
+        a = \lim_{x\to\infty} \frac{y}{x} = \lim_{x\to\infty} \ln\left( \e + \frac{1}{x} \right) = \ln \e = 1,
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            b & = \lim_{x\to\infty} (y - x) = \lim_{x\to\infty} x\left[ \ln\left( \e + \frac{1}{x} \right) - 1 \right]                \\
+              & = \lim_{x\to\infty} x \ln\left( 1 + \frac{1}{\e x} \right) = \lim_{x\to\infty} x \cdot \frac{1}{\e x} = \frac{1}{\e}.
+        \end{aligned}
+    \end{equation}
+    故 $y = x + \frac{1}{\e}$ 为斜渐近线．
+    \begin{equation}
+        \boxed{x = -\frac{1}{\e} \quad \text{与} \quad y = x + \frac{1}{\e}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    将函数解析式作多项式除法：
+    \begin{equation}
+        y = \frac{3x^2 - 2x + 3}{x - 1} = 3x + 1 + \frac{4}{x - 1}.
+    \end{equation}
+    考察垂直渐近线：
+    \begin{equation}
+        \lim_{x\to 1} \frac{3x^2 - 2x + 3}{x - 1} = \infty,
+    \end{equation}
+    故 $x = 1$ 为垂直渐近线．
+
+    考察斜渐近线：
+    \begin{equation}
+        \lim_{x\to\infty} \bigl[ y - (3x + 1) \bigr] = \lim_{x\to\infty} \frac{4}{x - 1} = 0,
+    \end{equation}
+    故 $y = 3x + 1$ 为斜渐近线．
+    \begin{equation}
+        \boxed{x = 1 \quad \text{与} \quad y = 3x + 1.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{等价无穷小的性质}{Equivalence-Properties-Of-Infinitesimals}
+    证明：在同一极限过程中等价的无穷小量有下列性质：
+    \begin{enumerate}
+        \item $\alpha(x) \sim \alpha(x)$（自反性）；
+        \item 若 $\alpha(x) \sim \beta(x)$，则 $\beta(x) \sim \alpha(x)$（对称性）；
+        \item 若 $\alpha(x) \sim \beta(x)$，$\beta(x) \sim \gamma(x)$，则 $\alpha(x) \sim \gamma(x)$（传递性）．
+    \end{enumerate}
+    （注意，(1) 中自然需假定 $\alpha(x)$ 不取零值；而在 (2)、(3) 中，条件蕴含着，所说的无穷小量在极限过程中均不取零值．）
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    因为在极限过程中 $\alpha(x) \neq 0$，恒有
+    \begin{equation}
+        \lim \frac{\alpha(x)}{\alpha(x)} = \lim 1 = 1,
+    \end{equation}
+    故 $\alpha(x) \sim \alpha(x)$．
+
+    \ansitem{2}
+
+    由 $\alpha(x) \sim \beta(x)$ 知 $\lim \frac{\alpha(x)}{\beta(x)} = 1 \neq 0$．利用极限商的运算法则，有
+    \begin{equation}
+        \lim \frac{\beta(x)}{\alpha(x)} = \lim \frac{1}{\frac{\alpha(x)}{\beta(x)}} = \frac{1}{\lim \frac{\alpha(x)}{\beta(x)}} = \frac{1}{1} = 1,
+    \end{equation}
+    故 $\beta(x) \sim \alpha(x)$．
+
+    \ansitem{3}
+
+    由已知条件，$\lim \frac{\alpha(x)}{\beta(x)} = 1$ 且 $\lim \frac{\beta(x)}{\gamma(x)} = 1$．利用极限乘积的运算法则，有
+    \begin{equation}
+        \lim \frac{\alpha(x)}{\gamma(x)} = \lim \left( \frac{\alpha(x)}{\beta(x)} \cdot \frac{\beta(x)}{\gamma(x)} \right) = \left( \lim \frac{\alpha(x)}{\beta(x)} \right) \left( \lim \frac{\beta(x)}{\gamma(x)} \right) = 1 \cdot 1 = 1,
+    \end{equation}
+    故 $\alpha(x) \sim \gamma(x)$．
+\end{myproof}
+
+\begin{problem}{无穷小量的阶的比较}{Comparison-Of-Infinitesimals-Orders}
+    当 $x \to 0$ 时，比较下列无穷小量的阶：
+    \begin{enumerate}
+        \item $\tan x - \sin x$ 与 $x^3$；
+        \item $x^3 + x^2$ 与 $\sin^2 x$；
+        \item $1 - \cos x$ 与 $x^2$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    考察两者的比值极限：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to 0} \frac{\tan x - \sin x}{x^3} & = \lim_{x\to 0} \frac{\tan x(1 - \cos x)}{x^3}                               \\
+                                                      & = \lim_{x\to 0} \left( \frac{\tan x}{x} \cdot \frac{1 - \cos x}{x^2} \right) \\
+                                                      & = 1 \cdot \frac{1}{2} = \frac{1}{2}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\tan x - \sin x \text{ 与 } x^3 \text{ 为同阶无穷小量．}}
+    \end{equation}
+
+    \ansitem{2}
+
+    考察两者的比值极限：
+    \begin{equation}
+        \lim_{x\to 0} \frac{x^3 + x^2}{\sin^2 x} = \lim_{x\to 0} \frac{x^2(x + 1)}{x^2} = \lim_{x\to 0} (x + 1) = 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{x^3 + x^2 \text{ 与 } \sin^2 x \text{ 为等价无穷小量（同阶无穷小量）．}}
+    \end{equation}
+
+    \ansitem{3}
+
+    考察两者的比值极限：
+    \begin{equation}
+        \lim_{x\to 0} \frac{1 - \cos x}{x^2} = \lim_{x\to 0} \frac{2\sin^2 \frac{x}{2}}{x^2} = 2 \cdot \left( \frac{1}{2} \right)^2 = \frac{1}{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{1 - \cos x \text{ 与 } x^2 \text{ 为同阶无穷小量．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{无穷大量的阶的比较}{Comparison-Of-Infinities-Orders}
+    当 $x \to +\infty$ 时，试比较下列无穷大量的阶：
+    \begin{enumerate}
+        \item $n$ 次多项式 $P_n(x)$ 与 $m$ 次多项式 $P_m(x)$（$m, n$ 均为正整数）；
+        \item $x^\alpha$ 与 $x^\beta$（$\alpha, \beta > 0$）；
+        \item $a^x$ 与 $b^x$（$a, b > 1$）．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    设 $P_n(x) = c_n x^n + \cdots + c_0$（$c_n \neq 0$），$P_m(x) = d_m x^m + \cdots + d_0$（$d_m \neq 0$）．考察比值极限：
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{P_n(x)}{P_m(x)} = \lim_{x\to +\infty} \frac{c_n x^n}{d_m x^m} = \frac{c_n}{d_m} \lim_{x\to +\infty} x^{n-m}.
+    \end{equation}
+    由此可得：
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{P_n(x)}{P_m(x)} = \begin{cases} \infty, & n > m, \\ \frac{c_n}{d_m}, & n = m, \\ 0, & n < m. \end{cases}
+    \end{equation}
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & \text{当 } n > m \text{ 时，} P_n(x) \text{ 的阶高于 } P_m(x)\text{；}       \\
+                 & \text{当 } n = m \text{ 时，} P_n(x) \text{ 与 } P_m(x) \text{ 为同阶无穷大量；} \\
+                 & \text{当 } n < m \text{ 时，} P_n(x) \text{ 的阶低于 } P_m(x)\text{．}
+            \end{aligned}
+        }
+    \end{equation}
+
+    \ansitem{2}
+
+    考察比值极限：
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{x^\alpha}{x^\beta} = \lim_{x\to +\infty} x^{\alpha - \beta} = \begin{cases} +\infty, & \alpha > \beta, \\ 1, & \alpha = \beta, \\ 0, & \alpha < \beta. \end{cases}
+    \end{equation}
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & \text{当 } \alpha > \beta \text{ 时，} x^\alpha \text{ 的阶高于 } x^\beta\text{；}           \\
+                 & \text{当 } \alpha = \beta \text{ 时，} x^\alpha \text{ 与 } x^\beta \text{ 为等价（同阶）无穷大量；} \\
+                 & \text{当 } \alpha < \beta \text{ 时，} x^\alpha \text{ 的阶低于 } x^\beta\text{．}
+            \end{aligned}
+        }
+    \end{equation}
+
+    \ansitem{3}
+
+    考察比值极限：
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{a^x}{b^x} = \lim_{x\to +\infty} \left( \frac{a}{b} \right)^x = \begin{cases} +\infty, & a > b, \\ 1, & a = b, \\ 0, & a < b. \end{cases}
+    \end{equation}
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & \text{当 } a > b \text{ 时，} a^x \text{ 的阶高于 } b^x\text{；}           \\
+                 & \text{当 } a = b \text{ 时，} a^x \text{ 与 } b^x \text{ 为等价（同阶）无穷大量；} \\
+                 & \text{当 } a < b \text{ 时，} a^x \text{ 的阶低于 } b^x\text{．}
+            \end{aligned}
+        }
+    \end{equation}
+\end{solution}
+
+\begin{problem}{等价无穷小代换求极限}{Limits-By-Equivalent-Infinitesimals}
+    试用等价无穷小量代换的方法计算下列极限：
+    \begin{enumerate}
+        \item $\lim_{x\to 0} \frac{\sin mx}{\sin nx}$（$m, n$ 均为正整数）；
+        \item $\lim_{x\to 0} \frac{\tan ax}{x}$；
+        \item $\lim_{x\to 0} \frac{\sqrt[n]{1+\sin x}-1}{\arctan x}$；
+        \item $\lim_{x\to 0} \frac{\sqrt{2}-\sqrt{1+\cos x}}{\sin^2 x}$；
+        \item $\lim_{x\to 0} \frac{\sqrt{1+x+x^2}-1}{\sin 2x}$；
+        \item $\lim_{x\to 0} \frac{\sqrt{1+x^2}-1}{1-\cos x}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    当 $x \to 0$ 时，$\sin mx \sim mx$，$\sin nx \sim nx$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{\sin mx}{\sin nx} = \lim_{x\to 0} \frac{mx}{nx} = \frac{m}{n}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\sin mx}{\sin nx} = \frac{m}{n}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    当 $x \to 0$ 时，$\tan ax \sim ax$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{\tan ax}{x} = \lim_{x\to 0} \frac{ax}{x} = a.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\tan ax}{x} = a.}
+    \end{equation}
+
+    \ansitem{3}
+
+    当 $x \to 0$ 时，$\sqrt[n]{1+\sin x}-1 \sim \frac{1}{n} \sin x \sim \frac{1}{n} x$，$\arctan x \sim x$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{\sqrt[n]{1+\sin x}-1}{\arctan x} = \lim_{x\to 0} \frac{\frac{1}{n}x}{x} = \frac{1}{n}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\sqrt[n]{1+\sin x}-1}{\arctan x} = \frac{1}{n}.}
+    \end{equation}
+
+    \ansitem{4}
+
+    有理化分子，当 $x \to 0$ 时：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to 0} \frac{\sqrt{2}-\sqrt{1+\cos x}}{\sin^2 x} & = \lim_{x\to 0} \frac{2 - (1 + \cos x)}{\sin^2 x (\sqrt{2} + \sqrt{1+\cos x})} \\
+                                                                    & = \lim_{x\to 0} \frac{1 - \cos x}{2\sqrt{2}\sin^2 x}.
+        \end{aligned}
+    \end{equation}
+    利用等价无穷小 $1 - \cos x \sim \frac{1}{2} x^2$ 及 $\sin x \sim x$，得
+    \begin{equation}
+        \lim_{x\to 0} \frac{\frac{1}{2}x^2}{2\sqrt{2} x^2} = \frac{1}{4\sqrt{2}} = \frac{\sqrt{2}}{8}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\sqrt{2}-\sqrt{1+\cos x}}{\sin^2 x} = \frac{\sqrt{2}}{8}.}
+    \end{equation}
+
+    \ansitem{5}
+
+    当 $x \to 0$ 时，$\sqrt{1+x+x^2}-1 \sim \frac{1}{2}(x + x^2) \sim \frac{1}{2}x$，$\sin 2x \sim 2x$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{\sqrt{1+x+x^2}-1}{\sin 2x} = \lim_{x\to 0} \frac{\frac{1}{2}x}{2x} = \frac{1}{4}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\sqrt{1+x+x^2}-1}{\sin 2x} = \frac{1}{4}.}
+    \end{equation}
+
+    \ansitem{6}
+
+    当 $x \to 0$ 时，$\sqrt{1+x^2}-1 \sim \frac{1}{2}x^2$，$1 - \cos x \sim \frac{1}{2}x^2$，故
+    \begin{equation}
+        \lim_{x\to 0} \frac{\sqrt{1+x^2}-1}{1-\cos x} = \lim_{x\to 0} \frac{\frac{1}{2}x^2}{\frac{1}{2}x^2} = 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\sqrt{1+x^2}-1}{1-\cos x} = 1.}
+    \end{equation}
+\end{solution}
+
+\endinput

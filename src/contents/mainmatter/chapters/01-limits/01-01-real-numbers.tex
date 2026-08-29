@@ -1,0 +1,278 @@
+\section{实数}
+
+\begin{problem}{有理数与无理数的四则运算}{Rational-And-Irrational-Operations}
+    设 $a$ 是有理数，$b$ 是无理数．求证：$a + b$ 和 $a - b$ 都是无理数；当 $a \neq 0$ 时，$ab$ 和 $\frac{b}{a}$ 也都是无理数．
+\end{problem}
+
+\begin{myproof}
+    若 $a + b = r \in \symbb{Q}$，则
+    \begin{equation}
+        b = r - a \in \symbb{Q},
+    \end{equation}
+    与 $b$ 是无理数矛盾，故 $a + b$ 是无理数．
+
+    若 $a - b = r \in \symbb{Q}$，则
+    \begin{equation}
+        b = a - r \in \symbb{Q},
+    \end{equation}
+    与 $b$ 是无理数矛盾，故 $a - b$ 是无理数．
+
+    当 $a \neq 0$ 时，若 $ab = r \in \symbb{Q}$，则
+    \begin{equation}
+        b = \frac{r}{a} \in \symbb{Q},
+    \end{equation}
+    矛盾，故 $ab$ 是无理数．
+
+    若 $\frac{b}{a} = r \in \symbb{Q}$，则
+    \begin{equation}
+        b = a r \in \symbb{Q},
+    \end{equation}
+    矛盾，故 $\frac{b}{a}$ 也为无理数．
+\end{myproof}
+
+\begin{problem}{有理数之间无理数的存在性}{Density-Of-Irrationals}
+    求证：两个不同的有理数之间有无理数．
+\end{problem}
+
+\begin{myproof}
+    设 $x, y \in \symbb{Q}$ 且 $x < y$．构造实数
+    \begin{equation}
+        \xi = x + \frac{\sqrt{2}}{2}(y - x).
+    \end{equation}
+    因 $y - x > 0$ 且 $0 < \frac{\sqrt{2}}{2} < 1$，显然有
+    \begin{equation}
+        x < \xi < y.
+    \end{equation}
+    若 $\xi \in \symbb{Q}$，则
+    \begin{equation}
+        \sqrt{2} = \frac{2(\xi - x)}{y - x} \in \symbb{Q},
+    \end{equation}
+    与 $\sqrt{2}$ 为无理数矛盾．故 $\xi$ 是无理数，即两不同有理数之间必存在无理数．
+\end{myproof}
+
+\begin{problem}{平方根的无理性}{Irrationality-Of-Square-Roots}
+    求证：$\sqrt{2}$、$\sqrt{3}$ 以及 $\sqrt{2} + \sqrt{3}$ 都是无理数．
+\end{problem}
+
+\begin{myproof}
+    若 $\sqrt{2} \in \symbb{Q}$，设 $\sqrt{2} = \frac{p}{q}$，其中 $p, q \in \symbb{Z}^+$ 且 $\gcd(p, q) = 1$．两边平方得
+    \begin{equation}
+        p^2 = 2q^2.
+    \end{equation}
+    从而 $2 \mid p^2 \implies 2 \mid p$．设 $p = 2k$（$k \in \symbb{Z}^+$），代入得
+    \begin{equation}
+        4k^2 = 2q^2 \implies q^2 = 2k^2.
+    \end{equation}
+    同理可得 $2 \mid q$，这与 $\gcd(p, q) = 1$ 矛盾，故 $\sqrt{2}$ 是无理数．
+
+    若 $\sqrt{3} \in \symbb{Q}$，设 $\sqrt{3} = \frac{p}{q}$（$p, q \in \symbb{Z}^+$，$\gcd(p, q) = 1$），同理可得
+    \begin{equation}
+        p^2 = 3q^2 \implies 3 \mid p \implies 3 \mid q,
+    \end{equation}
+    与 $\gcd(p, q) = 1$ 矛盾，故 $\sqrt{3}$ 是无理数．
+
+    若 $\sqrt{2} + \sqrt{3} = r \in \symbb{Q}$，显然 $r > 0$．由于
+    \begin{equation}
+        \sqrt{3} - \sqrt{2} = \frac{1}{\sqrt{2} + \sqrt{3}} = \frac{1}{r} \in \symbb{Q},
+    \end{equation}
+    两式相加得
+    \begin{equation}
+        \sqrt{3} = \frac{1}{2}\left(r + \frac{1}{r}\right) \in \symbb{Q},
+    \end{equation}
+    与 $\sqrt{3}$ 为无理数矛盾，故 $\sqrt{2} + \sqrt{3}$ 是无理数．
+\end{myproof}
+
+\begin{problem}{循环小数化分数}{Repeating-Decimals-To-Fractions}
+    把下列循环小数表示为分数：
+    \begin{equation}
+        0.249\,99\cdots, \quad 0.\dot{3}7\dot{5}, \quad 4.\dot{5}1\dot{8}.
+    \end{equation}
+\end{problem}
+
+\begin{solution}
+    对于 $0.249\,99\cdots$，有
+    \begin{equation}
+        \begin{aligned}
+            0.249\,99\cdots & = \frac{24}{100} + \frac{9}{1000} \sum_{k=0}^{\infty} \frac{1}{10^k} \\
+                            & = \frac{24}{100} + \frac{9}{1000} \cdot \frac{10}{9}                 \\
+                            & = \frac{25}{100} = \frac{1}{4}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{0.249\,99\cdots = \frac{1}{4}.}
+    \end{equation}
+
+    对于 $0.\dot{3}7\dot{5}$，有
+    \begin{equation}
+        0.\dot{3}7\dot{5} = \frac{375}{999} = \frac{125}{333}.
+    \end{equation}
+    \begin{equation}
+        \boxed{0.\dot{3}7\dot{5} = \frac{125}{333}.}
+    \end{equation}
+
+    对于 $4.\dot{5}1\dot{8}$，有
+    \begin{equation}
+        4.\dot{5}1\dot{8} = 4 + \frac{518}{999} = 4 + \frac{14}{27} = \frac{122}{27}.
+    \end{equation}
+    \begin{equation}
+        \boxed{4.\dot{5}1\dot{8} = \frac{122}{27}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{有理数域上的线性无关性}{Linear-Independence-Over-Rationals}
+    设 $r, s, t$ 都是有理数．求证：
+    \begin{enumerate}
+        \item 若 $r + s\sqrt{2} = 0$，则 $r = s = 0$；
+        \item 若 $r + s\sqrt{2} + t\sqrt{3} = 0$，则 $r = s = t = 0$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    若 $s \neq 0$，则
+    \begin{equation}
+        \sqrt{2} = -\frac{r}{s} \in \symbb{Q},
+    \end{equation}
+    这与 $\sqrt{2}$ 是无理数矛盾．故必有 $s = 0$，进而
+    \begin{equation}
+        r = -s\sqrt{2} = 0.
+    \end{equation}
+
+    \ansitem{2}
+
+    将等式移项变形为
+    \begin{equation}
+        r + s\sqrt{2} = -t\sqrt{3}.
+    \end{equation}
+    两边平方展开，得
+    \begin{equation}
+        r^2 + 2s^2 + 2rs\sqrt{2} = 3t^2,
+    \end{equation}
+    即
+    \begin{equation}
+        (r^2 + 2s^2 - 3t^2) + 2rs\sqrt{2} = 0.
+    \end{equation}
+    因为 $r, s, t \in \symbb{Q}$，所以
+    \begin{equation}
+        r^2 + 2s^2 - 3t^2 \in \symbb{Q}
+        \quad \text{且} \quad
+        2rs \in \symbb{Q}.
+    \end{equation}
+    由 (1) 的结论，有
+    \begin{equation}
+        2rs = 0
+        \quad \text{且} \quad
+        r^2 + 2s^2 - 3t^2 = 0.
+    \end{equation}
+    由 $2rs = 0$，分情况讨论：
+
+    \begin{enumerate}
+        \item 若 $s = 0$，则原式化为
+              \begin{equation}
+                  r + t\sqrt{3} = 0.
+              \end{equation}
+              若 $t \neq 0$，则
+              \begin{equation}
+                  \sqrt{3} = -\frac{r}{t} \in \symbb{Q},
+              \end{equation}
+              这与 $\sqrt{3}$ 是无理数矛盾．故 $t = 0$，进而 $r = 0$；
+
+        \item 若 $r = 0$，则
+              \begin{equation}
+                  2s^2 - 3t^2 = 0.
+              \end{equation}
+              若 $t \neq 0$，则
+              \begin{equation}
+                  \left(\frac{s}{t}\right)^2 = \frac{3}{2}.
+              \end{equation}
+              设
+              \begin{equation}
+                  \frac{s}{t} = \frac{p}{q},
+              \end{equation}
+              其中 $p, q \in \symbb{Z}$，$q > 0$ 且 $\gcd(p,q) = 1$．于是
+              \begin{equation}
+                  2p^2 = 3q^2.
+              \end{equation}
+              因此 $3 \mid p^2$，从而 $3 \mid p$．设 $p = 3k$，其中
+              $k \in \symbb{Z}$，代入上式得
+              \begin{equation}
+                  18k^2 = 3q^2,
+              \end{equation}
+              即
+              \begin{equation}
+                  q^2 = 6k^2.
+              \end{equation}
+              因此 $3 \mid q^2$，从而 $3 \mid q$，这与
+              $\gcd(p,q) = 1$ 矛盾．故 $t = 0$，再由
+              $2s^2 - 3t^2 = 0$ 可得 $s = 0$．
+    \end{enumerate}
+
+    综上所述，必有 $r = s = t = 0$．
+\end{myproof}
+
+\begin{problem}{贝努利不等式的推广}{Generalized-Bernoulli-Inequality}
+    设实数 $a_1, a_2, \cdots, a_n$ 有相同的符号，且都大于 $-1$．证明：
+    \begin{equation}
+        (1 + a_1)(1 + a_2)\cdots(1 + a_n) \geqslant 1 + a_1 + a_2 + \cdots + a_n.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    采用数学归纳法．当 $n = 1$ 时，等式显然成立．
+
+    当 $n = 2$ 时，
+    \begin{equation}
+        (1 + a_1)(1 + a_2) = 1 + a_1 + a_2 + a_1 a_2.
+    \end{equation}
+    由于 $a_1, a_2$ 同号，必有 $a_1 a_2 \geqslant 0$，故
+    \begin{equation}
+        (1 + a_1)(1 + a_2) \geqslant 1 + a_1 + a_2.
+    \end{equation}
+    假设结论对 $n = k$（$k \geqslant 2$）成立，即
+    \begin{equation}
+        \prod_{i=1}^k (1 + a_i) \geqslant 1 + \sum_{i=1}^k a_i.
+    \end{equation}
+    由于 $a_1, a_2, \cdots, a_{k+1}$ 同号且均大于 $-1$，故 $1 + a_{k+1} > 0$ 且 $\left(\sum_{i=1}^k a_i\right) a_{k+1} \geqslant 0$．
+
+    当 $n = k + 1$ 时，
+    \begin{equation}
+        \begin{aligned}
+            \prod_{i=1}^{k+1} (1 + a_i) & = \left[\prod_{i=1}^k (1 + a_i)\right](1 + a_{k+1})                \\
+                                        & \geqslant \left(1 + \sum_{i=1}^k a_i\right)(1 + a_{k+1})           \\
+                                        & = 1 + \sum_{i=1}^{k+1} a_i + \left(\sum_{i=1}^k a_i\right) a_{k+1} \\
+                                        & \geqslant 1 + \sum_{i=1}^{k+1} a_i.
+        \end{aligned}
+    \end{equation}
+    由数学归纳法，原不等式对一切 $n \in \symbb{N}^+$ 均成立．
+\end{myproof}
+
+\begin{problem}{实数绝对值不等式}{Real-Number-Inequality}
+    设 $a, b$ 是实数，且 $|a| < 1$，$|b| < 1$．证明：
+    \begin{equation}
+        \left| \frac{a + b}{1 + ab} \right| < 1.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    由 $|a| < 1$ 与 $|b| < 1$ 可知 $1 - a^2 > 0$ 且 $1 - b^2 > 0$，故
+    \begin{equation}
+        (1 - a^2)(1 - b^2) > 0.
+    \end{equation}
+    展开并配方得
+    \begin{equation}
+        (1 + ab)^2 - (a + b)^2 = 1 + 2ab + a^2 b^2 - (a^2 + 2ab + b^2) = (1 - a^2)(1 - b^2) > 0.
+    \end{equation}
+    因为 $|a| < 1$，$|b| < 1$，所以 $|ab| < 1$，进而 $1 + ab > 0$．
+
+    由此可得
+    \begin{equation}
+        (a + b)^2 < (1 + ab)^2.
+    \end{equation}
+    两边开平方并同除以 $1 + ab$，即得
+    \begin{equation}
+        \left| \frac{a + b}{1 + ab} \right| < 1.
+    \end{equation}
+\end{myproof}
+
+\endinput

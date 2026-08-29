@@ -1,4 +1,4 @@
-# Solutions to Exercises in *Mathematical Analysis Notes (Volume II)*
+# Solutions to Exercises in *Mathematical Analysis Notes (Volumes I & II)*
 
 <p align="left">
   <img src="https://img.shields.io/badge/License-GFDL--1.3-blue.svg?style=flat-square" alt="License">
@@ -11,7 +11,7 @@
   <a href="https://github.com/wanzhao-ysy/ustc-math-analysis-solutions">中文</a> | English
 </p>
 
-This project compiles and writes detailed solutions to the exercises in **"Mathematical Analysis Notes (Volume II)"** (Cheng Yi, Chen Qing, Li Ping, First Edition), aiming to provide a **complete derivation, clear layout, and a mathematical reference suitable for self-study and review**.
+This project compiles and writes detailed solutions to the exercises in **"Mathematical Analysis Notes (Volumes I & II)"** (Cheng Yi, Chen Qing, Li Ping, First Edition), aiming to provide a **complete derivation, clear layout, and a mathematical reference suitable for self-study and review**.
 
 The project is built on the `ctexbook` document class, using the **LuaLaTeX + l3build** workflow, combined with `TikZ` / `pgfplots` for graphics and OpenType font schemes, to produce high-quality PDF documents.
 
@@ -19,27 +19,7 @@ The project is built on the `ctexbook` document class, using the **LuaLaTeX + l3
 > It is recommended to use **TeX Live 2025 or later** for compilation to ensure more stable fonts and layout effects.
 
 ---
-
 ## 📸 Preview
-
-<table style="width: 100%; border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td width="50%" style="border: none; padding: 5px;">
-      <img src="https://github.com/user-attachments/assets/638b16b0-317e-4ab0-9062-a41dad946132" width="100%">
-    </td>
-    <td width="50%" style="border: none; padding: 5px;">
-      <img src="https://github.com/user-attachments/assets/46c6de7a-8644-4a92-a26c-eb9774502d3b" width="100%">
-    </td>
-  </tr>
-  <tr style="border: none;">
-    <td width="50%" style="border: none; padding: 5px;">
-      <img src="https://github.com/user-attachments/assets/20c4ca79-04dc-4c08-9bbc-66ea41e862d3" width="100%">
-    </td>
-    <td width="50%" style="border: none; padding: 5px;">
-      <img src="https://github.com/user-attachments/assets/e17e43a2-d1e8-48d7-b832-02011152d192" width="100%">
-    </td>
-  </tr>
-</table>
 
 ---
 
@@ -56,6 +36,13 @@ The project is built on the `ctexbook` document class, using the **LuaLaTeX + l3
 
 | Chapter | Title | Status | Notes |
 | --- | --- | --- | --- |
+| Chapter 1 | Limits | 📝 | In progress |
+| Chapter 2 | Continuity of Single-Variable Functions | 📝 | In progress |
+| Chapter 3 | Differential Calculus of Single-Variable Functions | 📝 | In progress |
+| Chapter 4 | Indefinite Integrals | 📝 | In progress |
+| Chapter 5 | Integral Calculus of Single-Variable Functions | 📝 | In progress |
+| Chapter 6 | Introduction to Ordinary Differential Equations | 📝 | In progress |
+| Chapter 7 | Infinite Series | 📝 | In progress |
 | Chapter 8 | Spatial Analytic Geometry | ✅ | Proofreading completed |
 | Chapter 9 | Differential Calculus of Multivariable Functions | ✅ | Proofreading completed |
 | Chapter 10 | Multiple Integrals of Multivariable Functions | ✅ | Proofreading completed |

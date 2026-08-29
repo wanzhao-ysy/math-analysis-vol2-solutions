@@ -1,4 +1,4 @@
-# 《数学分析讲义（第二册）》习题解析
+# 《数学分析讲义（第一、二册）》习题解析
 
 <p align="left">
   <img src="https://img.shields.io/badge/License-GFDL--1.3-blue.svg?style=flat-square" alt="License">
@@ -11,7 +11,7 @@
   中文 | <a href="https://github.com/wanzhao-ysy/ustc-math-analysis-solutions/blob/main/README.en.md">English</a>
 </p>
 
-本项目整理并撰写 **《数学分析讲义（第二册）》**（程艺、陈卿、李平 编著，第一版）习题详解，力求提供一份 **推导完整、排版清晰、适合自学与复习** 的数学参考资料．
+本项目整理并撰写 **《数学分析讲义（第一、二册）》**（程艺、陈卿、李平 编著，第一版）习题详解，力求提供一份 **推导完整、排版清晰、适合自学与复习** 的数学参考资料．
 
 项目基于 `ctexbook` 文档类构建，采用 **LuaLaTeX + l3build** 工作流，结合 `TikZ` / `pgfplots` 绘图与 OpenType 字体方案，生成高质量 PDF 文档．
 
@@ -19,27 +19,7 @@
 > 推荐使用 **TeX Live 2025 及以上版本** 进行编译，以获得更稳定的字体与排版效果．
 
 ---
-
 ## 📸 预览
-
-<table style="width: 100%; border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td width="50%" style="border: none; padding: 5px;">
-      <img src="https://github.com/user-attachments/assets/638b16b0-317e-4ab0-9062-a41dad946132" width="100%">
-    </td>
-    <td width="50%" style="border: none; padding: 5px;">
-      <img src="https://github.com/user-attachments/assets/46c6de7a-8644-4a92-a26c-eb9774502d3b" width="100%">
-    </td>
-  </tr>
-  <tr style="border: none;">
-    <td width="50%" style="border: none; padding: 5px;">
-      <img src="https://github.com/user-attachments/assets/20c4ca79-04dc-4c08-9bbc-66ea41e862d3" width="100%">
-    </td>
-    <td width="50%" style="border: none; padding: 5px;">
-      <img src="https://github.com/user-attachments/assets/e17e43a2-d1e8-48d7-b832-02011152d192" width="100%">
-    </td>
-  </tr>
-</table>
 
 ---
 
@@ -56,6 +36,13 @@
 
 | 章节 | 标题 | 状态 | 备注 |
 | --- | --- | --- | --- |
+| 第一章 | 极限 | 📝 | 编写中 |
+| 第二章 | 单变量函数的连续性 | 📝 | 编写中 |
+| 第三章 | 单变量函数的微分学 | 📝 | 编写中 |
+| 第四章 | 不定积分 | 📝 | 编写中 |
+| 第五章 | 单变量函数的积分学 | 📝 | 编写中 |
+| 第六章 | 常微分方程初步 | 📝 | 编写中 |
+| 第七章 | 无穷级数 | 📝 | 编写中 |
 | 第八章 | 空间解析几何 | ✅ | 校对完成 |
 | 第九章 | 多变量函数的微分学 | ✅ | 校对完成 |
 | 第十章 | 多变量函数的重积分 | ✅ | 校对完成 |

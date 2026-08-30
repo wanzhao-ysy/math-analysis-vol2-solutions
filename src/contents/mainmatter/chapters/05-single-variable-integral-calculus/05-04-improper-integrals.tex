@@ -1,3 +1,342 @@
 \section{反常积分}
 
+\begin{problem}{反常积分敛散性的判定与计算}{Improper-Integrals-Convergence-And-Evaluation}
+    判断下列广义积分是否收敛，并求出收敛的广义积分的值：
+    \begin{enumerate}
+        \item $\int_0^{+\infty} x\e^{-x^2} \d x$；
+        \item $\int_0^{+\infty} x \sin x \d x$；
+        \item $\int_2^{+\infty} \frac{\ln x}{x} \d x$；
+        \item $\int_1^{+\infty} \frac{\arctan x}{x} \d x$；
+        \item $\int_0^{+\infty} \e^{-x} \sin x \d x$；
+        \item $\int_{-\infty}^{+\infty} \frac{1}{x^2 + 2x + 2} \d x$；
+        \item $\int_0^1 \ln x \d x$；
+        \item $\int_{-1}^1 \frac{1}{\sqrt{1 - x^2}} \d x$；
+        \item $\int_0^1 \frac{x \ln x}{(1 - x^2)^{3/2}} \d x$；
+        \item $\int_0^1 \ln \frac{1}{1 - x^2} \d x$；
+        \item $\int_0^{+\infty} x^n \e^{-x} \d x$（$n$ 为正整数）；
+        \item $\int_0^1 (\ln x)^n \d x$（$n$ 为正整数）．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 收敛．
+
+    由反常积分定义与凑微分法：
+    \begin{equation}
+        \int_0^{+\infty} x\e^{-x^2} \d x = \lim_{b\to +\infty} \int_0^b x\e^{-x^2} \d x = \lim_{b\to +\infty} \left[ -\frac{1}{2}\e^{-x^2} \right]_0^b = \lim_{b\to +\infty} \frac{1}{2}(1 - \e^{-b^2}) = \frac{1}{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^{+\infty} x\e^{-x^2} \d x = \frac{1}{2}.}
+    \end{equation}
+
+    \ansitem{2} 发散．
+
+    由分部积分法计算原函数：
+    \begin{equation}
+        \int_0^b x \sin x \d x = [-x\cos x + \sin x]_0^b = -b\cos b + \sin b.
+    \end{equation}
+    当 $b \to +\infty$ 时，$-b\cos b + \sin b$ 的极限不存在，故积分发散．
+    \begin{equation}
+        \boxed{\int_0^{+\infty} x \sin x \d x \text{ 发散．}}
+    \end{equation}
+
+    \ansitem{3} 发散．
+
+    由定义计算极限：
+    \begin{equation}
+        \int_2^{+\infty} \frac{\ln x}{x} \d x = \lim_{b\to +\infty} \int_2^b \ln x \d(\ln x) = \lim_{b\to +\infty} \left[ \frac{1}{2}\ln^2 x \right]_2^b = \lim_{b\to +\infty} \left( \frac{1}{2}\ln^2 b - \frac{1}{2}\ln^2 2 \right) = +\infty.
+    \end{equation}
+    故积分发散．
+    \begin{equation}
+        \boxed{\int_2^{+\infty} \frac{\ln x}{x} \d x \text{ 发散．}}
+    \end{equation}
+
+    \ansitem{4} 发散．
+
+    当 $x \geqslant 1$ 时，$\arctan x \geqslant \arctan 1 = \frac{\uppi}{4}$，因此
+    \begin{equation}
+        \frac{\arctan x}{x} \geqslant \frac{\uppi}{4x} > 0.
+    \end{equation}
+    由于反常积分 $\int_1^{+\infty} \frac{1}{x} \d x$ 发散，由比较审敛法可知原积分发散．
+    \begin{equation}
+        \boxed{\int_1^{+\infty} \frac{\arctan x}{x} \d x \text{ 发散．}}
+    \end{equation}
+
+    \ansitem{5} 收敛．
+
+    利用分部积分法求得原函数：
+    \begin{equation}
+        \begin{aligned}
+            \int_0^{+\infty} \e^{-x} \sin x \d x & = \lim_{b\to +\infty} \left[ -\frac{\e^{-x}}{2}(\sin x + \cos x) \right]_0^b                         \\
+                                                 & = \lim_{b\to +\infty} \left( \frac{1}{2} - \frac{\e^{-b}}{2}(\sin b + \cos b) \right) = \frac{1}{2}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^{+\infty} \e^{-x} \sin x \d x = \frac{1}{2}.}
+    \end{equation}
+
+    \ansitem{6} 收敛．
+
+    配方后直接求反常积分：
+    \begin{equation}
+        \int_{-\infty}^{+\infty} \frac{1}{x^2 + 2x + 2} \d x = \int_{-\infty}^{+\infty} \frac{\d(x + 1)}{(x + 1)^2 + 1} = [\arctan(x + 1)]_{-\infty}^{+\infty} = \frac{\uppi}{2} - \left(-\frac{\uppi}{2}\right) = \uppi.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{-\infty}^{+\infty} \frac{1}{x^2 + 2x + 2} \d x = \uppi.}
+    \end{equation}
+
+    \ansitem{7} 收敛．
+
+    $x = 0$ 为瑕点，由分部积分法：
+    \begin{equation}
+        \int_0^1 \ln x \d x = \lim_{\varepsilon\to 0^+} [x\ln x - x]_\varepsilon^1 = (-1) - \lim_{\varepsilon\to 0^+} (\varepsilon\ln\varepsilon - \varepsilon) = -1.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^1 \ln x \d x = -1.}
+    \end{equation}
+
+    \ansitem{8} 收敛．
+
+    $x = \pm 1$ 均为瑕点，直接积分：
+    \begin{equation}
+        \int_{-1}^1 \frac{1}{\sqrt{1 - x^2}} \d x = [\arcsin x]_{-1}^1 = \arcsin(1) - \arcsin(-1) = \frac{\uppi}{2} - \left(-\frac{\uppi}{2}\right) = \uppi.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{-1}^1 \frac{1}{\sqrt{1 - x^2}} \d x = \uppi.}
+    \end{equation}
+
+    \ansitem{9} 收敛．
+
+    注意到 $\d\left( \frac{1}{\sqrt{1 - x^2}} \right) = \frac{x}{(1 - x^2)^{3/2}} \d x$，应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x\ln x}{(1 - x^2)^{3/2}} \d x & = \frac{\ln x}{\sqrt{1 - x^2}} - \int \frac{1}{x\sqrt{1 - x^2}} \d x        \\
+                                                     & = \frac{\ln x}{\sqrt{1 - x^2}} - \ln\frac{x}{1 + \sqrt{1 - x^2}}            \\
+                                                     & = \frac{1 - \sqrt{1 - x^2}}{\sqrt{1 - x^2}}\ln x + \ln(1 + \sqrt{1 - x^2}).
+        \end{aligned}
+    \end{equation}
+    分别考察端点极限：
+    \begin{equation}
+        \lim_{x\to 1^-} \left( \frac{\ln x}{\sqrt{1 - x^2}} - \ln\frac{x}{1 + \sqrt{1 - x^2}} \right) = 0 - 0 = 0,
+    \end{equation}
+    \begin{equation}
+        \lim_{x\to 0^+} \left( \frac{1 - \sqrt{1 - x^2}}{\sqrt{1 - x^2}}\ln x + \ln(1 + \sqrt{1 - x^2}) \right) = 0 + \ln 2 = \ln 2.
+    \end{equation}
+    因此
+    \begin{equation}
+        \int_0^1 \frac{x \ln x}{(1 - x^2)^{3/2}} \d x = 0 - \ln 2 = -\ln 2.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^1 \frac{x \ln x}{(1 - x^2)^{3/2}} \d x = -\ln 2.}
+    \end{equation}
+
+    \ansitem{10} 收敛．
+
+    化简被积函数并利用分部积分：
+    \begin{equation}
+        \int_0^1 \ln\frac{1}{1 - x^2} \d x = -\int_0^1 \ln(1 - x^2) \d x = -\int_0^1 \ln(1 - x) \d x - \int_0^1 \ln(1 + x) \d x.
+    \end{equation}
+    分别计算两项定积分：
+    \begin{equation}
+        \int_0^1 \ln(1 - x) \d x = [-(1 - x)\ln(1 - x) + (1 - x)]_0^1 = -1,
+    \end{equation}
+    \begin{equation}
+        \int_0^1 \ln(1 + x) \d x = [(1 + x)\ln(1 + x) - (1 + x)]_0^1 = 2\ln 2 - 1.
+    \end{equation}
+    相加得
+    \begin{equation}
+        \int_0^1 \ln\frac{1}{1 - x^2} \d x = -(-1 + 2\ln 2 - 1) = 2 - 2\ln 2.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^1 \ln \frac{1}{1 - x^2} \d x = 2 - 2\ln 2.}
+    \end{equation}
+
+    \ansitem{11} 收敛．
+
+    由分部积分法递推公式：
+    \begin{equation}
+        I_n = \int_0^{+\infty} x^n \e^{-x} \d x = [-x^n \e^{-x}]_0^{+\infty} + n \int_0^{+\infty} x^{n-1}\e^{-x} \d x = n I_{n-1}.
+    \end{equation}
+    由于 $I_0 = \int_0^{+\infty} \e^{-x} \d x = 1$，递推得
+    \begin{equation}
+        I_n = n! I_0 = n!.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^{+\infty} x^n \e^{-x} \d x = n!.}
+    \end{equation}
+
+    \ansitem{12} 收敛．
+
+    作变量代换 $t = -\ln x$，则 $x = \e^{-t}$，$\d x = -\e^{-t}\d t$：
+    \begin{equation}
+        \int_0^1 (\ln x)^n \d x = \int_{+\infty}^0 (-t)^n (-\e^{-t}\d t) = (-1)^n \int_0^{+\infty} t^n \e^{-t} \d t.
+    \end{equation}
+    结合 (11) 的结果：
+    \begin{equation}
+        \int_0^1 (\ln x)^n \d x = (-1)^n n!.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^1 (\ln x)^n \d x = (-1)^n n!.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{柯西主值的收敛性研究}{Cauchy-Principal-Value-Convergence}
+    广义积分 $\int_{-\infty}^{+\infty} f(x) \d x$ 的柯西主值定义为
+    \begin{equation}
+        \operatorname{P.V.} \int_{-\infty}^{+\infty} f(x) \d x = \lim_{b\to +\infty} \int_{-b}^b f(x) \d x.
+    \end{equation}
+    显然，若广义积分 $\int_{-\infty}^{+\infty} f(x) \d x$ 收敛，则其主值也收敛，但反过来不一定成立．研究下列广义积分主值的收敛性：
+    \begin{enumerate}
+        \item $\operatorname{P.V.} \int_{-\infty}^{+\infty} \frac{x}{1 + x^2} \d x$；
+        \item $\operatorname{P.V.} \int_{-\infty}^{+\infty} \frac{|x|}{1 + x^2} \d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 收敛．
+
+    由于被积函数 $g(x) = \frac{x}{1 + x^2}$ 在对称区间 $[-b, b]$ 上为连续的奇函数，对任意 $b > 0$ 恒有
+    \begin{equation}
+        \int_{-b}^b \frac{x}{1 + x^2} \d x = 0.
+    \end{equation}
+    根据柯西主值定义取极限：
+    \begin{equation}
+        \operatorname{P.V.} \int_{-\infty}^{+\infty} \frac{x}{1 + x^2} \d x = \lim_{b\to +\infty} \int_{-b}^b \frac{x}{1 + x^2} \d x = \lim_{b\to +\infty} 0 = 0.
+    \end{equation}
+    故该广义积分主值收敛．
+    \begin{equation}
+        \boxed{\operatorname{P.V.} \int_{-\infty}^{+\infty} \frac{x}{1 + x^2} \d x = 0.}
+    \end{equation}
+
+    \ansitem{2} 发散．
+
+    由于被积函数 $h(x) = \frac{|x|}{1 + x^2}$ 为偶函数，利用对称性计算对称区间上的定积分：
+    \begin{equation}
+        \int_{-b}^b \frac{|x|}{1 + x^2} \d x = 2\int_0^b \frac{x}{1 + x^2} \d x = \left[ \ln(1 + x^2) \right]_0^b = \ln(1 + b^2).
+    \end{equation}
+    根据柯西主值定义取极限：
+    \begin{equation}
+        \lim_{b\to +\infty} \int_{-b}^b \frac{|x|}{1 + x^2} \d x = \lim_{b\to +\infty} \ln(1 + b^2) = +\infty.
+    \end{equation}
+    极限不存在，故该广义积分主值发散．
+    \begin{equation}
+        \boxed{\operatorname{P.V.} \int_{-\infty}^{+\infty} \frac{|x|}{1 + x^2} \d x \text{ 发散．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{两类广义积分的组合与敛散性判断}{Combined-Improper-Integrals}
+    若函数 $f(x)$ 在 $(a, +\infty)$ 上连续，并且以 $a$ 为瑕点，则广义积分 $\int_a^{+\infty} f(x) \d x$ 定义为
+    \begin{equation}
+        \int_a^b f(x) \d x + \int_b^{+\infty} f(x) \d x,
+    \end{equation}
+    这是本节讲的两类广义积分的组合，其中 $b > a$ 是任一个实数．当上面两个广义积分都收敛时，我们称 $\int_a^{+\infty} f(x) \d x$ 收敛；否则称为发散．
+    \begin{enumerate}
+        \item 证明：$\int_1^{+\infty} \frac{1}{x\sqrt{x - 1}} \d x$ 收敛，并求其值；
+        \item 证明：对任意实数 $\alpha$，$\int_0^{+\infty} \frac{1}{x^\alpha} \d x$ 发散．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 收敛．
+
+    取分割点 $b = 2 > 1$，将广义积分拆分为瑕积分与无穷限反常积分：
+    \begin{equation}
+        \int_1^{+\infty} \frac{1}{x\sqrt{x - 1}} \d x = \int_1^2 \frac{1}{x\sqrt{x - 1}} \d x + \int_2^{+\infty} \frac{1}{x\sqrt{x - 1}} \d x.
+    \end{equation}
+    求原函数，作代换 $u = \sqrt{x - 1}$，则 $x = u^2 + 1$，$\d x = 2u \d u$：
+    \begin{equation}
+        \int \frac{1}{x\sqrt{x - 1}} \d x = \int \frac{2u}{(u^2 + 1)u} \d u = 2\arctan u + C = 2\arctan\sqrt{x - 1} + C.
+    \end{equation}
+    分别计算两部分的极限：
+    \begin{equation}
+        \int_1^2 \frac{1}{x\sqrt{x - 1}} \d x = \lim_{\varepsilon\to 1^+} \left[ 2\arctan\sqrt{x - 1} \right]_\varepsilon^2 = 2\arctan 1 - 0 = \frac{\uppi}{2},
+    \end{equation}
+    \begin{equation}
+        \int_2^{+\infty} \frac{1}{x\sqrt{x - 1}} \d x = \lim_{M\to +\infty} \left[ 2\arctan\sqrt{x - 1} \right]_2^M = 2 \cdot \frac{\uppi}{2} - 2\arctan 1 = \frac{\uppi}{2}.
+    \end{equation}
+    两部分积分均收敛，故原广义积分收敛，其值为
+    \begin{equation}
+        \int_1^{+\infty} \frac{1}{x\sqrt{x - 1}} \d x = \frac{\uppi}{2} + \frac{\uppi}{2} = \uppi.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_1^{+\infty} \frac{1}{x\sqrt{x - 1}} \d x = \uppi.}
+    \end{equation}
+
+    \ansitem{2}
+
+    取分割点 $b = 1 > 0$，将积分拆分为
+    \begin{equation}
+        \int_0^{+\infty} \frac{1}{x^\alpha} \d x = \int_0^1 \frac{1}{x^\alpha} \d x + \int_1^{+\infty} \frac{1}{x^\alpha} \d x.
+    \end{equation}
+    分别讨论两部分积分的敛散性：
+    \begin{enumerate}
+        \item 对于瑕积分 $\int_0^1 \frac{1}{x^\alpha} \d x$，其收敛的充要条件为 $\alpha < 1$；
+        \item 对于无穷限反常积分 $\int_1^{+\infty} \frac{1}{x^\alpha} \d x$，其收敛的充要条件为 $\alpha > 1$．
+    \end{enumerate}
+    因为不存在任何实数 $\alpha$ 同时满足 $\alpha < 1$ 与 $\alpha > 1$，即
+    \begin{equation}
+        (-\infty, 1) \cap (1, +\infty) = \varnothing,
+    \end{equation}
+    所以对任意给定的实数 $\alpha \in \symbb{R}$，$\int_0^1 \frac{1}{x^\alpha} \d x$ 与 $\int_1^{+\infty} \frac{1}{x^\alpha} \d x$ 中至少有一个发散．
+
+    由定义可知，对任意实数 $\alpha$，广义积分 $\int_0^{+\infty} \frac{1}{x^\alpha} \d x$ 必发散．
+    \begin{equation}
+        \boxed{\text{对任意实数 } \alpha\text{，} \int_0^{+\infty} \frac{1}{x^\alpha} \d x \text{ 发散．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{区间内部含瑕点的瑕积分计算}{Improper-Integrals-With-Interior-Singularity}
+    设 $a < c < b$，点 $c$ 是函数 $f(x)$ 在区间 $[a, b]$ 内唯一的瑕点，则瑕积分 $\int_a^b f(x) \d x$ 定义为两个瑕积分 $\int_a^c f(x) \d x$ 与 $\int_c^b f(x) \d x$ 的和．
+    \begin{enumerate}
+        \item 求 $\int_{-1}^4 \frac{1}{x^2 + x - 2} \d x$；
+        \item 求 $\int_{-1}^1 x^{-\frac{1}{3}} \d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 发散．
+
+    因为分母分解为 $x^2 + x - 2 = (x - 1)(x + 2)$，所以函数在积分区间 $[-1, 4]$ 内部的唯一瑕点为 $c = 1$．
+
+    根据定义，将积分拆分为
+    \begin{equation}
+        \int_{-1}^4 \frac{1}{x^2 + x - 2} \d x = \int_{-1}^1 \frac{1}{x^2 + x - 2} \d x + \int_1^4 \frac{1}{x^2 + x - 2} \d x.
+    \end{equation}
+    计算左侧瑕积分，利用部分分式展开：
+    \begin{equation}
+        \begin{aligned}
+            \int_{-1}^1 \frac{1}{x^2 + x - 2} \d x & = \lim_{t\to 1^-} \int_{-1}^t \frac{1}{3}\left( \frac{1}{x - 1} - \frac{1}{x + 2} \right) \d x \\
+                                                   & = \lim_{t\to 1^-} \frac{1}{3} \left[ \ln\frac{|x - 1|}{x + 2} \right]_{-1}^t                   \\
+                                                   & = \lim_{t\to 1^-} \frac{1}{3} \left( \ln\frac{1 - t}{t + 2} - \ln 2 \right) = -\infty.
+        \end{aligned}
+    \end{equation}
+    由于瑕积分 $\int_{-1}^1 \frac{1}{x^2 + x - 2} \d x$ 发散，故原积分发散．
+    \begin{equation}
+        \boxed{\int_{-1}^4 \frac{1}{x^2 + x - 2} \d x \text{ 发散．}}
+    \end{equation}
+
+    \ansitem{2} 收敛．
+
+    被积函数 $f(x) = x^{-\frac{1}{3}} = \frac{1}{\sqrt[3]{x}}$ 在区间 $[-1, 1]$ 内部的唯一瑕点为 $c = 0$．
+
+    根据定义拆分为两个瑕积分：
+    \begin{equation}
+        \int_{-1}^1 x^{-\frac{1}{3}} \d x = \int_{-1}^0 x^{-\frac{1}{3}} \d x + \int_0^1 x^{-\frac{1}{3}} \d x.
+    \end{equation}
+    分别计算两部分的积分值：
+    \begin{equation}
+        \int_{-1}^0 x^{-\frac{1}{3}} \d x = \lim_{\varepsilon\to 0^-} \left[ \frac{3}{2}x^{\frac{2}{3}} \right]_{-1}^\varepsilon = \lim_{\varepsilon\to 0^-} \left( \frac{3}{2}\varepsilon^{\frac{2}{3}} - \frac{3}{2}(-1)^{\frac{2}{3}} \right) = -\frac{3}{2},
+    \end{equation}
+    \begin{equation}
+        \int_0^1 x^{-\frac{1}{3}} \d x = \lim_{\delta\to 0^+} \left[ \frac{3}{2}x^{\frac{2}{3}} \right]_\delta^1 = \lim_{\delta\to 0^+} \left( \frac{3}{2} - \frac{3}{2}\delta^{\frac{2}{3}} \right) = \frac{3}{2}.
+    \end{equation}
+    两部分积分均收敛，相加得
+    \begin{equation}
+        \int_{-1}^1 x^{-\frac{1}{3}} \d x = -\frac{3}{2} + \frac{3}{2} = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{-1}^1 x^{-\frac{1}{3}} \d x = 0.}
+    \end{equation}
+\end{solution}
+
 \endinput

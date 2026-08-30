@@ -1,3 +1,220 @@
 \section{函数的可积性}
 
+\begin{problem}{狄利克雷函数的上下积分}{Dirichlet-Function-Upper-Lower-Integrals}
+    求区间 $[0, 1]$ 上 Dirichlet 函数在区间 $[0, 1]$ 上的上积分和下积分．
+\end{problem}
+
+\begin{solution}
+    Dirichlet 函数在区间 $[0, 1]$ 上的表达式为
+    \begin{equation}
+        D(x) = \begin{dcases}
+            1, & x \in \symbb{Q} \cap [0, 1],      \\
+            0, & x \in [0, 1] \setminus \symbb{Q}.
+        \end{dcases}
+    \end{equation}
+    任取区间 $[0, 1]$ 的一个分割 $T : 0 = x_0 < x_1 < \cdots < x_n = 1$．由于有理数集与无理数集在实数轴上均具有稠密性，在每一个子区间 $[x_{i-1}, x_i]$（$i = 1, 2, \dots, n$）上均既含有理数又含无理数，故
+    \begin{equation}
+        M_i = \sup_{x\in [x_{i-1}, x_i]} D(x) = 1, \qquad m_i = \inf_{x\in [x_{i-1}, x_i]} D(x) = 0.
+    \end{equation}
+    对应的 Darboux 上和与下和分别为
+    \begin{equation}
+        S(T) = \sum_{i=1}^n M_i \Delta x_i = \sum_{i=1}^n 1 \cdot \Delta x_i = 1,
+    \end{equation}
+    \begin{equation}
+        s(T) = \sum_{i=1}^n m_i \Delta x_i = \sum_{i=1}^n 0 \cdot \Delta x_i = 0.
+    \end{equation}
+    由上积分与下积分的定义，取所有分割的确界：
+    \begin{equation}
+        \overline{\int_0^1} D(x) \d x = \inf_{T} S(T) = 1, \qquad \underline{\int_0^1} D(x) \d x = \sup_{T} s(T) = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\overline{\int_0^1} D(x) \d x = 1, \qquad \underline{\int_0^1} D(x) \d x = 0.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{达布上和与下和的几何解释}{Geometric-Interpretation-Of-Darboux-Sums}
+    试给出 Darboux 上和与下和的几何解释．
+\end{problem}
+
+\begin{solution}
+    设 $f(x)$ 为闭区间 $[a, b]$ 上的非负有界函数，$T : a = x_0 < x_1 < x_2 < \cdots < x_n = b$ 为区间 $[a, b]$ 的一个分割．记每个子区间 $[x_{i-1}, x_i]$ 的长度为 $\Delta x_i = x_i - x_{i-1}$，并记
+    \begin{equation}
+        m_i = \inf_{x\in [x_{i-1}, x_i]} f(x), \qquad M_i = \sup_{x\in [x_{i-1}, x_i]} f(x) \quad (i = 1, 2, \dots, n).
+    \end{equation}
+
+    1. Darboux 下和的几何解释：
+    \begin{equation}
+        s(T) = \sum_{i=1}^n m_i \Delta x_i.
+    \end{equation}
+    在每个子区间 $[x_{i-1}, x_i]$ 上，以 $\Delta x_i$ 为底、以函数在该区间上的下确界 $m_i$ 为高作小矩形，其面积为 $m_i \Delta x_i$．这些小矩形全部包含在由曲线 $y = f(x)$、$x = a$、$x = b$ 与 $x$ 轴所围成的曲边梯形内部，构成一个内阶梯形．因此，$s(T)$ 在几何上表示曲边梯形的内阶梯形的总面积．
+
+    2. Darboux 上和的几何解释：
+    \begin{equation}
+        S(T) = \sum_{i=1}^n M_i \Delta x_i.
+    \end{equation}
+    在每个子区间 $[x_{i-1}, x_i]$ 上，以 $\Delta x_i$ 为底、以函数在该区间上的上确界 $M_i$ 为高作小矩形，其面积为 $M_i \Delta x_i$．这些小矩形完全覆盖了上述曲边梯形，构成一个外阶梯形．因此，$S(T)$ 在几何上表示覆盖曲边梯形的外阶梯形的总面积．
+
+    3. 逼近性质的几何解释：
+    对任意分割 $T$，恒有不等式
+    \begin{equation}
+        s(T) \leqslant \int_a^b f(x) \d x \leqslant S(T).
+    \end{equation}
+    当分割逐渐细化，即分割细度 $\|T\| = \max_{1\leqslant i\leqslant n} \Delta x_i \to 0$ 时，内阶梯形由内向外逐渐充填曲边梯形，外阶梯形由外向内逐渐贴紧曲边梯形．若 $f(x)$ 可积，则上、下和的极限重合，曲边梯形的面积即为上、下积分的共同值．
+
+    \begin{center}
+        \begin{tikzpicture}[>=stealth, scale=0.92]
+            % --- Panel 1: Lower Darboux Sum ---
+            \begin{scope}[shift={(0,0)}]
+                \draw[->] (-0.3, 0) -- (6.8, 0) node[right] {$x$};
+                \draw[->] (0, -0.3) -- (0, 4.3) node[above] {$y$};
+                \node[below left] at (0, 0) {$O$};
+                \node[above] at (3.2, 4.3) {Darboux 下和 $s(T)$（内阶梯形）};
+
+                % Partition: x = 0.8, 1.4, 2.0, 2.6, 3.2, 3.8, 4.4, 5.0, 5.6, 6.2
+                % Lower Rectangles fill and stroke
+                \fill[cyan!25] (0.8, 0) rectangle (1.4, 1.30);
+                \fill[cyan!25] (1.4, 0) rectangle (2.0, 1.70);
+                \fill[cyan!25] (2.0, 0) rectangle (2.6, 2.25);
+                \fill[cyan!25] (2.6, 0) rectangle (3.2, 2.80);
+                \fill[cyan!25] (3.2, 0) rectangle (3.8, 3.20);
+                \fill[cyan!25] (3.8, 0) rectangle (4.4, 3.20);
+                \fill[cyan!25] (4.4, 0) rectangle (5.0, 2.70);
+                \fill[cyan!25] (5.0, 0) rectangle (5.6, 2.00);
+                \fill[cyan!25] (5.6, 0) rectangle (6.2, 1.40);
+
+                \draw[blue!80!black, thick]
+                (0.8, 0) -- (0.8, 1.30) -- (1.4, 1.30) -- (1.4, 1.70) -- (2.0, 1.70)
+                -- (2.0, 2.25) -- (2.6, 2.25) -- (2.6, 2.80) -- (3.2, 2.80) -- (3.2, 3.20)
+                -- (3.8, 3.20) -- (4.4, 3.20) -- (4.4, 2.70) -- (5.0, 2.70) -- (5.0, 2.00)
+                -- (5.6, 2.00) -- (5.6, 1.40) -- (6.2, 1.40) -- (6.2, 0);
+
+                \foreach \x in {1.4, 2.0, 2.6, 3.2, 3.8, 4.4, 5.0, 5.6} {
+                        \draw[blue!40!black, line width=0.2pt, dashed] (\x, 0) -- (\x, 3.5);
+                    }
+
+                % Curve
+                \draw[domain=0.6:6.4, samples=120, smooth, very thick, red!80!black]
+                plot (\x, {1.2 + 2.3*sin((\x - 0.8)*33.33)}) node[right] {$y = f(x)$};
+
+                % Axis ticks
+                \draw (0.8, 0.08) -- (0.8, -0.08) node[below] {$a$};
+                \draw (6.2, 0.08) -- (6.2, -0.08) node[below] {$b$};
+                \node[below] at (3.5, -0.1) {$\cdots\quad x_i \quad\cdots$};
+            \end{scope}
+
+            % --- Panel 2: Upper Darboux Sum ---
+            \begin{scope}[shift={(8.2,0)}]
+                \draw[->] (-0.3, 0) -- (6.8, 0) node[right] {$x$};
+                \draw[->] (0, -0.3) -- (0, 4.3) node[above] {$y$};
+                \node[below left] at (0, 0) {$O$};
+                \node[above] at (3.2, 4.3) {Darboux 上和 $S(T)$（外阶梯形）};
+
+                % Upper Rectangles fill and stroke
+                \fill[orange!25] (0.8, 0) rectangle (1.4, 1.85);
+                \fill[orange!25] (1.4, 0) rectangle (2.0, 2.45);
+                \fill[orange!25] (2.0, 0) rectangle (2.6, 3.00);
+                \fill[orange!25] (2.6, 0) rectangle (3.2, 3.42);
+                \fill[orange!25] (3.2, 0) rectangle (3.8, 3.50);
+                \fill[orange!25] (3.8, 0) rectangle (4.4, 3.48);
+                \fill[orange!25] (4.4, 0) rectangle (5.0, 3.15);
+                \fill[orange!25] (5.0, 0) rectangle (5.6, 2.55);
+                \fill[orange!25] (5.6, 0) rectangle (6.2, 1.85);
+
+                \draw[orange!80!black, thick]
+                (0.8, 0) -- (0.8, 1.85) -- (1.4, 1.85) -- (1.4, 2.45) -- (2.0, 2.45)
+                -- (2.0, 3.00) -- (2.6, 3.00) -- (2.6, 3.42) -- (3.2, 3.42) -- (3.2, 3.50)
+                -- (3.8, 3.50) -- (3.8, 3.48) -- (4.4, 3.48) -- (4.4, 3.15) -- (5.0, 3.15)
+                -- (5.0, 2.55) -- (5.6, 2.55) -- (5.6, 1.85) -- (6.2, 1.85) -- (6.2, 0);
+
+                \foreach \x in {1.4, 2.0, 2.6, 3.2, 3.8, 4.4, 5.0, 5.6} {
+                        \draw[orange!40!black, line width=0.2pt, dashed] (\x, 0) -- (\x, 3.6);
+                    }
+
+                % Curve
+                \draw[domain=0.6:6.4, samples=120, smooth, very thick, red!80!black]
+                plot (\x, {1.2 + 2.3*sin((\x - 0.8)*33.33)}) node[right] {$y = f(x)$};
+
+                % Axis ticks
+                \draw (0.8, 0.08) -- (0.8, -0.08) node[below] {$a$};
+                \draw (6.2, 0.08) -- (6.2, -0.08) node[below] {$b$};
+                \node[below] at (3.5, -0.1) {$\cdots\quad x_i \quad\cdots$};
+            \end{scope}
+        \end{tikzpicture}
+    \end{center}
+
+    \begin{equation}
+        \boxed{s(T) \text{ 与 } S(T) \text{ 在几何上分别表示曲边梯形的内阶梯形总面积与外阶梯形总面积．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{绝对值函数的可积性与积分模长不等式}{Absolute-Value-Integrability-And-Modulus-Inequality}
+    证明：如果函数 $f(x)$ 在区间 $[a, b]$ 上可积，则 $|f(x)|$ 在区间 $[a, b]$ 上也可积，而且有
+    \begin{equation}
+        \left| \int_a^b f(x) \d x \right| \leqslant \int_a^b |f(x)| \d x.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    对区间 $[a, b]$ 的任一分割 $T : a = x_0 < x_1 < \dots < x_n = b$，在每个子区间 $[x_{i-1}, x_i]$ 上，由反向三角不等式，对任意 $x', x'' \in [x_{i-1}, x_i]$ 均有
+    \begin{equation}
+        \bigl| |f(x')| - |f(x'')| \bigr| \leqslant |f(x') - f(x'')|.
+    \end{equation}
+    两端关于 $x', x'' \in [x_{i-1}, x_i]$ 取上确界，即得函数 $|f(x)|$ 的振幅与 $f(x)$ 的振幅满足
+    \begin{equation}
+        \omega_i(|f|) \leqslant \omega_i(f).
+    \end{equation}
+    两端同乘 $\Delta x_i$ 并求和：
+    \begin{equation}
+        \sum_{i=1}^n \omega_i(|f|) \Delta x_i \leqslant \sum_{i=1}^n \omega_i(f) \Delta x_i.
+    \end{equation}
+    因为 $f(x)$ 在 $[a, b]$ 上 Riemann 可积，对任意 $\varepsilon > 0$，存在分割 $T$ 使得 $\sum_{i=1}^n \omega_i(f) \Delta x_i < \varepsilon$，从而
+    \begin{equation}
+        \sum_{i=1}^n \omega_i(|f|) \Delta x_i < \varepsilon.
+    \end{equation}
+    由 Riemann 可积的第一充要条件，函数 $|f(x)|$ 在 $[a, b]$ 上 Riemann 可积．
+
+    进而，对任意 $x \in [a, b]$，恒有
+    \begin{equation}
+        -|f(x)| \leqslant f(x) \leqslant |f(x)|.
+    \end{equation}
+    由定积分的保序性定理，在区间 $[a, b]$ 上积分得
+    \begin{equation}
+        -\int_a^b |f(x)| \d x \leqslant \int_a^b f(x) \d x \leqslant \int_a^b |f(x)| \d x.
+    \end{equation}
+    此不等式等价于
+    \begin{equation}
+        \left| \int_a^b f(x) \d x \right| \leqslant \int_a^b |f(x)| \d x.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{有正下界可积函数的倒数可积性}{Reciprocal-Of-Integrable-Function-Integrability}
+    证明：设 $f(x)$ 在区间 $[a, b]$ 上都可积，且 $f(x) \geqslant c > 0$．求证：$\frac{1}{f(x)}$ 在区间 $[a, b]$ 上也可积．
+\end{problem}
+
+\begin{myproof}
+    因为 $f(x) \geqslant c > 0$，所以对任意 $x \in [a, b]$，$\frac{1}{f(x)} \leqslant \frac{1}{c}$，函数 $\frac{1}{f(x)}$ 在 $[a, b]$ 上有界．
+
+    对区间 $[a, b]$ 的任一分割 $T : a = x_0 < x_1 < \dots < x_n = b$，在子区间 $[x_{i-1}, x_i]$ 上任取两点 $x', x''$，有
+    \begin{equation}
+        \left| \frac{1}{f(x')} - \frac{1}{f(x'')} \right| = \frac{|f(x'') - f(x')|}{f(x') f(x'')} \leqslant \frac{|f(x') - f(x'')|}{c^2}.
+    \end{equation}
+    两端关于 $x', x'' \in [x_{i-1}, x_i]$ 取上确界，得函数 $\frac{1}{f}$ 在该子区间上的振幅满足
+    \begin{equation}
+        \omega_i\left( \frac{1}{f} \right) \leqslant \frac{1}{c^2} \omega_i(f).
+    \end{equation}
+    两端同乘 $\Delta x_i$ 并求和：
+    \begin{equation}
+        \sum_{i=1}^n \omega_i\left( \frac{1}{f} \right) \Delta x_i \leqslant \frac{1}{c^2} \sum_{i=1}^n \omega_i(f) \Delta x_i.
+    \end{equation}
+    由 $f(x)$ 在 $[a, b]$ 上的可积性，对任意给定的 $\varepsilon > 0$，存在分割 $T$ 使得
+    \begin{equation}
+        \sum_{i=1}^n \omega_i(f) \Delta x_i < c^2 \varepsilon.
+    \end{equation}
+    代入上式即有
+    \begin{equation}
+        \sum_{i=1}^n \omega_i\left( \frac{1}{f} \right) \Delta x_i < \frac{1}{c^2} \cdot (c^2 \varepsilon) = \varepsilon.
+    \end{equation}
+    由 Darboux 可积性判别准则，函数 $\frac{1}{f(x)}$ 在区间 $[a, b]$ 上 Riemann 可积．
+\end{myproof}
+
 \endinput

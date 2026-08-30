@@ -1,5 +1,5 @@
 module           = "ustc-math-analysis-solutions"
-version          = "v2.1.0"
+version          = "v2.2.0"
 
 typesetfiles     = { "main.tex" }
 supportdir       = "./src"

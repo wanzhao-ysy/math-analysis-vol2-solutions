@@ -44,9 +44,9 @@ The document is built with the `ctexbook` class and powered by a **LuaLaTeX + l3
 | Chapter 5 | Integral Calculus of Single-Variable Functions | 📝 | In Progress |
 | Chapter 6 | Introduction to Ordinary Differential Equations | 📝 | In Progress |
 | Chapter 7 | Infinite Series | 📝 | In Progress |
-| Chapter 8 | Spatial Analytic Geometry | ✅ | Completed |
+| Chapter 8 | Analytic Geometry in Space | ✅ | Completed |
 | Chapter 9 | Differential Calculus of Multivariable Functions | ✅ | Completed |
-| Chapter 10 | Multiple Integrals of Multivariable Functions | ✅ | Completed |
+| Chapter 10 | Multiple Integrals | ✅ | Completed |
 | Chapter 11 | Line and Surface Integrals | ✅ | Completed |
 | Chapter 12 | Fourier Analysis | ✅ | Completed |
 | Chapter 13 | Improper Integrals and Integrals with Parameters | ✅ | Completed |

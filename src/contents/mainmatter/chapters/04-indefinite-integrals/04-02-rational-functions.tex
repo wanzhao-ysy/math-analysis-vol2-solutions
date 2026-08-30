@@ -1,0 +1,281 @@
+\section{有理函数的不定积分}
+
+\begin{problem}{有理函数的不定积分}{Rational-Function-Indefinite-Integrals}
+    求下列有理函数的不定积分：
+    \begin{enumerate}
+        \item $\int \frac{1}{x^2 + x - 2} \d x$；
+        \item $\int \frac{x^4}{x^2 + 1} \d x$；
+        \item $\int \frac{x^3 + 1}{x^3 - x} \d x$；
+        \item $\int \frac{1}{(x^2 + 1)(x^2 + x)} \d x$；
+        \item $\int \frac{x}{(x + 1)^2(x^2 + x + 1)} \d x$；
+        \item $\int \frac{x^2 + 1}{x^4 + 1} \d x$；
+        \item $\int \frac{x^5 - x}{x^8 + 1} \d x$；
+        \item $\int \frac{x^{15}}{(x^8 + 1)^2} \d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    分解因式并拆为部分分式：
+    \begin{equation}
+        \int \frac{1}{x^2 + x - 2} \d x = \frac{1}{3}\int \left( \frac{1}{x - 1} - \frac{1}{x + 2} \right) \d x = \frac{1}{3}\ln\left| \frac{x - 1}{x + 2} \right| + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{x^2 + x - 2} \d x = \frac{1}{3}\ln\left| \frac{x - 1}{x + 2} \right| + C.}
+    \end{equation}
+
+    \ansitem{2}
+
+    作多项式除法：
+    \begin{equation}
+        \int \frac{x^4}{x^2 + 1} \d x = \int \left( x^2 - 1 + \frac{1}{x^2 + 1} \right) \d x = \frac{1}{3}x^3 - x + \arctan x + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^4}{x^2 + 1} \d x = \frac{1}{3}x^3 - x + \arctan x + C.}
+    \end{equation}
+
+    \ansitem{3}
+
+    化简假分式并拆分：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x^3 + 1}{x^3 - x} \d x & = \int \left( 1 + \frac{x + 1}{x(x - 1)(x + 1)} \right) \d x \\
+                                              & = \int \left( 1 + \frac{1}{x(x - 1)} \right) \d x            \\
+                                              & = \int \left( 1 + \frac{1}{x - 1} - \frac{1}{x} \right) \d x \\
+                                              & = x + \ln\left| \frac{x - 1}{x} \right| + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^3 + 1}{x^3 - x} \d x = x + \ln\left| \frac{x - 1}{x} \right| + C.}
+    \end{equation}
+
+    \ansitem{4}
+
+    拆分部分分式：
+    \begin{equation}
+        \frac{1}{x(x + 1)(x^2 + 1)} = \frac{1}{x} - \frac{1}{2(x + 1)} - \frac{x + 1}{2(x^2 + 1)}.
+    \end{equation}
+    逐项积分得
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{(x^2 + 1)(x^2 + x)} \d x & = \int \left( \frac{1}{x} - \frac{1}{2(x + 1)} - \frac{x}{2(x^2 + 1)} - \frac{1}{2(x^2 + 1)} \right) \d x \\
+                                                   & = \ln|x| - \frac{1}{2}\ln|x + 1| - \frac{1}{4}\ln(x^2 + 1) - \frac{1}{2}\arctan x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{(x^2 + 1)(x^2 + x)} \d x = \ln\left| \frac{x}{\sqrt{x + 1}\sqrt[4]{x^2 + 1}} \right| - \frac{1}{2}\arctan x + C.}
+    \end{equation}
+
+    \ansitem{5}
+
+    拆分部分分式：
+    \begin{equation}
+        \frac{x}{(x + 1)^2(x^2 + x + 1)} = -\frac{1}{(x + 1)^2} + \frac{1}{x^2 + x + 1}.
+    \end{equation}
+    逐项积分得
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x}{(x + 1)^2(x^2 + x + 1)} \d x & = \frac{1}{x + 1} + \int \frac{\d x}{\left(x + \frac{1}{2}\right)^2 + \frac{3}{4}}       \\
+                                                       & = \frac{1}{x + 1} + \frac{2}{\sqrt{3}}\arctan\left( \frac{2x + 1}{\sqrt{3}} \right) + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x}{(x + 1)^2(x^2 + x + 1)} \d x = \frac{1}{x + 1} + \frac{2}{\sqrt{3}}\arctan\left( \frac{2x + 1}{\sqrt{3}} \right) + C.}
+    \end{equation}
+
+    \ansitem{6}
+
+    分子分母同除以 $x^2$ 并凑微分：
+    \begin{equation}
+        \int \frac{x^2 + 1}{x^4 + 1} \d x = \int \frac{1 + \frac{1}{x^2}}{x^2 + \frac{1}{x^2}} \d x = \int \frac{\d\left(x - \frac{1}{x}\right)}{\left(x - \frac{1}{x}\right)^2 + 2} = \frac{1}{\sqrt{2}}\arctan\left( \frac{x^2 - 1}{\sqrt{2}x} \right) + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^2 + 1}{x^4 + 1} \d x = \frac{1}{\sqrt{2}}\arctan\left( \frac{x^2 - 1}{\sqrt{2}x} \right) + C.}
+    \end{equation}
+
+    \ansitem{7}
+
+    令 $u = x^2$，$\d u = 2x \d x$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x^5 - x}{x^8 + 1} \d x & = \frac{1}{2}\int \frac{u^2 - 1}{u^4 + 1} \d u = \frac{1}{2}\int \frac{1 - \frac{1}{u^2}}{\left(u + \frac{1}{u}\right)^2 - 2} \d u \\
+                                              & = \frac{1}{4\sqrt{2}}\ln\left| \frac{u + \frac{1}{u} - \sqrt{2}}{u + \frac{1}{u} + \sqrt{2}} \right| + C                           \\
+                                              & = \frac{1}{4\sqrt{2}}\ln\left( \frac{x^4 - \sqrt{2}x^2 + 1}{x^4 + \sqrt{2}x^2 + 1} \right) + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^5 - x}{x^8 + 1} \d x = \frac{1}{4\sqrt{2}}\ln\left( \frac{x^4 - \sqrt{2}x^2 + 1}{x^4 + \sqrt{2}x^2 + 1} \right) + C.}
+    \end{equation}
+
+    \ansitem{8}
+
+    令 $u = x^8 + 1$，$\d u = 8x^7 \d x$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x^{15}}{(x^8 + 1)^2} \d x & = \frac{1}{8}\int \frac{u - 1}{u^2} \d u = \frac{1}{8}\int \left( \frac{1}{u} - \frac{1}{u^2} \right) \d u \\
+                                                 & = \frac{1}{8}\ln|u| + \frac{1}{8u} + C                                                                     \\
+                                                 & = \frac{1}{8}\ln(x^8 + 1) + \frac{1}{8(x^8 + 1)} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^{15}}{(x^8 + 1)^2} \d x = \frac{1}{8}\ln(x^8 + 1) + \frac{1}{8(x^8 + 1)} + C.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{三角函数有理式的不定积分}{Trigonometric-Rational-Indefinite-Integrals}
+    求下列三角函数有理式的不定积分，其中 $a, b$ 是常数：
+    \begin{enumerate}
+        \item $\int \frac{1 + \sin x}{\sin x(1 + \cos x)} \d x$；
+        \item $\int \frac{\sin^5 x}{\cos x} \d x$；
+        \item $\int \frac{1}{\sin^4 x \cos^2 x} \d x$；
+        \item $\int \frac{\sin^2 x \cos x}{\sin x + \cos x} \d x$；
+        \item $\int \frac{\sin x \cos x}{1 + \sin^4 x} \d x$；
+        \item $\int \frac{\sin^2 x}{1 + \sin^2 x} \d x$；
+        \item $\int \frac{\sin x \cos x}{\sin x + \cos x} \d x$；
+        \item $\int \frac{1}{\sin^4 x \cos^4 x} \d x$；
+        \item $\int \frac{1}{2\sin x + \sin 2x} \d x$；
+        \item $\int \frac{\cos x}{a\sin x + b\cos x} \d x$（$a^2 + b^2 \neq 0$）．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    拆项积分：
+    \begin{equation}
+        \int \frac{1 + \sin x}{\sin x(1 + \cos x)} \d x = \int \frac{\sin x}{\sin^2 x(1 + \cos x)} \d x + \int \frac{\d x}{2\cos^2\frac{x}{2}}.
+    \end{equation}
+    令 $u = \cos x$，对第一项拆分部分分式：
+    \begin{equation}
+        \int \frac{-\d u}{(1 - u)(1 + u)^2} = \frac{1}{4}\ln\left( \frac{1 - \cos x}{1 + \cos x} \right) + \frac{1}{2(1 + \cos x)}.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \boxed{\int \frac{1 + \sin x}{\sin x(1 + \cos x)} \d x = \frac{1}{2}\ln\left|\tan\frac{x}{2}\right| + \frac{1}{4}\tan^2\frac{x}{2} + \tan\frac{x}{2} + C.}
+    \end{equation}
+
+    \ansitem{2}
+
+    令 $u = \cos x$，$\d u = -\sin x \d x$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{\sin^5 x}{\cos x} \d x & = -\int \frac{(1 - u^2)^2}{u} \d u = -\int \left( \frac{1}{u} - 2u + u^3 \right) \d u \\
+                                              & = -\ln|\cos x| + \cos^2 x - \frac{1}{4}\cos^4 x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\sin^5 x}{\cos x} \d x = -\ln|\cos x| + \cos^2 x - \frac{1}{4}\cos^4 x + C.}
+    \end{equation}
+
+    \ansitem{3}
+
+    同除以 $\cos^6 x$ 化为关于 $\tan x$ 的积分：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{\sin^4 x \cos^2 x} \d x & = \int \frac{(1 + \tan^2 x)^2}{\tan^4 x} \d(\tan x) \\
+                                                  & = \int (\tan^{-4} x + 2\tan^{-2} x + 1) \d(\tan x)  \\
+                                                  & = -\frac{1}{3}\cot^3 x - 2\cot x + \tan x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{\sin^4 x \cos^2 x} \d x = -\frac{1}{3}\cot^3 x - 2\cot x + \tan x + C.}
+    \end{equation}
+
+    \ansitem{4}
+
+    记 $I_1 = \int \frac{\sin^2 x \cos x}{\sin x + \cos x} \d x$，$I_2 = \int \frac{\cos^2 x \sin x}{\sin x + \cos x} \d x$．则
+    \begin{equation}
+        I_1 + I_2 = \int \sin x \cos x \d x = -\frac{1}{4}\cos 2x,
+    \end{equation}
+    \begin{equation}
+        I_1 - I_2 = -\int \frac{\sin x \cos x (\cos x - \sin x)}{\sin x + \cos x} \d x = -\frac{1}{4}\sin 2x + \frac{1}{2}\ln|\sin x + \cos x|.
+    \end{equation}
+    两式相加除以 $2$，得
+    \begin{equation}
+        I_1 = -\frac{1}{8}(\sin 2x + \cos 2x) + \frac{1}{4}\ln|\sin x + \cos x| + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\sin^2 x \cos x}{\sin x + \cos x} \d x = -\frac{1}{8}(\sin 2x + \cos 2x) + \frac{1}{4}\ln|\sin x + \cos x| + C.}
+    \end{equation}
+
+    \ansitem{5}
+
+    令 $u = \sin^2 x$，$\d u = 2\sin x \cos x \d x$：
+    \begin{equation}
+        \int \frac{\sin x \cos x}{1 + \sin^4 x} \d x = \frac{1}{2}\int \frac{\d u}{1 + u^2} = \frac{1}{2}\arctan(\sin^2 x) + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\sin x \cos x}{1 + \sin^4 x} \d x = \frac{1}{2}\arctan(\sin^2 x) + C.}
+    \end{equation}
+
+    \ansitem{6}
+
+    同除以 $\cos^2 x$ 化为关于 $\tan x$ 的积分：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{\sin^2 x}{1 + \sin^2 x} \d x & = \int \frac{\tan^2 x}{(1 + 2\tan^2 x)(1 + \tan^2 x)} \d(\tan x)                  \\
+                                                    & = \int \left( \frac{1}{1 + \tan^2 x} - \frac{1}{1 + 2\tan^2 x} \right) \d(\tan x) \\
+                                                    & = x - \frac{1}{\sqrt{2}}\arctan(\sqrt{2}\tan x) + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\sin^2 x}{1 + \sin^2 x} \d x = x - \frac{1}{\sqrt{2}}\arctan(\sqrt{2}\tan x) + C.}
+    \end{equation}
+
+    \ansitem{7}
+
+    对被积函数拆分：
+    \begin{equation}
+        \frac{\sin x \cos x}{\sin x + \cos x} = \frac{1}{2}(\sin x + \cos x) - \frac{1}{2(\sin x + \cos x)}.
+    \end{equation}
+    积分得
+    \begin{equation}
+        \int \frac{\sin x \cos x}{\sin x + \cos x} \d x = \frac{1}{2}(\sin x - \cos x) - \frac{\sqrt{2}}{4}\ln\left| \tan\left( \frac{x}{2} + \frac{\uppi}{8} \right) \right| + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\sin x \cos x}{\sin x + \cos x} \d x = \frac{1}{2}(\sin x - \cos x) - \frac{\sqrt{2}}{4}\ln\left| \tan\left( \frac{x}{2} + \frac{\uppi}{8} \right) \right| + C.}
+    \end{equation}
+
+    \ansitem{8}
+
+    利用二倍角公式化简：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{\sin^4 x \cos^4 x} \d x & = 16\int \csc^4 2x \d x = -8\int (1 + \cot^2 2x) \d(\cot 2x) \\
+                                                  & = -8\cot 2x - \frac{8}{3}\cot^3 2x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{\sin^4 x \cos^4 x} \d x = -8\cot 2x - \frac{8}{3}\cot^3 2x + C.}
+    \end{equation}
+
+    \ansitem{9}
+
+    变形并应用半角代换：
+    \begin{equation}
+        \int \frac{1}{2\sin x + \sin 2x} \d x = \frac{1}{2}\int \frac{\d x}{\sin x(1 + \cos x)} = \frac{1}{4}\ln\left|\tan\frac{x}{2}\right| + \frac{1}{8}\tan^2\frac{x}{2} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{2\sin x + \sin 2x} \d x = \frac{1}{4}\ln\left|\tan\frac{x}{2}\right| + \frac{1}{8}\tan^2\frac{x}{2} + C.}
+    \end{equation}
+
+    \ansitem{10}
+
+    设 $\cos x = A(a\sin x + b\cos x) + B(a\sin x + b\cos x)'$，解得
+    \begin{equation}
+        A = \frac{b}{a^2 + b^2}, \qquad B = \frac{a}{a^2 + b^2}.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{\cos x}{a\sin x + b\cos x} \d x & = A\int \d x + B\int \frac{\d(a\sin x + b\cos x)}{a\sin x + b\cos x}    \\
+                                                       & = \frac{b}{a^2 + b^2}x + \frac{a}{a^2 + b^2}\ln|a\sin x + b\cos x| + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\cos x}{a\sin x + b\cos x} \d x = \frac{b}{a^2 + b^2}x + \frac{a}{a^2 + b^2}\ln|a\sin x + b\cos x| + C.}
+    \end{equation}
+\end{solution}
+
+\endinput

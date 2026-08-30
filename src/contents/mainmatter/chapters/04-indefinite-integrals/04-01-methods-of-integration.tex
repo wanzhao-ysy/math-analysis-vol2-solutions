@@ -1,0 +1,1022 @@
+\section{不定积分及其基本计算方法}
+
+\begin{problem}{直接积分法求不定积分}{Indefinite-Integrals-Direct-Method}
+    求下列不定积分：
+    \begin{enumerate}
+        \item $\int x(x - 1)^3 \d x$；
+        \item $\int \frac{\e^{3x} + 1}{\e^x + 1} \d x$；
+        \item $\int (2^x + 3^x)^2 \d x$；
+        \item $\int \tan^2 x \d x$；
+        \item $\int \frac{x^2}{1 + x^2} \d x$；
+        \item $\int \frac{1 + \cos^2 x}{1 + \cos 2x} \d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    将括号展开为多项式：
+    \begin{equation}
+        \begin{aligned}
+            \int x(x - 1)^3 \d x & = \int x(x^3 - 3x^2 + 3x - 1) \d x                            \\
+                                 & = \int (x^4 - 3x^3 + 3x^2 - x) \d x                           \\
+                                 & = \frac{1}{5}x^5 - \frac{3}{4}x^4 + x^3 - \frac{1}{2}x^2 + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x(x - 1)^3 \d x = \frac{1}{5}x^5 - \frac{3}{4}x^4 + x^3 - \frac{1}{2}x^2 + C.}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用立方和公式因式分解：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{\e^{3x} + 1}{\e^x + 1} \d x & = \int \frac{(\e^x + 1)(\e^{2x} - \e^x + 1)}{\e^x + 1} \d x \\
+                                                   & = \int (\e^{2x} - \e^x + 1) \d x                            \\
+                                                   & = \frac{1}{2}\e^{2x} - \e^x + x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\e^{3x} + 1}{\e^x + 1} \d x = \frac{1}{2}\e^{2x} - \e^x + x + C.}
+    \end{equation}
+
+    \ansitem{3}
+
+    展开完全平方项：
+    \begin{equation}
+        \begin{aligned}
+            \int (2^x + 3^x)^2 \d x & = \int (4^x + 2 \cdot 6^x + 9^x) \d x                                    \\
+                                    & = \frac{4^x}{\ln 4} + \frac{2 \cdot 6^x}{\ln 6} + \frac{9^x}{\ln 9} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int (2^x + 3^x)^2 \d x = \frac{4^x}{\ln 4} + \frac{2 \cdot 6^x}{\ln 6} + \frac{9^x}{\ln 9} + C.}
+    \end{equation}
+
+    \ansitem{4}
+
+    利用三角恒等式 $\tan^2 x = \sec^2 x - 1$：
+    \begin{equation}
+        \int \tan^2 x \d x = \int (\sec^2 x - 1) \d x = \tan x - x + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \tan^2 x \d x = \tan x - x + C.}
+    \end{equation}
+
+    \ansitem{5}
+
+    对分子进行拆分：
+    \begin{equation}
+        \int \frac{x^2}{1 + x^2} \d x = \int \left( 1 - \frac{1}{1 + x^2} \right) \d x = x - \arctan x + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^2}{1 + x^2} \d x = x - \arctan x + C.}
+    \end{equation}
+
+    \ansitem{6}
+
+    利用二倍角公式 $1 + \cos 2x = 2\cos^2 x$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1 + \cos^2 x}{1 + \cos 2x} \d x & = \int \frac{1 + \cos^2 x}{2\cos^2 x} \d x \\
+                                                       & = \frac{1}{2} \int (\sec^2 x + 1) \d x     \\
+                                                       & = \frac{1}{2}\tan x + \frac{1}{2}x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1 + \cos^2 x}{1 + \cos 2x} \d x = \frac{1}{2}\tan x + \frac{1}{2}x + C.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{第一类换元法求不定积分}{Indefinite-Integrals-First-Substitution-Method}
+    用第一代换法求下列不定积分：
+    \begin{enumerate}
+        \item $\int (2x - 1)^{100} \d x$；
+        \item $\int \frac{1}{x^2} \sin \frac{1}{x} \d x$；
+        \item $\int \frac{\cos x - \sin x}{1 + \sin x + \cos x} \d x$；
+        \item $\int \frac{\arctan x}{1 + x^2} \d x$；
+        \item $\int x\sqrt{1 - x^2} \d x$；
+        \item $\int \frac{1}{\sqrt{x}(1 + x)} \d x$；
+        \item $\int \frac{\arctan \frac{1}{x}}{1 + x^2} \d x$；
+        \item $\int \frac{1 + \ln x}{1 + x \ln x} \d x$；
+        \item $\int \sin^2 x \d x$；
+        \item $\int \sin^5 x \cos x \d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    凑微分 $\d x = \frac{1}{2}\d(2x - 1)$：
+    \begin{equation}
+        \int (2x - 1)^{100} \d x = \frac{1}{2}\int (2x - 1)^{100} \d(2x - 1) = \frac{(2x - 1)^{101}}{202} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int (2x - 1)^{100} \d x = \frac{(2x - 1)^{101}}{202} + C.}
+    \end{equation}
+
+    \ansitem{2}
+
+    凑微分 $\frac{1}{x^2}\d x = -\d\left(\frac{1}{x}\right)$：
+    \begin{equation}
+        \int \frac{1}{x^2} \sin \frac{1}{x} \d x = -\int \sin \frac{1}{x} \d\left( \frac{1}{x} \right) = \cos \frac{1}{x} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{x^2} \sin \frac{1}{x} \d x = \cos \frac{1}{x} + C.}
+    \end{equation}
+
+    \ansitem{3}
+
+    注意到 $\d(1 + \sin x + \cos x) = (\cos x - \sin x)\d x$：
+    \begin{equation}
+        \int \frac{\cos x - \sin x}{1 + \sin x + \cos x} \d x = \int \frac{\d(1 + \sin x + \cos x)}{1 + \sin x + \cos x} = \ln|1 + \sin x + \cos x| + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\cos x - \sin x}{1 + \sin x + \cos x} \d x = \ln|1 + \sin x + \cos x| + C.}
+    \end{equation}
+
+    \ansitem{4}
+
+    凑微分 $\frac{1}{1 + x^2}\d x = \d(\arctan x)$：
+    \begin{equation}
+        \int \frac{\arctan x}{1 + x^2} \d x = \int \arctan x \d(\arctan x) = \frac{1}{2}(\arctan x)^2 + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\arctan x}{1 + x^2} \d x = \frac{1}{2}(\arctan x)^2 + C.}
+    \end{equation}
+
+    \ansitem{5}
+
+    凑微分 $x\d x = -\frac{1}{2}\d(1 - x^2)$：
+    \begin{equation}
+        \int x\sqrt{1 - x^2} \d x = -\frac{1}{2}\int (1 - x^2)^{1/2} \d(1 - x^2) = -\frac{1}{3}(1 - x^2)^{3/2} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x\sqrt{1 - x^2} \d x = -\frac{1}{3}(1 - x^2)^{3/2} + C.}
+    \end{equation}
+
+    \ansitem{6}
+
+    凑微分 $\frac{1}{\sqrt{x}}\d x = 2\d(\sqrt{x})$：
+    \begin{equation}
+        \int \frac{1}{\sqrt{x}(1 + x)} \d x = 2\int \frac{\d\sqrt{x}}{1 + (\sqrt{x})^2} = 2\arctan\sqrt{x} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{\sqrt{x}(1 + x)} \d x = 2\arctan\sqrt{x} + C.}
+    \end{equation}
+
+    \ansitem{7}
+
+    注意到 $\d\left(\arctan \frac{1}{x}\right) = -\frac{1}{1 + x^2}\d x$：
+    \begin{equation}
+        \int \frac{\arctan \frac{1}{x}}{1 + x^2} \d x = -\int \arctan \frac{1}{x} \d\left( \arctan \frac{1}{x} \right) = -\frac{1}{2}\left( \arctan \frac{1}{x} \right)^2 + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\arctan \frac{1}{x}}{1 + x^2} \d x = -\frac{1}{2}\left( \arctan \frac{1}{x} \right)^2 + C.}
+    \end{equation}
+
+    \ansitem{8}
+
+    注意到 $\d(1 + x\ln x) = (1 + \ln x)\d x$：
+    \begin{equation}
+        \int \frac{1 + \ln x}{1 + x \ln x} \d x = \int \frac{\d(1 + x\ln x)}{1 + x\ln x} = \ln|1 + x\ln x| + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1 + \ln x}{1 + x \ln x} \d x = \ln|1 + x\ln x| + C.}
+    \end{equation}
+
+    \ansitem{9}
+
+    利用降幂公式 $\sin^2 x = \frac{1 - \cos 2x}{2}$：
+    \begin{equation}
+        \int \sin^2 x \d x = \int \frac{1 - \cos 2x}{2} \d x = \frac{x}{2} - \frac{1}{4}\sin 2x + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \sin^2 x \d x = \frac{x}{2} - \frac{1}{4}\sin 2x + C.}
+    \end{equation}
+
+    \ansitem{10}
+
+    凑微分 $\cos x \d x = \d(\sin x)$：
+    \begin{equation}
+        \int \sin^5 x \cos x \d x = \int \sin^5 x \d(\sin x) = \frac{1}{6}\sin^6 x + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \sin^5 x \cos x \d x = \frac{1}{6}\sin^6 x + C.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{第二类换元法求不定积分}{Indefinite-Integrals-Second-Substitution-Method}
+    用第二代换法求下列不定积分，其中的 $a$ 均为正常数：
+    \begin{enumerate}
+        \item $\int \sqrt{\e^x - 2} \d x$；
+        \item $\int \sqrt{x^2 + a^2} \d x$；
+        \item $\int \frac{1}{(x^2 - a^2)^{3/2}} \d x$；
+        \item $\int \frac{x^2}{\sqrt{a^2 - x^2}} \d x$；
+        \item $\int \frac{1}{1 + \sqrt{x + 1}} \d x$；
+        \item $\int \frac{x \ln x}{(1 + x^2)^{3/2}} \d x$；
+        \item $\int \frac{1 - \ln x}{(x - \ln x)^2} \d x$；
+        \item $\int \frac{1}{x^2 \sqrt{x^2 + a^2}} \d x$；
+        \item $\int \frac{x + 2}{\sqrt[3]{2x + 1}} \d x$；
+        \item $\int \frac{x^{1/7} + x^{1/2}}{x^{8/7} + x^{1/14}} \d x$；
+        \item $\int \frac{x - 1}{x^2 \sqrt{x^2 - 1}} \d x$；
+        \item $\int \frac{1}{x^8 (1 + x^2)} \d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $t = \sqrt{\e^x - 2} \geqslant 0$，则 $\e^x = t^2 + 2$，$x = \ln(t^2 + 2)$，$\d x = \frac{2t}{t^2 + 2}\d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \sqrt{\e^x - 2} \d x & = \int t \cdot \frac{2t}{t^2 + 2} \d t = 2\int \left( 1 - \frac{2}{t^2 + 2} \right) \d t \\
+                                      & = 2t - 2\sqrt{2}\arctan\left( \frac{t}{\sqrt{2}} \right) + C                             \\
+                                      & = 2\sqrt{\e^x - 2} - 2\sqrt{2}\arctan\sqrt{\frac{\e^x - 2}{2}} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \sqrt{\e^x - 2} \d x = 2\sqrt{\e^x - 2} - 2\sqrt{2}\arctan\sqrt{\frac{\e^x - 2}{2}} + C.}
+    \end{equation}
+
+    \ansitem{2}
+
+    令 $x = a\tan t$（$t \in \left(-\frac{\uppi}{2}, \frac{\uppi}{2}\right)$），则 $\d x = a\sec^2 t \d t$，$\sqrt{x^2 + a^2} = a\sec t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \sqrt{x^2 + a^2} \d x & = a^2 \int \sec^3 t \d t                                                                 \\
+                                       & = \frac{a^2}{2}\bigl( \sec t \tan t + \ln|\sec t + \tan t| \bigr) + C_1                  \\
+                                       & = \frac{x}{2}\sqrt{x^2 + a^2} + \frac{a^2}{2}\ln\left( x + \sqrt{x^2 + a^2} \right) + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \sqrt{x^2 + a^2} \d x = \frac{x}{2}\sqrt{x^2 + a^2} + \frac{a^2}{2}\ln\left( x + \sqrt{x^2 + a^2} \right) + C.}
+    \end{equation}
+
+    \ansitem{3}
+
+    设 $x > a$，令 $x = a\sec t$（$t \in \left(0, \frac{\uppi}{2}\right)$），则 $\d x = a\sec t \tan t \d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{(x^2 - a^2)^{3/2}} \d x & = \int \frac{a\sec t \tan t}{a^3 \tan^3 t} \d t = \frac{1}{a^2} \int \frac{\cos t}{\sin^2 t} \d t \\
+                                                  & = -\frac{1}{a^2 \sin t} + C = -\frac{x}{a^2 \sqrt{x^2 - a^2}} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{(x^2 - a^2)^{3/2}} \d x = -\frac{x}{a^2 \sqrt{x^2 - a^2}} + C.}
+    \end{equation}
+
+    \ansitem{4}
+
+    令 $x = a\sin t$（$t \in \left(-\frac{\uppi}{2}, \frac{\uppi}{2}\right)$），则 $\d x = a\cos t \d t$，$\sqrt{a^2 - x^2} = a\cos t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x^2}{\sqrt{a^2 - x^2}} \d x & = \int \frac{a^2 \sin^2 t}{a\cos t} a\cos t \d t = a^2 \int \sin^2 t \d t \\
+                                                   & = \frac{a^2}{2}t - \frac{a^2}{4}\sin 2t + C                               \\
+                                                   & = \frac{a^2}{2}\arcsin\frac{x}{a} - \frac{x}{2}\sqrt{a^2 - x^2} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^2}{\sqrt{a^2 - x^2}} \d x = \frac{a^2}{2}\arcsin\frac{x}{a} - \frac{x}{2}\sqrt{a^2 - x^2} + C.}
+    \end{equation}
+
+    \ansitem{5}
+
+    令 $t = \sqrt{x + 1} \geqslant 0$，则 $x = t^2 - 1$，$\d x = 2t\d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{1 + \sqrt{x + 1}} \d x & = \int \frac{2t}{1 + t} \d t = 2\int \left( 1 - \frac{1}{1 + t} \right) \d t \\
+                                                 & = 2t - 2\ln(1 + t) + C                                                       \\
+                                                 & = 2\sqrt{x + 1} - 2\ln(1 + \sqrt{x + 1}) + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{1 + \sqrt{x + 1}} \d x = 2\sqrt{x + 1} - 2\ln(1 + \sqrt{x + 1}) + C.}
+    \end{equation}
+
+    \ansitem{6}
+
+    应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x \ln x}{(1 + x^2)^{3/2}} \d x & = \int \ln x \d\left( -\frac{1}{\sqrt{1 + x^2}} \right)                \\
+                                                      & = -\frac{\ln x}{\sqrt{1 + x^2}} + \int \frac{1}{x\sqrt{1 + x^2}} \d x.
+        \end{aligned}
+    \end{equation}
+    对后项作倒数代换 $x = \frac{1}{t}$，$\d x = -\frac{1}{t^2}\d t$：
+    \begin{equation}
+        \int \frac{1}{x\sqrt{1 + x^2}} \d x = -\int \frac{\d t}{\sqrt{1 + t^2}} = -\ln\left( t + \sqrt{1 + t^2} \right) = -\ln\left( \frac{1 + \sqrt{1 + x^2}}{x} \right).
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \boxed{\int \frac{x \ln x}{(1 + x^2)^{3/2}} \d x = -\frac{\ln x}{\sqrt{1 + x^2}} - \ln\left( \frac{1 + \sqrt{1 + x^2}}{x} \right) + C.}
+    \end{equation}
+
+    \ansitem{7}
+
+    分子分母同除以 $x^2$：
+    \begin{equation}
+        \int \frac{1 - \ln x}{(x - \ln x)^2} \d x = \int \frac{\frac{1 - \ln x}{x^2}}{\left( 1 - \frac{\ln x}{x} \right)^2} \d x.
+    \end{equation}
+    因为 $\d\left( 1 - \frac{\ln x}{x} \right) = -\frac{1 - \ln x}{x^2}\d x$，故
+    \begin{equation}
+        \int \frac{1 - \ln x}{(x - \ln x)^2} \d x = -\int \frac{\d\left( 1 - \frac{\ln x}{x} \right)}{\left( 1 - \frac{\ln x}{x} \right)^2} = \frac{1}{1 - \frac{\ln x}{x}} + C = \frac{x}{x - \ln x} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1 - \ln x}{(x - \ln x)^2} \d x = \frac{x}{x - \ln x} + C.}
+    \end{equation}
+
+    \ansitem{8}
+
+    作倒数代换 $x = \frac{1}{t}$，$\d x = -\frac{1}{t^2}\d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{x^2 \sqrt{x^2 + a^2}} \d x & = -\int \frac{t}{\sqrt{1 + a^2 t^2}} \d t = -\frac{1}{a^2}\sqrt{1 + a^2 t^2} + C \\
+                                                     & = -\frac{\sqrt{x^2 + a^2}}{a^2 x} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{x^2 \sqrt{x^2 + a^2}} \d x = -\frac{\sqrt{x^2 + a^2}}{a^2 x} + C.}
+    \end{equation}
+
+    \ansitem{9}
+
+    令 $t = \sqrt[3]{2x + 1}$，则 $x = \frac{t^3 - 1}{2}$，$\d x = \frac{3}{2}t^2 \d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x + 2}{\sqrt[3]{2x + 1}} \d x & = \int \frac{\frac{t^3 + 3}{2}}{t} \cdot \frac{3}{2}t^2 \d t = \frac{3}{4}\int (t^4 + 3t) \d t \\
+                                                     & = \frac{3}{20}t^5 + \frac{9}{8}t^2 + C                                                         \\
+                                                     & = \frac{3}{40}(2x + 1)^{2/3}(4x + 17) + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x + 2}{\sqrt[3]{2x + 1}} \d x = \frac{3}{40}(2x + 1)^{2/3}(4x + 17) + C.}
+    \end{equation}
+
+    \ansitem{10}
+
+    化简被积函数：
+    \begin{equation}
+        \frac{x^{1/7} + x^{1/2}}{x^{8/7} + x^{1/14}} = \frac{x^{1/7}(1 + x^{5/14})}{x^{1/14}(x^{15/14} + 1)} = \frac{x^{1/14}(1 + x^{5/14})}{x^{15/14} + 1} = \frac{x^{1/14}(1 + x^{5/14})}{(x^{5/14} + 1)(x^{5/7} - x^{5/14} + 1)} = \frac{x^{1/14}}{x^{5/7} - x^{5/14} + 1}.
+    \end{equation}
+    令 $u = x^{5/14}$，则 $\d u = \frac{5}{14}x^{-9/14}\d x \implies \d x = \frac{14}{5}x^{9/14}\d u$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x^{1/7} + x^{1/2}}{x^{8/7} + x^{1/14}} \d x & = \frac{14}{5}\int \frac{u^2}{u^2 - u + 1} \d u = \frac{14}{5}\int \left( 1 + \frac{u - 1}{u^2 - u + 1} \right) \d u                            \\
+                                                                   & = \frac{14}{5}u + \frac{7}{5}\ln(u^2 - u + 1) - \frac{14}{5\sqrt{3}}\arctan\left( \frac{2u - 1}{\sqrt{3}} \right) + C                           \\
+                                                                   & = \frac{14}{5}x^{5/14} + \frac{7}{5}\ln(x^{5/7} - x^{5/14} + 1) - \frac{14}{5\sqrt{3}}\arctan\left( \frac{2x^{5/14} - 1}{\sqrt{3}} \right) + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^{1/7} + x^{1/2}}{x^{8/7} + x^{1/14}} \d x = \frac{14}{5}x^{5/14} + \frac{7}{5}\ln(x^{5/7} - x^{5/14} + 1) - \frac{14}{5\sqrt{3}}\arctan\left( \frac{2x^{5/14} - 1}{\sqrt{3}} \right) + C.}
+    \end{equation}
+
+    \ansitem{11}
+
+    拆项积分：
+    \begin{equation}
+        \int \frac{x - 1}{x^2 \sqrt{x^2 - 1}} \d x = \int \frac{1}{x\sqrt{x^2 - 1}} \d x - \int \frac{1}{x^2\sqrt{x^2 - 1}} \d x.
+    \end{equation}
+    对第一项令 $x = \sec t$，对第二项作倒数代换 $x = \frac{1}{u}$：
+    \begin{equation}
+        \int \frac{1}{x\sqrt{x^2 - 1}} \d x = \arctan\sqrt{x^2 - 1}, \qquad \int \frac{1}{x^2\sqrt{x^2 - 1}} \d x = \frac{\sqrt{x^2 - 1}}{x}.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \boxed{\int \frac{x - 1}{x^2 \sqrt{x^2 - 1}} \d x = \arctan\sqrt{x^2 - 1} - \frac{\sqrt{x^2 - 1}}{x} + C.}
+    \end{equation}
+
+    \ansitem{12}
+
+    作倒数代换 $x = \frac{1}{t}$，$\d x = -\frac{1}{t^2}\d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{x^8(1 + x^2)} \d x & = -\int \frac{t^8}{t^2 + 1} \d t = -\int \left( t^6 - t^4 + t^2 - 1 + \frac{1}{t^2 + 1} \right) \d t \\
+                                             & = -\frac{t^7}{7} + \frac{t^5}{5} - \frac{t^3}{3} + t - \arctan t + C                                 \\
+                                             & = -\frac{1}{7x^7} + \frac{1}{5x^5} - \frac{1}{3x^3} + \frac{1}{x} - \arctan\frac{1}{x} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{x^8 (1 + x^2)} \d x = -\frac{1}{7x^7} + \frac{1}{5x^5} - \frac{1}{3x^3} + \frac{1}{x} - \arctan\frac{1}{x} + C.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{非光滑函数的不定积分}{Indefinite-Integrals-Of-Non-Smooth-Functions}
+    求下列不定积分：
+    \begin{enumerate}
+        \item $\int |x| \d x$；
+        \item $\int \max(1, x^2) \d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    因为 $\frac{\d}{\d x}\left( \frac{1}{2}x|x| \right) = |x|$（对一切 $x \in \symbb{R}$），故
+    \begin{equation}
+        \boxed{\int |x| \d x = \frac{1}{2}x|x| + C.}
+    \end{equation}
+
+    \ansitem{2}
+
+    被积函数为
+    \begin{equation}
+        f(x) = \max(1, x^2) = \begin{cases} x^2, & |x| \geqslant 1, \\ 1, & |x| < 1. \end{cases}
+    \end{equation}
+    因为连续函数的原函数必处处可导且连续，设原函数为
+    \begin{equation}
+        F(x) = \begin{cases} \frac{1}{3}x^3 + C_1, & x < -1, \\ x + C, & -1 \leqslant x \leqslant 1, \\ \frac{1}{3}x^3 + C_2, & x > 1. \end{cases}
+    \end{equation}
+    由在 $x = -1$ 与 $x = 1$ 处的连续性要求：
+    \begin{equation}
+        F(-1) = -1 + C = -\frac{1}{3} + C_1 \implies C_1 = C - \frac{2}{3},
+    \end{equation}
+    \begin{equation}
+        F(1) = 1 + C = \frac{1}{3} + C_2 \implies C_2 = C + \frac{2}{3}.
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \boxed{\int \max(1, x^2) \d x = \begin{cases} \frac{1}{3}x^3 - \frac{2}{3} + C, & x < -1, \\ x + C, & -1 \leqslant x \leqslant 1, \\ \frac{1}{3}x^3 + \frac{2}{3} + C, & x > 1. \end{cases}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{分部积分法的应用}{Integration-By-Parts-Applications}
+    用分部积分法求下列不定积分：
+    \begin{enumerate}
+        \item $\int x \sin x \d x$；
+        \item $\int x^2 \ln x \d x$；
+        \item $\int \cos \ln x \d x$；
+        \item $\int x^2 \cos 5x \d x$；
+        \item $\int \sec^3 x \d x$；
+        \item $\int x^2 \e^x \d x$；
+        \item $\int x \arcsin x \d x$；
+        \item $\int x(\arctan x)^2 \d x$；
+        \item $\int (\arcsin x)^2 \d x$；
+        \item $\int \ln(x + \sqrt{x^2 + 1}) \d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    应用分部积分法：
+    \begin{equation}
+        \int x \sin x \d x = -\int x \d(\cos x) = -x \cos x + \int \cos x \d x = -x \cos x + \sin x + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x \sin x \d x = -x \cos x + \sin x + C.}
+    \end{equation}
+
+    \ansitem{2}
+
+    应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int x^2 \ln x \d x & = \frac{1}{3}\int \ln x \d(x^3) = \frac{1}{3}x^3 \ln x - \frac{1}{3}\int x^3 \cdot \frac{1}{x} \d x \\
+                                & = \frac{1}{3}x^3 \ln x - \frac{1}{9}x^3 + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x^2 \ln x \d x = \frac{1}{3}x^3 \ln x - \frac{1}{9}x^3 + C.}
+    \end{equation}
+
+    \ansitem{3}
+
+    设 $I = \int \cos(\ln x) \d x$．连续两次应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            I & = x \cos(\ln x) + \int x \sin(\ln x) \cdot \frac{1}{x} \d x                 \\
+              & = x \cos(\ln x) + \int \sin(\ln x) \d x                                     \\
+              & = x \cos(\ln x) + x \sin(\ln x) - \int x \cos(\ln x) \cdot \frac{1}{x} \d x \\
+              & = x \bigl( \cos(\ln x) + \sin(\ln x) \bigr) - I.
+        \end{aligned}
+    \end{equation}
+    解出 $I$，得
+    \begin{equation}
+        \boxed{\int \cos \ln x \d x = \frac{x}{2}\bigl( \cos(\ln x) + \sin(\ln x) \bigr) + C.}
+    \end{equation}
+
+    \ansitem{4}
+
+    连续两次应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int x^2 \cos 5x \d x & = \frac{1}{5}\int x^2 \d(\sin 5x) = \frac{1}{5}x^2 \sin 5x - \frac{2}{5}\int x \sin 5x \d x \\
+                                  & = \frac{1}{5}x^2 \sin 5x + \frac{2}{25}\int x \d(\cos 5x)                                   \\
+                                  & = \frac{1}{5}x^2 \sin 5x + \frac{2}{25}x \cos 5x - \frac{2}{25}\int \cos 5x \d x            \\
+                                  & = \frac{1}{5}x^2 \sin 5x + \frac{2}{25}x \cos 5x - \frac{2}{125}\sin 5x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x^2 \cos 5x \d x = \frac{1}{5}x^2 \sin 5x + \frac{2}{25}x \cos 5x - \frac{2}{125}\sin 5x + C.}
+    \end{equation}
+
+    \ansitem{5}
+
+    设 $I = \int \sec^3 x \d x$．应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            I & = \int \sec x \d(\tan x) = \sec x \tan x - \int \tan x \d(\sec x) \\
+              & = \sec x \tan x - \int \sec x \tan^2 x \d x                       \\
+              & = \sec x \tan x - \int \sec x (\sec^2 x - 1) \d x                 \\
+              & = \sec x \tan x - I + \int \sec x \d x                            \\
+              & = \sec x \tan x - I + \ln|\sec x + \tan x|.
+        \end{aligned}
+    \end{equation}
+    解出 $I$，得
+    \begin{equation}
+        \boxed{\int \sec^3 x \d x = \frac{1}{2}\sec x \tan x + \frac{1}{2}\ln|\sec x + \tan x| + C.}
+    \end{equation}
+
+    \ansitem{6}
+
+    连续两次应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int x^2 \e^x \d x & = \int x^2 \d(\e^x) = x^2 \e^x - 2\int x \e^x \d x  \\
+                               & = x^2 \e^x - 2\left( x\e^x - \int \e^x \d x \right) \\
+                               & = (x^2 - 2x + 2)\e^x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x^2 \e^x \d x = (x^2 - 2x + 2)\e^x + C.}
+    \end{equation}
+
+    \ansitem{7}
+
+    应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int x \arcsin x \d x & = \frac{1}{2}\int \arcsin x \d(x^2) = \frac{1}{2}x^2 \arcsin x - \frac{1}{2}\int \frac{x^2}{\sqrt{1 - x^2}} \d x                   \\
+                                  & = \frac{1}{2}x^2 \arcsin x + \frac{1}{2}\int \sqrt{1 - x^2} \d x - \frac{1}{2}\int \frac{1}{\sqrt{1 - x^2}} \d x                   \\
+                                  & = \frac{1}{2}x^2 \arcsin x + \frac{1}{2}\left( \frac{x}{2}\sqrt{1 - x^2} + \frac{1}{2}\arcsin x \right) - \frac{1}{2}\arcsin x + C \\
+                                  & = \frac{2x^2 - 1}{4}\arcsin x + \frac{x\sqrt{1 - x^2}}{4} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x \arcsin x \d x = \frac{2x^2 - 1}{4}\arcsin x + \frac{x\sqrt{1 - x^2}}{4} + C.}
+    \end{equation}
+
+    \ansitem{8}
+
+    应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int x(\arctan x)^2 \d x & = \frac{1}{2}\int (\arctan x)^2 \d(x^2)                                                                             \\
+                                     & = \frac{1}{2}x^2 (\arctan x)^2 - \int \frac{x^2 \arctan x}{1 + x^2} \d x                                            \\
+                                     & = \frac{1}{2}x^2 (\arctan x)^2 - \int \left( 1 - \frac{1}{1 + x^2} \right)\arctan x \d x                            \\
+                                     & = \frac{1}{2}x^2 (\arctan x)^2 - \int \arctan x \d x + \int \arctan x \d(\arctan x)                                 \\
+                                     & = \frac{1}{2}x^2 (\arctan x)^2 - \left( x\arctan x - \frac{1}{2}\ln(1 + x^2) \right) + \frac{1}{2}(\arctan x)^2 + C \\
+                                     & = \frac{x^2 + 1}{2}(\arctan x)^2 - x\arctan x + \frac{1}{2}\ln(1 + x^2) + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x(\arctan x)^2 \d x = \frac{x^2 + 1}{2}(\arctan x)^2 - x\arctan x + \frac{1}{2}\ln(1 + x^2) + C.}
+    \end{equation}
+
+    \ansitem{9}
+
+    连续两次应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int (\arcsin x)^2 \d x & = x(\arcsin x)^2 - \int x \cdot \frac{2\arcsin x}{\sqrt{1 - x^2}} \d x                                 \\
+                                    & = x(\arcsin x)^2 + 2\int \arcsin x \d(\sqrt{1 - x^2})                                                  \\
+                                    & = x(\arcsin x)^2 + 2\sqrt{1 - x^2}\arcsin x - 2\int \sqrt{1 - x^2} \cdot \frac{1}{\sqrt{1 - x^2}} \d x \\
+                                    & = x(\arcsin x)^2 + 2\sqrt{1 - x^2}\arcsin x - 2x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int (\arcsin x)^2 \d x = x(\arcsin x)^2 + 2\sqrt{1 - x^2}\arcsin x - 2x + C.}
+    \end{equation}
+
+    \ansitem{10}
+
+    应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int \ln(x + \sqrt{x^2 + 1}) \d x & = x\ln(x + \sqrt{x^2 + 1}) - \int x \cdot \frac{1}{\sqrt{x^2 + 1}} \d x \\
+                                              & = x\ln(x + \sqrt{x^2 + 1}) - \sqrt{x^2 + 1} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \ln(x + \sqrt{x^2 + 1}) \d x = x\ln(x + \sqrt{x^2 + 1}) - \sqrt{x^2 + 1} + C.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{不定积分递推公式的导出}{Indefinite-Integral-Reduction-Formulas}
+    导出下列不定积分的递推公式：
+    \begin{enumerate}
+        \item $\int \sin^n x \d x$（$n = 1, 2, \cdots$）；
+        \item $\int x^n \e^x \d x$（$n = 1, 2, \cdots$）．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    记 $I_n = \int \sin^n x \d x$．当 $n \geqslant 2$ 时，应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            I_n & = -\int \sin^{n-1} x \d(\cos x)                                     \\
+                & = -\sin^{n-1} x \cos x + \int \cos x \d(\sin^{n-1} x)               \\
+                & = -\sin^{n-1} x \cos x + (n-1)\int \sin^{n-2} x \cos^2 x \d x       \\
+                & = -\sin^{n-1} x \cos x + (n-1)\int \sin^{n-2} x (1 - \sin^2 x) \d x \\
+                & = -\sin^{n-1} x \cos x + (n-1)I_{n-2} - (n-1)I_n.
+        \end{aligned}
+    \end{equation}
+    移项整理得
+    \begin{equation}
+        n I_n = -\sin^{n-1} x \cos x + (n-1)I_{n-2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \sin^n x \d x = -\frac{1}{n}\sin^{n-1} x \cos x + \frac{n-1}{n}\int \sin^{n-2} x \d x \quad (n \geqslant 2).}
+    \end{equation}
+
+    \ansitem{2}
+
+    记 $I_n = \int x^n \e^x \d x$．当 $n \geqslant 1$ 时，应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            I_n & = \int x^n \d(\e^x)                   \\
+                & = x^n \e^x - n \int x^{n-1} \e^x \d x \\
+                & = x^n \e^x - n I_{n-1}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x^n \e^x \d x = x^n \e^x - n \int x^{n-1} \e^x \d x \quad (n \geqslant 1).}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{综合不定积分的计算}{Comprehensive-Indefinite-Integrals}
+    求下列不定积分：
+    \begin{enumerate}
+        \item $\int \frac{1}{1 + \e^x} \d x$；
+        \item $\int \frac{x^2 - 1}{x^4 + x^2 + 1} \d x$；
+        \item $\int \frac{1}{x^4 + x^6} \d x$；
+        \item $\int x\sqrt{x - 2} \d x$；
+        \item $\int \frac{\sqrt{x - 1} \arctan \sqrt{x - 1}}{x} \d x$；
+        \item $\int \frac{x\e^x}{\sqrt{\e^x - 2}} \d x$；
+        \item $\int x \e^x \sin x \d x$；
+        \item $\int \frac{1}{(1 + \tan x)\sin^2 x} \d x$；
+        \item $\int \frac{\sqrt{1 - x}}{1 - \sqrt{x}} \d x$；
+        \item $\int \sqrt{\frac{x - 1}{x + 1}} \cdot \frac{1}{x^2} \d x$；
+        \item $\int \frac{x \arctan x}{(1 + x^2)^3} \d x$；
+        \item $\int \frac{x}{1 + \sin x} \d x$；
+        \item $\int \arcsin \sqrt{x} \d x$；
+        \item $\int \frac{x + \sin x}{1 + \cos x} \d x$；
+        \item $\int x \sin^2 x \d x$；
+        \item $\int \frac{x^3}{\sqrt{1 + x^2}} \d x$；
+        \item $\int \frac{\arctan x}{x^2(1 + x^2)} \d x$；
+        \item $\int \frac{\arctan \e^x}{\e^x} \d x$；
+        \item $\int \e^{2x}(1 + \tan x)^2 \d x$；
+        \item $\int \frac{x^2}{(x\sin x + \cos x)^2} \d x$；
+        \item $\int \cos x \cos 2x \cos 3x \d x$；
+        \item $\int \frac{1}{\sqrt{x - 1} + \sqrt{x + 1}} \d x$；
+        \item $\int \frac{1}{\sqrt{\sqrt{x} + 1}} \d x$；
+        \item $\int \sqrt{\frac{x}{1 - x\sqrt{x}}} \d x$；
+        \item $\int \e^{-x^2/2} \frac{\cos x - 2x \sin x}{2\sqrt{\sin x}} \d x$；
+        \item $\int \frac{x\e^x}{(1 + x)^2} \d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    分子分母同乘 $\e^{-x}$ 凑微分：
+    \begin{equation}
+        \int \frac{1}{1 + \e^x} \d x = \int \frac{\e^{-x}}{\e^{-x} + 1} \d x = -\int \frac{\d(\e^{-x} + 1)}{\e^{-x} + 1} = -\ln(1 + \e^{-x}) + C = x - \ln(1 + \e^x) + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{1 + \e^x} \d x = x - \ln(1 + \e^x) + C.}
+    \end{equation}
+
+    \ansitem{2}
+
+    分子分母同除以 $x^2$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x^2 - 1}{x^4 + x^2 + 1} \d x & = \int \frac{1 - \frac{1}{x^2}}{x^2 + 1 + \frac{1}{x^2}} \d x = \int \frac{\d\left(x + \frac{1}{x}\right)}{\left(x + \frac{1}{x}\right)^2 - 1}         \\
+                                                    & = \frac{1}{2}\ln\left| \frac{x + \frac{1}{x} - 1}{x + \frac{1}{x} + 1} \right| + C = \frac{1}{2}\ln\left| \frac{x^2 - x + 1}{x^2 + x + 1} \right| + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^2 - 1}{x^4 + x^2 + 1} \d x = \frac{1}{2}\ln\left| \frac{x^2 - x + 1}{x^2 + x + 1} \right| + C.}
+    \end{equation}
+
+    \ansitem{3}
+
+    拆分为部分分式：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{x^4 + x^6} \d x & = \int \frac{1}{x^4(1 + x^2)} \d x = \int \left( \frac{1}{x^4} - \frac{1}{x^2} + \frac{1}{1 + x^2} \right) \d x \\
+                                          & = -\frac{1}{3x^3} + \frac{1}{x} + \arctan x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{x^4 + x^6} \d x = -\frac{1}{3x^3} + \frac{1}{x} + \arctan x + C.}
+    \end{equation}
+
+    \ansitem{4}
+
+    令 $u = \sqrt{x - 2}$，则 $x = u^2 + 2$，$\d x = 2u \d u$：
+    \begin{equation}
+        \begin{aligned}
+            \int x\sqrt{x - 2} \d x & = \int (u^2 + 2) u \cdot 2u \d u = 2\int (u^4 + 2u^2) \d u                     \\
+                                    & = \frac{2}{5}u^5 + \frac{4}{3}u^3 + C = \frac{2}{15}(3x + 4)(x - 2)^{3/2} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x\sqrt{x - 2} \d x = \frac{2}{15}(3x + 4)(x - 2)^{3/2} + C.}
+    \end{equation}
+
+    \ansitem{5}
+
+    令 $t = \sqrt{x - 1}$，则 $x = t^2 + 1$，$\d x = 2t \d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{\sqrt{x - 1} \arctan \sqrt{x - 1}}{x} \d x & = \int \frac{t \arctan t}{t^2 + 1} \cdot 2t \d t = 2\int \left( 1 - \frac{1}{t^2 + 1} \right)\arctan t \d t \\
+                                                                  & = 2\left( t\arctan t - \frac{1}{2}\ln(1 + t^2) \right) - (\arctan t)^2 + C                                  \\
+                                                                  & = 2\sqrt{x - 1}\arctan\sqrt{x - 1} - \ln x - (\arctan\sqrt{x - 1})^2 + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\sqrt{x - 1} \arctan \sqrt{x - 1}}{x} \d x = 2\sqrt{x - 1}\arctan\sqrt{x - 1} - \ln x - (\arctan\sqrt{x - 1})^2 + C.}
+    \end{equation}
+
+    \ansitem{6}
+
+    令 $t = \sqrt{\e^x - 2}$，则 $\e^x = t^2 + 2$，$x = \ln(t^2 + 2)$，$\e^x \d x = 2t \d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x\e^x}{\sqrt{\e^x - 2}} \d x & = \int \frac{\ln(t^2 + 2)}{t} \cdot 2t \d t = 2\int \ln(t^2 + 2) \d t         \\
+                                                    & = 2t\ln(t^2 + 2) - 4\int \left( 1 - \frac{2}{t^2 + 2} \right) \d t            \\
+                                                    & = 2t\ln(t^2 + 2) - 4t + 4\sqrt{2}\arctan\left( \frac{t}{\sqrt{2}} \right) + C \\
+                                                    & = 2(x - 2)\sqrt{\e^x - 2} + 4\sqrt{2}\arctan\sqrt{\frac{\e^x - 2}{2}} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x\e^x}{\sqrt{\e^x - 2}} \d x = 2(x - 2)\sqrt{\e^x - 2} + 4\sqrt{2}\arctan\sqrt{\frac{\e^x - 2}{2}} + C.}
+    \end{equation}
+
+    \ansitem{7}
+
+    利用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int x \e^x \sin x \d x & = \int x \d\left[ \frac{\e^x}{2}(\sin x - \cos x) \right]                        \\
+                                    & = \frac{x\e^x}{2}(\sin x - \cos x) - \frac{1}{2}\int \e^x (\sin x - \cos x) \d x \\
+                                    & = \frac{x\e^x}{2}(\sin x - \cos x) + \frac{\e^x}{2}\cos x + C                    \\
+                                    & = \frac{\e^x}{2}\bigl[ x\sin x - (x - 1)\cos x \bigr] + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x \e^x \sin x \d x = \frac{\e^x}{2}\bigl[ x\sin x - (x - 1)\cos x \bigr] + C.}
+    \end{equation}
+
+    \ansitem{8}
+
+    化为关于 $\tan x$ 的积分：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{(1 + \tan x)\sin^2 x} \d x & = \int \frac{\sec^2 x}{\tan^2 x(1 + \tan x)} \d x                                              \\
+                                                     & = \int \left( -\frac{1}{\tan x} + \frac{1}{\tan^2 x} + \frac{1}{1 + \tan x} \right) \d(\tan x) \\
+                                                     & = \ln\left| \frac{1 + \tan x}{\tan x} \right| - \cot x + C                                     \\
+                                                     & = \ln|1 + \cot x| - \cot x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{(1 + \tan x)\sin^2 x} \d x = \ln|1 + \cot x| - \cot x + C.}
+    \end{equation}
+
+    \ansitem{9}
+
+    令 $x = \sin^2 t$（$t \in \left(0, \frac{\uppi}{2}\right)$），则 $\d x = 2\sin t \cos t \d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{\sqrt{1 - x}}{1 - \sqrt{x}} \d x & = \int \frac{\cos t}{1 - \sin t} \cdot 2\sin t \cos t \d t = 2\int \sin t(1 + \sin t) \d t \\
+                                                        & = -2\cos t + t - \frac{1}{2}\sin 2t + C                                                    \\
+                                                        & = -2\sqrt{1 - x} + \arcsin\sqrt{x} - \sqrt{x(1 - x)} + C                                   \\
+                                                        & = -(2 + \sqrt{x})\sqrt{1 - x} + \arcsin\sqrt{x} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\sqrt{1 - x}}{1 - \sqrt{x}} \d x = -(2 + \sqrt{x})\sqrt{1 - x} + \arcsin\sqrt{x} + C.}
+    \end{equation}
+
+    \ansitem{10}
+
+    令 $t = \sqrt{\frac{x - 1}{x + 1}}$，则 $x = \frac{1 + t^2}{1 - t^2}$，$\d x = \frac{4t}{(1 - t^2)^2}\d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \sqrt{\frac{x - 1}{x + 1}} \cdot \frac{1}{x^2} \d x & = \int t \cdot \left( \frac{1 - t^2}{1 + t^2} \right)^2 \cdot \frac{4t}{(1 - t^2)^2} \d t = 4\int \frac{t^2}{(1 + t^2)^2} \d t \\
+                                                                     & = 2\arctan t - \frac{2t}{1 + t^2} + C                                                                                          \\
+                                                                     & = 2\arctan\sqrt{\frac{x - 1}{x + 1}} - \frac{\sqrt{x^2 - 1}}{x} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \sqrt{\frac{x - 1}{x + 1}} \cdot \frac{1}{x^2} \d x = 2\arctan\sqrt{\frac{x - 1}{x + 1}} - \frac{\sqrt{x^2 - 1}}{x} + C.}
+    \end{equation}
+
+    \ansitem{11}
+
+    应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x \arctan x}{(1 + x^2)^3} \d x & = -\frac{1}{4}\int \arctan x \d\left( \frac{1}{(1 + x^2)^2} \right)                                                       \\
+                                                      & = -\frac{\arctan x}{4(1 + x^2)^2} + \frac{1}{4}\int \frac{\d x}{(1 + x^2)^3}                                              \\
+                                                      & = -\frac{\arctan x}{4(1 + x^2)^2} + \frac{1}{4}\left[ \frac{x(3x^2 + 5)}{8(1 + x^2)^2} + \frac{3}{8}\arctan x \right] + C \\
+                                                      & = \frac{3x^4 + 6x^2 - 5}{32(1 + x^2)^2}\arctan x + \frac{3x^3 + 5x}{32(1 + x^2)^2} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x \arctan x}{(1 + x^2)^3} \d x = \frac{3x^4 + 6x^2 - 5}{32(1 + x^2)^2}\arctan x + \frac{3x^3 + 5x}{32(1 + x^2)^2} + C.}
+    \end{equation}
+
+    \ansitem{12}
+
+    利用三角恒等式与分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x}{1 + \sin x} \d x & = \int x (\sec^2 x - \sec x \tan x) \d x = \int x \d(\tan x - \sec x) \\
+                                           & = x(\tan x - \sec x) - \int (\tan x - \sec x) \d x                    \\
+                                           & = x(\tan x - \sec x) + \ln|1 + \sin x| + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x}{1 + \sin x} \d x = x(\tan x - \sec x) + \ln|1 + \sin x| + C.}
+    \end{equation}
+
+    \ansitem{13}
+
+    令 $x = t^2$（$t \geqslant 0$），$\d x = 2t \d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \arcsin\sqrt{x} \d x & = 2\int t \arcsin t \d t = \int \arcsin t \d(t^2)                                 \\
+                                      & = t^2 \arcsin t - \int \frac{t^2}{\sqrt{1 - t^2}} \d t                            \\
+                                      & = \left( x - \frac{1}{2} \right)\arcsin\sqrt{x} + \frac{1}{2}\sqrt{x(1 - x)} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \arcsin\sqrt{x} \d x = \left( x - \frac{1}{2} \right)\arcsin\sqrt{x} + \frac{1}{2}\sqrt{x(1 - x)} + C.}
+    \end{equation}
+
+    \ansitem{14}
+
+    化为半角形式：
+    \begin{equation}
+        \int \frac{x + \sin x}{1 + \cos x} \d x = \int \left( \frac{x}{2}\sec^2\frac{x}{2} + \tan\frac{x}{2} \right) \d x = \int \d\left( x \tan\frac{x}{2} \right) = x \tan\frac{x}{2} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x + \sin x}{1 + \cos x} \d x = x \tan\frac{x}{2} + C.}
+    \end{equation}
+
+    \ansitem{15}
+
+    利用降幂公式与分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int x \sin^2 x \d x & = \int x \frac{1 - \cos 2x}{2} \d x = \frac{x^2}{4} - \frac{1}{4}\int x \d(\sin 2x) \\
+                                 & = \frac{x^2}{4} - \frac{1}{4}x\sin 2x - \frac{1}{8}\cos 2x + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int x \sin^2 x \d x = \frac{x^2}{4} - \frac{1}{4}x\sin 2x - \frac{1}{8}\cos 2x + C.}
+    \end{equation}
+
+    \ansitem{16}
+
+    令 $u = \sqrt{1 + x^2}$，则 $x^2 = u^2 - 1$，$x \d x = u \d u$：
+    \begin{equation}
+        \int \frac{x^3}{\sqrt{1 + x^2}} \d x = \int \frac{(u^2 - 1) u \d u}{u} = \frac{1}{3}u^3 - u + C = \frac{1}{3}(x^2 - 2)\sqrt{1 + x^2} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^3}{\sqrt{1 + x^2}} \d x = \frac{1}{3}(x^2 - 2)\sqrt{1 + x^2} + C.}
+    \end{equation}
+
+    \ansitem{17}
+
+    拆分部分分式并应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{\arctan x}{x^2(1 + x^2)} \d x & = \int \frac{\arctan x}{x^2} \d x - \int \frac{\arctan x}{1 + x^2} \d x                         \\
+                                                     & = \left( -\frac{\arctan x}{x} + \int \frac{\d x}{x(1 + x^2)} \right) - \frac{1}{2}(\arctan x)^2 \\
+                                                     & = -\frac{\arctan x}{x} + \ln|x| - \frac{1}{2}\ln(1 + x^2) - \frac{1}{2}(\arctan x)^2 + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\arctan x}{x^2(1 + x^2)} \d x = -\frac{\arctan x}{x} + \ln|x| - \frac{1}{2}\ln(1 + x^2) - \frac{1}{2}(\arctan x)^2 + C.}
+    \end{equation}
+
+    \ansitem{18}
+
+    应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{\arctan \e^x}{\e^x} \d x & = -\e^{-x}\arctan(\e^x) + \int \frac{\d x}{1 + \e^{2x}}                            \\
+                                                & = -\e^{-x}\arctan(\e^x) + \int \left( 1 - \frac{\e^{2x}}{1 + \e^{2x}} \right) \d x \\
+                                                & = -\e^{-x}\arctan(\e^x) + x - \frac{1}{2}\ln(1 + \e^{2x}) + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{\arctan \e^x}{\e^x} \d x = -\e^{-x}\arctan(\e^x) + x - \frac{1}{2}\ln(1 + \e^{2x}) + C.}
+    \end{equation}
+
+    \ansitem{19}
+
+    展开被积函数：
+    \begin{equation}
+        \int \e^{2x}(1 + \tan x)^2 \d x = \int \e^{2x}(2\tan x + \sec^2 x) \d x = \int \d(\e^{2x}\tan x) = \e^{2x}\tan x + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \e^{2x}(1 + \tan x)^2 \d x = \e^{2x}\tan x + C.}
+    \end{equation}
+
+    \ansitem{20}
+
+    应用分部积分法：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{x^2}{(x\sin x + \cos x)^2} \d x & = \int \frac{x}{\cos x} \d\left( -\frac{1}{x\sin x + \cos x} \right) \\
+                                                       & = -\frac{x}{\cos x(x\sin x + \cos x)} + \int \sec^2 x \d x           \\
+                                                       & = -\frac{x}{\cos x(x\sin x + \cos x)} + \tan x + C                   \\
+                                                       & = \frac{\sin x - x\cos x}{x\sin x + \cos x} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x^2}{(x\sin x + \cos x)^2} \d x = \frac{\sin x - x\cos x}{x\sin x + \cos x} + C.}
+    \end{equation}
+
+    \ansitem{21}
+
+    利用积化和差公式：
+    \begin{equation}
+        \begin{aligned}
+            \cos x \cos 2x \cos 3x & = \frac{1}{2}(\cos 4x + \cos 2x)\cos 2x = \frac{1}{4}(\cos 6x + \cos 2x) + \frac{1}{4}(1 + \cos 4x) \\
+                                   & = \frac{1}{4} + \frac{1}{4}\cos 2x + \frac{1}{4}\cos 4x + \frac{1}{4}\cos 6x.
+        \end{aligned}
+    \end{equation}
+    逐项积分得
+    \begin{equation}
+        \boxed{\int \cos x \cos 2x \cos 3x \d x = \frac{x}{4} + \frac{1}{8}\sin 2x + \frac{1}{16}\sin 4x + \frac{1}{24}\sin 6x + C.}
+    \end{equation}
+
+    \ansitem{22}
+
+    有理化分母：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{\sqrt{x - 1} + \sqrt{x + 1}} \d x & = \frac{1}{2}\int (\sqrt{x + 1} - \sqrt{x - 1}) \d x       \\
+                                                            & = \frac{1}{3}(x + 1)^{3/2} - \frac{1}{3}(x - 1)^{3/2} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{\sqrt{x - 1} + \sqrt{x + 1}} \d x = \frac{1}{3}(x + 1)^{3/2} - \frac{1}{3}(x - 1)^{3/2} + C.}
+    \end{equation}
+
+    \ansitem{23}
+
+    令 $t = \sqrt{\sqrt{x} + 1}$，则 $x = (t^2 - 1)^2$，$\d x = 4t(t^2 - 1)\d t$：
+    \begin{equation}
+        \begin{aligned}
+            \int \frac{1}{\sqrt{\sqrt{x} + 1}} \d x & = \int \frac{4t(t^2 - 1)}{t} \d t = 4\int (t^2 - 1) \d t                      \\
+                                                    & = \frac{4}{3}t^3 - 4t + C = \frac{4}{3}(\sqrt{x} - 2)\sqrt{\sqrt{x} + 1} + C.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{1}{\sqrt{\sqrt{x} + 1}} \d x = \frac{4}{3}(\sqrt{x} - 2)\sqrt{\sqrt{x} + 1} + C.}
+    \end{equation}
+
+    \ansitem{24}
+
+    凑微分 $\sqrt{x} \d x = \frac{2}{3}\d(x^{3/2})$：
+    \begin{equation}
+        \int \sqrt{\frac{x}{1 - x\sqrt{x}}} \d x = \frac{2}{3}\int \frac{\d(x^{3/2})}{\sqrt{1 - x^{3/2}}} = -\frac{4}{3}\sqrt{1 - x\sqrt{x}} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \sqrt{\frac{x}{1 - x\sqrt{x}}} \d x = -\frac{4}{3}\sqrt{1 - x\sqrt{x}} + C.}
+    \end{equation}
+
+    \ansitem{25}
+
+    观察导数结构：
+    \begin{equation}
+        \d\left( \e^{-x^2/2}\sqrt{\sin x} \right) = \e^{-x^2/2}\left( \frac{\cos x - 2x\sin x}{2\sqrt{\sin x}} \right)\d x.
+    \end{equation}
+    直接积分得
+    \begin{equation}
+        \boxed{\int \e^{-x^2/2} \frac{\cos x - 2x \sin x}{2\sqrt{\sin x}} \d x = \e^{-x^2/2}\sqrt{\sin x} + C.}
+    \end{equation}
+
+    \ansitem{26}
+
+    拆分分子凑微分：
+    \begin{equation}
+        \int \frac{x\e^x}{(1 + x)^2} \d x = \int \left( \frac{\e^x}{1 + x} - \frac{\e^x}{(1 + x)^2} \right) \d x = \int \d\left( \frac{\e^x}{1 + x} \right) = \frac{\e^x}{1 + x} + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int \frac{x\e^x}{(1 + x)^2} \d x = \frac{\e^x}{1 + x} + C.}
+    \end{equation}
+\end{solution}
+
+\endinput

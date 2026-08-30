@@ -1,3 +1,880 @@
 \section{一阶微分方程}
 
+\begin{problem}{可分离变量微分方程的求解}{Separable-Differential-Equations}
+    求解下列可分离变量的微分方程：
+    \begin{enumerate}
+        \item $(1+x^2)\d y = y \d x$；
+        \item $y' = \e^{x-y}$；
+        \item $xy' + y = y^2$；
+        \item $yy' = \frac{1-2x}{y}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    当 $y \neq 0$ 时，分离变量得
+    \begin{equation}
+        \frac{\d y}{y} = \frac{\d x}{1 + x^2}.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \ln|y| = \arctan x + C_1 \implies y = C \e^{\arctan x} \quad (C \neq 0).
+    \end{equation}
+    又 $y = 0$ 显然也是原方程的解，包含在 $C = 0$ 的情形中．
+    \begin{equation}
+        \boxed{y = C \e^{\arctan x} \quad (C \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{2}
+
+    将方程改写并分离变量：
+    \begin{equation}
+        \frac{\d y}{\d x} = \e^x \e^{-y} \implies \e^y \d y = \e^x \d x.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \e^y = \e^x + C.
+    \end{equation}
+    由此解得显式解为
+    \begin{equation}
+        \boxed{y = \ln(\e^x + C) \quad (C \text{ 为满足 } \e^x + C > 0 \text{ 的任意常数})．}
+    \end{equation}
+
+    \ansitem{3}
+
+    整理方程并分离变量：
+    \begin{equation}
+        x \frac{\d y}{\d x} = y(y - 1).
+    \end{equation}
+    当 $y \neq 0$ 且 $y \neq 1$ 时：
+    \begin{equation}
+        \frac{\d y}{y(y - 1)} = \frac{\d x}{x} \implies \left( \frac{1}{y - 1} - \frac{1}{y} \right) \d y = \frac{\d x}{x}.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \ln\left| \frac{y - 1}{y} \right| = \ln|x| + \ln|C| \implies \frac{y - 1}{y} = Cx \implies 1 - \frac{1}{y} = Cx \implies y = \frac{1}{1 - Cx}.
+    \end{equation}
+    其中 $C = 0$ 对应解 $y = 1$；此外 $y = 0$ 也是原方程的解．
+    \begin{equation}
+        \boxed{y = \frac{1}{1 - Cx} \quad (C \text{ 为任意常数}) \text{ 或 } y = 0．}
+    \end{equation}
+
+    \ansitem{4}
+
+    分离变量得
+    \begin{equation}
+        y^2 \d y = (1 - 2x) \d x.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \frac{1}{3}y^3 = x - x^2 + C_1 \implies y^3 = 3x - 3x^2 + C \quad (C = 3C_1).
+    \end{equation}
+    \begin{equation}
+        \boxed{y = \sqrt[3]{3x - 3x^2 + C} \quad (C \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{齐次微分方程的求解}{Homogeneous-Differential-Equations}
+    求解下列微分方程：
+    \begin{enumerate}
+        \item $y' = \frac{y^2}{x^2} - 2$；
+        \item $y' = \frac{y}{x} + \frac{x}{y}$；
+        \item $\frac{\d x}{x^2 - xy + y^2} = \frac{\d y}{2y^2 - xy}$；
+        \item $(x^2 + 3y^2)\d x - 2xy \d y = 0$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $u = \frac{y}{x}$，则 $y = ux$，$y' = u + x \frac{\d u}{\d x}$．代入方程：
+    \begin{equation}
+        u + x \frac{\d u}{\d x} = u^2 - 2 \implies x \frac{\d u}{\d x} = u^2 - u - 2 = (u - 2)(u + 1).
+    \end{equation}
+    分离变量并拆分部分分式：
+    \begin{equation}
+        \frac{\d u}{(u - 2)(u + 1)} = \frac{\d x}{x} \implies \frac{1}{3}\left( \frac{1}{u - 2} - \frac{1}{u + 1} \right)\d u = \frac{\d x}{x}.
+    \end{equation}
+    积分得
+    \begin{equation}
+        \ln\left| \frac{u - 2}{u + 1} \right| = 3\ln|x| + \ln|C| \implies \frac{u - 2}{u + 1} = C x^3.
+    \end{equation}
+    代回 $u = \frac{y}{x}$：
+    \begin{equation}
+        \frac{\frac{y}{x} - 2}{\frac{y}{x} + 1} = \frac{y - 2x}{y + x} = C x^3.
+    \end{equation}
+    常数解 $u = 2 \implies y = 2x$ 对应 $C = 0$；$u = -1 \implies y = -x$ 亦为解．
+    \begin{equation}
+        \boxed{\frac{y - 2x}{y + x} = C x^3 \quad (C \text{ 为任意常数}) \text{ 或 } y = -x．}
+    \end{equation}
+
+    \ansitem{2}
+
+    令 $u = \frac{y}{x}$，则 $y' = u + x \frac{\d u}{\d x}$．代入方程：
+    \begin{equation}
+        u + x \frac{\d u}{\d x} = u + \frac{1}{u} \implies x \frac{\d u}{\d x} = \frac{1}{u} \implies u \d u = \frac{\d x}{x}.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \frac{1}{2}u^2 = \ln|x| + C_1 \implies u^2 = 2\ln|x| + C.
+    \end{equation}
+    代回 $u = \frac{y}{x}$ 得
+    \begin{equation}
+        \boxed{y^2 = x^2 (2\ln|x| + C) \quad (C \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{3}
+
+    将方程改写为导数形式：
+    \begin{equation}
+        \frac{\d y}{\d x}
+        = \frac{2y^2 - xy}{x^2 - xy + y^2}
+        = \frac{2\left(\frac{y}{x}\right)^2 - \frac{y}{x}}
+        {1 - \frac{y}{x} + \left(\frac{y}{x}\right)^2}.
+    \end{equation}
+    令 $u = \frac{y}{x}$，则 $y' = u + x \frac{\d u}{\d x}$：
+    \begin{equation}
+        u + x \frac{\d u}{\d x}
+        = \frac{2u^2 - u}{u^2 - u + 1}
+        \implies
+        x \frac{\d u}{\d x}
+        = \frac{2u^2 - u - u(u^2 - u + 1)}{u^2 - u + 1}
+        = -\frac{u(u - 1)(u - 2)}{u^2 - u + 1}.
+    \end{equation}
+    当 $u \neq 0,1,2$ 时，分离变量并利用部分分式展开：
+    \begin{equation}
+        \frac{u^2 - u + 1}{u(u - 1)(u - 2)}\d u
+        = \left(
+        \frac{1}{2u}
+        - \frac{1}{u - 1}
+        + \frac{3}{2(u - 2)}
+        \right)\d u
+        = -\frac{\d x}{x}.
+    \end{equation}
+    积分得
+    \begin{equation}
+        \frac{1}{2}\ln|u|
+        - \ln|u - 1|
+        + \frac{3}{2}\ln|u - 2|
+        = -\ln|x| + C_1,
+    \end{equation}
+    即
+    \begin{equation}
+        \ln\left|
+        \frac{u(u-2)^3}{(u-1)^2}
+        \right|
+        = -2\ln|x| + C_2.
+    \end{equation}
+    将符号吸收到任意常数中，得
+    \begin{equation}
+        \frac{u(u-2)^3}{(u-1)^2}
+        = \frac{C}{x^2}.
+    \end{equation}
+    代回 $u = \frac{y}{x}$：
+    \begin{equation}
+        \frac{\frac{y}{x}
+            \left(\frac{y - 2x}{x}\right)^3}
+        {\left(\frac{y - x}{x}\right)^2}
+        = \frac{C}{x^2}
+        \implies
+        y(y - 2x)^3 = C(y - x)^2.
+    \end{equation}
+    其中 $C=0$ 包含 $u=0$ 和 $u=2$ 对应的解 $y=0$ 和 $y=2x$；此外，$u=1 \implies y=x$ 也是方程的特解．
+    \begin{equation}
+        \boxed{
+            y(y - 2x)^3 = C(y - x)^2
+            \quad (C \text{ 为任意常数})
+            \text{ 或 } y=x．
+        }
+    \end{equation}
+
+    \ansitem{4}
+
+    改写方程为
+    \begin{equation}
+        \frac{\d y}{\d x} = \frac{x^2 + 3y^2}{2xy} = \frac{1 + 3\left(\frac{y}{x}\right)^2}{2\left(\frac{y}{x}\right)}.
+    \end{equation}
+    令 $u = \frac{y}{x}$，则 $y' = u + x \frac{\d u}{\d x}$：
+    \begin{equation}
+        u + x \frac{\d u}{\d x} = \frac{1 + 3u^2}{2u} \implies x \frac{\d u}{\d x} = \frac{1 + u^2}{2u} \implies \frac{2u}{1 + u^2}\d u = \frac{\d x}{x}.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \ln(1 + u^2) = \ln|x| + \ln C \implies 1 + u^2 = Cx.
+    \end{equation}
+    代回 $u = \frac{y}{x}$ 得 $1 + \frac{y^2}{x^2} = Cx$．
+    \begin{equation}
+        \boxed{x^2 + y^2 = C x^3 \quad (C \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{可化为齐次方程的微分方程}{Equations-Reducible-To-Homogeneous-Form}
+    证明：形如
+    \begin{equation}
+        \frac{\d y}{\d x} = f\left(\frac{a_1 x + b_1 y + c_1}{a_2 x + b_2 y + c_2}\right)
+    \end{equation}
+    的方程，可通过代换化为齐次方程．（提示：若方程组
+    \begin{equation}
+        \begin{dcases}
+            a_1 x + b_1 y + c_1 = 0, \\
+            a_2 x + b_2 y + c_2 = 0
+        \end{dcases}
+    \end{equation}
+    有非零解 $x_0, y_0$（即 $x_0, y_0$ 不全为零），则可令 $u = x - x_0, v = y - y_0$；其它情形更易于处理．）
+
+    求解下面的方程：
+    \begin{enumerate}
+        \item $\frac{\d y}{\d x} = \frac{x+y+3}{x-y+1}$；
+        \item $\frac{\d y}{\d x} = \frac{2x+4y+3}{x+2y+1}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    证明部分：
+    \begin{enumerate}
+        \item 若系数行列式 $a_1 b_2 - a_2 b_1 \neq 0$，则线性方程组
+              \begin{equation}
+                  \begin{dcases}
+                      a_1 x + b_1 y + c_1 = 0, \\
+                      a_2 x + b_2 y + c_2 = 0
+                  \end{dcases}
+              \end{equation}
+              存在唯一解 $(x_0, y_0)$．令平移变换 $u = x - x_0, v = y - y_0$，则 $\d x = \d u, \d y = \d v$，代入原方程化为齐次微分方程：
+              \begin{equation}
+                  \frac{\d v}{\d u} = f\left(\frac{a_1 u + b_1 v}{a_2 u + b_2 v}\right) = f\left(\frac{a_1 + b_1 \frac{v}{u}}{a_2 + b_2 \frac{v}{u}}\right);
+              \end{equation}
+        \item 若 $a_1 b_2 - a_2 b_1 = 0$，则存在常数 $k$ 使得 $a_2 x + b_2 y = k(a_1 x + b_1 y)$．令变量代换 $z = a_1 x + b_1 y$，则 $\frac{\d z}{\d x} = a_1 + b_1 \frac{\d y}{\d x} = a_1 + b_1 f\left(\frac{z + c_1}{k z + c_2}\right)$，直接化为可分离变量方程．
+    \end{enumerate}
+
+    \ansitem{1}
+
+    联立方程组
+    \begin{equation}
+        \begin{dcases}
+            x + y + 3 = 0, \\
+            x - y + 1 = 0
+        \end{dcases}
+    \end{equation}
+    解得交点 $(x_0, y_0) = (-2, -1)$．
+
+    令 $u = x + 2, v = y + 1$，代入原方程得齐次方程：
+    \begin{equation}
+        \frac{\d v}{\d u} = \frac{u + v}{u - v} = \frac{1 + \frac{v}{u}}{1 - \frac{v}{u}}.
+    \end{equation}
+    令 $t = \frac{v}{u}$，则 $v' = t + u \frac{\d t}{\d u}$：
+    \begin{equation}
+        t + u \frac{\d t}{\d u} = \frac{1 + t}{1 - t} \implies u \frac{\d t}{\d u} = \frac{1 + t^2}{1 - t} \implies \frac{1 - t}{1 + t^2}\d t = \frac{\d u}{u}.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \arctan t - \frac{1}{2}\ln(1 + t^2) = \ln|u| + C_1 \implies \frac{1}{2}\ln\bigl(u^2(1 + t^2)\bigr) - \arctan t = C.
+    \end{equation}
+    代回 $t = \frac{v}{u}$ 与 $u^2 + v^2 = (x+2)^2 + (y+1)^2$：
+    \begin{equation}
+        \boxed{\ln\bigl((x+2)^2 + (y+1)^2\bigr) - 2\arctan\frac{y+1}{x+2} = C \quad (C \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{2}
+
+    注意到 $2x + 4y = 2(x + 2y)$，令 $z = x + 2y$，则 $\frac{\d z}{\d x} = 1 + 2\frac{\d y}{\d x}$：
+    \begin{equation}
+        \frac{\d z}{\d x} = 1 + 2\left(\frac{2z + 3}{z + 1}\right) = \frac{5z + 7}{z + 1}.
+    \end{equation}
+    分离变量：
+    \begin{equation}
+        \frac{z + 1}{5z + 7}\d z = \d x \implies \frac{1}{5}\left( 1 - \frac{2}{5z + 7} \right)\d z = \d x.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \frac{1}{5}z - \frac{2}{25}\ln|5z + 7| = x + C_1 \implies 5z - 25x - 2\ln|5z + 7| = C_2.
+    \end{equation}
+    代回 $z = x + 2y$：
+    \begin{equation}
+        5(x + 2y) - 25x - 2\ln|5x + 10y + 7| = C_2 \implies 10x - 5y + \ln|5x + 10y + 7| = C.
+    \end{equation}
+    \begin{equation}
+        \boxed{10x - 5y + \ln|5x + 10y + 7| = C \quad (C \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{一阶线性与贝努利微分方程的求解}{Linear-And-Bernoulli-Differential-Equations}
+    求下列线性方程和贝努利方程的解：
+    \begin{enumerate}
+        \item $(1+x^2)y' - 2xy = (1+x^2)^2$；
+        \item $y' + \frac{1-2x}{x} = 1$；
+        \item $y' = \frac{y}{x+y^3}$；
+        \item $y' + \frac{y}{x} = y^2 \ln x$；
+        \item $y' = y\tan x + y^2 \cos x$；
+        \item $y - y'\cos x = y^2(1-\sin x)\cos x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    化为一阶线性标准形式：
+    \begin{equation}
+        y' - \frac{2x}{1+x^2}y = 1 + x^2.
+    \end{equation}
+    积分因子为 $\mu(x) = \e^{-\int \frac{2x}{1+x^2}\d x} = \frac{1}{1+x^2}$．方程两端同乘 $\mu(x)$：
+    \begin{equation}
+        \frac{\d}{\d x}\left( \frac{y}{1+x^2} \right) = 1 \implies \frac{y}{1+x^2} = x + C.
+    \end{equation}
+    \begin{equation}
+        \boxed{y = (x + C)(1 + x^2) \quad (C \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{2}
+
+    直接移项化简：
+    \begin{equation}
+        y' = 1 - \frac{1-2x}{x} = 3 - \frac{1}{x}.
+    \end{equation}
+    直接积分得
+    \begin{equation}
+        \boxed{y = 3x - \ln|x| + C \quad (C \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{3}
+
+    视 $x$ 为 $y$ 的函数，将方程取倒数改写为关于 $x$ 的一阶线性微分方程：
+    \begin{equation}
+        \frac{\d x}{\d y} = \frac{x + y^3}{y} \implies \frac{\d x}{\d y} - \frac{1}{y}x = y^2.
+    \end{equation}
+    积分因子为 $\e^{-\int \frac{1}{y}\d y} = \frac{1}{y}$：
+    \begin{equation}
+        \frac{\d}{\d y}\left( \frac{x}{y} \right) = y \implies \frac{x}{y} = \frac{1}{2}y^2 + C \implies x = \frac{1}{2}y^3 + Cy.
+    \end{equation}
+    此外 $y = 0$ 也是原方程的解．
+    \begin{equation}
+        \boxed{x = \frac{1}{2}y^3 + Cy \quad (C \text{ 为任意常数}) \text{ 或 } y = 0．}
+    \end{equation}
+
+    \ansitem{4}
+
+    此为 $n = 2$ 的 Bernoulli 方程．两端同除以 $y^2$：
+    \begin{equation}
+        y^{-2}y' + \frac{1}{x}y^{-1} = \ln x.
+    \end{equation}
+    令 $z = y^{-1}$，则 $z' = -y^{-2}y'$，代入得线性方程：
+    \begin{equation}
+        z' - \frac{1}{x}z = -\ln x.
+    \end{equation}
+    积分因子为 $\frac{1}{x}$：
+    \begin{equation}
+        \frac{\d}{\d x}\left( \frac{z}{x} \right) = -\frac{\ln x}{x} \implies \frac{z}{x} = -\frac{1}{2}\ln^2 x + C \implies z = x\left(C - \frac{1}{2}\ln^2 x\right).
+    \end{equation}
+    代回 $z = \frac{1}{y}$，且 $y = 0$ 亦为特解．
+    \begin{equation}
+        \boxed{y = \frac{1}{x\left(C - \frac{1}{2}\ln^2 x\right)} \quad (C \text{ 为任意常数}) \text{ 或 } y = 0．}
+    \end{equation}
+
+    \ansitem{5}
+
+    整理为 Bernoulli 方程：
+    \begin{equation}
+        y' - y\tan x = y^2 \cos x \implies y^{-2}y' - y^{-1}\tan x = \cos x.
+    \end{equation}
+    令 $z = y^{-1}$，则 $z' + z\tan x = -\cos x$．积分因子为 $\sec x$：
+    \begin{equation}
+        \frac{\d}{\d x}(z \sec x) = -1 \implies z\sec x = C - x \implies z = (C - x)\cos x.
+    \end{equation}
+    代回 $z = \frac{1}{y}$，且 $y = 0$ 亦为特解．
+    \begin{equation}
+        \boxed{y = \frac{\sec x}{C - x} \quad (C \text{ 为任意常数}) \text{ 或 } y = 0．}
+    \end{equation}
+
+    \ansitem{6}
+
+    整理为 Bernoulli 方程标准型：
+    \begin{equation}
+        y' - y\sec x = -y^2(1 - \sin x) \implies y^{-2}y' - y^{-1}\sec x = -(1 - \sin x).
+    \end{equation}
+    令 $z = y^{-1}$，则 $z' + z\sec x = 1 - \sin x$．积分因子为 $\sec x + \tan x$：
+    \begin{equation}
+        \frac{\d}{\d x}\bigl(z(\sec x + \tan x)\bigr) = (1 - \sin x)\frac{1 + \sin x}{\cos x} = \cos x.
+    \end{equation}
+    积分得
+    \begin{equation}
+        z(\sec x + \tan x) = \sin x + C \implies z = \frac{\sin x + C}{\sec x + \tan x}.
+    \end{equation}
+    代回 $z = \frac{1}{y}$，且 $y = 0$ 亦为特解．
+    \begin{equation}
+        \boxed{y = \frac{\sec x + \tan x}{\sin x + C} \quad (C \text{ 为任意常数}) \text{ 或 } y = 0．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{一阶微分方程初值问题的求解}{Initial-Value-Problems-For-First-Order-ODEs}
+    求下列方程满足初始条件的特解：
+    \begin{enumerate}
+        \item $y' = \frac{y}{x}\ln\frac{y}{x}, \quad y(1) = 1$；
+        \item $y' + \frac{y}{x} = \frac{\sin x}{x}, \quad y(\uppi) = 1$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $u = \frac{y}{x}$，则 $y' = u + x \frac{\d u}{\d x}$：
+    \begin{equation}
+        u + x \frac{\d u}{\d x} = u\ln u \implies x \frac{\d u}{\d x} = u(\ln u - 1) \implies \frac{\d u}{u(\ln u - 1)} = \frac{\d x}{x}.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \ln|\ln u - 1| = \ln|x| + \ln|C_1| \implies \ln u - 1 = Cx \implies u = \e^{1 + Cx}.
+    \end{equation}
+    通解为 $y = x\e^{1 + Cx}$．代入初始条件 $y(1) = 1$：
+    \begin{equation}
+        1 = 1 \cdot \e^{1 + C} \implies 1 + C = 0 \implies C = -1.
+    \end{equation}
+    \begin{equation}
+        \boxed{y = x\e^{1 - x}．}
+    \end{equation}
+
+    \ansitem{2}
+
+    方程两端同乘积分因子 $x$：
+    \begin{equation}
+        x y' + y = \sin x \implies \frac{\d}{\d x}(xy) = \sin x.
+    \end{equation}
+    两端积分得通解：
+    \begin{equation}
+        xy = -\cos x + C \implies y = \frac{C - \cos x}{x}.
+    \end{equation}
+    代入初始条件 $y(\uppi) = 1$：
+    \begin{equation}
+        1 = \frac{C - \cos\uppi}{\uppi} = \frac{C + 1}{\uppi} \implies C = \uppi - 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{y = \frac{\uppi - 1 - \cos x}{x}．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{一阶微分方程的求解}{First-Order-Differential-Equations-Solutions}
+    求解下列微分方程：
+    \begin{enumerate}
+        \item $y' + x = \sqrt{x^2 + y}$；
+        \item $y' = \cos(x - y)$；
+        \item $y' - \e^{x-y} + \e^x = 0$；
+        \item $y' \sin y + x \cos y + x = 0$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $u = \sqrt{x^2 + y} \geqslant 0$，则 $u^2 = x^2 + y$．两端对 $x$ 求导得
+    \begin{equation}
+        2u \frac{\d u}{\d x} = 2x + y' = x + (y' + x) = x + u.
+    \end{equation}
+    化为齐次微分方程：
+    \begin{equation}
+        \frac{\d u}{\d x} = \frac{u + x}{2u}.
+    \end{equation}
+    令 $t = \frac{u}{x}$，则 $u = tx$，$u' = t + x \frac{\d t}{\d x}$：
+    \begin{equation}
+        t + x \frac{\d t}{\d x} = \frac{t + 1}{2t} \implies x \frac{\d t}{\d x} = -\frac{(2t + 1)(t - 1)}{2t}.
+    \end{equation}
+    分离变量并进行部分分式分解：
+    \begin{equation}
+        \frac{2t}{(2t + 1)(t - 1)}\d t = -\frac{\d x}{x} \implies \frac{2}{3}\left( \frac{1}{2t + 1} + \frac{1}{t - 1} \right)\d t = -\frac{\d x}{x}.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \frac{1}{3}\ln|2t + 1| + \frac{2}{3}\ln|t - 1| = -\ln|x| + \ln C_1 \implies |2t + 1|(t - 1)^2 = \frac{C}{x^3}.
+    \end{equation}
+    代回 $t = \frac{u}{x}$：
+    \begin{equation}
+        (2u + x)(u - x)^2 = C.
+    \end{equation}
+    将 $u = \sqrt{x^2 + y}$ 代入，且 $t = 1 \implies y = 0$（$x > 0$）亦为特解．
+    \begin{equation}
+        \boxed{(2\sqrt{x^2+y} + x)(\sqrt{x^2+y} - x)^2 = C \quad (C \text{ 为任意常数}) \text{ 或 } y = 0 \ (x > 0)．}
+    \end{equation}
+
+    \ansitem{2}
+
+    令 $u = x - y$，则 $u' = 1 - y' \implies y' = 1 - u'$．代入原方程：
+    \begin{equation}
+        1 - \frac{\d u}{\d x} = \cos u \implies \frac{\d u}{\d x} = 1 - \cos u = 2\sin^2\frac{u}{2}.
+    \end{equation}
+    当 $\sin\frac{u}{2} \neq 0$ 时，分离变量：
+    \begin{equation}
+        \frac{1}{2}\csc^2\frac{u}{2}\d u = \d x.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        -\cot\frac{u}{2} = x + C_1 \implies x + \cot\frac{x - y}{2} = C.
+    \end{equation}
+    当 $\sin\frac{u}{2} = 0$ 时，$x - y = 2k\uppi \implies y = x - 2k\uppi$（$k \in \symbb{Z}$）亦为解．
+    \begin{equation}
+        \boxed{x + \cot\frac{x - y}{2} = C \quad (C \text{ 为任意常数}) \text{ 或 } y = x - 2k\uppi \ (k \in \symbb{Z})．}
+    \end{equation}
+
+    \ansitem{3}
+
+    整理方程并分离变量：
+    \begin{equation}
+        y' = \e^x(\e^{-y} - 1) = \e^x\left(\frac{1 - \e^y}{\e^y}\right) \implies \frac{\e^y}{\e^y - 1}\d y = -\e^x \d x.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \ln|\e^y - 1| = -\e^x + C_1 \implies \e^y - 1 = C \e^{-\e^x} \implies \e^y = 1 + C \e^{-\e^x}.
+    \end{equation}
+    两端取对数，其中 $C = 0$ 包含特解 $y = 0$．
+    \begin{equation}
+        \boxed{y = \ln(1 + C \e^{-\e^x}) \quad (C \text{ 为满足 } 1 + C \e^{-\e^x} > 0 \text{ 的任意常数})．}
+    \end{equation}
+
+    \ansitem{4}
+
+    将方程改写为
+    \begin{equation}
+        \sin y \frac{\d y}{\d x} + x \cos y = -x.
+    \end{equation}
+    令 $u = \cos y$，则 $\frac{\d u}{\d x} = -\sin y \frac{\d y}{\d x}$，代入化为一阶线性微分方程：
+    \begin{equation}
+        \frac{\d u}{\d x} - xu = x.
+    \end{equation}
+    积分因子为 $\e^{-\int x \d x} = \e^{-\frac{x^2}{2}}$：
+    \begin{equation}
+        \frac{\d}{\d x}\left( u \e^{-\frac{x^2}{2}} \right) = x \e^{-\frac{x^2}{2}} \implies u \e^{-\frac{x^2}{2}} = -\e^{-\frac{x^2}{2}} + C \implies u = -1 + C \e^{\frac{x^2}{2}}.
+    \end{equation}
+    代回 $u = \cos y$：
+    \begin{equation}
+        \boxed{1 + \cos y = C \e^{\frac{x^2}{2}} \quad (C \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{常数变易法推导Bernoulli方程通解}{Derivation-Of-Bernoulli-Equation-Solution}
+    试用常数变易法导出Bernoulli方程的通解．
+\end{problem}
+
+\begin{solution}
+    Bernoulli方程的标准形式为
+    \begin{equation}
+        \frac{\d y}{\d x} + P(x)y = Q(x)y^n \quad (n \neq 0, 1).
+    \end{equation}
+    首先求解其对应的齐次线性方程 $\frac{\d y}{\d x} + P(x)y = 0$：
+    \begin{equation}
+        \frac{\d y}{y} = -P(x)\d x \implies y = C \e^{-\int P(x)\d x}.
+    \end{equation}
+    采用常数变易法，设原方程的解为
+    \begin{equation}
+        y(x) = C(x)\e^{-\int P(x)\d x}.
+    \end{equation}
+    对 $x$ 求导并代入Bernoulli方程：
+    \begin{equation}
+        C'(x)\e^{-\int P(x)\d x} - C(x)P(x)\e^{-\int P(x)\d x} + P(x)C(x)\e^{-\int P(x)\d x} = Q(x)\left( C(x)\e^{-\int P(x)\d x} \right)^n,
+    \end{equation}
+    化简得
+    \begin{equation}
+        C'(x) = Q(x)\e^{(1-n)\int P(x)\d x} C^n(x).
+    \end{equation}
+    分离变量并两端积分：
+    \begin{equation}
+        C^{-n}\d C = Q(x)\e^{(1-n)\int P(x)\d x}\d x \implies \frac{C^{1-n}(x)}{1-n} = \int Q(x)\e^{(1-n)\int P(x)\d x}\d x + c_1,
+    \end{equation}
+    即
+    \begin{equation}
+        C^{1-n}(x) = (1-n)\int Q(x)\e^{(1-n)\int P(x)\d x}\d x + C.
+    \end{equation}
+    因为 $y^{1-n}(x) = C^{1-n}(x)\e^{-(1-n)\int P(x)\d x}$，两端同乘 $\e^{-(1-n)\int P(x)\d x}$ 即得通解．
+    \begin{equation}
+        \boxed{y^{1-n} = \e^{-(1-n)\int P(x)\d x}\left[ (1-n)\int Q(x)\e^{(1-n)\int P(x)\d x}\d x + C \right] \quad (C \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{切线段被切点平分的曲线方程}{Curve-With-Bisected-Tangent-Segment}
+    一条曲线过点 $(2, 3)$，其在坐标轴间的任意切线段被切点平分，求这条曲线．
+\end{problem}
+
+\begin{solution}
+    设曲线上任一点为 $P(x, y)$，该点处的切线斜率为 $y'$．切线方程为
+    \begin{equation}
+        Y - y = y'(X - x).
+    \end{equation}
+    分别求出切线与两坐标轴的交点：
+    \begin{enumerate}
+        \item 令 $Y = 0$，解得与 $x$ 轴交点为 $A\left(x - \frac{y}{y'}, 0\right)$；
+        \item 令 $X = 0$，解得与 $y$ 轴交点为 $B(0, y - x y')$．
+    \end{enumerate}
+    由题意，切点 $P(x, y)$ 为线段 $AB$ 的中点，由中点坐标公式：
+    \begin{equation}
+        \frac{\left(x - \frac{y}{y'}\right) + 0}{2} = x \implies x - \frac{y}{y'} = 2x \implies y' = -\frac{y}{x}.
+    \end{equation}
+    分离变量并积分：
+    \begin{equation}
+        \frac{\d y}{y} = -\frac{\d x}{x} \implies \ln|y| = -\ln|x| + \ln C \implies xy = C.
+    \end{equation}
+    将已知点 $(2, 3)$ 代入通解中：
+    \begin{equation}
+        2 \cdot 3 = C \implies C = 6.
+    \end{equation}
+    \begin{equation}
+        \boxed{xy = 6 \quad \left(\text{即 } y = \frac{6}{x}\right)．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{满足自身变上限积分的连续函数}{Function-Equal-To-Its-Own-Integral}
+    设函数 $f(x)$ 处处连续，且 $f(x) = \int_0^x f(t) \d t$（对 $x \in \symbb{R}$），求 $f(x)$．
+\end{problem}
+
+\begin{solution}
+    因为 $f(x)$ 在 $\symbb{R}$ 上处处连续，由微积分基本定理，变上限积分 $\int_0^x f(t)\d t$ 处处可导，故 $f(x)$ 处处可导．
+
+    对已知等式两端关于 $x$ 求导：
+    \begin{equation}
+        f'(x) = f(x).
+    \end{equation}
+    且由定义可得初始条件：
+    \begin{equation}
+        f(0) = \int_0^0 f(t) \d t = 0.
+    \end{equation}
+    求解一阶常微分方程 $f'(x) - f(x) = 0$：
+    \begin{equation}
+        \frac{\d f}{f} = \d x \implies f(x) = C \e^x.
+    \end{equation}
+    代入初始条件 $f(0) = 0$：
+    \begin{equation}
+        C \e^0 = 0 \implies C = 0.
+    \end{equation}
+    因此 $f(x) \equiv 0$．
+    \begin{equation}
+        \boxed{f(x) \equiv 0．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{放射性元素镭的衰变规律}{Radioactive-Decay-Of-Radium}
+    已知镭的衰变速率与镭的现存量成正比（比例常数为 $k$）．设开始时镭的量为 $a$．问 $t$ 时刻镭的量 $x(t)$ 为多少？
+\end{problem}
+
+\begin{solution}
+    由题意，镭的衰变使得现存量随时间减少，建立微分方程：
+    \begin{equation}
+        \frac{\d x}{\d t} = -kx \quad (k > 0).
+    \end{equation}
+    初始条件为 $x(0) = a$．
+
+    分离变量求解：
+    \begin{equation}
+        \frac{\d x}{x} = -k \d t \implies \ln x = -kt + C_1 \implies x(t) = C \e^{-kt}.
+    \end{equation}
+    代入初始条件 $x(0) = a$：
+    \begin{equation}
+        C \e^0 = a \implies C = a.
+    \end{equation}
+    \begin{equation}
+        \boxed{x(t) = a \e^{-kt}．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{阻力作用下汽艇的速度与路程}{Speed-And-Distance-Of-Motorboat}
+    一汽艇以速度 $v$ 等于 $10\text{ 公里/小时}$ 在静水上运动，它的发动机在开足马力后关掉，经过 $20\text{ 秒}$ 后，汽艇的速度降低为 $v_1 = 6\text{ 公里/小时}$．设水对汽艇运动的阻力和汽艇速度成正比，试求：
+    \begin{enumerate}
+        \item 发动机停止 $2\text{ 分钟}$ 后汽艇的速度；
+        \item 发动机停止 $1\text{ 分钟}$ 后汽艇所走的路程．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    设汽艇质量为 $m$，阻力为 $F = -k v$（$k > 0$）．由牛顿第二定律：
+    \begin{equation}
+        m \frac{\d v}{\d t} = -kv \implies \frac{\d v}{\d t} = -\lambda v \quad \left( \lambda = \frac{k}{m} > 0 \right).
+    \end{equation}
+    解得速度方程为 $v(t) = v_0 \e^{-\lambda t}$，其中 $v_0 = 10\text{ km/h}$．
+
+    以小时（$\text{h}$）为时间单位，已知 $t_1 = 20\text{ s} = \frac{1}{180}\text{ h}$ 时，$v(t_1) = 6\text{ km/h}$：
+    \begin{equation}
+        6 = 10 \e^{-\frac{\lambda}{180}} \implies \e^{-\frac{\lambda}{180}} = \frac{3}{5} \implies \lambda = 180\ln\frac{5}{3}\text{ h}^{-1}.
+    \end{equation}
+
+    \ansitem{1}
+
+    当 $t = 2\text{ min} = \frac{1}{30}\text{ h} = 6 \times \frac{1}{180}\text{ h}$ 时：
+    \begin{equation}
+        v(2\text{ min}) = 10 \left( \e^{-\frac{\lambda}{180}} \right)^6 = 10 \left( \frac{3}{5} \right)^6 = 10 \times \frac{729}{15625} = \frac{1458}{3125}\text{ km/h} \approx 0.467\text{ km/h}.
+    \end{equation}
+    \begin{equation}
+        \boxed{v = \frac{1458}{3125}\text{ 公里/小时} \approx 0.467\text{ 公里/小时}．}
+    \end{equation}
+
+    \ansitem{2}
+
+    当 $t = 1\text{ min} = \frac{1}{60}\text{ h} = 3 \times \frac{1}{180}\text{ h}$ 时，速度为
+    \begin{equation}
+        v(1\text{ min}) = 10 \left( \frac{3}{5} \right)^3 = \frac{54}{25} = 2.16\text{ km/h}.
+    \end{equation}
+    所走路程为
+    \begin{equation}
+        s = \int_0^{\frac{1}{60}} v(t) \d t = \left[ -\frac{v_0}{\lambda}\e^{-\lambda t} \right]_0^{\frac{1}{60}} = \frac{v_0 - v(1\text{ min})}{\lambda} = \frac{10 - 2.16}{180\ln\frac{5}{3}} = \frac{49}{1125\ln\frac{5}{3}}\text{ km}.
+    \end{equation}
+    化为米（$\text{m}$）：
+    \begin{equation}
+        s = \frac{49}{1125\ln\frac{5}{3}} \times 1000 = \frac{392}{9\ln\frac{5}{3}}\text{ m} \approx 85.26\text{ m}.
+    \end{equation}
+    \begin{equation}
+        \boxed{s = \frac{49}{1125\ln\frac{5}{3}}\text{ 公里} \approx 85.26\text{ 米}．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{可降阶二阶微分方程的求解}{Reducible-Second-Order-ODEs}
+    求解下列二阶方程的解：
+    \begin{enumerate}
+        \item $xy'' = y'$；
+        \item $y'' = \frac{y'}{x} + x$；
+        \item $y'' = y' + x$；
+        \item $y'' + (y')^2 = 2\e^{-y}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $p = y'$，则 $y'' = p'$，代入方程：
+    \begin{equation}
+        x \frac{\d p}{\d x} = p \implies \frac{\d p}{p} = \frac{\d x}{x}.
+    \end{equation}
+    积分得 $p = 2C_1 x \implies y' = 2C_1 x$．再次积分：
+    \begin{equation}
+        \boxed{y = C_1 x^2 + C_2 \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{2}
+
+    令 $p = y'$，则 $p' - \frac{1}{x}p = x$．积分因子为 $\frac{1}{x}$：
+    \begin{equation}
+        \frac{\d}{\d x}\left( \frac{p}{x} \right) = 1 \implies \frac{p}{x} = x + 2C_1 \implies p = y' = x^2 + 2C_1 x.
+    \end{equation}
+    两端对 $x$ 积分：
+    \begin{equation}
+        \boxed{y = \frac{1}{3}x^3 + C_1 x^2 + C_2 \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{3}
+
+    令 $p = y'$，则 $p' - p = x$．积分因子为 $\e^{-x}$：
+    \begin{equation}
+        \frac{\d}{\d x}(p \e^{-x}) = x \e^{-x} \implies p \e^{-x} = -(x + 1)\e^{-x} + C_1 \implies y' = -(x + 1) + C_1 \e^x.
+    \end{equation}
+    两端对 $x$ 积分：
+    \begin{equation}
+        \boxed{y = C_1 \e^x - \frac{1}{2}x^2 - x + C_2 \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{4}
+
+    方程不显含自变量 $x$．令 $p = y'$，则 $y'' = p \frac{\d p}{\d y}$：
+    \begin{equation}
+        p \frac{\d p}{\d y} + p^2 = 2\e^{-y}.
+    \end{equation}
+    令 $u = p^2$，则 $\frac{\d u}{\d y} = 2p \frac{\d p}{\d y}$，代入化为一阶线性微分方程：
+    \begin{equation}
+        \frac{\d u}{\d y} + 2u = 4\e^{-y}.
+    \end{equation}
+    积分因子为 $\e^{2y}$：
+    \begin{equation}
+        \frac{\d}{\d y}(u \e^{2y}) = 4\e^y \implies u \e^{2y} = 4\e^y + C_1 \implies p^2 = 4\e^{-y} + C_1 \e^{-2y}.
+    \end{equation}
+    从而
+    \begin{equation}
+        p = \frac{\d y}{\d x} = \pm \e^{-y}\sqrt{4\e^y + C_1} \implies \frac{\e^y}{\sqrt{4\e^y + C_1}}\d y = \pm \d x.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \frac{1}{2}\sqrt{4\e^y + C_1} = \pm x + C_2 \implies 4\e^y + C_1 = (2x + 2C_2)^2 = 4(x + C_2)^2.
+    \end{equation}
+    \begin{equation}
+        \boxed{\e^y = (x + C_2)^2 + C_1 \quad \left(\text{即 } y = \ln\bigl((x + C_2)^2 + C_1\bigr)\right) \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{二阶微分方程初值问题的特解}{Second-Order-IVP-Solutions}
+    求下列二阶方程满足初始条件的特解：
+    \begin{enumerate}
+        \item $y'' = \frac{y'}{x} + \frac{x^2}{y'}, \quad y(1) = 0, y'(1) = 2$；
+        \item $y^3 y'' = -1, \quad y(1) = 1, y'(1) = 0$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $p = y'$，则 $y'' = p' = \frac{\d p}{\d x}$，代入方程得
+    \begin{equation}
+        p' = \frac{p}{x} + \frac{x^2}{p} \implies p p' - \frac{1}{x}p^2 = x^2.
+    \end{equation}
+    令 $u = p^2$，则 $\frac{\d u}{\d x} = 2p p'$，两端同乘 $2$ 化为一阶线性微分方程：
+    \begin{equation}
+        \frac{\d u}{\d x} - \frac{2}{x}u = 2x^2.
+    \end{equation}
+    积分因子为 $\frac{1}{x^2}$：
+    \begin{equation}
+        \frac{\d}{\d x}\left( \frac{u}{x^2} \right) = 2 \implies \frac{u}{x^2} = 2x + C_1 \implies p^2 = 2x^3 + C_1 x^2.
+    \end{equation}
+    代入初始条件 $x = 1$ 时 $p = y'(1) = 2$：
+    \begin{equation}
+        2^2 = 2(1)^3 + C_1(1)^2 \implies 4 = 2 + C_1 \implies C_1 = 2.
+    \end{equation}
+    因此
+    \begin{equation}
+        p^2 = 2x^3 + 2x^2 = 2x^2(x + 1).
+    \end{equation}
+    由于 $y'(1) = 2 > 0$，取正根（$x > 0$）：
+    \begin{equation}
+        y' = \frac{\d y}{\d x} = \sqrt{2}x\sqrt{x + 1}.
+    \end{equation}
+    对 $x$ 进行积分，令 $t = \sqrt{x + 1}$，则 $x = t^2 - 1$，$\d x = 2t \d t$：
+    \begin{equation}
+        \begin{aligned}
+            y & = \int \sqrt{2}(t^2 - 1)t \cdot 2t \d t = 2\sqrt{2}\int (t^4 - t^2)\d t \\
+              & = 2\sqrt{2}\left( \frac{t^5}{5} - \frac{t^3}{3} \right) + C_2           \\
+              & = \frac{2\sqrt{2}}{15}(3x - 2)(x + 1)^{\frac{3}{2}} + C_2.
+        \end{aligned}
+    \end{equation}
+    代入初始条件 $y(1) = 0$：
+    \begin{equation}
+        \frac{2\sqrt{2}}{15}(3 - 2)(1 + 1)^{\frac{3}{2}} + C_2 = 0 \implies \frac{2\sqrt{2}}{15} \cdot 1 \cdot 2\sqrt{2} + C_2 = 0 \implies C_2 = -\frac{8}{15}.
+    \end{equation}
+    \begin{equation}
+        \boxed{y = \frac{2\sqrt{2}}{15}(3x - 2)(x + 1)^{\frac{3}{2}} - \frac{8}{15} \quad (x \geqslant -1)．}
+    \end{equation}
+
+    \ansitem{2}
+
+    方程不显含自变量 $x$，改写为 $y'' = -y^{-3}$．令 $p = y'$，则 $y'' = p \frac{\d p}{\d y}$：
+    \begin{equation}
+        p \frac{\d p}{\d y} = -y^{-3} \implies p \d p = -y^{-3}\d y.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        \frac{1}{2}p^2 = \frac{1}{2}y^{-2} + C_1 \implies p^2 = \frac{1}{y^2} + 2C_1.
+    \end{equation}
+    代入初始条件 $y(1) = 1, p(1) = 0$：
+    \begin{equation}
+        0 = 1 + 2C_1 \implies 2C_1 = -1 \implies p^2 = \frac{1 - y^2}{y^2}.
+    \end{equation}
+    从而
+    \begin{equation}
+        p = \frac{\d y}{\d x} = \pm \frac{\sqrt{1 - y^2}}{y}.
+    \end{equation}
+    分离变量并积分：
+    \begin{equation}
+        \frac{y}{\sqrt{1 - y^2}}\d y = \pm \d x \implies -\sqrt{1 - y^2} = \pm x + C_2.
+    \end{equation}
+    代入初始条件 $x = 1, y = 1$：
+    \begin{equation}
+        0 = \pm 1 + C_2 \implies C_2 = \mp 1.
+    \end{equation}
+    整理得
+    \begin{equation}
+        -\sqrt{1 - y^2} = \pm(x - 1) \implies 1 - y^2 = (x - 1)^2 \implies (x - 1)^2 + y^2 = 1.
+    \end{equation}
+    结合 $y(1) = 1 > 0$，特解为上半圆弧：
+    \begin{equation}
+        \boxed{y = \sqrt{1 - (x - 1)^2} = \sqrt{2x - x^2} \quad (0 \leqslant x \leqslant 2)．}
+    \end{equation}
+\end{solution}
+
 \endinput

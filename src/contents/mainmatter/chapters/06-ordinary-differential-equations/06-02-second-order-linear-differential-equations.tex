@@ -1,3 +1,413 @@
 \section{二阶线性微分方程}
 
+\begin{problem}{已知特解求二阶齐次线性微分方程的通解}{Second-Order-Linear-ODE-With-Known-Solution}
+    在下列方程中，已知方程的一个特解 $y_1$，试求它们的通解．
+    \begin{enumerate}
+        \item $y'' + \frac{2}{x}y' + y = 0, \quad y_1 = \frac{\sin x}{x}$；
+        \item $y'' \sin^2 x = 2y, \quad y_1 = \cot x$；
+        \item $(1 - x^2)y'' - 2xy' + 2y = 0, \quad y_1 = x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    方程的标准型为 $y'' + P(x)y' + Q(x)y = 0$，其中 $P(x) = \frac{2}{x}$．
+
+    根据 Liouville 公式，求与 $y_1$ 线性无关的第二个特解 $y_2$：
+    \begin{equation}
+        \e^{-\int P(x)\d x} = \e^{-\int \frac{2}{x}\d x} = \frac{1}{x^2}.
+    \end{equation}
+    \begin{equation}
+        y_2(x) = y_1(x) \int \frac{\e^{-\int P(x)\d x}}{y_1^2(x)} \d x = \frac{\sin x}{x} \int \frac{\frac{1}{x^2}}{\frac{\sin^2 x}{x^2}} \d x = \frac{\sin x}{x} \int \csc^2 x \d x = -\frac{\cos x}{x}.
+    \end{equation}
+    取线性无关解 $\frac{\cos x}{x}$，构造通解：
+    \begin{equation}
+        \boxed{y = C_1 \frac{\sin x}{x} + C_2 \frac{\cos x}{x} \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{2}
+
+    方程的标准型为 $y'' - \frac{2}{\sin^2 x}y = 0$，其中 $P(x) = 0$．
+
+    由降阶公式计算第二特解 $y_2$：
+    \begin{equation}
+        y_2(x) = y_1(x) \int \frac{1}{y_1^2(x)} \d x = \cot x \int \tan^2 x \d x = \cot x (\tan x - x) = 1 - x \cot x.
+    \end{equation}
+    构造通解：
+    \begin{equation}
+        \boxed{y = C_1 \cot x + C_2 (1 - x \cot x) \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{3}
+
+    方程化为标准型 $y'' - \frac{2x}{1 - x^2}y' + \frac{2}{1 - x^2}y = 0$，其中 $P(x) = -\frac{2x}{1 - x^2}$．
+    \begin{equation}
+        \e^{-\int P(x)\d x} = \e^{-\ln(1 - x^2)} = \frac{1}{1 - x^2}.
+    \end{equation}
+    由降阶公式计算第二特解 $y_2$：
+    \begin{equation}
+        \begin{aligned}
+            y_2(x) = x \int \frac{1}{x^2(1 - x^2)} \d x & = x \int \left( \frac{1}{x^2} + \frac{1}{1 - x^2} \right) \d x                     \\
+                                                        & = x \left( -\frac{1}{x} + \frac{1}{2}\ln\left| \frac{1 + x}{1 - x} \right| \right) \\
+                                                        & = \frac{x}{2}\ln\left| \frac{1 + x}{1 - x} \right| - 1.
+        \end{aligned}
+    \end{equation}
+    构造通解：
+    \begin{equation}
+        \boxed{y = C_1 x + C_2 \left( \frac{x}{2}\ln\left| \frac{1 + x}{1 - x} \right| - 1 \right) \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{观察法与降阶法求解二阶齐次微分方程}{Inspection-And-Reduction-Of-Order-For-ODEs}
+    先用观察法求下列齐次方程的一个非零特解，然后求方程的通解．
+    \begin{enumerate}
+        \item $x^2 y'' - 2xy' + 2y = 0, \quad x \neq 0$；
+        \item $x y'' - (1+x)y' + y = 0, \quad x \neq 0$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    观察可知 $y_1 = x$ 为方程的一个特解（代入验证：$x^2(0) - 2x(1) + 2x = 0$）．
+
+    方程化为标准型 $y'' - \frac{2}{x}y' + \frac{2}{x^2}y = 0$，其中 $P(x) = -\frac{2}{x}$：
+    \begin{equation}
+        \e^{-\int P(x)\d x} = \e^{\int \frac{2}{x}\d x} = x^2.
+    \end{equation}
+    应用降阶公式求第二特解：
+    \begin{equation}
+        y_2(x) = x \int \frac{x^2}{x^2} \d x = x \int 1 \d x = x^2.
+    \end{equation}
+    构造通解：
+    \begin{equation}
+        \boxed{y = C_1 x + C_2 x^2 \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{2}
+
+    观察系数可知各阶导数系数之和 $x - (1+x) + 1 = 0$，故 $y_1 = \e^x$ 为方程的一个特解（代入验证：$x \e^x - (1+x)\e^x + \e^x = 0$）．
+
+    方程化为标准型 $y'' - \frac{1+x}{x}y' + \frac{1}{x}y = 0$，其中 $P(x) = -1 - \frac{1}{x}$：
+    \begin{equation}
+        \e^{-\int P(x)\d x} = \e^{\int \left(1 + \frac{1}{x}\right)\d x} = x \e^x.
+    \end{equation}
+    应用降阶公式求第二特解：
+    \begin{equation}
+        y_2(x) = \e^x \int \frac{x \e^x}{\e^{2x}} \d x = \e^x \int x \e^{-x} \d x = \e^x \bigl(-(x + 1)\e^{-x}\bigr) = -(x + 1).
+    \end{equation}
+    取线性无关解 $1 + x$，构造通解：
+    \begin{equation}
+        \boxed{y = C_1 \e^x + C_2 (1 + x) \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{二阶非齐次微分方程的初值问题}{Second-Order-Nonhomogeneous-ODE-IVP}
+    已知方程 $(1+x^2)y'' + 2xy' - 6x^2 - 2 = 0$ 的一个特解 $y_1 = x^2$，试求该方程满足初始条件 $y(-1) = 0, y'(-1) = 0$ 的特解．
+\end{problem}
+
+\begin{solution}
+    将微分方程左端改写为导数形式：
+    \begin{equation}
+        \frac{\d}{\d x}\bigl((1 + x^2)y'\bigr) = 6x^2 + 2.
+    \end{equation}
+    两端积分：
+    \begin{equation}
+        (1 + x^2)y' = \int (6x^2 + 2)\d x = 2x^3 + 2x + C_1 = 2x(1 + x^2) + C_1.
+    \end{equation}
+    两端同除以 $1 + x^2$：
+    \begin{equation}
+        y' = 2x + \frac{C_1}{1 + x^2}.
+    \end{equation}
+    再次对 $x$ 积分得通解：
+    \begin{equation}
+        y = x^2 + C_1 \arctan x + C_2.
+    \end{equation}
+    代入初始条件 $y'(-1) = 0$：
+    \begin{equation}
+        2(-1) + \frac{C_1}{1 + (-1)^2} = 0 \implies -2 + \frac{C_1}{2} = 0 \implies C_1 = 4.
+    \end{equation}
+    代入初始条件 $y(-1) = 0$：
+    \begin{equation}
+        (-1)^2 + 4\arctan(-1) + C_2 = 1 - 4 \cdot \frac{\uppi}{4} + C_2 = 1 - \uppi + C_2 = 0 \implies C_2 = \uppi - 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{y = x^2 + 4\arctan x + \uppi - 1．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{二阶常系数齐次线性微分方程的通解}{Constant-Coefficients-Homogeneous-ODEs}
+    求下列常系数齐次方程的通解：
+    \begin{enumerate}
+        \item $y'' - 2y' - y = 0$；
+        \item $y'' + 2y' + 2y = 0$；
+        \item $y'' + y' - 6y = 0$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    特征方程为
+    \begin{equation}
+        r^2 - 2r - 1 = 0 \implies r = 1 \pm \sqrt{2}.
+    \end{equation}
+    对应两个不等的实特征根，通解为
+    \begin{equation}
+        \boxed{y = C_1 \e^{(1+\sqrt{2})x} + C_2 \e^{(1-\sqrt{2})x} \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{2}
+
+    特征方程为
+    \begin{equation}
+        r^2 + 2r + 2 = 0 \implies r = -1 \pm \ii.
+    \end{equation}
+    对应一对共轭复根，通解为
+    \begin{equation}
+        \boxed{y = \e^{-x}(C_1 \cos x + C_2 \sin x) \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{3}
+
+    特征方程为
+    \begin{equation}
+        r^2 + r - 6 = 0 \implies (r + 3)(r - 2) = 0 \implies r_1 = 2, \, r_2 = -3.
+    \end{equation}
+    对应两个相异实根，通解为
+    \begin{equation}
+        \boxed{y = C_1 \e^{2x} + C_2 \e^{-3x} \quad (C_1, C_2 \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{二阶常系数非齐次线性微分方程的特解}{Particular-Solutions-Of-Nonhomogeneous-ODEs}
+    求下列常系数非齐次方程的一个特解：
+    \begin{enumerate}
+        \item $y'' + y = 2\sin\frac{x}{2}$；
+        \item $y'' - 6y' + 9y = (x+1)\e^{2x}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对应齐次方程的特征根为 $r = \pm \ii$．由于 $\pm \frac{\ii}{2}$ 不是特征根，设特解形式为
+    \begin{equation}
+        y^* = A\cos\frac{x}{2} + B\sin\frac{x}{2}.
+    \end{equation}
+    计算二阶导数：
+    \begin{equation}
+        (y^*)'' = -\frac{1}{4}A\cos\frac{x}{2} - \frac{1}{4}B\sin\frac{x}{2} = -\frac{1}{4}y^*.
+    \end{equation}
+    代入原方程：
+    \begin{equation}
+        (y^*)'' + y^* = \frac{3}{4}y^* = \frac{3}{4}\left(A\cos\frac{x}{2} + B\sin\frac{x}{2}\right) = 2\sin\frac{x}{2}.
+    \end{equation}
+    比较系数得 $A = 0, \, \frac{3}{4}B = 2 \implies B = \frac{8}{3}$．
+    \begin{equation}
+        \boxed{y^* = \frac{8}{3}\sin\frac{x}{2}．}
+    \end{equation}
+
+    \ansitem{2}
+
+    对应齐次方程特征方程为 $(r - 3)^2 = 0 \implies r = 3$（二重根）．由于 $\lambda = 2$ 不是特征根，设特解形式为
+    \begin{equation}
+        y^* = (Ax + B)\e^{2x}.
+    \end{equation}
+    求导：
+    \begin{equation}
+        (y^*)' = (2Ax + 2B + A)\e^{2x}, \qquad (y^*)'' = (4Ax + 4B + 4A)\e^{2x}.
+    \end{equation}
+    代入原方程：
+    \begin{equation}
+        \begin{aligned}
+            (y^*)'' - 6(y^*)' + 9y^* & = \bigl[(4Ax + 4B + 4A) - 6(2Ax + 2B + A) + 9(Ax + B)\bigr]\e^{2x} \\
+                                     & = (Ax + B - 2A)\e^{2x} = (x + 1)\e^{2x}.
+        \end{aligned}
+    \end{equation}
+    比较多项式系数：
+    \begin{equation}
+        \begin{dcases}
+            A = 1, \\
+            B - 2A = 1 \implies B = 3.
+        \end{dcases}
+    \end{equation}
+    \begin{equation}
+        \boxed{y^* = (x + 3)\e^{2x}．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{函数组的线性相关性与线性无关性}{Linear-Independence-Of-Function-Sets}
+    验证函数组 $1, x, x^2, \dots, x^n$ 在实轴上线性无关，函数组 $1, \cos^2 x, \sin^2 x$ 在实轴上线性相关．
+\end{problem}
+
+\begin{myproof}
+    第一部分：证明函数组 $1, x, x^2, \dots, x^n$ 在 $\symbb{R}$ 上线性无关．
+
+    设存在常数 $c_0, c_1, \dots, c_n \in \symbb{R}$，使得对任意 $x \in \symbb{R}$ 恒有
+    \begin{equation}
+        c_0 + c_1 x + c_2 x^2 + \dots + c_n x^n = 0.
+    \end{equation}
+    若存在某个 $c_k \neq 0$，则等式左端为非零实多项式，其在 $\symbb{R}$ 上的根的个数不超过 $n$ 个，与等式对任意 $x \in \symbb{R}$ 恒成立矛盾．因此必有
+    \begin{equation}
+        c_0 = c_1 = \dots = c_n = 0.
+    \end{equation}
+    故函数组 $1, x, x^2, \dots, x^n$ 在实轴上线性无关．
+
+    第二部分：证明函数组 $1, \cos^2 x, \sin^2 x$ 在实轴上线性相关．
+
+    根据同角三角函数平方和恒等式，对任意 $x \in \symbb{R}$ 恒有
+    \begin{equation}
+        1 \cdot 1 + (-1)\cos^2 x + (-1)\sin^2 x = 1 - (\cos^2 x + \sin^2 x) \equiv 0.
+    \end{equation}
+    选取常数组 $(k_1, k_2, k_3) = (1, -1, -1) \neq (0, 0, 0)$，使得线性组合在实轴上恒为零，故函数组 $1, \cos^2 x, \sin^2 x$ 在实轴上线性相关．
+\end{myproof}
+
+\begin{problem}{线性相关函数的Wronski行列式恒零性}{Wronskian-Vanishing-For-Linearly-Dependent-Functions}
+    证明：在区间 $I$ 上任何线性相关的两个函数 $y_1(x), y_2(x)$，它们的 Wronski 行列式一定恒为零．
+\end{problem}
+
+\begin{myproof}
+    设 $y_1(x), y_2(x)$ 在区间 $I$ 上线性相关，则存在不全为零的常数 $c_1, c_2$，使得对任意 $x \in I$ 恒有
+    \begin{equation}
+        c_1 y_1(x) + c_2 y_2(x) = 0.
+    \end{equation}
+    对等式两端求导：
+    \begin{equation}
+        c_1 y_1'(x) + c_2 y_2'(x) = 0.
+    \end{equation}
+    将上述两式写成关于常数向量 $(c_1, c_2)^{\symrm{T}}$ 的齐次线性代数方程组：
+    \begin{equation}
+        \begin{pmatrix}
+            y_1(x)  & y_2(x)  \\
+            y_1'(x) & y_2'(x)
+        \end{pmatrix}
+        \begin{pmatrix}
+            c_1 \\
+            c_2
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            0 \\
+            0
+        \end{pmatrix}.
+    \end{equation}
+    由于存在非零解 $(c_1, c_2)^{\symrm{T}} \neq (0, 0)^{\symrm{T}}$，故系数矩阵的行列式必恒为零：
+    \begin{equation}
+        W(y_1, y_2)(x) =
+        \begin{vmatrix}
+            y_1(x)  & y_2(x)  \\
+            y_1'(x) & y_2'(x)
+        \end{vmatrix}
+        = y_1(x)y_2'(x) - y_1'(x)y_2(x) \equiv 0 \quad (\forall x \in I).
+    \end{equation}
+    命题得证．
+\end{myproof}
+
+\begin{problem}{Wronski行列式恒零但线性无关的反例}{Wronskian-Counterexample-Linearly-Independent}
+    证明：下列函数在区间 $(0, 2)$ 上是线性无关的，但是它们的 Wronski 行列式却恒为零：
+    \begin{equation}
+        y_1(x) = \begin{dcases} (x-1)^2, & 0 \leqslant x \leqslant 1, \\ 0, & 1 < x \leqslant 2, \end{dcases} \qquad y_2(x) = \begin{dcases} 0, & 0 \leqslant x \leqslant 1, \\ (x-1)^2, & 1 < x \leqslant 2. \end{dcases}
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    第一步，证明 $y_1(x)$ 与 $y_2(x)$ 在 $(0, 2)$ 上线性无关．
+
+    设存在常数 $c_1, c_2$ 使得对任意 $x \in (0, 2)$ 恒有
+    \begin{equation}
+        c_1 y_1(x) + c_2 y_2(x) = 0.
+    \end{equation}
+    取点 $x = \frac{1}{2} \in (0, 1)$ 代入：
+    \begin{equation}
+        c_1 \left(\frac{1}{2} - 1\right)^2 + c_2 \cdot 0 = \frac{1}{4}c_1 = 0 \implies c_1 = 0.
+    \end{equation}
+    取点 $x = \frac{3}{2} \in (1, 2)$ 代入：
+    \begin{equation}
+        c_1 \cdot 0 + c_2 \left(\frac{3}{2} - 1\right)^2 = \frac{1}{4}c_2 = 0 \implies c_2 = 0.
+    \end{equation}
+    因此 $c_1 = c_2 = 0$，函数组 $y_1(x), y_2(x)$ 在 $(0, 2)$ 上线性无关．
+
+    第二步，计算 Wronski 行列式．
+
+    分别求导数：
+    \begin{equation}
+        y_1'(x) = \begin{dcases} 2(x-1), & 0 \leqslant x \leqslant 1, \\ 0, & 1 < x \leqslant 2, \end{dcases} \qquad y_2'(x) = \begin{dcases} 0, & 0 \leqslant x \leqslant 1, \\ 2(x-1), & 1 < x \leqslant 2. \end{dcases}
+    \end{equation}
+    在 $x = 1$ 处导数均连续且为 $0$．计算 Wronski 行列式 $W(x) = y_1(x)y_2'(x) - y_1'(x)y_2(x)$：
+    \begin{enumerate}
+        \item 当 $x \in (0, 1]$ 时，$y_2(x) = 0, \, y_2'(x) = 0 \implies W(x) = y_1(x) \cdot 0 - y_1'(x) \cdot 0 = 0$；
+        \item 当 $x \in (1, 2)$ 时，$y_1(x) = 0, \, y_1'(x) = 0 \implies W(x) = 0 \cdot y_2'(x) - 0 \cdot y_2(x) = 0$．
+    \end{enumerate}
+    综上，在整个区间 $(0, 2)$ 上恒有 $W(y_1, y_2)(x) \equiv 0$．
+\end{myproof}
+
+\begin{problem}{高阶常系数齐次线性微分方程的通解}{Higher-Order-Linear-ODEs-With-Constant-Coefficients}
+    求下列方程的通解：
+    \begin{enumerate}
+        \item $x''' + 3x'' + 3x' + x = 0$；
+        \item $x''' - 2x'' + x' - 2x = 0$；
+        \item $x^{(4)} - 8x'' + 18x = 0$；
+        \item $x^{(4)} + 2x'' + x = 0$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    特征方程为
+    \begin{equation}
+        r^3 + 3r^2 + 3r + 1 = (r + 1)^3 = 0 \implies r = -1 \text{（三重实根）}.
+    \end{equation}
+    通解为
+    \begin{equation}
+        \boxed{x(t) = (C_1 + C_2 t + C_3 t^2)\e^{-t} \quad (C_1, C_2, C_3 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{2}
+
+    特征方程为
+    \begin{equation}
+        r^3 - 2r^2 + r - 2 = r^2(r - 2) + (r - 2) = (r^2 + 1)(r - 2) = 0.
+    \end{equation}
+    特征根为 $r_1 = 2, \, r_{2,3} = \pm \ii$，通解为
+    \begin{equation}
+        \boxed{x(t) = C_1 \e^{2t} + C_2 \cos t + C_3 \sin t \quad (C_1, C_2, C_3 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{3}
+
+    特征方程为
+    \begin{equation}
+        r^4 - 8r^2 + 18 = 0 \implies (r^2 - 4)^2 = -2 \implies r^2 = 4 \pm \ii\sqrt{2}.
+    \end{equation}
+    设特征根为 $r = \pm (\alpha \pm \ii \beta)$，由 $(\alpha + \ii \beta)^2 = \alpha^2 - \beta^2 + 2\ii\alpha\beta = 4 + \ii\sqrt{2}$：
+    \begin{equation}
+        \begin{dcases}
+            \alpha^2 - \beta^2 = 4, \\
+            \alpha^2 + \beta^2 = \sqrt{4^2 + (\sqrt{2})^2} = 3\sqrt{2}.
+        \end{dcases}
+    \end{equation}
+    解得
+    \begin{equation}
+        \alpha = \sqrt{\frac{3\sqrt{2} + 4}{2}}, \qquad \beta = \sqrt{\frac{3\sqrt{2} - 4}{2}}.
+    \end{equation}
+    通解为
+    \begin{equation}
+        \boxed{x(t) = \e^{\alpha t}(C_1 \cos\beta t + C_2 \sin\beta t) + \e^{-\alpha t}(C_3 \cos\beta t + C_4 \sin\beta t) \quad (C_1, C_2, C_3, C_4 \text{ 为任意常数})．}
+    \end{equation}
+
+    \ansitem{4}
+
+    特征方程为
+    \begin{equation}
+        r^4 + 2r^2 + 1 = (r^2 + 1)^2 = 0 \implies r = \pm \ii \text{（二重共轭虚根）}.
+    \end{equation}
+    通解为
+    \begin{equation}
+        \boxed{x(t) = (C_1 + C_2 t)\cos t + (C_3 + C_4 t)\sin t \quad (C_1, C_2, C_3, C_4 \text{ 为任意常数})．}
+    \end{equation}
+\end{solution}
+
 \endinput

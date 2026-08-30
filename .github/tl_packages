@@ -48,6 +48,7 @@ amsmath
 lualatex-math
 fixdif
 thmtools
+mathtools
 
 # =========================================
 # Page layout / titles / headers

@@ -38,7 +38,7 @@ jobs:
             - name: Create version tag
               run: |
                   TAG_NAME="nightly-${DATE}"
-                  RLS_NAME='"Mathematical Analysis (Volume II)" Exercise Solutions Nightly '"$DATE"
+                  RLS_NAME='"Lecture Notes on Mathematical Analysis (Volumes I & II)" Exercise Solutions Nightly '"$DATE"
 
                   echo "TAG_NAME=$TAG_NAME" >> $GITHUB_ENV
                   echo "RLS_NAME=$RLS_NAME" >> $GITHUB_ENV

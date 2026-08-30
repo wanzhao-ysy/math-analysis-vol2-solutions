@@ -1,0 +1,332 @@
+\section{未定式的极限}
+
+\begin{problem}{各类函数极限与数列极限的计算}{Comprehensive-Limit-Calculations}
+    求下列极限：
+    \begin{enumerate}
+        \item $\lim_{x\to 0} \frac{\sqrt[m]{1+\alpha x} - \sqrt[n]{1+\beta x}}{x}$（$m, n$ 为正整数，$\alpha, \beta$ 为实数）；
+        \item $\lim_{x\to 0} \frac{(1+mx)^n - (1+nx)^m}{x^2}$（$m, n$ 为正整数）；
+        \item $\lim_{x\to 1} \frac{x^3 + x - 2}{x^2 - 3x + 2}$；
+        \item $\lim_{x\to 0} \frac{x - \arcsin x}{\sin^3 x}$；
+        \item $\lim_{x\to 0} \frac{\e^x - 1}{\sin x}$；
+        \item $\lim_{x\to 0} \frac{(1+x)^\alpha - 1}{x}$（$\alpha$ 为任意实数）；
+        \item $\lim_{x\to 0} \frac{\e^{-\frac{1}{x^2}}}{x}$；
+        \item $\lim_{x\to 0} \frac{(a+x)^x - a^x}{x^2}$（$a > 0$）；
+        \item $\lim_{x\to 0} x \sin \frac{1}{x}$；
+        \item $\lim_{x\to 0} \frac{x^2 \cos \frac{1}{x}}{\tan x}$；
+        \item $\lim_{x\to 0} \left( \frac{1}{\arctan^2 x} - \frac{1}{x^2} \right)$；
+        \item $\lim_{x\to 1-0} \ln x \ln(1 - x)$；
+        \item $\lim_{x\to \frac{\uppi}{2}-0} (\tan x)^{2x - \uppi}$；
+        \item $\lim_{x\to 0} \left[ \frac{(1+x)^{1/x}}{\e} \right]^{1/x}$；
+        \item $\lim_{x\to 1-0} \frac{\ln(1-x) + \tan \frac{\uppi}{2}x}{\cot \uppi x}$；
+        \item $\lim_{x\to 0} \frac{(\arcsin x^3)^2}{(1 - \cos x)(\e^{x^2} - 1)\tan^2 x}$；
+        \item $\lim_{x\to +\infty} \left( \frac{\ln(1+x)}{x} \right)^{1/x}$；
+        \item $\lim_{x\to 0} \frac{\arctan x^2}{\sqrt{1 + x\sin x} - \sqrt{\cos x}} \cdot \left( 2 - \frac{x}{\e^x - 1} \right)$；
+        \item $\lim_{n\to\infty} \frac{n^k}{a^n}$（$n$ 为正整数，$a > 1, k > 0$）；
+        \item $\lim_{n\to\infty} \frac{\ln n}{n^k}$（$n$ 为正整数，$k > 0$）．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    利用泰勒展开式 $\sqrt[k]{1 + t} = 1 + \frac{1}{k}t + o(t)$（$t \to 0$）：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to 0} \frac{\sqrt[m]{1+\alpha x} - \sqrt[n]{1+\beta x}}{x} & = \lim_{x\to 0} \frac{\left( 1 + \frac{\alpha}{m}x + o(x) \right) - \left( 1 + \frac{\beta}{n}x + o(x) \right)}{x} \\
+                                                                               & = \frac{\alpha}{m} - \frac{\beta}{n}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\sqrt[m]{1+\alpha x} - \sqrt[n]{1+\beta x}}{x} = \frac{\alpha}{m} - \frac{\beta}{n}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用二项式展开展开至 $x^2$ 项：
+    \begin{equation}
+        (1+mx)^n = 1 + mnx + \frac{n(n-1)m^2}{2}x^2 + o(x^2),
+    \end{equation}
+    \begin{equation}
+        (1+nx)^m = 1 + mnx + \frac{m(m-1)n^2}{2}x^2 + o(x^2).
+    \end{equation}
+    两式相减得
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to 0} \frac{(1+mx)^n - (1+nx)^m}{x^2} & = \frac{mn}{2}\bigl[ m(n-1) - n(m-1) \bigr] \\
+                                                          & = \frac{mn(n-m)}{2}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{(1+mx)^n - (1+nx)^m}{x^2} = \frac{mn(n-m)}{2}.}
+    \end{equation}
+
+    \ansitem{3}
+
+    因式分解消去零因子 $x - 1$：
+    \begin{equation}
+        \lim_{x\to 1} \frac{x^3 + x - 2}{x^2 - 3x + 2} = \lim_{x\to 1} \frac{(x-1)(x^2 + x + 2)}{(x-1)(x-2)} = \lim_{x\to 1} \frac{x^2 + x + 2}{x - 2} = -4.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 1} \frac{x^3 + x - 2}{x^2 - 3x + 2} = -4.}
+    \end{equation}
+
+    \ansitem{4}
+
+    利用泰勒展开 $\arcsin x = x + \frac{1}{6}x^3 + o(x^3)$ 及 $\sin x \sim x$：
+    \begin{equation}
+        \lim_{x\to 0} \frac{x - \arcsin x}{\sin^3 x} = \lim_{x\to 0} \frac{-\frac{1}{6}x^3 + o(x^3)}{x^3} = -\frac{1}{6}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{x - \arcsin x}{\sin^3 x} = -\frac{1}{6}.}
+    \end{equation}
+
+    \ansitem{5}
+
+    利用等价无穷小代换 $\e^x - 1 \sim x$ 与 $\sin x \sim x$：
+    \begin{equation}
+        \lim_{x\to 0} \frac{\e^x - 1}{\sin x} = \lim_{x\to 0} \frac{x}{x} = 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\e^x - 1}{\sin x} = 1.}
+    \end{equation}
+
+    \ansitem{6}
+
+    由等价无穷小 $(1+x)^\alpha - 1 \sim \alpha x$（$x \to 0$）：
+    \begin{equation}
+        \lim_{x\to 0} \frac{(1+x)^\alpha - 1}{x} = \lim_{x\to 0} \frac{\alpha x}{x} = \alpha.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{(1+x)^\alpha - 1}{x} = \alpha.}
+    \end{equation}
+
+    \ansitem{7}
+
+    令 $t = \frac{1}{x^2}$，当 $x \to 0$ 时 $t \to +\infty$：
+    \begin{equation}
+        \lim_{x\to 0} \left| \frac{\e^{-\frac{1}{x^2}}}{x} \right| = \lim_{t\to +\infty} \sqrt{t}\e^{-t} = 0 \implies \lim_{x\to 0} \frac{\e^{-\frac{1}{x^2}}}{x} = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\e^{-\frac{1}{x^2}}}{x} = 0.}
+    \end{equation}
+
+    \ansitem{8}
+
+    将分子化为指数形式展开：
+    \begin{equation}
+        (a+x)^x = \exp\left[ x\ln a + x\ln\left(1 + \frac{x}{a}\right) \right] = \exp\left( x\ln a + \frac{x^2}{a} + o(x^2) \right),
+    \end{equation}
+    \begin{equation}
+        (a+x)^x - a^x = a^x \left[ \exp\left(\frac{x^2}{a} + o(x^2)\right) - 1 \right] = a^x \left( \frac{x^2}{a} + o(x^2) \right).
+    \end{equation}
+    由此可得
+    \begin{equation}
+        \lim_{x\to 0} \frac{(a+x)^x - a^x}{x^2} = \lim_{x\to 0} \frac{a^x \cdot \frac{x^2}{a}}{x^2} = \frac{1}{a}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{(a+x)^x - a^x}{x^2} = \frac{1}{a}.}
+    \end{equation}
+
+    \ansitem{9}
+
+    因为 $|\sin \frac{1}{x}| \leqslant 1$，由无穷小量与有界量的乘积性质：
+    \begin{equation}
+        \lim_{x\to 0} x \sin \frac{1}{x} = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} x \sin \frac{1}{x} = 0.}
+    \end{equation}
+
+    \ansitem{10}
+
+    利用等价无穷小 $\tan x \sim x$ 及有界量性质：
+    \begin{equation}
+        \lim_{x\to 0} \frac{x^2 \cos \frac{1}{x}}{\tan x} = \lim_{x\to 0} x \cos \frac{1}{x} = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{x^2 \cos \frac{1}{x}}{\tan x} = 0.}
+    \end{equation}
+
+    \ansitem{11}
+
+    通分并利用泰勒展开 $\arctan x = x - \frac{1}{3}x^3 + o(x^3)$：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to 0} \left( \frac{1}{\arctan^2 x} - \frac{1}{x^2} \right) & = \lim_{x\to 0} \frac{(x - \arctan x)(x + \arctan x)}{x^2 \arctan^2 x}        \\
+                                                                               & = \lim_{x\to 0} \frac{\left( \frac{1}{3}x^3 + o(x^3) \right)(2x + o(x))}{x^4} \\
+                                                                               & = \frac{2}{3}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \left( \frac{1}{\arctan^2 x} - \frac{1}{x^2} \right) = \frac{2}{3}.}
+    \end{equation}
+
+    \ansitem{12}
+
+    令 $t = 1 - x \to 0^+$，则 $\ln x = \ln(1 - t) \sim -t$，从而
+    \begin{equation}
+        \lim_{x\to 1-0} \ln x \ln(1 - x) = \lim_{t\to 0^+} (-t \ln t) = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 1-0} \ln x \ln(1 - x) = 0.}
+    \end{equation}
+
+    \ansitem{13}
+
+    令 $t = \frac{\uppi}{2} - x \to 0^+$，则 $2x - \uppi = -2t$，$\tan x = \cot t$：
+    \begin{equation}
+        \lim_{t\to 0^+} \ln\left[ (\cot t)^{-2t} \right] = \lim_{t\to 0^+} 2t \ln(\tan t) = \lim_{t\to 0^+} 2t \ln t = 0.
+    \end{equation}
+    由指数函数连续性，原极限为 $\e^0 = 1$．
+    \begin{equation}
+        \boxed{\lim_{x\to \frac{\uppi}{2}-0} (\tan x)^{2x - \uppi} = 1.}
+    \end{equation}
+
+    \ansitem{14}
+
+    化为以 $\e$ 为底的指数形式：
+    \begin{equation}
+        \left[ \frac{(1+x)^{1/x}}{\e} \right]^{1/x} = \exp\left[ \frac{\frac{\ln(1+x)}{x} - 1}{x} \right] = \exp\left[ \frac{\ln(1+x) - x}{x^2} \right].
+    \end{equation}
+    利用泰勒展开 $\ln(1+x) = x - \frac{1}{2}x^2 + o(x^2)$，指数的极限为
+    \begin{equation}
+        \lim_{x\to 0} \frac{\ln(1+x) - x}{x^2} = -\frac{1}{2}.
+    \end{equation}
+    故原极限为 $\e^{-1/2} = \frac{1}{\sqrt{\e}}$．
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \left[ \frac{(1+x)^{1/x}}{\e} \right]^{1/x} = \frac{1}{\sqrt{\e}}.}
+    \end{equation}
+
+    \ansitem{15}
+
+    令 $t = 1 - x \to 0^+$，则 $\tan\frac{\uppi x}{2} = \cot\frac{\uppi t}{2} \sim \frac{2}{\uppi t}$，$\cot \uppi x = -\cot \uppi t \sim -\frac{1}{\uppi t}$：
+    \begin{equation}
+        \lim_{x\to 1-0} \frac{\ln(1-x) + \tan \frac{\uppi}{2}x}{\cot \uppi x} = \lim_{t\to 0^+} \frac{\ln t + \frac{2}{\uppi t}}{-\frac{1}{\uppi t}} = \lim_{t\to 0^+} (-\uppi t \ln t - 2) = -2.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 1-0} \frac{\ln(1-x) + \tan \frac{\uppi}{2}x}{\cot \uppi x} = -2.}
+    \end{equation}
+
+    \ansitem{16}
+
+    利用等价无穷小 $\arcsin x^3 \sim x^3$，$1 - \cos x \sim \frac{1}{2}x^2$，$\e^{x^2} - 1 \sim x^2$，$\tan x \sim x$：
+    \begin{equation}
+        \lim_{x\to 0} \frac{(\arcsin x^3)^2}{(1 - \cos x)(\e^{x^2} - 1)\tan^2 x} = \lim_{x\to 0} \frac{(x^3)^2}{\left(\frac{1}{2}x^2\right)(x^2)(x^2)} = 2.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{(\arcsin x^3)^2}{(1 - \cos x)(\e^{x^2} - 1)\tan^2 x} = 2.}
+    \end{equation}
+
+    \ansitem{17}
+
+    取对数计算：
+    \begin{equation}
+        \lim_{x\to +\infty} \ln\left[ \left( \frac{\ln(1+x)}{x} \right)^{1/x} \right] = \lim_{x\to +\infty} \frac{\ln\ln(1+x) - \ln x}{x} = 0 - 0 = 0.
+    \end{equation}
+    故原极限为 $\e^0 = 1$．
+    \begin{equation}
+        \boxed{\lim_{x\to +\infty} \left( \frac{\ln(1+x)}{x} \right)^{1/x} = 1.}
+    \end{equation}
+
+    \ansitem{18}
+
+    将极限拆分为两部分乘积：
+    \begin{equation}
+        \lim_{x\to 0} \left( 2 - \frac{x}{\e^x - 1} \right) = 2 - 1 = 1.
+    \end{equation}
+    对第一部分有理化分母：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to 0} \frac{\arctan x^2}{\sqrt{1 + x\sin x} - \sqrt{\cos x}} & = \lim_{x\to 0} \frac{x^2 (\sqrt{1 + x\sin x} + \sqrt{\cos x})}{1 + x\sin x - \cos x} \\
+                                                                                 & = \lim_{x\to 0} \frac{2x^2}{x^2 + \frac{1}{2}x^2} = \frac{4}{3}.
+        \end{aligned}
+    \end{equation}
+    故总极限为 $\frac{4}{3} \cdot 1 = \frac{4}{3}$．
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\arctan x^2}{\sqrt{1 + x\sin x} - \sqrt{\cos x}} \cdot \left( 2 - \frac{x}{\e^x - 1} \right) = \frac{4}{3}.}
+    \end{equation}
+
+    \ansitem{19}
+
+    考察比值极限：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{\frac{(n+1)^k}{a^{n+1}}}{\frac{n^k}{a^n}} = \lim_{n\to\infty} \frac{1}{a}\left( 1 + \frac{1}{n} \right)^k = \frac{1}{a} < 1.
+    \end{equation}
+    由达朗贝尔判别法，极限为 $0$．
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \frac{n^k}{a^n} = 0.}
+    \end{equation}
+
+    \ansitem{20}
+
+    利用洛必达法则：
+    \begin{equation}
+        \lim_{x\to +\infty} \frac{\ln x}{x^k} = \lim_{x\to +\infty} \frac{\frac{1}{x}}{k x^{k-1}} = \lim_{x\to +\infty} \frac{1}{k x^k} = 0.
+    \end{equation}
+    由海涅定理知数列极限亦为 $0$．
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \frac{\ln n}{n^k} = 0.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{迭代数列的渐近阶估计}{Asymptotic-Order-Of-Iteration-Sequence}
+    设 $f(x)$ 在区间 $[0, a]$ 上有二阶连续导数，$f'(0) = 1$，$f''(0) \neq 0$，且 $0 < f(x) < x$（$x \in (0, a)$）．令
+    \begin{equation}
+        x_{n+1} = f(x_n), \quad x_1 \in (0, a).
+    \end{equation}
+    \begin{enumerate}
+        \item 求证 $\{x_n\}$ 收敛并求极限；
+        \item 试问 $\{n x_n\}$ 是否收敛？若收敛，则求其极限．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    因为 $x_1 \in (0, a)$ 且对任意 $x \in (0, a)$ 恒有 $0 < f(x) < x$，所以
+    \begin{equation}
+        0 < x_{n+1} = f(x_n) < x_n < a.
+    \end{equation}
+    故数列 $\{x_n\}$ 严格单调递减且有下界 $0$．
+
+    由单调有界定理，极限 $\lim_{n\to\infty} x_n = L$ 存在，且 $L \in [0, a)$．
+
+    在递推式 $x_{n+1} = f(x_n)$ 两端取极限，由 $f(x)$ 的连续性得
+    \begin{equation}
+        L = f(L).
+    \end{equation}
+    由于在 $(0, a)$ 内恒有 $f(x) < x$，方程 $f(x) = x$ 在 $[0, a)$ 上仅有唯一解 $L = 0$．
+    \begin{equation}
+        \boxed{\{x_n\} \text{ 收敛，且 } \lim_{n\to\infty} x_n = 0.}
+    \end{equation}
+
+    \ansitem{2} 收敛．
+
+    由泰勒公式，当 $x \to 0^+$ 时，因 $f(0) = 0$ 且 $f'(0) = 1$：
+    \begin{equation}
+        f(x) = x + \frac{1}{2}f''(0)x^2 + o(x^2).
+    \end{equation}
+    因为 $f(x) < x$（$x \in (0, a)$），必有 $f''(0) < 0$．
+
+    考察倒数差的极限：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{n\to\infty} \left( \frac{1}{x_{n+1}} - \frac{1}{x_n} \right) & = \lim_{x\to 0^+} \frac{x - f(x)}{x f(x)}                             \\
+                                                                               & = \lim_{x\to 0^+} \frac{-\frac{1}{2}f''(0)x^2 + o(x^2)}{x^2 + o(x^2)} \\
+                                                                               & = -\frac{1}{2}f''(0).
+        \end{aligned}
+    \end{equation}
+    由 Stolz 定理（或算术平均值极限定理）：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{\frac{1}{x_n}}{n} = \lim_{n\to\infty} \left( \frac{1}{x_{n+1}} - \frac{1}{x_n} \right) = -\frac{1}{2}f''(0).
+    \end{equation}
+    两端取倒数，即得
+    \begin{equation}
+        \lim_{n\to\infty} n x_n = -\frac{2}{f''(0)}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\{n x_n\} \text{ 收敛，且 } \lim_{n\to\infty} n x_n = -\frac{2}{f''(0)}.}
+    \end{equation}
+\end{solution}
+
+\endinput

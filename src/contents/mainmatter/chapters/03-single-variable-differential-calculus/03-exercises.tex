@@ -1,0 +1,853 @@
+\section{第 3 章综合习题}
+
+\begin{problem}{多项式在原点处的导数}{Polynomial-Derivative-At-Origin}
+    设 $f(x) = x(x + 1)(x + 2)\cdots(x + n)$，求 $f'(0)$．
+\end{problem}
+
+\begin{solution}
+    因为 $f(0) = 0$，由导数的定义，有
+    \begin{equation}
+        \begin{aligned}
+            f'(0) & = \lim_{x\to 0} \frac{f(x) - f(0)}{x - 0}              \\
+                  & = \lim_{x\to 0} \frac{x(x + 1)(x + 2)\cdots(x + n)}{x} \\
+                  & = \lim_{x\to 0} (x + 1)(x + 2)\cdots(x + n)            \\
+                  & = 1 \cdot 2 \cdots n = n!.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{f'(0) = n!.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{商形式函数的连续与可导性}{Differentiability-And-Continuity-Of-Quotient-Function}
+    设奇函数 $f(x)$ 在 $(-\infty, +\infty)$ 上具有二阶连续导数，记函数
+    \begin{equation}
+        g(x) = \begin{cases} \frac{f(x)}{x}, & x \neq 0, \\ a, & x = 0. \end{cases}
+    \end{equation}
+    \begin{enumerate}
+        \item 确定 $a$ 的值，使 $g(x)$ 在 $(-\infty, +\infty)$ 上连续；
+        \item 对 (1) 中确定的 $a$，证明：$g(x)$ 在 $(-\infty, +\infty)$ 上可导，且导函数连续．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    因为 $f(x)$ 为奇函数，所以 $f(0) = 0$．
+
+    当 $x \neq 0$ 时，$g(x)$ 作为连续函数的商显然连续．函数 $g(x)$ 在 $x = 0$ 处连续的充要条件为
+    \begin{equation}
+        \lim_{x\to 0} g(x) = g(0) \implies \lim_{x\to 0} \frac{f(x) - f(0)}{x} = a \implies a = f'(0).
+    \end{equation}
+    \begin{equation}
+        \boxed{a = f'(0).}
+    \end{equation}
+
+    \ansitem{2}
+
+    当 $x \neq 0$ 时，由商的求导法则：
+    \begin{equation}
+        g'(x) = \frac{x f'(x) - f(x)}{x^2}.
+    \end{equation}
+    在 $x = 0$ 处，根据导数定义计算 $g'(0)$：
+    \begin{equation}
+        g'(0) = \lim_{x\to 0} \frac{g(x) - g(0)}{x} = \lim_{x\to 0} \frac{\frac{f(x)}{x} - f'(0)}{x} = \lim_{x\to 0} \frac{f(x) - x f'(0)}{x^2}.
+    \end{equation}
+    因为 $f(x)$ 是奇函数，其二阶导数 $f''(x)$ 亦为连续奇函数，故 $f''(0) = 0$．
+
+    由洛必达法则及导数的连续性：
+    \begin{equation}
+        g'(0) = \lim_{x\to 0} \frac{f'(x) - f'(0)}{2x} = \frac{1}{2} f''(0) = 0.
+    \end{equation}
+    因此 $g(x)$ 在 $x = 0$ 处可导，且 $g'(0) = 0$．
+
+    再考察导函数在 $x = 0$ 处的连续性：
+    \begin{equation}
+        \begin{aligned}
+            \lim_{x\to 0} g'(x) & = \lim_{x\to 0} \frac{x f'(x) - f(x)}{x^2}                         \\
+                                & = \lim_{x\to 0} \frac{f'(x) + x f''(x) - f'(x)}{2x}                \\
+                                & = \lim_{x\to 0} \frac{f''(x)}{2} = \frac{1}{2} f''(0) = 0 = g'(0).
+        \end{aligned}
+    \end{equation}
+    故导函数 $g'(x)$ 在 $(-\infty, +\infty)$ 上处处连续．
+\end{solution}
+
+\begin{problem}{罗尔定理在多项式根的存在性中的应用}{Rolle-Theorem-Polynomial-Roots}
+    设 $\frac{a_0}{n+1} + \frac{a_1}{n} + \cdots + a_n = 0$．证明：方程 $a_0 x^n + a_1 x^{n-1} + \cdots + a_n = 0$ 在 $(0, 1)$ 内至少有一个根．
+\end{problem}
+
+\begin{myproof}
+    构造辅助函数
+    \begin{equation}
+        F(x) = \frac{a_0}{n+1} x^{n+1} + \frac{a_1}{n} x^n + \cdots + a_n x, \quad x \in [0, 1].
+    \end{equation}
+    显然 $F(x)$ 在闭区间 $[0, 1]$ 上连续，在开区间 $(0, 1)$ 内可导，且其导数为
+    \begin{equation}
+        F'(x) = a_0 x^n + a_1 x^{n-1} + \cdots + a_n.
+    \end{equation}
+    计算两端点处的函数值：
+    \begin{equation}
+        F(0) = 0,
+    \end{equation}
+    \begin{equation}
+        F(1) = \frac{a_0}{n+1} + \frac{a_1}{n} + \cdots + a_n = 0.
+    \end{equation}
+    因为 $F(0) = F(1) = 0$，由罗尔定理，在开区间 $(0, 1)$ 内至少存在一点 $\xi$，使得
+    \begin{equation}
+        F'(\xi) = 0 \implies a_0 \xi^n + a_1 \xi^{n-1} + \cdots + a_n = 0.
+    \end{equation}
+    即方程在 $(0, 1)$ 内至少有一个根．
+\end{myproof}
+
+\begin{problem}{微分方程辅助函数的罗尔定理应用}{Rolle-Theorem-With-Integrating-Factor}
+    若函数 $f(x)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 内可导，且 $f(a) = f(b) = 0$，证明：存在 $\xi \in (a, b)$，使 $f'(\xi) + f(\xi) = 0$．
+\end{problem}
+
+\begin{myproof}
+    构造辅助函数
+    \begin{equation}
+        F(x) = \e^x f(x), \quad x \in [a, b].
+    \end{equation}
+    因为 $f(x)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 内可导，所以 $F(x)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 内可导．
+
+    计算两端点处的函数值：
+    \begin{equation}
+        F(a) = \e^a f(a) = 0,
+    \end{equation}
+    \begin{equation}
+        F(b) = \e^b f(b) = 0.
+    \end{equation}
+    对 $F(x)$ 求导，得
+    \begin{equation}
+        F'(x) = \e^x \bigl[ f'(x) + f(x) \bigr].
+    \end{equation}
+    由罗尔定理，在开区间 $(a, b)$ 内至少存在一点 $\xi$，使得
+    \begin{equation}
+        F'(\xi) = 0 \implies \e^\xi \bigl[ f'(\xi) + f(\xi) \bigr] = 0.
+    \end{equation}
+    因为指数函数 $\e^\xi \neq 0$，所以
+    \begin{equation}
+        f'(\xi) + f(\xi) = 0.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{中点凸性与凸函数}{Midpoint-Convexity-And-Convex-Functions}
+    设 $f(x)$ 在区间 $I$ 上连续，如果任给 $I$ 中两点 $x_1, x_2$，有
+    \begin{equation}
+        f\left( \frac{x_1 + x_2}{2} \right) \leqslant \frac{f(x_1) + f(x_2)}{2},
+    \end{equation}
+    证明：$f(x)$ 是区间 $I$ 上的凸函数．
+\end{problem}
+
+\begin{myproof}
+    先用数学归纳法证明：对任意正整数 $k$，若 $\lambda = \frac{m}{2^k}$（$m \in \symbb{Z}, 0 \leqslant m \leqslant 2^k$），则对任意 $x_1, x_2 \in I$，恒有
+    \begin{equation}
+        f\bigl( \lambda x_1 + (1 - \lambda)x_2 \bigr) \leqslant \lambda f(x_1) + (1 - \lambda)f(x_2).
+    \end{equation}
+    当 $k = 1$ 时，$\lambda \in \left\{ 0, \frac{1}{2}, 1 \right\}$，由已知的中点凸性条件，不等式显然成立．
+
+    假设结论对 $k$ 成立．当分母为 $2^{k+1}$ 时，设 $\lambda = \frac{m}{2^{k+1}}$（$0 < m < 2^{k+1}$）：
+    \begin{enumerate}
+        \item 若 $m$ 为偶数，设 $m = 2p$，则 $\lambda = \frac{p}{2^k}$，由归纳假设成立；
+        \item 若 $m$ 为奇数，设 $m = 2p + 1$，则
+              \begin{equation}
+                  \lambda = \frac{1}{2}\left( \frac{p}{2^k} + \frac{p+1}{2^k} \right).
+              \end{equation}
+              令 $u = \frac{p}{2^k} x_1 + \left(1 - \frac{p}{2^k}\right)x_2$，$v = \frac{p+1}{2^k} x_1 + \left(1 - \frac{p+1}{2^k}\right)x_2$．利用中点凸性及归纳假设：
+              \begin{equation}
+                  \begin{aligned}
+                      f\bigl( \lambda x_1 + (1 - \lambda)x_2 \bigr) & = f\left( \frac{u + v}{2} \right) \leqslant \frac{f(u) + f(v)}{2}                                                                                                 \\
+                                                                    & \leqslant \frac{1}{2}\left[ \frac{p}{2^k} f(x_1) + \left(1 - \frac{p}{2^k}\right)f(x_2) + \frac{p+1}{2^k} f(x_1) + \left(1 - \frac{p+1}{2^k}\right)f(x_2) \right] \\
+                                                                    & = \frac{2p + 1}{2^{k+1}} f(x_1) + \left(1 - \frac{2p + 1}{2^{k+1}}\right)f(x_2)                                                                                   \\
+                                                                    & = \lambda f(x_1) + (1 - \lambda)f(x_2).
+                  \end{aligned}
+              \end{equation}
+    \end{enumerate}
+    故不等式对一切二进有理数 $\lambda \in [0, 1]$ 均成立．
+
+    对任意实数 $\lambda \in [0, 1]$，由二进有理数在 $[0, 1]$ 上的稠密性，存在二进有理数列 $\{\lambda_n\} \subset [0, 1]$ 满足 $\lim_{n\to\infty} \lambda_n = \lambda$．
+
+    对每个 $\lambda_n$，均有
+    \begin{equation}
+        f\bigl( \lambda_n x_1 + (1 - \lambda_n)x_2 \bigr) \leqslant \lambda_n f(x_1) + (1 - \lambda_n)f(x_2).
+    \end{equation}
+    因为函数 $f(x)$ 在区间 $I$ 上连续，两端取 $n \to \infty$ 的极限，得
+    \begin{equation}
+        f\bigl( \lambda x_1 + (1 - \lambda)x_2 \bigr) \leqslant \lambda f(x_1) + (1 - \lambda)f(x_2).
+    \end{equation}
+    由 $\lambda \in [0, 1]$ 及 $x_1, x_2 \in I$ 的任意性，可知 $f(x)$ 是区间 $I$ 上的凸函数．
+\end{myproof}
+
+\begin{problem}{二阶微分中值等式的证明}{Second-Order-Differential-Mean-Value-Identity}
+    设 $f(x)$ 是 $[0, 1]$ 上的二阶可导函数，$f(0) = f(1) = 0$．证明：存在 $\xi \in (0, 1)$，使得
+    \begin{equation}
+        f''(\xi) = \frac{2f'(\xi)}{1 - \xi}.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    因为 $f(x)$ 在 $[0, 1]$ 上连续，在 $(0, 1)$ 内可导，且 $f(0) = f(1) = 0$，由罗尔定理，存在 $\eta \in (0, 1)$，使得
+    \begin{equation}
+        f'(\eta) = 0.
+    \end{equation}
+    构造辅助函数
+    \begin{equation}
+        g(x) = (1 - x)^2 f'(x), \quad x \in [\eta, 1].
+    \end{equation}
+    因为 $f(x)$ 在 $[0, 1]$ 上二阶可导，所以 $g(x)$ 在 $[\eta, 1]$ 上连续，在 $(\eta, 1)$ 内可导．
+
+    计算两端点处的函数值：
+    \begin{equation}
+        g(\eta) = (1 - \eta)^2 f'(\eta) = 0,
+    \end{equation}
+    \begin{equation}
+        g(1) = (1 - 1)^2 f'(1) = 0.
+    \end{equation}
+    由罗尔定理，在开区间 $(\eta, 1)$ 内至少存在一点 $\xi$，使得
+    \begin{equation}
+        g'(\xi) = 0.
+    \end{equation}
+    对 $g(x)$ 求导，得
+    \begin{equation}
+        \begin{aligned}
+            g'(x) & = -2(1 - x)f'(x) + (1 - x)^2 f''(x)            \\
+                  & = (1 - x)\bigl[ (1 - x)f''(x) - 2f'(x) \bigr].
+        \end{aligned}
+    \end{equation}
+    因为 $\xi \in (\eta, 1) \subset (0, 1)$，所以 $1 - \xi \neq 0$，从而
+    \begin{equation}
+        (1 - \xi)f''(\xi) - 2f'(\xi) = 0 \implies f''(\xi) = \frac{2f'(\xi)}{1 - \xi}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{端点导数同号时内点零点的存在性}{Zero-Point-Existence-With-Same-Sign-Derivatives}
+    若函数 $f(x)$ 在 $[a, b]$ 上连续，且 $f(a) = f(b) = 0$，$f'(a)f'(b) > 0$．证明：在 $(a, b)$ 内存在一点 $\xi$，使得 $f(\xi) = 0$．
+\end{problem}
+
+\begin{myproof}
+    由 $f'(a)f'(b) > 0$ 可知，$f'(a)$ 与 $f'(b)$ 同号．
+
+    若 $f'(a) > 0$ 且 $f'(b) > 0$：
+    由导数的定义及保号性，
+    \begin{equation}
+        f'(a) = \lim_{x\to a^+} \frac{f(x) - f(a)}{x - a} = \lim_{x\to a^+} \frac{f(x)}{x - a} > 0,
+    \end{equation}
+    存在 $x_1 \in (a, b)$，使得 $f(x_1) > 0$．
+
+    同理，
+    \begin{equation}
+        f'(b) = \lim_{x\to b^-} \frac{f(x) - f(b)}{x - b} = \lim_{x\to b^-} \frac{f(x)}{x - b} > 0.
+    \end{equation}
+    当 $x \in (a, b)$ 时 $x - b < 0$，故存在 $x_2 \in (a, b)$（满足 $x_1 < x_2$），使得 $f(x_2) < 0$．
+
+    在闭区间 $[x_1, x_2]$ 上，$f(x)$ 连续且 $f(x_1)f(x_2) < 0$．由零点存在定理，存在 $\xi \in (x_1, x_2) \subset (a, b)$，使得
+    \begin{equation}
+        f(\xi) = 0.
+    \end{equation}
+
+    若 $f'(a) < 0$ 且 $f'(b) < 0$：
+    同理可得存在 $x_1 < x_2 \in (a, b)$，使得 $f(x_1) < 0$ 且 $f(x_2) > 0$．由零点存在定理，同样存在 $\xi \in (x_1, x_2) \subset (a, b)$，使得 $f(\xi) = 0$．
+
+    命题得证．
+\end{myproof}
+
+\begin{problem}{非线性导数方程的零点存在性}{Nonlinear-Derivative-Equation-Zero}
+    设 $f(x)$ 在 $[0, 1]$ 上可导，$f(0) = 1, f(1) = \frac{1}{2}$．求证：存在 $\xi \in (0, 1)$，使得
+    \begin{equation}
+        f^2(\xi) + f'(\xi) = 0.
+    \end{equation}
+\end{problem}
+
+% \begin{myproof}
+%     若对一切 $x \in [0, 1]$ 恒有 $f(x) \neq 0$：
+%     构造辅助函数
+%     \begin{equation}
+%         g(x) = \frac{1}{f(x)} - x, \quad x \in [0, 1].
+%     \end{equation}
+%     因为 $f(x)$ 在 $[0, 1]$ 上可导且不为零，所以 $g(x)$ 在 $[0, 1]$ 上连续，在 $(0, 1)$ 内可导．
+
+%     计算两端点处的函数值：
+%     \begin{equation}
+%         g(0) = \frac{1}{f(0)} - 0 = \frac{1}{1} = 1,
+%     \end{equation}
+%     \begin{equation}
+%         g(1) = \frac{1}{f(1)} - 1 = \frac{1}{1/2} - 1 = 1.
+%     \end{equation}
+%     因为 $g(0) = g(1) = 1$，由罗尔定理，在开区间 $(0, 1)$ 内至少存在一点 $\xi$，使得
+%     \begin{equation}
+%         g'(\xi) = 0.
+%     \end{equation}
+%     对 $g(x)$ 求导得
+%     \begin{equation}
+%         g'(x) = -\frac{f'(x)}{f^2(x)} - 1 = -\frac{f'(x) + f^2(x)}{f^2(x)}.
+%     \end{equation}
+%     因此
+%     \begin{equation}
+%         g'(\xi) = 0 \implies f^2(\xi) + f'(\xi) = 0.
+%     \end{equation}
+%     若存在 $x \in (0, 1)$ 使得 $f(x) = 0$：
+%     令 $x_0 = \inf\{x \in [0, 1] \mid f(x) = 0\}$．由 $f(0) = 1 > 0$ 及连续性知 $x_0 \in (0, 1)$，且在 $[0, x_0)$ 上 $f(x) > 0$，$f(x_0) = 0$．
+
+%     在区间 $[0, x_0)$ 上，$g(x) = \frac{1}{f(x)} - x$ 连续，且 $g(0) = 1$，$\lim_{x\to x_0^-} g(x) = +\infty$．
+
+%     由介值定理，存在 $c \in (0, x_0)$ 使得 $g(c) = 1 = g(0)$．在区间 $[0, c]$ 上应用罗尔定理，同样存在 $\xi \in (0, c) \subset (0, 1)$ 满足 $g'(\xi) = 0$，即 $f^2(\xi) + f'(\xi) = 0$．
+% \end{myproof}
+
+\begin{myproof}
+    若对一切 $x \in [0, 1]$ 恒有 $f(x) \neq 0$：
+    构造辅助函数
+    \begin{equation}
+        g(x) = \frac{1}{f(x)} - x, \quad x \in [0, 1].
+    \end{equation}
+    因为 $f(x)$ 在 $[0, 1]$ 上可导且不为零，所以 $g(x)$ 在 $[0, 1]$ 上连续，在 $(0, 1)$ 内可导．
+
+    计算两端点处的函数值：
+    \begin{equation}
+        g(0) = \frac{1}{f(0)} - 0 = \frac{1}{1} = 1,
+    \end{equation}
+    \begin{equation}
+        g(1) = \frac{1}{f(1)} - 1 = \frac{1}{1/2} - 1 = 1.
+    \end{equation}
+    因为 $g(0) = g(1) = 1$，由罗尔定理，在开区间 $(0, 1)$ 内至少存在一点 $\xi$，使得
+    \begin{equation}
+        g'(\xi) = 0.
+    \end{equation}
+    对 $g(x)$ 求导得
+    \begin{equation}
+        g'(x) = -\frac{f'(x)}{f^2(x)} - 1
+        = -\frac{f'(x) + f^2(x)}{f^2(x)}.
+    \end{equation}
+    因此
+    \begin{equation}
+        g'(\xi) = 0 \implies f^2(\xi) + f'(\xi) = 0.
+    \end{equation}
+
+    若存在 $x \in (0, 1)$ 使得 $f(x) = 0$，令
+    \begin{equation}
+        Z = \{x \in (0, 1) \mid f(x) = 0\}.
+    \end{equation}
+    由于 $Z$ 非空，且 $f(x)$ 在 $[0, 1]$ 上连续，所以 $Z$ 为有界闭集．
+    因此存在
+    \begin{equation}
+        \alpha = \min Z,\qquad \beta = \max Z.
+    \end{equation}
+    其中 $0 < \alpha \leqslant \beta < 1$．
+
+    由 $\alpha$ 是 $f(x)$ 在 $(0,1)$ 内的第一个零点，且 $f(0)=1>0$，
+    可知在 $[0,\alpha)$ 上有 $f(x)>0$．因此
+    \begin{equation}
+        f'(\alpha)
+        = \lim_{x\to\alpha^-}\frac{f(x)-f(\alpha)}{x-\alpha}
+        = \lim_{x\to\alpha^-}\frac{f(x)}{x-\alpha}
+        \leqslant 0.
+    \end{equation}
+
+    同理，由 $\beta$ 是 $f(x)$ 在 $(0,1)$ 内的最后一个零点，且
+    $f(1)=\frac12>0$，可知在 $(\beta,1]$ 上有 $f(x)>0$．因此
+    \begin{equation}
+        f'(\beta)
+        = \lim_{x\to\beta^+}\frac{f(x)-f(\beta)}{x-\beta}
+        = \lim_{x\to\beta^+}\frac{f(x)}{x-\beta}
+        \geqslant 0.
+    \end{equation}
+
+    构造辅助函数
+    \begin{equation}
+        F(x) = f(x) + \int_0^x f^2(t)\,\mathrm dt,\quad x\in[0,1].
+    \end{equation}
+    因为 $f(x)$ 在 $[0,1]$ 上可导，所以 $F(x)$ 在 $[0,1]$ 上连续，在 $(0,1)$ 内可导，且
+    \begin{equation}
+        F'(x) = f'(x) + f^2(x).
+    \end{equation}
+
+    由于 $f(\alpha)=f(\beta)=0$，有
+    \begin{equation}
+        F'(\alpha)=f'(\alpha)\leqslant0,\qquad
+        F'(\beta)=f'(\beta)\geqslant0.
+    \end{equation}
+
+    若 $\alpha=\beta$，则
+    \begin{equation}
+        F'(\alpha)=0,
+    \end{equation}
+    取 $\xi=\alpha$ 即可．
+
+    下面设 $\alpha<\beta$．若 $F'(\alpha)=0$ 或 $F'(\beta)=0$，
+    则分别取 $\xi=\alpha$ 或 $\xi=\beta$ 即可．
+
+    现在设
+    \begin{equation}
+        F'(\alpha)<0,\qquad F'(\beta)>0.
+    \end{equation}
+    由导数的定义，存在 $x_1\in(\alpha,\beta)$，使得
+    \begin{equation}
+        F(x_1)<F(\alpha),
+    \end{equation}
+    也存在 $x_2\in(\alpha,\beta)$，使得
+    \begin{equation}
+        F(x_2)<F(\beta).
+    \end{equation}
+    因此，函数 $F(x)$ 在闭区间 $[\alpha,\beta]$ 上的最小值不可能在
+    $\alpha$ 或 $\beta$ 处取得．由最值定理，存在 $\xi\in(\alpha,\beta)$，
+    使得 $F(x)$ 在 $\xi$ 处取得最小值．
+
+    由费马定理，
+    \begin{equation}
+        F'(\xi)=0.
+    \end{equation}
+    从而
+    \begin{equation}
+        f'(\xi)+f^2(\xi)=0.
+    \end{equation}
+    即存在 $\xi\in(0,1)$，使得
+    \begin{equation}
+        f^2(\xi)+f'(\xi)=0.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{凹函数零点的唯一性证明}{Concave-Function-Unique-Zero}
+    设函数 $f(x)$ 在 $[a, +\infty)$ 上二阶可微，且满足 $f(a) > 0, f'(a) < 0$，以及当 $x > a$ 时，$f''(x) \leqslant 0$．试证在区间 $(a, +\infty)$ 内，函数 $f(x)$ 恰有一个零点．
+\end{problem}
+
+\begin{myproof}
+    先证唯一性：
+    因为当 $x > a$ 时 $f''(x) \leqslant 0$，所以导函数 $f'(x)$ 在 $[a, +\infty)$ 上单调递减．结合 $f'(a) < 0$，对一切 $x > a$ 恒有
+    \begin{equation}
+        f'(x) \leqslant f'(a) < 0.
+    \end{equation}
+    故 $f(x)$ 在 $[a, +\infty)$ 上严格单调递减，在 $(a, +\infty)$ 内至多有一个零点．
+
+    再证存在性：
+    对任意 $x > a$，将 $f(x)$ 在 $x = a$ 处按带拉格朗日余项的泰勒公式展开：
+    \begin{equation}
+        f(x) = f(a) + f'(a)(x - a) + \frac{1}{2}f''(\xi)(x - a)^2,
+    \end{equation}
+    其中 $\xi \in (a, x)$．因为 $f''(\xi) \leqslant 0$，所以
+    \begin{equation}
+        f(x) \leqslant f(a) + f'(a)(x - a).
+    \end{equation}
+    取点 $x_1 = a - \frac{f(a)}{f'(a)} + 1$．因为 $f(a) > 0$ 且 $f'(a) < 0$，所以 $x_1 > a$．代入得
+    \begin{equation}
+        f(x_1) \leqslant f(a) + f'(a)\left( -\frac{f(a)}{f'(a)} + 1 \right) = f'(a) < 0.
+    \end{equation}
+    在闭区间 $[a, x_1]$ 上，$f(x)$ 连续且 $f(a) > 0, f(x_1) < 0$．由零点存在定理，存在 $\xi_0 \in (a, x_1) \subset (a, +\infty)$，使得
+    \begin{equation}
+        f(\xi_0) = 0.
+    \end{equation}
+    综上，函数 $f(x)$ 在 $(a, +\infty)$ 内恰有一个零点．
+\end{myproof}
+
+\begin{problem}{导数严格单调函数的函数值估计}{Strictly-Increasing-Derivative-Inequality}
+    设函数 $f(x)$ 在 $[a, b]$ 上可微，$f'(x)$ 严格单调增．若 $f(a) = f(b) = \lambda$，证明：对任意 $x \in (a, b)$，有 $f(x) < \lambda$．
+\end{problem}
+
+\begin{myproof}
+    因为 $f(x)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 内可微，且 $f(a) = f(b) = \lambda$，由罗尔定理，存在 $c \in (a, b)$，使得
+    \begin{equation}
+        f'(c) = 0.
+    \end{equation}
+    因为 $f'(x)$ 在 $[a, b]$ 上严格单调递增，所以：
+    \begin{enumerate}
+        \item 当 $x \in [a, c)$ 时，$f'(x) < f'(c) = 0$，函数 $f(x)$ 在 $[a, c]$ 上严格单调递减，从而对任意 $x \in (a, c]$，有
+              \begin{equation}
+                  f(x) < f(a) = \lambda;
+              \end{equation}
+        \item 当 $x \in (c, b]$ 时，$f'(x) > f'(c) = 0$，函数 $f(x)$ 在 $[c, b]$ 上严格单调递增，从而对任意 $x \in [c, b)$，有
+              \begin{equation}
+                  f(x) < f(b) = \lambda.
+              \end{equation}
+    \end{enumerate}
+    因此，对任意 $x \in (a, b)$，恒有 $f(x) < \lambda$．
+\end{myproof}
+
+\begin{problem}{无穷远处导数极限的存在性与为零性}{Derivative-Limit-At-Infinity}
+    函数 $\frac{\sin x^2}{x}$（$x > 0$）表明，若函数 $f(x)$ 在 $(a, +\infty)$ 上可导，且 $\lim_{x\to +\infty} f(x)$ 存在，不能保证 $\lim_{x\to +\infty} f'(x)$ 存在．证明：若已知这极限存在，则其值必然为零．
+\end{problem}
+
+\begin{myproof}
+    设 $\lim_{x\to +\infty} f(x) = L$（$L$ 为有限常数），且设 $\lim_{x\to +\infty} f'(x) = A$．
+
+    对每个正整数 $n > a$，函数 $f(x)$ 在闭区间 $[n, n+1]$ 上满足拉格朗日中值定理条件，存在 $\xi_n \in (n, n+1)$，使得
+    \begin{equation}
+        f(n+1) - f(n) = f'(\xi_n)(n+1 - n) = f'(\xi_n).
+    \end{equation}
+    当 $n \to \infty$ 时，因为 $\xi_n > n$，所以 $\lim_{n\to\infty} \xi_n = +\infty$．
+
+    由已知 $\lim_{x\to +\infty} f'(x) = A$ 及海涅归结原则，有
+    \begin{equation}
+        \lim_{n\to\infty} f'(\xi_n) = A.
+    \end{equation}
+    另一方面，利用函数本身的极限性质，有
+    \begin{equation}
+        \lim_{n\to\infty} [f(n+1) - f(n)] = \lim_{n\to\infty} f(n+1) - \lim_{n\to\infty} f(n) = L - L = 0.
+    \end{equation}
+    因此
+    \begin{equation}
+        A = \lim_{n\to\infty} f'(\xi_n) = \lim_{n\to\infty} [f(n+1) - f(n)] = 0.
+    \end{equation}
+    故若 $\lim_{x\to +\infty} f'(x)$ 存在，其值必为零．
+\end{myproof}
+
+\begin{problem}{严格下凹函数的次可加性}{Strict-Subadditivity-Of-Concave-Function}
+    设函数 $f(x)$ 在 $x >= 0$ 时连续，在 $x > 0$ 时二阶可微，且 $f''(x) < 0, f(0) = 0$．证明：对任意正数 $x_1, x_2$，有 $f(x_1 + x_2) < f(x_1) + f(x_2)$．
+\end{problem}
+
+\begin{myproof}
+    考虑辅助函数
+    \begin{equation}
+        g(t) = \frac{f(t)}{t}, \quad t \in (0, +\infty).
+    \end{equation}
+    对 $g(t)$ 求导，得
+    \begin{equation}
+        g'(t) = \frac{t f'(t) - f(t)}{t^2}.
+    \end{equation}
+    对任意 $t > 0$，在闭区间 $[0, t]$ 上应用拉格朗日中值定理，由 $f(0) = 0$，存在 $\xi \in (0, t)$，使得
+    \begin{equation}
+        f(t) = f(t) - f(0) = f'(\xi)t.
+    \end{equation}
+    代入导数式中，得
+    \begin{equation}
+        g'(t) = \frac{t f'(t) - t f'(\xi)}{t^2} = \frac{f'(t) - f'(\xi)}{t}.
+    \end{equation}
+    因为 $f''(x) < 0$，导函数 $f'(x)$ 在 $(0, +\infty)$ 上严格单调递减．结合 $0 < \xi < t$，有
+    \begin{equation}
+        f'(t) < f'(\xi) \implies g'(t) < 0.
+    \end{equation}
+    因此，函数 $g(t) = \frac{f(t)}{t}$ 在 $(0, +\infty)$ 上严格单调递减．
+
+    对任意正数 $x_1, x_2 > 0$，因为 $x_1 < x_1 + x_2$ 且 $x_2 < x_1 + x_2$，由严格单调递减性：
+    \begin{equation}
+        \frac{f(x_1 + x_2)}{x_1 + x_2} < \frac{f(x_1)}{x_1} \implies \frac{x_1}{x_1 + x_2} f(x_1 + x_2) < f(x_1),
+    \end{equation}
+    \begin{equation}
+        \frac{f(x_1 + x_2)}{x_1 + x_2} < \frac{f(x_2)}{x_2} \implies \frac{x_2}{x_1 + x_2} f(x_1 + x_2) < f(x_2).
+    \end{equation}
+    将两式相加，即得
+    \begin{equation}
+        \left( \frac{x_1 + x_2}{x_1 + x_2} \right) f(x_1 + x_2) < f(x_1) + f(x_2) \implies f(x_1 + x_2) < f(x_1) + f(x_2).
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{二阶对称差商的极限}{Second-Order-Symmetric-Difference-Quotient}
+    设函数 $f(x)$ 在 $x_0$ 处存在二阶导数，求
+    \begin{equation}
+        \lim_{h\to 0} \frac{f(x_0 + h) + f(x_0 - h) - 2f(x_0)}{h^2}.
+    \end{equation}
+\end{problem}
+
+\begin{solution}
+    因为函数 $f(x)$ 在 $x_0$ 处具有二阶导数，将 $f(x_0 + h)$ 与 $f(x_0 - h)$ 分别在点 $x_0$ 处展开为带 Peano 余项的二阶泰勒公式：
+    \begin{equation}
+        f(x_0 + h) = f(x_0) + f'(x_0)h + \frac{1}{2}f''(x_0)h^2 + o(h^2) \quad (h \to 0),
+    \end{equation}
+    \begin{equation}
+        f(x_0 - h) = f(x_0) - f'(x_0)h + \frac{1}{2}f''(x_0)h^2 + o(h^2) \quad (h \to 0).
+    \end{equation}
+    将两式相加，得
+    \begin{equation}
+        f(x_0 + h) + f(x_0 - h) = 2f(x_0) + f''(x_0)h^2 + o(h^2).
+    \end{equation}
+    移项并除以 $h^2$，得
+    \begin{equation}
+        \frac{f(x_0 + h) + f(x_0 - h) - 2f(x_0)}{h^2} = f''(x_0) + \frac{o(h^2)}{h^2}.
+    \end{equation}
+    取 $h \to 0$ 的极限，即得
+    \begin{equation}
+        \lim_{h\to 0} \frac{f(x_0 + h) + f(x_0 - h) - 2f(x_0)}{h^2} = f''(x_0).
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{h\to 0} \frac{f(x_0 + h) + f(x_0 - h) - 2f(x_0)}{h^2} = f''(x_0).}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{泰勒公式与凸性证明不等式}{Taylor-Expansion-And-Convexity-Inequalities}
+    证明下列不等式：
+    \begin{enumerate}
+        \item 对任意实数 $x$，$\e^x \geqslant 1 + x + \frac{x^2}{2} + \frac{x^3}{6}$；
+        \item 对 $x > 0$，$x - \frac{x^2}{2} \leqslant \ln(1 + x) \leqslant x - \frac{x^2}{2} + \frac{x^3}{3}$；
+        \item 对 $0 < x < \frac{\uppi}{2}$，$x - \frac{x^3}{6} < \sin x < x - \frac{x^3}{6} + \frac{x^5}{120}$；
+        \item 对任意实数 $x, y$，有 $2\e^{\frac{x+y}{2}} \leqslant \e^x + \e^y$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    将函数 $f(t) = \e^t$ 在 $t = 0$ 处展开为带拉格朗日余项的三阶泰勒公式：
+    \begin{equation}
+        \e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \frac{\e^\xi}{24}x^4,
+    \end{equation}
+    其中 $\xi$ 介于 $0$ 与 $x$ 之间．
+
+    因为对任意实数 $\xi$ 恒有 $\e^\xi > 0$，且 $x^4 \geqslant 0$，所以余项满足
+    \begin{equation}
+        \frac{\e^\xi}{24}x^4 \geqslant 0.
+    \end{equation}
+    故对任意实数 $x$，恒有
+    \begin{equation}
+        \e^x \geqslant 1 + x + \frac{x^2}{2} + \frac{x^3}{6}.
+    \end{equation}
+
+    \ansitem{2}
+
+    将函数 $g(t) = \ln(1 + t)$ 在 $t = 0$ 处分别展开为带拉格朗日余项的二阶与三阶泰勒公式：
+    \begin{equation}
+        \ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3(1 + \xi_1)^3}, \quad \xi_1 \in (0, x),
+    \end{equation}
+    \begin{equation}
+        \ln(1 + x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4(1 + \xi_2)^4}, \quad \xi_2 \in (0, x).
+    \end{equation}
+    当 $x > 0$ 时，$\xi_1, \xi_2 > 0$，故 $\frac{x^3}{3(1 + \xi_1)^3} > 0$ 且 $\frac{x^4}{4(1 + \xi_2)^4} > 0$．
+
+    从而有
+    \begin{equation}
+        x - \frac{x^2}{2} < \ln(1 + x) < x - \frac{x^2}{2} + \frac{x^3}{3}.
+    \end{equation}
+
+    \ansitem{3}
+
+    将函数 $h(t) = \sin t$ 在 $t = 0$ 处分别展开为带拉格朗日余项的四阶与六阶泰勒公式：
+    \begin{equation}
+        \sin x = x - \frac{x^3}{6} + \frac{\cos\xi_1}{120}x^5, \quad \xi_1 \in (0, x),
+    \end{equation}
+    \begin{equation}
+        \sin x = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{\cos\xi_2}{5040}x^7, \quad \xi_2 \in (0, x).
+    \end{equation}
+    当 $0 < x < \frac{\uppi}{2}$ 时，$\xi_1, \xi_2 \in \left(0, \frac{\uppi}{2}\right)$，故 $\cos\xi_1 > 0$ 且 $\cos\xi_2 > 0$．
+
+    从而有
+    \begin{equation}
+        x - \frac{x^3}{6} < \sin x < x - \frac{x^3}{6} + \frac{x^5}{120}.
+    \end{equation}
+
+    \ansitem{4}
+
+    考虑指数函数 $\varphi(t) = \e^t$（$t \in \symbb{R}$）．求导得
+    \begin{equation}
+        \varphi''(t) = \e^t > 0,
+    \end{equation}
+    故 $\varphi(t)$ 在 $\symbb{R}$ 上为严格下凸函数．
+
+    由中点凸性不等式，对任意实数 $x, y$，有
+    \begin{equation}
+        \varphi\left( \frac{x + y}{2} \right) \leqslant \frac{\varphi(x) + \varphi(y)}{2} \implies \e^{\frac{x+y}{2}} \leqslant \frac{\e^x + \e^y}{2}.
+    \end{equation}
+    两端同乘以 $2$，即得
+    \begin{equation}
+        2\e^{\frac{x+y}{2}} \leqslant \e^x + \e^y.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{连乘积数列的极限求解}{Limit-Of-Product-Sequence}
+    求 $\lim_{n\to\infty} \left( 1 + \frac{1}{n^2} \right)\left( 1 + \frac{2}{n^2} \right)\cdots\left( 1 + \frac{n}{n^2} \right)$．
+\end{problem}
+
+\begin{solution}
+    记数列通项为 $P_n = \prod_{k=1}^n \left( 1 + \frac{k}{n^2} \right)$．取自然对数，得
+    \begin{equation}
+        \ln P_n = \sum_{k=1}^n \ln\left( 1 + \frac{k}{n^2} \right).
+    \end{equation}
+    利用对数不等式 $t - \frac{t^2}{2} \leqslant \ln(1 + t) \leqslant t$（$t \geqslant 0$），对每一项放缩：
+    \begin{equation}
+        \sum_{k=1}^n \left( \frac{k}{n^2} - \frac{k^2}{2n^4} \right) \leqslant \ln P_n \leqslant \sum_{k=1}^n \frac{k}{n^2}.
+    \end{equation}
+    计算各项求和：
+    \begin{equation}
+        \sum_{k=1}^n \frac{k}{n^2} = \frac{n(n+1)}{2n^2} = \frac{1}{2} + \frac{1}{2n},
+    \end{equation}
+    \begin{equation}
+        \sum_{k=1}^n \frac{k^2}{2n^4} = \frac{n(n+1)(2n+1)}{12n^4}.
+    \end{equation}
+    取 $n \to \infty$ 的极限：
+    \begin{equation}
+        \lim_{n\to\infty} \sum_{k=1}^n \frac{k}{n^2} = \frac{1}{2}, \qquad \lim_{n\to\infty} \sum_{k=1}^n \frac{k^2}{2n^4} = 0.
+    \end{equation}
+    由夹逼准则，得
+    \begin{equation}
+        \lim_{n\to\infty} \ln P_n = \frac{1}{2}.
+    \end{equation}
+    由指数函数的连续性，原极限为
+    \begin{equation}
+        \lim_{n\to\infty} P_n = \e^{1/2} = \sqrt{\e}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \left( 1 + \frac{1}{n^2} \right)\left( 1 + \frac{2}{n^2} \right)\cdots\left( 1 + \frac{n}{n^2} \right) = \sqrt{\e}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{根号数列的最大值}{Maximum-Of-Nth-Root-Sequence}
+    求 $\sqrt[n]{n}$（$n = 1, 2, \cdots$）的最大值．
+\end{problem}
+
+\begin{solution}
+    考虑连续函数 $f(x) = x^{1/x} = \exp\left( \frac{\ln x}{x} \right)$（$x > 0$）．求导得
+    \begin{equation}
+        f'(x) = x^{1/x} \left( \frac{1 - \ln x}{x^2} \right).
+    \end{equation}
+    令 $f'(x) = 0$，解得唯一驻点 $x = \e \approx 2.718$．
+    \begin{enumerate}
+        \item 当 $x \in (0, \e)$ 时，$f'(x) > 0$，$f(x)$ 严格单调递增；
+        \item 当 $x \in (\e, +\infty)$ 时，$f'(x) < 0$，$f(x)$ 严格单调递减．
+    \end{enumerate}
+    因此数列 $a_n = \sqrt[n]{n}$ 的最大值必在最靠近 $\e$ 的正整数 $n = 2$ 或 $n = 3$ 处取得．
+
+    比较两项的大小：
+    \begin{equation}
+        a_2 = \sqrt{2} = 2^{1/2} = 8^{1/6}, \qquad a_3 = \sqrt[3]{3} = 3^{1/3} = 9^{1/6}.
+    \end{equation}
+    因为 $9^{1/6} > 8^{1/6}$，所以 $a_3 > a_2$．
+
+    又当 $n = 1$ 时 $a_1 = 1 < \sqrt[3]{3}$；当 $n \geqslant 4$ 时由单调递减性恒有 $a_n \leqslant a_4 = \sqrt{2} < \sqrt[3]{3}$．
+
+    故数列的最大值为 $\sqrt[3]{3}$（在 $n = 3$ 处取得）．
+    \begin{equation}
+        \boxed{\max_{n\in\symbb{N}^+} \sqrt[n]{n} = \sqrt[3]{3}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{三角乘积函数的上界估计}{Upper-Bound-Estimation-Of-Trigonometric-Product}
+    试给出函数 $x \cos x$ 在 $\left[0, \frac{\uppi}{2}\right]$ 上的一个尽可能小的上界．
+\end{problem}
+
+\begin{solution}
+    设函数 $f(x) = x \cos x$（$x \in \left[0, \frac{\uppi}{2}\right]$）．求导得
+    \begin{equation}
+        f'(x) = \cos x - x \sin x = \cos x (1 - x \tan x).
+    \end{equation}
+    令 $g(x) = x \tan x - 1$（$x \in \left[0, \frac{\uppi}{2}\right)$）．因为 $g'(x) = \tan x + x\sec^2 x > 0$（$x > 0$），$g(0) = -1 < 0$ 且 $\lim_{x\to \frac{\uppi}{2}^-} g(x) = +\infty$，所以方程
+    \begin{equation}
+        x \tan x = 1 \quad \left(\text{即 } \cot x = x\right)
+    \end{equation}
+    在 $\left(0, \frac{\uppi}{2}\right)$ 内存在唯一的实根 $x_0$（数值约为 $x_0 \approx 0.8603$）．
+
+    当 $x \in [0, x_0)$ 时 $f'(x) > 0$；当 $x \in \left(x_0, \frac{\uppi}{2}\right]$ 时 $f'(x) < 0$．
+
+    故函数 $f(x)$ 在 $x = x_0$ 处取得闭区间 $\left[0, \frac{\uppi}{2}\right]$ 上的最大值（即最小上界）：
+    \begin{equation}
+        \begin{aligned}
+            \max_{x\in\left[0, \frac{\uppi}{2}\right]} f(x) & = f(x_0) = x_0 \cos x_0 = \frac{x_0}{\sqrt{1 + \tan^2 x_0}}                             \\
+                                                            & = \frac{x_0}{\sqrt{1 + \frac{1}{x_0^2}}} = \frac{x_0^2}{\sqrt{1 + x_0^2}} = \cos^2 x_0.
+        \end{aligned}
+    \end{equation}
+    其数值约为 $\frac{(0.8603)^2}{\sqrt{1 + (0.8603)^2}} \approx 0.5611$．
+    \begin{equation}
+        \boxed{\frac{x_0^2}{\sqrt{1 + x_0^2}} \quad \left(\text{其中 } x_0 \text{ 为方程 } x \tan x = 1 \text{ 在 } \left(0, \frac{\uppi}{2}\right) \text{ 内的唯一实根，约等于 } 0.5611\right).}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{高阶导数中值定理的应用}{Higher-Order-Derivative-MVT-Application}
+    设函数 $f(x)$ 在闭区间 $[-1, 1]$ 上具有三阶连续导数，且 $f(-1) = 0, f(1) = 1, f'(0) = 0$．证明：存在 $\xi \in (-1, 1)$，使得 $f'''(\xi) = 3$．
+\end{problem}
+
+\begin{myproof}
+    将函数 $f(x)$ 在 $x = 0$ 处分别向点 $x = 1$ 与 $x = -1$ 作带拉格朗日余项的三阶泰勒展开：
+    \begin{equation}
+        f(1) = f(0) + f'(0)(1) + \frac{f''(0)}{2!}(1)^2 + \frac{f'''(\xi_1)}{3!}(1)^3, \quad \xi_1 \in (0, 1),
+    \end{equation}
+    \begin{equation}
+        f(-1) = f(0) + f'(0)(-1) + \frac{f''(0)}{2!}(-1)^2 + \frac{f'''(\xi_2)}{3!}(-1)^3, \quad \xi_2 \in (-1, 0).
+    \end{equation}
+    将已知条件 $f(1) = 1$，$f(-1) = 0$ 以及 $f'(0) = 0$ 代入上述两式，得
+    \begin{equation}
+        1 = f(0) + \frac{f''(0)}{2} + \frac{f'''(\xi_1)}{6},
+    \end{equation}
+    \begin{equation}
+        0 = f(0) + \frac{f''(0)}{2} - \frac{f'''(\xi_2)}{6}.
+    \end{equation}
+    两式相减，消去 $f(0)$ 与 $f''(0)$，得
+    \begin{equation}
+        1 - 0 = \frac{f'''(\xi_1) + f'''(\xi_2)}{6} \implies \frac{f'''(\xi_1) + f'''(\xi_2)}{2} = 3.
+    \end{equation}
+    因为 $f'''(x)$ 在闭区间 $[-1, 1]$ 上连续，由介值定理，在 $\xi_2$ 与 $\xi_1$ 之间必存在一点 $\xi \in (\xi_2, \xi_1) \subset (-1, 1)$，使得
+    \begin{equation}
+        f'''(\xi) = \frac{f'''(\xi_1) + f'''(\xi_2)}{2} = 3.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{正值可微函数的导数与函数值估计}{Derivative-And-Function-Value-Sequence}
+    设 $a > 1$，函数 $f : (0, +\infty) \to (0, +\infty)$ 可微．求证存在趋于无穷的正数列 $\{x_n\}$ 使得
+    \begin{equation}
+        f'(x_n) < f(ax_n), \quad n = 1, 2, \cdots.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    采用反证法．若结论不成立，则存在充分大的正数 $M > 0$，使得当 $x > M$ 时，恒有
+    \begin{equation}
+        f'(x) \geqslant f(ax).
+    \end{equation}
+    因为函数值域为 $(0, +\infty)$，所以当 $x > M$ 时，
+    \begin{equation}
+        f'(x) \geqslant f(ax) > 0.
+    \end{equation}
+    故函数 $f(x)$ 在区间 $(M, +\infty)$ 上严格单调递增．
+
+    取定点 $x_0 > M$．对任意非负整数 $k \in \symbb{N}$，在闭区间 $[a^k x_0, a^{k+1} x_0]$ 上应用拉格朗日中值定理，存在 $\xi_k \in (a^k x_0, a^{k+1} x_0)$，使得
+    \begin{equation}
+        f(a^{k+1} x_0) - f(a^k x_0) = f'(\xi_k)(a^{k+1} x_0 - a^k x_0) = f'(\xi_k)(a - 1)a^k x_0.
+    \end{equation}
+    由反证假设及单调递增性，由于 $a\xi_k > a^{k+1} x_0 > M$，有
+    \begin{equation}
+        f'(\xi_k) \geqslant f(a\xi_k) \geqslant f(a^{k+1} x_0).
+    \end{equation}
+    代入得
+    \begin{equation}
+        f(a^{k+1} x_0) - f(a^k x_0) \geqslant f(a^{k+1} x_0)(a - 1)a^k x_0.
+    \end{equation}
+    因为 $a > 1$ 且 $x_0 > 0$，所以 $\lim_{k\to\infty} (a - 1)a^k x_0 = +\infty$．
+
+    取充分大的正整数 $k_0$，使得 $(a - 1)a^{k_0} x_0 > 1$．此时
+    \begin{equation}
+        f(a^{k_0+1} x_0) - f(a^{k_0} x_0) > f(a^{k_0+1} x_0) \implies -f(a^{k_0} x_0) > 0 \implies f(a^{k_0} x_0) < 0,
+    \end{equation}
+    这与 $f(x) > 0$（$\forall x > 0$）的题设条件产生矛盾．
+
+    故假设不成立，必存在趋于无穷的正数列 $\{x_n\}$ 满足 $f'(x_n) < f(ax_n)$（$n = 1, 2, \cdots$）．
+\end{myproof}
+
+\begin{problem}{Hölder 不等式的凸函数证明}{Holder-Inequality-Proof-Via-Convexity}
+    利用凸函数的性质证明 Hölder 不等式：设 $\{a_i\}, \{b_i\}$，$i = 1, 2, \cdots, n$ 是正数．$p, q$ 是大于 $1$ 的正数，且 $\frac{1}{p} + \frac{1}{q} = 1$，则有
+    \begin{equation}
+        \sum_{i=1}^n a_i b_i \leqslant \left( \sum_{i=1}^n a_i^p \right)^{\frac{1}{p}} \left( \sum_{i=1}^n b_i^q \right)^{\frac{1}{q}}.
+    \end{equation}
+    （提示：考虑函数 $f(x) = x^p$．）
+\end{problem}
+
+\begin{myproof}
+    先证明 Young 不等式：考虑函数 $f(x) = -\ln x$（$x > 0$），由 $f''(x) = \frac{1}{x^2} > 0$ 知 $f(x)$ 在 $(0, +\infty)$ 上为严格凸函数．
+
+    对任意正数 $u, v > 0$，利用凸性：
+    \begin{equation}
+        -\ln\left( \frac{1}{p}u^p + \frac{1}{q}v^q \right) \leqslant \frac{1}{p}(-\ln u^p) + \frac{1}{q}(-\ln v^q) = -\ln(uv).
+    \end{equation}
+    取指数即得 Young 不等式：
+    \begin{equation}
+        uv \leqslant \frac{u^p}{p} + \frac{v^q}{q}.
+    \end{equation}
+    令常数
+    \begin{equation}
+        A = \left( \sum_{i=1}^n a_i^p \right)^{\frac{1}{p}}, \qquad B = \left( \sum_{i=1}^n b_i^q \right)^{\frac{1}{q}}.
+    \end{equation}
+    令归一化变量 $u_i = \frac{a_i}{A}$，$v_i = \frac{b_i}{B}$（$i = 1, 2, \cdots, n$），此时显然有
+    \begin{equation}
+        \sum_{i=1}^n u_i^p = \frac{\sum_{i=1}^n a_i^p}{A^p} = 1, \qquad \sum_{i=1}^n v_i^q = \frac{\sum_{i=1}^n b_i^q}{B^q} = 1.
+    \end{equation}
+    对每对 $u_i, v_i$ 应用 Young 不等式：
+    \begin{equation}
+        u_i v_i \leqslant \frac{u_i^p}{p} + \frac{v_i^q}{q}.
+    \end{equation}
+    对 $i = 1, 2, \cdots, n$ 求和，得
+    \begin{equation}
+        \sum_{i=1}^n u_i v_i \leqslant \frac{1}{p}\sum_{i=1}^n u_i^p + \frac{1}{q}\sum_{i=1}^n v_i^q = \frac{1}{p}(1) + \frac{1}{q}(1) = 1.
+    \end{equation}
+    将 $u_i = \frac{a_i}{A}$ 与 $v_i = \frac{b_i}{B}$ 代入，得
+    \begin{equation}
+        \frac{\sum_{i=1}^n a_i b_i}{AB} \leqslant 1 \implies \sum_{i=1}^n a_i b_i \leqslant AB.
+    \end{equation}
+    即
+    \begin{equation}
+        \sum_{i=1}^n a_i b_i \leqslant \left( \sum_{i=1}^n a_i^p \right)^{\frac{1}{p}} \left( \sum_{i=1}^n b_i^q \right)^{\frac{1}{q}}.
+    \end{equation}
+\end{myproof}
+
+\endinput

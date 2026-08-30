@@ -1,0 +1,539 @@
+\section{Taylor 展开}
+
+\begin{problem}{麦克劳林展开式的计算}{Maclaurin-Expansion-Calculations}
+    写出下列函数的（具有 Peano 余项的）Maclaurin 展开式：
+    \begin{enumerate}
+        \item $y = \frac{x^3 + 2x + 1}{x - 1}$；
+        \item $\sin^2 x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    对原式作多项式除法变形：
+    \begin{equation}
+        y = \frac{(x^3 - 1) + 2(x - 1) + 4}{x - 1} = x^2 + x + 3 - \frac{4}{1 - x}.
+    \end{equation}
+    利用几何级数的展开式 $\frac{1}{1 - x} = \sum_{k=0}^n x^k + o(x^n)$，当 $n \geqslant 2$ 时，有
+    \begin{equation}
+        \begin{aligned}
+            y & = x^2 + x + 3 - 4 \sum_{k=0}^n x^k + o(x^n)    \\
+              & = -1 - 3x - 3x^2 - 4\sum_{k=3}^n x^k + o(x^n).
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{y = -1 - 3x - 3x^2 - 4x^3 - \cdots - 4x^n + o(x^n) \quad (n \geqslant 2).}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用降幂公式及余弦函数的麦克劳林展开式：
+    \begin{equation}
+        \begin{aligned}
+            \sin^2 x & = \frac{1 - \cos 2x}{2}                                                                    \\
+                     & = \frac{1}{2} \left[ 1 - \sum_{k=0}^n \frac{(-1)^k (2x)^{2k}}{(2k)!} + o(x^{2n+1}) \right] \\
+                     & = \sum_{k=1}^n \frac{(-1)^{k-1} 2^{2k-1}}{(2k)!} x^{2k} + o(x^{2n+1}).
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\sin^2 x = x^2 - \frac{1}{3}x^4 + \frac{2}{45}x^6 - \cdots + \frac{(-1)^{n-1} 2^{2n-1}}{(2n)!} x^{2n} + o(x^{2n+1}).}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{复合函数的麦克劳林展开}{Composite-Maclaurin-Expansion}
+    求出函数 $\e^{\sin x}$ 的（具有 Peano 余项的）三阶 Maclaurin 展开．
+\end{problem}
+
+\begin{solution}
+    正弦函数的三阶麦克劳林公式为
+    \begin{equation}
+        \sin x = x - \frac{x^3}{6} + o(x^3).
+    \end{equation}
+    指数函数的三阶麦克劳林公式为
+    \begin{equation}
+        \e^u = 1 + u + \frac{u^2}{2} + \frac{u^3}{6} + o(u^3).
+    \end{equation}
+    令 $u = \sin x = x - \frac{x^3}{6} + o(x^3)$，计算各次幂：
+    \begin{equation}
+        u^2 = \left( x - \frac{x^3}{6} + o(x^3) \right)^2 = x^2 + o(x^3),
+    \end{equation}
+    \begin{equation}
+        u^3 = \left( x + o(x) \right)^3 = x^3 + o(x^3).
+    \end{equation}
+    代入指数展开式中，得
+    \begin{equation}
+        \begin{aligned}
+            \e^{\sin x} & = 1 + \left( x - \frac{x^3}{6} + o(x^3) \right) + \frac{1}{2}\left( x^2 + o(x^3) \right) + \frac{1}{6}\left( x^3 + o(x^3) \right) + o(x^3) \\
+                        & = 1 + x + \frac{1}{2}x^2 + \left( -\frac{1}{6} + \frac{1}{6} \right)x^3 + o(x^3)                                                           \\
+                        & = 1 + x + \frac{1}{2}x^2 + o(x^3).
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\e^{\sin x} = 1 + x + \frac{1}{2}x^2 + o(x^3).}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{对数三角函数的麦克劳林展开}{Log-Cosine-Maclaurin-Expansion}
+    求出函数 $\ln\cos x$ 的（具有 Peano 余项的）六阶 Maclaurin 展开．
+\end{problem}
+
+\begin{solution}
+    余弦函数的六阶麦克劳林公式为
+    \begin{equation}
+        \cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + o(x^6).
+    \end{equation}
+    对数函数的麦克劳林公式为
+    \begin{equation}
+        \ln(1 + u) = u - \frac{u^2}{2} + \frac{u^3}{3} + o(u^3).
+    \end{equation}
+    令 $u = \cos x - 1 = -\frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} + o(x^6)$，计算各次幂：
+    \begin{equation}
+        u^2 = \left( -\frac{x^2}{2} + \frac{x^4}{24} \right)^2 + o(x^6) = \frac{x^4}{4} - \frac{x^6}{24} + o(x^6),
+    \end{equation}
+    \begin{equation}
+        u^3 = \left( -\frac{x^2}{2} \right)^3 + o(x^6) = -\frac{x^6}{8} + o(x^6).
+    \end{equation}
+    代入展开式中，得
+    \begin{equation}
+        \begin{aligned}
+            \ln\cos x & = \left( -\frac{x^2}{2} + \frac{x^4}{24} - \frac{x^6}{720} \right) - \frac{1}{2}\left( \frac{x^4}{4} - \frac{x^6}{24} \right) + \frac{1}{3}\left( -\frac{x^6}{8} \right) + o(x^6) \\
+                      & = -\frac{1}{2}x^2 + \left( \frac{1}{24} - \frac{1}{8} \right)x^4 + \left( -\frac{1}{720} + \frac{1}{48} - \frac{1}{24} \right)x^6 + o(x^6)                                        \\
+                      & = -\frac{1}{2}x^2 - \frac{1}{12}x^4 - \frac{1}{45}x^6 + o(x^6).
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\ln\cos x = -\frac{1}{2}x^2 - \frac{1}{12}x^4 - \frac{1}{45}x^6 + o(x^6).}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{泰勒公式确定多项式及其导数值}{Polynomial-Via-Taylor-Expansion}
+    已知 $f(x)$ 是一个四次多项式，并且 $f(2) = -1$，$f'(2) = 0$，$f''(2) = 2$，$f'''(2) = -12$，$f^{(4)}(2) = 24$．计算 $f(-1)$，$f'(0)$，$f''(1)$．
+\end{problem}
+
+\begin{solution}
+    将四次多项式 $f(x)$ 在 $x = 2$ 处作精确泰勒展开：
+    \begin{equation}
+        \begin{aligned}
+            f(x) & = f(2) + f'(2)(x-2) + \frac{f''(2)}{2!}(x-2)^2 + \frac{f'''(2)}{3!}(x-2)^3 + \frac{f^{(4)}(2)}{4!}(x-2)^4 \\
+                 & = -1 + 0 \cdot (x-2) + \frac{2}{2}(x-2)^2 + \frac{-12}{6}(x-2)^3 + \frac{24}{24}(x-2)^4                   \\
+                 & = -1 + (x-2)^2 - 2(x-2)^3 + (x-2)^4.
+        \end{aligned}
+    \end{equation}
+    对多项式逐阶求导：
+    \begin{equation}
+        f'(x) = 2(x-2) - 6(x-2)^2 + 4(x-2)^3,
+    \end{equation}
+    \begin{equation}
+        f''(x) = 2 - 12(x-2) + 12(x-2)^2.
+    \end{equation}
+    分别代入各指定点计算：
+    \begin{enumerate}
+        \item 计算 $f(-1)$：令 $x - 2 = -3$，得
+              \begin{equation}
+                  f(-1) = -1 + (-3)^2 - 2(-3)^3 + (-3)^4 = -1 + 9 + 54 + 81 = 143;
+              \end{equation}
+        \item 计算 $f'(0)$：令 $x - 2 = -2$，得
+              \begin{equation}
+                  f'(0) = 2(-2) - 6(-2)^2 + 4(-2)^3 = -4 - 24 - 32 = -60;
+              \end{equation}
+        \item 计算 $f''(1)$：令 $x - 2 = -1$，得
+              \begin{equation}
+                  f''(1) = 2 - 12(-1) + 12(-1)^2 = 2 + 12 + 12 = 26.
+              \end{equation}
+    \end{enumerate}
+    \begin{equation}
+        \boxed{f(-1) = 143, \quad f'(0) = -60, \quad f''(1) = 26.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{带拉格朗日余项的泰勒公式}{Taylor-Formula-With-Lagrange-Remainder}
+    求下列函数具有 Lagrange 型余项的 Taylor 公式：
+    \begin{enumerate}
+        \item $y = \tan x$ 在 $x = 0$ 的二阶 Taylor 展开式；
+        \item $y = \frac{1}{x}$ 在 $x = -1$ 的 $n$ 阶 Taylor 展开式．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    计算各阶导数：
+    \begin{equation}
+        f(x) = \tan x \implies f(0) = 0,
+    \end{equation}
+    \begin{equation}
+        f'(x) = \sec^2 x \implies f'(0) = 1,
+    \end{equation}
+    \begin{equation}
+        f''(x) = 2\sec^2 x \tan x \implies f''(0) = 0,
+    \end{equation}
+    \begin{equation}
+        f'''(x) = 4\sec^2 x \tan^2 x + 2\sec^4 x = 2\sec^2 x (3\tan^2 x + 1).
+    \end{equation}
+    带拉格朗日余项的二阶泰勒展开式为
+    \begin{equation}
+        f(x) = f(0) + f'(0)x + \frac{f''(0)}{2!}x^2 + \frac{f'''(\xi)}{3!}x^3 = x + \frac{1}{3}\sec^2 \xi (3\tan^2 \xi + 1)x^3,
+    \end{equation}
+    其中 $x \in \left(-\frac{\pi}{2},\frac{\pi}{2}\right)$，
+    且 $\xi$ 介于 $0$ 与 $x$ 之间．
+    \begin{equation}
+        \boxed{
+            \tan x = x + \frac{1}{3}\sec^2 \xi (3\tan^2 \xi + 1)x^3,
+            \quad
+            x \in \left(-\frac{\pi}{2},\frac{\pi}{2}\right),
+            \quad
+            \xi \text{ 介于 } 0 \text{ 与 } x \text{ 之间}.
+        }
+    \end{equation}
+
+    \ansitem{2}
+
+    计算函数的各阶导数：
+    \begin{equation}
+        f^{(k)}(x) = \frac{(-1)^k k!}{x^{k+1}} \implies f^{(k)}(-1) = \frac{(-1)^k k!}{(-1)^{k+1}} = -k!,
+    \end{equation}
+    \begin{equation}
+        f^{(n+1)}(\xi) = \frac{(-1)^{n+1}(n+1)!}{\xi^{n+2}}.
+    \end{equation}
+    带拉格朗日余项的 $n$ 阶泰勒展开式为
+    \begin{equation}
+        \begin{aligned}
+            f(x) & = \sum_{k=0}^n \frac{f^{(k)}(-1)}{k!}(x + 1)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x + 1)^{n+1} \\
+                 & = -\sum_{k=0}^n (x + 1)^k + \frac{(-1)^{n+1}}{\xi^{n+2}}(x + 1)^{n+1},
+        \end{aligned}
+    \end{equation}
+    其中 $x<0$，且 $\xi$ 介于 $-1$ 与 $x$ 之间．
+    \begin{equation}
+        \boxed{
+            \frac{1}{x}
+            =
+            -\sum_{k=0}^n (x+1)^k
+            +
+            \frac{(-1)^{n+1}}{\xi^{n+2}}(x+1)^{n+1},
+            \quad
+            x<0,
+            \quad
+            \xi \text{ 介于 } -1 \text{ 与 } x \text{ 之间}.
+        }
+    \end{equation}
+\end{solution}
+
+\begin{problem}{利用泰勒公式求极限}{Limits-Via-Taylor-Expansion}
+    求下列极限：
+    \begin{enumerate}
+        \item $\lim_{x\to 0} \frac{\cos x - \e^{-\frac{1}{2}x^2}}{\sin^4 x}$；
+        \item $\lim_{x\to 0} \frac{\sqrt[4]{1+x^2} - \sqrt[4]{1-x^2}}{x^2}$；
+        \item $\lim_{x\to\infty} \left[ x - x^2 \ln\left(1 + \frac{1}{x}\right) \right]$；
+        \item $\lim_{x\to 0} \frac{\cos(\sin x) - \cos x}{\sin^4 x}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    分母等价于 $\sin^4 x \sim x^4$．分子展开至 $x^4$ 项：
+    \begin{equation}
+        \cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} + o(x^4),
+    \end{equation}
+    \begin{equation}
+        \e^{-\frac{1}{2}x^2} = 1 - \frac{x^2}{2} + \frac{1}{2}\left( -\frac{x^2}{2} \right)^2 + o(x^4) = 1 - \frac{x^2}{2} + \frac{x^4}{8} + o(x^4).
+    \end{equation}
+    两式相减得
+    \begin{equation}
+        \lim_{x\to 0} \frac{\cos x - \e^{-\frac{1}{2}x^2}}{\sin^4 x} = \lim_{x\to 0} \frac{\left( \frac{1}{24} - \frac{1}{8} \right)x^4 + o(x^4)}{x^4} = -\frac{1}{12}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\cos x - \e^{-\frac{1}{2}x^2}}{\sin^4 x} = -\frac{1}{12}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用麦克劳林展开式 $(1+t)^{1/4} = 1 + \frac{1}{4}t + o(t)$：
+    \begin{equation}
+        \sqrt[4]{1+x^2} = 1 + \frac{1}{4}x^2 + o(x^2), \qquad \sqrt[4]{1-x^2} = 1 - \frac{1}{4}x^2 + o(x^2).
+    \end{equation}
+    代入得
+    \begin{equation}
+        \lim_{x\to 0} \frac{\sqrt[4]{1+x^2} - \sqrt[4]{1-x^2}}{x^2} = \lim_{x\to 0} \frac{\frac{1}{2}x^2 + o(x^2)}{x^2} = \frac{1}{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\sqrt[4]{1+x^2} - \sqrt[4]{1-x^2}}{x^2} = \frac{1}{2}.}
+    \end{equation}
+
+    \ansitem{3}
+
+    令 $t = \frac{1}{x}$，当 $x \to \infty$ 时 $t \to 0$．利用展开式 $\ln(1+t) = t - \frac{1}{2}t^2 + o(t^2)$：
+    \begin{equation}
+        \lim_{x\to\infty} \left[ x - x^2 \ln\left(1 + \frac{1}{x}\right) \right] = \lim_{t\to 0} \frac{t - \ln(1+t)}{t^2} = \lim_{t\to 0} \frac{\frac{1}{2}t^2 + o(t^2)}{t^2} = \frac{1}{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to\infty} \left[ x - x^2 \ln\left(1 + \frac{1}{x}\right) \right] = \frac{1}{2}.}
+    \end{equation}
+
+    \ansitem{4}
+
+    分母等价于 $\sin^4 x \sim x^4$．展开 $\cos(\sin x)$ 与 $\cos x$ 至 $x^4$ 项：
+    \begin{equation}
+        \sin x = x - \frac{x^3}{6} + o(x^4) \implies \sin^2 x = x^2 - \frac{x^4}{3} + o(x^4),
+    \end{equation}
+    \begin{equation}
+        \begin{aligned}
+            \cos(\sin x) & = 1 - \frac{\sin^2 x}{2} + \frac{\sin^4 x}{24} + o(x^4)                       \\
+                         & = 1 - \frac{1}{2}\left( x^2 - \frac{x^4}{3} \right) + \frac{x^4}{24} + o(x^4) \\
+                         & = 1 - \frac{x^2}{2} + \frac{5}{24}x^4 + o(x^4),
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \cos x = 1 - \frac{x^2}{2} + \frac{x^4}{24} + o(x^4).
+    \end{equation}
+    两式相减得
+    \begin{equation}
+        \lim_{x\to 0} \frac{\cos(\sin x) - \cos x}{\sin^4 x} = \lim_{x\to 0} \frac{\left( \frac{5}{24} - \frac{1}{24} \right)x^4 + o(x^4)}{x^4} = \frac{1}{6}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to 0} \frac{\cos(\sin x) - \cos x}{\sin^4 x} = \frac{1}{6}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{多项式与高阶导数恒为零的等价性}{Polynomial-Characterization-By-Higher-Derivatives}
+    设函数 $f(x)$ 处处有 $n+1$ 阶导数，证明：$f(x)$ 为次数不超过 $n$ 的多项式的充分必要条件是 $f^{(n+1)}(x)$ 恒为零．
+\end{problem}
+
+\begin{myproof}
+    必要性：若 $f(x)$ 为次数不超过 $n$ 的多项式，即
+    \begin{equation}
+        f(x) = \sum_{k=0}^m a_k x^k \quad (m \leqslant n).
+    \end{equation}
+    由单项式的高阶导数性质，当 $k \leqslant n < n+1$ 时恒有 $(x^k)^{(n+1)} = 0$，故
+    \begin{equation}
+        f^{(n+1)}(x) \equiv 0.
+    \end{equation}
+
+    充分性：若 $f^{(n+1)}(x) \equiv 0$．
+
+    任取实数 $x \in \symbb{R}$，将 $f(x)$ 在 $x_0 = 0$ 处展开为带拉格朗日余项的 $n$ 阶泰勒公式：
+    \begin{equation}
+        f(x) = \sum_{k=0}^n \frac{f^{(k)}(0)}{k!} x^k + \frac{f^{(n+1)}(\xi)}{(n+1)!} x^{n+1},
+    \end{equation}
+    其中 $\xi$ 介于 $0$ 与 $x$ 之间．
+
+    由已知条件，在全实数轴上恒有 $f^{(n+1)}(\xi) = 0$，因此余项恒等于零：
+    \begin{equation}
+        f(x) = \sum_{k=0}^n \frac{f^{(k)}(0)}{k!} x^k.
+    \end{equation}
+    这表明 $f(x)$ 是一个次数不超过 $n$ 的多项式．
+
+    命题得证．
+\end{myproof}
+
+\begin{problem}{函数及其二阶导数有界时一阶导数的估计}{Derivative-Bound-From-Function-And-Second-Derivative-Bounds}
+    设函数 $f(x)$ 在 $[0, 2]$ 上二阶可导，且对任意 $x \in [0, 2]$，有 $|f(x)| \leqslant 1$ 及 $|f''(x)| \leqslant 1$．证明：$|f'(x)| \leqslant 2, x \in [0, 2]$．
+\end{problem}
+
+\begin{myproof}
+    任取 $x \in [0, 2]$．将函数 $f(t)$ 在点 $x$ 处分别向端点 $0$ 与 $2$ 作带拉格朗日余项的泰勒展开：
+    \begin{equation}
+        f(0) = f(x) + f'(x)(0 - x) + \frac{1}{2}f''(\xi_1)(0 - x)^2 = f(x) - x f'(x) + \frac{1}{2}x^2 f''(\xi_1),
+    \end{equation}
+    \begin{equation}
+        f(2) = f(x) + f'(x)(2 - x) + \frac{1}{2}f''(\xi_2)(2 - x)^2 = f(x) + (2 - x)f'(x) + \frac{1}{2}(2 - x)^2 f''(\xi_2),
+    \end{equation}
+    其中 $\xi_1 \in (0, x)$，$\xi_2 \in (x, 2)$．
+
+    两式相减，消去 $f(x)$，得
+    \begin{equation}
+        f(2) - f(0) = 2f'(x) + \frac{1}{2}(2 - x)^2 f''(\xi_2) - \frac{1}{2}x^2 f''(\xi_1).
+    \end{equation}
+    解出 $2f'(x)$：
+    \begin{equation}
+        2f'(x) = f(2) - f(0) - \frac{1}{2}(2 - x)^2 f''(\xi_2) + \frac{1}{2}x^2 f''(\xi_1).
+    \end{equation}
+    两端取绝对值并应用三角不等式，结合已知条件 $|f(t)| \leqslant 1$ 与 $|f''(t)| \leqslant 1$，有
+    \begin{equation}
+        \begin{aligned}
+            2|f'(x)| & \leqslant |f(2)| + |f(0)| + \frac{1}{2}(2 - x)^2 |f''(\xi_2)| + \frac{1}{2}x^2 |f''(\xi_1)| \\
+                     & \leqslant 1 + 1 + \frac{1}{2}(2 - x)^2 + \frac{1}{2}x^2                                     \\
+                     & = 2 + \frac{1}{2}(4 - 4x + 2x^2)                                                            \\
+                     & = 4 - 2x + x^2                                                                              \\
+                     & = 3 + (x - 1)^2.
+        \end{aligned}
+    \end{equation}
+    当 $x \in [0, 2]$ 时，$-1 \leqslant x - 1 \leqslant 1 \implies (x - 1)^2 \leqslant 1$，从而
+    \begin{equation}
+        2|f'(x)| \leqslant 3 + 1 = 4 \implies |f'(x)| \leqslant 2.
+    \end{equation}
+    故对任意 $x \in [0, 2]$，均有 $|f'(x)| \leqslant 2$．
+\end{myproof}
+
+\begin{problem}{泰勒公式条件的必要性分析}{Taylor-Formula-Condition-Necessity-Analysis}
+    设 $n$ 为正整数，考虑函数
+    \begin{equation}
+        f(x) = \begin{cases} x^{n+1}, & x \text{ 为有理数}, \\ 0, & x \text{ 为无理数}. \end{cases}
+    \end{equation}
+    证明 $f'(0) = 0$；但 $f''(0)$ 不存在．（提示：证明 $f(x)$ 仅在一点 $x = 0$ 可导．）
+
+    注意，显然有
+    \begin{equation}
+        f(x) = 0 + 0\cdot x + 0\cdot x^2 + \cdots + 0\cdot x^n + o(x^n) \quad (x \to 0).
+    \end{equation}
+    但当 $n > 1$ 时，并不能断言 $f^{(k)}(0) = 0$（$2 \leqslant k \leqslant n$）．因此，定理 3.32 中的条件：函数在点 $x_0$ 处有 $n$ 阶导数，是至关重要的．
+
+    \textbf{附定理 3.32 内容}：设函数 $f(x)$ 在 $x_0$ 的邻域 $(x_0-\delta, x_0+\delta)$ 内 $n$ 阶可导．则函数 $f(x)$ 与它在点 $x_0$ 处的 $n$ 次 Taylor 多项式 $T_n(x)$ 之间的误差（即余项）$R_n(x) = f(x) - T_n(x)$ 当 $x \to x_0$ 时是 $(x-x_0)^n$ 的高阶无穷小：
+    \begin{equation}
+        \lim_{x\to x_0} \frac{R_n(x)}{(x-x_0)^n} = \lim_{x\to x_0} \frac{f(x) - T_n(x)}{(x-x_0)^n} = 0.
+    \end{equation}
+    或者说，当 $x \to x_0$ 时，有
+    \begin{equation}
+        f(x) = f(x_0) + \frac{f'(x_0)}{1!}(x-x_0) + \cdots + \frac{f^{(n)}(x_0)}{n!}(x-x_0)^n + o\bigl((x-x_0)^n\bigr),
+    \end{equation}
+    上式称为函数 $f(x)$ 在点 $x_0$ 处的带 Peano 余项的 Taylor 公式．特别地，若在 $x = 0$ 邻域内有 $n$ 阶导数，取 $x_0 = 0$ 即为带 Peano 余项的 Maclaurin 公式．
+\end{problem}
+
+\begin{myproof}
+    先证 $f'(0) = 0$：
+
+    由导数定义，考察差商：
+    \begin{equation}
+        \frac{f(x) - f(0)}{x - 0} = \frac{f(x)}{x} = \begin{cases} x^n, & x \in \symbb{Q} \setminus \{0\}, \\ 0, & x \in \symbb{R} \setminus \symbb{Q}. \end{cases}
+    \end{equation}
+    对任意 $x \neq 0$，恒有
+    \begin{equation}
+        \left| \frac{f(x) - f(0)}{x - 0} \right| \leqslant |x|^n.
+    \end{equation}
+    因为 $n \geqslant 1$，所以 $\lim_{x\to 0} |x|^n = 0$．由夹逼准则，得
+    \begin{equation}
+        f'(0) = \lim_{x\to 0} \frac{f(x) - f(0)}{x - 0} = 0.
+    \end{equation}
+    再证当 $x \neq 0$ 时，$f(x)$ 处处不可导：
+
+    任取 $x_0 \neq 0$：
+    \begin{enumerate}
+        \item 若 $x_0 \in \symbb{Q} \setminus \{0\}$，则 $f(x_0) = x_0^{n+1} \neq 0$．由无理数在实数集上的稠密性，存在无理数列 $\{v_k\} \subset \symbb{R} \setminus \symbb{Q}$ 使得 $\lim_{k\to\infty} v_k = x_0$．此时
+              \begin{equation}
+                  \lim_{k\to\infty} f(v_k) = \lim_{k\to\infty} 0 = 0 \neq f(x_0),
+              \end{equation}
+              函数 $f(x)$ 在点 $x_0$ 处不连续，故不可导；
+        \item 若 $x_0 \in \symbb{R} \setminus \symbb{Q}$，则 $f(x_0) = 0$．由有理数在实数集上的稠密性，存在非零有理数列 $\{u_k\} \subset \symbb{Q} \setminus \{0\}$ 使得 $\lim_{k\to\infty} u_k = x_0$．此时
+              \begin{equation}
+                  \lim_{k\to\infty} f(u_k) = \lim_{k\to\infty} u_k^{n+1} = x_0^{n+1} \neq 0 = f(x_0),
+              \end{equation}
+              函数 $f(x)$ 在点 $x_0$ 处不连续，故不可导．
+    \end{enumerate}
+    因此，函数 $f(x)$ 在 $x = 0$ 的任何去心邻域内均处处不可导，即导函数 $f'(x)$ 在 $x \neq 0$ 时处处无定义．
+
+    由二阶导数的定义：
+    \begin{equation}
+        f''(0) = \lim_{x\to 0} \frac{f'(x) - f'(0)}{x},
+    \end{equation}
+    因为 $f'(x)$ 在 $x = 0$ 的任何去心邻域内均不存在，该极限无从谈起，故 $f''(0)$ 不存在．
+\end{myproof}
+
+\begin{problem}{光滑非解析函数在原点的各阶导数}{Smooth-Non-Analytic-Function-Derivatives}
+    考虑函数
+    \begin{equation}
+        f(x) = \begin{cases} \e^{-\frac{1}{x^2}}, & x \neq 0, \\ 0, & x = 0, \end{cases}
+    \end{equation}
+    它在 $x \neq 0$ 处显然有任意阶导数．证明 $f(x)$ 在 $x = 0$ 处的任意阶导数都存在，而且都等于零．（提示：首先，易用归纳法证明，当 $x \neq 0$ 时，对 $n = 1, 2, \cdots$ 有 $f^{(n)}(x) = \e^{-\frac{1}{x^2}} P_{3n}\left(\frac{1}{x}\right)$，这里 $P_{3n}(t)$ 是 $t$ 的 $3n$ 次多项式；此外，由导数定义及 L'Hospital 法则，得出（记 $y = \frac{1}{x}$）
+    \begin{equation}
+        \lim_{x\to 0}\frac{f(x)-f(0)}{x} = \lim_{y\to\infty}\frac{y}{\e^{y^2}} = \lim_{y\to\infty}\frac{1}{2y\e^{y^2}} = 0,
+    \end{equation}
+    即 $f'(0) = 0$．现在所说的结论易用归纳法及 L'Hospital 法则证明．）
+
+    本题意味着，对任意的正整数 $n$，函数 $f$ 在 $x = 0$ 处的 $n$ 阶 Taylor 多项式是 $0$；换句话说，余项总是等于 $f(x)$．因此，即使是函数在一点附近的性态，用（在该点的）足够高阶的导数也未必能将其揭示出来．
+\end{problem}
+
+\begin{myproof}
+    先用数学归纳法证明：当 $x \neq 0$ 时，对任意正整数 $n$，均有
+    \begin{equation}
+        f^{(n)}(x) = \e^{-\frac{1}{x^2}} P_{3n}\left( \frac{1}{x} \right),
+    \end{equation}
+    其中 $P_{3n}(t)$ 是关于 $t$ 的 $3n$ 次多项式．
+
+    当 $n = 1$ 时，对 $x \neq 0$ 求导得
+    \begin{equation}
+        f'(x) = \e^{-\frac{1}{x^2}} \cdot \left(-\frac{1}{x^2}\right)' = \e^{-\frac{1}{x^2}} \cdot \frac{2}{x^3} = \e^{-\frac{1}{x^2}} P_3\left(\frac{1}{x}\right),
+    \end{equation}
+    其中 $P_3(t) = 2t^3$ 为 $3$ 次多项式，结论成立．
+
+    假设结论对 $n = k$ 成立，即 $f^{(k)}(x) = \e^{-\frac{1}{x^2}} P_{3k}\left(\frac{1}{x}\right)$，则
+    \begin{equation}
+        \begin{aligned}
+            f^{(k+1)}(x) & = \left( \e^{-\frac{1}{x^2}} \right)' P_{3k}\left(\frac{1}{x}\right) + \e^{-\frac{1}{x^2}} \left[ P_{3k}\left(\frac{1}{x}\right) \right]'           \\
+                         & = \frac{2}{x^3}\e^{-\frac{1}{x^2}} P_{3k}\left(\frac{1}{x}\right) + \e^{-\frac{1}{x^2}} P_{3k}'\left(\frac{1}{x}\right) \left(-\frac{1}{x^2}\right) \\
+                         & = \e^{-\frac{1}{x^2}} \left[ \frac{2}{x^3} P_{3k}\left(\frac{1}{x}\right) - \frac{1}{x^2} P_{3k}'\left(\frac{1}{x}\right) \right]                   \\
+                         & = \e^{-\frac{1}{x^2}} P_{3(k+1)}\left(\frac{1}{x}\right),
+        \end{aligned}
+    \end{equation}
+    其中 $P_{3(k+1)}(t) = 2t^3 P_{3k}(t) - t^2 P_{3k}'(t)$．因为 $P_{3k}(t)$ 是 $3k$ 次多项式，所以 $2t^3 P_{3k}(t)$ 的次数为 $3k+3 = 3(k+1)$，而 $t^2 P_{3k}'(t)$ 的次数至多为 $3k+1$，故 $P_{3(k+1)}(t)$ 是 $3(k+1)$ 次多项式．由数学归纳法，该表示式对一切正整数 $n$ 均成立．
+
+    再证明一个基本极限：对任意多项式 $Q(t)$，令 $t = \frac{1}{x}$，有
+    \begin{equation}
+        \lim_{x\to 0} \e^{-\frac{1}{x^2}} Q\left(\frac{1}{x}\right) = \lim_{t\to\infty} \frac{Q(t)}{\e^{t^2}} = 0.
+    \end{equation}
+    最后用数学归纳法证明对一切正整数 $n$，恒有 $f^{(n)}(0) = 0$：
+
+    当 $n = 1$ 时，由导数定义及基本极限：
+    \begin{equation}
+        f'(0) = \lim_{x\to 0} \frac{f(x) - f(0)}{x - 0} = \lim_{x\to 0} \frac{\e^{-\frac{1}{x^2}}}{x} = \lim_{t\to\infty} \frac{t}{\e^{t^2}} = 0.
+    \end{equation}
+    假设 $f^{(k)}(0) = 0$ 对 $k \leqslant n$ 成立．
+
+    对于 $k = n + 1$，根据导数的定义：
+    \begin{equation}
+        \begin{aligned}
+            f^{(n+1)}(0) & = \lim_{x\to 0} \frac{f^{(n)}(x) - f^{(n)}(0)}{x - 0}                        \\
+                         & = \lim_{x\to 0} \frac{\e^{-\frac{1}{x^2}} P_{3n}\left(\frac{1}{x}\right)}{x} \\
+                         & = \lim_{t\to\infty} \frac{t P_{3n}(t)}{\e^{t^2}} = 0.
+        \end{aligned}
+    \end{equation}
+    由数学归纳法可知，函数 $f(x)$ 在 $x = 0$ 处的任意阶导数均存在，且满足 $f^{(n)}(0) = 0$（$n \in \symbb{N}^+$）．
+\end{myproof}
+
+\begin{problem}{高阶导数极值判别法}{Higher-Derivative-Extremum-Test}
+    设函数 $f(x)$ 在驻点 $x_0$ 处的 $n$ 阶微商存在，并且
+    \begin{equation}
+        f'(x_0) = f''(x_0) = \cdots = f^{(n-1)}(x_0) = 0, \quad \text{而 } f^{(n)}(x_0) \neq 0.
+    \end{equation}
+    \begin{enumerate}
+        \item 若 $n$ 为奇数，则函数 $f(x)$ 在点 $x_0$ 处无极值；
+        \item 若 $n$ 为偶数，则函数 $f(x)$ 在点 $x_0$ 处取得极值．当 $f^{(n)}(x_0) > 0$ 时，$f(x)$ 在点 $x_0$ 处取极小值；当 $f^{(n)}(x_0) < 0$ 时，$f(x)$ 在点 $x_0$ 处取极大值．
+    \end{enumerate}
+    本题表明，若函数 $f(x)$ 在驻点上存在如上所述的高阶导数，则由此可确定驻点是否为极值点．然而，我们注意，上一题中的函数 $f$ 在 $x = 0$ 处显然有极小值，但却不可能用这一判别法判别．
+\end{problem}
+
+\begin{myproof}
+    因为函数 $f(x)$ 在点 $x_0$ 处具有 $n$ 阶导数，将 $f(x)$ 在 $x_0$ 处展开为带 Peano 余项的 Taylor 公式：
+    \begin{equation}
+        f(x) = f(x_0) + \sum_{k=1}^{n-1} \frac{f^{(k)}(x_0)}{k!}(x - x_0)^k + \frac{f^{(n)}(x_0)}{n!}(x - x_0)^n + o\bigl((x - x_0)^n\bigr).
+    \end{equation}
+    将已知条件 $f'(x_0) = f''(x_0) = \cdots = f^{(n-1)}(x_0) = 0$ 代入，得
+    \begin{equation}
+        f(x) - f(x_0) = (x - x_0)^n \left[ \frac{f^{(n)}(x_0)}{n!} + \alpha(x) \right],
+    \end{equation}
+    其中 $\lim_{x\to x_0} \alpha(x) = 0$．
+
+    因为 $f^{(n)}(x_0) \neq 0$，取 $\varepsilon = \frac{|f^{(n)}(x_0)|}{2 n!} > 0$．由极限的局部保号性，存在 $\delta > 0$，使得当 $0 < |x - x_0| < \delta$ 时，有 $|\alpha(x)| < \varepsilon$，从而
+    \begin{equation}
+        \operatorname{sgn}\left( \frac{f^{(n)}(x_0)}{n!} + \alpha(x) \right) = \operatorname{sgn}\bigl( f^{(n)}(x_0) \bigr).
+    \end{equation}
+
+    \ansitem{1}
+
+    若 $n$ 为奇数：
+    \begin{enumerate}
+        \item 当 $x \in (x_0, x_0 + \delta)$ 时，$(x - x_0)^n > 0$，差式 $f(x) - f(x_0)$ 与 $f^{(n)}(x_0)$ 同号；
+        \item 当 $x \in (x_0 - \delta, x_0)$ 时，$(x - x_0)^n < 0$，差式 $f(x) - f(x_0)$ 与 $f^{(n)}(x_0)$ 异号．
+    \end{enumerate}
+    因此在点 $x_0$ 的去心邻域内差式 $f(x) - f(x_0)$ 变号，故函数 $f(x)$ 在点 $x_0$ 处无极值．
+
+    \ansitem{2}
+
+    若 $n$ 为偶数：对任意 $0 < |x - x_0| < \delta$，恒有 $(x - x_0)^n > 0$．
+    \begin{enumerate}
+        \item 若 $f^{(n)}(x_0) > 0$，则在去心邻域内恒有 $f(x) - f(x_0) > 0 \implies f(x) > f(x_0)$，故函数 $f(x)$ 在点 $x_0$ 处取得极小值；
+        \item 若 $f^{(n)}(x_0) < 0$，则在去心邻域内恒有 $f(x) - f(x_0) < 0 \implies f(x) < f(x_0)$，故函数 $f(x)$ 在点 $x_0$ 处取得极大值．
+    \end{enumerate}
+\end{myproof}
+
+\endinput

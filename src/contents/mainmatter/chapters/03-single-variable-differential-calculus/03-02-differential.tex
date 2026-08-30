@@ -1,0 +1,286 @@
+\section{微分}
+
+\begin{problem}{函数增量与微分的比较}{Differential-And-Increment-Comparison}
+    设 $y = x^2 + x$，计算在 $x = 1$ 处，当 $\Delta x = 10, 1, 0.1, 0.01$ 时，相应的函数的改变量 $\Delta y$ 和函数的微分 $\d y$，并观察差 $\Delta y - \d y$ 随 $\Delta x$ 减小的变化情况．
+\end{problem}
+
+\begin{solution}
+    函数在 $x = 1$ 处的增量与微分通式为
+    \begin{equation}
+        \begin{aligned}
+            \Delta y & = f(1 + \Delta x) - f(1) = (1 + \Delta x)^2 + (1 + \Delta x) - 2 \\
+                     & = 3\Delta x + (\Delta x)^2,
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \d y = f'(1)\Delta x = (2x + 1)\big|_{x=1} \Delta x = 3\Delta x.
+    \end{equation}
+    两者之差为
+    \begin{equation}
+        \Delta y - \d y = (\Delta x)^2.
+    \end{equation}
+    分别代入各 $\Delta x$ 的值进行计算：
+    \begin{enumerate}
+        \item 当 $\Delta x = 10$ 时，$\Delta y = 3(10) + 10^2 = 130$，$\d y = 30$，$\Delta y - \d y = 100$；
+        \item 当 $\Delta x = 1$ 时，$\Delta y = 3(1) + 1^2 = 4$，$\d y = 3$，$\Delta y - \d y = 1$；
+        \item 当 $\Delta x = 0.1$ 时，$\Delta y = 3(0.1) + 0.1^2 = 0.31$，$\d y = 0.3$，$\Delta y - \d y = 0.01$；
+        \item 当 $\Delta x = 0.01$ 时，$\Delta y = 3(0.01) + 0.01^2 = 0.0301$，$\d y = 0.03$，$\Delta y - \d y = 0.0001$．
+    \end{enumerate}
+    观察可知：当 $\Delta x \to 0$ 时，差值 $\Delta y - \d y = (\Delta x)^2$ 是比 $\Delta x$ 高阶的无穷小量，微分 $\d y$ 是增量 $\Delta y$ 的线性主部．
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & \Delta x = 10: \Delta y = 130, \; \d y = 30, \; \Delta y - \d y = 100;           \\
+                 & \Delta x = 1: \Delta y = 4, \; \d y = 3, \; \Delta y - \d y = 1;                 \\
+                 & \Delta x = 0.1: \Delta y = 0.31, \; \d y = 0.3, \; \Delta y - \d y = 0.01;       \\
+                 & \Delta x = 0.01: \Delta y = 0.0301, \; \d y = 0.03, \; \Delta y - \d y = 0.0001.
+            \end{aligned}
+        }
+    \end{equation}
+\end{solution}
+
+\begin{problem}{函数微分的计算}{Function-Differentials-Calculation}
+    求下列函数的微分：
+    \begin{enumerate}
+        \item $y = \ln\left( \frac{\uppi}{2} - \frac{x}{4} \right)$；
+        \item $y = \sin x - x \cos x$；
+        \item $y = \arccos \frac{1}{|x|}$；
+        \item $y = \ln\left| \frac{x-1}{x+1} \right|$；
+        \item $y = 5^{\sqrt{\arctan x^2}}$；
+        \item $y = \tan^2(1 + 2x^2)$；
+        \item $y = \e^{-x}\cos(3 - x)$；
+        \item $y = \frac{x}{\sqrt{x^2+1}}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    求导得
+    \begin{equation}
+        y' = \frac{1}{\frac{\uppi}{2} - \frac{x}{4}} \cdot \left( -\frac{1}{4} \right) = \frac{1}{x - 2\uppi}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d y = \frac{\d x}{x - 2\uppi}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    求导得
+    \begin{equation}
+        y' = \cos x - (\cos x - x\sin x) = x\sin x.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d y = x\sin x \d x.}
+    \end{equation}
+
+    \ansitem{3}
+
+    函数的定义域为 $|x| > 1$．由于 $\frac{\d}{\d x}\left( \frac{1}{|x|} \right) = -\frac{1}{x|x|}$，故
+    \begin{equation}
+        y' = -\frac{1}{\sqrt{1 - \left(\frac{1}{|x|}\right)^2}} \cdot \left( -\frac{1}{x|x|} \right) = \frac{|x|}{\sqrt{x^2 - 1}} \cdot \frac{1}{x|x|} = \frac{1}{x\sqrt{x^2 - 1}}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d y = \frac{\d x}{x\sqrt{x^2 - 1}} \quad (|x| > 1).}
+    \end{equation}
+
+    \ansitem{4}
+
+    展开对数式 $y = \ln|x-1| - \ln|x+1|$，求导得
+    \begin{equation}
+        y' = \frac{1}{x-1} - \frac{1}{x+1} = \frac{2}{x^2 - 1}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d y = \frac{2}{x^2 - 1}\d x.}
+    \end{equation}
+
+    \ansitem{5}
+
+    由复合函数求导法则：
+    \begin{equation}
+        y' = 5^{\sqrt{\arctan x^2}} \ln 5 \cdot \frac{1}{2\sqrt{\arctan x^2}} \cdot \frac{2x}{1 + x^4} = \frac{x \ln 5 \cdot 5^{\sqrt{\arctan x^2}}}{(1 + x^4)\sqrt{\arctan x^2}}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d y = \frac{x \ln 5 \cdot 5^{\sqrt{\arctan x^2}}}{(1 + x^4)\sqrt{\arctan x^2}} \d x.}
+    \end{equation}
+
+    \ansitem{6}
+
+    由复合函数求导法则：
+    \begin{equation}
+        y' = 2\tan(1 + 2x^2) \sec^2(1 + 2x^2) \cdot (4x) = 8x \tan(1 + 2x^2)\sec^2(1 + 2x^2).
+    \end{equation}
+    \begin{equation}
+        \boxed{\d y = 8x \tan(1 + 2x^2)\sec^2(1 + 2x^2) \d x.}
+    \end{equation}
+
+    \ansitem{7}
+
+    由乘积与复合求导法则：
+    \begin{equation}
+        \begin{aligned}
+            y' & = -\e^{-x}\cos(3 - x) + \e^{-x}\bigl(-\sin(3 - x)\bigr)(-1) \\
+               & = \e^{-x}\bigl[\sin(3 - x) - \cos(3 - x)\bigr].
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\d y = \e^{-x}\bigl[\sin(3 - x) - \cos(3 - x)\bigr]\d x.}
+    \end{equation}
+
+    \ansitem{8}
+
+    由商的求导法则：
+    \begin{equation}
+        y' = \frac{\sqrt{x^2+1} - x \cdot \frac{x}{\sqrt{x^2+1}}}{x^2 + 1} = \frac{1}{(x^2+1)^{3/2}}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\d y = \frac{\d x}{(x^2+1)^{3/2}}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{参数方程所确定函数的一阶与二阶导数}{Parametric-Function-Derivatives}
+    对下列函数，求 $\frac{\d y}{\d x}$ 及 $\frac{\d^2 y}{\d x^2}$：
+    \begin{enumerate}
+        \item $\begin{cases} x = \ln(1+t^2), \\ y = t - \arctan t; \end{cases}$
+        \item $\begin{cases} x = t - \sin t, \\ y = 1 - \cos t; \end{cases}$
+        \item $\begin{cases} x = \varphi \cos \varphi, \\ y = \varphi \sin \varphi; \end{cases}$
+        \item $\begin{cases} x = \cos^3 \varphi, \\ y = \sin^3 \varphi. \end{cases}$
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    计算各参数导数：
+    \begin{equation}
+        \frac{\d x}{\d t} = \frac{2t}{1+t^2}, \qquad \frac{\d y}{\d t} = 1 - \frac{1}{1+t^2} = \frac{t^2}{1+t^2}.
+    \end{equation}
+    一阶导数为
+    \begin{equation}
+        \frac{\d y}{\d x} = \frac{\frac{\d y}{\d t}}{\frac{\d x}{\d t}} = \frac{\frac{t^2}{1+t^2}}{\frac{2t}{1+t^2}} = \frac{t}{2}.
+    \end{equation}
+    二阶导数为
+    \begin{equation}
+        \frac{\d^2 y}{\d x^2} = \frac{\frac{\d}{\d t}\left( \frac{\d y}{\d x} \right)}{\frac{\d x}{\d t}} = \frac{\frac{1}{2}}{\frac{2t}{1+t^2}} = \frac{1+t^2}{4t}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\d y}{\d x} = \frac{t}{2}, \quad \frac{\d^2 y}{\d x^2} = \frac{1+t^2}{4t}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    计算各参数导数：
+    \begin{equation}
+        \frac{\d x}{\d t} = 1 - \cos t, \qquad \frac{\d y}{\d t} = \sin t.
+    \end{equation}
+    一阶导数为
+    \begin{equation}
+        \frac{\d y}{\d x} = \frac{\sin t}{1 - \cos t} = \frac{2\sin\frac{t}{2}\cos\frac{t}{2}}{2\sin^2\frac{t}{2}} = \cot \frac{t}{2}.
+    \end{equation}
+    二阶导数为
+    \begin{equation}
+        \frac{\d^2 y}{\d x^2} = \frac{\frac{\d}{\d t}\left(\cot \frac{t}{2}\right)}{\frac{\d x}{\d t}} = \frac{-\frac{1}{2}\csc^2\frac{t}{2}}{2\sin^2\frac{t}{2}} = -\frac{1}{4\sin^4\frac{t}{2}} = -\frac{1}{4}\csc^4\frac{t}{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\d y}{\d x} = \cot \frac{t}{2}, \quad \frac{\d^2 y}{\d x^2} = -\frac{1}{4\sin^4\frac{t}{2}}.}
+    \end{equation}
+
+    \ansitem{3}
+
+    计算各参数导数：
+    \begin{equation}
+        \frac{\d x}{\d \varphi} = \cos \varphi - \varphi\sin\varphi, \qquad \frac{\d y}{\d \varphi} = \sin\varphi + \varphi\cos\varphi.
+    \end{equation}
+    一阶导数为
+    \begin{equation}
+        \frac{\d y}{\d x} = \frac{\sin\varphi + \varphi\cos\varphi}{\cos\varphi - \varphi\sin\varphi}.
+    \end{equation}
+    对一阶导数关于 $\varphi$ 求导：
+    \begin{equation}
+        \begin{aligned}
+            \frac{\d}{\d \varphi}\left( \frac{\d y}{\d x} \right) & = \frac{(2\cos\varphi - \varphi\sin\varphi)(\cos\varphi - \varphi\sin\varphi) - (\sin\varphi + \varphi\cos\varphi)(-2\sin\varphi - \varphi\cos\varphi)}{(\cos\varphi - \varphi\sin\varphi)^2}          \\
+                                                                  & = \frac{(2\cos^2\varphi - 3\varphi\sin\varphi\cos\varphi + \varphi^2\sin^2\varphi) + (2\sin^2\varphi + 3\varphi\sin\varphi\cos\varphi + \varphi^2\cos^2\varphi)}{(\cos\varphi - \varphi\sin\varphi)^2} \\
+                                                                  & = \frac{2 + \varphi^2}{(\cos\varphi - \varphi\sin\varphi)^2}.
+        \end{aligned}
+    \end{equation}
+    二阶导数为
+    \begin{equation}
+        \frac{\d^2 y}{\d x^2} = \frac{\frac{\d}{\d \varphi}\left( \frac{\d y}{\d x} \right)}{\frac{\d x}{\d \varphi}} = \frac{2+\varphi^2}{(\cos\varphi - \varphi\sin\varphi)^3}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\d y}{\d x} = \frac{\sin\varphi + \varphi\cos\varphi}{\cos\varphi - \varphi\sin\varphi}, \quad \frac{\d^2 y}{\d x^2} = \frac{2+\varphi^2}{(\cos\varphi - \varphi\sin\varphi)^3}.}
+    \end{equation}
+
+    \ansitem{4}
+
+    计算各参数导数：
+    \begin{equation}
+        \frac{\d x}{\d \varphi} = -3\cos^2\varphi\sin\varphi, \qquad \frac{\d y}{\d \varphi} = 3\sin^2\varphi\cos\varphi.
+    \end{equation}
+    一阶导数为
+    \begin{equation}
+        \frac{\d y}{\d x} = \frac{3\sin^2\varphi\cos\varphi}{-3\cos^2\varphi\sin\varphi} = -\tan\varphi.
+    \end{equation}
+    二阶导数为
+    \begin{equation}
+        \frac{\d^2 y}{\d x^2} = \frac{\frac{\d}{\d \varphi}(-\tan\varphi)}{\frac{\d x}{\d \varphi}} = \frac{-\sec^2\varphi}{-3\cos^2\varphi\sin\varphi} = \frac{1}{3\sin\varphi\cos^4\varphi}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\frac{\d y}{\d x} = -\tan\varphi, \quad \frac{\d^2 y}{\d x^2} = \frac{1}{3\sin\varphi\cos^4\varphi}.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{参数方程曲线的切线方程}{Parametric-Curve-Tangent-Lines}
+    求下列曲线在已知点处的切线方程：
+    \begin{enumerate}
+        \item $\begin{cases} x = \cos t, \\ y = \sin t \end{cases}$ 在 $t = \frac{\uppi}{4}$ 处；
+        \item $\begin{cases} x = \frac{3t}{1+t^2}, \\ y = \frac{3t^2}{1+t^2} \end{cases}$ 在 $t = 2$ 处．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    当 $t = \frac{\uppi}{4}$ 时，切点坐标为
+    \begin{equation}
+        x_0 = \cos\frac{\uppi}{4} = \frac{\sqrt{2}}{2}, \qquad y_0 = \sin\frac{\uppi}{4} = \frac{\sqrt{2}}{2}.
+    \end{equation}
+    切线斜率为
+    \begin{equation}
+        k = \left. \frac{\d y}{\d x} \right|_{t=\frac{\uppi}{4}} = \left. \frac{\cos t}{-\sin t} \right|_{t=\frac{\uppi}{4}} = -1.
+    \end{equation}
+    切线方程为
+    \begin{equation}
+        y - \frac{\sqrt{2}}{2} = -1\left( x - \frac{\sqrt{2}}{2} \right) \implies x + y = \sqrt{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{x + y = \sqrt{2}.}
+    \end{equation}
+
+    \ansitem{2}
+
+    当 $t = 2$ 时，切点坐标为
+    \begin{equation}
+        x_0 = \frac{3(2)}{1+2^2} = \frac{6}{5}, \qquad y_0 = \frac{3(2^2)}{1+2^2} = \frac{12}{5}.
+    \end{equation}
+    计算参数导数：
+    \begin{equation}
+        x'(t) = \frac{3(1+t^2) - 3t(2t)}{(1+t^2)^2} = \frac{3(1-t^2)}{(1+t^2)^2} \implies x'(2) = -\frac{9}{25},
+    \end{equation}
+    \begin{equation}
+        y'(t) = \frac{6t(1+t^2) - 3t^2(2t)}{(1+t^2)^2} = \frac{6t}{(1+t^2)^2} \implies y'(2) = \frac{12}{25}.
+    \end{equation}
+    切线斜率为
+    \begin{equation}
+        k = \frac{y'(2)}{x'(2)} = \frac{\frac{12}{25}}{-\frac{9}{25}} = -\frac{4}{3}.
+    \end{equation}
+    切线方程为
+    \begin{equation}
+        y - \frac{12}{5} = -\frac{4}{3}\left( x - \frac{6}{5} \right) \implies 4x + 3y - 12 = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{4x + 3y - 12 = 0 \quad \left(\text{或 } y = -\frac{4}{3}x + 4\right).}
+    \end{equation}
+\end{solution}
+
+\endinput

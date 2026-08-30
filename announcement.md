@@ -1,5 +1,6 @@
-Version v2.1.0 released on 2026-08-29.
+Version v2.2.0 released on 2026-08-29.
 
-- 仓库重命名为 `ustc-math-analysis-solutions`
-- 扩充《数学分析讲义》全书习题解析架构（涵盖第一、二册）
-- 修复 TeX Live CI 自动化构建与宏包配置
+- 完成第 1 ~ 3 章全套目录架构搭建
+- 新增第 3 章《单变量函数的微分学》全部习题详尽推导与解析
+- 优化 `solution` 与 `myproof` 环境的首行缩进排版
+- 更新 CI/CD 工作流与发布文档标题

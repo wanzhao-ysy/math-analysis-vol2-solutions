@@ -19,7 +19,27 @@
 > 推荐使用 **TeX Live 2025 及以上版本** 进行编译，以获得更稳定的字体与排版效果．
 
 ---
+
 ## 📸 预览
+
+<table style="width: 100%; border-collapse: collapse; border: none;">
+  <tr style="border: none;">
+    <td width="50%" style="border: none; padding: 5px;">
+      <img src="https://github.com/user-attachments/assets/638b16b0-317e-4ab0-9062-a41dad946132" width="100%">
+    </td>
+    <td width="50%" style="border: none; padding: 5px;">
+      <img src="https://github.com/user-attachments/assets/46c6de7a-8644-4a92-a26c-eb9774502d3b" width="100%">
+    </td>
+  </tr>
+  <tr style="border: none;">
+    <td width="50%" style="border: none; padding: 5px;">
+      <img src="https://github.com/user-attachments/assets/20c4ca79-04dc-4c08-9bbc-66ea41e862d3" width="100%">
+    </td>
+    <td width="50%" style="border: none; padding: 5px;">
+      <img src="https://github.com/user-attachments/assets/e17e43a2-d1e8-48d7-b832-02011152d192" width="100%">
+    </td>
+  </tr>
+</table>
 
 ---
 

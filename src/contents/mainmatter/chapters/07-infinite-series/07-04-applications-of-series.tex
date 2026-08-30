@@ -1,0 +1,232 @@
+\section{级数的应用}
+
+\begin{problem}{幂级数在非初等积分中的应用}{Non-Elementary-Integrals-Power-Series}
+    求下列积分（以无穷级数表示）：
+    \begin{enumerate}
+        \item $\int_0^1 \e^{-x^2}\d x$；
+        \item $\int_0^1 \frac{\sin x}{x}\d x$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    利用指数函数的 Maclaurin 展开式：
+    \begin{equation}
+        \e^{-x^2} = \sum_{n=0}^\infty \frac{(-x^2)^n}{n!} = \sum_{n=0}^\infty \frac{(-1)^n}{n!} x^{2n} \quad (x \in (-\infty, +\infty)).
+    \end{equation}
+    该幂级数在 $[0, 1]$ 上一致收敛，可以逐项积分：
+    \begin{equation}
+        \begin{aligned}
+            \int_0^1 \e^{-x^2}\d x & = \sum_{n=0}^\infty \frac{(-1)^n}{n!} \int_0^1 x^{2n}\d x \\
+                                   & = \sum_{n=0}^\infty \frac{(-1)^n}{n!(2n + 1)}.
+        \end{aligned}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用正弦函数的 Maclaurin 展开式：
+    \begin{equation}
+        \frac{\sin x}{x} = \frac{1}{x} \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} x^{2n+1} = \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} x^{2n} \quad (x \in (-\infty, +\infty)).
+    \end{equation}
+    在 $[0, 1]$ 上逐项积分：
+    \begin{equation}
+        \begin{aligned}
+            \int_0^1 \frac{\sin x}{x}\d x & = \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} \int_0^1 x^{2n}\d x \\
+                                          & = \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!(2n + 1)}.
+        \end{aligned}
+    \end{equation}
+
+    \begin{equation}
+        \boxed{\text{(1) } \int_0^1 \e^{-x^2}\d x = \sum_{n=0}^\infty \frac{(-1)^n}{n!(2n + 1)}; \qquad \text{(2) } \int_0^1 \frac{\sin x}{x}\d x = \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!(2n + 1)}．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{常微分方程的幂级数解法}{Power-Series-Solution-Of-ODE}
+    求方程 $y'' - xy' + y = 0$ 的幂级数解．
+\end{problem}
+
+\begin{solution}
+    设方程的幂级数解为 $y = \sum_{n=0}^\infty c_n x^n$．逐项求导可得
+    \begin{equation}
+        y' = \sum_{n=1}^\infty n c_n x^{n-1}, \qquad y'' = \sum_{n=2}^\infty n(n-1) c_n x^{n-2} = \sum_{n=0}^\infty (n+2)(n+1) c_{n+2} x^n.
+    \end{equation}
+    将 $y$、$y'$ 与 $y''$ 代入原微分方程：
+    \begin{equation}
+        \sum_{n=0}^\infty (n+2)(n+1) c_{n+2} x^n - \sum_{n=0}^\infty n c_n x^n + \sum_{n=0}^\infty c_n x^n = 0,
+    \end{equation}
+    整理合并得
+    \begin{equation}
+        \sum_{n=0}^\infty \bigl[ (n+2)(n+1) c_{n+2} - (n-1) c_n \bigr] x^n = 0.
+    \end{equation}
+    由此得到系数递推关系式：
+    \begin{equation}
+        c_{n+2} = \frac{n-1}{(n+2)(n+1)} c_n \quad (n \geqslant 0).
+    \end{equation}
+    分别讨论奇数项与偶数项：
+    \begin{enumerate}
+        \item 对于奇次项：当 $n = 1$ 时，$c_3 = \frac{1-1}{3 \cdot 2} c_1 = 0$．递推可知对所有 $k \geqslant 1$ 恒有 $c_{2k+1} = 0$，对应的基本解为多项式 $y_1(x) = x$；
+        \item 对于偶次项：
+              \begin{equation}
+                  \begin{aligned}
+                      c_2    & = -\frac{1}{2 \cdot 1} c_0 = -\frac{1}{2!} c_0,      \\
+                      c_4    & = \frac{1}{4 \cdot 3} c_2 = -\frac{1}{4!} c_0,       \\
+                      c_6    & = \frac{3}{6 \cdot 5} c_4 = -\frac{3!!}{6!} c_0,     \\
+                             & \ \ \vdots                                           \\
+                      c_{2k} & = -\frac{(2k-3)!!}{(2k)!} c_0 \quad (k \geqslant 1).
+                  \end{aligned}
+              \end{equation}
+    \end{enumerate}
+    由比值审敛法知两级数在 $(-\infty, +\infty)$ 上均收敛．故方程的通解为
+    \begin{equation}
+        \boxed{y(x) = C_1 x + C_0 \left( 1 - \sum_{k=1}^\infty \frac{(2k-3)!!}{(2k)!} x^{2k} \right) \quad (x \in (-\infty, +\infty))．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{初值问题幂级数解的高阶展开}{Higher-Order-Power-Series-Solution-Of-IVP}
+    求方程 $y'' + y\sin x = 0, \ y(0) = 1, \ y'(0) = 0$ 的幂级数解至 $x^5$ 项．
+\end{problem}
+
+\begin{solution}
+    设 $y(x) = \sum_{n=0}^\infty c_n x^n = c_0 + c_1 x + c_2 x^2 + c_3 x^3 + c_4 x^4 + c_5 x^5 + O(x^6)$．
+
+    由初值条件 $y(0) = 1, y'(0) = 0$ 得
+    \begin{equation}
+        c_0 = 1, \qquad c_1 = 0.
+    \end{equation}
+    利用正弦函数的 Maclaurin 展开式 $\sin x = x - \frac{x^3}{6} + O(x^5)$：
+    \begin{equation}
+        \begin{aligned}
+            y(x)\sin x & = \left( 1 + c_2 x^2 + c_3 x^3 + O(x^4) \right)\left( x - \frac{x^3}{6} + O(x^5) \right) \\
+                       & = x + \left( c_2 - \frac{1}{6} \right)x^3 + c_3 x^4 + O(x^5).
+        \end{aligned}
+    \end{equation}
+    将 $y''(x) = 2c_2 + 6c_3 x + 12c_4 x^2 + 20c_5 x^3 + 30c_6 x^4 + O(x^5)$ 代入方程 $y'' = -y\sin x$：
+    \begin{equation}
+        2c_2 + 6c_3 x + 12c_4 x^2 + 20c_5 x^3 + 30c_6 x^4 + O(x^5) = -x - \left( c_2 - \frac{1}{6} \right)x^3 - c_3 x^4 + O(x^5).
+    \end{equation}
+    对比同次幂系数：
+    \begin{equation}
+        \begin{aligned}
+            x^0 & : 2c_2 = 0 \implies c_2 = 0,                                                            \\
+            x^1 & : 6c_3 = -1 \implies c_3 = -\frac{1}{6},                                                \\
+            x^2 & : 12c_4 = 0 \implies c_4 = 0,                                                           \\
+            x^3 & : 20c_5 = -\left( c_2 - \frac{1}{6} \right) = \frac{1}{6} \implies c_5 = \frac{1}{120}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{y(x) = 1 - \frac{1}{6}x^3 + \frac{1}{120}x^5 + o(x^5)．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{利用Stirling公式计算数列极限}{Limits-Via-Stirling-Formula}
+    利用 Stirling 公式求极限：
+    \begin{enumerate}
+        \item $\lim_{n\to\infty} \sqrt[n^2]{n!}$；
+        \item $\lim_{n\to\infty} \frac{n}{\sqrt[n]{n!}}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    由 Stirling 公式可知，当 $n \to \infty$ 时：
+    \begin{equation}
+        n! \sim \sqrt{2\uppi n}\left(\frac{n}{\e}\right)^n \implies \ln(n!) = n\ln n - n + \frac{1}{2}\ln(2\uppi n) + o(1).
+    \end{equation}
+
+    \ansitem{1}
+
+    对通项取对数：
+    \begin{equation}
+        \ln \left(\sqrt[n^2]{n!}\right) = \frac{\ln(n!)}{n^2} = \frac{n\ln n - n + \frac{1}{2}\ln(2\uppi n) + o(1)}{n^2} = \frac{\ln n}{n} - \frac{1}{n} + \frac{\ln(2\uppi n)}{2n^2} + o\left(\frac{1}{n^2}\right).
+    \end{equation}
+    当 $n \to \infty$ 时，各分项极限均为零，从而
+    \begin{equation}
+        \lim_{n\to\infty} \ln \left(\sqrt[n^2]{n!}\right) = 0 \implies \lim_{n\to\infty} \sqrt[n^2]{n!} = \e^0 = 1.
+    \end{equation}
+
+    \ansitem{2}
+
+    利用 Stirling 公式的等价形式：
+    \begin{equation}
+        \sqrt[n]{n!} \sim (2\uppi n)^{\frac{1}{2n}} \cdot \frac{n}{\e}.
+    \end{equation}
+    因为 $\lim_{n\to\infty} (2\uppi n)^{\frac{1}{2n}} = 1$，所以
+    \begin{equation}
+        \lim_{n\to\infty} \frac{n}{\sqrt[n]{n!}} = \lim_{n\to\infty} \frac{n}{\frac{n}{\e}} = \e.
+    \end{equation}
+
+    \begin{equation}
+        \boxed{\text{(1) } \lim_{n\to\infty} \sqrt[n^2]{n!} = 1; \qquad \text{(2) } \lim_{n\to\infty} \frac{n}{\sqrt[n]{n!}} = \e．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{阶乘型常数项级数的敛散性判别}{Convergence-Of-Factorial-Series}
+    研究下列级数的敛散性：
+    \begin{enumerate}
+        \item $\sum_{n=3}^\infty \frac{1}{\ln(n!)}$；
+        \item $\sum_{n=1}^\infty \frac{n!\e^n}{n^{n+p}} \ (p \text{ 是实数})$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 发散．
+
+    当 $n \geqslant 3$ 时，由于 $n! = 1 \cdot 2 \dots n < n^n$，两端取对数得
+    \begin{equation}
+        \ln(n!) < \ln(n^n) = n\ln n \implies \frac{1}{\ln(n!)} > \frac{1}{n\ln n} > 0.
+    \end{equation}
+    考察积分 $\int_3^{+\infty} \frac{\d x}{x\ln x} = \bigl[\ln(\ln x)\bigr]_3^{+\infty} = +\infty$，由积分审敛法知级数 $\sum_{n=3}^\infty \frac{1}{n\ln n}$ 发散．
+
+    由正项级数的比较审敛法可知，原级数 $\sum_{n=3}^\infty \frac{1}{\ln(n!)}$ 发散．
+
+    \ansitem{2} 当 $p > \frac{3}{2}$ 时收敛；当 $p \leqslant \frac{3}{2}$ 时发散．
+
+    由 Stirling 公式 $n! \sim \sqrt{2\uppi n}\left(\frac{n}{\e}\right)^n = \sqrt{2\uppi} n^{n+\frac{1}{2}}\e^{-n}$（$n \to \infty$），通项满足
+    \begin{equation}
+        \frac{n!\e^n}{n^{n+p}} \sim \frac{\sqrt{2\uppi} n^{n+\frac{1}{2}}\e^{-n} \cdot \e^n}{n^{n+p}} = \frac{\sqrt{2\uppi}}{n^{p - \frac{1}{2}}}.
+    \end{equation}
+    根据 $p$-级数的收敛性定理：
+    \begin{enumerate}
+        \item 当 $p - \frac{1}{2} > 1 \iff p > \frac{3}{2}$ 时，级数收敛；
+        \item 当 $p - \frac{1}{2} \leqslant 1 \iff p \leqslant \frac{3}{2}$ 时，级数发散．
+    \end{enumerate}
+    由正项级数比较审敛法的极限形式，原级数在 $p > \frac{3}{2}$ 时收敛，在 $p \leqslant \frac{3}{2}$ 时发散．
+
+    \begin{equation}
+        \boxed{\text{(1) 发散；\quad (2) 当 } p > \frac{3}{2} \text{ 时收敛，当 } p \leqslant \frac{3}{2} \text{ 时发散．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{阶乘对数的渐近等价性证明}{Asymptotic-Equivalence-Of-Log-Factorial}
+    证明：当 $n \to \infty$ 时，$\ln(n!) \sim \ln n^n$．
+\end{problem}
+
+\begin{myproof}
+    根据自然对数的单调递增性，对任意正整数 $k \geqslant 1$，有
+    \begin{equation}
+        \int_{k-1}^k \ln x\d x \leqslant \ln k \leqslant \int_k^{k+1} \ln x\d x.
+    \end{equation}
+    对 $k = 1, 2, \dots, n$ 求和：
+    \begin{equation}
+        \int_1^n \ln x\d x \leqslant \sum_{k=1}^n \ln k = \ln(n!) \leqslant \int_1^{n+1} \ln x\d x.
+    \end{equation}
+    计算左侧定积分：
+    \begin{equation}
+        \int_1^n \ln x\d x = [x\ln x - x]_1^n = n\ln n - n + 1.
+    \end{equation}
+    结合平凡上界 $\ln(n!) \leqslant \ln(n^n) = n\ln n$，得到双边夹逼不等式：
+    \begin{equation}
+        n\ln n - n + 1 \leqslant \ln(n!) \leqslant n\ln n.
+    \end{equation}
+    当 $n \geqslant 2$ 时，各项同除以 $\ln n^n = n\ln n > 0$：
+    \begin{equation}
+        1 - \frac{1}{\ln n} + \frac{1}{n\ln n} \leqslant \frac{\ln(n!)}{\ln n^n} \leqslant 1.
+    \end{equation}
+    因为 $\lim_{n\to\infty} \left( 1 - \frac{1}{\ln n} + \frac{1}{n\ln n} \right) = 1$，由夹逼定理得
+    \begin{equation}
+        \lim_{n\to\infty} \frac{\ln(n!)}{\ln n^n} = 1.
+    \end{equation}
+    由等价无穷大的定义，当 $n \to \infty$ 时，$\ln(n!) \sim \ln n^n$．
+\end{myproof}
+
+\endinput

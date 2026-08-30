@@ -1,0 +1,646 @@
+\section{幂级数和 Taylor 展开式}
+
+\begin{problem}{幂级数收敛半径的求解}{Power-Series-Radius-Of-Convergence}
+    求下列幂级数的收敛半径：
+    \begin{enumerate}
+        \item $\sum_{n=1}^\infty (-1)^{n+1}\frac{x^n}{n^2}$；
+        \item $\sum_{n=1}^\infty \frac{(n!)^2}{(2n)!} x^n$；
+        \item $\sum_{n=1}^\infty 2^n x^{2n}$；
+        \item $\sum_{n=1}^\infty \frac{x^n}{a^n + b^n} \ (a > 0, b > 0)$；
+        \item $\sum_{n=1}^\infty \frac{(x - 2)^{2n-1}}{(2n - 1)!}$；
+        \item $\sum_{n=1}^\infty \frac{3^n + (-2)^n}{n}(x + 1)^n$；
+        \item $\sum_{n=1}^\infty \left(1 + \frac{1}{2} + \dots + \frac{1}{n}\right) x^n$；
+        \item $\sum_{n=1}^\infty \frac{x^{n^2}}{2^n}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    记系数 $a_n = \frac{(-1)^{n+1}}{n^2}$，应用比值公式：
+    \begin{equation}
+        R = \lim_{n\to\infty} \left| \frac{a_n}{a_{n+1}} \right| = \lim_{n\to\infty} \frac{(n+1)^2}{n^2} = 1.
+    \end{equation}
+
+    \ansitem{2}
+
+    记系数 $a_n = \frac{(n!)^2}{(2n)!}$，应用比值公式：
+    \begin{equation}
+        R = \lim_{n\to\infty} \left| \frac{a_n}{a_{n+1}} \right| = \lim_{n\to\infty} \frac{(n!)^2}{(2n)!} \cdot \frac{(2n+2)!}{[(n+1)!]^2} = \lim_{n\to\infty} \frac{(2n+1)(2n+2)}{(n+1)^2} = 4.
+    \end{equation}
+
+    \ansitem{3}
+
+    令 $t = x^2$，原级数化为 $\sum_{n=1}^\infty 2^n t^n$．关于 $t$ 的收敛半径为
+    \begin{equation}
+        R_t = \lim_{n\to\infty} \frac{2^n}{2^{n+1}} = \frac{1}{2}.
+    \end{equation}
+    当 $|t| < \frac{1}{2} \iff |x|^2 < \frac{1}{2} \iff |x| < \frac{1}{\sqrt{2}}$ 时级数收敛，故收敛半径为
+    \begin{equation}
+        R = \frac{1}{\sqrt{2}} = \frac{\sqrt{2}}{2}.
+    \end{equation}
+
+    \ansitem{4}
+
+    记系数 $a_n = \frac{1}{a^n + b^n}$，应用 Cauchy-Hadamard 根值公式：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{|a_n|} = \lim_{n\to\infty} \frac{1}{\sqrt[n]{a^n + b^n}} = \frac{1}{\max\{a, b\}}.
+    \end{equation}
+    故收敛半径为
+    \begin{equation}
+        R = \max\{a, b\}.
+    \end{equation}
+
+    \ansitem{5}
+
+    关于 $u = x - 2$ 考察，利用 D'Alembert 比值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \left| \frac{\frac{u^{2n+1}}{(2n+1)!}}{\frac{u^{2n-1}}{(2n-1)!}} \right| = |u|^2 \lim_{n\to\infty} \frac{1}{2n(2n+1)} = 0.
+    \end{equation}
+    比值极限对任意 $u \in \symbb{R}$ 恒小于 $1$，故收敛半径为
+    \begin{equation}
+        R = +\infty.
+    \end{equation}
+
+    \ansitem{6}
+
+    记系数 $c_n = \frac{3^n + (-2)^n}{n}$，当 $n \to \infty$ 时 $c_n \sim \frac{3^n}{n}$，应用根值公式：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{|c_n|} = \lim_{n\to\infty} \sqrt[n]{\frac{3^n\left(1 + \left(-\frac{2}{3}\right)^n\right)}{n}} = 3.
+    \end{equation}
+    故关于 $(x+1)$ 的收敛半径为
+    \begin{equation}
+        R = \frac{1}{3}.
+    \end{equation}
+
+    \ansitem{7}
+
+    记调和数 $H_n = 1 + \frac{1}{2} + \dots + \frac{1}{n}$，应用比值公式：
+    \begin{equation}
+        R = \lim_{n\to\infty} \frac{H_n}{H_{n+1}} = \lim_{n\to\infty} \frac{H_n}{H_n + \frac{1}{n+1}} = \lim_{n\to\infty} \frac{1}{1 + \frac{1}{(n+1)H_n}} = 1.
+    \end{equation}
+
+    \ansitem{8}
+
+    应用根值审敛法，考察级数通项的 $n^2$ 次方根：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n^2]{\frac{|x|^{n^2}}{2^n}} = |x| \lim_{n\to\infty} 2^{-\frac{1}{n}} = |x| \cdot 2^0 = |x|.
+    \end{equation}
+    当 $|x| < 1$ 时级数收敛，当 $|x| > 1$ 时级数发散，故收敛半径为
+    \begin{equation}
+        R = 1.
+    \end{equation}
+
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & \text{(1) } R = 1; \quad \text{(2) } R = 4; \quad \text{(3) } R = \frac{\sqrt{2}}{2}; \quad \text{(4) } R = \max\{a, b\}; \\
+                 & \text{(5) } R = +\infty; \quad \text{(6) } R = \frac{1}{3}; \quad \text{(7) } R = 1; \quad \text{(8) } R = 1.
+            \end{aligned}
+        }
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Abel第二定理在逐项积分与级数求和中的应用}{Abel-Theorem-Termwise-Integration}
+    设 $f(x) = \sum_{n=0}^\infty a_n x^n$ 在 $|x| < R$ 时收敛，若 $\sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1}$ 也收敛，则
+    \begin{equation}
+        \int_0^R f(x)\d x = \sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1}.
+    \end{equation}
+    （注意：这里不管 $\sum_{n=0}^\infty a_n x^n$ 在 $x = R$ 是否收敛）．应用这个结果证明：
+    \begin{equation}
+        \int_0^1 \frac{1}{1+x}\d x = \ln 2 = \sum_{n=1}^\infty (-1)^{n-1}\frac{1}{n}.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    第一部分：证明积分等式．
+
+    定义积分和函数 $g(t) = \sum_{n=0}^\infty \frac{a_n}{n+1} t^{n+1}$．由于幂级数在收敛区间内部可逐项求导，对任意 $t \in [0, R)$ 恒有
+    \begin{equation}
+        g'(t) = \sum_{n=0}^\infty a_n t^n = f(t).
+    \end{equation}
+    又因为 $g(0) = 0$，由微积分基本定理，对任意 $t \in [0, R)$ 有
+    \begin{equation}
+        \int_0^t f(x)\d x = g(t) - g(0) = \sum_{n=0}^\infty \frac{a_n}{n+1} t^{n+1}.
+    \end{equation}
+    根据题设，数项级数 $\sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1}$ 收敛．由 Abel 第二定理（幂级数左连续性定理）：
+    \begin{equation}
+        \lim_{t \to R^-} g(t) = \lim_{t \to R^-} \sum_{n=0}^\infty \frac{a_n}{n+1} t^{n+1} = \sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1}.
+    \end{equation}
+    另一方面，由广义积分的定义：
+    \begin{equation}
+        \int_0^R f(x)\d x = \lim_{t \to R^-} \int_0^t f(x)\d x = \lim_{t \to R^-} g(t) = \sum_{n=0}^\infty \frac{a_n}{n+1} R^{n+1}.
+    \end{equation}
+    等式获证．
+
+    第二部分：应用该结果证明对数交错级数公式．
+
+    考虑函数 $f(x) = \frac{1}{1+x}$，在 $|x| < 1$（即 $R = 1$）内展开为几何级数：
+    \begin{equation}
+        f(x) = \frac{1}{1+x} = \sum_{n=0}^\infty (-1)^n x^n.
+    \end{equation}
+    考察积分级数在 $R = 1$ 处的取值：
+    \begin{equation}
+        \sum_{n=0}^\infty \frac{(-1)^n}{n+1} 1^{n+1} = \sum_{n=0}^\infty \frac{(-1)^n}{n+1} = \sum_{n=1}^\infty (-1)^{n-1} \frac{1}{n}.
+    \end{equation}
+    由于数列 $\left\{\frac{1}{n}\right\}$ 单调递减趋于零，由 Leibniz 判别法知该级数收敛．
+
+    应用第一部分已证的结论：
+    \begin{equation}
+        \int_0^1 \frac{1}{1+x}\d x = \sum_{n=0}^\infty \frac{(-1)^n}{n+1} = \sum_{n=1}^\infty (-1)^{n-1}\frac{1}{n}.
+    \end{equation}
+    直接计算定积分可得
+    \begin{equation}
+        \int_0^1 \frac{1}{1+x}\d x = \bigl[\ln(1+x)\bigr]_0^1 = \ln 2 - \ln 1 = \ln 2.
+    \end{equation}
+    因此
+    \begin{equation}
+        \int_0^1 \frac{1}{1+x}\d x = \ln 2 = \sum_{n=1}^\infty (-1)^{n-1}\frac{1}{n}.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{幂级数的收敛区域及和函数求解}{Sum-Functions-And-Convergence-Intervals}
+    求下列幂级数的收敛区域及和函数：
+    \begin{enumerate}
+        \item $\sum_{n=0}^\infty (-1)^n \frac{x^{2n+1}}{2n + 1}$；
+        \item $\sum_{n=0}^\infty (n + 1)x^n$；
+        \item $\sum_{n=1}^\infty n(n + 1)x^{n-1}$；
+        \item $\sum_{n=1}^\infty \frac{x^n}{n(n + 1)}$；
+        \item $\sum_{n=1}^\infty \frac{x^{2n-1}}{(2n - 1)!!}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    收敛半径 $R = 1$．在端点 $x = \pm 1$ 处由 Leibniz 判别法知级数均收敛，故收敛区域为 $[-1, 1]$．
+
+    设和函数为 $S(x)$，在开区间 $(-1, 1)$ 内逐项求导：
+    \begin{equation}
+        S'(x) = \sum_{n=0}^\infty (-1)^n x^{2n} = \frac{1}{1 + x^2}.
+    \end{equation}
+    结合初始条件 $S(0) = 0$ 积分得
+    \begin{equation}
+        S(x) = \int_0^x \frac{\d t}{1 + t^2} = \arctan x.
+    \end{equation}
+    由 Abel 连续性定理，和函数在端点 $x = \pm 1$ 处亦成立．
+    \begin{equation}
+        \boxed{S(x) = \arctan x, \quad x \in [-1, 1]．}
+    \end{equation}
+
+    \ansitem{2}
+
+    收敛半径 $R = 1$．端点 $x = \pm 1$ 处一般项不趋于零，故收敛区域为 $(-1, 1)$．
+
+    在 $(-1, 1)$ 内：
+    \begin{equation}
+        S(x) = \sum_{n=0}^\infty (n + 1)x^n = \left( \sum_{n=0}^\infty x^{n+1} \right)' = \left( \frac{x}{1 - x} \right)' = \frac{1}{(1 - x)^2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{S(x) = \frac{1}{(1 - x)^2}, \quad x \in (-1, 1)．}
+    \end{equation}
+
+    \ansitem{3}
+
+    收敛半径 $R = 1$．端点 $x = \pm 1$ 处一般项发散，故收敛区域为 $(-1, 1)$．
+
+    在 $(-1, 1)$ 内，利用第 (2) 问结论继续逐项求导：
+    \begin{equation}
+        S(x) = \sum_{n=1}^\infty n(n + 1)x^{n-1} = \left( \sum_{n=0}^\infty (n + 1)x^n \right)' = \left( \frac{1}{(1 - x)^2} \right)' = \frac{2}{(1 - x)^3}.
+    \end{equation}
+    \begin{equation}
+        \boxed{S(x) = \frac{2}{(1 - x)^3}, \quad x \in (-1, 1)．}
+    \end{equation}
+
+    \ansitem{4}
+
+    收敛半径 $R = 1$．端点 $x = \pm 1$ 处绝对收敛，故收敛区域为 $[-1, 1]$．
+
+    将通项拆分为部分分式，对 $x \in (-1, 0) \cup (0, 1)$：
+    \begin{equation}
+        \begin{aligned}
+            S(x) & = \sum_{n=1}^\infty \left( \frac{1}{n} - \frac{1}{n+1} \right) x^n                   \\
+                 & = \sum_{n=1}^\infty \frac{x^n}{n} - \frac{1}{x}\sum_{n=1}^\infty \frac{x^{n+1}}{n+1} \\
+                 & = -\ln(1 - x) - \frac{1}{x}\bigl( -\ln(1 - x) - x \bigr)                             \\
+                 & = 1 + \frac{1 - x}{x}\ln(1 - x).
+        \end{aligned}
+    \end{equation}
+    由连续性，$S(0) = 0$，$S(1) = 1$．
+    \begin{equation}
+        \boxed{S(x) = \begin{dcases} 1 + \frac{1 - x}{x}\ln(1 - x), & x \in [-1, 1) \setminus \{0\}, \\ 0, & x = 0, \\ 1, & x = 1. \end{dcases}}
+    \end{equation}
+
+    \ansitem{5}
+
+    利用比值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \left| \frac{x^{2n+1}}{(2n+1)!!} \cdot \frac{(2n-1)!!}{x^{2n-1}} \right| = |x|^2 \lim_{n\to\infty} \frac{1}{2n + 1} = 0 < 1.
+    \end{equation}
+    故收敛区域为 $(-\infty, +\infty)$．
+
+    设和函数为 $y(x) = \sum_{n=1}^\infty \frac{x^{2n-1}}{(2n-1)!!}$，逐项求导：
+    \begin{equation}
+        y'(x) = 1 + \sum_{n=2}^\infty \frac{x^{2n-2}}{(2n-3)!!} = 1 + x \sum_{m=1}^\infty \frac{x^{2m-1}}{(2m-1)!!} = 1 + x y(x).
+    \end{equation}
+    解一阶常微分方程 $y' - xy = 1$，对应齐次解的积分因子为 $\e^{-\frac{x^2}{2}}$：
+    \begin{equation}
+        \left( y(x)\e^{-\frac{x^2}{2}} \right)' = \e^{-\frac{x^2}{2}} \implies y(x) = \e^{\frac{x^2}{2}} \left( \int_0^x \e^{-\frac{t^2}{2}}\d t + C \right).
+    \end{equation}
+    代入初值 $y(0) = 0$ 得 $C = 0$．
+    \begin{equation}
+        \boxed{S(x) = \e^{\frac{x^2}{2}} \int_0^x \e^{-\frac{t^2}{2}}\d t, \quad x \in (-\infty, +\infty)．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{常数项级数求和}{Summation-Of-Constant-Series}
+    求下列级数的和：
+    \begin{enumerate}
+        \item $\sum_{n=2}^\infty \frac{1}{(n^2 - 1)2^n}$；
+        \item $\sum_{n=0}^\infty \frac{(-1)^n(n^2 - n + 1)}{2^n}$；
+        \item $\sum_{n=0}^\infty \frac{(-1)^n}{3n + 1}$；
+        \item $\sum_{n=0}^\infty \frac{(n + 1)^2}{n!}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    将被项拆为部分分式：
+    \begin{equation}
+        \sum_{n=2}^\infty \frac{1}{(n^2 - 1)2^n} = \frac{1}{2} \sum_{n=2}^\infty \frac{1}{(n-1)2^n} - \frac{1}{2} \sum_{n=2}^\infty \frac{1}{(n+1)2^n}.
+    \end{equation}
+    分别求两部分级数的和：
+    \begin{equation}
+        \sum_{n=2}^\infty \frac{1}{(n-1)2^n} = \frac{1}{2}\sum_{k=1}^\infty \frac{(1/2)^k}{k} = -\frac{1}{2}\ln\left(1 - \frac{1}{2}\right) = \frac{1}{2}\ln 2.
+    \end{equation}
+    \begin{equation}
+        \sum_{n=2}^\infty \frac{1}{(n+1)2^n} = 2\sum_{m=3}^\infty \frac{(1/2)^m}{m} = 2\left( -\ln\left(1 - \frac{1}{2}\right) - \frac{1}{2} - \frac{1}{8} \right) = 2\ln 2 - \frac{5}{4}.
+    \end{equation}
+    合并两项：
+    \begin{equation}
+        \sum_{n=2}^\infty \frac{1}{(n^2 - 1)2^n} = \frac{1}{2}\left( \frac{1}{2}\ln 2 - 2\ln 2 + \frac{5}{4} \right) = \frac{5}{8} - \frac{3}{4}\ln 2.
+    \end{equation}
+    \begin{equation}
+        \boxed{\sum_{n=2}^\infty \frac{1}{(n^2 - 1)2^n} = \frac{5}{8} - \frac{3}{4}\ln 2.}
+    \end{equation}
+
+    \ansitem{2}
+
+    考虑幂级数 $f(x) = \sum_{n=0}^\infty (-1)^n x^n = \frac{1}{1 + x}$（$|x| < 1$）．逐项求导：
+    \begin{equation}
+        \sum_{n=0}^\infty (-1)^n n(n-1) x^n = x^2 f''(x) = \frac{2x^2}{(1 + x)^3}.
+    \end{equation}
+    因为 $n^2 - n + 1 = n(n-1) + 1$，所以
+    \begin{equation}
+        \sum_{n=0}^\infty (-1)^n (n^2 - n + 1)x^n = \frac{2x^2}{(1 + x)^3} + \frac{1}{1 + x} = \frac{3x^2 + 2x + 1}{(1 + x)^3}.
+    \end{equation}
+    代入 $x = \frac{1}{2}$：
+    \begin{equation}
+        \sum_{n=0}^\infty \frac{(-1)^n(n^2 - n + 1)}{2^n} = \frac{3\left(\frac{1}{4}\right) + 2\left(\frac{1}{2}\right) + 1}{\left(1 + \frac{1}{2}\right)^3} = \frac{\frac{11}{4}}{\frac{27}{8}} = \frac{22}{27}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\sum_{n=0}^\infty \frac{(-1)^n(n^2 - n + 1)}{2^n} = \frac{22}{27}.}
+    \end{equation}
+
+    \ansitem{3}
+
+    构造幂级数 $S(x) = \sum_{n=0}^\infty (-1)^n \frac{x^{3n+1}}{3n+1}$（$|x| < 1$）．逐项求导：
+    \begin{equation}
+        S'(x) = \sum_{n=0}^\infty (-1)^n x^{3n} = \frac{1}{1 + x^3}.
+    \end{equation}
+    由 Abel 连续性定理，原级数和为
+    \begin{equation}
+        \sum_{n=0}^\infty \frac{(-1)^n}{3n+1} = S(1) = \int_0^1 \frac{\d x}{1 + x^3}.
+    \end{equation}
+    进行部分分式分解：
+    \begin{equation}
+        \frac{1}{1 + x^3} = \frac{1}{3(x + 1)} - \frac{x - 2}{3(x^2 - x + 1)} = \frac{1}{3(x + 1)} - \frac{2x - 1}{6(x^2 - x + 1)} + \frac{1}{2\left[\left(x - \frac{1}{2}\right)^2 + \frac{3}{4}\right]}.
+    \end{equation}
+    逐项积分求值：
+    \begin{equation}
+        \begin{aligned}
+            \int_0^1 \frac{\d x}{1 + x^3} & = \left[ \frac{1}{3}\ln(x + 1) - \frac{1}{6}\ln(x^2 - x + 1) + \frac{1}{\sqrt{3}}\arctan\frac{2x - 1}{\sqrt{3}} \right]_0^1 \\
+                                          & = \frac{1}{3}\ln 2 - 0 + \frac{1}{\sqrt{3}}\left( \frac{\uppi}{6} - \left(-\frac{\uppi}{6}\right) \right)                   \\
+                                          & = \frac{1}{3}\ln 2 + \frac{\uppi}{3\sqrt{3}}.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\sum_{n=0}^\infty \frac{(-1)^n}{3n + 1} = \frac{\ln 2}{3} + \frac{\sqrt{3}\uppi}{9}.}
+    \end{equation}
+
+    \ansitem{4}
+
+    将分子拆分为下降阶乘多项式：$(n + 1)^2 = n^2 + 2n + 1 = n(n - 1) + 3n + 1$．
+    \begin{equation}
+        \begin{aligned}
+            \sum_{n=0}^\infty \frac{(n + 1)^2}{n!} & = \sum_{n=2}^\infty \frac{n(n - 1)}{n!} + 3\sum_{n=1}^\infty \frac{n}{n!} + \sum_{n=0}^\infty \frac{1}{n!}      \\
+                                                   & = \sum_{n=2}^\infty \frac{1}{(n - 2)!} + 3\sum_{n=1}^\infty \frac{1}{(n - 1)!} + \sum_{n=0}^\infty \frac{1}{n!} \\
+                                                   & = \e + 3\e + \e = 5\e.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\sum_{n=0}^\infty \frac{(n + 1)^2}{n!} = 5\e.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{指定点处的Taylor展开式}{Taylor-Expansion-At-Given-Point}
+    求下列函数在指定点处的 Taylor 展开式，并给出收敛区域：
+    \begin{enumerate}
+        \item $x^3 - 2x^2 + 5x - 7, \quad x = 1$；
+        \item $\e^{\frac{x}{a}}, \quad x = a$；
+        \item $\ln x, \quad x = 1$；
+        \item $\frac{1}{x^2 + 3x + 2}, \quad x = -4$；
+        \item $\ln(1 + x - 2x^2), \quad x = 0$；
+        \item $\cos x, \quad x = \frac{\uppi}{4}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    令 $t = x - 1$，即 $x = 1 + t$．代入多项式化简：
+    \begin{equation}
+        \begin{aligned}
+            x^3 - 2x^2 + 5x - 7 & = (1 + t)^3 - 2(1 + t)^2 + 5(1 + t) - 7                  \\
+                                & = (t^3 + 3t^2 + 3t + 1) - 2(t^2 + 2t + 1) + 5(t + 1) - 7 \\
+                                & = -3 + 4t + t^2 + t^3                                    \\
+                                & = -3 + 4(x - 1) + (x - 1)^2 + (x - 1)^3.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{x^3 - 2x^2 + 5x - 7 = -3 + 4(x - 1) + (x - 1)^2 + (x - 1)^3, \quad x \in (-\infty, +\infty)．}
+    \end{equation}
+
+    \ansitem{2}
+
+    将指数函数变形为关于 $(x - a)$ 的形式：
+    \begin{equation}
+        \e^{\frac{x}{a}} = \e^{\frac{a + (x - a)}{a}} = \e \cdot \e^{\frac{x - a}{a}} = \e \sum_{n=0}^\infty \frac{1}{n!} \left( \frac{x - a}{a} \right)^n = \sum_{n=0}^\infty \frac{\e}{a^n n!} (x - a)^n.
+    \end{equation}
+    \begin{equation}
+        \boxed{\e^{\frac{x}{a}} = \sum_{n=0}^\infty \frac{\e}{a^n n!} (x - a)^n, \quad x \in (-\infty, +\infty)．}
+    \end{equation}
+
+    \ansitem{3}
+
+    利用标准对数展开式 $\ln(1 + t) = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} t^n$（$t \in (-1, 1]$）：
+    \begin{equation}
+        \ln x = \ln\bigl(1 + (x - 1)\bigr) = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} (x - 1)^n.
+    \end{equation}
+    收敛条件为 $|x - 1| < 1$ 且 $x - 1 \leqslant 1$，即 $x \in (0, 2]$．
+    \begin{equation}
+        \boxed{\ln x = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} (x - 1)^n, \quad x \in (0, 2]．}
+    \end{equation}
+
+    \ansitem{4}
+
+    将有理分式进行部分分式分解，并引入变量 $u = x + 4$：
+    \begin{equation}
+        \frac{1}{x^2 + 3x + 2} = \frac{1}{x + 1} - \frac{1}{x + 2} = \frac{1}{u - 3} - \frac{1}{u - 2}.
+    \end{equation}
+    分别展开为关于 $u$ 的幂级数：
+    \begin{equation}
+        \frac{1}{u - 3} = -\frac{1}{3}\frac{1}{1 - \frac{u}{3}} = -\sum_{n=0}^\infty \frac{u^n}{3^{n+1}} \quad (|u| < 3),
+    \end{equation}
+    \begin{equation}
+        \frac{1}{u - 2} = -\frac{1}{2}\frac{1}{1 - \frac{u}{2}} = -\sum_{n=0}^\infty \frac{u^n}{2^{n+1}} \quad (|u| < 2).
+    \end{equation}
+    相减并代回 $u = x + 4$：
+    \begin{equation}
+        \frac{1}{x^2 + 3x + 2} = \sum_{n=0}^\infty \left( \frac{1}{2^{n+1}} - \frac{1}{3^{n+1}} \right) (x + 4)^n.
+    \end{equation}
+    收敛区域为两收敛域的交集 $|x + 4| < 2$，即 $x \in (-6, -2)$．
+    \begin{equation}
+        \boxed{\frac{1}{x^2 + 3x + 2} = \sum_{n=0}^\infty \left( \frac{1}{2^{n+1}} - \frac{1}{3^{n+1}} \right) (x + 4)^n, \quad x \in (-6, -2)．}
+    \end{equation}
+
+    \ansitem{5}
+
+    因式分解真数：$1 + x - 2x^2 = (1 + 2x)(1 - x)$，故
+    \begin{equation}
+        \ln(1 + x - 2x^2) = \ln(1 + 2x) + \ln(1 - x).
+    \end{equation}
+    分别展开为 Maclaurin 级数：
+    \begin{equation}
+        \ln(1 + 2x) = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} (2x)^n = \sum_{n=1}^\infty \frac{(-1)^{n-1} 2^n}{n} x^n \quad \left( x \in \left(-\frac{1}{2}, \frac{1}{2}\right] \right),
+    \end{equation}
+    \begin{equation}
+        \ln(1 - x) = -\sum_{n=1}^\infty \frac{x^n}{n} \quad \bigl( x \in [-1, 1) \bigr).
+    \end{equation}
+    合并同类项可得
+    \begin{equation}
+        \ln(1 + x - 2x^2) = \sum_{n=1}^\infty \frac{(-1)^{n-1} 2^n - 1}{n} x^n.
+    \end{equation}
+    收敛区域为公共部分 $\left(-\frac{1}{2}, \frac{1}{2}\right]$．
+    \begin{equation}
+        \boxed{\ln(1 + x - 2x^2) = \sum_{n=1}^\infty \frac{(-1)^{n-1} 2^n - 1}{n} x^n, \quad x \in \left(-\frac{1}{2}, \frac{1}{2}\right]．}
+    \end{equation}
+
+    \ansitem{6}
+
+    利用三角函数和角公式：
+    \begin{equation}
+        \begin{aligned}
+            \cos x & = \cos\left( \frac{\uppi}{4} + \left(x - \frac{\uppi}{4}\right) \right)                                                                                                                           \\
+                   & = \cos\frac{\uppi}{4} \cos\left(x - \frac{\uppi}{4}\right) - \sin\frac{\uppi}{4} \sin\left(x - \frac{\uppi}{4}\right)                                                                             \\
+                   & = \frac{\sqrt{2}}{2} \left[ \sum_{k=0}^\infty \frac{(-1)^k}{(2k)!}\left(x - \frac{\uppi}{4}\right)^{2k} - \sum_{k=0}^\infty \frac{(-1)^k}{(2k+1)!}\left(x - \frac{\uppi}{4}\right)^{2k+1} \right] \\
+                   & = \sum_{n=0}^\infty \frac{\cos\left(\frac{\uppi}{4} + \frac{n\uppi}{2}\right)}{n!} \left(x - \frac{\uppi}{4}\right)^n.
+        \end{aligned}
+    \end{equation}
+    \begin{equation}
+        \boxed{\cos x = \sum_{n=0}^\infty \frac{\cos\left(\frac{\uppi}{4} + \frac{n\uppi}{2}\right)}{n!} \left(x - \frac{\uppi}{4}\right)^n, \quad x \in (-\infty, +\infty)．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{函数的Maclaurin展开式}{Maclaurin-Expansion-Of-Functions}
+    求下列函数的 Maclaurin 展开式，并给出收敛区域：
+    \begin{enumerate}
+        \item $\sin^2 x$；
+        \item $\arcsin x$；
+        \item $\ln \sqrt{\frac{1 + x}{1 - x}}$；
+        \item $(1 + x)\ln(1 + x)$；
+        \item $\int_0^x \cos t^2 \d t$；
+        \item $\int_0^x \frac{\sin t}{t} \d t$；
+        \item $\int_0^x \e^{-t^2} \d t$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    利用降幂公式 $\sin^2 x = \frac{1 - \cos 2x}{2}$：
+    \begin{equation}
+        \sin^2 x = \frac{1}{2} - \frac{1}{2}\sum_{n=0}^\infty \frac{(-1)^n (2x)^{2n}}{(2n)!} = \sum_{n=1}^\infty \frac{(-1)^{n-1} 2^{2n-1}}{(2n)!} x^{2n}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\sin^2 x = \sum_{n=1}^\infty \frac{(-1)^{n-1} 2^{2n-1}}{(2n)!} x^{2n}, \quad x \in (-\infty, +\infty)．}
+    \end{equation}
+
+    \ansitem{2}
+
+    由二项式定理，导函数展开为
+    \begin{equation}
+        (\arcsin x)' = (1 - x^2)^{-\frac{1}{2}} = 1 + \sum_{n=1}^\infty \frac{(2n - 1)!!}{(2n)!!} x^{2n} \quad (|x| < 1).
+    \end{equation}
+    逐项积分，结合 $\arcsin 0 = 0$：
+    \begin{equation}
+        \arcsin x = x + \sum_{n=1}^\infty \frac{(2n - 1)!!}{(2n)!! (2n + 1)} x^{2n+1}.
+    \end{equation}
+    在端点 $x = \pm 1$ 处级数绝对收敛，故收敛区域为 $[-1, 1]$．
+    \begin{equation}
+        \boxed{\arcsin x = x + \sum_{n=1}^\infty \frac{(2n - 1)!!}{(2n)!! (2n + 1)} x^{2n+1}, \quad x \in [-1, 1]．}
+    \end{equation}
+
+    \ansitem{3}
+
+    利用对数运算法则拆分：
+    \begin{equation}
+        \ln \sqrt{\frac{1 + x}{1 - x}} = \frac{1}{2}\bigl( \ln(1 + x) - \ln(1 - x) \bigr) = \frac{1}{2}\left( \sum_{n=1}^\infty \frac{(-1)^{n-1} x^n}{n} + \sum_{n=1}^\infty \frac{x^n}{n} \right) = \sum_{n=0}^\infty \frac{x^{2n+1}}{2n + 1}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\ln \sqrt{\frac{1 + x}{1 - x}} = \sum_{n=0}^\infty \frac{x^{2n+1}}{2n + 1}, \quad x \in (-1, 1)．}
+    \end{equation}
+
+    \ansitem{4}
+
+    利用级数线性运算与指标平移：
+    \begin{equation}
+        \begin{aligned}
+            (1 + x)\ln(1 + x) & = \ln(1 + x) + x\ln(1 + x)                                                                    \\
+                              & = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} x^n + \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} x^{n+1} \\
+                              & = x + \sum_{n=2}^\infty \frac{(-1)^{n-1}}{n} x^n + \sum_{n=2}^\infty \frac{(-1)^n}{n - 1} x^n \\
+                              & = x + \sum_{n=2}^\infty (-1)^n \left( \frac{1}{n - 1} - \frac{1}{n} \right) x^n               \\
+                              & = x + \sum_{n=2}^\infty \frac{(-1)^n}{n(n - 1)} x^n.
+        \end{aligned}
+    \end{equation}
+    在 $x = \pm 1$ 处级数均绝对收敛，故收敛区域为 $[-1, 1]$．
+    \begin{equation}
+        \boxed{(1 + x)\ln(1 + x) = x + \sum_{n=2}^\infty \frac{(-1)^n}{n(n - 1)} x^n, \quad x \in [-1, 1]．}
+    \end{equation}
+
+    \ansitem{5}
+
+    展开被积函数 $\cos t^2 = \sum_{n=0}^\infty \frac{(-1)^n t^{4n}}{(2n)!}$，在 $(-\infty, +\infty)$ 上逐项积分：
+    \begin{equation}
+        \int_0^x \cos t^2 \d t = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} \int_0^x t^{4n}\d t = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!(4n + 1)} x^{4n+1}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^x \cos t^2 \d t = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!(4n + 1)} x^{4n+1}, \quad x \in (-\infty, +\infty)．}
+    \end{equation}
+
+    \ansitem{6}
+
+    展开被积函数 $\frac{\sin t}{t} = \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{(2n + 1)!}$，在 $(-\infty, +\infty)$ 上逐项积分：
+    \begin{equation}
+        \int_0^x \frac{\sin t}{t}\d t = \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!} \int_0^x t^{2n}\d t = \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!(2n + 1)} x^{2n+1}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^x \frac{\sin t}{t}\d t = \sum_{n=0}^\infty \frac{(-1)^n}{(2n + 1)!(2n + 1)} x^{2n+1}, \quad x \in (-\infty, +\infty)．}
+    \end{equation}
+
+    \ansitem{7}
+
+    展开被积函数 $\e^{-t^2} = \sum_{n=0}^\infty \frac{(-1)^n t^{2n}}{n!}$，在 $(-\infty, +\infty)$ 上逐项积分：
+    \begin{equation}
+        \int_0^x \e^{-t^2}\d t = \sum_{n=0}^\infty \frac{(-1)^n}{n!} \int_0^x t^{2n}\d t = \sum_{n=0}^\infty \frac{(-1)^n}{n!(2n + 1)} x^{2n+1}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_0^x \e^{-t^2}\d t = \sum_{n=0}^\infty \frac{(-1)^n}{n!(2n + 1)} x^{2n+1}, \quad x \in (-\infty, +\infty)．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{隐函数的幂级数展开}{Power-Series-Expansion-Of-Implicit-Function}
+    方程 $y + \lambda \sin y = x \ (\lambda \neq -1)$ 在 $x = 0$ 附近确定了一个隐函数 $y(x)$，试求它的幂级数展开式中的前四项．
+\end{problem}
+
+\begin{solution}
+    当 $x = 0$ 时，方程 $y + \lambda \sin y = 0$ 满足 $y(0) = 0$．
+
+    因为方程关于 $(x, y)$ 是奇对称的，故隐函数 $y(x)$ 为奇函数，偶次幂系数全为零．设其 Taylor 展开式为
+    \begin{equation}
+        y(x) = c_1 x + c_3 x^3 + c_5 x^5 + c_7 x^7 + O(x^9).
+    \end{equation}
+    将正弦函数的 Maclaurin 展开式
+    \begin{equation}
+        \sin y = y - \frac{y^3}{6} + \frac{y^5}{120} - \frac{y^7}{5040} + O(y^9)
+    \end{equation}
+    代入原方程：
+    \begin{equation}
+        (1 + \lambda)y(x) - \frac{\lambda}{6}y(x)^3
+        + \frac{\lambda}{120}y(x)^5
+        - \frac{\lambda}{5040}y(x)^7 + O(y^9) = x.
+    \end{equation}
+    将 $y(x)$ 的展开式代入各复合幂次项：
+    \begin{equation}
+        \begin{aligned}
+            y(x)^3 & = c_1^3x^3 + 3c_1^2c_3x^5
+            + \left(3c_1^2c_5 + 3c_1c_3^2\right)x^7 + O(x^9), \\
+            y(x)^5 & = c_1^5x^5 + 5c_1^4c_3x^7 + O(x^9),      \\
+            y(x)^7 & = c_1^7x^7 + O(x^9).
+        \end{aligned}
+    \end{equation}
+    代入并按 $x$ 的升幂整理同类项：
+    \begin{equation}
+        \begin{aligned}
+             & (1 + \lambda)c_1x
+            + \left[(1 + \lambda)c_3 - \frac{\lambda}{6}c_1^3\right]x^3       \\
+             & \quad + \left[(1 + \lambda)c_5
+                           - \frac{\lambda}{2}c_1^2c_3
+                           + \frac{\lambda}{120}c_1^5\right]x^5               \\
+             & \quad + \left[(1 + \lambda)c_7
+                           - \frac{\lambda}{2}\left(c_1^2c_5 + c_1c_3^2\right)
+                           + \frac{\lambda}{24}c_1^4c_3
+                           - \frac{\lambda}{5040}c_1^7\right]x^7
+            + O(x^9) = x.
+        \end{aligned}
+    \end{equation}
+    比较两端各项系数：
+    \begin{enumerate}
+        \item 对 $x^1$ 项：
+              \begin{equation}
+                  (1 + \lambda)c_1 = 1
+                  \implies c_1 = \frac{1}{1 + \lambda};
+              \end{equation}
+        \item 对 $x^3$ 项：
+              \begin{equation}
+                  (1 + \lambda)c_3 - \frac{\lambda}{6}c_1^3 = 0
+                  \implies c_3 = \frac{\lambda}{6(1 + \lambda)^4};
+              \end{equation}
+        \item 对 $x^5$ 项：
+              \begin{equation}
+                  c_5 = \frac{1}{1 + \lambda}
+                  \left[\frac{\lambda}{2}c_1^2c_3
+                      - \frac{\lambda}{120}c_1^5\right]
+                  = \frac{\lambda(9\lambda - 1)}
+                  {120(1 + \lambda)^7};
+              \end{equation}
+        \item 对 $x^7$ 项：
+              \begin{equation}
+                  \begin{aligned}
+                      c_7
+                       & = \frac{1}{1 + \lambda}
+                      \left[
+                          \frac{\lambda}{2}\left(c_1^2c_5 + c_1c_3^2\right)
+                          - \frac{\lambda}{24}c_1^4c_3
+                          + \frac{\lambda}{5040}c_1^7
+                          \right] \\
+                       & = \frac{\lambda(225\lambda^2 - 54\lambda + 1)}
+                           {5040(1 + \lambda)^{10}}.
+                  \end{aligned}
+              \end{equation}
+    \end{enumerate}
+    因此，幂级数展开式中的前四个非零项为
+    \begin{equation}
+        \boxed{
+            y(x)
+            = \frac{x}{1 + \lambda}
+            + \frac{\lambda x^3}{6(1 + \lambda)^4}
+            + \frac{\lambda(9\lambda - 1)x^5}{120(1 + \lambda)^7}
+            + \frac{\lambda(225\lambda^2 - 54\lambda + 1)x^7}
+            {5040(1 + \lambda)^{10}}
+            + O(x^9).
+        }
+    \end{equation}
+\end{solution}
+
+\endinput

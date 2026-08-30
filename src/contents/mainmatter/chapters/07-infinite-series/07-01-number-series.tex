@@ -1,0 +1,870 @@
+\section{数项级数}
+
+\begin{problem}{裂项相消求级数和的恒等式证明}{Telescoping-Series-Sum-Identities}
+    证明下列等式：
+    \begin{enumerate}
+        \item $\sum_{n=1}^\infty \frac{1}{(2n-1)(2n+1)} = \frac{1}{2}$；
+        \item $\sum_{n=1}^\infty (\sqrt{n+2} - 2\sqrt{n+1} + \sqrt{n}) = 1 - \sqrt{2}$；
+        \item $\sum_{n=1}^\infty \ln \frac{n(2n+1)}{(n+1)(2n-1)} = \ln 2$；
+        \item $\sum_{n=1}^\infty \frac{2n+1}{n^2(n+1)^2} = 1$．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    将被项拆分为部分分式：
+    \begin{equation}
+        \frac{1}{(2n-1)(2n+1)} = \frac{1}{2}\left( \frac{1}{2n-1} - \frac{1}{2n+1} \right).
+    \end{equation}
+    前 $N$ 项部分和为
+    \begin{equation}
+        \begin{aligned}
+            S_N & = \frac{1}{2} \sum_{n=1}^N \left( \frac{1}{2n-1} - \frac{1}{2n+1} \right)                                                                                       \\
+                & = \frac{1}{2} \left[ \left( 1 - \frac{1}{3} \right) + \left( \frac{1}{3} - \frac{1}{5} \right) + \dots + \left( \frac{1}{2N-1} - \frac{1}{2N+1} \right) \right] \\
+                & = \frac{1}{2}\left( 1 - \frac{1}{2N+1} \right).
+        \end{aligned}
+    \end{equation}
+    令 $N \to \infty$ 取极限：
+    \begin{equation}
+        \sum_{n=1}^\infty \frac{1}{(2n-1)(2n+1)} = \lim_{N\to\infty} S_N = \lim_{N\to\infty} \frac{1}{2}\left( 1 - \frac{1}{2N+1} \right) = \frac{1}{2}.
+    \end{equation}
+
+    \ansitem{2}
+
+    将被积通项裂项改写为二阶差分形式：
+    \begin{equation}
+        \sqrt{n+2} - 2\sqrt{n+1} + \sqrt{n} = (\sqrt{n+2} - \sqrt{n+1}) - (\sqrt{n+1} - \sqrt{n}).
+    \end{equation}
+    前 $N$ 项部分和为
+    \begin{equation}
+        \begin{aligned}
+            S_N & = \sum_{n=1}^N \bigl[ (\sqrt{n+2} - \sqrt{n+1}) - (\sqrt{n+1} - \sqrt{n}) \bigr] \\
+                & = (\sqrt{N+2} - \sqrt{N+1}) - (\sqrt{2} - 1)                                     \\
+                & = \frac{1}{\sqrt{N+2} + \sqrt{N+1}} + 1 - \sqrt{2}.
+        \end{aligned}
+    \end{equation}
+    令 $N \to \infty$ 取极限：
+    \begin{equation}
+        \sum_{n=1}^\infty (\sqrt{n+2} - 2\sqrt{n+1} + \sqrt{n}) = \lim_{N\to\infty} \left( \frac{1}{\sqrt{N+2} + \sqrt{N+1}} + 1 - \sqrt{2} \right) = 1 - \sqrt{2}.
+    \end{equation}
+
+    \ansitem{3}
+
+    将对数通项化为对数差：
+    \begin{equation}
+        \ln \frac{n(2n+1)}{(n+1)(2n-1)} = \ln\frac{2n+1}{2n-1} - \ln\frac{n+1}{n} = \bigl(\ln(2n+1) - \ln(2n-1)\bigr) - \bigl(\ln(n+1) - \ln n\bigr).
+    \end{equation}
+    前 $N$ 项部分和为
+    \begin{equation}
+        \begin{aligned}
+            S_N & = \sum_{n=1}^N \bigl(\ln(2n+1) - \ln(2n-1)\bigr) - \sum_{n=1}^N \bigl(\ln(n+1) - \ln n\bigr) \\
+                & = (\ln(2N+1) - \ln 1) - (\ln(N+1) - \ln 1)                                                   \\
+                & = \ln\frac{2N+1}{N+1}.
+        \end{aligned}
+    \end{equation}
+    令 $N \to \infty$ 取极限：
+    \begin{equation}
+        \sum_{n=1}^\infty \ln \frac{n(2n+1)}{(n+1)(2n-1)} = \lim_{N\to\infty} \ln\frac{2N+1}{N+1} = \ln\left(\lim_{N\to\infty} \frac{2 + \frac{1}{N}}{1 + \frac{1}{N}}\right) = \ln 2.
+    \end{equation}
+
+    \ansitem{4}
+
+    将分子拆写为平方差：
+    \begin{equation}
+        \frac{2n+1}{n^2(n+1)^2} = \frac{(n+1)^2 - n^2}{n^2(n+1)^2} = \frac{1}{n^2} - \frac{1}{(n+1)^2}.
+    \end{equation}
+    前 $N$ 项部分和为
+    \begin{equation}
+        S_N = \sum_{n=1}^N \left( \frac{1}{n^2} - \frac{1}{(n+1)^2} \right) = 1 - \frac{1}{(N+1)^2}.
+    \end{equation}
+    令 $N \to \infty$ 取极限：
+    \begin{equation}
+        \sum_{n=1}^\infty \frac{2n+1}{n^2(n+1)^2} = \lim_{N\to\infty} \left( 1 - \frac{1}{(N+1)^2} \right) = 1.
+    \end{equation}
+\end{myproof}
+
+\begin{problem}{正项与常数项级数敛散性的判别}{Series-Convergence-Tests}
+    研究下列级数的敛散性：
+    \begin{enumerate}
+        \item $\sum_{n=1}^\infty \sqrt[n]{0.001}$；
+        \item $\sum_{n=2}^\infty \frac{1}{n\sqrt{n-1}}$；
+        \item $\sum_{n=1}^\infty \frac{1}{\sqrt{(2n-1)(2n+1)}}$；
+        \item $\sum_{n=1}^\infty \sin n$；
+        \item $\sum_{n=1}^\infty 2^n \sin \frac{\uppi}{3^n}$；
+        \item $\sum_{n=1}^\infty \frac{1}{n\sqrt[n]{n}}$；
+        \item $\sum_{n=1}^\infty \frac{1}{(2 + \frac{1}{n})^n}$；
+        \item $\sum_{n=1}^\infty \frac{n}{(n + \frac{1}{n})^n}$；
+        \item $\sum_{n=1}^\infty \arctan \frac{\uppi}{4n}$；
+        \item $\sum_{n=1}^\infty \frac{1000^n}{n!}$；
+        \item $\sum_{n=1}^\infty \frac{(n!)^2}{(2n)!}$；
+        \item $\sum_{n=1}^\infty \frac{3 + (-1)^n}{2^n}$；
+        \item $\sum_{n=1}^\infty \frac{\ln n}{\sqrt[4]{n^5}}$；
+        \item $\sum_{n=3}^\infty \frac{1}{n \ln n (\ln\ln n)^k}$；
+        \item $\sum_{n=1}^\infty \left(\cos \frac{1}{n}\right)^{n^3}$；
+        \item $\sum_{n=2}^\infty \left(\frac{an}{n+1}\right)^n \ (a > 0)$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 发散．
+
+    考察一般项极限：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{0.001} = \lim_{n\to\infty} (0.001)^{\frac{1}{n}} = (0.001)^0 = 1 \neq 0.
+    \end{equation}
+    因为级数收敛的必要条件不满足，故该级数发散．
+
+    \ansitem{2} 收敛．
+
+    当 $n \to \infty$ 时，通项满足渐近等价估计：
+    \begin{equation}
+        \frac{1}{n\sqrt{n-1}} \sim \frac{1}{n^{\frac{3}{2}}}.
+    \end{equation}
+    因为 $p = \frac{3}{2} > 1$，$p$-级数 $\sum_{n=2}^\infty \frac{1}{n^{\frac{3}{2}}}$ 收敛，由比较审敛法的极限形式，原级数收敛．
+
+    \ansitem{3} 发散．
+
+    当 $n \to \infty$ 时，通项满足渐近等价估计：
+    \begin{equation}
+        \frac{1}{\sqrt{(2n-1)(2n+1)}} = \frac{1}{\sqrt{4n^2 - 1}} \sim \frac{1}{2n}.
+    \end{equation}
+    因为调和级数 $\sum_{n=1}^\infty \frac{1}{n}$ 发散，由比较审敛法的极限形式，原级数发散．
+
+    \ansitem{4} 发散．
+
+    若 $\sum_{n=1}^\infty \sin n$ 收敛，则必有 $\lim_{n\to\infty} \sin n = 0$．从而
+    \begin{equation}
+        \lim_{n\to\infty} \cos(2n) = \lim_{n\to\infty} (1 - 2\sin^2 n) = 1.
+    \end{equation}
+    但由积化和差公式可得
+    \begin{equation}
+        \sin(n+1) - \sin(n-1) = 2\sin 1 \cos n \implies \cos n = \frac{\sin(n+1) - \sin(n-1)}{2\sin 1} \to 0,
+    \end{equation}
+    这导致 $\lim_{n\to\infty} (\sin^2 n + \cos^2 n) = 0 \neq 1$，产生矛盾．因此 $\lim_{n\to\infty} \sin n \neq 0$，级数发散．
+
+    \ansitem{5} 收敛．
+
+    当 $n \to \infty$ 时，$\frac{\uppi}{3^n} \to 0$，利用等价无穷小 $\sin x \sim x$（$x \to 0$）：
+    \begin{equation}
+        2^n \sin \frac{\uppi}{3^n} \sim 2^n \cdot \frac{\uppi}{3^n} = \uppi \left(\frac{2}{3}\right)^n.
+    \end{equation}
+    因为等比级数 $\sum_{n=1}^\infty \left(\frac{2}{3}\right)^n$ 公比 $q = \frac{2}{3} < 1$ 收敛，由比较审敛法极限形式，原级数收敛．
+
+    \ansitem{6} 发散．
+
+    由已知极限 $\lim_{n\to\infty} \sqrt[n]{n} = 1$，有
+    \begin{equation}
+        \lim_{n\to\infty} \frac{\frac{1}{n\sqrt[n]{n}}}{\frac{1}{n}} = \lim_{n\to\infty} \frac{1}{\sqrt[n]{n}} = 1.
+    \end{equation}
+    因为调和级数 $\sum_{n=1}^\infty \frac{1}{n}$ 发散，由比较审敛法的极限形式，原级数发散．
+
+    \ansitem{7} 收敛．
+
+    应用 Cauchy 根值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{\frac{1}{\left(2 + \frac{1}{n}\right)^n}} = \lim_{n\to\infty} \frac{1}{2 + \frac{1}{n}} = \frac{1}{2} < 1.
+    \end{equation}
+    故原级数收敛．
+
+    \ansitem{8} 收敛．
+
+    应用 Cauchy 根值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{\frac{n}{\left(n + \frac{1}{n}\right)^n}} = \lim_{n\to\infty} \frac{\sqrt[n]{n}}{n + \frac{1}{n}} = \frac{1}{\infty} = 0 < 1.
+    \end{equation}
+    故原级数收敛．
+
+    \ansitem{9} 发散．
+
+    利用等价无穷小 $\arctan x \sim x$（$x \to 0$）：
+    \begin{equation}
+        \arctan \frac{\uppi}{4n} \sim \frac{\uppi}{4n}.
+    \end{equation}
+    因为级数 $\sum_{n=1}^\infty \frac{1}{n}$ 发散，由比较审敛法的极限形式，原级数发散．
+
+    \ansitem{10} 收敛．
+
+    记 $a_n = \frac{1000^n}{n!}$，应用 D'Alembert 比值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{1000^{n+1}}{(n+1)!} \cdot \frac{n!}{1000^n} = \lim_{n\to\infty} \frac{1000}{n+1} = 0 < 1.
+    \end{equation}
+    故原级数收敛．
+
+    \ansitem{11} 收敛．
+
+    记 $a_n = \frac{(n!)^2}{(2n)!}$，应用 D'Alembert 比值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{[(n+1)!]^2}{(2n+2)!} \cdot \frac{(2n)!}{(n!)^2} = \lim_{n\to\infty} \frac{(n+1)^2}{(2n+1)(2n+2)} = \frac{1}{4} < 1.
+    \end{equation}
+    故原级数收敛．
+
+    \ansitem{12} 收敛．
+
+    因为对任意正整数 $n$ 恒有 $-1 \leqslant (-1)^n \leqslant 1$，所以
+    \begin{equation}
+        0 \leqslant \frac{3 + (-1)^n}{2^n} \leqslant \frac{4}{2^n} = \frac{1}{2^{n-2}}.
+    \end{equation}
+    因为公比为 $\frac{1}{2}$ 的几何级数 $\sum_{n=1}^\infty \frac{1}{2^{n-2}}$ 收敛，由比较审敛法，原级数收敛．
+
+    \ansitem{13} 收敛．
+
+    取常数 $p = \frac{9}{8} > 1$，考察其与 $p$-级数通项的比值极限：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{\frac{\ln n}{n^{\frac{5}{4}}}}{\frac{1}{n^{\frac{9}{8}}}} = \lim_{n\to\infty} \frac{\ln n}{n^{\frac{1}{8}}} = 0.
+    \end{equation}
+    因为 $p$-级数 $\sum_{n=1}^\infty \frac{1}{n^{\frac{9}{8}}}$ 收敛，由比较审敛法极限形式，原级数收敛．
+
+    \ansitem{14} 当 $k > 1$ 时收敛，当 $k \leqslant 1$ 时发散．
+
+    函数 $f(x) = \frac{1}{x \ln x (\ln\ln x)^k}$ 在 $[3, +\infty)$ 上单调递减且非负，应用积分审敛法：
+    \begin{equation}
+        \int_3^{+\infty} \frac{\d x}{x \ln x (\ln\ln x)^k} = \int_{\ln\ln 3}^{+\infty} \frac{\d u}{u^k} \quad (u = \ln\ln x).
+    \end{equation}
+    当 $k > 1$ 时广义积分收敛，当 $k \leqslant 1$ 时广义积分发散．故原级数在 $k > 1$ 时收敛，在 $k \leqslant 1$ 时发散．
+
+    \ansitem{15} 收敛．
+
+    利用 Taylor 展开式 $\ln(\cos x) = \ln\left(1 - \frac{x^2}{2} + O(x^4)\right) = -\frac{x^2}{2} + O(x^4)$（$x \to 0$）：
+    \begin{equation}
+        \left(\cos \frac{1}{n}\right)^{n^3} = \exp\left( n^3 \ln\cos\frac{1}{n} \right) = \exp\left( n^3 \left( -\frac{1}{2n^2} + O\left(\frac{1}{n^4}\right) \right) \right) = \exp\left( -\frac{n}{2} + O\left(\frac{1}{n}\right) \right).
+    \end{equation}
+    应用 Cauchy 根值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{\left(\cos \frac{1}{n}\right)^{n^3}} = \lim_{n\to\infty} \exp\left( -\frac{1}{2} + O\left(\frac{1}{n^2}\right) \right) = \e^{-\frac{1}{2}} = \frac{1}{\sqrt{\e}} < 1.
+    \end{equation}
+    故原级数收敛．
+
+    \ansitem{16} 当 $0 < a < 1$ 时收敛，当 $a \geqslant 1$ 时发散．
+
+    应用 Cauchy 根值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{\left(\frac{an}{n+1}\right)^n} = \lim_{n\to\infty} \frac{an}{n+1} = a.
+    \end{equation}
+    \begin{enumerate}
+        \item 当 $0 < a < 1$ 时，根值极限小于 $1$，级数收敛；
+        \item 当 $a > 1$ 时，根值极限大于 $1$，级数发散；
+        \item 当 $a = 1$ 时，考察通项极限：
+              \begin{equation}
+                  \lim_{n\to\infty} \left(\frac{n}{n+1}\right)^n = \lim_{n\to\infty} \frac{1}{\left(1 + \frac{1}{n}\right)^n} = \frac{1}{\e} \neq 0,
+              \end{equation}
+              级数的一般项不趋于零，故当 $a = 1$ 时级数发散．
+    \end{enumerate}
+\end{solution}
+
+\begin{problem}{相邻项组合级数的敛散性及其逆命题}{Series-Adjacent-Terms-Convergence}
+    设 $\sum_{n=1}^\infty a_n$ 收敛，证明：$\sum_{n=1}^\infty (a_n + a_{n+1})$ 也收敛．试举例说明逆命题不成立；但若 $a_n > 0$，则逆命题成立．
+\end{problem}
+
+\begin{solution}
+    第一部分：证明正命题．
+
+    设 $\sum_{n=1}^\infty a_n$ 收敛，其部分和为 $S_N = \sum_{n=1}^N a_n$，且 $\lim_{N\to\infty} S_N = S$．
+
+    由级数收敛的必要条件，$\lim_{N\to\infty} a_N = 0$．
+
+    记级数 $\sum_{n=1}^\infty (a_n + a_{n+1})$ 的前 $N$ 项部分和为 $T_N$，则
+    \begin{equation}
+        \begin{aligned}
+            T_N & = \sum_{n=1}^N (a_n + a_{n+1}) = (a_1 + a_2) + (a_2 + a_3) + \dots + (a_N + a_{N+1}) \\
+                & = a_1 + 2\sum_{n=2}^N a_n + a_{N+1} = 2S_N - a_1 + a_{N+1}.
+        \end{aligned}
+    \end{equation}
+    两端取 $N \to \infty$ 的极限：
+    \begin{equation}
+        \lim_{N\to\infty} T_N = \lim_{N\to\infty} (2S_N - a_1 + a_{N+1}) = 2S - a_1 + 0 = 2S - a_1.
+    \end{equation}
+    因为部分和极限存在，所以级数 $\sum_{n=1}^\infty (a_n + a_{n+1})$ 收敛．
+
+    第二部分：举反例说明一般情形下逆命题不成立．
+
+    取数列 $a_n = (-1)^n$，则对任意正整数 $n$ 恒有
+    \begin{equation}
+        a_n + a_{n+1} = (-1)^n + (-1)^{n+1} = 0.
+    \end{equation}
+    级数 $\sum_{n=1}^\infty (a_n + a_{n+1}) = \sum_{n=1}^\infty 0 = 0$ 收敛．
+
+    但 $\sum_{n=1}^\infty a_n = \sum_{n=1}^\infty (-1)^n$ 的一般项不趋于零，级数发散．因此逆命题一般不成立．
+
+    第三部分：证明正项级数条件下逆命题成立．
+
+    设 $a_n > 0$，且级数 $\sum_{n=1}^\infty (a_n + a_{n+1})$ 收敛，其和记为 $T$．
+
+    由于被加项均为正数，部分和序列 $\{T_N\}$ 单调递增且满足 $T_N \leqslant T$．由第一部分中的恒等变形：
+    \begin{equation}
+        2S_N = a_1 + \left( a_1 + 2\sum_{n=2}^N a_n \right) < a_1 + \left( a_1 + 2\sum_{n=2}^N a_n + a_{N+1} \right) = a_1 + T_N \leqslant a_1 + T.
+    \end{equation}
+    两端同除以 $2$ 得
+    \begin{equation}
+        S_N < \frac{a_1 + T}{2}.
+    \end{equation}
+    因为 $a_n > 0$，数列 $\{S_N\}$ 单调递增且有上界 $\frac{a_1 + T}{2}$．
+
+    根据单调有界收敛准则，极限 $\lim_{N\to\infty} S_N$ 必存在，即级数 $\sum_{n=1}^\infty a_n$ 必收敛．
+    \begin{equation}
+        \boxed{\text{命题获证，且正项条件下逆命题成立．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{级数通项的渐近性质与收敛性判别}{Series-General-Term-Asymptotics-And-Convergence}
+    证明或回答下面的论断：
+    \begin{enumerate}
+        \item 若 $\lim_{n\to\infty} n a_n = a \neq 0$，则级数 $\sum_{n=1}^\infty a_n$ 发散；
+        \item 若级数 $\sum_{n=1}^\infty a_n$ 收敛，是否有 $\lim_{n\to\infty} n a_n = 0$？
+        \item 若 $\lim_{n\to\infty} n a_n = a$，且级数 $\sum_{n=1}^\infty n(a_n - a_{n+1})$ 收敛，证明 $\sum_{n=1}^\infty a_n$ 收敛．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    因为 $\lim_{n\to\infty} n a_n = a \neq 0$，不妨设 $a > 0$（若 $a < 0$，只需考察级数 $\sum_{n=1}^\infty (-a_n)$）．
+
+    由极限的定义，取 $\varepsilon = \frac{a}{2} > 0$，存在正整数 $N$，使得当 $n > N$ 时恒有
+    \begin{equation}
+        n a_n > a - \varepsilon = \frac{a}{2} > 0 \implies a_n > \frac{a}{2n} > 0.
+    \end{equation}
+    由于调和级数 $\sum_{n=1}^\infty \frac{1}{n}$ 发散，级数 $\sum_{n=1}^\infty \frac{a}{2n}$ 亦发散．由正项级数的比较审敛法可知，$\sum_{n=N+1}^\infty a_n$ 发散，从而原级数 $\sum_{n=1}^\infty a_n$ 必发散．
+
+    \ansitem{2} 否，结论不一定成立．
+
+    构造反例：定义非负项数列
+    \begin{equation}
+        a_n = \begin{dcases}
+            \frac{1}{k^2}, & n = k^2 \ (k \in \symbb{N}^+), \\
+            0,             & n \neq k^2.
+        \end{dcases}
+    \end{equation}
+    考察该级数的和：
+    \begin{equation}
+        \sum_{n=1}^\infty a_n = \sum_{k=1}^\infty a_{k^2} = \sum_{k=1}^\infty \frac{1}{k^2} = \frac{\uppi^2}{6} < +\infty,
+    \end{equation}
+    因此级数 $\sum_{n=1}^\infty a_n$ 收敛．
+
+    然而，考察下标为完全平方数的子列 $n_k = k^2$：
+    \begin{equation}
+        n_k a_{n_k} = k^2 \cdot \frac{1}{k^2} = 1 \neq 0.
+    \end{equation}
+    因此极限 $\lim_{n\to\infty} n a_n = 0$ 不成立．
+
+    \ansitem{3}
+
+    记级数 $\sum_{n=1}^\infty a_n$ 与 $\sum_{n=1}^\infty n(a_n - a_{n+1})$ 的前 $N$ 项部分和分别为 $S_N$ 与 $T_N$．
+
+    对 $T_N$ 进行 Abel 分部求和展开：
+    \begin{equation}
+        \begin{aligned}
+            T_N & = \sum_{n=1}^N n(a_n - a_{n+1})                                   \\
+                & = \sum_{n=1}^N n a_n - \sum_{n=1}^N n a_{n+1}                     \\
+                & = (a_1 + 2a_2 + \dots + N a_N) - (a_2 + 2a_3 + \dots + N a_{N+1}) \\
+                & = a_1 + a_2 + \dots + a_N - N a_{N+1}                             \\
+                & = S_N - N a_{N+1}.
+        \end{aligned}
+    \end{equation}
+    移项变形可得
+    \begin{equation}
+        S_N = T_N + N a_{N+1} = T_N + \frac{N}{N+1} \cdot (N+1)a_{N+1}.
+    \end{equation}
+    已知级数 $\sum_{n=1}^\infty n(a_n - a_{n+1})$ 收敛，记其和为 $T = \lim_{N\to\infty} T_N$．
+
+    又由已知条件 $\lim_{n\to\infty} n a_n = a$，得
+    \begin{equation}
+        \lim_{N\to\infty} (N+1)a_{N+1} = a, \qquad \lim_{N\to\infty} \frac{N}{N+1} = 1.
+    \end{equation}
+    对 $S_N$ 两端取 $N \to \infty$ 的极限：
+    \begin{equation}
+        \lim_{N\to\infty} S_N = \lim_{N\to\infty} T_N + \lim_{N\to\infty} \frac{N}{N+1} \cdot \lim_{N\to\infty} (N+1)a_{N+1} = T + 1 \cdot a = T + a.
+    \end{equation}
+    因为数列 $\{S_N\}$ 的极限存在且为有限数，所以级数 $\sum_{n=1}^\infty a_n$ 必收敛．
+
+    \begin{equation}
+        \boxed{\text{(1) 命题得证；(2) 结论不成立；(3) 级数 } \sum_{n=1}^\infty a_n \text{ 收敛，且和为 } T + a．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{正项级数平方和的收敛性及其逆命题}{Convergence-Of-Squared-Positive-Series}
+    设正项级数 $\sum_{n=1}^\infty a_n$ 收敛，证明：$\sum_{n=1}^\infty a_n^2$ 也收敛．试问反之是否成立？
+\end{problem}
+
+\begin{solution}
+    第一步，证明正命题．
+
+    因为正项级数 $\sum_{n=1}^\infty a_n$ 收敛，由级数收敛的必要条件可得
+    \begin{equation}
+        \lim_{n\to\infty} a_n = 0.
+    \end{equation}
+    根据数列极限的定义，取 $\varepsilon = 1$，存在正整数 $N$，使得当 $n > N$ 时恒有
+    \begin{equation}
+        0 < a_n < 1.
+    \end{equation}
+    两端同乘正数 $a_n$，得到当 $n > N$ 时恒有
+    \begin{equation}
+        0 < a_n^2 < a_n.
+    \end{equation}
+    由于 $\sum_{n=N+1}^\infty a_n$ 收敛，由正项级数的比较审敛法可知，$\sum_{n=N+1}^\infty a_n^2$ 亦收敛，从而级数 $\sum_{n=1}^\infty a_n^2$ 收敛．
+
+    第二步，判断逆命题是否成立．
+
+    逆命题不成立．构造反例：取数列
+    \begin{equation}
+        a_n = \frac{1}{n} > 0 \quad (n \in \symbb{N}^+).
+    \end{equation}
+    此时平方级数
+    \begin{equation}
+        \sum_{n=1}^\infty a_n^2 = \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\uppi^2}{6}
+    \end{equation}
+    为 $p = 2 > 1$ 的 $p$-级数，收敛．
+
+    但原级数 $\sum_{n=1}^\infty a_n = \sum_{n=1}^\infty \frac{1}{n}$ 为调和级数，发散．
+    \begin{equation}
+        \boxed{\text{命题获证，但逆命题不成立，反例为 } a_n = \frac{1}{n}．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{几乎递减非负数列的极限存在性}{Limit-Of-Almost-Monotone-Nonnegative-Sequence}
+    设 $\{a_n\}$、$\{b_n\}$ 是两个非负数列满足 $a_{n+1} < a_n + b_n$，而且 $\sum_{n=1}^\infty b_n$ 收敛．求证：$\lim_{n\to\infty} a_n$ 存在．
+\end{problem}
+
+\begin{myproof}
+    记正项收敛级数 $\sum_{n=1}^\infty b_n$ 的余项为
+    \begin{equation}
+        B_n = \sum_{k=n}^\infty b_k \quad (n \in \symbb{N}^+).
+    \end{equation}
+    由于级数收敛，余项满足
+    \begin{equation}
+        \lim_{n\to\infty} B_n = 0.
+    \end{equation}
+    且相邻余项之差为
+    \begin{equation}
+        B_n - B_{n+1} = b_n.
+    \end{equation}
+    将已知递推不等式 $a_{n+1} < a_n + b_n$ 改写为
+    \begin{equation}
+        a_{n+1} < a_n + B_n - B_{n+1} \implies a_{n+1} + B_{n+1} < a_n + B_n.
+    \end{equation}
+    构造辅助数列
+    \begin{equation}
+        c_n = a_n + B_n \quad (n \in \symbb{N}^+).
+    \end{equation}
+    则由上式可知 $c_{n+1} < c_n$，即数列 $\{c_n\}$ 严格单调递减．
+
+    又因为数列 $\{a_n\}$ 与 $\{b_n\}$ 均非负，所以对任意 $n \geqslant 1$ 恒有
+    \begin{equation}
+        c_n = a_n + B_n \geqslant 0,
+    \end{equation}
+    即数列 $\{c_n\}$ 有下界 $0$．
+
+    根据单调有界收敛准则，数列 $\{c_n\}$ 的极限必存在，记为
+    \begin{equation}
+        \lim_{n\to\infty} c_n = c.
+    \end{equation}
+    于是，数列 $\{a_n\}$ 的极限为
+    \begin{equation}
+        \lim_{n\to\infty} a_n = \lim_{n\to\infty} (c_n - B_n) = \lim_{n\to\infty} c_n - \lim_{n\to\infty} B_n = c - 0 = c.
+    \end{equation}
+    因此极限 $\lim_{n\to\infty} a_n$ 存在．
+\end{myproof}
+
+\begin{problem}{平方可和级数导出级数的收敛性}{Convergence-Of-Derived-Series-From-Square-Summable}
+    证明：若级数 $\sum_{n=1}^\infty a_n^2$ 和 $\sum_{n=1}^\infty b_n^2$ 收敛，则级数 $\sum_{n=1}^\infty |a_n b_n|$，$\sum_{n=1}^\infty (a_n + b_n)^2$，以及 $\sum_{n=1}^\infty \frac{|a_n|}{n}$ 也收敛．
+\end{problem}
+
+\begin{myproof}
+    第一步，证明级数 $\sum_{n=1}^\infty |a_n b_n|$ 收敛．
+
+    利用基本均值不等式，对任意正整数 $n$ 恒有
+    \begin{equation}
+        |a_n b_n| \leqslant \frac{1}{2}a_n^2 + \frac{1}{2}b_n^2.
+    \end{equation}
+    因为级数 $\sum_{n=1}^\infty a_n^2$ 和 $\sum_{n=1}^\infty b_n^2$ 均收敛，由收敛级数的线性性质可知 $\sum_{n=1}^\infty \frac{1}{2}(a_n^2 + b_n^2)$ 收敛．由比较审敛法，正项级数 $\sum_{n=1}^\infty |a_n b_n|$ 收敛．
+
+    第二步，证明级数 $\sum_{n=1}^\infty (a_n + b_n)^2$ 收敛．
+
+    展开被项并利用绝对值不等式：
+    \begin{equation}
+        (a_n + b_n)^2 = a_n^2 + 2a_n b_n + b_n^2 \leqslant a_n^2 + 2|a_n b_n| + b_n^2 \leqslant 2a_n^2 + 2b_n^2.
+    \end{equation}
+    由于 $\sum_{n=1}^\infty (2a_n^2 + 2b_n^2)$ 收敛，由比较审敛法，正项级数 $\sum_{n=1}^\infty (a_n + b_n)^2$ 收敛．
+
+    第三步，证明级数 $\sum_{n=1}^\infty \frac{|a_n|}{n}$ 收敛．
+
+    取数列 $c_n = \frac{1}{n}$．由基本不等式可得
+    \begin{equation}
+        \frac{|a_n|}{n} = |a_n \cdot c_n| \leqslant \frac{1}{2}a_n^2 + \frac{1}{2n^2}.
+    \end{equation}
+    因为 $\sum_{n=1}^\infty a_n^2$ 收敛，且 $p = 2 > 1$ 的 $p$-级数 $\sum_{n=1}^\infty \frac{1}{n^2}$ 收敛，故级数 $\sum_{n=1}^\infty \left( \frac{1}{2}a_n^2 + \frac{1}{2n^2} \right)$ 收敛．
+
+    由比较审敛法可知，正项级数 $\sum_{n=1}^\infty \frac{|a_n|}{n}$ 收敛．
+\end{myproof}
+
+\begin{problem}{含参数幂次与几何和的数列极限计算}{Limits-Of-Sums-With-Power-And-Geometric-Terms}
+    求下列极限（其中 $p > 1$）：
+    \begin{enumerate}
+        \item $\lim_{n\to\infty} \left[ \frac{1}{(n+1)^p} + \frac{1}{(n+2)^p} + \dots + \frac{1}{(2n)^p} \right]$；
+        \item $\lim_{n\to\infty} \left( \frac{1}{p^{n+1}} + \frac{1}{p^{n+2}} + \dots + \frac{1}{p^{2n}} \right)$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    记求和式为 $S_n = \sum_{k=1}^n \frac{1}{(n+k)^p}$．该和式共包含 $n$ 项，且每一项满足
+    \begin{equation}
+        \frac{1}{(2n)^p} \leqslant \frac{1}{(n+k)^p} \leqslant \frac{1}{(n+1)^p} \quad (k = 1, 2, \dots, n).
+    \end{equation}
+    进行双边夹逼估计：
+    \begin{equation}
+        0 < \frac{n}{(2n)^p} \leqslant S_n \leqslant \frac{n}{(n+1)^p} < \frac{n}{n^p} = \frac{1}{n^{p-1}}.
+    \end{equation}
+    因为 $p > 1$，所以 $p - 1 > 0$，从而
+    \begin{equation}
+        \lim_{n\to\infty} \frac{1}{n^{p-1}} = 0.
+    \end{equation}
+    由夹逼准则，即得
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \left[ \frac{1}{(n+1)^p} + \frac{1}{(n+2)^p} + \dots + \frac{1}{(2n)^p} \right] = 0.}
+    \end{equation}
+
+    \ansitem{2}
+
+    利用等比数列求和公式，公比为 $q = \frac{1}{p} \in (0, 1)$：
+    \begin{equation}
+        \sum_{k=1}^n \frac{1}{p^{n+k}} = \frac{1}{p^{n+1}} \cdot \frac{1 - \left(\frac{1}{p}\right)^n}{1 - \frac{1}{p}} = \frac{1}{p^n(p - 1)}\left(1 - \frac{1}{p^n}\right).
+    \end{equation}
+    由于 $p > 1$，当 $n \to \infty$ 时，$\lim_{n\to\infty} p^n = +\infty$，$\lim_{n\to\infty} \frac{1}{p^n} = 0$．
+
+    因此取极限得
+    \begin{equation}
+        \lim_{n\to\infty} \left( \frac{1}{p^{n+1}} + \frac{1}{p^{n+2}} + \dots + \frac{1}{p^{2n}} \right) = \lim_{n\to\infty} \frac{1 - p^{-n}}{p^n(p - 1)} = 0.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} \left( \frac{1}{p^{n+1}} + \frac{1}{p^{n+2}} + \dots + \frac{1}{p^{2n}} \right) = 0.}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{交错级数发散条件下的幂指级数敛散性}{Convergence-Of-Power-Series-From-Divergent-Alternating-Series}
+    设正项数列 $\{a_n\}$ 单调递减，且 $\sum_{n=1}^\infty (-1)^n a_n$ 发散，试问 $\sum_{n=1}^\infty \left(\frac{1}{a_n + 1}\right)^n$ 是否收敛？并说明理由．
+\end{problem}
+
+\begin{solution}
+    收敛．
+
+    因为正项数列 $\{a_n\}$ 单调递减，且有显然下界 $a_n > 0$，由单调有界定理，极限
+    \begin{equation}
+        L = \lim_{n\to\infty} a_n
+    \end{equation}
+    必存在，且 $L \geqslant 0$．
+
+    若 $L = 0$，由 Leibniz 交错级数审敛法可知，单调递减趋于零的正项交错级数 $\sum_{n=1}^\infty (-1)^n a_n$ 必收敛，这与已知条件“$\sum_{n=1}^\infty (-1)^n a_n$ 发散”相矛盾．
+
+    因此必有
+    \begin{equation}
+        L = \lim_{n\to\infty} a_n > 0.
+    \end{equation}
+    又由数列 $\{a_n\}$ 的单调递减性，对任意正整数 $n$ 恒有 $a_n \geqslant L > 0$，从而
+    \begin{equation}
+        a_n + 1 \geqslant L + 1 > 1 \implies 0 < \frac{1}{a_n + 1} \leqslant \frac{1}{L + 1} < 1.
+    \end{equation}
+    考察正项级数 $\sum_{n=1}^\infty \left(\frac{1}{a_n + 1}\right)^n$，应用 Cauchy 根值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{\left(\frac{1}{a_n + 1}\right)^n} = \lim_{n\to\infty} \frac{1}{a_n + 1} = \frac{1}{L + 1} < 1.
+    \end{equation}
+    因为根值极限小于 $1$，由 Cauchy 根值审敛法可知，该级数必收敛．
+    \begin{equation}
+        \boxed{\text{级数 } \sum_{n=1}^\infty \left(\frac{1}{a_n + 1}\right)^n \text{ 收敛．}}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{算术平均数列交错级数的收敛性证明}{Alternating-Series-Of-Cesaro-Means}
+    设 $a_n > 0, a_n > a_{n+1} \ (n = 1, 2, \dots)$，且 $\lim_{n\to\infty} a_n = 0$，证明：级数
+    \begin{equation}
+        \sum_{n=1}^\infty (-1)^{n-1}\frac{a_1 + a_2 + \dots + a_n}{n}
+    \end{equation}
+    是收敛的．
+\end{problem}
+
+\begin{myproof}
+    令 $c_n = \frac{a_1 + a_2 + \dots + a_n}{n} = \frac{1}{n}\sum_{k=1}^n a_k$．
+
+    第一步，证明数列 $\{c_n\}$ 严格单调递减．计算相邻两项之差：
+    \begin{equation}
+        \begin{aligned}
+            c_n - c_{n+1} & = \frac{1}{n}\sum_{k=1}^n a_k - \frac{1}{n+1}\sum_{k=1}^{n+1} a_k                   \\
+                          & = \left( \frac{1}{n} - \frac{1}{n+1} \right)\sum_{k=1}^n a_k - \frac{1}{n+1}a_{n+1} \\
+                          & = \frac{1}{n(n+1)}\sum_{k=1}^n a_k - \frac{n}{n(n+1)}a_{n+1}                        \\
+                          & = \frac{1}{n(n+1)}\sum_{k=1}^n (a_k - a_{n+1}).
+        \end{aligned}
+    \end{equation}
+    因为数列 $\{a_n\}$ 严格单调递减，对任意 $1 \leqslant k \leqslant n$ 恒有 $a_k > a_{n+1}$，故
+    \begin{equation}
+        \sum_{k=1}^n (a_k - a_{n+1}) > 0 \implies c_n > c_{n+1}.
+    \end{equation}
+    同时，由于 $a_n > 0$，显然有 $c_n > 0$．
+
+    第二步，证明极限 $\lim_{n\to\infty} c_n = 0$．
+
+    由 Stolz-Cesàro 定理（或算术平均极限性质），由于数列 $\{a_n\}$ 收敛且 $\lim_{n\to\infty} a_n = 0$，得
+    \begin{equation}
+        \lim_{n\to\infty} c_n = \lim_{n\to\infty} \frac{a_1 + a_2 + \dots + a_n}{n} = \lim_{n\to\infty} \frac{a_{n+1}}{(n+1) - n} = \lim_{n\to\infty} a_{n+1} = 0.
+    \end{equation}
+    综上，数列 $\{c_n\}$ 单调递减趋于零且各项为正，由 Leibniz 交错级数审敛法可知，级数 $\sum_{n=1}^\infty (-1)^{n-1} c_n$ 必收敛．
+\end{myproof}
+
+\begin{problem}{绝对收敛级数和的绝对收敛性}{Absolute-Convergence-Of-Series-Sum}
+    设 $\sum_{n=1}^\infty a_n$ 和 $\sum_{n=1}^\infty b_n$ 绝对收敛．求证：$\sum_{n=1}^\infty (a_n + b_n)$ 绝对收敛．
+\end{problem}
+
+\begin{myproof}
+    因为级数 $\sum_{n=1}^\infty a_n$ 和 $\sum_{n=1}^\infty b_n$ 绝对收敛，由定义可知正项级数 $\sum_{n=1}^\infty |a_n|$ 与 $\sum_{n=1}^\infty |b_n|$ 均收敛．
+
+    由收敛级数的线性运算性质，正项级数
+    \begin{equation}
+        \sum_{n=1}^\infty (|a_n| + |b_n|)
+    \end{equation}
+    亦收敛．
+
+    根据实数的三角不等式，对任意正整数 $n$ 恒有
+    \begin{equation}
+        0 \leqslant |a_n + b_n| \leqslant |a_n| + |b_n|.
+    \end{equation}
+    由正项级数的比较审敛法可知，正项级数 $\sum_{n=1}^\infty |a_n + b_n|$ 收敛．
+
+    因此，由绝对收敛的定义，级数 $\sum_{n=1}^\infty (a_n + b_n)$ 绝对收敛．
+\end{myproof}
+
+\begin{problem}{交错级数条件收敛与绝对收敛性的判别}{Conditional-And-Absolute-Convergence-Tests}
+    研究下列级数的条件收敛性与绝对收敛性：
+    \begin{enumerate}
+        \item $\sum_{n=1}^\infty (-1)^n \left(\frac{2n + 100}{3n + 1}\right)^n$；
+        \item $\sum_{n=1}^\infty \frac{(-1)^{\frac{n(n-1)}{2}}}{2^n}$；
+        \item $\sum_{n=1}^\infty (-1)^n \frac{\sqrt{n}}{n + 100}$；
+        \item $\sum_{n=1}^\infty (-1)^{n-1} \sin \frac{1}{n}$；
+        \item $\sum_{n=1}^\infty (-1)^{n-1} \frac{\ln n}{n}$；
+        \item $\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n^p}$；
+        \item $\sum_{n=1}^\infty (-1)^n \left(\e^{\frac{1}{n}} - 1\right)$；
+        \item $\sum_{n=1}^\infty (-1)^n \left[ \frac{1}{n} - \ln\left(1 + \frac{1}{n}\right) \right]$；
+        \item $\sum_{n=1}^\infty (-1)^n \left(1 - \cos \frac{p}{n}\right)$；
+        \item $\sum_{n=1}^\infty (-1)^n \left(1 - \cos \frac{1}{n}\right)^p$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 绝对收敛．
+
+    考察绝对值级数 $\sum_{n=1}^\infty \left(\frac{2n + 100}{3n + 1}\right)^n$，应用 Cauchy 根值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{\left(\frac{2n + 100}{3n + 1}\right)^n} = \lim_{n\to\infty} \frac{2n + 100}{3n + 1} = \frac{2}{3} < 1.
+    \end{equation}
+    绝对值级数收敛，故原级数绝对收敛．
+
+    \ansitem{2} 绝对收敛．
+
+    考察绝对值级数，因为 $\left|(-1)^{\frac{n(n-1)}{2}}\right| = 1$：
+    \begin{equation}
+        \sum_{n=1}^\infty \left| \frac{(-1)^{\frac{n(n-1)}{2}}}{2^n} \right| = \sum_{n=1}^\infty \frac{1}{2^n}.
+    \end{equation}
+    公比为 $\frac{1}{2} < 1$ 的几何级数收敛，故原级数绝对收敛．
+
+    \ansitem{3} 条件收敛．
+
+    第一步，考察绝对值级数 $\sum_{n=1}^\infty \frac{\sqrt{n}}{n + 100}$．当 $n \to \infty$ 时：
+    \begin{equation}
+        \frac{\sqrt{n}}{n + 100} \sim \frac{1}{\sqrt{n}}.
+    \end{equation}
+    由于 $p = \frac{1}{2} \leqslant 1$ 的 $p$-级数发散，由比较审敛法极限形式，绝对值级数发散，原级数非绝对收敛．
+
+    第二步，考察函数 $f(x) = \frac{\sqrt{x}}{x + 100}$（$x > 0$）：
+    \begin{equation}
+        f'(x) = \frac{\frac{1}{2\sqrt{x}}(x + 100) - \sqrt{x}}{(x + 100)^2} = \frac{100 - x}{2\sqrt{x}(x + 100)^2}.
+    \end{equation}
+    当 $x > 100$ 时，$f'(x) < 0$，故数列 $\left\{ \frac{\sqrt{n}}{n + 100} \right\}$ 从 $n = 100$ 起单调递减，且极限为 $0$．由 Leibniz 审敛法，原级数收敛．故原级数条件收敛．
+
+    \ansitem{4} 条件收敛．
+
+    绝对值级数通项满足 $\sin\frac{1}{n} \sim \frac{1}{n}$（$n \to \infty$），由调和级数发散知绝对值级数发散．
+
+    又对任意 $n \geqslant 1$，$\frac{1}{n} \in \left(0, \frac{\uppi}{2}\right)$，正弦函数单调递增蕴含数列 $\left\{\sin\frac{1}{n}\right\}$ 单调递减且趋于 $0$．由 Leibniz 审敛法，原级数收敛．故原级数条件收敛．
+
+    \ansitem{5} 条件收敛．
+
+    对 $n \geqslant 3$ 有 $\frac{\ln n}{n} > \frac{1}{n}$，由调和级数发散知绝对值级数发散．
+
+    考察函数 $f(x) = \frac{\ln x}{x}$（$x > 0$），其导数 $f'(x) = \frac{1 - \ln x}{x^2} < 0$（$x > \e$），故数列 $\left\{\frac{\ln n}{n}\right\}$ 当 $n \geqslant 3$ 时单调递减趋于 $0$．由 Leibniz 审敛法，原级数收敛．故原级数条件收敛．
+
+    \ansitem{6} 当 $p > 1$ 时绝对收敛；当 $0 < p \leqslant 1$ 时条件收敛；当 $p \leqslant 0$ 时发散．
+
+    \begin{enumerate}
+        \item 当 $p > 1$ 时，绝对值级数 $\sum_{n=1}^\infty \frac{1}{n^p}$ 为收敛的 $p$-级数，故原级数绝对收敛；
+        \item 当 $0 < p \leqslant 1$ 时，绝对值级数发散，但数列 $\left\{\frac{1}{n^p}\right\}$ 单调递减趋于 $0$，由 Leibniz 审敛法知级数收敛，故原级数条件收敛；
+        \item 当 $p \leqslant 0$ 时，$\lim_{n\to\infty} \left|\frac{(-1)^{n-1}}{n^p}\right| = \lim_{n\to\infty} n^{-p} \neq 0$，一般项不趋于零，故原级数发散．
+    \end{enumerate}
+
+    \ansitem{7} 条件收敛．
+
+    当 $n \to \infty$ 时，$\e^{\frac{1}{n}} - 1 \sim \frac{1}{n}$，由调和级数发散知绝对值级数发散．
+
+    因为函数 $g(x) = \e^{\frac{1}{x}} - 1$ 在 $(0, +\infty)$ 上严格单调递减趋于 $0$，由 Leibniz 审敛法，原级数收敛．故原级数条件收敛．
+
+    \ansitem{8} 绝对收敛．
+
+    利用 Taylor 展开式 $\ln(1 + x) = x - \frac{1}{2}x^2 + O(x^3)$（$x \to 0$）：
+    \begin{equation}
+        \left| (-1)^n \left[ \frac{1}{n} - \ln\left(1 + \frac{1}{n}\right) \right] \right| = \frac{1}{n} - \left(\frac{1}{n} - \frac{1}{2n^2} + O\left(\frac{1}{n^3}\right)\right) = \frac{1}{2n^2} + O\left(\frac{1}{n^3}\right) \sim \frac{1}{2n^2}.
+    \end{equation}
+    因为 $p = 2 > 1$ 的级数 $\sum_{n=1}^\infty \frac{1}{2n^2}$ 收敛，由比较审敛法极限形式，绝对值级数收敛，故原级数绝对收敛．
+
+    \ansitem{9} 绝对收敛．
+
+    当 $p = 0$ 时，各项均为 $0$，级数绝对收敛．
+
+    当 $p \neq 0$ 时，利用等价无穷小 $1 - \cos x \sim \frac{1}{2}x^2$（$x \to 0$）：
+    \begin{equation}
+        1 - \cos \frac{p}{n} \sim \frac{1}{2}\left(\frac{p}{n}\right)^2 = \frac{p^2}{2n^2}.
+    \end{equation}
+    因为 $p = 2 > 1$ 的级数 $\sum_{n=1}^\infty \frac{p^2}{2n^2}$ 收敛，由比较审敛法极限形式，绝对值级数收敛，故原级数对任意实数 $p$ 均绝对收敛．
+
+    \ansitem{10} 当 $p > \frac{1}{2}$ 时绝对收敛；当 $0 < p \leqslant \frac{1}{2}$ 时条件收敛；当 $p \leqslant 0$ 时发散．
+
+    利用等价无穷小估计绝对值级数通项：
+    \begin{equation}
+        \left(1 - \cos \frac{1}{n}\right)^p \sim \left(\frac{1}{2n^2}\right)^p = \frac{1}{2^p n^{2p}}.
+    \end{equation}
+    \begin{enumerate}
+        \item 当 $2p > 1 \iff p > \frac{1}{2}$ 时，绝对值级数收敛，原级数绝对收敛；
+        \item 当 $0 < p \leqslant \frac{1}{2}$ 时，绝对值级数发散．数列 $\left\{\left(1 - \cos\frac{1}{n}\right)^p\right\}$ 单调递减趋于 $0$，由 Leibniz 审敛法知原级数收敛，故原级数条件收敛；
+        \item 当 $p \leqslant 0$ 时，通项一般项不趋于零，原级数发散．
+    \end{enumerate}
+
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & \text{(1) 绝对收敛；\quad (2) 绝对收敛；\quad (3) 条件收敛；\quad (4) 条件收敛；\quad (5) 条件收敛；}                                   \\
+                 & \text{(6) } p > 1 \text{ 绝对收敛，} 0 < p \leqslant 1 \text{ 条件收敛，} p \leqslant 0 \text{ 发散；}                      \\
+                 & \text{(7) 条件收敛；\quad (8) 绝对收敛；\quad (9) 对任意 } p \in \symbb{R} \text{ 绝对收敛；}                                    \\
+                 & \text{(10) } p > \frac{1}{2} \text{ 绝对收敛，} 0 < p \leqslant \frac{1}{2} \text{ 条件收敛，} p \leqslant 0 \text{ 发散．}
+            \end{aligned}
+        }
+    \end{equation}
+\end{solution}
+
+\begin{problem}{条件收敛级数正负部分和之比的极限}{Limit-Of-Positive-And-Negative-Parts-Ratio}
+    如果级数 $\sum_{n=1}^\infty a_n$ 条件收敛，证明：$\frac{S_n^+}{S_n^-}$ 当 $n \to \infty$ 时有极限且
+    \begin{equation}
+        \lim_{n\to\infty} \frac{S_n^+}{S_n^-} = 1.
+    \end{equation}
+    这里，$S_n^\pm$ 是正项级数 $\sum_{n=1}^\infty a_n^\pm$ 的部分和，$a_n^+, a_n^-$ 的定义由正负部分给出（即 $a_n^+ = \frac{|a_n| + a_n}{2}, a_n^- = \frac{|a_n| - a_n}{2}$）．
+\end{problem}
+
+\begin{myproof}
+    由正负部分的定义可知，对任意正整数 $n$，恒有
+    \begin{equation}
+        a_n = a_n^+ - a_n^-, \qquad |a_n| = a_n^+ + a_n^-.
+    \end{equation}
+    记级数 $\sum_{n=1}^\infty a_n$ 的部分和为 $S_n = \sum_{k=1}^n a_k$，绝对值级数的部分和为 $\sigma_n = \sum_{k=1}^n |a_k|$，则
+    \begin{equation}
+        S_n = S_n^+ - S_n^-, \qquad \sigma_n = S_n^+ + S_n^-.
+    \end{equation}
+    因为级数 $\sum_{n=1}^\infty a_n$ 条件收敛，所以数列 $\{S_n\}$ 收敛于某个有限实数 $S$：
+    \begin{equation}
+        \lim_{n\to\infty} S_n = S.
+    \end{equation}
+    同时，绝对值级数 $\sum_{n=1}^\infty |a_n|$ 发散，即单调递增的正项数列 $\{\sigma_n\}$ 发散至正无穷：
+    \begin{equation}
+        \lim_{n\to\infty} \sigma_n = +\infty.
+    \end{equation}
+    由 $S_n^- = \frac{1}{2}(\sigma_n - S_n)$，可得
+    \begin{equation}
+        \lim_{n\to\infty} S_n^- = +\infty.
+    \end{equation}
+    将比值 $\frac{S_n^+}{S_n^-}$ 变形为
+    \begin{equation}
+        \frac{S_n^+}{S_n^-} = \frac{S_n^- + S_n}{S_n^-} = 1 + \frac{S_n}{S_n^-}.
+    \end{equation}
+    两端取 $n \to \infty$ 的极限：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{S_n^+}{S_n^-} = \lim_{n\to\infty} \left( 1 + \frac{S_n}{S_n^-} \right) = 1 + 0 = 1.
+    \end{equation}
+    命题得证．
+\end{myproof}
+
+\begin{problem}{比值比较审敛法}{Ratio-Comparison-Test-For-Absolute-Convergence}
+    证明：如果正项级数 $\sum_{n=1}^\infty b_n$ 收敛，并且从某项之后有
+    \begin{equation}
+        \left|\frac{a_{n+1}}{a_n}\right| < \frac{b_{n+1}}{b_n},
+    \end{equation}
+    则级数 $\sum_{n=1}^\infty a_n$ 绝对收敛．
+\end{problem}
+
+\begin{myproof}
+    由题设，存在正整数 $N$，使得当 $n \geqslant N$ 时恒有
+    \begin{equation}
+        \frac{|a_{n+1}|}{|a_n|} < \frac{b_{n+1}}{b_n} \implies \frac{|a_{n+1}|}{b_{n+1}} < \frac{|a_n|}{b_n}.
+    \end{equation}
+    这表明当 $n \geqslant N$ 时，数列 $\left\{ \frac{|a_n|}{b_n} \right\}$ 严格单调递减．
+
+    因此，对任意 $n \geqslant N$，均有
+    \begin{equation}
+        \frac{|a_n|}{b_n} \leqslant \frac{|a_N|}{b_N} = C,
+    \end{equation}
+    其中 $C = \frac{|a_N|}{b_N} > 0$ 为与 $n$ 无关的常数．从而对任意 $n \geqslant N$ 恒有
+    \begin{equation}
+        |a_n| \leqslant C b_n.
+    \end{equation}
+    因为正项级数 $\sum_{n=1}^\infty b_n$ 收敛，由收敛级数的线性性质知 $\sum_{n=N}^\infty C b_n$ 亦收敛．
+
+    根据正项级数的比较审敛法，级数 $\sum_{n=N}^\infty |a_n|$ 收敛，从而 $\sum_{n=1}^\infty |a_n|$ 收敛．
+
+    由绝对收敛的定义，级数 $\sum_{n=1}^\infty a_n$ 绝对收敛．
+\end{myproof}
+
+\begin{problem}{Dirichlet与Abel审敛法的应用}{Dirichlet-And-Abel-Tests-For-Series}
+    研究下列级数的敛散性：
+    \begin{enumerate}
+        \item $\sum_{n=1}^\infty \frac{\sin nx}{n}$；
+        \item $\sum_{n=2}^\infty \frac{\cos \frac{n\uppi}{4}}{\ln n}$；
+        \item $\sum_{n=1}^\infty \frac{\sin n}{\sqrt{n}}\left(1 + \frac{1}{n}\right)^n$；
+        \item $\sum_{n=1}^\infty (-1)^n \frac{n-1}{n+1} \cdot \frac{1}{\sqrt[100]{n}}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 收敛（对任意 $x \in \symbb{R}$）．
+
+    若 $x = 2k\uppi$（$k \in \symbb{Z}$），则对任意 $n \geqslant 1$ 恒有 $\sin nx = 0$，级数各项均为零，显然收敛．
+
+    若 $x \neq 2k\uppi$（$k \in \symbb{Z}$），三角和的部分和满足
+    \begin{equation}
+        \left| \sum_{k=1}^n \sin kx \right| = \left| \frac{\cos\frac{x}{2} - \cos\left(n + \frac{1}{2}\right)x}{2\sin\frac{x}{2}} \right| \leqslant \frac{1}{\left|\sin\frac{x}{2}\right|}.
+    \end{equation}
+    部分和序列一致有界．又数列 $\left\{\frac{1}{n}\right\}$ 单调递减趋于零，由 Dirichlet 审敛法可知，级数收敛．
+
+    \ansitem{2} 收敛．
+
+    三角和的部分和满足
+    \begin{equation}
+        \left| \sum_{k=2}^n \cos\frac{k\uppi}{4} \right| \leqslant \frac{1}{\sin\frac{\uppi}{8}} + 1.
+    \end{equation}
+    部分和序列有界．又数列 $\left\{\frac{1}{\ln n}\right\}$ 单调递减且 $\lim_{n\to\infty}\frac{1}{\ln n} = 0$，由 Dirichlet 审敛法可知，原级数收敛．
+
+    \ansitem{3} 收敛．
+
+    先考察级数 $\sum_{n=1}^\infty \frac{\sin n}{\sqrt{n}}$：由于 $\left|\sum_{k=1}^n \sin k\right| \leqslant \frac{1}{\sin\frac{1}{2}}$ 有界，且数列 $\left\{\frac{1}{\sqrt{n}}\right\}$ 单调递减趋于零，由 Dirichlet 审敛法可知级数 $\sum_{n=1}^\infty \frac{\sin n}{\sqrt{n}}$ 收敛．
+
+    又数列 $c_n = \left(1 + \frac{1}{n}\right)^n$ 单调递增且有界（$\lim_{n\to\infty} c_n = \e$）．
+
+    由 Abel 审敛法可知，原级数 $\sum_{n=1}^\infty \frac{\sin n}{\sqrt{n}}\left(1 + \frac{1}{n}\right)^n$ 收敛．
+
+    \ansitem{4} 收敛．
+
+    对于交错级数 $\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt[100]{n}}$，数列 $\left\{\frac{1}{\sqrt[100]{n}}\right\}$ 单调递减趋于零，由 Leibniz 审敛法可知该级数收敛．
+
+    又数列 $d_n = \frac{n-1}{n+1} = 1 - \frac{2}{n+1}$ 单调递增且有界（$0 \leqslant d_n < 1$）．
+
+    由 Abel 审敛法可知，原级数收敛．
+
+    \begin{equation}
+        \boxed{\text{(1) 对任意 } x \in \symbb{R} \text{ 均收敛；\quad (2) 收敛；\quad (3) 收敛；\quad (4) 收敛．}}
+    \end{equation}
+\end{solution}
+
+\endinput

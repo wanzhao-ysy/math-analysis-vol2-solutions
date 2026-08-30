@@ -1,0 +1,588 @@
+\section{函数项级数}
+
+\begin{problem}{一致收敛级数和的一致收敛性}{Uniform-Convergence-Of-Series-Sum}
+    证明：两个在共同区间 $I$ 上一致收敛的级数的和，也在 $I$ 上一致收敛．
+\end{problem}
+
+\begin{myproof}
+    设级数 $\sum_{n=1}^\infty u_n(x)$ 与 $\sum_{n=1}^\infty v_n(x)$ 在区间 $I$ 上分别一致收敛于和函数 $U(x)$ 与 $V(x)$．
+
+    记它们的前 $N$ 项部分和分别为
+    \begin{equation}
+        S_N(x) = \sum_{n=1}^N u_n(x), \qquad T_N(x) = \sum_{n=1}^N v_n(x).
+    \end{equation}
+    则两级数之和 $\sum_{n=1}^\infty \bigl(u_n(x) + v_n(x)\bigr)$ 的前 $N$ 项部分和为 $S_N(x) + T_N(x)$．
+
+    根据函数项级数一致收敛的定义，对任意给定的 $\varepsilon > 0$：
+    \begin{enumerate}
+        \item 存在正整数 $N_1$，使得当 $N > N_1$ 时，对一切 $x \in I$ 均有
+              \begin{equation}
+                  |S_N(x) - U(x)| < \frac{\varepsilon}{2};
+              \end{equation}
+        \item 存在正整数 $N_2$，使得当 $N > N_2$ 时，对一切 $x \in I$ 均有
+              \begin{equation}
+                  |T_N(x) - V(x)| < \frac{\varepsilon}{2}.
+              \end{equation}
+    \end{enumerate}
+    取 $N_0 = \max\{N_1, N_2\}$，则当 $N > N_0$ 时，利用三角不等式，对一切 $x \in I$ 恒有
+    \begin{equation}
+        \begin{aligned}
+            \bigl| \bigl(S_N(x) + T_N(x)\bigr) - \bigl(U(x) + V(x)\bigr) \bigr| & = \bigl| \bigl(S_N(x) - U(x)\bigr) + \bigl(T_N(x) - V(x)\bigr) \bigr| \\
+                                                                                & \leqslant |S_N(x) - U(x)| + |T_N(x) - V(x)|                           \\
+                                                                                & < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.
+        \end{aligned}
+    \end{equation}
+    因此，和级数 $\sum_{n=1}^\infty \bigl(u_n(x) + v_n(x)\bigr)$ 在区间 $I$ 上一致收敛于 $U(x) + V(x)$．
+\end{myproof}
+
+\begin{problem}{函数项级数收敛域的确定}{Convergence-Domains-Of-Function-Series}
+    确定下列函数项级数的收敛域：
+    \begin{enumerate}
+        \item $\sum_{n=1}^\infty n\e^{-nx}$；
+        \item $\sum_{n=2}^\infty \frac{x^{n^2}}{n}$；
+        \item $\sum_{n=1}^\infty \frac{(-1)^n}{2n - 1} \left(\frac{1 - x}{1 + x}\right)^n$；
+        \item $\sum_{n=1}^\infty \frac{1}{x^n} \sin \frac{\uppi}{2^n}$；
+        \item $\sum_{n=1}^\infty \frac{(x - 3)^n}{n - 3^n}$；
+        \item $\sum_{n=1}^\infty n! \left(\frac{x}{n}\right)^n$；
+        \item $\sum_{n=1}^\infty \frac{\cos nx}{\e^{nx}}$；
+        \item $\sum_{n=1}^\infty \frac{x^n}{1 - x^n}$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} $(0, +\infty)$．
+
+    应用 Cauchy 根值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \sqrt[n]{n\e^{-nx}} = \e^{-x} \lim_{n\to\infty} \sqrt[n]{n} = \e^{-x}.
+    \end{equation}
+    \begin{enumerate}
+        \item 当 $\e^{-x} < 1 \iff x > 0$ 时，级数绝对收敛；
+        \item 当 $\e^{-x} > 1 \iff x < 0$ 时，级数发散；
+        \item 当 $x = 0$ 时，级数为 $\sum_{n=1}^\infty n$，一般项趋于无穷，级数发散．
+    \end{enumerate}
+    \begin{equation}
+        \boxed{D = (0, +\infty)．}
+    \end{equation}
+
+    \ansitem{2} $[-1, 1)$．
+
+    \begin{enumerate}
+        \item 当 $|x| < 1$ 时，$\lim_{n\to\infty} \sqrt[n]{\frac{|x|^{n^2}}{n}} = \lim_{n\to\infty} \frac{|x|^n}{\sqrt[n]{n}} = 0 < 1$，级数绝对收敛；
+        \item 当 $|x| > 1$ 时，一般项不趋于零，级数发散；
+        \item 当 $x = 1$ 时，级数为 $\sum_{n=2}^\infty \frac{1}{n}$，为调和级数，发散；
+        \item 当 $x = -1$ 时，级数为 $\sum_{n=2}^\infty \frac{(-1)^{n^2}}{n} = \sum_{n=2}^\infty \frac{(-1)^n}{n}$，由 Leibniz 判别法知其收敛．
+    \end{enumerate}
+    \begin{equation}
+        \boxed{D = [-1, 1)．}
+    \end{equation}
+
+    \ansitem{3} $[0, +\infty)$．
+
+    令 $t = \frac{1 - x}{1 + x}$（$x \neq -1$），原级数化为幂级数 $\sum_{n=1}^\infty \frac{(-1)^n}{2n - 1} t^n$．收敛半径为
+    \begin{equation}
+        R = \lim_{n\to\infty} \left| \frac{(-1)^n}{2n - 1} \cdot \frac{2n + 1}{(-1)^{n+1}} \right| = 1.
+    \end{equation}
+    在端点处：$t = 1$ 时交错级数收敛；$t = -1$ 时为调和型正项级数发散．因此收敛区间为 $t \in (-1, 1]$．
+
+    解不等式组：
+    \begin{equation}
+        -1 < \frac{1 - x}{1 + x} \leqslant 1 \iff \begin{dcases} \frac{2}{1 + x} > 0 \implies x > -1, \\ \frac{-2x}{1 + x} \leqslant 0 \implies x \geqslant 0. \end{dcases}
+    \end{equation}
+    \begin{equation}
+        \boxed{D = [0, +\infty)．}
+    \end{equation}
+
+    \ansitem{4} $\left(-\infty, -\frac{1}{2}\right) \cup \left(\frac{1}{2}, +\infty\right)$．
+
+    当 $x \neq 0$ 时，利用等价无穷小 $\sin \frac{\uppi}{2^n} \sim \frac{\uppi}{2^n}$（$n \to \infty$）：
+    \begin{equation}
+        \left| \frac{1}{x^n} \sin \frac{\uppi}{2^n} \right| \sim \uppi \left( \frac{1}{2|x|} \right)^n.
+    \end{equation}
+    由几何级数敛散性，当 $\frac{1}{2|x|} < 1 \iff |x| > \frac{1}{2}$ 时级数绝对收敛；当 $|x| \leqslant \frac{1}{2}$ 时一般项不趋于零，级数发散．
+    \begin{equation}
+        \boxed{D = \left(-\infty, -\frac{1}{2}\right) \cup \left(\frac{1}{2}, +\infty\right)．}
+    \end{equation}
+
+    \ansitem{5} $(0, 6)$．
+
+    当 $n \to \infty$ 时，分母 $n - 3^n \sim -3^n$，故通项渐近满足
+    \begin{equation}
+        \left| \frac{(x - 3)^n}{n - 3^n} \right| \sim \left| \frac{x - 3}{3} \right|^n.
+    \end{equation}
+    由根值审敛法，当 $\left|\frac{x - 3}{3}\right| < 1 \iff 0 < x < 6$ 时级数收敛．在端点 $x = 0$ 与 $x = 6$ 处，通项极限的绝对值为 $1 \neq 0$，级数发散．
+    \begin{equation}
+        \boxed{D = (0, 6)．}
+    \end{equation}
+
+    \ansitem{6} $(-\e, \e)$．
+
+    应用比值审敛法：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{(n+1)! \left(\frac{|x|}{n+1}\right)^{n+1}}{n! \left(\frac{|x|}{n}\right)^n} = |x| \lim_{n\to\infty} \left( \frac{n}{n+1} \right)^n = \frac{|x|}{\e}.
+    \end{equation}
+    当 $|x| < \e$ 时级数收敛；当 $|x| > \e$ 时级数发散．当 $|x| = \e$ 时，利用 Stirling 公式 $n! \sim \sqrt{2\uppi n}\left(\frac{n}{\e}\right)^n$，通项的模长满足
+    \begin{equation}
+        n! \left(\frac{\e}{n}\right)^n \sim \sqrt{2\uppi n} \to +\infty,
+    \end{equation}
+    一般项发散，故端点处均发散．
+    \begin{equation}
+        \boxed{D = (-\e, \e)．}
+    \end{equation}
+
+    \ansitem{7} $(0, +\infty)$．
+
+    当 $x > 0$ 时，$\left|\frac{\cos nx}{\e^{nx}}\right| \leqslant \e^{-nx}$，且公比为 $\e^{-x} < 1$ 的几何级数收敛，由比较审敛法知原级数绝对收敛．
+
+    当 $x \leqslant 0$ 时，$\e^{-nx} \geqslant 1$，通项不趋于零，级数发散．
+    \begin{equation}
+        \boxed{D = (0, +\infty)．}
+    \end{equation}
+
+    \ansitem{8} $(-1, 1)$．
+
+    当 $|x| < 1$ 时，$1 - x^n \to 1$，通项等价于 $x^n$，由几何级数知其绝对收敛．
+
+    当 $|x| > 1$ 时，$\lim_{n\to\infty} \frac{x^n}{1 - x^n} = -1 \neq 0$，一般项不趋于零，级数发散．在 $x = \pm 1$ 处方程无定义或发散．
+    \begin{equation}
+        \boxed{D = (-1, 1)．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Weierstrass判别法控制级数不存在的反例}{Counterexample-To-Weierstrass-M-Test-Majorant}
+    在区间 $[0, 1]$ 上，定义
+    \begin{equation}
+        u_n(x) = \begin{dcases}
+            \frac{1}{n}, & x = \frac{1}{n},    \\
+            0,           & x \neq \frac{1}{n}.
+        \end{dcases}
+    \end{equation}
+    证明：级数 $\sum_{n=1}^\infty u_n(x)$ 在 $[0, 1]$ 上一致收敛，但是它没有 Weierstrass 判别法中的控制级数．
+\end{problem}
+
+\begin{myproof}
+    第一步，证明级数 $\sum_{n=1}^\infty u_n(x)$ 在 $[0, 1]$ 上一致收敛．
+
+    对任意给定的 $x \in [0, 1]$，点集 $\left\{\frac{1}{n}\right\}$ 中至多包含一个点等于 $x$．因此余项满足
+    \begin{equation}
+        R_N(x) = \sum_{n=N+1}^\infty u_n(x) = \begin{dcases}
+            \frac{1}{k}, & x = \frac{1}{k} \ (k \geqslant N + 1), \\
+            0,           & \text{其它}.
+        \end{dcases}
+    \end{equation}
+    对所有 $x \in [0, 1]$，均有
+    \begin{equation}
+        0 \leqslant R_N(x) \leqslant \frac{1}{N + 1}.
+    \end{equation}
+    取上确界得
+    \begin{equation}
+        \lim_{N\to\infty} \sup_{x \in [0, 1]} |R_N(x)| \leqslant \lim_{N\to\infty} \frac{1}{N + 1} = 0.
+    \end{equation}
+    故级数 $\sum_{n=1}^\infty u_n(x)$ 在 $[0, 1]$ 上一致收敛．
+
+    第二步，证明不存在收敛的控制正项常数级数．
+
+    计算每一项在 $[0, 1]$ 上的最小控制常数 $M_n$：
+    \begin{equation}
+        M_n = \sup_{x \in [0, 1]} |u_n(x)| = u_n\left(\frac{1}{n}\right) = \frac{1}{n}.
+    \end{equation}
+    若存在常数数列 $\{c_n\}$ 使得对一切 $x \in [0, 1]$ 恒有 $|u_n(x)| \leqslant c_n$，则必有
+    \begin{equation}
+        c_n \geqslant M_n = \frac{1}{n}.
+    \end{equation}
+    因为调和级数 $\sum_{n=1}^\infty \frac{1}{n}$ 发散，由比较审敛法可知，任何控制常数级数 $\sum_{n=1}^\infty c_n$ 必发散．
+
+    因此，该级数不存在 Weierstrass 判别法中的收敛控制级数．
+\end{myproof}
+
+\begin{problem}{函数项级数的一致收敛性判别}{Uniform-Convergence-Tests-For-Function-Series}
+    研究下列级数在给定区间上的一致收敛性：
+    \begin{enumerate}
+        \item $\sum_{n=1}^\infty \frac{\sin nx}{n^2}, \quad -\infty < x < +\infty$；
+        \item $\sum_{n=1}^\infty \frac{1}{2^n(1 + (nx)^2)}, \quad -\infty < x < +\infty$；
+        \item $\sum_{n=1}^\infty (-1)^{n-1} x^n, \quad -1 < x < 1$；
+        \item $\sum_{n=1}^\infty x^2 \e^{-nx}, \quad 0 \leqslant x < +\infty$；
+        \item $\sum_{n=1}^\infty \frac{(-1)^n}{x + n}, \quad 0 \leqslant x < +\infty$；
+        \item $\sum_{n=1}^\infty \frac{1}{n^x}, \quad 1 < x < +\infty$；
+        \item $\sum_{n=1}^\infty \frac{\cos nx}{n}, \quad 0 < \delta \leqslant x \leqslant 2\uppi - \delta$；
+        \item $\sum_{n=1}^\infty \frac{x^2}{(n\e^n)^x}, \quad 0 \leqslant x < +\infty$．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1} 一致收敛．
+
+    对任意 $x \in (-\infty, +\infty)$，恒有
+    \begin{equation}
+        \left| \frac{\sin nx}{n^2} \right| \leqslant \frac{1}{n^2}.
+    \end{equation}
+    因为 $\sum_{n=1}^\infty \frac{1}{n^2}$ 收敛，由 Weierstrass $M$-判别法，该级数在 $(-\infty, +\infty)$ 上一致收敛．
+
+    \ansitem{2} 一致收敛．
+
+    对任意 $x \in (-\infty, +\infty)$，恒有
+    \begin{equation}
+        \left| \frac{1}{2^n(1 + (nx)^2)} \right| \leqslant \frac{1}{2^n}.
+    \end{equation}
+    因为几何级数 $\sum_{n=1}^\infty \frac{1}{2^n}$ 收敛，由 Weierstrass $M$-判别法，该级数在 $(-\infty, +\infty)$ 上一致收敛．
+
+    \ansitem{3} 不一致收敛．
+
+    该级数收敛于和函数 $S(x) = \frac{x}{1 + x}$，其余项为
+    \begin{equation}
+        |R_N(x)| = \left| \sum_{n=N+1}^\infty (-1)^{n-1} x^n \right| = \frac{|x|^{N+1}}{1 + x}.
+    \end{equation}
+    取点列 $x_N = 1 - \frac{1}{N} \in (-1, 1)$：
+    \begin{equation}
+        \lim_{N\to\infty} |R_N(x_N)| = \lim_{N\to\infty} \frac{\left(1 - \frac{1}{N}\right)^{N+1}}{2 - \frac{1}{N}} = \frac{\e^{-1}}{2} \neq 0.
+    \end{equation}
+    故级数在 $(-1, 1)$ 上不一致收敛．
+
+    \ansitem{4} 一致收敛．
+
+    设 $f_n(x) = x^2 \e^{-nx}$（$x \geqslant 0$）．求导得
+    \begin{equation}
+        f_n'(x) = x(2 - nx)\e^{-nx}.
+    \end{equation}
+    在 $x = \frac{2}{n}$ 处取得极大值，故
+    \begin{equation}
+        M_n = \sup_{x \in [0, +\infty)} |f_n(x)| = f_n\left(\frac{2}{n}\right) = \frac{4}{\e^2 n^2}.
+    \end{equation}
+    因为级数 $\sum_{n=1}^\infty \frac{4}{\e^2 n^2}$ 收敛，由 Weierstrass $M$-判别法，该级数在 $[0, +\infty)$ 上一致收敛．
+
+    \ansitem{5} 一致收敛．
+
+    对任意固定的 $x \in [0, +\infty)$，数列 $\left\{\frac{1}{x + n}\right\}$ 单调递减趋于零．由 Leibniz 交错级数余项估计：
+    \begin{equation}
+        |R_N(x)| \leqslant \frac{1}{x + N + 1} \leqslant \frac{1}{N + 1}.
+    \end{equation}
+    从而 $\sup_{x \in [0, +\infty)} |R_N(x)| \leqslant \frac{1}{N + 1} \to 0$（$N \to \infty$），故级数在 $[0, +\infty)$ 上一致收敛．
+
+    \ansitem{6} 不一致收敛．
+
+    应用一致收敛的 Cauchy 准则否定形式，取 $\varepsilon_0 = \frac{1}{4}$，对任意 $N$，取 $p = N$ 及点 $x_N = 1 + \frac{1}{N} \in (1, +\infty)$：
+    \begin{equation}
+        \sum_{n=N+1}^{2N} \frac{1}{n^{x_N}} \geqslant N \cdot \frac{1}{(2N)^{1 + \frac{1}{N}}} = \frac{1}{2^{1 + \frac{1}{N}} N^{\frac{1}{N}}} \xrightarrow{N\to\infty} \frac{1}{2} > \frac{1}{4}.
+    \end{equation}
+    故级数在 $(1, +\infty)$ 上不一致收敛．
+
+    \ansitem{7} 一致收敛．
+
+    利用三角和估计，当 $x \in [\delta, 2\uppi - \delta]$ 时：
+    \begin{equation}
+        \left| \sum_{k=1}^n \cos kx \right| = \left| \frac{\sin\left(n + \frac{1}{2}\right)x - \sin\frac{x}{2}}{2\sin\frac{x}{2}} \right| \leqslant \frac{1}{\sin\frac{\delta}{2}}.
+    \end{equation}
+    部分和一致有界，且数列 $\left\{\frac{1}{n}\right\}$ 与 $x$ 无关且单调递减趋于零．由 Dirichlet 判别法，该级数在 $[\delta, 2\uppi - \delta]$ 上一致收敛．
+
+    \ansitem{8} 一致收敛．
+
+    设 $g_n(x) = x^2 (n\e^n)^{-x} = x^2 \e^{-x(n + \ln n)}$．记 $c_n = n + \ln n > 0$，求导可知其在 $x = \frac{2}{c_n}$ 处取到最大值：
+    \begin{equation}
+        M_n = \sup_{x \in [0, +\infty)} |g_n(x)| = g_n\left(\frac{2}{c_n}\right) = \frac{4}{\e^2 (n + \ln n)^2} \leqslant \frac{4}{\e^2 n^2}.
+    \end{equation}
+    因为 $\sum_{n=1}^\infty \frac{4}{\e^2 n^2}$ 收敛，由 Weierstrass $M$-判别法，该级数在 $[0, +\infty)$ 上一致收敛．
+
+    \begin{equation}
+        \boxed{
+            \begin{aligned}
+                 & \text{(1) 一致收敛；\quad (2) 一致收敛；\quad (3) 不一致收敛；\quad (4) 一致收敛；} \\
+                 & \text{(5) 一致收敛；\quad (6) 不一致收敛；\quad (7) 一致收敛；\quad (8) 一致收敛．}
+            \end{aligned}
+        }
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Dirichlet型函数项级数的一致收敛性证明}{Uniform-Convergence-Of-Dirichlet-Type-Series}
+    证明：若级数 $\sum_{n=1}^\infty a_n$ 收敛，则级数 $\sum_{n=1}^\infty \frac{a_n}{\e^{nx}}$ 在 $0 \leqslant x < +\infty$ 中一致收敛．
+\end{problem}
+
+\begin{myproof}
+    应用函数项级数的 Abel 一致收敛判别法进行证明：
+    \begin{enumerate}
+        \item 因为数项级数 $\sum_{n=1}^\infty a_n$ 收敛，各项均与自变量 $x$ 无关，所以级数 $\sum_{n=1}^\infty a_n$ 在 $[0, +\infty)$ 上一致收敛；
+        \item 对每一个确定的 $x \in [0, +\infty)$，由于 $\e^{-x} \in (0, 1]$，数列 $v_n(x) = \e^{-nx} = (\e^{-x})^n$ 关于 $n$ 单调不增；
+        \item 对一切 $x \in [0, +\infty)$ 及一切正整数 $n$，恒有
+              \begin{equation}
+                  |v_n(x)| = \e^{-nx} \leqslant 1,
+              \end{equation}
+              即函数族 $\{v_n(x)\}$ 在 $[0, +\infty)$ 上一致有界．
+    \end{enumerate}
+    由 Abel 判别法，级数 $\sum_{n=1}^\infty a_n \e^{-nx} = \sum_{n=1}^\infty \frac{a_n}{\e^{nx}}$ 在 $[0, +\infty)$ 上一致收敛．
+\end{myproof}
+
+\begin{problem}{Riemann-Zeta函数的分析性质与逐项求导}{Analytic-Properties-Of-Riemann-Zeta-Function}
+    证明：函数 $\zeta(x) = \sum_{n=1}^\infty \frac{1}{n^x}$ 在 $(1, +\infty)$ 内连续，且有连续的各阶导数．
+\end{problem}
+
+\begin{myproof}
+    任取闭区间 $[a, b] \subset (1, +\infty)$，其中 $1 < a \leqslant b < +\infty$．
+
+    记通项函数为 $u_n(x) = n^{-x}$（$n \in \symbb{N}^+$）．其 $k$ 阶导数（$k \in \symbb{N}$）为
+    \begin{equation}
+        u_n^{(k)}(x) = (-1)^k \frac{(\ln n)^k}{n^x}.
+    \end{equation}
+    当 $x \in [a, b]$ 时，因为 $a > 1$，对一切 $x \in [a, b]$ 恒有
+    \begin{equation}
+        |u_n^{(k)}(x)| = \frac{(\ln n)^k}{n^x} \leqslant \frac{(\ln n)^k}{n^a}.
+    \end{equation}
+    选取常数 $p$ 满足 $1 < p < a$．由于 $a - p > 0$，有
+    \begin{equation}
+        \lim_{n\to\infty} \frac{\frac{(\ln n)^k}{n^a}}{\frac{1}{n^p}} = \lim_{n\to\infty} \frac{(\ln n)^k}{n^{a - p}} = 0.
+    \end{equation}
+    因为 $p$-级数 $\sum_{n=1}^\infty \frac{1}{n^p}$ 收敛，由比较审敛法极限形式可知正项级数 $\sum_{n=1}^\infty \frac{(\ln n)^k}{n^a}$ 收敛．
+
+    由 Weierstrass $M$-判别法，逐项求导级数 $\sum_{n=1}^\infty u_n^{(k)}(x)$ 在区间 $[a, b]$ 上一致收敛．
+
+    由逐项求导定理与一致收敛级数的连续性定理：
+    \begin{enumerate}
+        \item $\zeta(x) = \sum_{n=1}^\infty \frac{1}{n^x}$ 在 $[a, b]$ 上连续；
+        \item $\zeta(x)$ 在 $[a, b]$ 上存在任意阶导数，且各阶导数均连续，满足
+              \begin{equation}
+                  \zeta^{(k)}(x) = \sum_{n=1}^\infty (-1)^k \frac{(\ln n)^k}{n^x}.
+              \end{equation}
+    \end{enumerate}
+    由于区间 $[a, b] \subset (1, +\infty)$ 的任意性，$\zeta(x)$ 在 $(1, +\infty)$ 内连续，且具有连续的各阶导数．
+\end{myproof}
+
+\begin{problem}{函数项级数的高阶微商连续性}{Higher-Order-Derivatives-Of-Function-Series}
+    证明：$f(x) = \sum_{n=1}^\infty \frac{\sin nx}{n^4}$ 当 $|x| < +\infty$ 时，具有连续的二阶微商．
+\end{problem}
+
+\begin{myproof}
+    设通项函数为 $u_n(x) = \frac{\sin nx}{n^4}$（$n \in \symbb{N}^+$）．其一阶与二阶导数分别为
+    \begin{equation}
+        u_n'(x) = \frac{\cos nx}{n^3}, \qquad u_n''(x) = -\frac{\sin nx}{n^2}.
+    \end{equation}
+    对任意 $x \in (-\infty, +\infty)$ 及正整数 $n$，恒有
+    \begin{equation}
+        |u_n(x)| \leqslant \frac{1}{n^4}, \qquad |u_n'(x)| \leqslant \frac{1}{n^3}, \qquad |u_n''(x)| \leqslant \frac{1}{n^2}.
+    \end{equation}
+    因为 $p$-级数 $\sum_{n=1}^\infty \frac{1}{n^4}$、$\sum_{n=1}^\infty \frac{1}{n^3}$ 以及 $\sum_{n=1}^\infty \frac{1}{n^2}$ 均收敛，由 Weierstrass $M$-判别法：
+    \begin{enumerate}
+        \item 级数 $\sum_{n=1}^\infty u_n(x)$ 在 $(-\infty, +\infty)$ 上一致收敛，且各项 $u_n(x)$ 连续，故和函数 $f(x)$ 在 $(-\infty, +\infty)$ 上连续；
+        \item 逐项求导级数 $\sum_{n=1}^\infty u_n'(x) = \sum_{n=1}^\infty \frac{\cos nx}{n^3}$ 在 $(-\infty, +\infty)$ 上一致收敛．由逐项求导定理可知，$f'(x)$ 存在且连续，满足
+              \begin{equation}
+                  f'(x) = \sum_{n=1}^\infty \frac{\cos nx}{n^3};
+              \end{equation}
+        \item 二阶逐项求导级数 $\sum_{n=1}^\infty u_n''(x) = -\sum_{n=1}^\infty \frac{\sin nx}{n^2}$ 在 $(-\infty, +\infty)$ 上一致收敛．再次应用逐项求导定理可知，$f''(x)$ 存在且连续，满足
+              \begin{equation}
+                  f''(x) = -\sum_{n=1}^\infty \frac{\sin nx}{n^2}.
+              \end{equation}
+    \end{enumerate}
+    因此，和函数 $f(x)$ 在 $(-\infty, +\infty)$ 上具有连续的二阶微商．
+\end{myproof}
+
+\begin{problem}{函数项级数的极限计算与连续性}{Limit-Calculation-Of-Function-Series}
+    设 $f(x) = \sum_{n=1}^\infty \frac{x^n \cos \frac{n\uppi}{x}}{(1 + 2x)^n}$，求 $\lim_{x\to +\infty} f(x)$ 及 $\lim_{x\to 1} f(x)$．
+\end{problem}
+
+\begin{solution}
+    令 $u_n(x) = \frac{x^n \cos \frac{n\uppi}{x}}{(1 + 2x)^n}$．
+
+    当 $x \in [1, +\infty)$ 时，由于 $x > 0$，有
+    \begin{equation}
+        0 < \frac{x}{1 + 2x} < \frac{x}{2x} = \frac{1}{2}.
+    \end{equation}
+    从而对一切 $x \in [1, +\infty)$ 及正整数 $n$，通项满足
+    \begin{equation}
+        |u_n(x)| \leqslant \left(\frac{x}{1 + 2x}\right)^n \leqslant \frac{1}{2^n}.
+    \end{equation}
+    因为公比为 $\frac{1}{2}$ 的正项几何级数 $\sum_{n=1}^\infty \frac{1}{2^n}$ 收敛，由 Weierstrass $M$-判别法，级数 $\sum_{n=1}^\infty u_n(x)$ 在区间 $[1, +\infty)$ 上一致收敛．
+
+    第一步，计算 $\lim_{x\to 1} f(x)$．
+
+    因为每个项 $u_n(x)$ 在 $x = 1$ 处连续，且级数在包含 $x = 1$ 的邻域内一致收敛，所以和函数 $f(x)$ 在 $x = 1$ 处连续．直接代入 $x = 1$ 得
+    \begin{equation}
+        \lim_{x\to 1} f(x) = f(1) = \sum_{n=1}^\infty \frac{1^n \cos(n\uppi)}{(1 + 2)^n} = \sum_{n=1}^\infty \frac{(-1)^n}{3^n}.
+    \end{equation}
+    利用等比级数求和公式：
+    \begin{equation}
+        \lim_{x\to 1} f(x) = \frac{-\frac{1}{3}}{1 - \left(-\frac{1}{3}\right)} = -\frac{1}{4}.
+    \end{equation}
+
+    第二步，计算 $\lim_{x\to +\infty} f(x)$．
+
+    由级数在 $[1, +\infty)$ 上的一致收敛性，极限与求和号可交换位置：
+    \begin{equation}
+        \lim_{x\to+\infty} f(x) = \sum_{n=1}^\infty \lim_{x\to+\infty} \left[ \left(\frac{x}{1 + 2x}\right)^n \cos \frac{n\uppi}{x} \right].
+    \end{equation}
+    对每个固定的正整数 $n$：
+    \begin{equation}
+        \lim_{x\to+\infty} \frac{x}{1 + 2x} = \frac{1}{2}, \qquad \lim_{x\to+\infty} \cos \frac{n\uppi}{x} = \cos 0 = 1.
+    \end{equation}
+    因此
+    \begin{equation}
+        \lim_{x\to+\infty} f(x) = \sum_{n=1}^\infty \left(\frac{1}{2}\right)^n \cdot 1 = \frac{\frac{1}{2}}{1 - \frac{1}{2}} = 1.
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{x\to +\infty} f(x) = 1, \qquad \lim_{x\to 1} f(x) = -\frac{1}{4}．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{函数项级数的逐项积分}{Termwise-Integration-Of-Function-Series}
+    设 $f(x) = \sum_{n=1}^\infty n\e^{-nx}$，求 $\int_{\ln 2}^{\ln 3} f(x)\d x$．
+\end{problem}
+
+\begin{solution}
+    在积分区间 $[\ln 2, \ln 3]$ 上，由于 $x \geqslant \ln 2 > 0$，通项满足
+    \begin{equation}
+        0 \leqslant n\e^{-nx} \leqslant n\e^{-n\ln 2} = \frac{n}{2^n}.
+    \end{equation}
+    利用比值审敛法易知级数 $\sum_{n=1}^\infty \frac{n}{2^n}$ 收敛，由 Weierstrass $M$-判别法，级数 $\sum_{n=1}^\infty n\e^{-nx}$ 在闭区间 $[\ln 2, \ln 3]$ 上一致收敛．
+
+    根据逐项积分定理，积分与求和可交换次序：
+    \begin{equation}
+        \begin{aligned}
+            \int_{\ln 2}^{\ln 3} f(x)\d x & = \sum_{n=1}^\infty \int_{\ln 2}^{\ln 3} n\e^{-nx}\d x               \\
+                                          & = \sum_{n=1}^\infty \left[ -\e^{-nx} \right]_{\ln 2}^{\ln 3}         \\
+                                          & = \sum_{n=1}^\infty \left( \e^{-n\ln 2} - \e^{-n\ln 3} \right)       \\
+                                          & = \sum_{n=1}^\infty \left( \frac{1}{2^n} - \frac{1}{3^n} \right)     \\
+                                          & = \sum_{n=1}^\infty \frac{1}{2^n} - \sum_{n=1}^\infty \frac{1}{3^n}.
+        \end{aligned}
+    \end{equation}
+    分别利用几何级数求和公式计算：
+    \begin{equation}
+        \sum_{n=1}^\infty \frac{1}{2^n} = \frac{\frac{1}{2}}{1 - \frac{1}{2}} = 1, \qquad \sum_{n=1}^\infty \frac{1}{3^n} = \frac{\frac{1}{3}}{1 - \frac{1}{3}} = \frac{1}{2}.
+    \end{equation}
+    从而
+    \begin{equation}
+        \int_{\ln 2}^{\ln 3} f(x)\d x = 1 - \frac{1}{2} = \frac{1}{2}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\int_{\ln 2}^{\ln 3} f(x)\d x = \frac{1}{2}．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{递归定义函数序列的逐点极限与极限函数}{Pointwise-Limit-Of-Recursive-Function-Sequence}
+    递归定义 $[0, 1)$ 上的连续可微函数序列 $\{f_n\}$ 如下：$f_1 = 1$，在 $(0, 1)$ 上有
+    \begin{equation}
+        f'_{n+1}(x) = f_n(x)f_{n+1}(x), \quad f_{n+1}(0) = 1.
+    \end{equation}
+    求证：对每个 $x \in [0, 1)$ $\lim_{n\to\infty} f_n(x)$ 存在，并求出其极限函数．
+\end{problem}
+
+\begin{solution}
+    对微分方程 $\frac{f'_{n+1}(t)}{f_{n+1}(t)} = f_n(t)$ 在 $[0, x]$ 上积分，结合初始条件 $f_{n+1}(0) = 1$ 可得递推积分表达式：
+    \begin{equation}
+        f_{n+1}(x) = \exp\left( \int_0^x f_n(t)\d t \right) \quad (n \in \symbb{N}^+).
+    \end{equation}
+    第一步，利用数学归纳法证明 $\{f_n(x)\}$ 单调递增且有上界．
+
+    对任意 $x \in [0, 1)$：
+    \begin{enumerate}
+        \item 当 $n = 1$ 时，$f_1(x) = 1$，$f_2(x) = \exp\left(\int_0^x 1\d t\right) = \e^x \geqslant 1 = f_1(x)$；
+        \item 若 $f_n(x) \geqslant f_{n-1}(x) > 0$ 对一切 $x \in [0, 1)$ 成立，则
+              \begin{equation}
+                  \int_0^x f_n(t)\d t \geqslant \int_0^x f_{n-1}(t)\d t \implies f_{n+1}(x) = \exp\left( \int_0^x f_n(t)\d t \right) \geqslant \exp\left( \int_0^x f_{n-1}(t)\d t \right) = f_n(x).
+              \end{equation}
+    \end{enumerate}
+    故数列 $\{f_n(x)\}$ 关于 $n$ 单调递增．
+
+    再用数学归纳法证明 $f_n(x) \leqslant \frac{1}{1 - x}$：
+    \begin{enumerate}
+        \item 当 $n = 1$ 时，$f_1(x) = 1 \leqslant \frac{1}{1 - x}$；
+        \item 假设 $f_n(t) \leqslant \frac{1}{1 - t}$ 对一切 $t \in [0, x]$ 成立，则
+              \begin{equation}
+                  \int_0^x f_n(t)\d t \leqslant \int_0^x \frac{1}{1 - t}\d t = -\ln(1 - x) = \ln\frac{1}{1 - x}.
+              \end{equation}
+              因此
+              \begin{equation}
+                  f_{n+1}(x) = \exp\left( \int_0^x f_n(t)\d t \right) \leqslant \exp\left( \ln\frac{1}{1 - x} \right) = \frac{1}{1 - x}.
+              \end{equation}
+    \end{enumerate}
+    由单调有界收敛准则可知，对每个 $x \in [0, 1)$，极限 $f(x) = \lim_{n\to\infty} f_n(x)$ 必存在．
+
+    第二步，求解极限函数 $f(x)$．
+
+    由于 $0 < f_n(t) \uparrow f(t)$ 且被可积函数 $\frac{1}{1 - t}$ 控制，由单调收敛定理（或控制收敛定理）：
+    \begin{equation}
+        \lim_{n\to\infty} \int_0^x f_n(t)\d t = \int_0^x f(t)\d t.
+    \end{equation}
+    在递推式两端取 $n \to \infty$ 的极限，得到极限函数满足的积分方程：
+    \begin{equation}
+        f(x) = \exp\left( \int_0^x f(t)\d t \right).
+    \end{equation}
+    由于 $f(x) > 0$，两端求导化为初值问题：
+    \begin{equation}
+        f'(x) = f(x) \exp\left( \int_0^x f(t)\d t \right) = f(x)^2, \qquad f(0) = 1.
+    \end{equation}
+    分离变量积分：
+    \begin{equation}
+        \frac{\d f}{f^2} = \d x \implies -\frac{1}{f(x)} = x + C.
+    \end{equation}
+    代入 $f(0) = 1$ 得 $C = -1$，解得
+    \begin{equation}
+        f(x) = \frac{1}{1 - x} \quad (x \in [0, 1)).
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} f_n(x) = \frac{1}{1 - x} \quad (x \in [0, 1))．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{Dini定理及其对级数一致收敛性的应用}{Dini-Theorem-On-Uniform-Convergence}
+    证明 Dini 定理：
+    \begin{enumerate}
+        \item 设 $\{u_n(x)\}$ 是定义在闭区间 $[a, b]$ 上的非负连续函数列，且在此区间上逐点收敛到零．若对任意固定的 $x \in [a, b]$ 数列 $\{u_n(x)\}$ 是单调递减的，则 $\{u_n(x)\}$ 在 $x \in [a, b]$ 上一致收敛到零；
+        \item 如果函数项级数 $\sum_{n=1}^\infty u_n(x)$ 在区间 $[a, b]$ 上逐点收敛到 $S(x)$，且通项 $u_n(x)$ 在区间 $[a, b]$ 上是连续且非负的，那么和函数 $S(x)$ 在 $[a, b]$ 连续的充分必要条件是此级数在 $[a, b]$ 上一致收敛．
+    \end{enumerate}
+\end{problem}
+
+\begin{myproof}
+    \ansitem{1}
+
+    对任意给定的 $\varepsilon > 0$，定义闭区间 $[a, b]$ 的子集序列：
+    \begin{equation}
+        E_n = \bigl\{ x \in [a, b] : u_n(x) \geqslant \varepsilon \bigr\} \quad (n \in \symbb{N}^+).
+    \end{equation}
+    因为每个 $u_n(x)$ 在 $[a, b]$ 上连续，所以 $E_n$ 为实数集上的闭集；又 $E_n \subseteq [a, b]$ 有界，故每个 $E_n$ 均为紧集．
+
+    因为数列 $\{u_n(x)\}$ 单调递减，若 $x \in E_{n+1}$，则 $u_n(x) \geqslant u_{n+1}(x) \geqslant \varepsilon$，从而 $x \in E_n$，即
+    \begin{equation}
+        E_1 \supseteq E_2 \supseteq \dots \supseteq E_n \supseteq E_{n+1} \supseteq \dots.
+    \end{equation}
+    又因为 $\{u_n(x)\}$ 在 $[a, b]$ 上逐点收敛到零，对任意 $x \in [a, b]$，存在正整数 $N_x$ 使得 $u_{N_x}(x) < \varepsilon$，即 $x \notin E_{N_x}$，从而
+    \begin{equation}
+        \bigcap_{n=1}^\infty E_n = \varnothing.
+    \end{equation}
+    根据紧集族的 Cantor 闭集套定理（有限交性质），必存在某一正整数 $N$，使得
+    \begin{equation}
+        E_N = \varnothing.
+    \end{equation}
+    由于集合序列单调不增，当 $n \geqslant N$ 时恒有 $E_n = \varnothing$．这意味着对一切 $n \geqslant N$ 及一切 $x \in [a, b]$，均有
+    \begin{equation}
+        0 \leqslant u_n(x) < \varepsilon \implies \sup_{x \in [a, b]} |u_n(x)| \leqslant \varepsilon.
+    \end{equation}
+    由一致收敛定义可知，$\{u_n(x)\}$ 在 $[a, b]$ 上一致收敛到零．
+
+    \ansitem{2}
+
+    第一步，充分性（$\impliedby$）．
+
+    若级数 $\sum_{n=1}^\infty u_n(x)$ 在 $[a, b]$ 上一致收敛，其部分和函数 $S_N(x) = \sum_{n=1}^N u_n(x)$ 为有限个连续函数的和，因而在 $[a, b]$ 上连续．
+
+    由一致收敛级数的连续性定理，连续函数列的一致极限必连续，故和函数 $S(x) = \lim_{N\to\infty} S_N(x)$ 在 $[a, b]$ 上连续．
+
+    第二步，必要性（$\implies$）．
+
+    设和函数 $S(x)$ 在 $[a, b]$ 上连续，考察级数的余项序列：
+    \begin{equation}
+        R_N(x) = S(x) - S_N(x) = \sum_{n=N+1}^\infty u_n(x).
+    \end{equation}
+    \begin{enumerate}
+        \item 因为 $S(x)$ 与 $S_N(x)$ 均在 $[a, b]$ 上连续，所以每个 $R_N(x)$ 均为 $[a, b]$ 上的连续函数；
+        \item 因为通项 $u_n(x) \geqslant 0$，所以 $R_N(x) \geqslant 0$；
+        \item 对每一个固定的 $x \in [a, b]$，
+              \begin{equation}
+                  R_N(x) - R_{N+1}(x) = u_{N+1}(x) \geqslant 0,
+              \end{equation}
+              故数列 $\{R_N(x)\}$ 关于 $N$ 单调递减；
+        \item 由级数逐点收敛性，对每个 $x \in [a, b]$ 均有 $\lim_{N\to\infty} R_N(x) = 0$．
+    \end{enumerate}
+    由第 (1) 小问已证的 Dini 定理可知，函数列 $\{R_N(x)\}$ 在 $[a, b]$ 上一致收敛到零，即
+    \begin{equation}
+        \lim_{N\to\infty} \sup_{x \in [a, b]} |S(x) - S_N(x)| = 0.
+    \end{equation}
+    故级数 $\sum_{n=1}^\infty u_n(x)$ 在 $[a, b]$ 上一致收敛．
+\end{myproof}
+
+\endinput

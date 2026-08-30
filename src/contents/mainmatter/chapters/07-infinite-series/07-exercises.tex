@@ -1,0 +1,537 @@
+\section{第 7 章综合习题}
+
+\begin{problem}{调和数加权级数求和}{Harmonic-Number-Weighted-Series-Summation}
+    计算级数 $\sum_{n=1}^\infty \frac{1}{n(n+1)}\left(1 + \frac{1}{2} + \dots + \frac{1}{n}\right)$ 的和．
+\end{problem}
+
+\begin{solution}
+    记调和数 $H_n = 1 + \frac{1}{2} + \dots + \frac{1}{n}$（约定 $H_0 = 0$）．通项系数裂项为
+    \begin{equation}
+        \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}.
+    \end{equation}
+    考察原级数的前 $N$ 项部分和 $S_N$ 并进行 Abel 分部求和：
+    \begin{equation}
+        \begin{aligned}
+            S_N & = \sum_{n=1}^N \left( \frac{1}{n} - \frac{1}{n+1} \right) H_n             \\
+                & = \sum_{n=1}^N \frac{H_n}{n} - \sum_{n=1}^N \frac{H_n}{n+1}               \\
+                & = \sum_{n=1}^N \frac{H_n}{n} - \sum_{k=2}^{N+1} \frac{H_{k-1}}{k}         \\
+                & = \frac{H_1}{1} - \frac{H_N}{N+1} + \sum_{n=2}^N \frac{H_n - H_{n-1}}{n}.
+        \end{aligned}
+    \end{equation}
+    因为 $H_n - H_{n-1} = \frac{1}{n}$（$n \geqslant 2$），且 $H_1 = 1 = \frac{1}{1^2}$，代入化简可得
+    \begin{equation}
+        S_N = \sum_{n=1}^N \frac{1}{n^2} - \frac{H_N}{N+1}.
+    \end{equation}
+    利用调和数的渐近估计 $H_N = \ln N + O(1)$（$N \to \infty$）：
+    \begin{equation}
+        \lim_{N\to\infty} \frac{H_N}{N+1} = \lim_{N\to\infty} \frac{\ln N + O(1)}{N+1} = 0.
+    \end{equation}
+    已知 Basel 问题的求和结果 $\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\uppi^2}{6}$，两端取 $N \to \infty$ 的极限：
+    \begin{equation}
+        \sum_{n=1}^\infty \frac{1}{n(n+1)}\left(1 + \frac{1}{2} + \dots + \frac{1}{n}\right) = \lim_{N\to\infty} S_N = \sum_{n=1}^\infty \frac{1}{n^2} - 0 = \frac{\uppi^2}{6}.
+    \end{equation}
+    \begin{equation}
+        \boxed{\sum_{n=1}^\infty \frac{1}{n(n+1)}\left(1 + \frac{1}{2} + \dots + \frac{1}{n}\right) = \frac{\uppi^2}{6}．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{交错有理分式级数的裂项求和}{Alternating-Rational-Fraction-Series-Sum}
+    证明：$\sum_{n=0}^\infty (-1)^n \frac{2n+3}{(n+1)(n+2)} = 1$．
+\end{problem}
+
+\begin{myproof}
+    将被项拆分为部分分式：
+    \begin{equation}
+        \frac{2n+3}{(n+1)(n+2)} = \frac{1}{n+1} + \frac{1}{n+2}.
+    \end{equation}
+    通项可表示为
+    \begin{equation}
+        (-1)^n \frac{2n+3}{(n+1)(n+2)} = \frac{(-1)^n}{n+1} + \frac{(-1)^n}{n+2} = \frac{(-1)^n}{n+1} - \frac{(-1)^{n+1}}{n+2}.
+    \end{equation}
+    设数列 $v_n = \frac{(-1)^n}{n+1}$（$n \geqslant 0$），则通项为 $v_n - v_{n+1}$．
+
+    计算前 $N$ 项部分和 $S_N$：
+    \begin{equation}
+        \begin{aligned}
+            S_N & = \sum_{n=0}^N (-1)^n \frac{2n+3}{(n+1)(n+2)} \\
+                & = \sum_{n=0}^N (v_n - v_{n+1})                \\
+                & = v_0 - v_{N+1}                               \\
+                & = 1 - \frac{(-1)^{N+1}}{N+2}.
+        \end{aligned}
+    \end{equation}
+    两端取 $N \to \infty$ 的极限：
+    \begin{equation}
+        \lim_{N\to\infty} S_N = \lim_{N\to\infty} \left( 1 - \frac{(-1)^{N+1}}{N+2} \right) = 1 - 0 = 1.
+    \end{equation}
+    命题得证．
+\end{myproof}
+
+\begin{problem}{正递增数列相关级数的充要收敛条件}{Necessary-And-Sufficient-Convergence-Condition-For-Increasing-Sequences}
+    设 $\{a_n\}$ 是正的递增数列．求证：级数 $\sum_{n=1}^\infty \left(\frac{a_{n+1}}{a_n} - 1\right)$ 收敛的充分必要条件是 $\{a_n\}$ 有界．
+\end{problem}
+
+\begin{myproof}
+    因为数列 $\{a_n\}$ 单调递增且各项为正，所以对任意正整数 $n$ 恒有 $a_{n+1} \geqslant a_n > 0$，即通项
+    \begin{equation}
+        u_n = \frac{a_{n+1}}{a_n} - 1 = \frac{a_{n+1} - a_n}{a_n} \geqslant 0,
+    \end{equation}
+    该级数为非负项级数．
+
+    第一步，必要性（$\implies$）．
+
+    假设级数 $\sum_{n=1}^\infty \left(\frac{a_{n+1}}{a_n} - 1\right)$ 收敛，记其和为 $S < +\infty$．
+
+    利用初等不等式：对任意 $x \geqslant 0$，恒有 $\ln(1 + x) \leqslant x$．
+
+    令 $x = \frac{a_{n+1}}{a_n} - 1 \geqslant 0$，可得
+    \begin{equation}
+        \ln \frac{a_{n+1}}{a_n} = \ln\left( 1 + \left(\frac{a_{n+1}}{a_n} - 1\right) \right) \leqslant \frac{a_{n+1}}{a_n} - 1.
+    \end{equation}
+    对 $n = 1, 2, \dots, N$ 求和：
+    \begin{equation}
+        \sum_{n=1}^N \ln \frac{a_{n+1}}{a_n} = \ln \left( \prod_{n=1}^N \frac{a_{n+1}}{a_n} \right) = \ln \frac{a_{N+1}}{a_1} \leqslant \sum_{n=1}^N \left( \frac{a_{n+1}}{a_n} - 1 \right) \leqslant S.
+    \end{equation}
+    两端取指数得
+    \begin{equation}
+        a_{N+1} \leqslant a_1 \e^S.
+    \end{equation}
+    因为 $a_1 \e^S$ 为与 $N$ 无关的常数，且 $a_n \geqslant a_1 > 0$，所以数列 $\{a_n\}$ 有界．
+
+    第二步，充分性（$\impliedby$）．
+
+    假设数列 $\{a_n\}$ 有界，由于 $\{a_n\}$ 单调递增，存在常数 $M > 0$ 使得对任意正整数 $n$ 均有 $a_1 \leqslant a_n \leqslant M$．
+
+    对通项进行放大估计：
+    \begin{equation}
+        \frac{a_{n+1}}{a_n} - 1 = \frac{a_{n+1} - a_n}{a_n} \leqslant \frac{a_{n+1} - a_n}{a_1}.
+    \end{equation}
+    考察部分和：
+    \begin{equation}
+        \sum_{n=1}^N \left( \frac{a_{n+1}}{a_n} - 1 \right) \leqslant \frac{1}{a_1} \sum_{n=1}^N (a_{n+1} - a_n) = \frac{a_{N+1} - a_1}{a_1} \leqslant \frac{M - a_1}{a_1}.
+    \end{equation}
+    非负项级数的部分和数列单调递增且有上界，由单调有界定理可知级数 $\sum_{n=1}^\infty \left(\frac{a_{n+1}}{a_n} - 1\right)$ 收敛．
+\end{myproof}
+
+\begin{problem}{递增正数列差商幂次级数的收敛性证明}{Convergence-Of-Difference-Quotient-Power-Series}
+    设 $\alpha > 0$，$\{a_n\}$ 是递增正数列．求证：级数 $\sum_{n=1}^\infty \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha}$ 收敛．
+\end{problem}
+
+\begin{myproof}
+    令 $t = \frac{a_n}{a_{n+1}}$．因为 $\{a_n\}$ 是递增正数列，所以 $0 < t \leqslant 1$．
+
+    通项可表示为
+    \begin{equation}
+        \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha} = \left( 1 - \frac{a_n}{a_{n+1}} \right) \frac{1}{a_n^\alpha} = \frac{1 - t}{a_n^\alpha}.
+    \end{equation}
+    考察函数 $h(t) = \frac{1 - t}{1 - t^\alpha}$ 在区间 $(0, 1)$ 上的性质：
+    \begin{equation}
+        \lim_{t \to 0^+} \frac{1 - t}{1 - t^\alpha} = 1, \qquad \lim_{t \to 1^-} \frac{1 - t}{1 - t^\alpha} = \lim_{t \to 1^-} \frac{-1}{-\alpha t^{\alpha-1}} = \frac{1}{\alpha}.
+    \end{equation}
+    由函数的连续性与端点极限的有界性，存在常数 $C = \max\left\{1, \frac{1}{\alpha}\right\} > 0$，使得对任意 $t \in (0, 1]$ 恒有
+    \begin{equation}
+        1 - t \leqslant C(1 - t^\alpha).
+    \end{equation}
+    两端同乘以 $\frac{1}{a_n^\alpha} > 0$：
+    \begin{equation}
+        \frac{1 - t}{a_n^\alpha} \leqslant C \frac{1 - t^\alpha}{a_n^\alpha} = C \left( \frac{1}{a_n^\alpha} - \frac{t^\alpha}{a_n^\alpha} \right) = C \left( \frac{1}{a_n^\alpha} - \frac{1}{a_{n+1}^\alpha} \right).
+    \end{equation}
+    因此，原级数通项满足
+    \begin{equation}
+        0 < \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha} \leqslant C \left( \frac{1}{a_n^\alpha} - \frac{1}{a_{n+1}^\alpha} \right).
+    \end{equation}
+    对前 $N$ 项部分和求和：
+    \begin{equation}
+        \sum_{n=1}^N \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha} \leqslant C \sum_{n=1}^N \left( \frac{1}{a_n^\alpha} - \frac{1}{a_{n+1}^\alpha} \right) = C \left( \frac{1}{a_1^\alpha} - \frac{1}{a_{N+1}^\alpha} \right) \leqslant \frac{C}{a_1^\alpha}.
+    \end{equation}
+    正项级数的部分和序列有上界，由单调有界准则可知，级数 $\sum_{n=1}^\infty \frac{a_{n+1} - a_n}{a_{n+1} a_n^\alpha}$ 必收敛．
+\end{myproof}
+
+\begin{problem}{非线性差分不等式数列极限判定}{Limit-Of-Sequence-Satisfying-Nonlinear-Difference-Inequality}
+    设 $\varphi(x)$ 是 $(0, +\infty)$ 上正的严格增函数，$\{a_n\}, \{b_n\}, \{c_n\}$ 是三个正数列，满足
+    \begin{equation}
+        a_{n+1} \leqslant a_n - b_n\varphi(a_n) + c_n a_n, \quad \sum_{n=1}^\infty b_n = +\infty, \quad \sum_{n=1}^\infty c_n < +\infty.
+    \end{equation}
+    求证：$\lim_{n\to\infty} a_n = 0$．
+\end{problem}
+
+\begin{myproof}
+    第一步，证明极限 $\lim_{n\to\infty} a_n$ 存在．
+
+    因为正项级数 $\sum_{n=1}^\infty c_n$ 收敛，无穷乘积 $P = \prod_{k=1}^\infty (1 + c_k)$ 收敛且 $P \in [1, +\infty)$．
+
+    定义序列 $P_n = \prod_{k=1}^{n-1} (1 + c_k)$（约定 $P_1 = 1$），则 $P_n \to P$（$n \to \infty$）．
+
+    将已知不等式变形为
+    \begin{equation}
+        a_{n+1} \leqslant a_n(1 + c_n) - b_n\varphi(a_n).
+    \end{equation}
+    两端同除以 $P_{n+1} = P_n(1 + c_n)$：
+    \begin{equation}
+        \frac{a_{n+1}}{P_{n+1}} \leqslant \frac{a_n}{P_n} - \frac{b_n\varphi(a_n)}{P_{n+1}} \leqslant \frac{a_n}{P_n}.
+    \end{equation}
+    这表明数列 $\left\{ \frac{a_n}{P_n} \right\}$ 单调递减且有下界 $0$，由单调有界定理，极限
+    \begin{equation}
+        \lim_{n\to\infty} \frac{a_n}{P_n} = L \geqslant 0
+    \end{equation}
+    存在．从而极限 $\lim_{n\to\infty} a_n = \lim_{n\to\infty} \left( \frac{a_n}{P_n} \cdot P_n \right) = L \cdot P = a \geqslant 0$ 存在．
+
+    第二步，证明 $a = 0$．
+
+    将上述不等式移项并对 $n = 1, 2, \dots, N$ 累加：
+    \begin{equation}
+        \sum_{n=1}^N \frac{b_n\varphi(a_n)}{P_{n+1}} \leqslant \sum_{n=1}^N \left( \frac{a_n}{P_n} - \frac{a_{n+1}}{P_{n+1}} \right) = \frac{a_1}{P_1} - \frac{a_{N+1}}{P_{N+1}} \leqslant a_1.
+    \end{equation}
+    因为 $P_{n+1} \leqslant P$，所以
+    \begin{equation}
+        \sum_{n=1}^\infty b_n\varphi(a_n) \leqslant P \sum_{n=1}^\infty \frac{b_n\varphi(a_n)}{P_{n+1}} \leqslant P a_1 < +\infty.
+    \end{equation}
+    若 $a > 0$，由 $\varphi(x)$ 在 $(0, +\infty)$ 上的连续性与严格单调性可知 $\lim_{n\to\infty}\varphi(a_n) = \varphi(a) > 0$．
+
+    存在正整数 $N_0$，使得当 $n \geqslant N_0$ 时恒有 $\varphi(a_n) \geqslant \frac{1}{2}\varphi(a) > 0$．从而
+    \begin{equation}
+        \sum_{n=N_0}^\infty b_n\varphi(a_n) \geqslant \frac{1}{2}\varphi(a) \sum_{n=N_0}^\infty b_n = +\infty,
+    \end{equation}
+    这与 $\sum_{n=1}^\infty b_n\varphi(a_n)$ 收敛矛盾．
+
+    因此必须有 $a = 0$，即 $\lim_{n\to\infty} a_n = 0$．
+\end{myproof}
+
+\begin{problem}{Hardy型级数不等式的证明}{Hardy-Type-Series-Inequality}
+    设 $\{a_n\}$ 是正数列使得 $\sum_{n=1}^\infty \frac{1}{a_n}$ 收敛．求证：存在常数 $M > 0$ 使得
+    \begin{equation}
+        \sum_{n=1}^\infty \frac{n}{a_1 + a_2 + \dots + a_n} \leqslant M \sum_{n=1}^\infty \frac{1}{a_n}.
+    \end{equation}
+\end{problem}
+
+\begin{myproof}
+    记部分和 $S_n = a_1 + a_2 + \dots + a_n$．
+
+    由 Cauchy-Schwarz 不等式：
+    \begin{equation}
+        \left( \sum_{k=1}^n k \right)^2 = \left( \sum_{k=1}^n \sqrt{a_k} \cdot \frac{k}{\sqrt{a_k}} \right)^2 \leqslant \left( \sum_{k=1}^n a_k \right) \left( \sum_{k=1}^n \frac{k^2}{a_k} \right) = S_n \sum_{k=1}^n \frac{k^2}{a_k}.
+    \end{equation}
+    因为 $\sum_{k=1}^n k = \frac{n(n+1)}{2}$，代入上式得
+    \begin{equation}
+        S_n \geqslant \frac{n^2(n+1)^2}{4 \sum_{k=1}^n \frac{k^2}{a_k}} \implies \frac{n}{S_n} \leqslant \frac{4}{n(n+1)^2} \sum_{k=1}^n \frac{k^2}{a_k}.
+    \end{equation}
+    对 $n = 1, 2, \dots, N$ 求和并交换求和次序：
+    \begin{equation}
+        \sum_{n=1}^N \frac{n}{S_n} \leqslant 4 \sum_{n=1}^N \frac{1}{n(n+1)^2} \sum_{k=1}^n \frac{k^2}{a_k} = 4 \sum_{k=1}^N \frac{k^2}{a_k} \sum_{n=k}^N \frac{1}{n(n+1)^2}.
+    \end{equation}
+    对内层求和进行放大估计：当 $n \geqslant k$ 时，$\frac{1}{n} \leqslant \frac{1}{k}$，故
+    \begin{equation}
+        \sum_{n=k}^N \frac{1}{n(n+1)^2} \leqslant \frac{1}{k} \sum_{n=k}^N \frac{1}{(n+1)^2} < \frac{1}{k} \sum_{n=k}^\infty \left( \frac{1}{n} - \frac{1}{n+1} \right) = \frac{1}{k^2}.
+    \end{equation}
+    代回不等式可得
+    \begin{equation}
+        \sum_{n=1}^N \frac{n}{S_n} \leqslant 4 \sum_{k=1}^N \frac{k^2}{a_k} \cdot \frac{1}{k^2} = 4 \sum_{k=1}^N \frac{1}{a_k} \leqslant 4 \sum_{n=1}^\infty \frac{1}{a_n}.
+    \end{equation}
+    令 $N \to \infty$，取常数 $M = 4 > 0$，即有
+    \begin{equation}
+        \sum_{n=1}^\infty \frac{n}{a_1 + a_2 + \dots + a_n} \leqslant M \sum_{n=1}^\infty \frac{1}{a_n}.
+    \end{equation}
+    命题得证．
+\end{myproof}
+
+\begin{problem}{对数增长控制下级数发散性的二进分块证明}{Divergence-Of-Series-Via-Dyadic-Partition}
+    设 $\{a_n\}$ 是一个严格单调递增实数列，且对任意正整数 $n$ 有 $a_n \leqslant n^2 \ln n$．求证：级数 $\sum_{n=1}^\infty \frac{1}{a_{n+1} - a_n}$ 发散．
+\end{problem}
+
+\begin{myproof}
+    令 $d_n = a_{n+1} - a_n > 0$．
+
+    采用 Cauchy 二进分块技术，对每个正整数 $k \geqslant 1$，考察指标集合 $I_k = \{n \in \symbb{N} : 2^k \leqslant n \leqslant 2^{k+1} - 1\}$．
+
+    集合 $I_k$ 内项数为 $2^{k+1} - 1 - 2^k + 1 = 2^k$．应用 Cauchy-Schwarz 不等式：
+    \begin{equation}
+        (2^k)^2 = \left( \sum_{n=2^k}^{2^{k+1}-1} 1 \right)^2 = \left( \sum_{n=2^k}^{2^{k+1}-1} \sqrt{d_n} \cdot \frac{1}{\sqrt{d_n}} \right)^2 \leqslant \left( \sum_{n=2^k}^{2^{k+1}-1} d_n \right) \left( \sum_{n=2^k}^{2^{k+1}-1} \frac{1}{d_n} \right).
+    \end{equation}
+    由裂项和可知：
+    \begin{equation}
+        \sum_{n=2^k}^{2^{k+1}-1} d_n = a_{2^{k+1}} - a_{2^k}.
+    \end{equation}
+    因此得到每一个二进块的下界估计：
+    \begin{equation}
+        \sum_{n=2^k}^{2^{k+1}-1} \frac{1}{a_{n+1} - a_n}
+        \geqslant \frac{2^{2k}}{a_{2^{k+1}} - a_{2^k}}.
+    \end{equation}
+
+    由数列 $\{a_n\}$ 严格单调递增，恒有 $a_{2^k} \geqslant a_1$．又因为题设条件在 $n=1$ 时给出 $a_1 \leqslant 0$，故
+    \begin{equation}
+        a_{2^{k+1}} - a_{2^k} \leqslant a_{2^{k+1}} - a_1.
+    \end{equation}
+    根据题设条件 $a_n \leqslant n^2 \ln n$，将 $n = 2^{k+1}$ 代入，得
+    \begin{equation}
+        a_{2^{k+1}} \leqslant (2^{k+1})^2 \ln(2^{k+1}) = 4 \cdot 2^{2k} (k+1) \ln 2.
+    \end{equation}
+    从而
+    \begin{equation}
+        a_{2^{k+1}} - a_{2^k}
+        \leqslant 4 \cdot 2^{2k} (k+1) \ln 2 - a_1.
+    \end{equation}
+
+    由于 $4 \cdot 2^{2k} (k+1) \ln 2 \to +\infty$，存在正整数 $k_0$，使得当 $k \geqslant k_0$ 时，
+    \begin{equation}
+        -a_1 \leqslant 4 \cdot 2^{2k} (k+1) \ln 2.
+    \end{equation}
+    因此，当 $k \geqslant k_0$ 时，
+    \begin{equation}
+        a_{2^{k+1}} - a_{2^k}
+        \leqslant 8 \cdot 2^{2k} (k+1) \ln 2.
+    \end{equation}
+    结合前面的二进块估计可得
+    \begin{equation}
+        \sum_{n=2^k}^{2^{k+1}-1} \frac{1}{a_{n+1} - a_n}
+        \geqslant \frac{2^{2k}}{a_{2^{k+1}} - a_{2^k}}
+        \geqslant \frac{1}{8\ln 2} \cdot \frac{1}{k+1},
+        \qquad k \geqslant k_0.
+    \end{equation}
+
+    对 $k = k_0, k_0+1, \dots, K$ 累加：
+    \begin{equation}
+        \sum_{n=2^{k_0}}^{2^{K+1}-1} \frac{1}{a_{n+1} - a_n}
+        = \sum_{k=k_0}^K \sum_{n=2^k}^{2^{k+1}-1} \frac{1}{a_{n+1} - a_n}
+        \geqslant \frac{1}{8\ln 2} \sum_{k=k_0}^K \frac{1}{k+1}.
+    \end{equation}
+    由于调和级数 $\sum_{k=k_0}^\infty \frac{1}{k+1} = +\infty$ 发散，当 $K \to \infty$ 时右端趋于 $+\infty$．
+
+    由比较审敛法可知，正项级数 $\sum_{n=1}^\infty \frac{1}{a_{n+1} - a_n}$ 发散．
+\end{myproof}
+
+\begin{problem}{有界变差数列的收敛性与反例构造}{Bounded-Variation-Sequences-And-Series}
+    如果级数 $\sum_{n=1}^\infty |a_{n+1} - a_n|$ 收敛，就称数列 $\{a_n\}$ 是有界变差的．
+    \begin{enumerate}
+        \item 证明：具有有界变差的数列 $\{a_n\}$ 一定收敛；
+        \item 构造一个发散的无穷级数 $\sum_{n=1}^\infty a_n$ 使得其通项 $\{a_n\}$ 是一个具有有界变差的数列．
+    \end{enumerate}
+\end{problem}
+
+\begin{solution}
+    \ansitem{1}
+
+    将数列的通项表示为裂项级数的部分和：
+    \begin{equation}
+        a_n = a_1 + \sum_{k=1}^{n-1} (a_{k+1} - a_k).
+    \end{equation}
+    因为正项级数 $\sum_{k=1}^\infty |a_{k+1} - a_k|$ 收敛，由绝对收敛必收敛定理可知，级数 $\sum_{k=1}^\infty (a_{k+1} - a_k)$ 收敛，记其和为 $S \in \symbb{R}$．
+
+    对上式两端取 $n \to \infty$ 的极限：
+    \begin{equation}
+        \lim_{n\to\infty} a_n = a_1 + \lim_{n\to\infty} \sum_{k=1}^{n-1} (a_{k+1} - a_k) = a_1 + S.
+    \end{equation}
+    极限存在且有限，因此具有有界变差的数列 $\{a_n\}$ 一定收敛．
+
+    \ansitem{2}
+
+    构造数列 $a_n = \frac{1}{n}$（$n \in \symbb{N}^+$）．
+
+    首先检验其有界变差性：
+    \begin{equation}
+        \sum_{n=1}^\infty |a_{n+1} - a_n| = \sum_{n=1}^\infty \left| \frac{1}{n+1} - \frac{1}{n} \right| = \sum_{n=1}^\infty \left( \frac{1}{n} - \frac{1}{n+1} \right) = 1 < +\infty,
+    \end{equation}
+    级数收敛，因此数列 $\left\{\frac{1}{n}\right\}$ 具有有界变差．
+
+    但由该数列构成的无穷级数为调和级数 $\sum_{n=1}^\infty \frac{1}{n}$，众所周知其发散．
+
+    \begin{equation}
+        \boxed{\text{(1) 命题得证；\quad (2) 所构造数列为 } a_n = \frac{1}{n} \ \left(\text{对应发散级数 } \sum_{n=1}^\infty \frac{1}{n}\right)．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{递归平方根函数列的一致收敛性}{Uniform-Convergence-Of-Recursive-Square-Root-Sequence}
+    设函数列 $\{f_n(x)\}, n = 1, 2, \dots$ 在区间 $[0, 1]$ 上由等式
+    \begin{equation}
+        f_0(x) = 1, \quad f_n(x) = \sqrt{x f_{n-1}(x)}
+    \end{equation}
+    定义，证明：当 $n \to \infty$ 时，函数列在 $[0, 1]$ 上一致收敛到一个连续函数．
+\end{problem}
+
+\begin{myproof}
+    第一步，求通项函数并确定逐点极限．
+
+    当 $x = 0$ 时，易知 $f_0(0) = 1$，$f_1(0) = \sqrt{0 \cdot 1} = 0$，且对任意 $n \geqslant 1$ 均有 $f_n(0) = 0$．
+
+    当 $x \in (0, 1]$ 时，递推计算前几项：
+    \begin{equation}
+        \begin{aligned}
+            f_1(x) & = x^{\frac{1}{2}},                                                                        \\
+            f_2(x) & = \sqrt{x \cdot x^{\frac{1}{2}}} = x^{\frac{1}{2} + \frac{1}{4}} = x^{1 - \frac{1}{2^2}}, \\
+                   & \ \ \vdots                                                                                \\
+            f_n(x) & = x^{\sum_{k=1}^n \frac{1}{2^k}} = x^{1 - \frac{1}{2^n}}.
+        \end{aligned}
+    \end{equation}
+    当 $n \to \infty$ 时，对每个 $x \in (0, 1]$，极限为
+    \begin{equation}
+        \lim_{n\to\infty} f_n(x) = \lim_{n\to\infty} x^{1 - \frac{1}{2^n}} = x.
+    \end{equation}
+    而 $f_n(0) = 0 \to 0$，故极限函数为 $f(x) = x$，其在区间 $[0, 1]$ 上显然连续．
+
+    第二步，证明在 $[0, 1]$ 上一致收敛．
+
+    考察余项函数 $g_n(x) = f_n(x) - f(x) = x^{1 - \frac{1}{2^n}} - x$（$x \in [0, 1]$）．
+
+    令 $t = x^{\frac{1}{2^n}} \in [0, 1]$，则 $x = t^{2^n}$，余项化为
+    \begin{equation}
+        h(t) = t^{2^n - 1} - t^{2^n} = t^{2^n - 1}(1 - t).
+    \end{equation}
+    求导寻找极大值点：
+    \begin{equation}
+        h'(t) = (2^n - 1)t^{2^n - 2} - 2^n t^{2^n - 1} = t^{2^n - 2} \bigl[ (2^n - 1) - 2^n t \bigr] = 0 \implies t_n = 1 - \frac{1}{2^n}.
+    \end{equation}
+    代入求得最大值估计：
+    \begin{equation}
+        \sup_{x \in [0, 1]} |f_n(x) - f(x)| = h(t_n) = \left( 1 - \frac{1}{2^n} \right)^{2^n - 1} \frac{1}{2^n} < \frac{1}{2^n}.
+    \end{equation}
+    两端取极限：
+    \begin{equation}
+        \lim_{n\to\infty} \sup_{x \in [0, 1]} |f_n(x) - f(x)| \leqslant \lim_{n\to\infty} \frac{1}{2^n} = 0.
+    \end{equation}
+    由一致收敛的定义，函数列 $\{f_n(x)\}$ 在 $[0, 1]$ 上一致收敛于连续函数 $f(x) = x$．
+\end{myproof}
+
+\begin{problem}{递归微分方程函数序列的极限与极限函数}{Recursive-ODE-Function-Sequence-Limit}
+    递归定义连续可微函数序列 $f_1, f_2, \dots: [0, 1) \to \symbb{R}$，如下：$f_1 = 1$，在 $(0, 1)$ 上有
+    \begin{equation}
+        f'_{n+1} = f_n f_{n+1},
+    \end{equation}
+    且 $f_{n+1}(0) = 1$．求证：对每一个 $x \in (0, 1)$，$\lim_{n\to\infty} f_n(x)$ 存在，并求出其极限函数．
+\end{problem}
+
+\begin{solution}
+    对微分方程 $\frac{f'_{n+1}(t)}{f_{n+1}(t)} = f_n(t)$ 在 $[0, x]$ 上积分，结合初值 $f_{n+1}(0) = 1$ 得
+    \begin{equation}
+        f_{n+1}(x) = \exp\left( \int_0^x f_n(t)\d t \right) \quad (n \in \symbb{N}^+).
+    \end{equation}
+    第一步，用数学归纳法证明 $\{f_n(x)\}$ 单调递增且有上界．
+
+    对任意 $x \in [0, 1)$：
+    \begin{enumerate}
+        \item 当 $n = 1$ 时，$f_1(x) = 1$，$f_2(x) = \e^x \geqslant 1 = f_1(x)$；
+        \item 若 $f_n(x) \geqslant f_{n-1}(x) > 0$，则
+              \begin{equation}
+                  \int_0^x f_n(t)\d t \geqslant \int_0^x f_{n-1}(t)\d t \implies f_{n+1}(x) \geqslant f_n(x).
+              \end{equation}
+    \end{enumerate}
+    故数列 $\{f_n(x)\}$ 关于 $n$ 递增．
+
+    再用数学归纳法证明 $f_n(x) \leqslant \frac{1}{1 - x}$：
+    \begin{enumerate}
+        \item 当 $n = 1$ 时，$f_1(x) = 1 \leqslant \frac{1}{1 - x}$；
+        \item 假设 $f_n(t) \leqslant \frac{1}{1 - t}$（$t \in [0, x]$），则
+              \begin{equation}
+                  \int_0^x f_n(t)\d t \leqslant \int_0^x \frac{1}{1 - t}\d t = -\ln(1 - x) = \ln\frac{1}{1 - x}.
+              \end{equation}
+              从而
+              \begin{equation}
+                  f_{n+1}(x) = \exp\left( \int_0^x f_n(t)\d t \right) \leqslant \exp\left( \ln\frac{1}{1 - x} \right) = \frac{1}{1 - x}.
+              \end{equation}
+    \end{enumerate}
+    由单调有界收敛准则，对每个 $x \in [0, 1)$，极限 $f(x) = \lim_{n\to\infty} f_n(x)$ 存在．
+
+    第二步，求解极限函数 $f(x)$．
+
+    由单调收敛定理，在积分递推式两端取 $n \to \infty$ 的极限：
+    \begin{equation}
+        f(x) = \exp\left( \int_0^x f(t)\d t \right).
+    \end{equation}
+    求导化为初值问题：
+    \begin{equation}
+        f'(x) = f(x)^2, \qquad f(0) = 1.
+    \end{equation}
+    分离变量积分解得
+    \begin{equation}
+        f(x) = \frac{1}{1 - x} \quad (x \in [0, 1)).
+    \end{equation}
+    \begin{equation}
+        \boxed{\lim_{n\to\infty} f_n(x) = \frac{1}{1 - x} \quad (x \in (0, 1))．}
+    \end{equation}
+\end{solution}
+
+\begin{problem}{积分迭代函数列的一致收敛性证明}{Uniform-Convergence-Of-Integral-Iteration-Sequence}
+    设 $f_0(x)$ 是区间 $[0, a]$ 上连续函数，证明：按照下列公式
+    \begin{equation}
+        f_n(x) = \int_0^x f_{n-1}(u) u \d u
+    \end{equation}
+    定义的函数列 $\{f_n(x)\}$ 在区间 $[0, a]$ 上一致收敛于 $0$．
+\end{problem}
+
+\begin{myproof}
+    因为 $f_0(x)$ 在闭区间 $[0, a]$ 上连续，由极值定理可知其在 $[0, a]$ 上有界，即存在常数 $M = \max_{x \in [0, a]} |f_0(x)| \geqslant 0$．
+
+    下面利用数学归纳法证明：对任意正整数 $n$ 及任意 $x \in [0, a]$，恒有
+    \begin{equation}
+        |f_n(x)| \leqslant M \frac{x^{2n}}{2^n n!}.
+    \end{equation}
+    \begin{enumerate}
+        \item 当 $n = 1$ 时：
+              \begin{equation}
+                  |f_1(x)| \leqslant \int_0^x |f_0(u)| u \d u \leqslant M \int_0^x u \d u = M \frac{x^2}{2} = M \frac{x^2}{2^1 \cdot 1!},
+              \end{equation}
+              不等式成立；
+        \item 假设对 $n = k$ 不等式成立，则当 $n = k + 1$ 时：
+              \begin{equation}
+                  \begin{aligned}
+                      |f_{k+1}(x)| & \leqslant \int_0^x |f_k(u)| u \d u               \\
+                                   & \leqslant \frac{M}{2^k k!} \int_0^x u^{2k+1}\d u \\
+                                   & = \frac{M}{2^k k!} \cdot \frac{x^{2k+2}}{2k + 2} \\
+                                   & = M \frac{x^{2(k+1)}}{2^{k+1}(k + 1)!}.
+                  \end{aligned}
+              \end{equation}
+    \end{enumerate}
+    因此该估计对一切正整数 $n$ 均成立．
+
+    由 $x \in [0, a]$，进一步放大得到一致上界估计：
+    \begin{equation}
+        \sup_{x \in [0, a]} |f_n(x)| \leqslant M \frac{a^{2n}}{2^n n!} = M \frac{(a^2/2)^n}{n!}.
+    \end{equation}
+    因为指数级数 $\sum_{n=0}^\infty \frac{(a^2/2)^n}{n!} = \e^{\frac{a^2}{2}}$ 收敛，其通项必趋于零：
+    \begin{equation}
+        \lim_{n\to\infty} \frac{(a^2/2)^n}{n!} = 0.
+    \end{equation}
+    因此
+    \begin{equation}
+        \lim_{n\to\infty} \sup_{x \in [0, a]} |f_n(x) - 0| \leqslant \lim_{n\to\infty} M \frac{(a^2/2)^n}{n!} = 0.
+    \end{equation}
+    根据函数列一致收敛的定义，函数列 $\{f_n(x)\}$ 在区间 $[0, a]$ 上一致收敛于 $0$．
+\end{myproof}
+
+\begin{problem}{二项式级数计算根号2的高精度近似}{Binomial-Series-Approximation-Of-Square-Root-Two}
+    利用二项式级数，计算 $\sqrt{2}$ 到四位小数．
+\end{problem}
+
+\begin{solution}
+    将 $\sqrt{2}$ 恒等变形为收敛极快的二项式形式：
+    \begin{equation}
+        \sqrt{2} = \frac{10}{7} \sqrt{\frac{49}{50}} = \frac{10}{7} \left( 1 - \frac{1}{50} \right)^{\frac{1}{2}} = \frac{10}{7} (1 - 0.02)^{\frac{1}{2}}.
+    \end{equation}
+    利用广义二项式展开式 $(1 - x)^{\frac{1}{2}} = 1 - \frac{1}{2}x - \frac{1}{8}x^2 - \frac{1}{16}x^3 - \dots$（$|x| < 1$）：
+    \begin{equation}
+        (1 - 0.02)^{\frac{1}{2}} = 1 - \frac{1}{2}(0.02) - \frac{1}{8}(0.02)^2 - \frac{1}{16}(0.02)^3 - R_3,
+    \end{equation}
+    其中各截断项具体数值为
+    \begin{equation}
+        \begin{aligned}
+            \frac{1}{2}(0.02)    & = 0.01,                               \\
+            \frac{1}{8}(0.02)^2  & = \frac{1}{8}(0.0004) = 0.00005,      \\
+            \frac{1}{16}(0.02)^3 & = \frac{1}{16}(0.000008) = 0.0000005.
+        \end{aligned}
+    \end{equation}
+    代入求和：
+    \begin{equation}
+        (1 - 0.02)^{\frac{1}{2}} \approx 1 - 0.01 - 0.00005 - 0.0000005 = 0.9899495.
+    \end{equation}
+    乘以系数 $\frac{10}{7}$：
+    \begin{equation}
+        \sqrt{2} \approx \frac{10}{7} \times 0.9899495 = \frac{9.899495}{7} \approx 1.41421357.
+    \end{equation}
+    余项误差估计满足
+    \begin{equation}
+        \frac{10}{7} R_3 < \frac{10}{7} \times \frac{5}{128} (0.02)^4 < 10^{-7},
+    \end{equation}
+    截断误差远小于 $10^{-4}$．四舍五入保留四位小数得 $1.4142$．
+    \begin{equation}
+        \boxed{\sqrt{2} \approx 1.4142.}
+    \end{equation}
+\end{solution}
+
+\endinput

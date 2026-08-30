@@ -37,13 +37,13 @@ The document is built with the `ctexbook` class and powered by a **LuaLaTeX + l3
 
 | Chapter | Title | Status | Notes |
 | --- | --- | --- | --- |
-| Chapter 1 | Limits | 📝 | In Progress |
-| Chapter 2 | Continuity of Single-Variable Functions | 📝 | In Progress |
-| Chapter 3 | Differential Calculus of Single-Variable Functions | 📝 | In Progress |
-| Chapter 4 | Indefinite Integrals | 📝 | In Progress |
-| Chapter 5 | Integral Calculus of Single-Variable Functions | 📝 | In Progress |
-| Chapter 6 | Introduction to Ordinary Differential Equations | 📝 | In Progress |
-| Chapter 7 | Infinite Series | 📝 | In Progress |
+| Chapter 1 | Limits | ✅ | Completed |
+| Chapter 2 | Continuity of Single-Variable Functions | ✅ | Completed |
+| Chapter 3 | Differential Calculus of Single-Variable Functions | ✅ | Completed |
+| Chapter 4 | Indefinite Integrals | ✅ | Completed |
+| Chapter 5 | Integral Calculus of Single-Variable Functions | ✅ | Completed |
+| Chapter 6 | Introduction to Ordinary Differential Equations | ✅ | Completed |
+| Chapter 7 | Infinite Series | ✅ | Completed |
 | Chapter 8 | Analytic Geometry in Space | ✅ | Completed |
 | Chapter 9 | Differential Calculus of Multivariable Functions | ✅ | Completed |
 | Chapter 10 | Multiple Integrals | ✅ | Completed |

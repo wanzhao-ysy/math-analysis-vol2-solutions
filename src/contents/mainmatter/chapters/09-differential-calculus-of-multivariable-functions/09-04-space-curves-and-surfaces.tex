@@ -134,10 +134,10 @@
     也就是
     \begin{equation}
         \boxed{
-            \begin{cases}
+            \begin{dcases}
                 \frac{x - \frac{a}{2}}{a} = \frac{z - \frac{c}{2}}{-c},
                 \\ y = \frac{b}{2}.
-            \end{cases}
+            \end{dcases}
         }
     \end{equation}
 
@@ -164,10 +164,10 @@
     也就是
     \begin{equation}
         \boxed{
-            \begin{cases}
+            \begin{dcases}
                 \frac{x - \frac{\uppi}{2}}{2} = \frac{z - 1}{3},
                 \\ y = 4.
-            \end{cases}
+            \end{dcases}
         }
     \end{equation}
 
@@ -368,10 +368,10 @@
     \end{equation}
     由此可得 $\lambda = -1$，从而推得
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             y_0 = -1, \\
             x_0 = -3.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由于点 $M$ 在曲面 $z = xy$ 上，故 $z_0 = (-3) \times (-1) = 3$．即该点为 $(-3, -1, 3)$．
     此时，法线的方向向量可取为 $\symbfit{n}_2 = (1, 3, 1)$，故法线方程为
@@ -393,10 +393,10 @@
     直线 $L$ 可改写为 $\frac{x - 6}{2} = \frac{y - 3}{1} = \frac{z - 1/2}{-1}$，其方向向量为 $\symbfit{s} = (2, 1, -1)$，且过点 $P_0(6, 3, \frac{1}{2})$．
     因为 $L \subset \pi$，故 $\symbfit{n} \cdot \symbfit{s} = 0$ 且 $P_0 \in \pi$，即
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             2x_0 + 2y_0 - 3z_0 = 0, \\
             6x_0 + 6y_0 + \frac{3}{2}z_0 = 21.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     联立方程组可解得 $x_0 + y_0 = 3$ 且 $z_0 = 2$．代入椭球面方程 $x_0^2 + 2y_0^2 + 3z_0^2 = 21$ 得
     \begin{equation}
@@ -414,7 +414,7 @@
 
 
 \begin{problem}{直线在切平面上}{Line-On-Tangent-Plane}
-    设直线 $l: \begin{cases} x + y + b = 0, \\ x + ay - z - 3 = 0 \end{cases}$ 在平面 $\pi$ 上，而平面 $\pi$ 与曲面 $z = x^2 + y^2$ 相切于点 $(1, -2, 5)$，求 $a, b$ 之值．
+    设直线 $l: \begin{dcases} x + y + b = 0, \\ x + ay - z - 3 = 0 \end{dcases}$ 在平面 $\pi$ 上，而平面 $\pi$ 与曲面 $z = x^2 + y^2$ 相切于点 $(1, -2, 5)$，求 $a, b$ 之值．
 \end{problem}
 
 \begin{solution}
@@ -433,11 +433,11 @@
     将其系数与 $\zcref{eq:tangent-plane}$ 对应成比例，令 $z$ 的系数相等，得 $-\lambda = -1 \implies \lambda = 1$．
     进而由其他系数对应相等得
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             1 + \lambda = 2,   \\
             1 + a\lambda = -4, \\
             b - 3\lambda = -5.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     将 $\lambda = 1$ 代入上述方程组，解得 $a = -5$ 且 $b = -2$．
     \begin{equation}
@@ -576,8 +576,8 @@
 \begin{problem}{空间曲线切线与法平面}{Space-Curve-Tangent-Normal}
     求下列曲线在给定点的切线和法平面方程
     \begin{enumerate}
-        \item $\begin{cases} y^2 + z^2 = 25, \\ x^2 + y^2 = 10 \end{cases}$ 在点 $(1, 3, 4)$；
-        \item $\begin{cases} 2x^2 + 3y^2 + z^2 = 47, \\ x^2 + 2y^2 = z \end{cases}$ 在点 $(-2, 1, 6)$．
+        \item $\begin{dcases} y^2 + z^2 = 25, \\ x^2 + y^2 = 10 \end{dcases}$ 在点 $(1, 3, 4)$；
+        \item $\begin{dcases} 2x^2 + 3y^2 + z^2 = 47, \\ x^2 + 2y^2 = z \end{dcases}$ 在点 $(-2, 1, 6)$．
     \end{enumerate}
 \end{problem}
 
@@ -620,7 +620,7 @@
 \end{solution}
 
 \begin{problem}{隐函数求导证明}{Implicit-Function-Partial-Derivative}
-    设方程组 $\begin{cases} pu + qv - t^2 = 0, \\ qu + pv - s^2 = 0 \end{cases}$ ($p^2 - q^2 \neq 0$) 确定了隐函数 $\begin{cases} u = u(s, t), \\ v = v(s, t) \end{cases}$ 以及反函数 $\begin{cases} s = s(u, v), \\ t = t(u, v) \end{cases}$．求证：
+    设方程组 $\begin{dcases} pu + qv - t^2 = 0, \\ qu + pv - s^2 = 0 \end{dcases}$ ($p^2 - q^2 \neq 0$) 确定了隐函数 $\begin{dcases} u = u(s, t), \\ v = v(s, t) \end{dcases}$ 以及反函数 $\begin{dcases} s = s(u, v), \\ t = t(u, v) \end{dcases}$．求证：
     \begin{equation}
         \frac{\partial t}{\partial u} \cdot \frac{\partial u}{\partial t} = \frac{\partial s}{\partial v} \cdot \frac{\partial v}{\partial s} = \frac{p^2}{p^2 - q^2}.
     \end{equation}
@@ -630,10 +630,10 @@
     对原方程组求全微分
     \begin{equation}
         \label{eq:diff-system}
-        \begin{cases}
+        \begin{dcases}
             p \d u + q \d v = 2t \d t, \\
             q \d u + p \d v = 2s \d s.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由 \zcref{eq:diff-system} 解得 $\d u, \d v$
     \begin{equation}

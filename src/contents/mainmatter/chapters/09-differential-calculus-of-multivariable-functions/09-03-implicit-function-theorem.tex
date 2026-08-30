@@ -405,20 +405,20 @@
 \end{solution}
 
 \begin{problem}{隐函数组求导}{Implicit-System-Differentiation}
-    设 $x = x(z), y = y(z)$ 是方程组 $\begin{cases} x + y + z = 0, \\ x^2 + y^2 + z^2 = 1 \end{cases}$ 所确定的隐函数组，求 $\frac{\d x}{\d z}, \frac{\d y}{\d z}$．
+    设 $x = x(z), y = y(z)$ 是方程组 $\begin{dcases} x + y + z = 0, \\ x^2 + y^2 + z^2 = 1 \end{dcases}$ 所确定的隐函数组，求 $\frac{\d x}{\d z}, \frac{\d y}{\d z}$．
 \end{problem}
 
 \begin{solution}
     将方程组两端关于 $z$ 求导：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             \frac{\d x}{\d z} + \frac{\d y}{\d z} + 1 = 0 \\
             2x \frac{\d x}{\d z} + 2y \frac{\d y}{\d z} + 2z = 0
-        \end{cases} \implies
-        \begin{cases}
+        \end{dcases} \implies
+        \begin{dcases}
             \frac{\d x}{\d z} + \frac{\d y}{\d z} = -1 \\
             x \frac{\d x}{\d z} + y \frac{\d y}{\d z} = -z
-        \end{cases}
+        \end{dcases}
     \end{equation}
     利用克莱姆法则求解该线性方程组：
     \begin{equation}
@@ -433,9 +433,9 @@
 \begin{problem}{雅可比行列式}{Jacobian-Determinant-2}
     设 $u = u(x,y), v = v(x,y)$ 是由下列方程组所确定的隐函数组，求 $\frac{\partial(u,v)}{\partial(x,y)}$：
     \begin{enumerate}
-        \item $\begin{cases} u^2 + v^2 + x^2 + y^2 = 1, \\ u + v + x + y = 0; \end{cases}$
-        \item $\begin{cases} xu - yv = 0, \\ yu + xv = 1; \end{cases}$
-        \item $\begin{cases} u = f(ux, v + y), \\ v = g(u - x, v^2y). \end{cases}$
+        \item $\begin{dcases} u^2 + v^2 + x^2 + y^2 = 1, \\ u + v + x + y = 0; \end{dcases}$
+        \item $\begin{dcases} xu - yv = 0, \\ yu + xv = 1; \end{dcases}$
+        \item $\begin{dcases} u = f(ux, v + y), \\ v = g(u - x, v^2y). \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -514,8 +514,8 @@
 \begin{problem}{反函数组偏导数}{Inverse-Function-Partial-Derivatives}
     求下列函数组所确定的反函数组的偏导数 $\frac{\partial u}{\partial x}, \frac{\partial u}{\partial y}, \frac{\partial v}{\partial x}, \frac{\partial v}{\partial y}$：
     \begin{enumerate}
-        \item $\begin{cases} x = f(u, v), \\ y = g(u, v); \end{cases}$
-        \item $\begin{cases} x = \e^u + u \sin v, \\ y = \e^u - u \cos v. \end{cases}$
+        \item $\begin{dcases} x = f(u, v), \\ y = g(u, v); \end{dcases}$
+        \item $\begin{dcases} x = \e^u + u \sin v, \\ y = \e^u - u \cos v. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -524,17 +524,17 @@
 
     对原方程组两边求微分，得
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             \d x = f_u \d u + f_v \d v, \\
             \d y = g_u \d u + g_v \d v.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     记雅可比行列式 $J = \frac{\partial(f, g)}{\partial(u, v)} = f_u g_v - f_v g_u$，解上述关于 $\d u, \d v$ 的线性方程组，得
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             \d u = \frac{1}{J} (g_v \d x - f_v \d y), \\
             \d v = \frac{1}{J} (-g_u \d x + f_u \d y).
-        \end{cases}
+        \end{dcases}
     \end{equation}
     根据全微分形式 $\d u = \frac{\partial u}{\partial x} \d x + \frac{\partial u}{\partial y} \d y$，对比系数得
     \begin{equation}
@@ -619,10 +619,10 @@
 \begin{solution}
     对两方程关于 $x$ 求导，得
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             \dfrac{\d z}{\d x} = f(x+y) + x f'(x+y) \left( 1 + \dfrac{\d y}{\d x} \right), \\
             F_x + F_y \dfrac{\d y}{\d x} + F_z \dfrac{\d z}{\d x} = 0.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由第二个方程解得
     \begin{equation}
@@ -653,17 +653,17 @@
 \begin{solution}
     对原方程组两端求全微分，得
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             F_x \d x + F_y \d y + F_u \d u + F_v \d v = 0, \\
             G_x \d x + G_y \d y + G_u \d u + G_v \d v = 0.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     整理为关于 $\d u, \d v$ 的线性方程组
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             F_u \d u + F_v \d v = -(F_x \d x + F_y \d y), \\
             G_u \d u + G_v \d v = -(G_x \d x + G_y \d y).
-        \end{cases}
+        \end{dcases}
     \end{equation}
     记雅可比行列式 $J = \dfrac{\partial(F,G)}{\partial(u,v)} = F_u G_v - F_v G_u$. 根据克莱姆法则，得
     \ansitem{1}

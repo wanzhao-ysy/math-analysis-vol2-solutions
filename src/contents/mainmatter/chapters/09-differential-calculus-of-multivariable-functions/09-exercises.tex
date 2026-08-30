@@ -58,11 +58,11 @@ v
 \begin{myproof}
     将 $x^2 = vw$、$y^2 = wu$、$z^2 = uv$ 关于 $x$ 求偏导，得
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             2x = v \frac{\partial w}{\partial x} + w \frac{\partial v}{\partial x} \\
             0 = w \frac{\partial u}{\partial x} + u \frac{\partial w}{\partial x}  \\
             0 = u \frac{\partial v}{\partial x} + v \frac{\partial u}{\partial x}
-        \end{cases}
+        \end{dcases}
         \label{eq:differentiation-system}
     \end{equation}
     由 \zcref{eq:differentiation-system} 后两式可得 $\frac{\partial w}{\partial x} = -\frac{w}{u} \frac{\partial u}{\partial x}$ 且 $\frac{\partial v}{\partial x} = -\frac{v}{u} \frac{\partial u}{\partial x}$．代入第一式，得

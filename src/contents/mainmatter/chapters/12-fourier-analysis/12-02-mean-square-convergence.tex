@@ -1,7 +1,7 @@
 \section{平方平均收敛}
 
 \begin{problem}{Parseval等式与级数求和}{Parseval-Series-Sum}
-    将 $f(x) = \begin{cases} 1, & |x| < a, \\ 0, & a \leqslant |x| < \uppi \end{cases}$ 展开成 Fourier 级数，然后利用 Parseval 等式求下列级数的和：
+    将 $f(x) = \begin{dcases} 1, & |x| < a, \\ 0, & a \leqslant |x| < \uppi \end{dcases}$ 展开成 Fourier 级数，然后利用 Parseval 等式求下列级数的和：
     \begin{enumerate}
         \item $\sum_{n=1}^{\infty} \frac{\sin^2 na}{n^2}$;
         \item $\sum_{n=1}^{\infty} \frac{\cos^2 na}{n^2}$.
@@ -125,7 +125,7 @@
 \end{myproof}
 
 \begin{problem}{Fourier级数计算与求和}{Fourier-Series-Summation-1}
-    求周期为 $2\uppi$ 函数 $f(x) = \begin{cases} -1, & -\uppi < x < 0, \\ 1, & 0 \leqslant x \leqslant \uppi \end{cases}$ 的 Fourier 级数，并求 $\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2}$ 的和以及 $\sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2} \quad (0 \leqslant x \leqslant \uppi)$ 的和．
+    求周期为 $2\uppi$ 函数 $f(x) = \begin{dcases} -1, & -\uppi < x < 0, \\ 1, & 0 \leqslant x \leqslant \uppi \end{dcases}$ 的 Fourier 级数，并求 $\sum_{n=1}^{\infty} \frac{1}{(2n-1)^2}$ 的和以及 $\sum_{n=1}^{\infty} \frac{\cos(2n-1)x}{(2n-1)^2} \quad (0 \leqslant x \leqslant \uppi)$ 的和．
 \end{problem}
 
 \begin{solution}
@@ -181,7 +181,7 @@
     \end{equation}
     由此可得
     \begin{equation}\label{eq:bn-cases-3}
-        b_n = \begin{cases} \frac{4}{n\uppi}, & n = 2k-1, \\ 0, & n = 2k. \end{cases}
+        b_n = \begin{dcases} \frac{4}{n\uppi}, & n = 2k-1, \\ 0, & n = 2k. \end{dcases}
     \end{equation}
     故 $f(x)$ 的 Fourier 级数展开式为
     \begin{equation}

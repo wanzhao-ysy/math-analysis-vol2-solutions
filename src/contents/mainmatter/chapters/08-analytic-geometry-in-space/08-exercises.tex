@@ -201,7 +201,7 @@
 
 
 \begin{problem}{柱面方程}{Cylinder-Equation}
-    求准线为 $\begin{cases} y^2 + z^2 = 1, \\ x = 1, \end{cases}$ 母线方向为 $(2, 1, 1)$ 的柱面的一般方程.
+    求准线为 $\begin{dcases} y^2 + z^2 = 1, \\ x = 1, \end{dcases}$ 母线方向为 $(2, 1, 1)$ 的柱面的一般方程.
 \end{problem}
 
 \begin{solution}
@@ -211,11 +211,11 @@
     \end{equation}
     母线与准线的交点 $(X, Y, Z)$ 满足
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             X = x + 2t = 1 \\
             Y = y + t      \\
             Z = z + t
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由第一式解得 $t = \frac{1 - x}{2}$，将其代入后两式可得
     \begin{equation}
@@ -233,7 +233,7 @@
 
 
 \begin{problem}{锥面方程}{Cone-Equation}
-    求准线为 $\begin{cases} y^2 + z^2 = 1, \\ x = 1, \end{cases}$ 顶点坐标为 $(2, 1, 1)$ 的锥面的一般方程.
+    求准线为 $\begin{dcases} y^2 + z^2 = 1, \\ x = 1, \end{dcases}$ 顶点坐标为 $(2, 1, 1)$ 的锥面的一般方程.
 \end{problem}
 
 \begin{solution}
@@ -288,17 +288,17 @@
     \end{equation}
     令 $z = u, \theta = v$，则旋转面的参数方程可表示为：
     \begin{equation}
-        \boxed{\begin{cases}
+        \boxed{\begin{dcases}
             x = 1 + \sqrt{2u^2 - 2u + 1} \cos v \\
             y = 1 + \sqrt{2u^2 - 2u + 1} \sin v \\
             z = u
-        \end{cases} \quad (u \in \symbb{R}, v \in [0, 2\uppi))}
+        \end{dcases} \quad (u \in \symbb{R}, v \in [0, 2\uppi))}
     \end{equation}
 \end{solution}
 
 
 \begin{problem}{旋转面方程}{Surface-Of-Revolution-2}
-    求圆 $\begin{cases} (x - 2)^2 + y^2 = 1, \\ z = 0 \end{cases}$ 绕 $y$ 轴旋转所得旋转面的参数方程和一般方程．
+    求圆 $\begin{dcases} (x - 2)^2 + y^2 = 1, \\ z = 0 \end{dcases}$ 绕 $y$ 轴旋转所得旋转面的参数方程和一般方程．
 \end{problem}
 
 \begin{solution}
@@ -313,18 +313,18 @@
     \end{equation}
     为求参数方程，先写出母线圆在 $Oxy$ 平面上的参数表示：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             x = 2 + \cos u \\
             y = \sin u
-        \end{cases} \quad (u \in [0, 2\uppi))
+        \end{dcases} \quad (u \in [0, 2\uppi))
     \end{equation}
     设绕 $y$ 轴旋转的角度为 $v$，则旋转面上任意一点的坐标为：
     \begin{equation}
-        \boxed{\begin{cases}
+        \boxed{\begin{dcases}
             x = (2 + \cos u) \cos v \\
             y = \sin u              \\
             z = (2 + \cos u) \sin v
-        \end{cases} \quad (u, v \in [0, 2\uppi))}
+        \end{dcases} \quad (u, v \in [0, 2\uppi))}
     \end{equation}
 \end{solution}
 

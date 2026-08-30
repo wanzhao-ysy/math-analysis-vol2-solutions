@@ -358,14 +358,14 @@
     \ansitem{1}
     求偏导数并令其为零以确定驻点：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             f_x = y - \dfrac{50}{x^2} = 0 \\
             f_y = x - \dfrac{20}{y^2} = 0
-        \end{cases} \implies
-        \begin{cases}
+        \end{dcases} \implies
+        \begin{dcases}
             y = \dfrac{50}{x^2} \\
             x = \dfrac{20}{(50/x^2)^2} = \dfrac{x^4}{125}
-        \end{cases}
+        \end{dcases}
     \end{equation}
     解得驻点为 $(5, 2)$．计算二阶偏导数：
     \begin{equation}
@@ -383,14 +383,14 @@
     \ansitem{2}
     求驻点：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             f_x = 4 - 2x = 0 \\
             f_y = -4 - 2y = 0
-        \end{cases} \implies
-        \begin{cases}
+        \end{dcases} \implies
+        \begin{dcases}
             x = 2 \\
             y = -2
-        \end{cases}
+        \end{dcases}
     \end{equation}
     二阶偏导数为 $A = f_{xx} = -2$, $B = f_{xy} = 0$, $C = f_{yy} = -2$．
     由于 $AC - B^2 = 4 > 0$ 且 $A < 0$，函数在 $(2, -2)$ 处取得极大值：
@@ -401,14 +401,14 @@
     \ansitem{3}
     求驻点：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             f_x = \e^{2x}(2x + 4y + 2y^2 + 1) = 0 \\
             f_y = \e^{2x}(2 + 2y) = 0
-        \end{cases} \implies
-        \begin{cases}
+        \end{dcases} \implies
+        \begin{dcases}
             y = -1 \\
             2x - 4 + 2 + 1 = 0 \implies x = \dfrac{1}{2}
-        \end{cases}
+        \end{dcases}
     \end{equation}
     驻点为 $(1/2, -1)$．计算二阶偏导数：
     \begin{equation}
@@ -472,17 +472,17 @@
     \end{equation}
     对 $A, B$ 求偏导：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             g_A = \cos A \sin B \sin(A+B) + \sin A \sin B \cos(A+B) = \sin B \sin(2A+B) = 0 \\
             g_B = \sin A \sin(A+2B) = 0
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由于 $A, B \in (0, \uppi)$，则 $\sin A \neq 0, \sin B \neq 0$，故有：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             2A + B = \uppi \\
             A + 2B = \uppi
-        \end{cases} \implies A = B = \frac{\uppi}{3}
+        \end{dcases} \implies A = B = \frac{\uppi}{3}
     \end{equation}
     此时 $C = \uppi - A - B = \dfrac{\uppi}{3}$．由于该实际问题必存在最大值，且驻点唯一．
     \begin{equation}
@@ -561,11 +561,11 @@
     构造拉格朗日函数 $L(x, y, \lambda) = x^{2} + y^{2} + \lambda \left( \frac{x}{a} + \frac{y}{b} - 1 \right)$．令其偏导数为零：
     \begin{equation}
         \label{eq:p1-lagrange}
-        \begin{cases}
+        \begin{dcases}
             2x + \frac{\lambda}{a} = 0, \\
             2y + \frac{\lambda}{b} = 0, \\
             \frac{x}{a} + \frac{y}{b} = 1.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由前两式得 $x = -\frac{\lambda}{2a}, y = -\frac{\lambda}{2b}$，代入约束条件可得：
     \begin{equation}
@@ -580,11 +580,11 @@
 
     构造拉格朗日函数 $L(x, y, z, \lambda) = x + y + z + \lambda \left( \frac{1}{x} + \frac{1}{y} + \frac{1}{z} - 1 \right)$．求偏导数：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             1 - \frac{\lambda}{x^{2}} = 0, \\
             1 - \frac{\lambda}{y^{2}} = 0, \\
             1 - \frac{\lambda}{z^{2}} = 0.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     结合 $x, y, z > 0$，可得 $x = y = z = \sqrt{\lambda}$．代入约束条件：
     \begin{equation}
@@ -599,11 +599,11 @@
 
     构造拉格朗日函数 $L(x, y, z, \lambda) = \sin x \sin y \sin z + \lambda \left( x + y + z - \frac{\uppi}{2} \right)$．令偏导数为零：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             \cos x \sin y \sin z + \lambda = 0, \\
             \sin x \cos y \sin z + \lambda = 0, \\
             \sin x \sin y \cos z + \lambda = 0.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由上式可得 $\cos x \sin y \sin z = \sin x \cos y \sin z = \sin x \sin y \cos z$．由于 $x, y, z \in (0, \uppi/2)$，上式等价于：
     \begin{equation}
@@ -618,11 +618,11 @@
 
     构造拉格朗日函数 $L(x, y, z, \lambda_1, \lambda_2) = x y z + \lambda_{1}(x + y + z) + \lambda_{2}(x^{2} + y^{2} + z^{2} - 1)$．求偏导数：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             y z + \lambda_{1} + 2 \lambda_{2} x = 0, \\
             x z + \lambda_{1} + 2 \lambda_{2} y = 0, \\
             x y + \lambda_{1} + 2 \lambda_{2} z = 0.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     相邻两式相减可得 $(y - x)(z - 2 \lambda_{2}) = 0$, $(z - y)(x - 2 \lambda_{2}) = 0$, $(x - z)(y - 2 \lambda_{2}) = 0$．若 $x, y, z$ 互不相等，则必有 $x = y = z = 2 \lambda_{2}$，产生矛盾．故至少有两项相等．设 $x = y$，由 $x + y + z = 0$ 得 $z = -2x$．代入 $x^{2} + y^{2} + z^{2} = 1$：
     \begin{equation}
@@ -732,12 +732,12 @@
     \end{equation}
     对其求偏导数并令其为零：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             L_x = 2(x-1) + 2(x-2) + 3\lambda = 4x - 6 + 3\lambda = 0  \\
             L_y = 2(y-1) + 2(y-3) = 4y - 8 = 0                        \\
             L_z = 2(z-1) + 2(z-4) - 2\lambda = 4z - 10 - 2\lambda = 0 \\
             3x - 2z = 0
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由第二式得 $y = 2$．由第一、三式消去 $\lambda$ 得：
     \begin{equation}
@@ -754,7 +754,7 @@
 \end{solution}
 
 \begin{problem}{空间曲线极值}{Curve-Extremum}
-    在曲线 $\begin{cases} z = x^2 + 2y^2 \\ z = 6 - 2x^2 - y^2 \end{cases}$ 上，求竖坐标分别为最大值和最小值的点．
+    在曲线 $\begin{dcases} z = x^2 + 2y^2 \\ z = 6 - 2x^2 - y^2 \end{dcases}$ 上，求竖坐标分别为最大值和最小值的点．
 \end{problem}
 
 \begin{solution}

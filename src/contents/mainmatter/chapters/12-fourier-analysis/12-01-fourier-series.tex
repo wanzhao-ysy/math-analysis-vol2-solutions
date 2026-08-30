@@ -3,9 +3,9 @@
 \begin{problem}{Fourier级数展开}{Fourier-Series-Expansion}
     作出下列周期 $2\uppi$ 的函数的图形，并把它们展开成 Fourier 级数（说明收敛情况）．
     \begin{enumerate}
-        \item 在 $[-\uppi, \uppi)$ 中， $f(x) = \begin{cases} -\uppi, & -\uppi \leqslant x \leqslant 0, \\ x, & 0 < x < \uppi; \end{cases}$
+        \item 在 $[-\uppi, \uppi)$ 中， $f(x) = \begin{dcases} -\uppi, & -\uppi \leqslant x \leqslant 0, \\ x, & 0 < x < \uppi; \end{dcases}$
         \item 在 $[-\uppi, \uppi)$ 中， $f(x) = \cos \frac{x}{2}$;
-        \item 在 $[-\uppi, \uppi)$ 中， $f(x) = \begin{cases} \e^x, & -\uppi \leqslant x \leqslant 0, \\ 1, & 0 \leqslant x < \uppi. \end{cases}$
+        \item 在 $[-\uppi, \uppi)$ 中， $f(x) = \begin{dcases} \e^x, & -\uppi \leqslant x \leqslant 0, \\ 1, & 0 \leqslant x < \uppi. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -227,7 +227,7 @@
         \item $f(x) = 1 - \sin \frac{x}{2} \quad (0 \leqslant x \leqslant \uppi)$;
         \item $f(x) = \frac{x}{3} \quad (0 \leqslant x \leqslant T)$;
         \item $f(x) = \e^{ax} \quad (-l \leqslant x \leqslant l)$;
-        \item $f(x) = \begin{cases} 1, & |x| < 1, \\ -1, & 1 \leqslant |x| \leqslant 2. \end{cases}$
+        \item $f(x) = \begin{dcases} 1, & |x| < 1, \\ -1, & 1 \leqslant |x| \leqslant 2. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -479,8 +479,8 @@
     把下列函数展开成正弦级数和余弦级数：
     \begin{enumerate}
         \item $f(x) = 2x^2 \quad (0 \leqslant x \leqslant \uppi)$;
-        \item $f(x) = \begin{cases} A, & 0 \leqslant x < \frac{l}{2}, \\ 0, & \frac{l}{2} \leqslant x \leqslant l; \end{cases}$
-        \item $f(x) = \begin{cases} 1 - \frac{x}{2h}, & 0 \leqslant x \leqslant 2h, \\ 0, & 2h < x \leqslant \uppi. \end{cases}$
+        \item $f(x) = \begin{dcases} A, & 0 \leqslant x < \frac{l}{2}, \\ 0, & \frac{l}{2} \leqslant x \leqslant l; \end{dcases}$
+        \item $f(x) = \begin{dcases} 1 - \frac{x}{2h}, & 0 \leqslant x \leqslant 2h, \\ 0, & 2h < x \leqslant \uppi. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -920,7 +920,7 @@
     \begin{enumerate}
         \item 设
               \begin{equation}
-                  f(x) = \begin{cases} x, & 0 \leqslant x \leqslant \frac{1}{2}, \\ 2 - 2x, & \frac{1}{2} < x < 1, \end{cases}
+                  f(x) = \begin{dcases} x, & 0 \leqslant x \leqslant \frac{1}{2}, \\ 2 - 2x, & \frac{1}{2} < x < 1, \end{dcases}
               \end{equation}
               \begin{equation}
                   S(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos n \uppi x, \quad -\infty < x < +\infty
@@ -928,7 +928,7 @@
               其中 $a_n = 2 \int_{0}^{1} f(x) \cos n \uppi x \d x \ (n = 0, 1, 2, \cdots)$．求 $S\left(\frac{9}{4}\right)$、$S\left(-\frac{5}{2}\right)$；
         \item 设
               \begin{equation}
-                  f(x) = \begin{cases} -1, & -\uppi < x \leqslant 0, \\ 1 + x^2, & 0 < x \leqslant \uppi, \end{cases}
+                  f(x) = \begin{dcases} -1, & -\uppi < x \leqslant 0, \\ 1 + x^2, & 0 < x \leqslant \uppi, \end{dcases}
               \end{equation}
               则其以 $2\uppi$ 为周期的 Fourier 级数的和函数为 $S(x), -\infty < x < +\infty$．求 $S(3\uppi)$、$S(-4\uppi)$．
     \end{enumerate}
@@ -1433,7 +1433,7 @@
 \begin{problem}{复数形式的Fourier级数}{Complex-Fourier-Series}
     设 $f(x)$ 在 $\left[-\frac{T}{2}, \frac{T}{2}\right]$ 这个周期上可表为
     \begin{equation}
-        f(x) = \begin{cases} 0, & -\frac{T}{2} \leqslant x < -\frac{\tau}{2}, \\ H, & -\frac{\tau}{2} \leqslant x < \frac{\tau}{2}, \\ 0, & \frac{\tau}{2} \leqslant x \leqslant \frac{T}{2}. \end{cases}
+        f(x) = \begin{dcases} 0, & -\frac{T}{2} \leqslant x < -\frac{\tau}{2}, \\ H, & -\frac{\tau}{2} \leqslant x < \frac{\tau}{2}, \\ 0, & \frac{\tau}{2} \leqslant x \leqslant \frac{T}{2}. \end{dcases}
     \end{equation}
     试把它展开成 Fourier 级数的复数形式．
 \end{problem}

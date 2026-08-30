@@ -422,11 +422,11 @@
 
     被积函数为
     \begin{equation}
-        f(x) = \max(1, x^2) = \begin{cases} x^2, & |x| \geqslant 1, \\ 1, & |x| < 1. \end{cases}
+        f(x) = \max(1, x^2) = \begin{dcases} x^2, & |x| \geqslant 1, \\ 1, & |x| < 1. \end{dcases}
     \end{equation}
     因为连续函数的原函数必处处可导且连续，设原函数为
     \begin{equation}
-        F(x) = \begin{cases} \frac{1}{3}x^3 + C_1, & x < -1, \\ x + C, & -1 \leqslant x \leqslant 1, \\ \frac{1}{3}x^3 + C_2, & x > 1. \end{cases}
+        F(x) = \begin{dcases} \frac{1}{3}x^3 + C_1, & x < -1, \\ x + C, & -1 \leqslant x \leqslant 1, \\ \frac{1}{3}x^3 + C_2, & x > 1. \end{dcases}
     \end{equation}
     由在 $x = -1$ 与 $x = 1$ 处的连续性要求：
     \begin{equation}
@@ -437,7 +437,7 @@
     \end{equation}
     由此可得
     \begin{equation}
-        \boxed{\int \max(1, x^2) \d x = \begin{cases} \frac{1}{3}x^3 - \frac{2}{3} + C, & x < -1, \\ x + C, & -1 \leqslant x \leqslant 1, \\ \frac{1}{3}x^3 + \frac{2}{3} + C, & x > 1. \end{cases}}
+        \boxed{\int \max(1, x^2) \d x = \begin{dcases} \frac{1}{3}x^3 - \frac{2}{3} + C, & x < -1, \\ x + C, & -1 \leqslant x \leqslant 1, \\ \frac{1}{3}x^3 + \frac{2}{3} + C, & x > 1. \end{dcases}}
     \end{equation}
 \end{solution}
 

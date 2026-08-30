@@ -185,8 +185,8 @@
     \begin{enumerate}
         \item $f(x) = [x]$；
         \item $f(x) = \operatorname{sgn} x$；
-        \item $f(x) = \begin{cases} 2^x, & x > 0, \\ 0, & x = 0, \\ 1 + x^2, & x < 0; \end{cases}$
-        \item $f(x) = \begin{cases} \cos \frac{1}{x}, & x > 0, \\ x, & x \leqslant 0. \end{cases}$
+        \item $f(x) = \begin{dcases} 2^x, & x > 0, \\ 0, & x = 0, \\ 1 + x^2, & x < 0; \end{dcases}$
+        \item $f(x) = \begin{dcases} \cos \frac{1}{x}, & x > 0, \\ x, & x \leqslant 0. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -265,7 +265,7 @@
         \lim_{n\to\infty} \cos \frac{x}{2} \cos \frac{x}{2^2} \cdots \cos \frac{x}{2^n} = \frac{\sin x}{x}.
     \end{equation}
     \begin{equation}
-        \boxed{\lim_{n\to\infty} \cos \frac{x}{2} \cos \frac{x}{2^2} \cdots \cos \frac{x}{2^n} = \begin{cases} \frac{\sin x}{x}, & x \neq 0, \\ 1, & x = 0. \end{cases}}
+        \boxed{\lim_{n\to\infty} \cos \frac{x}{2} \cos \frac{x}{2^2} \cdots \cos \frac{x}{2^n} = \begin{dcases} \frac{\sin x}{x}, & x \neq 0, \\ 1, & x = 0. \end{dcases}}
     \end{equation}
 \end{solution}
 
@@ -745,7 +745,7 @@
     \end{equation}
     由此可得：
     \begin{equation}
-        \lim_{x\to +\infty} \frac{P_n(x)}{P_m(x)} = \begin{cases} \infty, & n > m, \\ \frac{c_n}{d_m}, & n = m, \\ 0, & n < m. \end{cases}
+        \lim_{x\to +\infty} \frac{P_n(x)}{P_m(x)} = \begin{dcases} \infty, & n > m, \\ \frac{c_n}{d_m}, & n = m, \\ 0, & n < m. \end{dcases}
     \end{equation}
     \begin{equation}
         \boxed{
@@ -761,7 +761,7 @@
 
     考察比值极限：
     \begin{equation}
-        \lim_{x\to +\infty} \frac{x^\alpha}{x^\beta} = \lim_{x\to +\infty} x^{\alpha - \beta} = \begin{cases} +\infty, & \alpha > \beta, \\ 1, & \alpha = \beta, \\ 0, & \alpha < \beta. \end{cases}
+        \lim_{x\to +\infty} \frac{x^\alpha}{x^\beta} = \lim_{x\to +\infty} x^{\alpha - \beta} = \begin{dcases} +\infty, & \alpha > \beta, \\ 1, & \alpha = \beta, \\ 0, & \alpha < \beta. \end{dcases}
     \end{equation}
     \begin{equation}
         \boxed{
@@ -777,7 +777,7 @@
 
     考察比值极限：
     \begin{equation}
-        \lim_{x\to +\infty} \frac{a^x}{b^x} = \lim_{x\to +\infty} \left( \frac{a}{b} \right)^x = \begin{cases} +\infty, & a > b, \\ 1, & a = b, \\ 0, & a < b. \end{cases}
+        \lim_{x\to +\infty} \frac{a^x}{b^x} = \lim_{x\to +\infty} \left( \frac{a}{b} \right)^x = \begin{dcases} +\infty, & a > b, \\ 1, & a = b, \\ 0, & a < b. \end{dcases}
     \end{equation}
     \begin{equation}
         \boxed{

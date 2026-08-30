@@ -91,17 +91,17 @@
     \begin{enumerate}
         \item $\int_{L} (2x+y) \d x + (x+4y+2z) \d y + (2y-6z) \d z$，其中 $L$ 由点 $P_1(a,0,0)$ 沿曲线
               \begin{equation}
-                  \begin{cases}
+                  \begin{dcases}
                       x^2 + y^2 = a^2, \\
                       z = 0
-                  \end{cases}
+                  \end{dcases}
               \end{equation}
               到 $P_2(0,a,0)$，再由 $P_2$ 沿直线
               \begin{equation}
-                  \begin{cases}
+                  \begin{dcases}
                       z + y = a, \\
                       x = 0
-                  \end{cases}
+                  \end{dcases}
               \end{equation}
               到点 $P_3(0,0,a)$；
         \item $\int_{\overparen{AMB}} (x^2 - yz) \d x + (y^2 - zx) \d y + (z^2 - xy) \d z$，其中 $\overparen{AMB}$ 是柱面螺线 $x = a \cos \varphi$、$y = a \sin \varphi$、$z = \frac{h}{2\pi} \varphi$ 上点 $A(a,0,0)$ 到 $B(a,0,h)$ 这一段．
@@ -302,20 +302,20 @@
     \end{equation}
     代入 \zcref{eq:curl-zero} 得到方程组：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             (a+2)x = 3ax, \\
             (a+2)y = 3y,  \\
             5a + 3z = 5 + 3az.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     要使上述方程组对任意 $x$、$y$、$z$ 均成立，必须有：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             a + 2 = 3a, \\
             a + 2 = 3,  \\
             5a = 5,     \\
             3a = 3.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     解得：
     \begin{equation}
@@ -669,7 +669,7 @@
 
     综上所述，环量 $\Gamma$ 的值取决于闭曲线是否包围原点及其绕行方向：
     \begin{equation}
-        \boxed{\Gamma = \begin{cases} 0, & \text{当 } L \text{ 不包围原点}, \\ 4n\uppi I, & \text{当 } L \text{ 绕原点旋转 } n \text{ 圈}. \end{cases}}
+        \boxed{\Gamma = \begin{dcases} 0, & \text{当 } L \text{ 不包围原点}, \\ 4n\uppi I, & \text{当 } L \text{ 绕原点旋转 } n \text{ 圈}. \end{dcases}}
     \end{equation}
 \end{solution}
 
@@ -757,10 +757,10 @@
     对比 \zcref{eq:deriv-P-y} 与 \zcref{eq:deriv-Q-x} 中 $y$ 的系数及常数项，可得常微分方程组：
     \begin{equation}
         \label{eq:ode-system}
-        \begin{cases}
+        \begin{dcases}
             2(2x\alpha'(x) + \beta(x)) = \alpha''(x) + 4\alpha(x) + 4x\alpha'(x), \\
             -2\beta(x) \tan 2x = \beta'(x).
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由 \zcref{eq:ode-system} 的第二个方程：
     \begin{equation}
@@ -956,10 +956,10 @@
     \end{equation}
     代入初始条件 $f(0) = 0$ 和 $f'(0) = 2$：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             C_1 + C_2 = 0, \\
             C_1 - C_2 = 2.
-        \end{cases}
+        \end{dcases}
         \implies C_1 = 1, \quad C_2 = -1.
     \end{equation}
     从而解得：

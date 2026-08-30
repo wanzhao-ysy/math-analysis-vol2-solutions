@@ -526,13 +526,13 @@
     设平面方程为 $Ax + By + Cz + D = 0$，其法向量为 $\symbfit{n} = (A, B, C)$.
     平面经过点 $M(0, 0, 1)$ 和 $N(3, 0, 0)$，则
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             C + D = 0 \\
             3A + D = 0
-        \end{cases} \implies \begin{cases}
+        \end{dcases} \implies \begin{dcases}
             D = -C \\
             A = \frac{1}{3}C
-        \end{cases}
+        \end{dcases}
     \end{equation}
     所求平面法向量为 $\symbfit{n} = \left(\frac{1}{3}C, B, C\right)$，而 $Oxy$ 平面的法向量为 $\symbfit{k} = (0, 0, 1)$.
     由夹角公式得
@@ -552,23 +552,23 @@
         \item 过点 $(0, 2, 4)$ 而与两平面 $x + 2z = 1, y - 3z = 2$ 平行；
         \item 过点 $(-1, 2, 1)$ 且平行于直线
               \begin{equation}
-                  \begin{cases}
+                  \begin{dcases}
                       x + y - 2z - 1 = 0, \\
                       x + 2y - z + 1 = 0;
-                  \end{cases}
+                  \end{dcases}
               \end{equation}
         \item 过点 $(2, -3, 4)$ 且和 $z$ 轴垂直并相交；
         \item 过点 $(-1, -4, 3)$ 并与下面两直线
               \begin{equation}
-                  \begin{cases}
+                  \begin{dcases}
                       2x - 4y + z = 1, \\
                       x + 3y = -5
-                  \end{cases} \quad
-                  \begin{cases}
+                  \end{dcases} \quad
+                  \begin{dcases}
                       x = 2 + 4t, \\
                       y = -1 - t, \\
                       z = -3 + 2t
-                  \end{cases}
+                  \end{dcases}
               \end{equation}
               都垂直.
     \end{enumerate}
@@ -613,7 +613,7 @@
     \end{equation}
     故直线方程为
     \begin{equation}
-        \boxed{\begin{cases} \frac{x-2}{2} = \frac{y+3}{-3} \\ z = 4 \end{cases}}
+        \boxed{\begin{dcases} \frac{x-2}{2} = \frac{y+3}{-3} \\ z = 4 \end{dcases}}
     \end{equation}
 
     \ansitem{4}
@@ -635,7 +635,7 @@
 
 
 \begin{problem}{直线参数方程}{Line-Parametric-Equation}
-    求直线 $\begin{cases} 2x + 3y - z - 4 = 0, \\ 3x - 5y + 2z + 1 = 0 \end{cases}$ 的参数方程.
+    求直线 $\begin{dcases} 2x + 3y - z - 4 = 0, \\ 3x - 5y + 2z + 1 = 0 \end{dcases}$ 的参数方程.
 \end{problem}
 
 \begin{solution}
@@ -645,11 +645,11 @@
     \end{equation}
     令 $y = 0$，代入原方程组得
     \begin{equation}
-        \begin{cases} 2x - z = 4 \\ 3x + 2z = -1 \end{cases} \implies \begin{cases} x = 1 \\ z = -2 \end{cases}
+        \begin{dcases} 2x - z = 4 \\ 3x + 2z = -1 \end{dcases} \implies \begin{dcases} x = 1 \\ z = -2 \end{dcases}
     \end{equation}
     故直线经过点 $(1, 0, -2)$，其参数方程为
     \begin{equation}
-        \boxed{\begin{cases} x = 1 + t \\ y = -7t \\ z = -2 - 19t \end{cases} \quad (t \in \symbb{R})}
+        \boxed{\begin{dcases} x = 1 + t \\ y = -7t \\ z = -2 - 19t \end{dcases} \quad (t \in \symbb{R})}
     \end{equation}
 \end{solution}
 
@@ -665,7 +665,7 @@
     \ansitem{1}
     将直线方程化为参数式
     \begin{equation}
-        \begin{cases} x = 1 + t \\ y = -1 - 2t \\ z = 6t \end{cases}
+        \begin{dcases} x = 1 + t \\ y = -1 - 2t \\ z = 6t \end{dcases}
     \end{equation}
     代入平面方程 $2x + 3y + z - 1 = 0$ 得
     \begin{equation}
@@ -679,7 +679,7 @@
     \ansitem{2}
     将直线方程化为参数式
     \begin{equation}
-        \begin{cases} x = -2 - 2t \\ y = 1 + 3t \\ z = 3 + 2t \end{cases}
+        \begin{dcases} x = -2 - 2t \\ y = 1 + 3t \\ z = 3 + 2t \end{dcases}
     \end{equation}
     代入平面方程 $x + 2y - 2z + 6 = 0$ 得
     \begin{equation}
@@ -695,8 +695,8 @@
 \begin{problem}{空间直线的夹角}{Angle-Between-Lines}
     求下列直线的夹角：
     \begin{enumerate}
-        \item $\begin{cases} 5x - 3y + 3z - 9 = 0, \\ 3x - 2y + z - 1 = 0 \end{cases}$ 和 $\begin{cases} 2x + 2y - z + 23 = 0, \\ 3x + 8y + z - 18 = 0; \end{cases}$
-        \item $\begin{cases} x + 2y + z - 1 = 0, \\ x - 2y + z + 1 = 0 \end{cases}$ 和 $\begin{cases} x - y - z - 1 = 0, \\ x - y + 2z + 1 = 0. \end{cases}$
+        \item $\begin{dcases} 5x - 3y + 3z - 9 = 0, \\ 3x - 2y + z - 1 = 0 \end{dcases}$ 和 $\begin{dcases} 2x + 2y - z + 23 = 0, \\ 3x + 8y + z - 18 = 0; \end{dcases}$
+        \item $\begin{dcases} x + 2y + z - 1 = 0, \\ x - 2y + z + 1 = 0 \end{dcases}$ 和 $\begin{dcases} x - y - z - 1 = 0, \\ x - y + 2z + 1 = 0. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -742,8 +742,8 @@
 \begin{problem}{直线平行与距离}{Line-Parallelism-Distance}
     证明下列各组直线互相平行，并求它们间的距离.
     \begin{enumerate}
-        \item $\dfrac{x+2}{-2} = \dfrac{y-1}{3} = z$ 和 $\begin{cases} x + y - z = 0, \\ x - y + 5z - 8 = 0; \end{cases}$
-        \item $\dfrac{x+7}{3} = \dfrac{y-5}{-1} = \dfrac{z-9}{4}$ 和 $\begin{cases} 2x + 2y - z - 10 = 0, \\ x - y - z - 22 = 0. \end{cases}$
+        \item $\dfrac{x+2}{-2} = \dfrac{y-1}{3} = z$ 和 $\begin{dcases} x + y - z = 0, \\ x - y + 5z - 8 = 0; \end{dcases}$
+        \item $\dfrac{x+7}{3} = \dfrac{y-5}{-1} = \dfrac{z-9}{4}$ 和 $\begin{dcases} 2x + 2y - z - 10 = 0, \\ x - y - z - 22 = 0. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -757,7 +757,7 @@
         \symbfit{s}_2 = \symbfit{n}_1 \times \symbfit{n}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 1 & 1 & -1 \\ 1 & -1 & 5 \end{vmatrix} = (4, -6, -2)
     \end{equation}
     显然 $\symbfit{s}_2 = -2 \symbfit{s}_1$，故两直线方向向量共线．又点 $M_1(-2, 1, 0)$ 不在 $L_2$ 上（代入 $L_2$ 方程知 $-2+1-0 = -1 \neq 0$），因此 $L_1 \parallel L_2$．
-    在 $L_2$ 上取一点 $M_2$，令 $z=0$，则 $\begin{cases} x+y=0 \\ x-y=8 \end{cases} \implies x=4, y=-4$，即 $M_2(4, -4, 0)$．
+    在 $L_2$ 上取一点 $M_2$，令 $z=0$，则 $\begin{dcases} x+y=0 \\ x-y=8 \end{dcases} \implies x=4, y=-4$，即 $M_2(4, -4, 0)$．
     计算向量 $\overrightarrow{M_1 M_2} = (4 - (-2), -4 - 1, 0 - 0) = (6, -5, 0)$．
     两平行线间的距离 $d$ 为：
     \begin{equation}
@@ -776,7 +776,7 @@
         \symbfit{s}_2 = \symbfit{n}_1 \times \symbfit{n}_2 = \begin{vmatrix} \symbfit{i} & \symbfit{j} & \symbfit{k} \\ 2 & 2 & -1 \\ 1 & -1 & -1 \end{vmatrix} = (-3, 1, -4)
     \end{equation}
     显然 $\symbfit{s}_2 = - \symbfit{s}_1$，故两直线方向向量共线．又 $M_1$ 不在 $L_2$ 上，故 $L_1 \parallel L_2$．
-    在 $L_2$ 上取一点 $M_2$，令 $z=2$，则 $\begin{cases} 2x+2y=12 \\ x-y=24 \end{cases} \implies x=15, y=-9$，即 $M_2(15, -9, 2)$．
+    在 $L_2$ 上取一点 $M_2$，令 $z=2$，则 $\begin{dcases} 2x+2y=12 \\ x-y=24 \end{dcases} \implies x=15, y=-9$，即 $M_2(15, -9, 2)$．
     计算向量 $\overrightarrow{M_1 M_2} = (15 - (-7), -9 - 5, 2 - 9) = (22, -14, -7)$．
     两平行线间的距离 $d$ 为：
     \begin{equation}
@@ -794,8 +794,8 @@
 \begin{problem}{证明直线垂直相交}{Intersecting-Lines}
     证明下列各组直线垂直相交，并求它们的交点.
     \begin{enumerate}
-        \item $\begin{cases} x + 2y = 1, \\ 2y - z = 1 \end{cases}$ 和 $\begin{cases} x - y = 1, \\ x - 2z = 3; \end{cases}$
-        \item $\begin{cases} 4x + y - 3z + 24 = 0, \\ z - 5 = 0 \end{cases}$ 和 $\begin{cases} x + y + 3 = 0, \\ x + 2 = 0. \end{cases}$
+        \item $\begin{dcases} x + 2y = 1, \\ 2y - z = 1 \end{dcases}$ 和 $\begin{dcases} x - y = 1, \\ x - 2z = 3; \end{dcases}$
+        \item $\begin{dcases} 4x + y - 3z + 24 = 0, \\ z - 5 = 0 \end{dcases}$ 和 $\begin{dcases} x + y + 3 = 0, \\ x + 2 = 0. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -812,7 +812,7 @@
     因为 $\symbfit{s}_1 \cdot \symbfit{s}_2 = (-2) \times 2 + 1 \times 2 + 2 \times 1 = 0$，故 $L_1 \perp L_2$.
     联立两直线方程组：
     \begin{equation}
-        \begin{cases} x + 2y = 1 \\ 2y - z = 1 \\ x - y = 1 \\ x - 2z = 3 \end{cases} \implies \begin{cases} x = 1 \\ y = 0 \\ z = -1 \end{cases}
+        \begin{dcases} x + 2y = 1 \\ 2y - z = 1 \\ x - y = 1 \\ x - 2z = 3 \end{dcases} \implies \begin{dcases} x = 1 \\ y = 0 \\ z = -1 \end{dcases}
     \end{equation}
     经检验该解满足所有方程，故直线垂直相交.
     \begin{equation}
@@ -831,7 +831,7 @@
     因为 $\symbfit{s}_1 \cdot \symbfit{s}_2 = 1 \times 0 + (-4) \times 0 + 0 \times (-1) = 0$，故 $L_1 \perp L_2$.
     联立两直线方程组：
     \begin{equation}
-        \begin{cases} 4x + y - 3z + 24 = 0 \\ z = 5 \\ x + y = -3 \\ x = -2 \end{cases} \implies \begin{cases} x = -2 \\ y = -1 \\ z = 5 \end{cases}
+        \begin{dcases} 4x + y - 3z + 24 = 0 \\ z = 5 \\ x + y = -3 \\ x = -2 \end{dcases} \implies \begin{dcases} x = -2 \\ y = -1 \\ z = 5 \end{dcases}
     \end{equation}
     代入 $L_1$ 第一方程检验：$4(-2) + (-1) - 3(5) + 24 = -8 - 1 - 15 + 24 = 0$，方程组相容.
     \begin{equation}
@@ -843,8 +843,8 @@
 \begin{problem}{直线与平面的夹角}{Angle-Between-Line-And-Plane}
     求直线和平面的夹角 $\varphi$.
     \begin{enumerate}
-        \item \(\begin{cases} 3x - 2y = 24, \\ 3x - z = -4; \end{cases}\) \quad \(6x + 15y - 10z + 31 = 0;\)
-        \item \(\begin{cases} x + y + 3z = 0, \\ x - y - z = 0; \end{cases}\) \quad \(x - y - z + 1 = 0.\)
+        \item \(\begin{dcases} 3x - 2y = 24, \\ 3x - z = -4; \end{dcases}\) \quad \(6x + 15y - 10z + 31 = 0;\)
+        \item \(\begin{dcases} x + y + 3z = 0, \\ x - y - z = 0; \end{dcases}\) \quad \(x - y - z + 1 = 0.\)
     \end{enumerate}
 \end{problem}
 
@@ -893,7 +893,7 @@
     求点到直线的距离 $d$.
     \begin{enumerate}
         \item $P_0(1, 0, -1)$, $\dfrac{x}{1} = \dfrac{y-1}{2} = \dfrac{z}{-1}$;
-        \item $M_0(1, 2, 3)$, $\begin{cases} x + y - z = 1, \\ 2x + z = 3. \end{cases}$
+        \item $M_0(1, 2, 3)$, $\begin{dcases} x + y - z = 1, \\ 2x + z = 3. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -944,7 +944,7 @@
     证明下列各组直线是异面直线，并求它们的距离(即两直线公垂线之长).
     \begin{enumerate}
         \item $\frac{x - 9}{4} = \frac{y + 2}{-3} = \frac{z}{1}$ 和 $\frac{x}{-2} = \frac{y + 7}{9} = \frac{z - 2}{2}$；
-        \item $\begin{cases} x + y - z - 1 = 0, \\ 2x + y - z - 2 = 0 \end{cases}$ 和 $\begin{cases} x + 2y - z - 2 = 0, \\ x + 2y + 2z + 4 = 0. \end{cases}$
+        \item $\begin{dcases} x + y - z - 1 = 0, \\ 2x + y - z - 2 = 0 \end{dcases}$ 和 $\begin{dcases} x + 2y - z - 2 = 0, \\ x + 2y + 2z + 4 = 0. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -995,7 +995,7 @@
 
 
 \begin{problem}{平面方程}{Plane-Equation-3}
-    试求通过直线 $\begin{cases} 3x + 2y - z - 1 = 0, \\ 2x - 3y + 2z + 2 = 0 \end{cases}$ 并垂直于平面 $x + 2y + 3z - 5 = 0$ 的平面方程.
+    试求通过直线 $\begin{dcases} 3x + 2y - z - 1 = 0, \\ 2x - 3y + 2z + 2 = 0 \end{dcases}$ 并垂直于平面 $x + 2y + 3z - 5 = 0$ 的平面方程.
 \end{problem}
 
 \begin{solution}
@@ -1030,7 +1030,7 @@
 
 
 \begin{problem}{平面方程}{Plane-Equation-Parallel-Line}
-    求通过直线 $x = 3t+1, y = 2t+3, z = -t-2$ 且平行于直线 $\begin{cases} 2x - y + z - 3 = 0, \\ x + 2y - z - 5 = 0 \end{cases}$ 的平面方程.
+    求通过直线 $x = 3t+1, y = 2t+3, z = -t-2$ 且平行于直线 $\begin{dcases} 2x - y + z - 3 = 0, \\ x + 2y - z - 5 = 0 \end{dcases}$ 的平面方程.
 \end{problem}
 
 \begin{solution}
@@ -1055,7 +1055,7 @@
 \end{solution}
 
 \begin{problem}{平面束}{Perpendicular-Planes-Pencil}
-    过直线 $\begin{cases} 5x - 11z + 7 = 0, \\ 5y + 7z - 4 = 0 \end{cases}$ 作两互相垂直的平面. 其中一平面过点 $(4, -3, 1)$, 求此二平面方程.
+    过直线 $\begin{dcases} 5x - 11z + 7 = 0, \\ 5y + 7z - 4 = 0 \end{dcases}$ 作两互相垂直的平面. 其中一平面过点 $(4, -3, 1)$, 求此二平面方程.
 \end{problem}
 
 \begin{solution}
@@ -1104,7 +1104,7 @@
     \end{equation}
     代回参数方程得投影点的坐标：
     \begin{equation}
-        \begin{cases} x = -\frac{2}{3} - 1 = -\frac{5}{3} \\ y = 2(-\frac{2}{3}) + 2 = \frac{2}{3} \\ z = -(-\frac{2}{3}) = \frac{2}{3} \end{cases}
+        \begin{dcases} x = -\frac{2}{3} - 1 = -\frac{5}{3} \\ y = 2(-\frac{2}{3}) + 2 = \frac{2}{3} \\ z = -(-\frac{2}{3}) = \frac{2}{3} \end{dcases}
     \end{equation}
     故投影点为
     \begin{equation}
@@ -1218,7 +1218,7 @@
     \end{equation}
     将 $\lambda = 2$ 代入直线方程，设交点为 $(x, y, z)$，由参数方程：
     \begin{equation}
-        \begin{cases} x = 1 + 2t = -3 + 3s \\ y = -4 + 5t = 9 - 4s \\ z = 3 - 3t = -14 + 7s \end{cases} \implies \begin{cases} 2t - 3s = -4 \\ 5t + 4s = 13 \end{cases} \implies \begin{cases} t = 1 \\ s = 2 \end{cases}
+        \begin{dcases} x = 1 + 2t = -3 + 3s \\ y = -4 + 5t = 9 - 4s \\ z = 3 - 3t = -14 + 7s \end{dcases} \implies \begin{dcases} 2t - 3s = -4 \\ 5t + 4s = 13 \end{dcases} \implies \begin{dcases} t = 1 \\ s = 2 \end{dcases}
     \end{equation}
     代入得交点为 $(3, 1, 0)$．平面的法向量为：
     \begin{equation}
@@ -1234,7 +1234,7 @@
 \begin{problem}{过点且与两直线相交的直线}{Point-Line-Intersection}
     一直线通过点 $(-3, 5, -9)$，且与两直线
     \begin{equation}
-        \begin{cases} y = 3x + 5, \\ z = 2x - 3 \end{cases} \quad \text{与} \quad \begin{cases} 4x - y - 7 = 0, \\ 5x - z + 10 = 0 \end{cases}
+        \begin{dcases} y = 3x + 5, \\ z = 2x - 3 \end{dcases} \quad \text{与} \quad \begin{dcases} 4x - y - 7 = 0, \\ 5x - z + 10 = 0 \end{dcases}
     \end{equation}
     相交，求其方程．
 \end{problem}
@@ -1265,7 +1265,7 @@
 
 
 \begin{problem}{直线的投影方程}{Line-Projection-Plane}
-    求直线 $\begin{cases} x + y - z - 1 = 0, \\ x - y + z + 1 = 0 \end{cases}$ 在平面 $x + y + z = 0$ 上的投影直线的方程．
+    求直线 $\begin{dcases} x + y - z - 1 = 0, \\ x - y + z + 1 = 0 \end{dcases}$ 在平面 $x + y + z = 0$ 上的投影直线的方程．
 \end{problem}
 
 \begin{solution}
@@ -1280,7 +1280,7 @@
     平面 $\pi'$ 过点 $P(0, 1, 0)$，其方程为 $0(x - 0) + 1(y - 1) - 1(z - 0) = 0$，即 $y - z - 1 = 0$．
     投影直线为平面 $\pi$ 与 $\pi'$ 的交线，其方程组为：
     \begin{equation}
-        \begin{cases} x + y + z = 0 \\ y - z - 1 = 0 \end{cases}
+        \begin{dcases} x + y + z = 0 \\ y - z - 1 = 0 \end{dcases}
     \end{equation}
     解得投影直线的方向向量为 $\symbfit{s}_{proj} = \symbfit{n} \times \symbfit{n}' = (1, 1, 1) \times (0, 1, -1) = (-2, 1, 1)$，通过点 $(-1, 1, 0)$．
     \begin{equation}
@@ -1297,10 +1297,10 @@
     已知平面 $\Pi_1: 5x - y + 3z - 2 = 0$ 的法向量为 $\symbfit{n}_1 = (5, -1, 3)$．
     由于所求平面 $\Pi_2$ 与 $\Pi_1$ 的交线在 $Oxy$ 平面上，故该交线即为 $\Pi_1$ 在 $Oxy$ 平面上的轨迹，令 $z = 0$ 得到交线方程为
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             5x - y - 2 = 0 \\
             z = 0
-        \end{cases}
+        \end{dcases}
     \end{equation}
     设过该交线的平面束方程为
     \begin{equation}

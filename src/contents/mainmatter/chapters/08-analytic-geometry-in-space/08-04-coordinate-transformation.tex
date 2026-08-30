@@ -14,11 +14,11 @@
     \end{equation}
     令坐标平移变换公式为：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             x' = x - 1 \\
             y' = y - 1 \\
             z' = z - \frac{1}{2}
-        \end{cases}
+        \end{dcases}
     \end{equation}
     代入上式，得化简后的方程为：
     \begin{equation}
@@ -50,10 +50,10 @@
     \end{equation}
     取 $c = -2$，则方程化为 $x'y' + z' = 0$，即 $z' = -x'y'$．随后进行坐标旋转，令：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             x' = \frac{X - Y}{\sqrt{2}} \\
             y' = \frac{X + Y}{\sqrt{2}}
-        \end{cases}
+        \end{dcases}
     \end{equation}
     代入 $z' = -x'y'$ 得：
     \begin{equation}
@@ -73,11 +73,11 @@
 \begin{solution}
     由于方程中不含 $Oxy$ 和 $Ozx$ 项，只需在 $Oyz$ 平面上进行旋转变换．令坐标变换公式为：
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             x = x'                              \\
             y = y' \cos \theta - z' \sin \theta \\
             z = y' \sin \theta + z' \cos \theta
-        \end{cases}
+        \end{dcases}
     \end{equation}
     将变换代入方程中的 $y, z$ 相关项 $-3y^2 + 3z^2 + 8yz$：
     \begin{equation}
@@ -268,10 +268,10 @@
 \begin{problem}{圆的参数方程}{Circle-Parametric-Equation}
     已知 $Oxy$ 平面上以原点为圆心，$a$ 为半径的圆的参数方程表示为
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             x = a \cos t, \\
             y = a \sin t,
-        \end{cases} \quad t \in [0, 2\uppi)
+        \end{dcases} \quad t \in [0, 2\uppi)
     \end{equation}
     求 $Oxy$ 平面上以点 $P_0(x_0, y_0)$ 为圆心，$a$ 为半径的圆的一个参数方程表示．
 \end{problem}
@@ -280,10 +280,10 @@
     对原点处的圆进行平移变换，将圆心从 $(0, 0)$ 平移至 $(x_0, y_0)$，所得参数方程为
     \begin{equation}
         \boxed{
-        \begin{cases}
+        \begin{dcases}
             x = x_0 + a \cos t, \\
             y = y_0 + a \sin t,
-        \end{cases} \quad t \in [0, 2\uppi)
+        \end{dcases} \quad t \in [0, 2\uppi)
         }
     \end{equation}
 \end{solution}
@@ -292,11 +292,11 @@
 \begin{problem}{球的参数方程}{Sphere-Parametric-Equation}
     已知 $Oxyz$ 空间中以原点为圆心，$a$ 为半径的球的参数方程表示为
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             x = a \sin u \cos v, \\
             y = a \sin u \sin v, \\
             z = a \cos u,
-        \end{cases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
+        \end{dcases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
     \end{equation}
     求 $Oxyz$ 空间中以点 $P_0(x_0, y_0, z_0)$ 为圆心，$a$ 为半径的球的一个参数方程表示．
 \end{problem}
@@ -305,11 +305,11 @@
     类比平面的平移变换，将球心从 $(0, 0, 0)$ 平移至 $(x_0, y_0, z_0)$，所得参数方程为
     \begin{equation}
         \boxed{
-        \begin{cases}
+        \begin{dcases}
             x = x_0 + a \sin u \cos v, \\
             y = y_0 + a \sin u \sin v, \\
             z = z_0 + a \cos u,
-        \end{cases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
+        \end{dcases} \quad u \in [0, \uppi], v \in [0, 2\uppi)
         }
     \end{equation}
 \end{solution}
@@ -326,11 +326,11 @@
 \begin{solution}
     类比球面坐标系，引入参数 $\varphi \in [0, \uppi]$ 与 $\theta \in [0, 2\uppi)$，令
     \begin{equation}
-        \begin{cases}
+        \begin{dcases}
             x = a \sin \varphi \cos \theta \\
             y = b \sin \varphi \sin \theta \\
             z = c \cos \varphi
-        \end{cases}
+        \end{dcases}
     \end{equation}
     代入原方程：
     \begin{equation}
@@ -338,7 +338,7 @@
     \end{equation}
     验证成立．故其参数方程为：
     \begin{equation}
-        \boxed{\begin{cases} x = a \sin \varphi \cos \theta \\ y = b \sin \varphi \sin \theta \\ z = c \cos \varphi \end{cases} \quad (\varphi \in [0, \uppi], \theta \in [0, 2\uppi))}
+        \boxed{\begin{dcases} x = a \sin \varphi \cos \theta \\ y = b \sin \varphi \sin \theta \\ z = c \cos \varphi \end{dcases} \quad (\varphi \in [0, \uppi], \theta \in [0, 2\uppi))}
     \end{equation}
 \end{solution}
 
@@ -357,7 +357,7 @@
     \end{equation}
     考虑到双曲线包含两支，需引入符号因子．则有：
     \begin{equation}
-        \boxed{\begin{cases} x = \pm a \cosh t \\ y = b \sinh t \end{cases} \quad (t \in \symbb{R})}
+        \boxed{\begin{dcases} x = \pm a \cosh t \\ y = b \sinh t \end{dcases} \quad (t \in \symbb{R})}
     \end{equation}
 \end{solution}
 
@@ -378,14 +378,14 @@
 
     对于单叶双曲面，方程可变形为 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 + \frac{z^2}{c^2}$．利用双曲函数与三角函数的关系，令 $z = c \sinh u$，则 $\frac{x^2}{a^2} + \frac{y^2}{b^2} = \cosh^2 u$．进一步令 $x = a \cosh u \cos v, y = b \cosh u \sin v$，得：
     \begin{equation}
-        \boxed{\begin{cases} x = a \cosh u \cos v \\ y = b \cosh u \sin v \\ z = c \sinh u \end{cases} \quad (u \in \symbb{R}, v \in [0, 2\uppi))}
+        \boxed{\begin{dcases} x = a \cosh u \cos v \\ y = b \cosh u \sin v \\ z = c \sinh u \end{dcases} \quad (u \in \symbb{R}, v \in [0, 2\uppi))}
     \end{equation}
 
     \ansitem{2}
 
     对于双叶双曲面，方程可变形为 $\frac{z^2}{c^2} - \left( \frac{x^2}{a^2} + \frac{y^2}{b^2} \right) = 1$．令 $x = a \sinh u \cos v, y = b \sinh u \sin v$，则有 $\frac{z^2}{c^2} = 1 + \sinh^2 u = \cosh^2 u$．考虑到曲面分为上下两叶，得：
     \begin{equation}
-        \boxed{\begin{cases} x = a \sinh u \cos v \\ y = b \sinh u \sin v \\ z = \pm c \cosh u \end{cases} \quad (u \in [0, +\infty), v \in [0, 2\uppi))}
+        \boxed{\begin{dcases} x = a \sinh u \cos v \\ y = b \sinh u \sin v \\ z = \pm c \cosh u \end{dcases} \quad (u \in [0, +\infty), v \in [0, 2\uppi))}
     \end{equation}
 \end{solution}
 

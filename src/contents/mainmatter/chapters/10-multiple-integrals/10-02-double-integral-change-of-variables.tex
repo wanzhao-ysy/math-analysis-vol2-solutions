@@ -448,7 +448,7 @@
 \begin{myproof}
     设积分区域 $D = \{ (x, y) \mid |x| + |y| \le 1 \}$．引入变量代换
     \begin{equation}
-        \begin{cases} u = x + y \\ v = x - y \end{cases} \implies \begin{cases} x = \frac{1}{2}(u + v) \\ y = \frac{1}{2}(u - v) \end{cases},
+        \begin{dcases} u = x + y \\ v = x - y \end{dcases} \implies \begin{dcases} x = \frac{1}{2}(u + v) \\ y = \frac{1}{2}(u - v) \end{dcases},
     \end{equation}
     计算雅可比行列式的绝对值为 $|J| = \left| \frac{\partial(x, y)}{\partial(u, v)} \right| = \frac{1}{2}$．
     变换后的积分区域为 $D' = \{ (u, v) \mid |u| \le 1, |v| \le 1 \}$，则

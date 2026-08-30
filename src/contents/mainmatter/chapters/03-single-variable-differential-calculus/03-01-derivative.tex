@@ -4,9 +4,9 @@
     讨论下列函数在点 $x = 0$ 处是否可导：
     \begin{enumerate}
         \item $f(x) = |\sin x|$；
-        \item $f(x) = \begin{cases} x + 1, & x \geqslant 0, \\ 1, & x < 0; \end{cases}$
-        \item $f(x) = \begin{cases} x^2 \sin \frac{1}{x}, & x \neq 0, \\ 1, & x = 0; \end{cases}$
-        \item $f(x) = \begin{cases} \ln(1 + x), & x \geqslant 0, \\ x + 1, & x < 0; \end{cases}$
+        \item $f(x) = \begin{dcases} x + 1, & x \geqslant 0, \\ 1, & x < 0; \end{dcases}$
+        \item $f(x) = \begin{dcases} x^2 \sin \frac{1}{x}, & x \neq 0, \\ 1, & x = 0; \end{dcases}$
+        \item $f(x) = \begin{dcases} \ln(1 + x), & x \geqslant 0, \\ x + 1, & x < 0; \end{dcases}$
         \item $f(x) = |x|\e^x$；
         \item $f(x) = |x^3|$．
     \end{enumerate}
@@ -92,8 +92,8 @@
 \begin{problem}{分段函数处处可导的参数确定}{Piecewise-Function-Differentiability-Parameters}
     求 $a, b$ 的值，使下列函数处处可导：
     \begin{enumerate}
-        \item $f(x) = \begin{cases} x^2, & x \leqslant 1, \\ ax + b, & x > 1; \end{cases}$
-        \item $f(x) = \begin{cases} \ln(1 + x), & x < 0, \\ ax + b, & x \geqslant 0. \end{cases}$
+        \item $f(x) = \begin{dcases} x^2, & x \leqslant 1, \\ ax + b, & x > 1; \end{dcases}$
+        \item $f(x) = \begin{dcases} \ln(1 + x), & x < 0, \\ ax + b, & x \geqslant 0. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -721,7 +721,7 @@
 \begin{problem}{分段与绝对值函数的求导}{Piecewise-And-Absolute-Value-Derivatives}
     求下列函数的导数：
     \begin{enumerate}
-        \item $y = \begin{cases} \frac{x\e^{1/x}}{1+\e^{1/x}}, & x \neq 0, \\ 0, & x = 0; \end{cases}$
+        \item $y = \begin{dcases} \frac{x\e^{1/x}}{1+\e^{1/x}}, & x \neq 0, \\ 0, & x = 0; \end{dcases}$
         \item $y = |1 - 2x|\sin x$．
     \end{enumerate}
 \end{problem}
@@ -746,7 +746,7 @@
     \end{equation}
     因为 $y'_+(0) \neq y'_-(0)$，所以 $y'(0)$ 不存在．
     \begin{equation}
-        \boxed{y' = \begin{cases} \frac{\e^{1/x}\left( 1 + \e^{1/x} - \frac{1}{x} \right)}{(1 + \e^{1/x})^2}, & x \neq 0, \\ \text{不存在}, & x = 0. \end{cases}}
+        \boxed{y' = \begin{dcases} \frac{\e^{1/x}\left( 1 + \e^{1/x} - \frac{1}{x} \right)}{(1 + \e^{1/x})^2}, & x \neq 0, \\ \text{不存在}, & x = 0. \end{dcases}}
     \end{equation}
 
     \ansitem{2}
@@ -768,14 +768,14 @@
     \end{equation}
     因为 $\sin\frac{1}{2} \neq 0$，所以 $y'_-\left(\frac{1}{2}\right) \neq y'_+\left(\frac{1}{2}\right)$，故在 $x = \frac{1}{2}$ 处导数不存在．
     \begin{equation}
-        \boxed{y' = \begin{cases} (1 - 2x)\cos x - 2\sin x, & x < \frac{1}{2}, \\ \text{不存在}, & x = \frac{1}{2}, \\ (2x - 1)\cos x + 2\sin x, & x > \frac{1}{2}. \end{cases}}
+        \boxed{y' = \begin{dcases} (1 - 2x)\cos x - 2\sin x, & x < \frac{1}{2}, \\ \text{不存在}, & x = \frac{1}{2}, \\ (2x - 1)\cos x + 2\sin x, & x > \frac{1}{2}. \end{dcases}}
     \end{equation}
 \end{solution}
 
 \begin{problem}{经典震荡函数的导数性质}{Oscillatory-Function-Derivative-Properties}
     设 $n$ 为正整数，考虑函数
     \begin{equation}
-        f(x) = \begin{cases} x^n \sin \frac{1}{x}, & x \neq 0, \\ 0, & x = 0. \end{cases}
+        f(x) = \begin{dcases} x^n \sin \frac{1}{x}, & x \neq 0, \\ 0, & x = 0. \end{dcases}
     \end{equation}
     证明：
     \begin{enumerate}
@@ -830,7 +830,7 @@
 \begin{problem}{导函数无界的处处可导函数}{Differentiable-Function-With-Unbounded-Derivative}
     证明：函数
     \begin{equation}
-        f(x) = \begin{cases} x^2 \sin \frac{1}{x^2}, & x \neq 0, \\ 0, & x = 0 \end{cases}
+        f(x) = \begin{dcases} x^2 \sin \frac{1}{x^2}, & x \neq 0, \\ 0, & x = 0 \end{dcases}
     \end{equation}
     在区间 $[-1, 1]$ 上处处可导，但导函数在这个区间上无界．
 \end{problem}
@@ -999,7 +999,7 @@
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{P_n = \begin{cases} \frac{1 - (n+1)x^n + nx^{n+1}}{(1-x)^2}, & x \neq 1, \\ \frac{n(n+1)}{2}, & x = 1. \end{cases}}
+        \boxed{P_n = \begin{dcases} \frac{1 - (n+1)x^n + nx^{n+1}}{(1-x)^2}, & x \neq 1, \\ \frac{n(n+1)}{2}, & x = 1. \end{dcases}}
     \end{equation}
 
     \ansitem{2}
@@ -1022,7 +1022,7 @@
         \end{aligned}
     \end{equation}
     \begin{equation}
-        \boxed{Q_n = \begin{cases} \frac{1 + x - (n+1)^2 x^n + (2n^2 + 2n - 1)x^{n+1} - n^2 x^{n+2}}{(1-x)^3}, & x \neq 1, \\ \frac{n(n+1)(2n+1)}{6}, & x = 1. \end{cases}}
+        \boxed{Q_n = \begin{dcases} \frac{1 + x - (n+1)^2 x^n + (2n^2 + 2n - 1)x^{n+1} - n^2 x^{n+2}}{(1-x)^3}, & x \neq 1, \\ \frac{n(n+1)(2n+1)}{6}, & x = 1. \end{dcases}}
     \end{equation}
 
     \ansitem{3}
@@ -1054,7 +1054,7 @@
         \item $y = \e^{-x^2}$；
         \item $y = x^2 2^x$；
         \item $y = (1 + x^2)\arctan x$；
-        \item $y = \begin{cases} x^2, & x \geqslant 0, \\ -x^2, & x < 0. \end{cases}$
+        \item $y = \begin{dcases} x^2, & x \geqslant 0, \\ -x^2, & x < 0. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -1108,7 +1108,7 @@
 
     一阶导数为 $y' = 2|x|$．当 $x \neq 0$ 时，二阶导数为
     \begin{equation}
-        y'' = \begin{cases} 2, & x > 0, \\ -2, & x < 0. \end{cases}
+        y'' = \begin{dcases} 2, & x > 0, \\ -2, & x < 0. \end{dcases}
     \end{equation}
     在 $x = 0$ 处，考察左右二阶导数：
     \begin{equation}
@@ -1116,7 +1116,7 @@
     \end{equation}
     因 $y''_+(0) \neq y''_-(0)$，故 $y''(0)$ 不存在．
     \begin{equation}
-        \boxed{y'' = \begin{cases} 2, & x > 0, \\ \text{不存在}, & x = 0, \\ -2, & x < 0. \end{cases}}
+        \boxed{y'' = \begin{dcases} 2, & x > 0, \\ \text{不存在}, & x = 0, \\ -2, & x < 0. \end{dcases}}
     \end{equation}
 \end{solution}
 
@@ -1193,11 +1193,11 @@
 \begin{myproof}
     函数可表示为分段形式：
     \begin{equation}
-        f(x) = \begin{cases} x^{n+1}, & x \geqslant 0, \\ -x^{n+1}, & x < 0. \end{cases}
+        f(x) = \begin{dcases} x^{n+1}, & x \geqslant 0, \\ -x^{n+1}, & x < 0. \end{dcases}
     \end{equation}
     当 $x \neq 0$ 时，由幂函数求导法则，对任意 $k \leqslant n$，有
     \begin{equation}
-        f^{(k)}(x) = \begin{cases} \frac{(n+1)!}{(n+1-k)!} x^{n+1-k}, & x > 0, \\ -\frac{(n+1)!}{(n+1-k)!} x^{n+1-k}, & x < 0. \end{cases}
+        f^{(k)}(x) = \begin{dcases} \frac{(n+1)!}{(n+1-k)!} x^{n+1-k}, & x > 0, \\ -\frac{(n+1)!}{(n+1-k)!} x^{n+1-k}, & x < 0. \end{dcases}
     \end{equation}
     当 $k < n$ 时，$n + 1 - k \geqslant 2$，由数学归纳法及导数定义可得 $f^{(k)}(0) = 0$．
 

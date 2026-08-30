@@ -8,10 +8,10 @@
     因为起点为 $(0,0,0)$，终点为 $(a, a, a\sqrt{2})$，所以在曲线弧段上 $x \in [0, a]$ 且 $y \ge 0$，$z \ge 0$．由曲面方程可得曲线 $L$ 的参数方程为
     \begin{equation}
         \label{eq:param-1}
-        \begin{cases}
+        \begin{dcases}
             y = \sqrt{ax}, \\
             z = \sqrt{x^2 + ax}.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     求导可得
     \begin{equation}
@@ -63,10 +63,10 @@
     设 $v = t u$（其中 $t \ge 0$），代入\zcref{eq:curve-uv}可得曲线的参数方程为
     \begin{equation}
         \label{eq:param-uv}
-        \begin{cases}
+        \begin{dcases}
             u = \frac{c t^n}{1 + t^{2n+1}}, \\
             v = \frac{c t^{n+1}}{1 + t^{2n+1}}.
-        \end{cases}
+        \end{dcases}
     \end{equation}
     由雅可比行列式可知，原区域 $D$ 的面积 $S$ 与 $u\text{-}v$ 平面上对应区域 $D'$ 的面积 $S'$ 满足关系 $S = ab S'$．
     利用格林公式，区域 $D'$ 的面积可表示为曲线积分
@@ -336,10 +336,10 @@
     当 $0 < r \le R$ 时，引入极坐标，将圆 $L$ 参数化为
     \begin{equation}
         \label{eq:param-circle}
-        \begin{cases}
+        \begin{dcases}
             x = x_0 + r \cos \theta, \\
             y = y_0 + r \sin \theta,
-        \end{cases} \quad \theta \in [0, 2\uppi].
+        \end{dcases} \quad \theta \in [0, 2\uppi].
     \end{equation}
     此时，弧长微元为 $\d s = r \d \theta$．定义参数积分函数
     \begin{equation}
@@ -414,11 +414,11 @@
     当 $0 < r \le R$ 时，设 $S_1$ 是以原点为中心的单位球面．作变量代换将 $S$ 上的积分转换到 $S_1$ 上：
     \begin{equation}
         \label{eq:param-3d}
-        \begin{cases}
+        \begin{dcases}
             x = x_0 + r \xi_1, \\
             y = y_0 + r \xi_2, \\
             z = z_0 + r \xi_3,
-        \end{cases}
+        \end{dcases}
     \end{equation}
     其中 $\symbfit{\xi} = (\xi_1, \xi_2, \xi_3)$ 是 $S_1$ 上的点，对应的面积微元满足 $\d S = r^2 \d S_1$．
     定义参数积分函数为

@@ -369,7 +369,7 @@
 \begin{problem}{泰勒公式条件的必要性分析}{Taylor-Formula-Condition-Necessity-Analysis}
     设 $n$ 为正整数，考虑函数
     \begin{equation}
-        f(x) = \begin{cases} x^{n+1}, & x \text{ 为有理数}, \\ 0, & x \text{ 为无理数}. \end{cases}
+        f(x) = \begin{dcases} x^{n+1}, & x \text{ 为有理数}, \\ 0, & x \text{ 为无理数}. \end{dcases}
     \end{equation}
     证明 $f'(0) = 0$；但 $f''(0)$ 不存在．（提示：证明 $f(x)$ 仅在一点 $x = 0$ 可导．）
 
@@ -395,7 +395,7 @@
 
     由导数定义，考察差商：
     \begin{equation}
-        \frac{f(x) - f(0)}{x - 0} = \frac{f(x)}{x} = \begin{cases} x^n, & x \in \symbb{Q} \setminus \{0\}, \\ 0, & x \in \symbb{R} \setminus \symbb{Q}. \end{cases}
+        \frac{f(x) - f(0)}{x - 0} = \frac{f(x)}{x} = \begin{dcases} x^n, & x \in \symbb{Q} \setminus \{0\}, \\ 0, & x \in \symbb{R} \setminus \symbb{Q}. \end{dcases}
     \end{equation}
     对任意 $x \neq 0$，恒有
     \begin{equation}
@@ -432,7 +432,7 @@
 \begin{problem}{光滑非解析函数在原点的各阶导数}{Smooth-Non-Analytic-Function-Derivatives}
     考虑函数
     \begin{equation}
-        f(x) = \begin{cases} \e^{-\frac{1}{x^2}}, & x \neq 0, \\ 0, & x = 0, \end{cases}
+        f(x) = \begin{dcases} \e^{-\frac{1}{x^2}}, & x \neq 0, \\ 0, & x = 0, \end{dcases}
     \end{equation}
     它在 $x \neq 0$ 处显然有任意阶导数．证明 $f(x)$ 在 $x = 0$ 处的任意阶导数都存在，而且都等于零．（提示：首先，易用归纳法证明，当 $x \neq 0$ 时，对 $n = 1, 2, \cdots$ 有 $f^{(n)}(x) = \e^{-\frac{1}{x^2}} P_{3n}\left(\frac{1}{x}\right)$，这里 $P_{3n}(t)$ 是 $t$ 的 $3n$ 次多项式；此外，由导数定义及 L'Hospital 法则，得出（记 $y = \frac{1}{x}$）
     \begin{equation}

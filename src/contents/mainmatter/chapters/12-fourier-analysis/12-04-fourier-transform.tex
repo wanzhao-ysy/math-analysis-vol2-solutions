@@ -3,8 +3,8 @@
 \begin{problem}{Fourier积分表示}{Fourier-Integral-Representation}
     用 Fourier 积分表示下列函数：
     \begin{enumerate}
-        \item $f(x) = \begin{cases} 0, & x \leqslant 0, \\ kx, & 0 < x < T, \\ 0, & x \geqslant T; \end{cases}$
-        \item $f(x) = \begin{cases} \operatorname{sgn} x, & |x| \leqslant 1, \\ 0, & |x| > 1; \end{cases}$
+        \item $f(x) = \begin{dcases} 0, & x \leqslant 0, \\ kx, & 0 < x < T, \\ 0, & x \geqslant T; \end{dcases}$
+        \item $f(x) = \begin{dcases} \operatorname{sgn} x, & |x| \leqslant 1, \\ 0, & |x| > 1; \end{dcases}$
         \item $f(x) = \frac{1}{a^2+x^2} \quad (a > 0)$.
     \end{enumerate}
 \end{problem}
@@ -135,7 +135,7 @@
     \begin{enumerate}
         \item $f(x) = x\e^{-a|x|} \quad (a > 0)$;
         \item $f(x) = \e^{-a|x|} \cos bx \quad (a > 0)$;
-        \item $f(x) = \begin{cases} \cos x, & |x| \leqslant \frac{\uppi}{2}, \\ 0, & |x| > \frac{\uppi}{2}. \end{cases}$
+        \item $f(x) = \begin{dcases} \cos x, & |x| \leqslant \frac{\uppi}{2}, \\ 0, & |x| > \frac{\uppi}{2}. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -241,7 +241,7 @@
 
     \ansitem{2}
 
-    奇延拓后的函数为 $f_o(x) = \begin{cases} \e^{-x}, & x > 0, \\ 0, & x = 0, \\ -\e^x, & x < 0, \end{cases}$ 图形如下：
+    奇延拓后的函数为 $f_o(x) = \begin{dcases} \e^{-x}, & x > 0, \\ 0, & x = 0, \\ -\e^x, & x < 0, \end{dcases}$ 图形如下：
     \begin{center}
         \begin{tikzpicture}[scale=0.8]
             \draw[->] (-4,0) -- (4,0) node[right] {$x$};
@@ -272,9 +272,9 @@
 \end{solution}
 
 \begin{problem}{Fourier变换与狄利克雷积分}{Fourier-Transform-Dirichlet-Integral}
-    求函数 $f(x) = \begin{cases} 0, & |x| > 1, \\ 1, & |x| < 1 \end{cases}$ 的 Fourier 变换．由此证明
+    求函数 $f(x) = \begin{dcases} 0, & |x| > 1, \\ 1, & |x| < 1 \end{dcases}$ 的 Fourier 变换．由此证明
     \begin{equation}
-        \int_{0}^{+\infty} \frac{\sin \alpha \cos \alpha x}{\alpha} \d\alpha = \begin{cases} \frac{\uppi}{2}, & |x| < 1, \\ \frac{\uppi}{4}, & |x| = 1, \\ 0, & |x| > 1. \end{cases}
+        \int_{0}^{+\infty} \frac{\sin \alpha \cos \alpha x}{\alpha} \d\alpha = \begin{dcases} \frac{\uppi}{2}, & |x| < 1, \\ \frac{\uppi}{4}, & |x| = 1, \\ 0, & |x| > 1. \end{dcases}
     \end{equation}
 \end{problem}
 
@@ -336,7 +336,7 @@
     \end{enumerate}
     将上述讨论代入\zcref{eq:alpha-int-6}，即证
     \begin{equation}
-        \boxed{\int_{0}^{+\infty} \frac{\sin \alpha \cos \alpha x}{\alpha} \d\alpha = \begin{cases} \frac{\uppi}{2}, & |x| < 1, \\ \frac{\uppi}{4}, & |x| = 1, \\ 0, & |x| > 1. \end{cases}}
+        \boxed{\int_{0}^{+\infty} \frac{\sin \alpha \cos \alpha x}{\alpha} \d\alpha = \begin{dcases} \frac{\uppi}{2}, & |x| < 1, \\ \frac{\uppi}{4}, & |x| = 1, \\ 0, & |x| > 1. \end{dcases}}
     \end{equation}
 \end{solution}
 

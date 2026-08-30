@@ -422,7 +422,7 @@
     \end{equation}
     定义控制函数
     \begin{equation}\label{eq:control-function}
-        M(x) = \begin{cases} 1, & 0 \leqslant x < 1, \\ \frac{2x}{(1+x^2)^2}, & x \geqslant 1. \end{cases}
+        M(x) = \begin{dcases} 1, & 0 \leqslant x < 1, \\ \frac{2x}{(1+x^2)^2}, & x \geqslant 1. \end{dcases}
     \end{equation}
     当 $0 \leqslant x < 1$ 时，由 $\frac{2(x+\alpha)}{(1+(x+\alpha)^2)^2} \leqslant \frac{9}{8\sqrt{3}} < 1$ 可知 \zcref{eq:deriv-bound} 被 $M(x)$ 控制；
     当 $x \geqslant 1$ 时，由于函数 $h(u) = \frac{2u}{(1+u^2)^2}$ 在 $u \geqslant 1$ 时单调递减，且 $x+\alpha \geqslant x \geqslant 1$，故有
@@ -664,7 +664,7 @@
     \end{enumerate}
     综合上述讨论，最终答案为
     \begin{equation}
-        I_3 = \boxed{\begin{cases} \dfrac{\uppi}{2}, & a > b, \\ \dfrac{\uppi}{4}, & a = b, \\ 0, & a < b. \end{cases}}
+        I_3 = \boxed{\begin{dcases} \dfrac{\uppi}{2}, & a > b, \\ \dfrac{\uppi}{4}, & a = b, \\ 0, & a < b. \end{dcases}}
     \end{equation}
 
     \ansitem{4} 积分结果为 $\frac{\uppi}{2}$．

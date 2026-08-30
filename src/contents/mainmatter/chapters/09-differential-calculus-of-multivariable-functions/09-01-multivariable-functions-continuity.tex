@@ -257,7 +257,7 @@
 
     需满足 $x^2+y^2+2x \ge 0$ 且 $2x-x^2-y^2 > 0$, 即:
     \begin{equation}
-        \begin{cases} (x+1)^2+y^2 \ge 1 \\ (x-1)^2+y^2 < 1 \end{cases}
+        \begin{dcases} (x+1)^2+y^2 \ge 1 \\ (x-1)^2+y^2 < 1 \end{dcases}
     \end{equation}
     由于圆盘 $(x-1)^2+y^2 < 1$ 除原点外均在 $(x+1)^2+y^2 > 1$ 范围内.
     \begin{center}
@@ -524,7 +524,7 @@
 \end{solution}
 
 \begin{problem}{复合函数解析式}{Composite-Function}
-    设 $f(x, y) = \begin{cases} 1, & y \ge x, \\ 0, & y < x, \end{cases}$ 又 $\begin{cases} x = \cos t, \\ y = \sin t, \end{cases}$ 求 $F(t) = f(\cos t, \sin t)$．
+    设 $f(x, y) = \begin{dcases} 1, & y \ge x, \\ 0, & y < x, \end{dcases}$ 又 $\begin{dcases} x = \cos t, \\ y = \sin t, \end{dcases}$ 求 $F(t) = f(\cos t, \sin t)$．
 \end{problem}
 
 \begin{solution}
@@ -534,7 +534,7 @@
     \end{equation}
     因此，函数 $F(t)$ 的表达式为：
     \begin{equation}
-        \boxed{F(t) = \begin{cases} 1, & 2k\uppi + \frac{\uppi}{4} \le t \le 2k\uppi + \frac{5\uppi}{4} \\ 0, & 2k\uppi - \frac{3\uppi}{4} < t < 2k\uppi + \frac{\uppi}{4} \end{cases} \quad (k \in \symbb{Z})}
+        \boxed{F(t) = \begin{dcases} 1, & 2k\uppi + \frac{\uppi}{4} \le t \le 2k\uppi + \frac{5\uppi}{4} \\ 0, & 2k\uppi - \frac{3\uppi}{4} < t < 2k\uppi + \frac{\uppi}{4} \end{dcases} \quad (k \in \symbb{Z})}
     \end{equation}
 \end{solution}
 
@@ -822,10 +822,10 @@
 \begin{problem}{多元函数连续性}{Multivariate-Continuity}
     研究下列函数的连续性：
     \begin{enumerate}
-        \item $f(x, y) = \begin{cases} \dfrac{xy}{x-y}, & x \neq y, \\ 0, & x = y; \end{cases}$
-        \item $f(x, y) = \begin{cases} x \sin \dfrac{1}{y}, & y \neq 0, \\ 0, & y = 0; \end{cases}$
-        \item $f(x, y) = \begin{cases} \dfrac{x^2y}{x^2+y^2}, & (x, y) \neq (0, 0), \\ 0, & (x, y) = (0, 0); \end{cases}$
-        \item $f(x, y) = \begin{cases} \dfrac{x-y}{x+y}, & x + y \neq 0, \\ 0, & x + y = 0. \end{cases}$
+        \item $f(x, y) = \begin{dcases} \dfrac{xy}{x-y}, & x \neq y, \\ 0, & x = y; \end{dcases}$
+        \item $f(x, y) = \begin{dcases} x \sin \dfrac{1}{y}, & y \neq 0, \\ 0, & y = 0; \end{dcases}$
+        \item $f(x, y) = \begin{dcases} \dfrac{x^2y}{x^2+y^2}, & (x, y) \neq (0, 0), \\ 0, & (x, y) = (0, 0); \end{dcases}$
+        \item $f(x, y) = \begin{dcases} \dfrac{x-y}{x+y}, & x + y \neq 0, \\ 0, & x + y = 0. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -891,7 +891,7 @@
 
 
 \begin{problem}{多元函数连续性与射线极限}{Directional-Continuity}
-    证明：函数 $f(x, y) = \begin{cases} \frac{x^2y}{x^4+y^2}, & x^2+y^2 > 0 \\ 0, & x^2+y^2 = 0 \end{cases}$ 在点 $(0,0)$ 沿着过此点的每一射线 $x = t \cos \alpha, y = t \sin \alpha, (0 \le t < +\infty)$ 连续，即 $\lim_{t \to 0} f(t \cos \alpha, t \sin \alpha) = f(0,0)$. 但此函数在点 $(0,0)$ 并不连续.
+    证明：函数 $f(x, y) = \begin{dcases} \frac{x^2y}{x^4+y^2}, & x^2+y^2 > 0 \\ 0, & x^2+y^2 = 0 \end{dcases}$ 在点 $(0,0)$ 沿着过此点的每一射线 $x = t \cos \alpha, y = t \sin \alpha, (0 \le t < +\infty)$ 连续，即 $\lim_{t \to 0} f(t \cos \alpha, t \sin \alpha) = f(0,0)$. 但此函数在点 $(0,0)$ 并不连续.
 \end{problem}
 
 \begin{myproof}
@@ -964,7 +964,7 @@
 
     例如，考虑如下函数：
     \begin{equation}
-        \boxed{f(x, y) = \begin{cases} \frac{x^2 y}{x^4 + y^2}, & (x, y) \neq (0, 0) \\ 0, & (x, y) = (0, 0) \end{cases}}
+        \boxed{f(x, y) = \begin{dcases} \frac{x^2 y}{x^4 + y^2}, & (x, y) \neq (0, 0) \\ 0, & (x, y) = (0, 0) \end{dcases}}
     \end{equation}
     该函数在 $(0,0)$ 处关于 $x$ 和 $y$ 分别连续，但在 $(0,0)$ 点处不连续．
     其在原点附近的行为如下图所示：

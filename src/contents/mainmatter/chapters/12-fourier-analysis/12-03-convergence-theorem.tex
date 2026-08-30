@@ -693,7 +693,7 @@
 \end{solution}
 
 \begin{problem}{分段函数的正弦级数展开}{Segmented-Sine-Series}
-    设 $f(x) = \begin{cases} \frac{\uppi-1}{2}x, & 0 \leqslant x \leqslant 1, \\ \frac{\uppi-x}{2}, & 1 < x \leqslant \uppi \end{cases}$，证明：
+    设 $f(x) = \begin{dcases} \frac{\uppi-1}{2}x, & 0 \leqslant x \leqslant 1, \\ \frac{\uppi-x}{2}, & 1 < x \leqslant \uppi \end{dcases}$，证明：
     \begin{equation*}
         f(x) = \sum_{n=1}^{\infty} \frac{\sin n}{n^2} \sin nx \quad (0 \leqslant x \leqslant \uppi).
     \end{equation*}
@@ -778,7 +778,7 @@
 
     其次，考虑 $f(x)$ 的导数 $f'(x) = g(x)$：
     \begin{equation}\label{eq:g-def}
-        g(x) = \begin{cases} \frac{\uppi-1}{2}, & 0 < x < 1, \\ -\frac{1}{2}, & 1 < x < \uppi. \end{cases}
+        g(x) = \begin{dcases} \frac{\uppi-1}{2}, & 0 < x < 1, \\ -\frac{1}{2}, & 1 < x < \uppi. \end{dcases}
     \end{equation}
     将其作偶延拓到 $[-\uppi, \uppi]$ 上，则其 Fourier 展开式只含有余弦项．计算其 Fourier 系数：
     \begin{equation}\label{eq:g-a0}

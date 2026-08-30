@@ -9,7 +9,7 @@
 
     例如构造函数
     \begin{equation}
-        f(x) = \begin{cases} 0, & x \neq x_0, \\ 1, & x = x_0. \end{cases}
+        f(x) = \begin{dcases} 0, & x \neq x_0, \\ 1, & x = x_0. \end{dcases}
     \end{equation}
     当 $h \neq 0$ 时，$x_0 + h \neq x_0$ 且 $x_0 - h \neq x_0$，恒有
     \begin{equation}
@@ -83,10 +83,10 @@
               \end{equation}
         \item $f(x)g(x)$ 不一定连续：
               \begin{equation}
-                  f(x) = g(x) = \begin{cases} 1, & x \geqslant 0, \\ -1, & x < 0 \end{cases} \implies f(x)g(x) \equiv 1 \ (\text{连续});
+                  f(x) = g(x) = \begin{dcases} 1, & x \geqslant 0, \\ -1, & x < 0 \end{dcases} \implies f(x)g(x) \equiv 1 \ (\text{连续});
               \end{equation}
               \begin{equation}
-                  f(x) = g(x) = \begin{cases} 1, & x > 0, \\ 0, & x \leqslant 0 \end{cases} \implies f(x)g(x) = f(x) \ (\text{不连续}).
+                  f(x) = g(x) = \begin{dcases} 1, & x > 0, \\ 0, & x \leqslant 0 \end{dcases} \implies f(x)g(x) = f(x) \ (\text{不连续}).
               \end{equation}
     \end{enumerate}
     \begin{equation}
@@ -139,7 +139,7 @@
 \begin{myproof}
     构造修改的 Dirichlet 函数：
     \begin{equation}
-        f(x) = \begin{cases} 1, & x \in \symbb{Q}, \\ -1, & x \in \symbb{R} \setminus \symbb{Q}. \end{cases}
+        f(x) = \begin{dcases} 1, & x \in \symbb{Q}, \\ -1, & x \in \symbb{R} \setminus \symbb{Q}. \end{dcases}
     \end{equation}
     任取 $x_0 \in \symbb{R}$．由有理数与无理数在实数集上的稠密性，存在有理数列 $\{u_n\} \subset \symbb{Q}$ 与无理数列 $\{v_n\} \subset \symbb{R} \setminus \symbb{Q}$，满足
     \begin{equation}
@@ -164,11 +164,11 @@
     指出下列函数的间断点，并说明其类型：
     \begin{enumerate}
         \item $f(x) = \frac{x+1}{x-2}$；
-        \item $f(x) = \begin{cases} \frac{\sin x}{|x|}, & x \neq 0, \\ 1, & x = 0; \end{cases}$
+        \item $f(x) = \begin{dcases} \frac{\sin x}{|x|}, & x \neq 0, \\ 1, & x = 0; \end{dcases}$
         \item $f(x) = [|\cos x|]$；
         \item $f(x) = \frac{1}{1 + \e^{1/x}}$；
-        \item $f(x) = \begin{cases} \frac{1}{x+7}, & -\infty < x < -7, \\ x, & -7 \leqslant x \leqslant 1, \\ (x-1)\sin\frac{1}{x-1}, & 1 < x < +\infty; \end{cases}$
-        \item $f(x) = \begin{cases} \frac{x^2-4}{x-2}, & x \neq 2, \\ 4, & x = 2. \end{cases}$
+        \item $f(x) = \begin{dcases} \frac{1}{x+7}, & -\infty < x < -7, \\ x, & -7 \leqslant x \leqslant 1, \\ (x-1)\sin\frac{1}{x-1}, & 1 < x < +\infty; \end{dcases}$
+        \item $f(x) = \begin{dcases} \frac{x^2-4}{x-2}, & x \neq 2, \\ 4, & x = 2. \end{dcases}$
     \end{enumerate}
 \end{problem}
 
@@ -247,7 +247,7 @@
 \begin{problem}{分段函数在某点的连续性条件}{Continuity-Condition-For-Piecewise-Function}
     试确定 $a$，使得函数
     \begin{equation}
-        f(x) = \begin{cases} \e^x, & x < 0, \\ a + x, & x \geqslant 0 \end{cases}
+        f(x) = \begin{dcases} \e^x, & x < 0, \\ a + x, & x \geqslant 0 \end{dcases}
     \end{equation}
     在 $x = 0$ 处连续．
 \end{problem}
@@ -275,7 +275,7 @@
 \begin{problem}{单侧连续性的证明}{One-Sided-Continuity-Proof}
     证明：函数
     \begin{equation}
-        f(x) = \begin{cases} \frac{\e^{1/x} - \e^{-1/x}}{\e^{1/x} + \e^{-1/x}}, & x \neq 0, \\ 1, & x = 0 \end{cases}
+        f(x) = \begin{dcases} \frac{\e^{1/x} - \e^{-1/x}}{\e^{1/x} + \e^{-1/x}}, & x \neq 0, \\ 1, & x = 0 \end{dcases}
     \end{equation}
     在点 $0$ 处右连续，但不左连续．
 \end{problem}
@@ -322,7 +322,7 @@
     \end{enumerate}
     极限对任意实数 $x$ 均存在，极限函数的表达式为
     \begin{equation}
-        f(x) = \begin{cases} 0, & x \leqslant -1, \\ 1+x, & -1 < x < 1, \\ 1, & x = 1, \\ 0, & x > 1. \end{cases}
+        f(x) = \begin{dcases} 0, & x \leqslant -1, \\ 1+x, & -1 < x < 1, \\ 1, & x = 1, \\ 0, & x > 1. \end{dcases}
     \end{equation}
     讨论其连续性：
     \begin{enumerate}

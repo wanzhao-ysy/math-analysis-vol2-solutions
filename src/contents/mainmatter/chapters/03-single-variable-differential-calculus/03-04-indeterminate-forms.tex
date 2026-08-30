@@ -248,11 +248,24 @@
 
     \ansitem{19}
 
-    考察比值极限：
+    因为 $a > 1$，令 $a = 1 + h$（其中 $h = a - 1 > 0$）．
+    取正整数 $m = \lfloor k \rfloor + 1$，则 $m > k$ 且 $m \geqslant 1$．
+    当 $n > m$ 时，应用二项式定理对 $a^n$ 进行展开放大：
     \begin{equation}
-        \lim_{n\to\infty} \frac{\frac{(n+1)^k}{a^{n+1}}}{\frac{n^k}{a^n}} = \lim_{n\to\infty} \frac{1}{a}\left( 1 + \frac{1}{n} \right)^k = \frac{1}{a} < 1.
+        a^n = (1 + h)^n = \sum_{j=0}^n \binom{n}{j} h^j > \binom{n}{m} h^m = \frac{n(n-1)\dots(n-m+1)}{m!} h^m.
     \end{equation}
-    由达朗贝尔判别法，极限为 $0$．
+    由数列各项为正，得到双边夹逼不等式：
+    \begin{equation}
+        0 < \frac{n^k}{a^n} < \frac{n^k}{\binom{n}{m} h^m} = \frac{m!}{h^m} \cdot \frac{n^k}{n(n-1)\dots(n-m+1)} = \frac{m!}{h^m} \cdot \frac{1}{n^{m-k} \left(1 - \frac{1}{n}\right)\left(1 - \frac{2}{n}\right)\dots\left(1 - \frac{m-1}{n}\right)}.
+    \end{equation}
+    因为 $m - k > 0$，当 $n \to \infty$ 时有 $n^{m-k} \to +\infty$，从而
+    \begin{equation}
+        \lim_{n\to\infty} \frac{1}{n^{m-k} \left(1 - \frac{1}{n}\right)\left(1 - \frac{2}{n}\right)\dots\left(1 - \frac{m-1}{n}\right)} = 0.
+    \end{equation}
+    由夹逼定理可得
+    \begin{equation}
+        \lim_{n\to\infty} \frac{n^k}{a^n} = 0.
+    \end{equation}
     \begin{equation}
         \boxed{\lim_{n\to\infty} \frac{n^k}{a^n} = 0.}
     \end{equation}

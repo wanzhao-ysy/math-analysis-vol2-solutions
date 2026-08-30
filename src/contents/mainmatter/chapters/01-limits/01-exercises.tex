@@ -24,13 +24,28 @@
 
     \ansitem{2}
 
-    因为 $a_n > 0$，考察相邻两项之比：
+    考察通项中相邻两因式的递推比值：
     \begin{equation}
-        \lim_{n\to\infty} \frac{a_{n+1}}{a_n} = \lim_{n\to\infty} \frac{n + 10}{2n + 1} = \frac{1}{2} < 1.
+        \frac{a_{k+1}}{a_k} = \frac{k+10}{2k+1}.
     \end{equation}
-    故由达朗贝尔比值判别法，可得
+    解不等式 $\frac{k+10}{2k+1} \leqslant \frac{2}{3}$ 可得：
     \begin{equation}
-        \boxed{\lim_{n\to\infty} a_n = 0.}
+        3(k + 10) \leqslant 2(2k + 1) \iff 3k + 30 \leqslant 4k + 2 \iff k \geqslant 28.
+    \end{equation}
+    因此，当 $k \geqslant 28$ 时恒有 $\frac{a_{k+1}}{a_k} \leqslant \frac{2}{3}$．
+    对任意 $n > 28$，利用累乘展开：
+    \begin{equation}
+        a_n = a_{28} \cdot \frac{a_{29}}{a_{28}} \cdot \frac{a_{30}}{a_{29}} \cdots \frac{a_n}{a_{n-1}} \leqslant a_{28} \left( \frac{2}{3} \right)^{n - 28} = C \left( \frac{2}{3} \right)^n,
+    \end{equation}
+    其中常数 $C = a_{28} \left(\frac{3}{2}\right)^{28} > 0$．
+    因为数列各项为正，所以对一切 $n > 28$ 满足夹逼不等式：
+    \begin{equation}
+        0 < a_n \leqslant C \left( \frac{2}{3} \right)^n.
+    \end{equation}
+    因为 $0 < \frac{2}{3} < 1$，基本几何数列极限 $\lim_{n\to\infty} \left( \frac{2}{3} \right)^n = 0$，从而 $\lim_{n\to\infty} C \left( \frac{2}{3} \right)^n = 0$．
+    由夹逼定理可得
+    \begin{equation}
+        \lim_{n\to\infty} a_n = 0.
     \end{equation}
 
     \ansitem{3}

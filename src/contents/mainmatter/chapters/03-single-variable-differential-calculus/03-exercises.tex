@@ -258,41 +258,6 @@
     \end{equation}
 \end{problem}
 
-% \begin{myproof}
-%     若对一切 $x \in [0, 1]$ 恒有 $f(x) \neq 0$：
-%     构造辅助函数
-%     \begin{equation}
-%         g(x) = \frac{1}{f(x)} - x, \quad x \in [0, 1].
-%     \end{equation}
-%     因为 $f(x)$ 在 $[0, 1]$ 上可导且不为零，所以 $g(x)$ 在 $[0, 1]$ 上连续，在 $(0, 1)$ 内可导．
-
-%     计算两端点处的函数值：
-%     \begin{equation}
-%         g(0) = \frac{1}{f(0)} - 0 = \frac{1}{1} = 1,
-%     \end{equation}
-%     \begin{equation}
-%         g(1) = \frac{1}{f(1)} - 1 = \frac{1}{1/2} - 1 = 1.
-%     \end{equation}
-%     因为 $g(0) = g(1) = 1$，由罗尔定理，在开区间 $(0, 1)$ 内至少存在一点 $\xi$，使得
-%     \begin{equation}
-%         g'(\xi) = 0.
-%     \end{equation}
-%     对 $g(x)$ 求导得
-%     \begin{equation}
-%         g'(x) = -\frac{f'(x)}{f^2(x)} - 1 = -\frac{f'(x) + f^2(x)}{f^2(x)}.
-%     \end{equation}
-%     因此
-%     \begin{equation}
-%         g'(\xi) = 0 \implies f^2(\xi) + f'(\xi) = 0.
-%     \end{equation}
-%     若存在 $x \in (0, 1)$ 使得 $f(x) = 0$：
-%     令 $x_0 = \inf\{x \in [0, 1] \mid f(x) = 0\}$．由 $f(0) = 1 > 0$ 及连续性知 $x_0 \in (0, 1)$，且在 $[0, x_0)$ 上 $f(x) > 0$，$f(x_0) = 0$．
-
-%     在区间 $[0, x_0)$ 上，$g(x) = \frac{1}{f(x)} - x$ 连续，且 $g(0) = 1$，$\lim_{x\to x_0^-} g(x) = +\infty$．
-
-%     由介值定理，存在 $c \in (0, x_0)$ 使得 $g(c) = 1 = g(0)$．在区间 $[0, c]$ 上应用罗尔定理，同样存在 $\xi \in (0, c) \subset (0, 1)$ 满足 $g'(\xi) = 0$，即 $f^2(\xi) + f'(\xi) = 0$．
-% \end{myproof}
-
 \begin{myproof}
     若对一切 $x \in [0, 1]$ 恒有 $f(x) \neq 0$：
     构造辅助函数
@@ -353,7 +318,7 @@
 
     构造辅助函数
     \begin{equation}
-        F(x) = f(x) + \int_0^x f^2(t)\,\mathrm dt,\quad x\in[0,1].
+        F(x) = f(x) + \int_0^x f^2(t) \d t,\quad x\in[0,1].
     \end{equation}
     因为 $f(x)$ 在 $[0,1]$ 上可导，所以 $F(x)$ 在 $[0,1]$ 上连续，在 $(0,1)$ 内可导，且
     \begin{equation}
